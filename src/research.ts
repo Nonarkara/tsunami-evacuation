@@ -4,7 +4,7 @@
  * Platform design & synthesis by Dr. Non Arkaraprasertkul (Dr. Non)
  *
  * Inspired by & translating the empirical research:
- * Trumikaborworn, N., Latcharote, P., & Warnitchai, P. (2024).
+ * Trumikaborworn, N., Warnitchai, P., & Latcharote, P. (2026).
  * "Agent-Based Modeling and Simulation for Identifying Effective Measures
  * on Tsunami Evacuation in Khao Lak, Thailand."
  * Asian Institute of Technology / Mahidol University. SSRN: https://ssrn.com/abstract=7270357
@@ -14,9 +14,9 @@
 
 export const PAPER = "https://ssrn.com/abstract=7270357";
 export const CITATION =
-  "Trumikaborworn, N., Latcharote, P., & Warnitchai, P. (2024). Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. AIT & Mahidol University. SSRN 7270357.";
+  "Trumikaborworn, N., Warnitchai, P., & Latcharote, P. (2026). Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. SSRN preprint, posted 12 August 2026. SSRN 7270357.";
 export const CREATOR =
-  "System design & synthesis by Dr. Non Arkaraprasertkul (based on Trumikaborworn et al., 2024)";
+  "System design & synthesis by Dr. Non Arkaraprasertkul (based on Trumikaborworn et al., 2026)";
 
 export const POPULATION = 39041;
 export type Condition = "baseline" | "delayed";

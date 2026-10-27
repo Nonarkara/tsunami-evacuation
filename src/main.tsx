@@ -6,6 +6,11 @@ import "@fontsource/jost/600.css";
 import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
+import { ResearchSection } from "./ResearchSection";
+import "@fontsource/prompt/thai-400.css";
+import "@fontsource/prompt/thai-500.css";
+import "@fontsource/prompt/thai-600.css";
+import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
 import {
   PAPER,
@@ -43,7 +48,8 @@ function download(name: string, text: string) {
 
 function App() {
   const [tab, setTab] = useState<Tab>(() => {
-    const t = location.hash.slice(1);
+    const hash = location.hash.slice(1);
+    const t = hash.startsWith("research-") || hash.startsWith("source-R") ? "research" : hash;
     return ["explore", "prepare", "drill", "research", "satellite"].includes(t)
       ? (t as Tab)
       : "explore";
@@ -89,7 +95,7 @@ function App() {
             <span className="brand-logo" aria-hidden="true">สู้</span>
             <div className="brand-titles">
               <span className="brand-name">Soonami</span>
-              <span className="brand-sub">inspired by Trumikaborworn et al. (2024)</span>
+              <span className="brand-sub">inspired by Trumikaborworn et al. (2026)</span>
             </div>
           </a>
 
@@ -121,7 +127,7 @@ function App() {
               ["satellite", "Satellite"],
               ["prepare", "Plan"],
               ["drill", "Drill"],
-              ["research", "Research"],
+              ["research", "Research / วิจัย"],
             ] as const
           ).map(([key, label]) => (
             <button
@@ -244,7 +250,7 @@ function App() {
                   <div className="place-stats"><span className="stat-pill">Local route and refuge validation pending</span></div>
                 </div>
 
-                {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2024) */}
+                {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2026) */}
                 <div className="evacuation-route-waypoints">
                   <div className="waypoint-item start">
                     <span className="wp-badge">01 IMMEDIATE</span>
@@ -481,7 +487,7 @@ function App() {
       <footer className="soonami-footer">
         <div className="footer-content">
           <span>
-            <strong>Soonami (สู้-nami)</strong> · Inspired by Trumikaborworn et al. (AIT/Mahidol, 2024 · SSRN 7270357) · Directed by Dr. Non
+            <strong>Soonami (สู้-nami)</strong> · Inspired by Trumikaborworn et al. (AIT/Mahidol, 2026 · SSRN 7270357) · Directed by Dr. Non
           </span>
           <button className="footer-research-link" onClick={() => navigate("research")}>
             Research Diagrams & Synthesis →
@@ -596,177 +602,6 @@ function SatelliteIntel() {
 }
 
 /* ── §6 Research Section with Dynamic Synthesis & Diagrams ─── */
-function ResearchSection({ onExplore }: { onExplore: () => void }) {
-  return (
-    <div className="research-view-wrap">
-      <div className="research-hero">
-        <span className="eyebrow">A CANDID TRANSLATION OF SSRN 7270357</span>
-        <h1>The Science of Tsunami Survival Across Coastal Thailand</h1>
-        <p className="lead-byline">
-          Synthesized by <strong>Dr. Non Arkaraprasertkul</strong> from the landmark empirical study by Nattapon Trumikaborworn, Panon Latcharote, and Pennung Warnitchai (Asian Institute of Technology & Mahidol University, 2024).
-        </p>
-      </div>
-
-      <article className="research-prose">
-        <h2>1. What the Khao Lak model says about congestion</h2>
-        <p>
-          When the ground stops shaking after a major subduction earthquake in the Andaman Sea, human instinct says: <em>“Get in the car, pick up the family, step on the gas, and drive inland.”</em>
-        </p>
-        <p>
-          The AIT and Mahidol research team put that instinct to a rigorous scientific test. They modeled <strong>39,041 autonomous individual agents</strong> moving through the actual road network, building footprints, and topography of Khao Lak inside the Unity physics engine, coupled with a hydrodynamic tsunami inundation wave model.
-        </p>
-        <p>
-          The baseline result is terrifying: <strong>21.8% to 22.6% modeled victim share among 39,041 synthetic agents</strong>.
-        </p>
-        <p>
-          The study links congestion and departure delays to evacuation outcomes. Its warning assumptions are 30 or 45 minutes after the scenario earthquake, with a modeled shore arrival at 135 minutes. <strong>Those timings are not a real-event countdown or permission to wait.</strong>
-        </p>
-
-        {/* Diagram 1: The Gridlock Trap vs Walking & Vertical */}
-        <div className="diagram-box">
-          <div className="diagram-header">
-            <span>DIAGRAM 1</span>
-            <strong>The Gridlock Trap vs. The Multi-Tier Walk & Vertical Survival Strategy</strong>
-          </div>
-          <div className="diagram-visual gridlock-vs-walk">
-            <div className="diagram-column bad">
-              <h4>❌ The Vehicular Baseline (Failure Mode)</h4>
-              <div className="diag-step">1. Scenario earthquake at time zero</div>
-              <div className="diag-step">2. Baseline pedestrian preference about 27%</div>
-              <div className="diag-step choke">3. Vehicle congestion limits evacuation</div>
-              <div className="diag-step fatal">4. Modeled baseline victim share: 21.8%</div>
-            </div>
-            <div className="diagram-arrow-switch">VS</div>
-            <div className="diagram-column good">
-              <h4>✅ Soonami Multi-Tier Protocol (Survival Mode)</h4>
-              <div className="diag-step">1. Compare cumulative study interventions</div>
-              <div className="diag-step">2. PD50 walking preference ➔ 7.0% victims</div>
-              <div className="diag-step">3. Add 14 candidate sites ➔ 3.7% victims</div>
-              <div className="diag-step win">4. Preference + 135 signs ➔ 1.2% victims</div>
-            </div>
-          </div>
-        </div>
-
-        <h2>2. Increased walking preference and 14 candidate buildings</h2>
-        <p>
-          The cumulative scenarios compare behavioral and refuge interventions. Their results require local validation before being applied elsewhere:
-        </p>
-        <ol className="key-takeaways-list">
-          <li>
-            <strong>50% pedestrian preference (PD50):</strong> Increasing pedestrian preference in the model changes the baseline victim share from <strong>21.8% down to 7.0%</strong>. This is not a 100% walking scenario. Actual departures must account for accessible assistance, crossings and route conditions.
-          </li>
-          <li>
-            <strong>Designating 14 Vertical Refuges (VS14):</strong> The authors identify 14 candidate three- to four-story reinforced concrete buildings. They are not an operational inventory or certification. Adding them to the model changes the cumulative baseline victim share from <strong>7.0% to 3.7%</strong>.
-          </li>
-        </ol>
-
-        {/* Diagram 2: Cumulative Mitigation Waterfall */}
-        <div className="diagram-box">
-          <div className="diagram-header">
-            <span>DIAGRAM 2</span>
-            <strong>The Cumulative Casualty Reduction Waterfall (39,041 Modeled Agents)</strong>
-          </div>
-          <div className="waterfall-bars">
-            <div className="waterfall-row">
-              <span className="wf-label">Baseline (Cars)</span>
-              <div className="wf-track"><span className="wf-fill c-base" style={{ width: "87.2%" }}>21.8% modeled victims</span></div>
-            </div>
-            <div className="waterfall-row">
-              <span className="wf-label">+ Promote Walking</span>
-              <div className="wf-track"><span className="wf-fill c-walk" style={{ width: "28%" }}>7.0% (−68%)</span></div>
-            </div>
-            <div className="waterfall-row">
-              <span className="wf-label">+ 14 Vertical Refuges</span>
-              <div className="wf-track"><span className="wf-fill c-refuge" style={{ width: "14.8%" }}>3.7% (−83%)</span></div>
-            </div>
-            <div className="waterfall-row">
-              <span className="wf-label">+ Vertical Drills</span>
-              <div className="wf-track"><span className="wf-fill c-practice" style={{ width: "5.2%" }}>1.3% (−94%)</span></div>
-            </div>
-            <div className="waterfall-row">
-              <span className="wf-label">+ Complete (135 Signs)</span>
-              <div className="wf-track"><span className="wf-fill c-signs" style={{ width: "4.8%" }}>1.2% (−94% total drop)</span></div>
-            </div>
-          </div>
-        </div>
-
-        <h2>3. The Final 2.5%: Why Drills and Multilingual Signs Matter</h2>
-        <p>
-          Why wasn’t vertical evacuation alone enough to reach 1.2%? The model changes vertical-evacuation preference and signage. <strong>It does not directly measure the outcome of an actual community drill</strong>.
-        </p>
-        <p>
-          Visitors may face language and wayfinding barriers; local research should establish their needs. When <strong>135 signs</strong> were added and vertical preference increased, casualties plummeted to <strong>1.2% under baseline timing and 2.9% under delayed timing</strong>.
-        </p>
-
-        {/* Diagram 3: Wave Timeline vs Warning Latency */}
-        <div className="diagram-box">
-          <div className="diagram-header">
-            <span>DIAGRAM 3</span>
-            <strong>Study timing assumptions · not a real-event countdown</strong>
-          </div>
-          <div className="timeline-visual">
-            <div className="timeline-node t0">
-              <strong>T = 0 min</strong>
-              <span>Scenario earthquake · time origin</span>
-            </div>
-            <div className="timeline-arrow">➔</div>
-            <div className="timeline-node t15">
-              <strong>Warning assumption</strong>
-              <span>30 min baseline / 45 min delayed</span>
-            </div>
-            <div className="timeline-arrow">➔</div>
-            <div className="timeline-node t30">
-              <strong>Preparation assumption</strong>
-              <span>14 min average / 28 min delayed</span>
-            </div>
-            <div className="timeline-arrow">➔ CRITICAL ➔</div>
-            <div className="timeline-node t45 critical">
-              <strong>Departure varies</strong>
-              <span>Follow warnings immediately; do not wait for these times</span>
-            </div>
-            <div className="timeline-arrow">➔ Inundation ➔</div>
-            <div className="timeline-node t125 wave">
-              <strong>T + 135 min</strong>
-              <span>Modeled shore arrival in one scenario</span>
-            </div>
-          </div>
-        </div>
-
-        <h2>4. Action Framework: What the System Shows vs. What You Must Do Today</h2>
-        <div className="action-matrix">
-          <div className="matrix-card">
-            <h4>🏢 For Hotel General Managers & Resort Owners</h4>
-            <ul>
-              <li><strong>What the data shows:</strong> The modeled baseline victim share is 21.8%; this is not a causal estimate for an individual guest.</li>
-              <li><strong>Actionable item:</strong> Ask qualified engineers and local authorities to assess refuge suitability and accessible emergency access before designation.</li>
-            </ul>
-          </div>
-          <div className="matrix-card">
-            <h4>🏛️ For Mayors, Municipal Engineers & DDPM</h4>
-            <ul>
-              <li><strong>What the data shows:</strong> Two existing evacuation sites are catastrophically inadequate. The paper evaluates 14 candidate buildings; local approval is required.</li>
-              <li><strong>Actionable item:</strong> Survey route access and hazard exposure, assess candidate refuges and agree signage with the competent authority.</li>
-            </ul>
-          </div>
-          <div className="matrix-card">
-            <h4>👨‍👩‍👧 For Residents & Visitors</h4>
-            <ul>
-              <li><strong>What the data shows:</strong> No preparation window is guaranteed. Natural warnings may precede an official warning; follow local evacuation guidance immediately.</li>
-              <li><strong>Actionable item:</strong> Keep slip-on walking shoes and emergency meds beside the bed. Confirm designated destinations and accessible routes with the local authority.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="research-action-row">
-          <button className="primary" onClick={onExplore}>
-            Return to Operational Model →
-          </button>
-        </div>
-      </article>
-    </div>
-  );
-}
-
 /* ── §7 My Plan View ───────────────────────────────────────── */
 function Prepare() {
   const [plan, setPlan] = useState<Plan>(structuredClone(blankPlan)),

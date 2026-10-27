@@ -1,12 +1,14 @@
 # Soonami (สู้-nami) — Research Extraction & Dr. Non's Translation
 
+Bibliographic correction, checked 27 October 2026: SSRN lists this preprint as posted 12 August 2026, with authors Trumikaborworn, Warnitchai and Latcharote. Earlier site versions incorrectly used 2024. The supplied manuscript is explicitly not peer reviewed. The bilingual research section and review record are documented in [BILINGUAL-RESEARCH.md](BILINGUAL-RESEARCH.md).
+
 Conceived and directed by **Dr. Non Arkaraprasertkul (Dr. Non)**, Senior Urban Disaster Resilience & Smart City Specialist.
 
 - **Soo (สู้)**: Fight, persist, actively reject complacency and fatalism.
 - **Soon**: An earthquake in the Andaman subduction zone can rupture at any moment—readiness must be constant.
 
 Source research paper:
-*Trumikaborworn, N., Latcharote, P., & Warnitchai, P. (2024). Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. Asian Institute of Technology & Mahidol University. SSRN 7270357.* Link: https://ssrn.com/abstract=7270357
+*Trumikaborworn, N., Warnitchai, P., & Latcharote, P. (2026). Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. Asian Institute of Technology & Mahidol University. SSRN 7270357.* Link: https://ssrn.com/abstract=7270357
 
 ## Dr. Non's Executive Scientific Translation
 

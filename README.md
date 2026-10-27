@@ -77,3 +77,7 @@ Original application code: MIT; see LICENSE. Upstream Axiom and Palette notices 
 ## Guided 2D/3D rehearsal
 
 The Bang Niang pilot now includes warning-relative preparation delay, route arrows, aerial following, approximate terrain walk-through and optional illustrative water rise. Local research inundation files can be replayed without upload. Routes and endpoints remain unapproved; water is not coupled to the crowd model. [Scenario format, public-source expansion and verification](docs/GUIDED-REHEARSAL.md).
+
+## Thai / English research
+
+A bilingual research dossier provides reported results, source-defined outcomes, uncertainty and replication requirements, a source ledger, validation agenda and CSV/BibTeX downloads. [Research methods and verification](docs/BILINGUAL-RESEARCH.md). Direct links: [ไทย](https://tsunami.nonarkara.org/?lang=th#research), [English](https://tsunami.nonarkara.org/?lang=en#research).

@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "th-390x844",
+      "state": "th",
+      "stateSelector": ".research-dossier[lang=th]",
+      "width": 390,
+      "height": 844,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "th-1024x768",
+      "state": "th",
+      "stateSelector": ".research-dossier[lang=th]",
+      "width": 1024,
+      "height": 768,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "th-1280x720",
+      "state": "th",
+      "stateSelector": ".research-dossier[lang=th]",
+      "width": 1280,
+      "height": 720,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "th-1440x900",
+      "state": "th",
+      "stateSelector": ".research-dossier[lang=th]",
+      "width": 1440,
+      "height": 900,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "en-390x844",
+      "state": "en",
+      "stateSelector": ".research-dossier[lang=en]",
+      "width": 390,
+      "height": 844,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "en-1024x768",
+      "state": "en",
+      "stateSelector": ".research-dossier[lang=en]",
+      "width": 1024,
+      "height": 768,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "en-1280x720",
+      "state": "en",
+      "stateSelector": ".research-dossier[lang=en]",
+      "width": 1280,
+      "height": 720,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    },
+    {
+      "id": "en-1440x900",
+      "state": "en",
+      "stateSelector": ".research-dossier[lang=en]",
+      "width": 1440,
+      "height": 900,
+      "reason": "Read the reported result comparison beside its condition control; supporting methods earn further reading.",
+      "regions": [
+        {
+          "id": "heading",
+          "selector": ".research-heading",
+          "maxHeight": 110,
+          "reason": "Identity and language choice need no oversized introduction."
+        },
+        {
+          "id": "scope",
+          "selector": ".research-scope",
+          "maxHeight": 90,
+          "reason": "State scope and validation status once, succinctly."
+        },
+        {
+          "id": "index",
+          "selector": ".research-index",
+          "maxHeight": 75,
+          "reason": "Section navigation is a short reading index."
+        },
+        {
+          "id": "controls",
+          "selector": ".research-comparison-controls",
+          "maxHeight": 65,
+          "reason": "Condition controls stay intrinsic and adjacent to their result."
+        },
+        {
+          "id": "results",
+          "selector": ".research-results-figure",
+          "maxHeight": 360,
+          "firstScreen": true,
+          "reason": "Both timing series and their five packages must be readable in the first view."
+        }
+      ],
+      "decision": {
+        "information": ".research-results-figure",
+        "action": ".research-comparison-controls",
+        "maxGap": 20,
+        "firstScreen": true,
+        "reason": "Compare the selected condition without recovering an offscreen result."
+      },
+      "chrome": {
+        "selectors": [
+          ".soonami-masthead",
+          ".research-heading",
+          ".research-scope",
+          ".research-index"
+        ],
+        "maxHeight": 330,
+        "reason": "Chrome must leave room for actual evidence."
+      }
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "result": {
+    "status": "FAIL",
+    "cases": 1,
+    "failures": [
+      {
+        "case": "th-390x844",
+        "code": "maxHeight",
+        "detail": "heading: 253.9453125px violates maxHeight 110px. Identity and language choice need no oversized introduction."
+      },
+      {
+        "case": "th-390x844",
+        "code": "region-not-visible",
+        "detail": "results: the preserved operating region must fit the initial viewport without a centre obstruction."
+      },
+      {
+        "case": "th-390x844",
+        "code": "chrome-height",
+        "detail": "454.9453125px union exceeds 330px. Chrome must leave room for actual evidence."
+      },
+      {
+        "case": "th-390x844",
+        "code": "decision-not-visible",
+        "detail": "Information and action must both fit and have an unobstructed centre on the initial screen."
+      }
+    ],
+    "scope": "Declared geometry budgets only; screenshots, task trial and independent review remain required."
+  },
+  "capture": {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.75,
+        "width": 370,
+        "x": 10,
+        "y": 577.140625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 86,
+          "width": 390,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 253.9453125,
+          "width": 370,
+          "x": 10,
+          "y": 100
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 49,
+          "width": 370,
+          "x": 10,
+          "y": 361.9453125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 66,
+          "width": 370,
+          "x": 10,
+          "y": 418.9453125
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 390,
+    "fontsReady": true,
+    "height": 844,
+    "id": "th-390x844",
+    "information": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 336.75,
+        "width": 370,
+        "x": 10,
+        "y": 615.890625
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "regions": {
+      "controls": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.75,
+          "width": 370,
+          "x": 10,
+          "y": 577.140625
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "heading": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 253.9453125,
+          "width": 370,
+          "x": 10,
+          "y": 100
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "index": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 66,
+          "width": 370,
+          "x": 10,
+          "y": 418.9453125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "results": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 336.75,
+          "width": 370,
+          "x": 10,
+          "y": 615.890625
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "scope": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 49,
+          "width": 370,
+          "x": 10,
+          "y": 361.9453125
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "th",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 5171.015625,
+        "width": 370,
+        "x": 10,
+        "y": 96
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "width": 390
+  }
+}

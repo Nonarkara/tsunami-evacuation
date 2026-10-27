@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource/jost": "^5.2.0",
+    "@fontsource/prompt": "^5.2.7",
     "leaflet": "^1.9.4",
     "maplibre-gl": "^6.16.0",
     "react": "^19.2.0",
