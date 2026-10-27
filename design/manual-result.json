@@ -1,0 +1,15 @@
+{
+  "defaultManual": "PASS",
+  "languages": 2,
+  "viewportsPerLanguage": 4,
+  "budgets": {
+    "headingMaxPx": 100,
+    "quickStartMaxPx": 230,
+    "closeAndAllTopicsInitiallyVisible": true,
+    "horizontalOverflow": false
+  },
+  "singleRowHeader": "PASS",
+  "headerMaxPx": 48,
+  "keyboardChecks": 96,
+  "reproducedOldKeyboardFailure": true
+}

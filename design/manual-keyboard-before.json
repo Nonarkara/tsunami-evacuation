@@ -1,0 +1,112 @@
+{
+  "collapsed": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "expanded": [
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "สำรวจพื้นที่"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "จัดทำแผน"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "ตรวจหลักฐาน"
+    },
+    {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "แบบจำลอง · ภูมิประเทศและแบบฝึก"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "เปิดส่วนนี้ →"
+    },
+    {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "แผน · บันทึกข้อมูลของคุณ"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "เปิดส่วนนี้ →"
+    },
+    {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "ซ้อมอพยพ · บันทึกการฝึกจริง"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "เปิดส่วนนี้ →"
+    },
+    {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "งานวิจัย · ตรวจสอบหลักฐาน"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "เปิดส่วนนี้ →"
+    },
+    {
+      "inside": true,
+      "tag": "SUMMARY",
+      "text": "ดาวเทียม · ทำความเข้าใจแหล่งข้อมูล"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "เปิดส่วนนี้ →"
+    },
+    {
+      "inside": false,
+      "tag": "BODY",
+      "text": "\n    Skip to contentสู้Soonamiinspired by Tru"
+    },
+    {
+      "inside": true,
+      "tag": "DIALOG",
+      "text": "วิธีใช้ SoonamiไทยEnglish×เครื่องมือวางแผนและ"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "ไทย"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "English"
+    },
+    {
+      "inside": true,
+      "tag": "BUTTON",
+      "text": "×"
+    }
+  ]
+}
