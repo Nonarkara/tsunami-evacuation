@@ -8,7 +8,7 @@ A research-informed planning pilot for residents, visitors, hotels and local tea
 
 The application translates the supplied preprint into planning views and a separate terrain/crowd research exercise. It preserves the original model's authorship and published results; it does not claim to run or replace the Unity simulation.
 
-![Terrain and crowd research rehearsal](docs/evidence/crowd-1440.png)
+![Terrain and crowd research rehearsal](docs/evidence/compact-crowd-1440.png)
 
 ## What works
 

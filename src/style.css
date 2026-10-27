@@ -839,6 +839,9 @@ main {
 }
 
 .place-selector-bar button {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
   display: flex;
   gap: 6px;
   align-items: center;
@@ -861,9 +864,9 @@ main {
 }
 
 .place-selector-bar button[aria-pressed="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
+  background: transparent;
+  border-bottom-color: var(--companion);
+  color: var(--companion);
 }
 
 .place-selector-bar button[aria-pressed="true"] .place-num {
@@ -2343,29 +2346,31 @@ textarea {
 .modeling-split-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
 .active-package-card, .outcome-card, .result-hud { min-width: 0; }
 .place-selector-bar { margin: 6px 0; }
-.place-selector-bar button { min-height: 36px; }
+.place-selector-bar button { min-height: 32px; }
 .place-directive-card { padding: 8px 0 0; }
 .place-directive-card > summary, .exercise-method > summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
 .place-directive-card[open] .directive-header { margin-top: 10px; }
 .terrain-rehearsal { min-width: 0; }
 .terrain-toolbar, .terrain-view-controls, .rehearsal-controls, .rehearsal-timeline, .rehearsal-readout { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
-.terrain-toolbar { justify-content: space-between; padding-bottom: 6px; }
+.terrain-toolbar { justify-content: flex-start; padding-bottom: 4px; gap: 4px 18px; }
 .terrain-view-controls { gap: 4px; }
-.terrain-rehearsal button, .terrain-rehearsal select { font: inherit; font-size: 13px; min-height: 36px; border: 1px solid var(--line-2); padding: 5px 10px; color: var(--ink); background: var(--panel); border-radius: 0; }
+.terrain-rehearsal button, .terrain-rehearsal select { font: inherit; font-size: 13px; min-height: 32px; padding: 3px 7px; color: var(--ink); background: transparent; border: 0; border-radius: 0; }
+.terrain-rehearsal select { width: auto; border-bottom: 1px solid var(--line-2); }
+.terrain-toolbar button { border-bottom: 2px solid transparent; }
+.terrain-toolbar button:hover { border-bottom-color: var(--line-2); }
 .terrain-rehearsal button:disabled { opacity: .6; cursor: default; }
-.terrain-rehearsal button[aria-pressed=true] { color: var(--panel); background: var(--companion); }
-.terrain-rehearsal .rehearsal-play { background: var(--accent); border-color: var(--accent-dark); font-weight: 700; margin-left: auto; }
+.terrain-rehearsal button[aria-pressed=true] { color: var(--companion); border-bottom-color: var(--companion); font-weight: 700; }
+.terrain-rehearsal .rehearsal-play { background: var(--accent); font-weight: 700; margin: 0; padding-inline: 12px; }
 .terrain-tier { font-size: 12px; color: var(--ink-2); }
 .terrain-stage { position: relative; height: clamp(280px, 43vh, 460px); min-height: 0; background: var(--companion); }
 .terrain-canvas { position: absolute; inset: 0; }
 .terrain-canvas canvas { outline-offset: -3px; }
 .terrain-notice { position: absolute; top: 12px; left: 12px; right: 55px; max-width: 55ch; padding: 8px 12px; background: var(--panel); color: var(--ink); font-size: 14px; }
-.terrain-key { position: absolute; left: 8px; bottom: 28px; max-width: calc(100% - 58px); font-size: 12px; line-height: 1.4; background: rgba(250,250,247,.96); color: var(--ink); padding: 4px 7px; pointer-events: none; }
-.rehearsal-controls { padding: 8px 0; border-bottom: 1px solid var(--line); align-items: end; }
-.rehearsal-controls label, .rehearsal-timeline label { display: flex; flex-direction: column; gap: 2px; font-size: 12px; font-weight: 600; }
+.rehearsal-controls { padding: 4px 0; border-bottom: 1px solid var(--line); align-items: center; gap: 4px 14px; }
+.rehearsal-controls label, .rehearsal-timeline label { display: flex; flex-direction: row; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; }
 .rehearsal-controls select { max-width: 100%; }
-.rehearsal-timeline { padding: 6px 0; }
-.rehearsal-timeline .timeline-label { flex: 1; min-width: 120px; }
+.rehearsal-timeline { padding: 4px 0; gap: 4px 10px; }
+.rehearsal-timeline .timeline-label { flex: 1; min-width: 120px; white-space: nowrap; }
 .terrain-rehearsal input[type=range] { width: 100%; min-height: 24px; accent-color: var(--companion); margin: 0; }
 .rehearsal-readout { font-size: 13px; border-block: 1px solid var(--line); padding: 6px 0; gap: 4px 18px; }
 .rehearsal-readout strong { color: var(--companion); font-variant-numeric: tabular-nums; }
@@ -2386,18 +2391,18 @@ textarea {
   .geography-pane, .evidence-pane { padding: 8px; }
   .pane-header { flex-wrap: wrap; gap: 4px; }
   .terrain-toolbar { align-items: start; }
-  .terrain-view-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
-  .terrain-view-controls button { padding: 5px 6px; min-height: 40px; }
+  .terrain-view-controls { display: contents; }
+  .terrain-view-controls button { padding: 3px 6px; min-height: 32px; }
   .terrain-stage { height: 280px; }
   .terrain-tier { line-height: 1.3; }
-  .rehearsal-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
-  .rehearsal-controls .rehearsal-play { grid-column: 1 / -1; margin: 0; min-height: 42px; }
-  .rehearsal-controls select { width: 100%; font-size: 13px; padding-inline: 5px; }
+  .rehearsal-controls { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .rehearsal-controls .rehearsal-play { flex: none; margin: 0; min-height: 32px; }
+  .rehearsal-controls select { width: auto; font-size: 13px; padding-inline: 4px; }
   .rehearsal-readout { gap: 3px 12px; }
   .terrain-analysis-row { grid-template-columns: 1fr; gap: 8px; }
   .modeling-split-grid { grid-template-columns: minmax(0,1fr); }
-  .place-selector-bar { display: grid; grid-template-columns: 1fr 1fr; }
-  .place-selector-bar button { min-width: 0; min-height: 40px; }
+  .place-selector-bar { display: flex; flex-wrap: wrap; }
+  .place-selector-bar button { min-width: 0; min-height: 32px; }
 }
 @media (prefers-reduced-motion: reduce) { .terrain-rehearsal * { scroll-behavior: auto; } }
 /* Beat the map library's relative-position rule: the renderer must fill its host. */
@@ -2405,16 +2410,17 @@ textarea {
 .exercise-boundary { font-size: 12px; color: var(--ink-2); margin: 0 0 4px; }
 .terrain-stage { height: clamp(280px, 46vh, 460px); }
 @media (max-width: 680px) { .terrain-stage { height: 260px; } }
-.terrain-rehearsal .terrain-place-label { min-height: 32px; background: var(--companion); color: var(--panel); border: 1px solid var(--panel); font-size: 12px; padding: 4px 8px; }
-.terrain-rehearsal .terrain-place-label.selected { background: var(--accent); color: var(--ink); border-color: var(--ink); }
+.terrain-rehearsal .terrain-place-label { width: 24px; height: 24px; min-height: 24px; background: transparent; border: 0; padding: 0; }
+.terrain-place-label::before { content: ''; position: absolute; width: 7px; height: 7px; left: 50%; top: 50%; transform: translate(-50%,-50%); border: 1px solid var(--panel); border-radius: 50%; background: var(--companion); }
+.terrain-place-label.selected::before { background: var(--accent); width: 9px; height: 9px; }
 /* Native form defaults must not inflate this compact operational toolbar. */
 .terrain-rehearsal label { margin: 0; }
 .terrain-rehearsal input[type=range] { padding: 0; border: 0; background: transparent; }
 .water-experiment label { flex-direction: row; }
 .water-experiment input[type=checkbox] { min-height: 18px; min-width: 18px; margin: 0; padding: 0; }
 .route-profile .profile-scale { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-2); }
-.experiment-tabs { position: absolute; left: 8px; top: 8px; display: flex; gap: 3px; }
-.experiment-tabs button { background: var(--panel); color: var(--ink); min-height: 36px; }
+.experiment-tabs { display: flex; gap: 3px; }
+.experiment-tabs button { color: var(--ink); min-height: 32px; }
 .terrain-rehearsal [hidden] { display: none !important; }
 .terrain-analysis-row { grid-template-columns: minmax(0, 1fr); }
 .route-profile { max-width: 700px; }
@@ -2423,8 +2429,7 @@ textarea {
 .rehearsal-readout span:nth-child(2)::before { background: var(--accent); }
 .rehearsal-readout span:nth-child(4)::before { background: var(--line-2); }
 @media (max-width: 680px) {
-  .terrain-stage { height: 230px; }
-  .terrain-key { bottom: 55px; font-size: 11px; }
+  .terrain-stage { height: 300px; }
   .rehearsal-readout { display: grid; grid-template-columns: 1fr 1fr; font-size: 12px; }
   .rehearsal-readout span:last-child { grid-column: 1 / -1; }
 }
@@ -2438,3 +2443,25 @@ textarea {
 .terrain-secondary.water { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px; align-items: start; }
 .terrain-secondary > .water-experiment { padding-block: 8px; }
 @media (max-width: 680px) { .terrain-secondary.water { grid-template-columns: minmax(0,1fr); gap: 0; } }
+
+/* Map text belongs beside the terrain, never over its operating area. */
+.terrain-caption { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 12px; padding-block: 4px; color: var(--ink-2); font-size: 12px; }
+.terrain-credits { margin-left: auto; white-space: nowrap; }
+.terrain-map-key { margin: 0; }
+.terrain-map-key summary { cursor: pointer; }
+.terrain-map-key[open] { flex-basis: 100%; order: 3; }
+.terrain-map-key p { max-width: 75ch; margin: 4px 0; }
+@media (max-width: 680px) {
+  .terrain-toolbar { gap: 2px 4px; }
+  .experiment-tabs { display: contents; }
+  .terrain-credits { margin-left: 0; }
+  .rehearsal-timeline .timeline-label { display: grid; grid-template-columns: auto 1fr; gap: 4px; min-width: 140px; }
+  .rehearsal-timeline input[type=range] { min-width: 45px; }
+}
+
+.map-reference .map-controls-overlay { position: relative; order: -1; inset: auto; padding: 2px; gap: 6px; justify-content: flex-start; background: var(--panel); }
+.map-reference .map-ctrl-btn { padding: 3px 6px; min-height: 32px; font-size: 13px; color: var(--ink); background: transparent; border: 0; border-bottom: 2px solid transparent; box-shadow: none; backdrop-filter: none; }
+.map-reference .map-ctrl-btn.active { border-bottom-color: var(--companion); }
+
+.water-control-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
+.water-control-row > label:last-child { flex: 1; min-width: 120px; }

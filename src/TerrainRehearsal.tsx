@@ -49,7 +49,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
           aerial: { type: 'raster', tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'], tileSize: 256, maxzoom: 18, attribution: 'Imagery © Esri and contributors' },
           dem: { type: 'raster-dem', tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'], encoding: 'terrarium', tileSize: 256, maxzoom: 15, attribution: '<a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Terrain © Mapzen / source credits</a>' }
         }, layers: [{ id: 'aerial', type: 'raster', source: 'aerial' }], terrain: { source: 'dem', exaggeration: 1 } },
-        attributionControl: { compact: true }
+        attributionControl: false
       });
     } catch { setFailure('3D rendering is unavailable on this device. Open the 2D map below.'); return; }
     map.current = m;
@@ -72,8 +72,8 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
       m.addLayer({ id: 'routes', type: 'line', source: 'routes', paint: { 'line-color': ['match', ['get', 'route'], 0, '#fafaf7', 1, '#f59e0b', '#b9ddf0'], 'line-width': 3 } });
       m.addLayer({ id: 'people', type: 'circle', source: 'people', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 17, 4], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': .5 } });
-      m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-radius': 8, 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 3 } });
-      m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-radius': 12, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 3 } });
+      m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-radius': 4, 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
+      m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
       setReady(true);
     });
     m.on('click', e => setPoint({ coord: [e.lngLat.lng, e.lngLat.lat], elevation: m.queryTerrainElevation(e.lngLat) }));
@@ -109,9 +109,9 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     const markers = region.places.map((place, i) => {
       const button = document.createElement('button');
       button.className = `terrain-place-label${i === selected ? ' selected' : ''}`;
-      button.textContent = place.name;
+      button.title = place.name;
       button.setAttribute('aria-label', `Select geographic place ${place.name}`);
-      button.addEventListener('click', () => onSelect(i));
+      button.addEventListener('click', event => { event.stopPropagation(); setPoint(undefined); onSelect(i); });
       return new maplibregl.Marker({ element: button }).setLngLat([place.lng, place.lat]).addTo(m);
     });
     const key = `${region.id}:${selected}`;
@@ -140,33 +140,39 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <div className="terrain-toolbar">
+      {isStudy && <div className="experiment-tabs" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} onClick={() => { setMode('crowd'); setScreen(false); }}>Crowd</button><button aria-pressed={mode === 'water'} onClick={() => { setMode('water'); setScreen(true); setPlaying(false); }}>Water level</button></div>}
       <div className="terrain-view-controls" aria-label="Camera controls">
         <button aria-pressed={!flat} onClick={() => setFlat(false)}>3D terrain</button>
-        <button aria-pressed={flat} onClick={() => { setFlat(true); setPlaying(false); }}>2D map</button>
-        {!flat && <><button disabled={!ready || !isStudy} onClick={() => view('coast')}>Mountain fly-by</button><button disabled={!ready || !isStudy} aria-pressed={camera === 'route'} onClick={() => view('route')}>Follow route</button><button disabled={!ready} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} onClick={() => { const p = model?.people[0].legs.find(l => l.edge === model.bottleneck)?.from; if (p) { setCamera('overview'); map.current?.flyTo({ center: p, zoom: 17, pitch: 60, bearing: 70, duration: 1500 }); } }}>Inspect queue</button></>}
+        <button aria-pressed={flat} onClick={() => { setFlat(true); setPoint(undefined); setPlaying(false); }}>2D map</button>
+        {!flat && <><button disabled={!ready || !isStudy} onClick={() => view('coast')} title="Mountain fly-by">Fly-by</button><button disabled={!ready || !isStudy} aria-pressed={camera === 'route'} onClick={() => view('route')}>Follow route</button><button disabled={!ready} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} onClick={() => { const p = model?.people[0].legs.find(l => l.edge === model.bottleneck)?.from; if (p) { setCamera('overview'); map.current?.flyTo({ center: p, zoom: 17, pitch: 60, bearing: 70, duration: 1500 }); } }} title="Inspect queue">Queue</button></>}
       </div>
-      <span className="terrain-tier">{flat ? 'Geographic reference' : `${terrainLoaded ? 'DEM loaded' : 'DEM loading'} · relief 1×`} · exercise, no live warning</span>
+
     </div>
     {flat ? <StudyMap region={region} selected={selected} onSelect={onSelect} referenceOnly /> : <div className="terrain-stage">
       <div ref={host} className="terrain-canvas" aria-label="3D terrain map. Drag to pan, right-drag to tilt. Click for terrain height." />
-      {isStudy && <div className="experiment-tabs" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} onClick={() => { setMode('crowd'); setScreen(false); }}>Crowd</button><button aria-pressed={mode === 'water'} onClick={() => { setMode('water'); setScreen(true); setPlaying(false); }}>Water level</button></div>}
+
       {!ready && !failure && <p className="terrain-notice" role="status">Loading satellite imagery and terrain…</p>}
       {failure && <p className="terrain-notice" role="alert">{failure} <button onClick={() => setFlat(true)}>Open 2D map</button></p>}
-      {ready && <div className="terrain-key">{isStudy ? 'OSM paths · amber ring: assumed pinch point' : 'Terrain reference · crowd exercise available for Khao Lak'}<br />{point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'DEM height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m`}` : 'Click terrain for DEM height · not a safety test'}</div>}
+
     </div>}
+    <div className="terrain-caption">
+      <span>{point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${region.places[selected]?.name} · ${flat ? '2D reference' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
+      <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
+      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White dots: walking; amber: queued; gray: awaiting release.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
+    </div>
     {isStudy && model && data && <>
       <div hidden={mode !== 'crowd'}>
       <div className="rehearsal-controls">
         <label>People<select aria-label="People" value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
-        <label>Walking pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s · slower group</option><option value={1.4}>1.4 m/s · brisk walk</option><option value={2.4}>2.4 m/s · running experiment</option></select></label>
-        <label>Assumed pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>
-        <label>Camera approach<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name}</option>)}</select></label>
-        <button className="rehearsal-play" disabled={flat || !ready} onClick={() => { if (seconds >= model.duration) setSeconds(0); setPlaying(v => !v); }}>{playing ? 'Pause rehearsal' : 'Run crowd rehearsal'}</button>
+        <label>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
+        <label>Pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>
+        <label>Route<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
+        <button className="rehearsal-play" disabled={flat || !ready} onClick={() => { if (seconds >= model.duration) setSeconds(0); setPlaying(v => !v); }}>{playing ? 'Pause rehearsal' : 'Run rehearsal'}</button>
       </div>
       <div className="rehearsal-timeline">
         <button onClick={() => { setSeconds(0); setPlaying(false); }}>Reset</button>
         <label className="timeline-label">Exercise time {minutes(seconds)}<input aria-label="Exercise time" type="range" min={0} max={model.duration} step={1} value={seconds} onChange={e => { setSeconds(Number(e.target.value)); setPlaying(false); }} /></label>
-        <label>Playback<select aria-label="Playback" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
+        <label>Rate<select aria-label="Playback" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
       <p className="exercise-boundary">Bang Niang exercise · unapproved endpoint · no water interaction</p>
       <div className="rehearsal-readout" aria-label="Crowd counts">
@@ -174,13 +180,13 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       </div>
       </div>
       <div className={`terrain-secondary ${mode}`}>
-      {mode === 'water' &&         <div className="water-experiment"><label><input type="checkbox" checked={screen} onChange={e => setScreen(e.target.checked)} /> Terrain water-level experiment</label>
-          <label>Static level +{water} m<input aria-label="Static experimental water level" type="range" min={0} max={20} step={1} value={water} disabled={!screen || flat} onChange={e => setWater(Number(e.target.value))} /></label>
+      {mode === 'water' &&         <div className="water-experiment"><div className="water-control-row"><label><input type="checkbox" checked={screen} onChange={e => setScreen(e.target.checked)} /> Screen terrain</label>
+          <label>+{water} m<input aria-label="Static experimental water level" type="range" min={0} max={20} step={1} value={water} disabled={!screen || flat} onChange={e => setWater(Number(e.target.value))} /></label></div>
           <small>Blue = a static low-terrain experiment, connected to the western grid boundary. Omits wave force, timing, channels and buildings. It does not affect the crowd exercise. This is not a tsunami flood forecast; unshaded land is not certified safe.</small>
         </div>}
       <div className="terrain-analysis-row">
         <div className="route-profile"><strong>{active?.name} · {((model.distance[route] ?? 0) / 1000).toFixed(2)} km</strong><span>Approximate DEM profile · endpoint is not an approved refuge</span>
-          <svg viewBox="0 0 480 54" role="img" aria-label={`Terrain elevation profile, ${Math.round(Math.min(...profile))} to ${Math.round(Math.max(...profile))} metres. Not a safety classification.`}><polyline fill="none" stroke="#12354e" strokeWidth="2" points={profile.map((v, i) => `${(chainage[i] ?? 0) / Math.max(1, chainage.at(-1) ?? 1) * 480},${50 - Math.max(0, v) / Math.max(20, ...profile) * 44}`).join(' ')} /></svg>
+          <svg viewBox="0 0 480 54" preserveAspectRatio="none" role="img" aria-label={`Terrain elevation profile, ${Math.round(Math.min(...profile))} to ${Math.round(Math.max(...profile))} metres. Not a safety classification.`}><polyline fill="none" stroke="#12354e" strokeWidth="2" points={profile.map((v, i) => `${(chainage[i] ?? 0) / Math.max(1, chainage.at(-1) ?? 1) * 480},${50 - Math.max(0, v) / Math.max(20, ...profile) * 44}`).join(' ')} /></svg>
           <div className="profile-scale"><span>Start ≈ {Math.round(profile[0] ?? 0)} m</span><span>DEM range ≈ {Math.round(Math.min(...profile))}–{Math.round(Math.max(...profile))} m</span><span>End ≈ {Math.round(profile.at(-1) ?? 0)} m</span></div>
         </div>
 

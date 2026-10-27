@@ -46,7 +46,7 @@ export function StudyMap({
       zoom: region.zoom,
       scrollWheelZoom: false,
       zoomControl: false,
-      attributionControl: true,
+      attributionControl: !referenceOnly,
     });
     map.current = m;
 
@@ -186,7 +186,7 @@ export function StudyMap({
       const isSelected = selected === i;
       const el = marker.getElement();
       if (el) el.classList.toggle("selected", isSelected);
-      if (isSelected) {
+      if (isSelected && !referenceOnly) {
         marker.openTooltip();
       } else {
         marker.closeTooltip();
@@ -255,7 +255,7 @@ export function StudyMap({
       : "0.0";
 
   return (
-    <div className={`map-wrap ${isTilted ? "mode-tilted" : ""}`}>
+    <div className={`map-wrap ${isTilted ? "mode-tilted" : ""} ${referenceOnly ? "map-reference" : ""}`}>
       {/* Interactive Leaflet Map Viewport */}
       <div
         ref={container}
@@ -278,7 +278,7 @@ export function StudyMap({
             onClick={() => setBaseLayer(baseLayer === "sat" ? "topo" : "sat")}
             title="Toggle between Esri Satellite Aerial Imagery and Topographic Contours"
           >
-            {baseLayer === "sat" ? "🛰️ Aerial Sat" : "🗺️ Topo Contours"}
+            {baseLayer === "sat" ? "Aerial" : "Topo"}
           </button>
 
           {!referenceOnly && <button
@@ -311,7 +311,7 @@ export function StudyMap({
               }}
               title="Fly into local topography and street-level evacuation routes"
             >
-              {isFlownIn ? "🌐 Regional View" : `✈️ Fly In: ${activePlace.name}`}
+              {isFlownIn ? "Region" : "Focus"}
             </button>
           )}
 
@@ -320,7 +320,7 @@ export function StudyMap({
             onClick={resetRegionalOverview}
             title="Reset map view to entire coastal subduction reach"
           >
-            Reset view
+            Reset
           </button>
         </div>
       </div>

@@ -11,3 +11,5 @@ Before UI work apply anti-slop-design. Use Palette Plate 002 roles documented in
 Keep secrets in environment variables and never commit them. No personal plans or participant records in source control. Original PDF is not redistributed. Personal storage stays explicit and on-device unless a separately approved backend is introduced.
 
 Before release: npm test, npm run build, node scripts/check-contrast.mjs. Sign commits with Agent: codex (or the actual agent). Commit, push both hosting and GitHub remotes, deploy and verify the live hostname. Do not report a pending custom domain as live. Record concrete checks and unverified limits in docs/.
+
+Map composition: routine placename banners, legend panels, mode tabs and attribution panels must not cover the3D terrain. Use small accessible points and an adjacent visible credit line; Map key details expand below the map. Short parameter records use intrinsic label/value rows and a label-sized Run action. A whole-task viewport pass does not clear map occlusion or oversized fields. Validate `design/compact-contract.json` with fresh browser captures, including explicit parameter-height, Run-width and point-size budgets.
