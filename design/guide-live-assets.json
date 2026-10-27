@@ -1,0 +1,37 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "10fa1f72ac4c5ce6ea2244ecca93667660701809f73a304426ccc193dd995340",
+    "matchesProduction": true
+  },
+  {
+    "path": "data/hazard-replay.schema.json",
+    "sha256": "d0fc43bfa9b1a23f87b855a393c32b17dcbcb8f6345e3e677355206bc4d0998b",
+    "matchesProduction": true
+  },
+  {
+    "path": "data/rehearsal-routes.json",
+    "sha256": "03479dc0157e99306b94c8cc43e337a51f95c9d6326a7493fba226ba3d45fa23",
+    "matchesProduction": true
+  },
+  {
+    "path": "data/terrain.json",
+    "sha256": "0b38b6bb5de512feb264b4912687eb137fce8e2a260ff9827bffb847b0ab1e69",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/index-CdEU-nFS.js",
+    "sha256": "bdb301e158c6b2bae57139e061cc711ac79c7fce60ac9f7d41f0c83a8878ea7c",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/maplibre-gl-worker-Dro7GA4u.js",
+    "sha256": "d0b740a4ace50a3fa08b8d279090a66bebdbbe990b1e8e6ddfe901e086abee13",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/index-bMgNxa0t.css",
+    "sha256": "a2e874f152cc31510bd2eb2ce7c58145b02a07c1e4b9e605aa9c11cd1d696e55",
+    "matchesProduction": true
+  }
+]
