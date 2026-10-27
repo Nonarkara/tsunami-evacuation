@@ -1,0 +1,146 @@
+[
+  {
+    "height": 844,
+    "pageHeight": 2139,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 390
+  },
+  {
+    "height": 768,
+    "pageHeight": 1537,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1024
+  },
+  {
+    "height": 720,
+    "pageHeight": 1500,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1280
+  },
+  {
+    "height": 900,
+    "pageHeight": 1582,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1440
+  },
+  {
+    "height": 844,
+    "pageHeight": 1946,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 390
+  },
+  {
+    "height": 768,
+    "pageHeight": 1360,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1024
+  },
+  {
+    "height": 720,
+    "pageHeight": 1323,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1280
+  },
+  {
+    "height": 900,
+    "pageHeight": 1403,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1440
+  },
+  {
+    "height": 844,
+    "pageHeight": 2517,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 390
+  },
+  {
+    "height": 768,
+    "pageHeight": 1769,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1024
+  },
+  {
+    "height": 720,
+    "pageHeight": 1732,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1280
+  },
+  {
+    "height": 900,
+    "pageHeight": 1815,
+    "scenarioRows": [
+      32,
+      32,
+      32,
+      32,
+      32
+    ],
+    "width": 1440
+  }
+]

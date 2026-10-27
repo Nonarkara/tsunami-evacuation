@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "https://github.com/Nonarkara/Non-Slop/tree/main/tools/decision-geometry",
+  "files": {
+    "LICENSE": "8ac105bb105e1c134dca8acab0f8f5f92b3039e8f0d084b3e63dcfd91c6d352a",
+    "README.md": "dbf762390782f1974d4c3350c1ce7078cc0dd23bac8715efef29be5a876da2d0",
+    "browser-test.mjs": "f05f0856016a21866dfac8b2f7b5c574dbbbe1c1de083376cd562c46e3ed38a4",
+    "check.mjs": "a433a7c55eed9ca84e985ec3e05ca44a980bd13faf16791a26d46865b40019d1",
+    "cli-test.mjs": "a37da690810d61dde933daa43232b81773b5deb240b2e3481893954b981e9f7d",
+    "contract.example.json": "d238731fed154c5927271dece213af12980c0682abb23c17bc29d1eb861a81fc",
+    "fixture.html": "7c89d92fef170fe4493619631716a1fa35ae50863ae002cab3aa59a39cc22015",
+    "fixtures.mjs": "e2e890125c95e9498045107b76f7af6c0cff983cf6bcccba86b9f5a63c18da5c",
+    "index.mjs": "586b05bc3a856b95e8d9ec05dbc1c225aa0aefae18e1f0cd456753dad0cb45d7",
+    "path-test.mjs": "154cb764c658acf9b1a00e28aec76ed3a4c04d8b5cee3d1ef82c9bfec5808ed2",
+    "test.mjs": "58f25cf260ae09e18cf306f2469373161ef593c7bacc060a69ffacb962044d5a",
+    "verify-source.mjs": "24e4bf16bd0ed8b20b4d6e715a9722d8de8c44b162415674c2b1c70be9ed6b9e"
+  }
+}

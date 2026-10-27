@@ -34,13 +34,13 @@ export const scenarios = [
     vertical: 32,
     reference: "§4.1–4.2, pp. 16–18",
     drNonFinding:
-      "When people scramble into cars on a two-lane coastal highway, instant gridlock kills 1 in 5 people. Your car becomes a 2-ton metal trap.",
+      "The published baseline victim share is 21.8%, or 22.6% with delayed timing, among 39,041 modeled agents. These are scenario outcomes, not a forecast.",
     action:
-      "BAN personal car evacuation during coastal siren triggers. Establish mandatory immediate pedestrian dispersal.",
+      "Assess congestion on designated routes and plan accessible departures with local emergency managers. Do not infer an evacuation deadline from this model.",
   },
   {
     id: "walk",
-    label: "Mandatory walking on foot (PD50)",
+    label: "Increase walking preference to 50% (PD50)",
     short: "Walking",
     affected: 7.0,
     delayed: 10.6,
@@ -49,13 +49,13 @@ export const scenarios = [
     vertical: 32,
     reference: "§4.3, pp. 19–20; §4.5, p. 24",
     drNonFinding:
-      "Forcing evacuation onto foot drops casualties from 21.8% to 7.0%—an immediate 68% drop in deaths with zero concrete poured.",
+      "Increasing pedestrian preference to 50% (PD50) reduces the modeled baseline victim share to 7.0%; it does not represent banning all vehicles.",
     action:
-      "Pre-designate walking routes. Hotels must rehearse zero-vehicle foot departures to safe assembly zones within 10 minutes.",
+      "Walk and inspect designated routes, crossings and gates. Arrange transport or assistance for people who cannot walk; rehearse the locally approved protocol.",
   },
   {
     id: "refuges",
-    label: "Add 14 vertical refuges (VS14)",
+    label: "Add 14 candidate vertical sites (VS14)",
     short: "+ Refuges",
     affected: 3.7,
     delayed: 5.6,
@@ -64,9 +64,9 @@ export const scenarios = [
     vertical: 32,
     reference: "§4.5, pp. 23–24",
     drNonFinding:
-      "Instead of running 2 km inland, run 200 meters into an engineered 3+ story building. Deaths drop down to 3.7%.",
+      "Adding 14 candidate vertical-evacuation buildings to PD50 reduces the modeled baseline victim share to 3.7%. Candidates are not certified public refuges.",
     action:
-      "Formally certify 14 multi-story reinforced concrete hotels/schools as public tsunami vertical refuges with unlocked rooftop stairwells.",
+      "Ask qualified engineers and local authorities to assess structure, hazard exposure, capacity, access and designation before using any building as a public refuge.",
   },
   {
     id: "practice",
@@ -79,9 +79,9 @@ export const scenarios = [
     vertical: 50,
     reference: "§4.5, pp. 23–24",
     drNonFinding:
-      "People freeze or hesitate unless they have walked the stairs. Community rehearsals double vertical uptake and drop casualties to 1.3%.",
+      "Increasing modeled vertical-evacuation preference to 50% reduces the cumulative baseline victim share to 1.3%. Real drills require local planning and accessible assistance.",
     action:
-      "Conduct quarterly unannounced vertical stair drills. Audit night-time emergency lighting, panic bars, and disabled assist chairs.",
+      "Plan accessible drills with participants and local authorities; check stair access, lighting and assistance. The model does not prescribe a universal drill frequency.",
   },
   {
     id: "signs",
@@ -94,9 +94,9 @@ export const scenarios = [
     vertical: 50,
     reference: "§4.5, p. 24",
     drNonFinding:
-      "Tourists don't know the local roads. Continuous, multilingual signs eliminate hesitation, cutting casualties to 1.2% (94% total reduction).",
+      "The cumulative package with 135 signs has a modeled baseline victim share of 1.2%, and 2.9% under delayed timing. Results are specific to Khao Lak and the study assumptions.",
     action:
-      "Install high-visibility bilingual (Thai/English/Chinese) directional route signs every 100 meters leading directly to designated refuges.",
+      "Audit continuous, locally approved multilingual signs to designated destinations. The paper\u2019s sign count is a study input, not a universal spacing standard.",
   },
 ] as const;
 
@@ -136,39 +136,15 @@ export type Place = {
   thaiName: string;
   lat: number;
   lng: number;
-  elevationM: number; // Surveyed Copernicus 30m DEM elevation above MSL
-  safeDistM: number; // Perpendicular pedestrian distance to >15m MSL safe contour
+  elevationM: number; // Legacy unsurveyed placeholder; never display as measured elevation
+  safeDistM: number; // Legacy unverified distance; never use for routing
   description: string;
   actionableDirective: string;
   refugeStrategy: string;
   spatialContext: string;
 };
 
-export const KHAO_LAK_GROUND_TRUTH = {
-  tor813: {
-    name: "Tor 813 Memorial (Police Boat 813)",
-    thaiName: "อนุสรณ์สถานเรือ ต.813",
-    lat: 8.6698,
-    lng: 98.2528,
-    elevationM: 8.4,
-    significance:
-      "Verified 2004 physical inundation limit: 60-tonne patrol boat swept 2.0 km inland from offshore mooring to Highway 4.",
-  },
-  highway4Corridor: {
-    name: "Highway 4 Evacuation Choke Corridor",
-    points: [
-      [8.730, 98.256],
-      [8.694, 98.253],
-      [8.6698, 98.2528],
-      [8.647, 98.253],
-      [8.625, 98.248],
-    ] as [number, number][],
-    significance:
-      "2-lane arterial highway parallel to coast. Verified lethal vehicle gridlock corridor in agent-based simulation.",
-  },
-  safeContourM: 15,
-  certifiedRefugeCount: 14,
-};
+// Unverified landmark/contour constants removed: they must never be restored as ground truth.
 
 export type CoastalRegion = {
   id: string;
@@ -207,11 +183,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Northern low-lying sand peninsula. Surrounded by shallow coral reefs; wave amplification is extreme.",
         actionableDirective:
-          "Do not drive down the cape road. Evacuate immediately eastward to inland ridges on foot or take refuge on upper floors of certified reinforced concrete hotel buildings.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "14 Certified Reinforced Concrete Structures within 200–400m evaluated in paper (Trumikaborworn et al., 2024 §3.2).",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Peninsula access road (Rural Rd 2008) is a single-route bottleneck. Pedestrian egress perpendicular to beach is mandatory.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Khuk Khak",
@@ -223,11 +199,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Dense beachfront resorts and residential corridors flanking Highway 4.",
         actionableDirective:
-          "Avoid Highway 4 vehicular bottlenecks. Use designated perpendicular walking paths to certified vertical hotel refuges or the eastern foothills.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Multi-story reinforced concrete hotel structures (3+ floors) serve as immediate vertical refuges ahead of wave arrival.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Highway 4 intersection experiences complete vehicular standstill under simulated mass evacuation. Zero personal vehicles.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Bang Niang",
@@ -239,11 +215,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Primary tourist, dining, and hotel hub. Memorial police boat 813 washed 2 km inland here in 2004.",
         actionableDirective:
-          "Tsunami waves carry massive debris here. Move immediately to 3rd-floor reinforced concrete structures or uphill past Highway 4 to the >15m contour.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Vertical evacuation into certified reinforced concrete structures or foot transit to high ground behind Highway 4.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Tor 813 memorial marks the surveyed 2 km inundation line. The Highway 4 corridor chokes if vehicles are used.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Nang Thong",
@@ -255,11 +231,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Southern tourist core backed by steep granite hills of Khao Lak-Lam Ru National Park.",
         actionableDirective:
-          "Direct access to mountain hillsides: follow designated trail markers up to >15m elevation within 15 minutes of shaking.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Steep hillside terrain provides natural high ground refuge within 600m walking distance.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Shortest horizontal distance to safe high ground in Khao Lak, but beach access lanes must remain free of parked or stalled cars.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
     ],
   },
@@ -285,11 +261,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Thailand's densest beach tourist corridor. Narrow streets between Thaweewong and Rat-U-Thit roads.",
         actionableDirective:
-          "STRICTLY FORBIDDEN to use cars or motorbikes. Head immediately up the stairs of designated 4+ story reinforced concrete hotels or eastward toward Hasip Pi Road.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Certified multi-story reinforced concrete hotel structures and high-rise commercial buildings.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Extreme vehicular gridlock hazard. Beach road and secondary avenues lock completely within minutes.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Karon & Kata",
@@ -301,11 +277,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Broad sandy bays with large resort complexes backed by steep hillsides.",
         actionableDirective:
-          "Use direct lateral resort roads toward Kata-Sai Yuan ridge. All beachfront hotel staff must trigger rooftop access gates.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Hillside resort buildings and natural topographic rise above the 15m contour.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Roundabout and coastal roads lock rapidly; steep inland trails provide fast pedestrian escape to safety.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Kamala",
@@ -317,11 +293,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Crescent bay with central canal that can draw incoming waves further inland.",
         actionableDirective:
-          "Do not gather along the canal banks. Evacuate perpendicular to the coast into the foothills behind Kamala school.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Public reinforced school buildings, municipal facilities, and eastern foothills above 15m.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Canal mouth acts as surge conduit; pedestrian bridges and inland trails bypass canal flood funnels.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Bang Tao & Laguna",
@@ -333,11 +309,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Long open coastline with interconnected lagoons and luxury villas.",
         actionableDirective:
-          "Lagoon bridges can choke during evacuation. Plan pedestrian egress across designated reinforced pedestrian crossovers.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Certified multi-story central resort structures and eastern agricultural high ground.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Lagoon waterways create circuitous walking paths; vertical evacuation to certified buildings is the primary immediate defense.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
     ],
   },
@@ -363,11 +339,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "CRITICAL GEOMETRY: Ton Sai and Loh Dalum bays meet at a narrow 150m sandspit. Waves hit from BOTH sides simultaneously.",
         actionableDirective:
-          "ZERO MOTOR VEHICLES. Run directly up the evacuation trail toward Viewpoint 1 (>100m elevation). Never attempt to board boats in the bay.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Granite mountain ridges and established viewpoint trails (>50m to >100m MSL).",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Low sandspit was completely overtopped from both bays in 2004. Upward trail ascent is the only survivable route.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Ao Nang Beach",
@@ -379,11 +355,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Main mainland tourism pier and promenade with limestone karsts.",
         actionableDirective:
-          "Walk inland along Ao Nang Road past the 15-meter elevation line or take shelter in reinforced hillside properties.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Elevated limestone hillside terrain and multi-story reinforced concrete hotel structures.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Beachfront promenade suffers extreme vehicle gridlock; foot evacuation eastward up the incline is recommended.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Railay & Phra Nang",
@@ -395,11 +371,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Isolated peninsula cut off from roads by high limestone cliffs. Egress is boat or cliff trails only.",
         actionableDirective:
-          "Boats cannot outrun an incoming tsunami in shallow water. Climb immediately to the cliff base trails and designated cave platforms above 15m.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Natural elevated limestone karst platforms and trails above 20m MSL.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Zero vehicle access. Complete reliance on immediate pedestrian trail ascent up karst formations.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
     ],
   },
@@ -425,11 +401,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Small island in Tarutao National Marine Park with heavy seasonal tourist population.",
         actionableDirective:
-          "Walk immediately toward the island's central high ground ridge (elevation >25m MSL).",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Central high-ground spine of the island (>25m MSL) reached via pedestrian paths within 5 minutes.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Island interior contains natural high ground; motorized tricycles must not block narrow walking paths.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Pak Bara Port",
@@ -441,11 +417,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Major ferry gateway to Andaman islands; high concentration of parked vehicles and transit passengers.",
         actionableDirective:
-          "Clear the pier apron immediately. Evacuate along Highway 4052 eastward away from the tidal river mouth.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Reinforced port authority terminal facilities and inland ground beyond the tidal floodplain.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Terminal parking lot chokes vehicles; pedestrian exit toward inland roadway ensures continuous movement.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
     ],
   },
@@ -471,11 +447,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Northern Andaman island with extensive rubber plantations and tourist beaches (Aow Yai).",
         actionableDirective:
-          "Move uphill into the central forested spine. Avoid mangrove tidal channels that funnel surge waters.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Forested central island spine (>30m MSL) accessible via interior foot trails.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Tidal mangrove estuaries magnify surge heights; always ascend interior ridge paths.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Laem Son National Park",
@@ -487,11 +463,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Flat pine-forested coastal strip heavily impacted in 2004.",
         actionableDirective:
-          "Follow forest evacuation road eastward across the bridge to the mainland hills above 20m.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Mainland forested slopes and reinforced national park headquarters structures above 20m MSL.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Low elevation pine barrier easily overtopped; cross inland to mainland foothills immediately.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
     ],
   },
@@ -517,11 +493,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Shallow Sunda shelf bathymetry dramatically dissipates open-ocean tsunami energy, but storm surges and Manila Trench tsunamis remain potential hazards.",
         actionableDirective:
-          "Manila Trench events provide 8-12 hours warning time. Move inland beyond Phetkasem Road or take vertical refuge in coastal high-rises.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Engineered high-rise concrete hotels and elevated inland commercial structures.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Generous warning window allows organized transit inland across Phetkasem Road.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
       {
         name: "Koh Samui (Chaweng Beach)",
@@ -533,11 +509,11 @@ export const coastalRegions: CoastalRegion[] = [
         description:
           "Dense beachfront resort strip flanked by Chaweng Lake.",
         actionableDirective:
-          "Do not linger near Chaweng Lake basin. Evacuate across the ring road onto the central granite mountain slopes.",
+          "Confirm local evacuation instructions, accessible assistance and a designated destination with the local authority. This place record is geographic context, not an approved route.",
         refugeStrategy:
-          "Granite mountain slopes above the coastal ring road and reinforced concrete resort towers.",
+          "Authority-designated refuge and access require local confirmation.",
         spatialContext:
-          "Ring road traffic bottlenecks can occur; pedestrian ascent onto hillside slopes provides immediate security.",
+          "Road access, walking distances, pinch points and refuge suitability have not been field-verified in this application.",
       },
     ],
   },
@@ -599,9 +575,9 @@ export const satelliteToolkits: SatelliteFeed[] = [
     agency: "GISTDA / ESA Earth Observation",
     updateFreq: "Calibrated Ground Elevation Model",
     status: "ACTIVE",
-    value: "15-Meter High Ground Safe Contour Identified",
+    value: "Terrain integration requires source validation",
     significance:
-      "Determines precise topographic safe zones. Any location above 15m elevation is considered safe from 2004-magnitude tsunami run-up.",
+      "Terrain height alone does not establish tsunami safety. A scenario inundation model and authority-approved destinations are required.",
   },
 ];
 

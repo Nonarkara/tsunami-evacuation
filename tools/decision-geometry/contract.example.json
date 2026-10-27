@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "1440x900-default",
+      "state": "default",
+      "stateSelector": "body[data-fault=none]",
+      "width": 1440,
+      "height": 900,
+      "reason": "Fixture comparison result and next action should fit together; product budgets must be authored separately.",
+      "regions": [
+        {
+          "id": "intro",
+          "selector": "#intro",
+          "maxHeight": 130,
+          "reason": "Keep the fixture task title and fault selector in a compact band."
+        },
+        {
+          "id": "map",
+          "selector": "#map",
+          "minWidth": 240,
+          "minHeight": 250,
+          "maxHeight": 450,
+          "reason": "Preserve the synthetic map operating area without stretching it to its sibling.",
+          "firstScreen": true
+        }
+      ],
+      "chrome": {
+        "selectors": ["header", "#status"],
+        "maxHeight": 100,
+        "reason": "The fixture has two small identity/reference bands."
+      },
+      "decision": {
+        "information": "#result",
+        "action": "#primary",
+        "maxGap": 32,
+        "firstScreen": true,
+        "reason": "The next step stays immediately after the result."
+      }
+    },
+    {
+      "id": "1024x768-default",
+      "state": "default",
+      "stateSelector": "body[data-fault=none]",
+      "width": 1024,
+      "height": 768,
+      "reason": "Fixture comparison result and next action should fit together; product budgets must be authored separately.",
+      "regions": [
+        {
+          "id": "intro",
+          "selector": "#intro",
+          "maxHeight": 130,
+          "reason": "Keep the fixture task title and fault selector in a compact band."
+        },
+        {
+          "id": "map",
+          "selector": "#map",
+          "minWidth": 240,
+          "minHeight": 250,
+          "maxHeight": 450,
+          "reason": "Preserve the synthetic map operating area without stretching it to its sibling.",
+          "firstScreen": true
+        }
+      ],
+      "chrome": {
+        "selectors": ["header", "#status"],
+        "maxHeight": 100,
+        "reason": "The fixture has two small identity/reference bands."
+      },
+      "decision": {
+        "information": "#result",
+        "action": "#primary",
+        "maxGap": 32,
+        "firstScreen": true,
+        "reason": "The next step stays immediately after the result."
+      }
+    },
+    {
+      "id": "390x844-default",
+      "state": "default",
+      "stateSelector": "body[data-fault=none]",
+      "width": 390,
+      "height": 844,
+      "reason": "Fixture comparison result and next action should fit together; product budgets must be authored separately.",
+      "regions": [
+        {
+          "id": "intro",
+          "selector": "#intro",
+          "maxHeight": 180,
+          "reason": "Keep the fixture task title and fault selector in a compact band."
+        },
+        {
+          "id": "map",
+          "selector": "#map",
+          "minWidth": 240,
+          "minHeight": 250,
+          "maxHeight": 300,
+          "reason": "Preserve the synthetic map operating area without stretching it to its sibling.",
+          "firstScreen": true
+        }
+      ],
+      "chrome": {
+        "selectors": ["header", "#status"],
+        "maxHeight": 100,
+        "reason": "The fixture has two small identity/reference bands."
+      },
+      "decision": {
+        "information": "#result",
+        "action": "#primary",
+        "maxGap": 32,
+        "firstScreen": true,
+        "reason": "The next step stays immediately after the result."
+      }
+    },
+    {
+      "id": "1280x720-default",
+      "state": "default",
+      "stateSelector": "body[data-fault=none]",
+      "width": 1280,
+      "height": 720,
+      "reason": "Fixture comparison result and next action should fit together; product budgets must be authored separately.",
+      "regions": [
+        {
+          "id": "intro",
+          "selector": "#intro",
+          "maxHeight": 130,
+          "reason": "Keep the fixture task title and fault selector in a compact band."
+        },
+        {
+          "id": "map",
+          "selector": "#map",
+          "minWidth": 240,
+          "minHeight": 250,
+          "maxHeight": 450,
+          "reason": "Preserve the synthetic map operating area without stretching it to its sibling.",
+          "firstScreen": true
+        }
+      ],
+      "chrome": {
+        "selectors": ["header", "#status"],
+        "maxHeight": 100,
+        "reason": "The fixture has two small identity/reference bands."
+      },
+      "decision": {
+        "information": "#result",
+        "action": "#primary",
+        "maxGap": 32,
+        "firstScreen": true,
+        "reason": "The next step stays immediately after the result."
+      }
+    }
+  ]
+}

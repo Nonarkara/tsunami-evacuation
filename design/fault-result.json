@@ -1,0 +1,27 @@
+{
+  "status": "FAIL",
+  "cases": 1,
+  "failures": [
+    {
+      "case": "1280x720-crowd",
+      "code": "region-not-visible",
+      "detail": "terrain: the preserved operating region must fit the initial viewport without a centre obstruction."
+    },
+    {
+      "case": "1280x720-crowd",
+      "code": "maxHeight",
+      "detail": "terrain: 900px violates maxHeight 460px. Preserve an operating terrain viewport independent of the research section."
+    },
+    {
+      "case": "1280x720-crowd",
+      "code": "region-not-visible",
+      "detail": "counts: the preserved operating region must fit the initial viewport without a centre obstruction."
+    },
+    {
+      "case": "1280x720-crowd",
+      "code": "decision-not-visible",
+      "detail": "Information and action must both fit and have an unobstructed centre on the initial screen."
+    }
+  ],
+  "scope": "Declared geometry budgets only; screenshots, task trial and independent review remain required."
+}

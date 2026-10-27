@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { type CoastalRegion, type Place, KHAO_LAK_GROUND_TRUTH } from "./research";
+import { type CoastalRegion, type Place } from "./research";
 
 export function StudyMap({
   region,
   selected,
   onSelect,
+  referenceOnly = false,
 }: {
   region: CoastalRegion;
   selected: number;
   onSelect: (n: number) => void;
+  referenceOnly?: boolean;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
@@ -26,7 +28,7 @@ export function StudyMap({
 
   // View & Simulation States
   const [baseLayer, setBaseLayer] = useState<"sat" | "topo">("sat");
-  const [is3D, setIs3D] = useState(false);
+  const [isTilted, setIsTilted] = useState(false);
   const [waterLevelM, setWaterLevelM] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showRoutes, setShowRoutes] = useState(true);
@@ -57,7 +59,7 @@ export function StudyMap({
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
       {
         attribution:
-          '&copy; <a href="https://www.esri.com/">Esri Earth Observation</a> · GISTDA/Copernicus Sentinel Relay',
+          '&copy; <a href="https://www.esri.com/">Esri imagery and contributors</a>',
         maxZoom: 18,
       },
     ).on("tileerror", () => {
@@ -136,7 +138,7 @@ export function StudyMap({
         .bindTooltip(
           `<div class="marker-tip">
             <strong>${i + 1}. ${p.name}</strong> <small>(${p.thaiName})</small><br/>
-            <span>Elev: <strong>${p.elevationM}m</strong> · Safe Ridge: <strong>${p.safeDistM}m</strong></span>
+            <span>Geographic place marker · refuge verification pending</span>
           </div>`,
           {
             direction: "top",
@@ -204,57 +206,8 @@ export function StudyMap({
 
     if (!showRoutes) return;
 
-    // Ground Truth Features for Khao Lak (Core Empirical Study Site)
-    if (region.id === "khao-lak") {
-      // 1. Tor 813 Memorial Marker (Historical 2004 Inundation Limit)
-      const tor813 = KHAO_LAK_GROUND_TRUTH.tor813;
-      const torMarker = L.marker([tor813.lat, tor813.lng], {
-        icon: L.divIcon({
-          className: "tor813-marker",
-          html: `<div class="tor813-badge" title="Tor 813 Memorial">⚓ 813</div>`,
-          iconSize: [48, 22],
-          iconAnchor: [24, 11],
-        }),
-      }).bindTooltip(
-        `<strong>${tor813.name}</strong> (${tor813.thaiName})<br/>
-         ${tor813.significance}<br/>
-         <em>Ground Elevation: ${tor813.elevationM}m MSL</em>`,
-        { sticky: true, className: "route-tooltip tor-tip" },
-      );
-      group.addLayer(torMarker);
-
-      // 2. Highway 4 Bottleneck Corridor (Verified 2-Lane Evacuation Gridlock)
-      const hwy4 = KHAO_LAK_GROUND_TRUTH.highway4Corridor;
-      const hwy4Poly = L.polyline(hwy4.points, {
-        color: "#ef4444",
-        weight: 4,
-        opacity: 0.85,
-        dashArray: "6, 6",
-        className: "highway4-corridor",
-      }).bindTooltip(
-        `⛔ <strong>${hwy4.name}</strong><br/>
-         ${hwy4.significance}`,
-        { sticky: true, className: "route-tooltip danger-tip" },
-      );
-      group.addLayer(hwy4Poly);
-    }
-
-    // Active Place Safe Buffer Zone & Vertical Refuge Context
-    const placeCircle = L.circle([activePlace.lat, activePlace.lng], {
-      radius: activePlace.safeDistM,
-      color: "#10b981",
-      weight: 2,
-      dashArray: "4, 6",
-      fillColor: "#10b981",
-      fillOpacity: 0.08,
-      className: "safe-buffer-zone",
-    }).bindTooltip(
-      `🚶 <strong>Pedestrian Evacuation Zone: ${activePlace.name}</strong><br/>
-       Safe Contour (&gt;15m MSL): ~${activePlace.safeDistM}m inland<br/>
-       <em>${activePlace.refugeStrategy}</em>`,
-      { sticky: true, className: "route-tooltip safe-tip" },
-    );
-    group.addLayer(placeCircle);
+    // No unverified road lines, refuge buffers or inundation boundaries are drawn.
+    // OSM exercise paths and terrain now live in TerrainRehearsal.
   }, [activePlace, showRoutes, region.id]);
 
   // Empirical Water Reach Level & Historical 2004 Run-up Scale
@@ -265,27 +218,8 @@ export function StudyMap({
 
     if (waterLevelM <= 0) return;
 
-    // Pulse indicator at active place calibrated against Copernicus 30m DEM
-    const exceedsGroundElev = waterLevelM > activePlace.elevationM;
-
-    const runupIndicator = L.circleMarker([activePlace.lat, activePlace.lng], {
-      radius: exceedsGroundElev ? 22 : 14,
-      fillColor: exceedsGroundElev ? "#f59e0b" : "#10b981",
-      color: exceedsGroundElev ? "#ef4444" : "#059669",
-      weight: 3,
-      fillOpacity: exceedsGroundElev ? 0.45 : 0.25,
-      className: exceedsGroundElev ? "surge-pulse-danger" : "surge-pulse-safe",
-    }).bindTooltip(
-      `🌊 <strong>Run-up Reach Level: +${waterLevelM.toFixed(1)}m MSL</strong><br/>
-       Ground elevation: ${activePlace.elevationM}m MSL<br/>
-       ${
-         exceedsGroundElev
-           ? `⚠️ Exceeds ground elevation. 2004 historical run-up benchmark: 8m–15m MSL.`
-           : `🛡️ Dry ground margin: +${(activePlace.elevationM - waterLevelM).toFixed(1)}m above current water level.`
-       }`,
-      { sticky: true, className: "route-tooltip surge-tip" },
-    );
-    group.addLayer(runupIndicator);
+    // Reference scale only: an elevation comparison cannot establish inundation.
+    // Deliberately draw no safe/dry marker from an unverified point height.
   }, [waterLevelM, activePlace]);
 
   // Automated Playback Timer for Water Reach Animation
@@ -314,14 +248,14 @@ export function StudyMap({
   }
 
   // Calculate Topographic Status for Selected Place
-  const exceedsGroundElev = activePlace && waterLevelM > activePlace.elevationM;
+  const exceedsGroundElev = false;
   const dryMargin =
     activePlace && !exceedsGroundElev
-      ? (activePlace.elevationM - waterLevelM).toFixed(1)
+      ? "unverified"
       : "0.0";
 
   return (
-    <div className={`map-wrap ${is3D ? "mode-3d" : ""}`}>
+    <div className={`map-wrap ${isTilted ? "mode-tilted" : ""}`}>
       {/* Interactive Leaflet Map Viewport */}
       <div
         ref={container}
@@ -332,7 +266,7 @@ export function StudyMap({
 
       {failed && (
         <div className="map-fallback-banner" role="alert">
-          Satellite feed degraded. Using offline vector contours.
+          Satellite tiles unavailable. Try the topographic layer or retry later. No offline basemap is installed.
         </div>
       )}
 
@@ -347,21 +281,21 @@ export function StudyMap({
             {baseLayer === "sat" ? "🛰️ Aerial Sat" : "🗺️ Topo Contours"}
           </button>
 
-          <button
-            className={`map-ctrl-btn ${is3D ? "active" : ""}`}
-            onClick={() => setIs3D(!is3D)}
-            title="Toggle 3D Aerial Drone Perspective View"
+          {!referenceOnly && <button
+            className={`map-ctrl-btn ${isTilted ? "active" : ""}`}
+            onClick={() => setIsTilted(!isTilted)}
+            title="Tilt the flat reference map; this does not render terrain"
           >
-            {is3D ? "📐 3D Perspective" : "🧭 2D Plan"}
-          </button>
+            {isTilted ? "📐 Tilted reference" : "🧭 2D Plan"}
+          </button>}
 
-          <button
+          {!referenceOnly && <button
             className={`map-ctrl-btn ${showRoutes ? "active" : ""}`}
             onClick={() => setShowRoutes(!showRoutes)}
             title="Toggle Evacuation Routes and Ground-Truth Benchmarks"
           >
-            {showRoutes ? "🚶 Routes: ON" : "🚶 Routes: OFF"}
-          </button>
+            {showRoutes ? "Place references: ON" : "Place references: OFF"}
+          </button>}
         </div>
 
         <div className="control-button-group">
@@ -392,11 +326,11 @@ export function StudyMap({
       </div>
 
       {/* ── § Integrated Compact Water Reach HUD ── */}
-      <div className="map-water-hud" aria-label="Tsunami Water Reach Simulator">
+      {!referenceOnly && <div className="map-water-hud" aria-label="Illustrative water-level reference">
         <button
           className={`hud-play-btn ${isPlaying ? "playing" : ""}`}
           onClick={handlePlayToggle}
-          aria-label={isPlaying ? "Pause Simulation" : "Animate Tsunami Wave Reach"}
+          aria-label={isPlaying ? "Pause Simulation" : "Animate reference water level"}
         >
           {isPlaying ? "⏸ Pause" : "▶ Simulate"}
         </button>
@@ -422,10 +356,10 @@ export function StudyMap({
 
         <div className="hud-status-pill">
           {waterLevelM === 0 ? (
-            <span className="chip-normal">Normal Baseline (0m MSL)</span>
+            <span className="chip-normal">Reference level only</span>
           ) : !exceedsGroundElev ? (
             <span className="chip-safe">
-              🛡️ Elev {activePlace?.elevationM}m (+{dryMargin}m dry margin)
+              Terrain validation: {dryMargin} · no safety inference
             </span>
           ) : (
             <span className="chip-submerged">
@@ -433,7 +367,7 @@ export function StudyMap({
             </span>
           )}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }

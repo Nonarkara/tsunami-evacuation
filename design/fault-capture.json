@@ -1,0 +1,159 @@
+[
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 146.359375,
+        "x": 1098.640625,
+        "y": 1086.890625
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1280,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1210,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1210,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1280,
+    "fontsReady": true,
+    "height": 720,
+    "id": "1280x720-crowd",
+    "information": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 32.1953125,
+        "width": 1210,
+        "x": 35,
+        "y": 1207.484375
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1210,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "counts": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 32.1953125,
+          "width": 1210,
+          "x": 35,
+          "y": 1207.484375
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1280,
+          "x": 0,
+          "y": 2038.609375
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 900,
+          "width": 1210,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1210,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "crowd",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 58.328125,
+        "x": 43,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1280
+  }
+]

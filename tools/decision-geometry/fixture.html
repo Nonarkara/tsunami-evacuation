@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decision geometry regression fixture</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font:
+          16px/1.4 Arial,
+          sans-serif;
+        color: #191712;
+        background: #f6f5f2;
+      }
+      header {
+        height: 54px;
+        padding: 12px 20px;
+        background: #191712;
+        color: #f6f5f2;
+      }
+      #status {
+        height: 30px;
+        padding: 3px 20px;
+      }
+      #intro {
+        padding: 12px 20px;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0;
+      }
+      label {
+        display: block;
+        margin-top: 8px;
+      }
+      select,
+      button {
+        font: inherit;
+        padding: 6px;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        margin: 0 20px;
+        align-items: start;
+      }
+      #map {
+        height: 320px;
+        min-width: 0;
+        background: #d2cfc5;
+        display: grid;
+        place-items: center;
+      }
+      #evidence {
+        min-width: 0;
+      }
+      #result {
+        padding: 12px 0;
+        font-size: 24px;
+      }
+      #primary {
+        margin: 12px 0;
+      }
+      #cover {
+        display: none;
+      }
+      body[data-fault="hero"] #intro {
+        height: 320px;
+      }
+      body[data-fault="stretch"] main {
+        align-items: stretch;
+      }
+      body[data-fault="stretch"] #evidence {
+        height: 700px;
+      }
+      body[data-fault="stretch"] #map {
+        height: auto;
+      }
+      body[data-fault="distance"] #primary {
+        margin-top: 360px;
+      }
+      body[data-fault="offscreen"] #map {
+        position: relative;
+        left: -5000px;
+      }
+      body[data-fault="hidden"] #map {
+        visibility: hidden;
+      }
+      body[data-fault="overflow"] {
+        width: 1600px;
+      }
+      body[data-fault="clip"] #evidence {
+        height: 70px;
+        overflow: hidden;
+      }
+      body[data-fault="cover"] #cover {
+        display: block;
+        position: fixed;
+        inset: 200px 0 0;
+        background: #eee;
+        z-index: 10;
+        pointer-events: auto;
+      }
+      @media (max-width: 760px) {
+        main {
+          display: block;
+        }
+        #map {
+          height: 250px;
+        }
+        #intro h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body data-fault="none">
+    <header>Task geometry fixture</header>
+    <div id="status">
+      Synthetic reference data — a test instrument, not a real map.
+    </div>
+    <section id="intro">
+      <h1>Compare a result and continue</h1>
+      <label
+        >Layout fault
+        <select id="fault">
+          <option value="none">None</option>
+          <option value="hero">Oversized title band</option>
+          <option value="stretch">Map stretched by sibling</option>
+          <option value="distance">Separated action</option>
+          <option value="hidden">Hidden map</option>
+          <option value="offscreen">Offscreen map</option>
+          <option value="overflow">Page bleed</option>
+          <option value="clip">Clipped action</option>
+          <option value="cover">Obstructed decision</option>
+        </select></label
+      >
+    </section>
+    <main>
+      <div id="map" role="img" aria-label="Synthetic map preservation target">
+        Map operating area
+      </div>
+      <section id="evidence">
+        <div id="result">Published result</div>
+        <button id="primary">Prepare this plan</button>
+        <p>
+          One decision, one next action. The controls above inject real layout
+          failures.
+        </p>
+      </section>
+    </main>
+    <div id="cover">Obstruction fixture</div>
+    <script>
+      document.querySelector("#fault").addEventListener("change", (event) => {
+        document.body.dataset.fault = event.target.value;
+      });
+    </script>
+  </body>
+</html>

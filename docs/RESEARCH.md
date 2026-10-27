@@ -10,28 +10,30 @@ Source research paper:
 
 ## Dr. Non's Executive Scientific Translation
 
-1. **The Brutal Truth About Cars**: Standard vehicular evacuation caused 21.8% to 22.6% casualties (over 8,500 people dead out of 39,041 modeled agents). Highway 4 reaches complete gridlock within 14 minutes. In an evacuation, a private automobile is a two-ton metal trap.
-2. **The Immediate 68% Win**: Banning cars and shifting to mandatory walking drops casualties to 7.0%. Pedestrians cannot be jammed by stationary cars and maintain continuous lateral movement.
-3. **Vertical Evacuation Refuges (VS14)**: Designating 14 reinforced multi-story buildings within 200–400m drops casualties to 3.7%.
-4. **Drills & Multilingual Signs (VE50 + SG135)**: Rehearsing stair access and installing 135 continuous route signs closes the survival gap, cutting casualties to 1.2% (a 94% overall reduction).
+1. **Congestion in the source model**: The baseline victim shares are 21.8% and 22.6% under baseline and delayed timing. These are modeled outcomes, not a count of observed deaths or a prediction for an individual.
+2. **PD50**: Increased pedestrian preference to 50% yields 7.0% baseline modeled victims. PD50 does not mean 100% walking or a universal ban on assisted transport.
+3. **VS14**: The authors evaluate 14 additional candidate reinforced concrete buildings. They are not certified public refuges; adding candidates yields 3.7% in the cumulative baseline package.
+4. **VE50 + SG135**: Increased vertical preference and 135 signs yield 1.2% baseline / 2.9% delayed modeled victims. Actual drills, signs and accessible assistance need local planning.
 
-## Nationwide Expansion
+## Geographic scope
 
-Soonami expands the empirical Khao Lak findings across all vulnerable coastal zones in Thailand:
-1. **Phang Nga (Khao Lak & Takua Pa)**: High wave run-up (8–15m), ETA 125m, Highway 4 choke point.
-2. **Phuket (West Coast Beaches)**: Extreme tourist density (Patong, Karon, Kata, Kamala, Bang Tao). Mandatory stair dispersal into hotel high-rises.
-3. **Krabi (Phi Phi & Ao Nang / Railay)**: Ton Sai sandspit dual-wave hazard; zero-vehicle rule; immediate climb to Viewpoints 1 & 2 (>100m).
-4. **Satun & Trang (Ko Lanta & Tarutao Archipelago)**: Island central high-ground egress (>25m).
-5. **Ranong (Laem Son & Koh Phayam)**: Northern Andaman subduction direct line.
-6. **Gulf of Thailand (Hua Hin, Samui, Pattaya, Songkhla)**: Secondary/distant seismic surge (Manila Trench origin), 8–12 hours warning time, shallow Sunda shelf damping.
+The original model covers Khao Lak. Other regional markers provide geographic orientation only; the paper does not validate evacuation routes, travel times, refuges or nationwide warning times for those areas.
+1. **Phang Nga**: Original study region. Its modeled shore arrival is 135 minutes in one earthquake scenario, not a real-event countdown.
+2. **Phuket**: Geographic context; local routes and destinations need authority confirmation.
+3. **Krabi**: Geographic context; island routes and refuge access need field verification.
+4. **Satun & Trang**: Geographic context; no validated local simulation is supplied.
+5. **Ranong**: Geographic context; no local hazard envelope or approved refuge inventory is supplied.
+6. **Gulf of Thailand**: Geographic context; no warning-time guarantee is inferred from basin geography.
 
-## FloodDash Sensor & Meteorological Telemetry
+## Instrument catalogue and terrain sources
 
-Ingested via the FloodDash architecture (`flood.nonarkara.org`):
-- **DART Buoy 23401 (Andaman Sea)**: Deep ocean bottom pressure recorder for pre-shelf wave train detection.
-- **RTN Tide Gauge Network**: Ko Taphao Noi (Phuket), Similan, Tarutao, Hua Hin.
-- **Copernicus 30m Coastal DEM**: Identifies the 15-meter safe elevation contour line.
-- **Sentinel-1 SAR Radar**: Cloud-penetrating all-weather coastal flood envelope mapping.
+The Satellite tab is an integration catalogue, not connected telemetry. It provides no current buoy observation, tide reading, SAR flood extent or live warning.
+- **Buoys and tide gauges** require verified instrument identity, timestamps, units and a working adapter before live display.
+- **SAR** is a possible flood-mapping source, not a connected current observation here.
+- **Terrain** now uses Mapzen Terrain Tiles, with source attribution, at 1× relief. The local static screening grid is sampled at roughly 100 m; it is not a Copernicus survey or the authors’ hydrodynamic model.
+- **No safe contour**: A 15 m contour, floor count or nearest concrete building cannot establish safety. Earlier unsupported contour/certification/ETA claims have been superseded by this correction.
+
+The new crowd rehearsal is a separate deterministic point-queue exercise on an OSM snapshot, not a port of the original Unity model. See [terrain and crowd method](TERRAIN-REHEARSAL.md).
 
 Transcription date: 27 October 2026. Data tier: historical modeled results, not observations, current warning performance or individual probability.
 

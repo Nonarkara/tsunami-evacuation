@@ -1,0 +1,753 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "390x844-crowd",
+      "state": "crowd",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(1)[aria-pressed=true]",
+      "width": 390,
+      "height": 844,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 120,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 320,
+          "minHeight": 230,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 140,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 260,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "390x844-water",
+      "state": "water",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(2)[aria-pressed=true]",
+      "width": 390,
+      "height": 844,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 120,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 320,
+          "minHeight": 230,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "waterControl",
+          "selector": ".terrain-secondary > .water-experiment",
+          "maxHeight": 160,
+          "firstScreen": true,
+          "reason": "Water screening must be controlled while its terrain is visible."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 140,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 260,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".terrain-stage",
+        "action": ".water-experiment input[type=range]",
+        "maxGap": 70,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1024x768-crowd",
+      "state": "crowd",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(1)[aria-pressed=true]",
+      "width": 1024,
+      "height": 768,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1024x768-water",
+      "state": "water",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(2)[aria-pressed=true]",
+      "width": 1024,
+      "height": 768,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "waterControl",
+          "selector": ".terrain-secondary > .water-experiment",
+          "maxHeight": 160,
+          "firstScreen": true,
+          "reason": "Water screening must be controlled while its terrain is visible."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".terrain-stage",
+        "action": ".water-experiment input[type=range]",
+        "maxGap": 70,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1280x720-crowd",
+      "state": "crowd",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(1)[aria-pressed=true]",
+      "width": 1280,
+      "height": 720,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1280x720-water",
+      "state": "water",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(2)[aria-pressed=true]",
+      "width": 1280,
+      "height": 720,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "waterControl",
+          "selector": ".terrain-secondary > .water-experiment",
+          "maxHeight": 160,
+          "firstScreen": true,
+          "reason": "Water screening must be controlled while its terrain is visible."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".terrain-stage",
+        "action": ".water-experiment input[type=range]",
+        "maxGap": 70,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1440x900-crowd",
+      "state": "crowd",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(1)[aria-pressed=true]",
+      "width": 1440,
+      "height": 900,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1440x900-water",
+      "state": "water",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(2)[aria-pressed=true]",
+      "width": 1440,
+      "height": 900,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "waterControl",
+          "selector": ".terrain-secondary > .water-experiment",
+          "maxHeight": 160,
+          "firstScreen": true,
+          "reason": "Water screening must be controlled while its terrain is visible."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".terrain-stage",
+        "action": ".water-experiment input[type=range]",
+        "maxGap": 70,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "390x844-expanded",
+      "state": "expanded",
+      "stateSelector": ".exercise-method[open]",
+      "width": 390,
+      "height": 844,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 120,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 320,
+          "minHeight": 230,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 140,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        },
+        {
+          "id": "method",
+          "selector": ".exercise-method[open]",
+          "minHeight": 120,
+          "maxHeight": 1200,
+          "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 260,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1024x768-expanded",
+      "state": "expanded",
+      "stateSelector": ".exercise-method[open]",
+      "width": 1024,
+      "height": 768,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        },
+        {
+          "id": "method",
+          "selector": ".exercise-method[open]",
+          "minHeight": 120,
+          "maxHeight": 1200,
+          "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1280x720-expanded",
+      "state": "expanded",
+      "stateSelector": ".exercise-method[open]",
+      "width": 1280,
+      "height": 720,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        },
+        {
+          "id": "method",
+          "selector": ".exercise-method[open]",
+          "minHeight": 120,
+          "maxHeight": 1200,
+          "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "1440x900-expanded",
+      "state": "expanded",
+      "stateSelector": ".exercise-method[open]",
+      "width": 1440,
+      "height": 900,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 60,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 800,
+          "minHeight": 280,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 70,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        },
+        {
+          "id": "method",
+          "selector": ".exercise-method[open]",
+          "minHeight": 120,
+          "maxHeight": 1200,
+          "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 150,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    }
+  ]
+}

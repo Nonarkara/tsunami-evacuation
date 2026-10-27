@@ -6,7 +6,7 @@ import "@fontsource/jost/600.css";
 import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
-import { StudyMap } from "./Map";
+import { TerrainRehearsal } from "./TerrainRehearsal";
 import {
   PAPER,
   CITATION,
@@ -50,7 +50,7 @@ function App() {
   });
 
   const [regionIdx, setRegionIdx] = useState(0);
-  const [selectedPlace, setSelectedPlace] = useState(0);
+  const [selectedPlace, setSelectedPlace] = useState(2);
   const [step, setStep] = useState(4);
   const [condition, setCondition] = useState<Condition>("baseline");
   const [emergency, setEmergency] = useState(false);
@@ -66,7 +66,7 @@ function App() {
 
   function handleRegionChange(idx: number) {
     setRegionIdx(idx);
-    setSelectedPlace(0);
+    setSelectedPlace(coastalRegions[idx].id === "khao-lak" ? 2 : 0);
   }
 
   return (
@@ -152,12 +152,12 @@ function App() {
           aria-label="Tsunami safety guidance"
         >
           <div>
-            <h2>Move to high ground (&gt;15m) or 3rd floor immediately.</h2>
+            <h2>Follow designated evacuation routes to high ground or inland.</h2>
             <p>
-              Natural signs: violent ground shaking, sudden sea recession, or a roaring ocean sound. Leave immediately on foot. Do not use cars. Do not wait for website updates.
+              Natural signs: violent ground shaking, sudden sea recession, or a roaring ocean sound. Move immediately when you can do so safely. Follow official guidance and arrange assistance. Do not wait for website updates.
             </p>
             <p lang="th">
-              หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพทันทีด้วยการเดินเท้าไปยังพื้นที่สูง (&gt;15 เมตร) หรืออาคารคอนกรีตเสริมเหล็กชั้น 3 ขึ้นไป ห้ามใช้รถยนต์เด็ดขาด
+              หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพไปยังพื้นที่สูงหรือพื้นที่ด้านในตามเส้นทางที่ทางการกำหนด และช่วยเหลือผู้ที่ต้องการความช่วยเหลือ
             </p>
           </div>
           <div>
@@ -202,18 +202,15 @@ function App() {
             <section className="geography-pane" aria-labelledby="map-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
-                  <span className="pane-badge">01 / 3D AERIAL TOPOGRAPHY & WATER REACH</span>
+                  <span className="pane-badge">01 / TERRAIN & CROWD REHEARSAL</span>
                   <h2 id="map-pane-title">{region.name}</h2>
                 </div>
-                <div className="region-meta-strip">
-                  <span className="meta-tag risk">{region.riskTier}</span>
-                  <span className="meta-tag">ETA: ~{region.waveEtaMin}m</span>
-                  <span className="meta-tag">Runup: {region.expectedRunupM}</span>
-                </div>
+
               </div>
 
               {/* Interactive 3D Aerial Leaflet Map with Wave Simulation */}
-              <StudyMap
+              <TerrainRehearsal
+                key={region.id}
                 region={region}
                 selected={selectedPlace}
                 onSelect={setSelectedPlace}
@@ -229,13 +226,13 @@ function App() {
                   >
                     <span className="place-num">{i + 1}</span>
                     <span className="place-text">{p.name}</span>
-                    <span className="place-elev-tag">{p.elevationM}m</span>
+
                   </button>
                 ))}
               </div>
 
               {/* Fly-In Evacuation Route Briefing */}
-              <div className="place-directive-card">
+              <details className="place-directive-card"><summary>Local context and personal plan · {place.name}</summary>
                 <div className="directive-header">
                   <div>
                     <h3>
@@ -244,17 +241,7 @@ function App() {
                     </h3>
                     <p className="place-desc">{place.description}</p>
                   </div>
-                  <div className="place-stats">
-                    <span className="stat-pill">
-                      Elev: <strong>{place.elevationM}m MSL</strong>
-                    </span>
-                    <span className="stat-pill safe">
-                      Safe Ridge: <strong>{place.safeDistM}m</strong>
-                    </span>
-                    <span className="stat-pill walk">
-                      Contour: <strong>&gt;15m MSL</strong>
-                    </span>
-                  </div>
+                  <div className="place-stats"><span className="stat-pill">Local route and refuge validation pending</span></div>
                 </div>
 
                 {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2024) */}
@@ -262,22 +249,22 @@ function App() {
                   <div className="waypoint-item start">
                     <span className="wp-badge">01 IMMEDIATE</span>
                     <div>
-                      <strong>Zero Motor Vehicles · Immediate Foot Departure</strong>
-                      <small>Siren or shaking triggers instant pedestrian departure. Leaving cars behind prevents fatal highway gridlock.</small>
+                      <strong>Plan an accessible departure</strong>
+                      <small>Follow local evacuation instructions and natural warnings. Plan assistance for people who cannot evacuate on foot.</small>
                     </div>
                   </div>
                   <div className="waypoint-item walk">
                     <span className="wp-badge">02 PERPENDICULAR</span>
                     <div>
-                      <strong>Perpendicular Foot Route ({place.safeDistM}m to Safe Ground)</strong>
-                      <small>Evacuate directly inland away from shoreline. Bypass parallel highway corridors on foot.</small>
+                      <strong>Walk and verify the designated route</strong>
+                      <small>Confirm crossings, gates, signs and a backup with the local authority; a straight inland line is not a verified route.</small>
                     </div>
                   </div>
                   <div className="waypoint-item destination">
                     <span className="wp-badge">03 REFUGE</span>
                     <div>
                       <strong>{place.refugeStrategy}</strong>
-                      <small>Empirical defense: upper floors of certified reinforced concrete structures or terrain above 15m MSL.</small>
+                      <small>Use authority-designated destinations. Neither an elevation threshold nor a floor number certifies safety.</small>
                     </div>
                   </div>
                 </div>
@@ -303,10 +290,10 @@ function App() {
                     Draft personal plan for {place.name} →
                   </button>
                   <span className="meta-note">
-                    Topography calibrated via Copernicus 30m DEM & AIT hydrodynamic run-up model.
+                    Terrain and exercise are separate from the published Unity model.
                   </span>
                 </div>
-              </div>
+              </details>
             </section>
 
             {/* Section 02: Evidence & Modeling Engine (Tight 50/50 Split Cockpit) */}
@@ -314,7 +301,7 @@ function App() {
               <div className="pane-header">
                 <div className="pane-titles">
                   <span className="pane-badge">02 / MODELING & MITIGATION</span>
-                  <h2 id="model-pane-title">Empirical Evidence Engine</h2>
+                  <h2 id="model-pane-title">Published Khao Lak model</h2><span className="terrain-tier">Preprint · historical scenarios · 39,041 modeled agents · applies to Khao Lak</span>
                 </div>
                 <div className="condition-toggle-group">
                   <button
@@ -344,7 +331,7 @@ function App() {
                           <small>%</small>
                         </span>
                         <div className="hud-labels">
-                          <strong>Casualty Rate</strong>
+                          <strong>Modeled victim share</strong>
                           <span>
                             {Math.round(
                               (resultFor(step, condition) / 100) * POPULATION,
@@ -572,7 +559,7 @@ function SatelliteIntel() {
           <h1>Satellite & Meteorological Defense Suite</h1>
         </div>
         <p>
-          Derived from FloodDash (flood.nonarkara.org) sensor ingestion networks. Real-time deep-ocean acoustic telemetry, sea-surface tide gauges, and cloud-penetrating synthetic aperture radar.
+          Integration catalogue only. These example instruments are not connected to live telemetry in this application. Consult TMD and DDPM for official warnings.
         </p>
       </div>
 
@@ -581,13 +568,13 @@ function SatelliteIntel() {
           <article key={s.id} className="sensor-card">
             <div className="sensor-card-top">
               <span className={`sensor-status-badge ${s.status.toLowerCase()}`}>
-                ● {s.status}
+                ○ Not connected
               </span>
               <span className="sensor-agency">{s.agency}</span>
             </div>
             <h3>{s.name}</h3>
             <div className="sensor-value-box">
-              <strong>{s.value}</strong>
+              <strong>Example specification · no current observation</strong>
               <small>Cadence: {s.updateFreq}</small>
             </div>
             <p>{s.significance}</p>
@@ -621,7 +608,7 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
       </div>
 
       <article className="research-prose">
-        <h2>1. The Brutal Truth: Why Cars Kill in a Tsunami</h2>
+        <h2>1. What the Khao Lak model says about congestion</h2>
         <p>
           When the ground stops shaking after a major subduction earthquake in the Andaman Sea, human instinct says: <em>“Get in the car, pick up the family, step on the gas, and drive inland.”</em>
         </p>
@@ -629,10 +616,10 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
           The AIT and Mahidol research team put that instinct to a rigorous scientific test. They modeled <strong>39,041 autonomous individual agents</strong> moving through the actual road network, building footprints, and topography of Khao Lak inside the Unity physics engine, coupled with a hydrodynamic tsunami inundation wave model.
         </p>
         <p>
-          The baseline result is terrifying: <strong>21.8% to 22.6% of the population died (over 8,500 people)</strong>.
+          The baseline result is terrifying: <strong>21.8% to 22.6% modeled victim share among 39,041 synthetic agents</strong>.
         </p>
         <p>
-          Why? Because coastal roads like Highway 4 are two-lane arteries. Within 14 minutes of departure, vehicular traffic reaches total gridlock. Cars cannot move forward; they cannot turn around. When the tsunami wave reaches the shore at T+125 minutes, it sweeps through stagnant lines of automobiles. <strong>In an evacuation, your car is not a shelter; it is a 2-ton metal coffin.</strong>
+          The study links congestion and departure delays to evacuation outcomes. Its warning assumptions are 30 or 45 minutes after the scenario earthquake, with a modeled shore arrival at 135 minutes. <strong>Those timings are not a real-event countdown or permission to wait.</strong>
         </p>
 
         {/* Diagram 1: The Gridlock Trap vs Walking & Vertical */}
@@ -644,32 +631,32 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
           <div className="diagram-visual gridlock-vs-walk">
             <div className="diagram-column bad">
               <h4>❌ The Vehicular Baseline (Failure Mode)</h4>
-              <div className="diag-step">1. Siren sounds (T=0)</div>
-              <div className="diag-step">2. 73% scramble into cars (T+14m)</div>
-              <div className="diag-step choke">3. Highway 4 complete gridlock choke (T+25m)</div>
-              <div className="diag-step fatal">4. Wave strikes shore (T+125m) ➔ 21.8% Casualties</div>
+              <div className="diag-step">1. Scenario earthquake at time zero</div>
+              <div className="diag-step">2. Baseline pedestrian preference about 27%</div>
+              <div className="diag-step choke">3. Vehicle congestion limits evacuation</div>
+              <div className="diag-step fatal">4. Modeled baseline victim share: 21.8%</div>
             </div>
             <div className="diagram-arrow-switch">VS</div>
             <div className="diagram-column good">
               <h4>✅ Soonami Multi-Tier Protocol (Survival Mode)</h4>
-              <div className="diag-step">1. Siren sounds ➔ IMMEDIATE ZERO-CAR RULE</div>
-              <div className="diag-step">2. 100% foot departure ➔ Casualties drop to 7.0%</div>
-              <div className="diag-step">3. 14 Vertical refuges unlocked ➔ Casualties drop to 3.7%</div>
-              <div className="diag-step win">4. Drills + 135 signs ➔ 1.2% Casualties (94% Reduction!)</div>
+              <div className="diag-step">1. Compare cumulative study interventions</div>
+              <div className="diag-step">2. PD50 walking preference ➔ 7.0% victims</div>
+              <div className="diag-step">3. Add 14 candidate sites ➔ 3.7% victims</div>
+              <div className="diag-step win">4. Preference + 135 signs ➔ 1.2% victims</div>
             </div>
           </div>
         </div>
 
-        <h2>2. The Two Game-Changers: Mandatory Walking and 14 Vertical Refuges</h2>
+        <h2>2. Increased walking preference and 14 candidate buildings</h2>
         <p>
-          The study demonstrated that you do not need billions of baht in seawalls to save 8,000 lives. You need two immediate spatial decisions:
+          The cumulative scenarios compare behavioral and refuge interventions. Their results require local validation before being applied elsewhere:
         </p>
         <ol className="key-takeaways-list">
           <li>
-            <strong>Mandatory Walking on Foot (PD50):</strong> Shifting the population from cars to foot immediately drops casualties from <strong>21.8% down to 7.0%</strong>. A pedestrian cannot be gridlocked by an empty car. Pedestrians bypass road choke points, cross grassy medians, and maintain continuous egress.
+            <strong>50% pedestrian preference (PD50):</strong> Increasing pedestrian preference in the model changes the baseline victim share from <strong>21.8% down to 7.0%</strong>. This is not a 100% walking scenario. Actual departures must account for accessible assistance, crossings and route conditions.
           </li>
           <li>
-            <strong>Designating 14 Vertical Refuges (VS14):</strong> You don’t need every tourist to hike 2 kilometers inland into the mountains. If you designate 14 engineered, reinforced-concrete hotel and school buildings within 200–400 meters of the beach, people can reach the 3rd floor in under 10 minutes. This drops casualties further from <strong>7.0% to 3.7%</strong>.
+            <strong>Designating 14 Vertical Refuges (VS14):</strong> The authors identify 14 candidate three- to four-story reinforced concrete buildings. They are not an operational inventory or certification. Adding them to the model changes the cumulative baseline victim share from <strong>7.0% to 3.7%</strong>.
           </li>
         </ol>
 
@@ -682,7 +669,7 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
           <div className="waterfall-bars">
             <div className="waterfall-row">
               <span className="wf-label">Baseline (Cars)</span>
-              <div className="wf-track"><span className="wf-fill c-base" style={{ width: "87.2%" }}>21.8% Victims (8,511 lost)</span></div>
+              <div className="wf-track"><span className="wf-fill c-base" style={{ width: "87.2%" }}>21.8% modeled victims</span></div>
             </div>
             <div className="waterfall-row">
               <span className="wf-label">+ Promote Walking</span>
@@ -705,42 +692,42 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
 
         <h2>3. The Final 2.5%: Why Drills and Multilingual Signs Matter</h2>
         <p>
-          Why wasn’t vertical evacuation alone enough to reach 1.2%? The authors discovered that even with certified vertical refuges available, <strong>agents who had never rehearsed walking into the building hesitated or got lost</strong>.
+          Why wasn’t vertical evacuation alone enough to reach 1.2%? The model changes vertical-evacuation preference and signage. <strong>It does not directly measure the outcome of an actual community drill</strong>.
         </p>
         <p>
-          Foreign tourists in Khao Lak, Patong, or Phi Phi cannot read Thai road signs and have zero mental map of the back alleys. When <strong>135 high-contrast multilingual signs</strong> were added and vertical drills simulated, casualties plummeted to <strong>1.2% under baseline timing and 2.9% under delayed timing</strong>.
+          Visitors may face language and wayfinding barriers; local research should establish their needs. When <strong>135 signs</strong> were added and vertical preference increased, casualties plummeted to <strong>1.2% under baseline timing and 2.9% under delayed timing</strong>.
         </p>
 
         {/* Diagram 3: Wave Timeline vs Warning Latency */}
         <div className="diagram-box">
           <div className="diagram-header">
             <span>DIAGRAM 3</span>
-            <strong>Timeline of an Andaman Subduction Tsunami: The Critical Foot Gate</strong>
+            <strong>Study timing assumptions · not a real-event countdown</strong>
           </div>
           <div className="timeline-visual">
             <div className="timeline-node t0">
               <strong>T = 0 min</strong>
-              <span>M8.5+ Subduction Quake in Andaman Trench</span>
+              <span>Scenario earthquake · time origin</span>
             </div>
-            <div className="timeline-arrow">➔ 15 min ➔</div>
+            <div className="timeline-arrow">➔</div>
             <div className="timeline-node t15">
-              <strong>T + 15 min</strong>
-              <span>DART Buoy 23401 Triggers Alert</span>
+              <strong>Warning assumption</strong>
+              <span>30 min baseline / 45 min delayed</span>
             </div>
-            <div className="timeline-arrow">➔ 15 min ➔</div>
+            <div className="timeline-arrow">➔</div>
             <div className="timeline-node t30">
-              <strong>T + 30 min</strong>
-              <span>TMD Sirens Sound on Coastal Towers</span>
+              <strong>Preparation assumption</strong>
+              <span>14 min average / 28 min delayed</span>
             </div>
             <div className="timeline-arrow">➔ CRITICAL ➔</div>
             <div className="timeline-node t45 critical">
-              <strong>T + 30 to 50 min</strong>
-              <span>MUST BE ON FOOT MOVING TO REFUGES</span>
+              <strong>Departure varies</strong>
+              <span>Follow warnings immediately; do not wait for these times</span>
             </div>
             <div className="timeline-arrow">➔ Inundation ➔</div>
             <div className="timeline-node t125 wave">
-              <strong>T + 125 min</strong>
-              <span>First Crest Hits Shoreline (8-15m Runup)</span>
+              <strong>T + 135 min</strong>
+              <span>Modeled shore arrival in one scenario</span>
             </div>
           </div>
         </div>
@@ -750,22 +737,22 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
           <div className="matrix-card">
             <h4>🏢 For Hotel General Managers & Resort Owners</h4>
             <ul>
-              <li><strong>What the data shows:</strong> Your guests cannot outrun a wave in vehicles. Leaving guests to drive causes 21.8% mortality.</li>
-              <li><strong>Actionable item:</strong> Formally certify your top 3 floors / roof deck as a Vertical Evacuation Refuge. Install automatic fail-open panic hardware on rooftop stair doors so they never lock during sirens.</li>
+              <li><strong>What the data shows:</strong> The modeled baseline victim share is 21.8%; this is not a causal estimate for an individual guest.</li>
+              <li><strong>Actionable item:</strong> Ask qualified engineers and local authorities to assess refuge suitability and accessible emergency access before designation.</li>
             </ul>
           </div>
           <div className="matrix-card">
             <h4>🏛️ For Mayors, Municipal Engineers & DDPM</h4>
             <ul>
-              <li><strong>What the data shows:</strong> Two existing evacuation sites are catastrophically inadequate. 14 certified vertical sites are mandatory.</li>
-              <li><strong>Actionable item:</strong> Sign structural access MOUs with commercial concrete buildings. Install bilingual route signage every 100 meters along beach corridors.</li>
+              <li><strong>What the data shows:</strong> Two existing evacuation sites are catastrophically inadequate. The paper evaluates 14 candidate buildings; local approval is required.</li>
+              <li><strong>Actionable item:</strong> Survey route access and hazard exposure, assess candidate refuges and agree signage with the competent authority.</li>
             </ul>
           </div>
           <div className="matrix-card">
             <h4>👨‍👩‍👧 For Residents & Visitors</h4>
             <ul>
-              <li><strong>What the data shows:</strong> You have between 30 and 45 minutes of preparation before departing on foot. Every minute spent searching for car keys is fatal.</li>
-              <li><strong>Actionable item:</strong> Keep slip-on walking shoes and emergency meds beside the bed. Identify your nearest 3-story concrete building today.</li>
+              <li><strong>What the data shows:</strong> No preparation window is guaranteed. Natural warnings may precede an official warning; follow local evacuation guidance immediately.</li>
+              <li><strong>Actionable item:</strong> Keep slip-on walking shoes and emergency meds beside the bed. Confirm designated destinations and accessible routes with the local authority.</li>
             </ul>
           </div>
         </div>
@@ -833,7 +820,7 @@ function Prepare() {
           {(
             [
               ["place", "Where are you staying?", "Hotel, home or workplace"],
-              ["destination", "Primary Vertical / High-Ground Refuge", "Name and access point (>15m)"],
+              ["destination", "Primary Vertical / High-Ground Refuge", "Authority-designated destination and access point"],
               ["backup", "Backup Refuge Destination", "Alternative 3+ story building"],
               ["contact", "Out-of-Area Contact", "Name and mobile number"],
             ] as const
@@ -960,10 +947,10 @@ function Prepare() {
         <h3>Evacuation Core Axioms</h3>
         <ul className="axioms-list">
           <li>
-            <strong>1. Cars are fatal:</strong> Highway 4 and beach arteries gridlock in 14 minutes. Walk on foot.
+            <strong>1. Plan for congestion:</strong> Confirm an accessible departure plan and designated routes with local emergency managers.
           </li>
           <li>
-            <strong>2. Vertical saves time:</strong> A 3rd-floor reinforced hotel is safer than running 2 km inland.
+            <strong>2. Vertical saves time:</strong> Confirm an authority-designated vertical refuge and access before a drill.
           </li>
           <li>
             <strong>3. Practice removes panic:</strong> Rehearse staircases and exit gates before a real event.
@@ -1115,10 +1102,10 @@ function Drill() {
       <aside className="drill-aside">
         <h3>Drill Standards</h3>
         <p>
-          Hotels and schools should conduct drills unannounced to simulate authentic warning conditions.
+          Agree drill timing, assistance and accessible participation with local coordinators. Use observed completion and headcount gaps to revise the plan.
         </p>
         <div className="target-pill">
-          <strong>Target: 100% of participants on foot at safe refuge &lt; 15 minutes.</strong>
+          <strong>Set a locally agreed drill target; reconcile every participant and assistance need.</strong>
         </div>
       </aside>
     </div>

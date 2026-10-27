@@ -41,3 +41,7 @@ Node 22+, npm ci, npm test, npm run build. The hosting manifest binds the exact 
 No live alerts; no original simulator; no verified routes/refuges/hazard polygons; no current occupancy or capacity; no promise of personal survival; no synchronized team record store. English working interface plus brief Thai emergency guidance; a full independently reviewed Thai interface remains future work. No offline PWA cache: a stale emergency shell must not quietly masquerade as current information. Print/download plans for use without connectivity.
 
 Canonical deployment moved to native Cloudflare Worker Static Assets because the Sites custom-domain path required unavailable DNS-edit scope. The Sites version remains an explicitly dated snapshot. See DEPLOYMENT.md for the exact release command and synchronization boundary.
+
+## Terrain/crowd addition — 27 October 2026
+
+MapLibre GL JS6.16 renders real Terrarium DEM terrain at1× relief over credited imagery. Its module worker is explicitly bundled via Vite, with same-origin worker policy. Leaflet remains a 2D reference fallback. `TerrainRehearsal.tsx` owns camera and experiment state; `crowd.ts` implements the pure FIFO point-queue exercise and separate static terrain-screening function. Derived OSM paths and a coarse DEM grid are local public snapshots; no person or personal plan is transmitted. Crowd and water experiments do not interact and do not reproduce Unity ABMS outputs. Full method, provenance and missing research inputs are in `TERRAIN-REHEARSAL.md`.

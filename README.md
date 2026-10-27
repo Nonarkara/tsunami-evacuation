@@ -2,17 +2,17 @@
 
 A research-informed planning pilot for residents, visitors, hotels and local teams in Khao Lak, Thailand.
 
-**Intended canonical address:** https://tsunami.nonarkara.org/  
-**Repository:** https://github.com/Nonarkara/tsunami-evacuation  
+**Live canonical address:** https://tsunami.nonarkara.org/
+**Repository:** https://github.com/Nonarkara/tsunami-evacuation
 **Maturity:** planning pilot. No real-time warning feed, validated evacuation routing or operational refuge inventory.
 
-The application translates the supplied preprint into four working views. It preserves the original model's authorship and published results; it does not claim to run or replace the Unity simulation.
+The application translates the supplied preprint into planning views and a separate terrain/crowd research exercise. It preserves the original model's authorship and published results; it does not claim to run or replace the Unity simulation.
 
-![The Khao Lak preparedness pilot](docs/screenshots/explore-1440.png)
+![Terrain and crowd research rehearsal](docs/evidence/crowd-1440.png)
 
 ## What works
 
-- **Explore:** interactive Leaflet map, four approximate named area markers, zoom/reset and keyboard area controls. The map provides geographic orientation. No made-up flood boundary or approved refuge pins.
+- **Terrain and rehearsal:** genuine 3D relief, mountain fly-by, route-follow camera, approximate elevation profiles and a 500–5,000-person queue exercise on three OSM approaches. Change pace/pinch width and scrub or play the timeline. A separate static water-level experiment explores connected low terrain; it is not tsunami inundation. The original Leaflet 2D geographic map remains available. [Method and limits](docs/TERRAIN-REHEARSAL.md).
 - **Compare:** five cumulative intervention packages under baseline and delayed conditions. Reported victim shares, same-condition relative reduction, source references and outcome-category explanation. Expanded package details give a practical next step.
 - **My plan:** destination, backup, route, assistance and contact fields; readiness checklist; explicit on-device save/load/remove; JSON export and printable full notes. Unsaved entries survive in-app tab changes. A simple distance/speed estimate supports rehearsal, without a tsunami deadline or safety score.
 - **Run a drill:** five protocol stages with assigned roles, validated aggregate headcounts, unaccounted-for count, action owner/review date and JSON export. The print view includes all five stage descriptions.
@@ -34,7 +34,7 @@ Vite prints the local address. `npm run preview` serves the built application. C
 
 ## Framework lineage
 
-React 19, TypeScript, Vite and Leaflet. Axiom Design Core's MIT token foundation is reused with project-specific accessible typography and current workspace design rules. Palette Plate 002 supplies the Dark Tyrian Blue / Yellow Orange relationship: a bounded blue masthead, neutral reading surfaces and sparse amber actions. Jost is self-hosted. See [architecture](docs/ARCHITECTURE.md) and [Palette provenance](docs/PALETTE.md).
+React 19, TypeScript, Vite, MapLibre GL JS 6.16 and Leaflet. Axiom Design Core's MIT token foundation is reused with project-specific accessible typography and current workspace design rules. Palette Plate 002 supplies the Dark Tyrian Blue / Yellow Orange relationship: a bounded blue masthead, neutral reading surfaces and sparse amber actions. Jost is self-hosted. See [architecture](docs/ARCHITECTURE.md) and [Palette provenance](docs/PALETTE.md).
 
 ## Evidence and interpretation
 
