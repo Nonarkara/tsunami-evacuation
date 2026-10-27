@@ -457,71 +457,47 @@ export function StudyMap({
         </div>
       </div>
 
-      {/* ── § Water Reach Level Animation & Inundation Simulator ── */}
-      <div className="water-reach-simulator-bar">
-        <div className="simulator-header">
-          <div className="sim-title">
-            <span className="sim-pulse-dot" />
-            <strong>Water Reach Level Simulator</strong>
-            <small>Interactive Tsunami Inundation Sweep (0m – 15m)</small>
-          </div>
+      {/* ── § Integrated Compact Water Reach HUD ── */}
+      <div className="map-water-hud" aria-label="Tsunami Water Reach Simulator">
+        <button
+          className={`hud-play-btn ${isPlaying ? "playing" : ""}`}
+          onClick={handlePlayToggle}
+          aria-label={isPlaying ? "Pause Simulation" : "Animate Tsunami Wave Reach"}
+        >
+          {isPlaying ? "⏸ Pause" : "▶ Simulate"}
+        </button>
 
-          <div className="sim-status-badge">
-            {waterLevelM === 0 ? (
-              <span className="badge-normal">Normal Sea Level (0.0m)</span>
-            ) : isSubmerged ? (
-              <span className="badge-submerged">
-                ⚠️ {activePlace?.name} Submerged ({submergenceDepth}m Depth)
-              </span>
-            ) : (
-              <span className="badge-safe">
-                ✅ Dry Ground Margin (+{dryMargin}m)
-              </span>
-            )}
-          </div>
+        <div className="hud-slider-group">
+          <span className="hud-label">Surge Level:</span>
+          <input
+            id="water-level-slider"
+            type="range"
+            min="0"
+            max="15"
+            step="0.5"
+            value={waterLevelM}
+            onChange={(e) => {
+              setIsPlaying(false);
+              setWaterLevelM(Number(e.target.value));
+            }}
+            className="hud-slider"
+            aria-label="Water reach elevation in meters"
+          />
+          <span className="hud-meter-val">+{waterLevelM.toFixed(1)}m</span>
         </div>
 
-        <div className="simulator-controls">
-          <button
-            className={`sim-play-btn ${isPlaying ? "playing" : ""}`}
-            onClick={handlePlayToggle}
-            aria-label={
-              isPlaying ? "Pause Water Simulation" : "Simulate Tsunami Wave Reach"
-            }
-          >
-            {isPlaying ? "⏸ Pause" : "▶ Animate Wave Reach"}
-          </button>
-
-          <div className="sim-slider-wrap">
-            <label htmlFor="water-level-slider" className="sr-only">
-              Simulated Tsunami Water Level in Meters
-            </label>
-            <input
-              id="water-level-slider"
-              type="range"
-              min="0"
-              max="15"
-              step="0.5"
-              value={waterLevelM}
-              onChange={(e) => {
-                setIsPlaying(false);
-                setWaterLevelM(Number(e.target.value));
-              }}
-              className="water-level-slider"
-            />
-            <div className="slider-ticks" aria-hidden="true">
-              <span onClick={() => setWaterLevelM(0)}>0m Normal</span>
-              <span onClick={() => setWaterLevelM(3)}>3m Beach Wash</span>
-              <span onClick={() => setWaterLevelM(6)}>6m Resorts</span>
-              <span onClick={() => setWaterLevelM(10)}>10m Hwy 4</span>
-              <span onClick={() => setWaterLevelM(15)}>15m Max Run-up</span>
-            </div>
-          </div>
-
-          <div className="sim-level-display">
-            <span className="level-number">+{waterLevelM.toFixed(1)}m</span>
-            <span className="level-label">Surge Height</span>
-          </div>
+        <div className="hud-status-pill">
+          {waterLevelM === 0 ? (
+            <span className="chip-normal">Normal Sea Level (0m)</span>
+          ) : isSubmerged ? (
+            <span className="chip-submerged">
+              ⚠️ {activePlace?.name} Submerged ({submergenceDepth}m Depth)
+            </span>
+          ) : (
+            <span className="chip-safe">
+              🛡️ Safe Dry Margin (+{dryMargin}m)
+            </span>
+          )}
         </div>
       </div>
     </div>

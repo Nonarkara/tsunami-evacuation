@@ -340,9 +340,9 @@ function App() {
                 </div>
               </div>
 
-              {/* ── Balanced 50/50 Split Grid: Scenarios vs Details (Zero Stretched Tracks) ── */}
+              {/* ── Balanced Split Cockpit: Scenario Decision Table vs Active Package Directives ── */}
               <div className="modeling-split-grid">
-                {/* Column 1 (Left 50%): Result HUD + Compact Half-Width Scenario Selector */}
+                {/* Column 1: Compact Scenario Decision Table (Fixed-Width Bars, Zero Hallucination) */}
                 <div className="split-col-left">
                   <div className="result-hud" aria-live="polite">
                     <div className="hud-primary">
@@ -352,12 +352,12 @@ function App() {
                           <small>%</small>
                         </span>
                         <div className="hud-labels">
-                          <strong>Casualty rate</strong>
+                          <strong>Casualty Rate</strong>
                           <span>
                             {Math.round(
                               (resultFor(step, condition) / 100) * POPULATION,
                             ).toLocaleString("en-US")}{" "}
-                            of {POPULATION.toLocaleString("en-US")} modeled agents
+                            of {POPULATION.toLocaleString("en-US")} agents
                           </span>
                         </div>
                       </div>
@@ -366,7 +366,7 @@ function App() {
                           <span className="reduction-pct">
                             −{reduction(step, condition).toFixed(0)}%
                           </span>
-                          <span className="reduction-sub">Drop vs baseline</span>
+                          <span className="reduction-sub">Casualty Drop</span>
                         </div>
                       ) : (
                         <div className="hud-baseline-badge">
@@ -376,7 +376,7 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Compact Scenario Selector */}
+                  {/* Compact Scenario Selector (Fixed 70px Mini-Bars, Never Stretched) */}
                   <div
                     className="scenario-table-compact"
                     role="region"
@@ -384,7 +384,7 @@ function App() {
                   >
                     <div className="scenario-table-header" aria-hidden="true">
                       <span className="col-pkg">Intervention Package</span>
-                      <span className="col-rate">Casualties</span>
+                      <span className="col-rate">Casualties (25% Scale)</span>
                     </div>
 
                     <div className="scenario-list">
@@ -401,23 +401,23 @@ function App() {
                           >
                             <span className="scenario-label">
                               <span className="step-num">{isBase ? "—" : `0${i}`}</span>
-                              <span className="step-text">{s.label}</span>
+                              <span className="step-text">{s.short}</span>
                             </span>
-                            <span className="bar-track" aria-hidden="true">
-                              <span
-                                style={{
-                                  width: `${(rate / 25) * 100}%`,
-                                }}
-                              />
-                            </span>
-                            <span className="rate-wrap">
+                            <div className="scenario-meter-group">
+                              <span className="mini-bar-track" aria-hidden="true">
+                                <span
+                                  style={{
+                                    width: `${Math.min((rate / 25) * 100, 100)}%`,
+                                  }}
+                                />
+                              </span>
                               <strong className="rate-num">{rate.toFixed(1)}%</strong>
                               {!isBase ? (
                                 <span className="red-pill">−{red.toFixed(0)}%</span>
                               ) : (
                                 <span className="base-pill">Base</span>
                               )}
-                            </span>
+                            </div>
                           </button>
                         );
                       })}
@@ -425,18 +425,17 @@ function App() {
                   </div>
                 </div>
 
-                {/* Column 2 (Right 50%): Active Package Details, Directive & Outcome Breakdown */}
+                {/* Column 2: Active Package Directive & Compact 100% Outcome Breakdown */}
                 <div className="split-col-right">
                   {/* Active Package Inspector Card */}
                   <div className="active-package-card">
                     <div className="active-pkg-header">
-                      <span className="active-pkg-tag">SELECTED INTERVENTION</span>
+                      <span className="active-pkg-tag">ACTIVE INTERVENTION</span>
                       <h3>{scenarios[step].label}</h3>
-                      <small className="pkg-ref">Preprint reference: {scenarios[step].reference}</small>
                     </div>
 
                     <div className="hud-truth-note">
-                      <strong>Key Research Finding: </strong>
+                      <strong>Key Finding: </strong>
                       <span>{scenarios[step].drNonFinding}</span>
                     </div>
 
@@ -451,20 +450,20 @@ function App() {
                     <dl className="pkg-metrics-grid">
                       <div>
                         <dt>Vertical Refuges</dt>
-                        <dd>{scenarios[step].sites} certified structures</dd>
+                        <dd>{scenarios[step].sites} sites</dd>
                       </div>
                       <div>
-                        <dt>Multilingual Signs</dt>
-                        <dd>{scenarios[step].signs} continuous signs</dd>
+                        <dt>Signs</dt>
+                        <dd>{scenarios[step].signs} signs</dd>
                       </div>
                       <div>
-                        <dt>Vertical Preference</dt>
-                        <dd>{scenarios[step].vertical}% agent preference</dd>
+                        <dt>Vertical Pref.</dt>
+                        <dd>{scenarios[step].vertical}% agents</dd>
                       </div>
                     </dl>
                   </div>
 
-                  {/* 3-Part Outcome Breakdown */}
+                  {/* Compact 100% Outcome Breakdown */}
                   <Outcome step={step} condition={condition} />
                 </div>
               </div>
@@ -499,20 +498,14 @@ function App() {
         </div>
       </main>
 
-      {/* ── §3 Sleek Footer ─────────────────────────────────── */}
+      {/* ── §3 Ultra-Compact Baseline Footer (Single Line 30px) ─── */}
       <footer className="soonami-footer">
         <div className="footer-content">
           <span>
-            <strong>Soonami (สู้-nami)</strong> · Coastal Tsunami Defense Platform
+            <strong>Soonami (สู้-nami)</strong> · Inspired by Trumikaborworn et al. (AIT/Mahidol, 2024 · SSRN 7270357) · Directed by Dr. Non
           </span>
-          <span>
-            Platform synthesis & visualization by Dr. Non Arkaraprasertkul
-          </span>
-          <span>
-            Translating the empirical study by N. Trumikaborworn, P. Latcharote & P. Warnitchai (AIT / Mahidol, 2024 · SSRN 7270357)
-          </span>
-          <button onClick={() => navigate("research")}>
-            Research Diagrams & Synthesis
+          <button className="footer-research-link" onClick={() => navigate("research")}>
+            Research Diagrams & Synthesis →
           </button>
         </div>
       </footer>
@@ -520,86 +513,60 @@ function App() {
   );
 }
 
-/* ── §4 Outcome Component ──────────────────────────────────── */
+/* ── §4 Compact Outcome Component (Zero Spatial Hallucination) ─── */
 function Outcome({ step, condition }: { step: number; condition: Condition }) {
   const o = outcomes(step, condition);
   return (
-    <details className="outcome" open={step === 0 || step === 4}>
-      <summary>What happened to all 39,041 agents in this scenario?</summary>
+    <div className="outcome-compact-card">
+      <div className="outcome-compact-head">
+        <span className="outcome-tag">SIMULATION OUTCOME</span>
+        <strong>{POPULATION.toLocaleString("en-US")} Modeled Agents</strong>
+      </div>
       {o.reached === null ? (
-        <div className="outcome-content">
-          <p>
-            The preprint reported exact casualty rates for all five packages, but only published the complete 3-part breakdown (reached site, outside hazard zone, victims) for the <strong>Study baseline</strong> and <strong>Complete package</strong>.
-          </p>
-          <div className="outcome-partial-meter">
-            <div className="meter-header">
-              <span>Modeled casualty rate</span>
-              <strong>{o.affected.toFixed(1)}%</strong>
-            </div>
-            <div className="meter-track" aria-hidden="true">
-              <span className="meter-bar victims" style={{ width: `${o.affected}%` }} />
-              <span className="meter-bar unclassified" style={{ width: `${100 - o.affected}%` }} />
-            </div>
-            <p className="meta">
-              {(100 - o.affected).toFixed(1)}% of agents survived, divided between those reaching designated refuges and those outside the hazard area.
-            </p>
+        <div className="outcome-compact-body">
+          <div className="compact-meter-track" aria-hidden="true">
+            <span className="meter-bar victims" style={{ width: `${o.affected}%` }} />
+            <span className="meter-bar unclassified" style={{ width: `${100 - o.affected}%` }} />
+          </div>
+          <div className="compact-legend-row">
+            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Casualties</span>
+            <span className="leg-chip safe">● {(100 - o.affected).toFixed(1)}% Survived</span>
           </div>
         </div>
       ) : (
-        <div className="outcome-content">
-          <p className="outcome-intro">
-            Distribution across all {POPULATION.toLocaleString("en-US")} modeled agents at the end of the simulation:
-          </p>
+        <div className="outcome-compact-body">
           <div
-            className="outcome-stacked-bar"
+            className="compact-stacked-bar"
             role="img"
-            aria-label={`Outcome distribution: ${o.reached.toFixed(1)}% reached evacuation site, ${o.outside?.toFixed(1)}% outside hazard zone, ${o.affected.toFixed(1)}% victims.`}
+            aria-label={`Outcome: ${o.reached.toFixed(1)}% reached safe site, ${o.outside?.toFixed(1)}% outside hazard, ${o.affected.toFixed(1)}% casualties.`}
           >
             <span
               className="segment-reached"
               style={{ width: `${o.reached}%` }}
-              title={`Reached safe site: ${o.reached.toFixed(1)}%`}
+              title={`Safe site: ${o.reached.toFixed(1)}%`}
             />
             <span
               className="segment-outside"
               style={{ width: `${o.outside}%` }}
-              title={`Outside hazard area: ${o.outside?.toFixed(1)}%`}
+              title={`Outside zone: ${o.outside?.toFixed(1)}%`}
             />
             <span
               className="segment-victims"
               style={{ width: `${o.affected}%` }}
-              title={`Modeled victims: ${o.affected.toFixed(1)}%`}
+              title={`Casualties: ${o.affected.toFixed(1)}%`}
             />
           </div>
-          <div className="outcome-legend">
-            <div className="legend-cell">
-              <span className="legend-swatch swatch-reached" />
-              <div>
-                <strong>{o.reached.toFixed(1)}% Reached safe site</strong>
-                <span className="meta">Safe at designated vertical refuge or evacuation point</span>
-              </div>
-            </div>
-            <div className="legend-cell">
-              <span className="legend-swatch swatch-outside" />
-              <div>
-                <strong>{o.outside?.toFixed(1)}% Outside hazard area</strong>
-                <span className="meta">Beyond the modeled wave inundation zone</span>
-              </div>
-            </div>
-            <div className="legend-cell">
-              <span className="legend-swatch swatch-victims" />
-              <div>
-                <strong>{o.affected.toFixed(1)}% Modeled casualties</strong>
-                <span className="meta">Caught by inundation before reaching safety</span>
-              </div>
-            </div>
+          <div className="compact-legend-row">
+            <span className="leg-chip reached">● {o.reached.toFixed(1)}% Safe Refuges</span>
+            <span className="leg-chip outside">● {o.outside?.toFixed(1)}% Outside Hazard</span>
+            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Casualties</span>
           </div>
-          <p className="meta outcome-callout">
-            Notice that “not a victim” and “reached an evacuation site” are different outcomes. The full intervention package increased safe refuge arrivals from {condition === "baseline" ? "60.7%" : "56.8%"} up to {condition === "baseline" ? "93.6%" : "88.9%"}.
+          <p className="outcome-stat-note">
+            Safe arrivals increase from {condition === "baseline" ? "60.7%" : "56.8%"} up to {condition === "baseline" ? "93.6%" : "88.9%"}.
           </p>
         </div>
       )}
-    </details>
+    </div>
   );
 }
 

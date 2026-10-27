@@ -589,161 +589,98 @@ main {
   border-color: #f59e0b;
 }
 
-/* Water Reach Level Simulator Bar */
-.water-reach-simulator-bar {
+/* ── § Integrated Compact Water Reach HUD (Zero Hallucination) ── */
+.map-water-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 34px;
+  padding: 0 10px;
   background: #0d273a;
   color: #ffffff;
-  padding: 8px 12px;
   border-top: 1px solid #1e4562;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
   z-index: 440;
 }
 
-.simulator-header {
+.hud-play-btn {
+  background: var(--accent);
+  color: var(--ink);
+  border: 1px solid var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  height: 24px;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hud-play-btn:hover {
+  background: var(--accent-hover);
+}
+
+.hud-play-btn.playing {
+  background: #38bdf8;
+  border-color: #38bdf8;
+  color: #0b1a26;
+}
+
+.hud-slider-group {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 8px;
+  flex: 1;
+  max-width: 320px;
 }
 
-.sim-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.sim-pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: #38bdf8;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.35);
-  animation: pulse-dot 1.5s infinite;
-}
-
-@keyframes pulse-dot {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
-}
-
-.sim-title strong {
-  font-size: 13px;
-  letter-spacing: -0.2px;
-}
-
-.sim-title small {
-  color: #94a3b8;
-  font-size: 11px;
-  margin-left: 4px;
-}
-
-.sim-status-badge {
+.hud-label {
   font-size: 11px;
   font-weight: 600;
+  color: #94a3b8;
+  white-space: nowrap;
 }
 
-.badge-normal {
+.hud-slider {
+  flex: 1;
+  height: 4px;
+  cursor: pointer;
+  accent-color: #38bdf8;
+}
+
+.hud-meter-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+  min-width: 44px;
+}
+
+.hud-status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.chip-normal {
   background: rgba(255, 255, 255, 0.1);
   color: #cbd5e1;
   padding: 2px 6px;
   border-radius: 2px;
 }
 
-.badge-submerged {
+.chip-submerged {
   background: #dc2626;
   color: #ffffff;
   padding: 2px 6px;
   border-radius: 2px;
-  animation: flash-submerged 1.2s infinite;
 }
 
-@keyframes flash-submerged {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.75; }
-}
-
-.badge-safe {
+.chip-safe {
   background: #15803d;
   color: #ffffff;
   padding: 2px 6px;
   border-radius: 2px;
-}
-
-.simulator-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.sim-play-btn {
-  background: var(--accent);
-  color: var(--ink);
-  border: 1px solid var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 2px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.sim-play-btn:hover {
-  background: var(--accent-hover);
-}
-
-.sim-play-btn.playing {
-  background: #38bdf8;
-  border-color: #38bdf8;
-  color: #0c1a26;
-}
-
-.sim-slider-wrap {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.water-level-slider {
-  width: 100%;
-  cursor: pointer;
-  accent-color: #38bdf8;
-}
-
-.slider-ticks {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  color: #94a3b8;
-  cursor: pointer;
-}
-
-.slider-ticks span:hover {
-  color: #38bdf8;
-}
-
-.sim-level-display {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  min-width: 65px;
-}
-
-.level-number {
-  font-size: 18px;
-  font-weight: 700;
-  color: #38bdf8;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.level-label {
-  font-size: 10px;
-  color: #94a3b8;
-  text-transform: uppercase;
 }
 
 /* Place markers */
@@ -1072,10 +1009,10 @@ main {
   font-weight: 600;
 }
 
-/* ── Balanced 50/50 Split Cockpit Grid (Zero Spatial Hallucination) ── */
+/* ── Balanced Split Cockpit Grid (Zero Spatial Hallucination) ── */
 .modeling-split-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(280px, 340px) minmax(320px, 1fr);
   gap: 12px;
   margin-top: 4px;
   align-items: start;
@@ -1093,39 +1030,39 @@ main {
 .result-hud {
   background: var(--panel-card);
   border: 1px solid var(--line-2);
-  padding: 10px 12px;
+  padding: 8px 10px;
 }
 
 .hud-primary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
 }
 
 .hud-stat {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hud-number {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   line-height: 1;
   font-variant-numeric: tabular-nums;
   color: var(--ink);
 }
 
 .hud-number small {
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0;
 }
 
 .hud-labels strong {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .hud-labels span {
@@ -1139,19 +1076,19 @@ main {
   align-items: flex-end;
   text-align: right;
   background: #dcfce7;
-  padding: 3px 8px;
+  padding: 3px 6px;
   border-left: 3px solid #16a34a;
 }
 
 .reduction-pct {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #14532d;
   font-variant-numeric: tabular-nums;
 }
 
 .reduction-sub {
-  font-size: 10px;
+  font-size: 9px;
   color: #166534;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -1161,22 +1098,22 @@ main {
 .hud-baseline-badge {
   background: #fee2e2;
   color: #991b1b;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  padding: 4px 8px;
+  padding: 3px 6px;
   border-left: 3px solid #ef4444;
 }
 
-/* Compact Scenario Table */
+/* Compact Scenario Table with Fixed-Width Mini-Bars */
 .scenario-table-compact {
   border: 1px solid var(--line-2);
   background: var(--panel-card);
 }
 
 .scenario-table-compact .scenario-table-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) 80px;
-  gap: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 4px 8px;
   font-size: 10px;
   font-weight: 700;
@@ -1187,21 +1124,19 @@ main {
   background: #f1f4ec;
 }
 
-.scenario-table-compact .scenario-table-header .col-rate {
-  text-align: right;
-}
-
 .scenario-table-compact .scenario-list button {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(50px, 1fr) 72px;
-  gap: 6px;
+  display: flex;
   align-items: center;
-  text-align: left;
+  justify-content: space-between;
+  gap: 8px;
   width: 100%;
   border: 0;
   border-bottom: 1px solid var(--line);
   padding: 6px 8px;
-  min-height: 34px;
+  min-height: 32px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
 }
 
 .scenario-table-compact .scenario-list button:hover {
@@ -1217,60 +1152,65 @@ main {
   display: flex;
   gap: 6px;
   align-items: baseline;
+  white-space: nowrap;
 }
 
 .step-num {
   color: var(--ink-2);
-  font-size: 12px;
+  font-size: 11px;
   font-variant-numeric: tabular-nums;
   flex-shrink: 0;
 }
 
 .step-text {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.25;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
-.bar-track {
-  height: 8px;
+.scenario-meter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mini-bar-track {
+  width: 70px;
+  height: 7px;
   background: #d4d9cf;
-  width: 100%;
   overflow: hidden;
+  border-radius: 1px;
 }
 
-.bar-track > span {
+.mini-bar-track > span {
   display: block;
   height: 100%;
   background: var(--ink);
   transition: width 0.25s ease-out;
 }
 
-.scenario-table-compact .scenario-list button.active .bar-track > span {
+.scenario-table-compact .scenario-list button.active .mini-bar-track > span {
   background: var(--accent-dark);
-}
-
-.rate-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  text-align: right;
 }
 
 .rate-num {
   font-size: 12px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  width: 38px;
+  text-align: right;
 }
 
 .red-pill,
 .base-pill {
   font-size: 10px;
   font-weight: 700;
-  padding: 1px 3px;
+  padding: 1px 4px;
   border-radius: 2px;
   font-variant-numeric: tabular-nums;
+  width: 38px;
+  text-align: center;
 }
 
 .red-pill {
@@ -1287,10 +1227,10 @@ main {
 .active-package-card {
   background: var(--panel-card);
   border: 1px solid var(--line-2);
-  padding: 10px 12px;
+  padding: 8px 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .active-pkg-header {
@@ -1308,13 +1248,8 @@ main {
 }
 
 .active-pkg-header h3 {
-  font-size: 15px;
+  font-size: 14px;
   margin: 2px 0 0;
-}
-
-.pkg-ref {
-  font-size: 11px;
-  color: var(--ink-2);
 }
 
 .hud-truth-note {
@@ -1357,7 +1292,7 @@ main {
   gap: 6px;
   margin: 0;
   background: #f8fafc;
-  padding: 6px 8px;
+  padding: 4px 6px;
   border: 1px solid var(--line);
 }
 
@@ -1372,6 +1307,82 @@ main {
   font-size: 11px;
   font-weight: 700;
   color: var(--ink);
+}
+
+/* ── §9 Compact Outcome Breakdown Card (Zero Hallucination) ───── */
+.outcome-compact-card {
+  background: var(--panel-card);
+  border: 1px solid var(--line-2);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.outcome-compact-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+}
+
+.outcome-tag {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--companion);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.outcome-compact-head strong {
+  font-size: 11px;
+  color: var(--ink-2);
+}
+
+.compact-stacked-bar,
+.compact-meter-track {
+  display: flex;
+  width: 100%;
+  height: 12px;
+  background: var(--line);
+  overflow: hidden;
+  border: 1px solid var(--ink);
+}
+
+.compact-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.leg-chip {
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.leg-chip.reached,
+.leg-chip.safe {
+  color: #14532d;
+}
+
+.leg-chip.outside {
+  color: #475569;
+}
+
+.leg-chip.victims {
+  color: #991b1b;
+}
+
+.outcome-stat-note {
+  font-size: 11px;
+  color: var(--ink-2);
+  margin: 0;
+  line-height: 1.3;
 }
 
 .action-tag {
@@ -2084,21 +2095,24 @@ textarea {
   margin: 10px 0;
 }
 
-/* ── §12 Sleek Soonami Footer ───────────────────────────────── */
+/* ── §12 Ultra-Compact Baseline Footer (Single Line 30px) ───── */
 .soonami-footer {
+  height: 30px;
+  padding: 0 16px;
   background: var(--companion);
   color: #c4d7e5;
-  padding: 14px 20px;
-  margin-top: 32px;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
   border-top: 2px solid var(--accent);
+  margin-top: 20px;
+  font-size: 11px;
 }
 
 .footer-content {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 12px;
   max-width: 1800px;
   margin: auto;
@@ -2108,18 +2122,20 @@ textarea {
   color: #ffffff;
 }
 
-.footer-content button {
+.footer-research-link {
   background: transparent;
   color: var(--accent);
-  border: 1px solid var(--accent);
+  border: 0;
+  padding: 0;
   font-size: 11px;
   font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: underline;
+  white-space: nowrap;
 }
 
-.footer-content button:hover {
-  background: rgba(245, 158, 11, 0.15);
+.footer-research-link:hover {
+  color: #ffffff;
 }
 
 .print-value {
@@ -2128,19 +2144,18 @@ textarea {
 
 /* ── §13 Responsive Breakpoints ────────────────────────────── */
 
-/* Tablet & Split (<= 960px) */
+/* Tablet (<= 960px) */
 @media (max-width: 960px) {
   .explore-grid,
   .planning-grid,
-  .drill-grid,
-  .modeling-split-grid {
+  .drill-grid {
     grid-template-columns: 1fr;
   }
 
   .evidence-pane,
   .plan-aside,
   .drill-form {
-    margin-top: 18px;
+    margin-top: 14px;
   }
 
   .map-wrap {
@@ -2157,8 +2172,12 @@ textarea {
   }
 }
 
-/* Mobile (<= 760px) */
-@media (max-width: 760px) {
+/* Narrow Tablet & Mobile (<= 680px) */
+@media (max-width: 680px) {
+  .modeling-split-grid {
+    grid-template-columns: 1fr;
+  }
+
   .soonami-masthead {
     height: auto;
     padding: 6px 10px;
@@ -2219,18 +2238,12 @@ textarea {
     display: none;
   }
 
-  .scenario-table-compact .scenario-list button {
-    grid-template-columns: minmax(0, 1fr) minmax(50px, 1fr) 68px;
-    gap: 4px;
-    padding: 6px 4px;
-  }
-
   .hud-number {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .waterfall-row {
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 90px 1fr;
   }
 }
 
@@ -2253,7 +2266,7 @@ textarea {
   .skip,
   .emergency-panel,
   .map-controls-overlay,
-  .water-reach-simulator-bar {
+  .map-water-hud {
     display: none !important;
   }
 
