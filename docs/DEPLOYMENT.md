@@ -27,6 +27,8 @@ Final deployed Worker version and live-response verification are appended after 
 
 Deployed source commit: c4c6550a76420a69edbc4ad9e49ee918b99b9fd3. Cloudflare Worker version: ef66af4d-a07a-4bd5-b159-ebe68095fc0a. Deployment completed 27 October 2026, about 18:11 Bangkok time.
 
+Update release (System audit & visualization upgrade): source commit: 9c52c6d. Cloudflare Worker version: 631461b6-7f06-467d-a663-dace506d67fc. Deployment completed 27 October 2026, about 19:44 Bangkok time. Verified live HTTP 200 and exact hashes `index-DnWXaS7a.js` and `index-BZl-uiY-.css` via curl.
+
 Public DNS at 1.1.1.1 and the default resolver returns Cloudflare addresses. HTTPS at the exact canonical hostname returns 200 with normal certificate verification. HTML, JavaScript and CSS bytes match the local production build exactly. The page serves its CSP and nosniff headers; /.DS_Store and an unknown path both return 404. The first HTTPS byte check used curl --resolve with a publicly resolved address because the OS initially cached the pre-deployment NXDOMAIN response; certificate validation remained enabled. A browser navigation initially encountered the same local negative DNS cache, so that initial attempt alone did not establish browser-level canonical verification.
 
 GitHub CI for this source completed successfully: https://github.com/Nonarkara/tsunami-evacuation/actions/runs/40494152265 . Browser flows had already been exercised on the identical application build locally; the final hostname is separately checked as above.
