@@ -2635,3 +2635,21 @@ textarea {
  .manual-heading .manual-close { order:1; }
  .manual-languages { order:2; }
 }
+.ground-walk-controls { display:flex; flex-wrap:wrap; align-items:center; gap:4px; margin:4px 0; }
+.ground-walk-controls button { width:32px; min-height:30px; padding:3px; }
+.ground-walk-controls span { font-size:12px; color:var(--ink-2); }
+.building-source-note { max-width:72ch; }
+.source-catalogue { max-width:1100px; margin-inline:auto; }
+.source-catalogue[lang=th] { font-family:'Prompt','Jost',sans-serif; line-height:1.75; }
+.catalogue-heading { display:flex; flex-wrap:wrap; align-items:start; justify-content:space-between; gap:8px; }
+.catalogue-heading h1 { font-size:24px; line-height:1.4; margin:0; }
+.catalogue-scope { max-width:72ch; margin:8px 0 14px; font-size:14px; }
+.sensor-record { display:grid; grid-template-columns:1fr 1.7fr; gap:20px; padding:12px 0; border-top:1px solid var(--line-2); }
+.sensor-record h2 { font-size:16px; margin:0 0 5px; }
+.sensor-record span, .sensor-record a { display:block; font-size:12px; color:var(--ink-2); }
+.sensor-record a { color:var(--companion); text-decoration:underline; }
+.sensor-record p { max-width:65ch; margin:0; font-size:14px; }
+.catalogue-physics { max-width:72ch; margin-top:20px; }
+.catalogue-physics h2 { font-size:20px; margin:0 0 8px; }
+.catalogue-physics p { font-size:14px; }
+@media(max-width:650px) { .sensor-record { grid-template-columns:1fr; gap:6px; } .catalogue-heading h1 { font-size:22px; } }

@@ -1,0 +1,56 @@
+[
+  {
+    "overflow": false,
+    "regions": {
+      ".ground-walk-controls": {
+        "bottom": 584.484375,
+        "height": 50.796875,
+        "width": 322,
+        "y": 533.6875
+      },
+      ".terrain-caption": {
+        "bottom": 529.6875,
+        "height": 43.59375,
+        "width": 322,
+        "y": 486.09375
+      },
+      ".terrain-stage": {
+        "bottom": 486.09375,
+        "height": 300,
+        "width": 322,
+        "y": 186.09375
+      }
+    },
+    "viewport": [
+      360,
+      800
+    ]
+  },
+  {
+    "overflow": false,
+    "regions": {
+      ".ground-walk-controls": {
+        "bottom": 566.1640625,
+        "height": 30,
+        "width": 954,
+        "y": 536.1640625
+      },
+      ".terrain-caption": {
+        "bottom": 532.1640625,
+        "height": 24.796875,
+        "width": 954,
+        "y": 507.3671875
+      },
+      ".terrain-stage": {
+        "bottom": 507.3671875,
+        "height": 353.2734375,
+        "width": 954,
+        "y": 154.09375
+      }
+    },
+    "viewport": [
+      1024,
+      768
+    ]
+  }
+]

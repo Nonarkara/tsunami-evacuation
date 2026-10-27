@@ -83,3 +83,7 @@ The Bang Niang pilot now includes warning-relative preparation delay, route arro
 A bilingual research dossier provides reported results, source-defined outcomes, uncertainty and replication requirements, a source ledger, validation agenda and CSV/BibTeX downloads. [Research methods and verification](docs/BILINGUAL-RESEARCH.md). Direct links: [ไทย](https://tsunami.nonarkara.org/?lang=th#research), [English](https://tsunami.nonarkara.org/?lang=en#research).
 
 Use the question-mark button in the top bar for the Thai/English manual: a quick start and expandable instructions for each section. [Manual behavior and verification](docs/MANUAL.md).
+
+## Buildings and eye-level exploration
+
+All 17 listed places have local OSM building snapshots. Walk-through uses an approximate 1.65 m eye height over the available DEM. Missing source heights remain unknown and use explicitly labelled 3 m visual massing. These scenes do not establish safe routes or refuges. [Sources, collection commands, MiniMax integration and verification](docs/BUILDINGS-INTEGRATION.md). Development checks require Python 3 as well as Node.js.

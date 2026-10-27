@@ -1,0 +1,87 @@
+[
+  {
+    "area": "khao-lak-0",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "khao-lak-1",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "khao-lak-2",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "khao-lak-3",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "phuket-0",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "phuket-1",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "phuket-2",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "phuket-3",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "krabi-0",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "krabi-1",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "krabi-2",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "satun-trang-0",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "satun-trang-1",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "ranong-0",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "ranong-1",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "gulf-thailand-0",
+    "state": "shown",
+    "width": 1440
+  },
+  {
+    "area": "gulf-thailand-1",
+    "state": "shown",
+    "width": 1440
+  }
+]

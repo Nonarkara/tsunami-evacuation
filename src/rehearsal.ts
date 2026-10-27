@@ -47,7 +47,7 @@ export function routeArrows(route: ExerciseRoute, spacingM = 120): GeoJSON.Featu
   const features: GeoJSON.Feature<GeoJSON.Point>[] = [];
   for (let m = Math.min(40, total / 2); m < total; m += spacingM) {
     const p = alongRoute(route, m);
-    features.push({ type: 'Feature', properties: { heading: p.heading }, geometry: { type: 'Point', coordinates: p.coord } });
+    features.push({ type: 'Feature', properties: { heading: p.heading, chainageM: m }, geometry: { type: 'Point', coordinates: p.coord } });
   }
   return { type: 'FeatureCollection', features };
 }

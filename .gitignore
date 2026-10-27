@@ -8,3 +8,6 @@ output/
 
 *.tsbuildinfo
 .wrangler/
+
+.cache/
+__pycache__/

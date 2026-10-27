@@ -524,61 +524,20 @@ export const places = coastalRegions[0].places;
 
 /* ── §3 Satellite & Meteorological Toolkits (from FloodDash) ─── */
 export type SatelliteFeed = {
-  id: string;
-  name: string;
-  type: "ocean-buoy" | "tide-gauge" | "sar-radar" | "dem-elevation";
-  agency: string;
-  updateFreq: string;
-  status: "ONLINE" | "STANDBY" | "ACTIVE";
-  value: string;
-  significance: string;
+  id: string; name: string; type: "ocean-buoy" | "tide-gauge" | "sar-radar" | "dem-elevation";
+  agency: string; updateFreq: string; status: "NOT_CONNECTED"; value: string;
+  significance: string; sourceUrl: string;
 };
 
 export const satelliteToolkits: SatelliteFeed[] = [
-  {
-    id: "dart-23401",
-    name: "DART Buoy 23401 (Andaman Sea)",
-    type: "ocean-buoy",
-    agency: "NDBC / NOAA & Thai TMD",
-    updateFreq: "15 min (Real-time in trigger mode)",
-    status: "ONLINE",
-    value: "Sea Column Normal (Deviation < 0.02m)",
-    significance:
-      "Detects deep-water tsunami wave trains within 15 minutes of an Indian Ocean earthquake before waves reach the continental shelf.",
-  },
-  {
-    id: "rtn-phuket",
-    name: "Ko Taphao Noi Tide Station",
-    type: "tide-gauge",
-    agency: "Hydrographic Dept, Royal Thai Navy",
-    updateFreq: "10 min relay (FloodDash)",
-    status: "ONLINE",
-    value: "Tidal Level +1.42m MSL (Astronomical cycle)",
-    significance:
-      "Measures coastal sea level anomalies, drawdown precursors, and wave crest arrivals along Phuket and Phang Nga shores.",
-  },
-  {
-    id: "sentinel-1",
-    name: "Sentinel-1 SAR Coastal Radar",
-    type: "sar-radar",
-    agency: "ESA Copernicus & GISTDA",
-    updateFreq: "Daily / On-demand Rapid Mapping",
-    status: "STANDBY",
-    value: "Synthetic Aperture Radar Cloud-Penetrating Mode",
-    significance:
-      "All-weather radar imaging cuts through rain and storm clouds to map actual coastal inundation extent and breached infrastructure.",
-  },
-  {
-    id: "dem-elevation",
-    name: "Copernicus 30m Coastal DEM",
-    type: "dem-elevation",
-    agency: "GISTDA / ESA Earth Observation",
-    updateFreq: "Calibrated Ground Elevation Model",
-    status: "ACTIVE",
-    value: "Terrain integration requires source validation",
-    significance:
-      "Terrain height alone does not establish tsunami safety. A scenario inundation model and authority-approved destinations are required.",
-  },
+  { id:"dart-23401", name:"DART pressure-buoy reference", type:"ocean-buoy", agency:"NOAA / NDBC reference", updateFreq:"No connected observation", status:"NOT_CONNECTED", value:"Not connected",
+    significance:"Deep-ocean pressure observations can support tsunami detection. Station identity, operational status and latency must be checked before connecting a feed; no 15-minute detection guarantee is inferred.", sourceUrl:"https://www.noaa.gov/explainers/us-tsunami-warning-system" },
+  { id:"rtn-phuket", name:"Ko Taphao Noi tide-gauge candidate", type:"tide-gauge", agency:"Station/feed validation pending", updateFreq:"No connected observation", status:"NOT_CONNECTED", value:"Not connected",
+    significance:"A candidate coastal station reference. Verify the station, data provider, timestamps and vertical datum before interpreting water levels. No live gauge adapter is connected here.", sourceUrl:"https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis" },
+  { id:"sentinel-1", name:"Sentinel-1 SAR imagery", type:"sar-radar", agency:"ESA / Copernicus reference", updateFreq:"Acquisition-dependent; not connected", status:"NOT_CONNECTED", value:"Not connected",
+    significance:"Candidate imagery for flood mapping after acquisition and validation. Acquisition timing, processing and local conditions constrain use; no daily image or current flood extent is promised.", sourceUrl:"https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-1" },
+  { id:"dem-elevation", name:"Copernicus DEM candidate", type:"dem-elevation", agency:"Copernicus reference", updateFreq:"Static dataset; not ingested", status:"NOT_CONNECTED", value:"Not connected",
+    significance:"Candidate terrain data. This browser currently uses Mapzen terrain; it does not use this candidate DEM. Elevation alone does not establish safe routes or refuge suitability.", sourceUrl:"https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model" },
 ];
 
 /* ── §4 Plan & Drill Validation (Preserved strict boundaries) ─ */

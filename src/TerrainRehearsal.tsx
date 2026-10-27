@@ -5,6 +5,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import terrainWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(terrainWorker);
 import { ReplayWaterLayer } from './ReplayWaterLayer';
+import { buildingAreaId, parseBuildings, cameraStep, EYE_HEIGHT_M, UNKNOWN_BUILDING_MASSING_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
 import type { CoastalRegion } from './research';
 import { areaPacks, alongRoute, walkerProgress, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
@@ -26,14 +27,29 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   const [count, setCount] = useState(1500), [speed, setSpeed] = useState(1.4), [width, setWidth] = useState(2);
   const [seconds, setSeconds] = useState(0), [playing, setPlaying] = useState(false), [rate, setRate] = useState(30);
   const [camera, setCamera] = useState<'overview' | 'coast' | 'route' | 'walk'>('overview');
+  const [cameraEpoch, setCameraEpoch] = useState(0);
   const [mode, setMode] = useState<'crowd' | 'water'>('crowd');
   const [route, setRoute] = useState(1), [water, setWater] = useState(0), [screen, setScreen] = useState(false);
   const [queueFocus, setQueueFocus] = useState<{ edge: string; status: string }>();
   const [point, setPoint] = useState<{ coord: Coord; elevation: number | null }>();
+  const [buildingsEnabled, setBuildingsEnabled] = useState(true), [buildings, setBuildings] = useState<BuildingPack>();
+  const [buildingError, setBuildingError] = useState('');
+  const [freeWalk, setFreeWalk] = useState<{ coord: Coord; bearing: number }>();
+  const [eyeViewReady, setEyeViewReady] = useState(false);
   const areaPack = areaPacks[region.id];
   const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
   const terrainGridRef = useRef(grid); terrainGridRef.current = grid;
   const lastSelection = useRef(`${region.id}:${selected}`);
+  useEffect(() => {
+    setBuildings(undefined); setBuildingError('');
+    if (!buildingsEnabled || flat) return;
+    const abort = new AbortController(), area = buildingAreaId(region.id, selected);
+    fetch(`/data/buildings-${area}.json`, { signal: abort.signal })
+      .then(r => { if (!r.ok) throw new Error('Building snapshot unavailable'); return r.json(); })
+      .then(value => { const pack = parseBuildings(value, area); if (!abort.signal.aborted) setBuildings(pack); })
+      .catch(error => { if (error.name !== 'AbortError') setBuildingError('Buildings unavailable here. Terrain and rehearsal remain available. / ข้อมูลอาคารไม่พร้อมใช้งาน'); });
+    return () => abort.abort();
+  }, [region.id, selected, buildingsEnabled, flat]);
   useEffect(() => {
     if (!areaPack) return;
     const abort = new AbortController();
@@ -86,15 +102,17 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     m.on('sourcedata', e => { if (e.sourceId === 'dem' && e.isSourceLoaded) setTerrainLoaded(true); });
     m.on('load', () => {
       didLoad = true; window.clearTimeout(loadTimeout); setFailure('');
-      for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows']) m.addSource(id, { type: 'geojson', data: empty });
+      for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings']) m.addSource(id, { type: 'geojson', data: empty });
+      m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#d5e2df', 'line-width':.7, 'line-opacity':.65 } });
+      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#9ba39a','#d5e2df'], 'fill-extrusion-opacity':.88 } });
       m.addLayer({ id: 'water', type: 'fill', source: 'water', paint: { 'fill-color': '#3b99ca', 'fill-opacity': .48 } });
       const surface = new ReplayWaterLayer(setWaterSurfaceError); m.addLayer(surface); waterLayer.current = surface;
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
       m.addLayer({ id: 'routes', type: 'line', source: 'routes', paint: { 'line-color': ['match', ['get', 'route'], 0, '#fafaf7', 1, '#f59e0b', '#b9ddf0'], 'line-width': 3 } });
-      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1, 17, 2], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': .5 } });
-      m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-radius': ['case', ['==',['get','role'],'destination'], 7, 3], 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
-      m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
-      m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-radius': 4, 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
+      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1, 17, 2], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': .5 } });
+      m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['case', ['==',['get','role'],'destination'], 7, 3], 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
+      m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
+      m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 4, 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
       const side = 20, pixels = new Uint8Array(side * side * 4);
       for (let y = 0; y < side; y++) for (let x = 0; x < side; x++) {
         const edge = Math.abs(x - 9.5);
@@ -115,6 +133,12 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     const observer = new ResizeObserver(() => m.resize()); observer.observe(host.current);
     return () => { window.clearTimeout(loadTimeout); observer.disconnect(); m.remove(); map.current = null; waterLayer.current = null; };
   }, [flat, region.id]);
+  useEffect(() => {
+    const m = map.current;
+    if (!m || !ready || !m.getSource('buildings')) return;
+    (m.getSource('buildings') as GeoJSONSource).setData(buildingsEnabled && buildings ? buildings : empty);
+    for (const id of ['building-outlines','building-volumes']) if (m.getLayer(id)) m.setLayoutProperty(id,'visibility',buildingsEnabled && buildings && (id === 'building-outlines' || dimension === '3d') ? 'visible' : 'none');
+  }, [ready, buildings, buildingsEnabled, dimension, flat]);
   useEffect(() => {
     const m = map.current; if (!m || !ready || !data) return;
     (m.getSource('routes') as GeoJSONSource | undefined)?.setData(isStudy ? { type: 'FeatureCollection', features: data.routes.map((r, i) => ({ type: 'Feature', properties: { route: i }, geometry: { type: 'LineString', coordinates: r.coordinates } })) } : empty);
@@ -137,36 +161,88 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     if (map.current?.getLayer('water')) map.current.setPaintProperty('water', 'fill-opacity', dimension === '3d' && !waterSurfaceError && hasSurface ? .12 : .48);
   }, [ready, grid, shownWaterLevel, screen, isStudy, hazard, seconds, animateWater, dimension, waterSurfaceError]);
   useEffect(() => {
-    const m = map.current; if (!m || !ready || flat || !m.isStyleLoaded()) return;
+    const m = map.current; if (!m || !ready || flat || !m.getSource('dem')) return;
     m.setTerrain(dimension === '3d' ? { source: 'dem', exaggeration: 1 } : null);
     m.setCenterClampedToGround(true);
-    if (dimension === '2d' && data && isStudy) fitRoutes();
-    else m.easeTo({ pitch: dimension === '2d' ? 0 : 58, bearing: 0, zoom: dimension === '2d' ? region.zoom : undefined, duration: 800 });
+    m.stop();
+    if (dimension === '2d') m.jumpTo({elevation:0});
+    if (dimension === '2d' && data && isStudy) fitRoutes(0);
+    else m.jumpTo({ pitch: dimension === '2d' ? 0 : 58, bearing: 0, zoom: dimension === '2d' ? region.zoom : undefined });
   }, [dimension, ready, flat]);
-  useEffect(() => {
-    const source = map.current?.getSource('arrows') as GeoJSONSource | undefined;
-    source?.setData(data && isStudy ? routeArrows(data.routes[route], camera === 'walk' ? 20 : 120) : empty);
-  }, [ready, data, route, isStudy, camera]);
   const selectedWalker = model?.people.find(p => p.route === route);
   const progress = selectedWalker && data ? walkerProgress(selectedWalker, data.routes[route], started ? seconds : -1) : undefined;
+  useEffect(() => {
+    const m=map.current, source=m?.getSource('arrows') as GeoJSONSource | undefined;
+    if (!source) return;
+    const arrows=data && isStudy ? routeArrows(data.routes[route],camera === 'walk' ? 20 : 120) : empty;
+    if (camera === 'walk' && progress) arrows.features=arrows.features.filter(f=>(f.properties?.chainageM ?? 0)>progress.metres+6 && (f.properties?.chainageM ?? 0)<progress.metres+300);
+    source.setData(arrows);
+    if (m?.getLayer('ends')) m.setLayoutProperty('ends','visibility',camera === 'walk' && dimension === '3d' ? 'none' : 'visible');
+  },[ready,data,route,isStudy,camera,progress?.metres,dimension]);
   useEffect(() => {
     const m = map.current;
     if (!m || !ready || !data || !isStudy || !progress || dimension !== '3d' || !['route','walk'].includes(camera)) return;
     const path = data.routes[route];
-    const ahead = alongRoute(path, Math.min(progress.total, progress.metres + (camera === 'walk' ? 25 : 100)));
+    const ahead = progress.metres >= progress.total ? {coord:cameraStep(progress.coord,progress.heading,25)} : alongRoute(path, Math.min(progress.total, progress.metres + (camera === 'walk' ? 25 : 100)));
     if (camera === 'walk') {
-      const ground = m.queryTerrainElevation(progress.coord) ?? (grid ? elevation(grid, progress.coord) : null);
-      const targetGround = m.queryTerrainElevation(ahead.coord) ?? (grid ? elevation(grid, ahead.coord) : null);
-      if (ground === null || targetGround === null) return;
-      if (progress.metres >= progress.total) { m.setCenterClampedToGround(true); m.easeTo({ center: progress.coord, zoom: 18, pitch: 75, bearing: progress.heading, duration: 600 }); return; }
-      m.setCenterClampedToGround(false);
-      const options = m.calculateCameraOptionsFromTo(new maplibregl.LngLat(...progress.coord), ground + 1.7, new maplibregl.LngLat(...ahead.coord), targetGround + 1.7);
-      m.easeTo({ ...options, duration: playing ? 200 : 800 });
+      setEyeViewReady(false);
+      let lastGround: string | undefined;
+      const align = () => {
+        const ground=m.queryTerrainElevation(progress.coord), targetGround=m.queryTerrainElevation(ahead.coord);
+        if (ground === null || targetGround === null) return;
+        const key=`${ground.toFixed(3)}:${targetGround.toFixed(3)}`;
+        if (key===lastGround) return;
+        lastGround=key; m.setCenterClampedToGround(false);
+        const options=m.calculateCameraOptionsFromTo(new maplibregl.LngLat(...progress.coord),ground+EYE_HEIGHT_M,new maplibregl.LngLat(...ahead.coord),targetGround+EYE_HEIGHT_M);
+        m.jumpTo(options); setEyeViewReady(true);
+      };
+      m.on('idle',align); align();
+      return () => { m.off('idle',align); };
     } else {
       m.setCenterClampedToGround(true);
       m.easeTo({ center: progress.coord, zoom: 16, pitch: 65, bearing: progress.heading, duration: playing ? 200 : 800 });
     }
-  }, [ready, camera, seconds, route, data, model, isStudy, dimension, started, playing, terrainLoaded, grid]);
+  }, [ready, camera, seconds, route, data, model, isStudy, dimension, started, playing, terrainLoaded, grid, cameraEpoch]);
+  useEffect(() => {
+    const m = map.current;
+    if (!m || !ready || isStudy || camera !== 'walk' || !freeWalk || dimension !== '3d') return;
+    setEyeViewReady(false);
+    let lastGround: string | undefined;
+    const align = () => {
+      const ahead = cameraStep(freeWalk.coord, freeWalk.bearing, 25);
+      const ground = m.queryTerrainElevation(freeWalk.coord), target = m.queryTerrainElevation(ahead);
+      if (ground === null || target === null) return;
+      const key=`${ground.toFixed(3)}:${target.toFixed(3)}`;
+      if (key===lastGround) return;
+      lastGround=key; m.setCenterClampedToGround(false);
+      m.jumpTo(m.calculateCameraOptionsFromTo(new maplibregl.LngLat(...freeWalk.coord),ground + EYE_HEIGHT_M,new maplibregl.LngLat(...ahead),target + EYE_HEIGHT_M));
+      setEyeViewReady(true);
+    };
+    m.on('idle',align); align();
+    const canvas = m.getCanvas();
+    const key = (event: KeyboardEvent) => {
+      const move = ['w','s','a','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.key);
+      if (!move) return;
+      event.preventDefault(); event.stopPropagation();
+      setFreeWalk(p => {
+        if (!p) return p;
+        if (event.key === 'a' || event.key === 'ArrowLeft') return {...p,bearing:p.bearing-8};
+        if (event.key === 'd' || event.key === 'ArrowRight') return {...p,bearing:p.bearing+8};
+        return {...p,coord:cameraStep(p.coord,p.bearing,event.key === 's' || event.key === 'ArrowDown' ? -2 : 2)};
+      });
+    };
+    canvas.addEventListener('keydown',key,true);
+    return () => { m.off('idle',align); canvas.removeEventListener('keydown',key,true); };
+  }, [ready, isStudy, camera, freeWalk, dimension, cameraEpoch]);
+  useEffect(() => {
+    const m=map.current;
+    if (!m || !ready || camera !== 'walk') return;
+    const leaveEyeView = (event: maplibregl.MapLibreEvent) => {
+      if (event.originalEvent) { setCamera('overview'); m.setCenterClampedToGround(true); }
+    };
+    m.on('movestart',leaveEyeView);
+    return () => { m.off('movestart',leaveEyeView); };
+  }, [ready,camera]);
   useEffect(() => {
     const m = map.current; if (!m || !ready) return;
     const markers = region.places.map((place, i) => {
@@ -185,21 +261,24 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     }
     return () => markers.forEach(marker => marker.remove());
   }, [ready, selected, region.id, onSelect, dimension]);
-  function fitRoutes() {
+  function fitRoutes(duration = 1600) {
     const m = map.current; if (!m || !data) return;
     const bounds = new maplibregl.LngLatBounds();
     data.routes.forEach(r => r.coordinates.forEach(p => bounds.extend(p)));
-    m.fitBounds(bounds, { padding: { top: 32, bottom: 68, left: 48, right: 48 }, pitch: dimension === '2d' ? 0 : 48, bearing: dimension === '2d' ? 0 : -35, duration: 1600 });
+    m.fitBounds(bounds, { padding: { top: 32, bottom: 68, left: 48, right: 48 }, pitch: dimension === '2d' ? 0 : 48, bearing: dimension === '2d' ? 0 : -35, duration });
   }
   useEffect(() => { if (ready && data && isStudy && camera === 'overview' && !queueFocus) fitRoutes(); }, [ready, data, isStudy]);
   function view(which: typeof camera) {
-    setCamera(which);
+    setCamera(which); setCameraEpoch(epoch=>epoch+1);
     setQueueFocus(undefined);
     map.current?.setCenterClampedToGround(true);
     if (which === 'overview' && isStudy) { fitRoutes(); return; }
     if (which === 'overview') map.current?.flyTo({ center: isStudy ? [98.265, 8.669] : [region.center[1], region.center[0]], zoom: isStudy ? 13.6 : region.zoom, pitch: dimension === '2d' ? 0 : 58, bearing: dimension === '2d' ? 0 : -65, duration: 1800 });
-    if (which === 'coast') map.current?.flyTo({ center: data && isStudy ? alongRoute(data.routes[route], (model?.distance[route] ?? 0) * .7).coord : [region.places[selected].lng, region.places[selected].lat], zoom: 14.5, pitch: 70, bearing: 85, duration: 6000, essential: false });
   }
+  useEffect(() => {
+    if (!ready || dimension !== '3d' || camera !== 'coast') return;
+    map.current?.flyTo({center:data && isStudy ? alongRoute(data.routes[route],(model?.distance[route] ?? 0)*.7).coord : [region.places[selected].lng,region.places[selected].lat],zoom:15.5,pitch:70,bearing:85,duration:3000,essential:false});
+  }, [ready,dimension,camera,cameraEpoch,selected,region.id,data,isStudy,route,model]);
   function inspectQueue() {
     const p = model?.people[0].legs.find(l => l.edge === model.bottleneck)?.from;
     if (!p || !model) return;
@@ -224,13 +303,13 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   const active = data?.routes[route];
   const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p) ?? 0) : [], [active, grid]);
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
-  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
+  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <div className="terrain-toolbar">
       {isStudy && <div className="experiment-tabs" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} onClick={() => { setMode('crowd'); setScreen(false); }}>Rehearsal</button><button aria-pressed={mode === 'water'} onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}>Water level</button></div>}
       <div className="terrain-view-controls" aria-label="Camera controls">
         <button aria-pressed={!flat && dimension === '3d'} onClick={() => { setFlat(false); setDimension('3d'); }}>3D terrain</button>
         <button aria-pressed={!flat && dimension === '2d'} onClick={() => { setFlat(false); setDimension('2d'); setCamera('overview'); setQueueFocus(undefined); }}>2D map</button>
-        {!flat && <><button disabled={!ready} aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }} title="Fly over the selected route or geographic area">Fly-by</button><button disabled={!ready || !isStudy || !model} aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); }}>Walk-through</button><button disabled={!ready} aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} aria-pressed={!!queueFocus} onClick={inspectQueue} title="Inspect queue">Queue</button></>}
+        {!flat && <><button disabled={!ready} aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }} title="Fly over the selected route or geographic area">Fly-by</button><button disabled={!ready || (isStudy && !model) || (!isStudy && buildingsEnabled && !buildings && !buildingError)} aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); if (!isStudy) { const p=region.places[selected], start=buildings?.walkStart; const coord:Coord=start?.coord ?? [p.lng,p.lat]; setFreeWalk({coord,bearing:start?.bearing ?? 0}); map.current?.easeTo({center:coord,zoom:16,pitch:60,duration:600}); map.current?.getCanvas().focus({preventScroll:true}); } }}>Walk-through</button><button disabled={!ready} aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} aria-pressed={!!queueFocus} onClick={inspectQueue} title="Inspect queue">Queue</button></>}
       </div>
 
     </div>
@@ -242,10 +321,17 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
 
     </div>}
     <div className="terrain-caption">
-      <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${region.places[selected]?.name} · ${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? 'coarse terrain view, not street detail' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
+      <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
-      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
+      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
     </div>
+    {camera === 'walk' && !isStudy && !flat && <div className="ground-walk-controls" aria-label="Terrain camera controls">
+      <button aria-label="Turn camera left" onClick={()=>setFreeWalk(p=>p ? {...p,bearing:p.bearing-8}:p)}>↶</button>
+      <button aria-label="Move camera forward" onClick={()=>setFreeWalk(p=>p ? {...p,coord:cameraStep(p.coord,p.bearing,2)}:p)}>↑</button>
+      <button aria-label="Move camera backward" onClick={()=>setFreeWalk(p=>p ? {...p,coord:cameraStep(p.coord,p.bearing,-2)}:p)}>↓</button>
+      <button aria-label="Turn camera right" onClick={()=>setFreeWalk(p=>p ? {...p,bearing:p.bearing+8}:p)}>↷</button>
+      <span>{eyeViewReady ? '1.65m camera' : 'Loading ground height'} · no route guidance / ไม่ใช่เส้นทางอพยพ</span>
+    </div>}
     {!isStudy && <p className="area-data-status">Terrain views available. No local route/destination pack is connected for this selected place. {hazard ? 'Research inundation frames are loaded.' : 'Wave predictions are not connected.'}</p>}
     {!model && (hazard || animateWater) && <div className="imported-replay-controls"><button onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start warning'}</button><label>Warning +{minutes(seconds)}<input aria-label="Imported scenario time" type="range" min={0} max={duration} step={1} value={seconds} onChange={e => { setStarted(true); setSeconds(Number(e.target.value)); setPlaying(false); }} /></label><span>{waterFrame ? 'Imported research frame' : 'No model frame at this time'}</span></div>}
     {isStudy && model && data && <>
@@ -282,9 +368,12 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
 
       </div>
       </div>
-      <details className="exercise-method"><summary>Sources, assumptions and what needs validation</summary><p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a {preparation}-second preparation delay after the exercise warning, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Walk-through follows the first synthetic walker at an approximate 1.7m eye height over the available DEM and imagery; it is not street-view photography and does not resolve kerbs, stairs or doors. Arrows follow the selected mapped exercise route, not authority-approved signs. Water rise is a user-chosen static-level demonstration, not tsunami dynamics. Imported depth frames remain research results. Moving people are point markers, not a physical-crowd simulation.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p></details>
+      <details className="exercise-method"><summary>Sources, assumptions and what needs validation</summary><p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a {preparation}-second preparation delay after the exercise warning, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Walk-through follows the first synthetic walker at an approximate 1.65m eye height over the available DEM and imagery; it is not street-view photography and does not resolve kerbs, stairs or doors. Arrows follow the selected mapped exercise route, not authority-approved signs. Water rise is a user-chosen static-level demonstration, not tsunami dynamics. Imported depth frames remain research results. Moving people are point markers, not a physical-crowd simulation.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p></details>
     </>}
     <details className="exercise-settings"><summary>Scenario settings, data and coverage</summary>
+      <label><input type="checkbox" checked={buildingsEnabled} disabled={flat} onChange={e=>setBuildingsEnabled(e.target.checked)} /> OSM buildings / อาคาร</label>
+      {buildingsEnabled && !flat && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} mapped footprints · {buildings.counts.heightTag} height tags · {buildings.counts.levelsEstimate} floor-count estimates · {buildings.counts.unknown.toLocaleString()} unknown heights shown as 3m massing. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">OSM source</a> · {buildings.retrievedAt.slice(0,10)}. Coverage is a local snapshot, not every building in the region. Heights are not surveyed or approved refuges. / อาคารที่ไม่มีข้อมูลความสูงใช้รูปทรงสมมติ 3 เมตร ไม่ใช่การรับรองจุดอพยพ</> : buildingError || 'Loading building snapshot… / กำลังโหลดข้อมูลอาคาร'}</p>}
+
       <div className="scenario-settings-row">
         {model && <label>Assumed pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}
         {grid && <><label><input type="checkbox" checked={animateWater} disabled={!!hazard || flat} onChange={e => { setAnimateWater(e.target.checked); setMode('crowd'); setScreen(e.target.checked); }} /> Animate illustrative water rise</label><label>Screen peak<select aria-label="Demonstration peak level" value={peak} onChange={e => setPeak(Number(e.target.value))}><option value={5}>+5 m MSL</option><option value={10}>+10 m MSL</option><option value={15}>+15 m MSL</option><option value={20}>+20 m MSL</option></select></label><label>Rise duration<select aria-label="Demonstration rise duration" value={riseMinutes} onChange={e => setRiseMinutes(Number(e.target.value))}><option value={5}>5 exercise min</option><option value={10}>10 exercise min</option><option value={20}>20 exercise min</option></select></label></>}

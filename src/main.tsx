@@ -7,6 +7,7 @@ import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
 import { Manual } from "./Manual";
+import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
 import { NavSymbol } from "./NavSymbol";
 import { ResearchSection } from "./ResearchSection";
 import "@fontsource/prompt/thai-400.css";
@@ -21,7 +22,6 @@ import {
   POPULATION,
   scenarios,
   coastalRegions,
-  satelliteToolkits,
   checklist,
   blankPlan,
   validatePlan,
@@ -525,8 +525,8 @@ function Outcome({ step, condition }: { step: number; condition: Condition }) {
             <span className="meter-bar unclassified" style={{ width: `${100 - o.affected}%` }} />
           </div>
           <div className="compact-legend-row">
-            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Casualties</span>
-            <span className="leg-chip safe">● {(100 - o.affected).toFixed(1)}% Survived</span>
+            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Modeled victims</span>
+            <span className="leg-chip safe">● {(100 - o.affected).toFixed(1)}% Not classified as modeled victims</span>
           </div>
         </div>
       ) : (
@@ -534,12 +534,12 @@ function Outcome({ step, condition }: { step: number; condition: Condition }) {
           <div
             className="compact-stacked-bar"
             role="img"
-            aria-label={`Outcome: ${o.reached.toFixed(1)}% reached safe site, ${o.outside?.toFixed(1)}% outside hazard, ${o.affected.toFixed(1)}% casualties.`}
+            aria-label={`Outcome: ${o.reached.toFixed(1)}% reached modeled site, ${o.outside?.toFixed(1)}% outside hazard, ${o.affected.toFixed(1)}% modeled victims.`}
           >
             <span
               className="segment-reached"
               style={{ width: `${o.reached}%` }}
-              title={`Safe site: ${o.reached.toFixed(1)}%`}
+              title={`Modeled site: ${o.reached.toFixed(1)}%`}
             />
             <span
               className="segment-outside"
@@ -549,16 +549,16 @@ function Outcome({ step, condition }: { step: number; condition: Condition }) {
             <span
               className="segment-victims"
               style={{ width: `${o.affected}%` }}
-              title={`Casualties: ${o.affected.toFixed(1)}%`}
+              title={`Modeled victims: ${o.affected.toFixed(1)}%`}
             />
           </div>
           <div className="compact-legend-row">
-            <span className="leg-chip reached">● {o.reached.toFixed(1)}% Safe Refuges</span>
+            <span className="leg-chip reached">● {o.reached.toFixed(1)}% Reached modeled sites</span>
             <span className="leg-chip outside">● {o.outside?.toFixed(1)}% Outside Hazard</span>
-            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Casualties</span>
+            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Modeled victims</span>
           </div>
           <p className="outcome-stat-note">
-            Safe arrivals increase from {condition === "baseline" ? "60.7%" : "56.8%"} up to {condition === "baseline" ? "93.6%" : "88.9%"}.
+            Modeled site arrivals increase from {condition === "baseline" ? "60.7%" : "56.8%"} up to {condition === "baseline" ? "93.6%" : "88.9%"}.
           </p>
         </div>
       )}
@@ -567,51 +567,6 @@ function Outcome({ step, condition }: { step: number; condition: Condition }) {
 }
 
 /* ── §5 Satellite & Meteorological Intel View ──────────────── */
-function SatelliteIntel() {
-  return (
-    <div className="satellite-view-wrap">
-      <div className="section-head">
-        <div>
-          <span className="eyebrow">EARTH OBSERVATION & SENSOR TELEMETRY</span>
-          <h1>Satellite & Meteorological Defense Suite</h1>
-        </div>
-        <p>
-          Integration catalogue only. These example instruments are not connected to live telemetry in this application. Consult TMD and DDPM for official warnings.
-        </p>
-      </div>
-
-      <div className="sensor-grid">
-        {satelliteToolkits.map((s) => (
-          <article key={s.id} className="sensor-card">
-            <div className="sensor-card-top">
-              <span className={`sensor-status-badge ${s.status.toLowerCase()}`}>
-                ○ Not connected
-              </span>
-              <span className="sensor-agency">{s.agency}</span>
-            </div>
-            <h3>{s.name}</h3>
-            <div className="sensor-value-box">
-              <strong>Example specification · no current observation</strong>
-              <small>Cadence: {s.updateFreq}</small>
-            </div>
-            <p>{s.significance}</p>
-          </article>
-        ))}
-      </div>
-
-      <div className="science-explanation-card">
-        <h2>How Deep-Ocean Tsunami Physics Defeats Coastal Blindness</h2>
-        <p>
-          In deep water (&gt;4,000m depth), a tsunami wave travels at over <strong>700 km/h</strong> (the speed of a commercial passenger jet), but has an amplitude of less than 1 meter. Ships in the open ocean cannot even feel it pass beneath them. Only deep-ocean pressure transducers anchored to the seafloor (like <strong>DART Buoy 23401</strong> in the Andaman basin) can measure the microscopic pressure pulse of the entire water column.
-        </p>
-        <p>
-          As the wave hits the shallow continental shelf near Phuket and Phang Nga, wave velocity drops from 700 km/h to 40 km/h. By conservation of energy, the wave height compresses and amplifies into a devastating <strong>8 to 15-meter vertical wall of turbulent water</strong>. The Royal Thai Navy coastal tide stations (Ko Taphao Noi, Similan) provide the final empirical confirmation of shore surge.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 /* ── §6 Research Section with Dynamic Synthesis & Diagrams ─── */
 /* ── §7 My Plan View ───────────────────────────────────────── */
 function Prepare() {
@@ -659,7 +614,7 @@ function Prepare() {
           <span className="meta">Private & On-Device · Actionable Protocol</span>
         </div>
         <p>
-          Confirm destinations and routes locally. Never rely on vehicles during a tsunami alert.
+          Confirm destinations, routes and assisted transport needs with local authorities before an emergency.
         </p>
 
         <div className="field-grid">
@@ -667,7 +622,7 @@ function Prepare() {
             [
               ["place", "Where are you staying?", "Hotel, home or workplace"],
               ["destination", "Primary Vertical / High-Ground Refuge", "Authority-designated destination and access point"],
-              ["backup", "Backup Refuge Destination", "Alternative 3+ story building"],
+              ["backup", "Backup Refuge Destination", "Alternative authority-designated destination"],
               ["contact", "Out-of-Area Contact", "Name and mobile number"],
             ] as const
           ).map(([key, label, placeholder]) => (
@@ -796,10 +751,10 @@ function Prepare() {
             <strong>1. Plan for congestion:</strong> Confirm an accessible departure plan and designated routes with local emergency managers.
           </li>
           <li>
-            <strong>2. Vertical saves time:</strong> Confirm an authority-designated vertical refuge and access before a drill.
+            <strong>2. Confirm refuge access:</strong> Confirm an authority-designated vertical refuge and access before a drill.
           </li>
           <li>
-            <strong>3. Practice removes panic:</strong> Rehearse staircases and exit gates before a real event.
+            <strong>3. Rehearse and review:</strong> Rehearse staircases and exit gates before a real event.
           </li>
           <li>
             <strong>4. Help dependents first:</strong> Assign specific buddies for elderly, children, and visitors.

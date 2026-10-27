@@ -1,0 +1,134 @@
+[
+  {
+    "id": "khao-lak",
+    "places": [
+      {
+        "i": 0,
+        "name": "Pakarang Cape",
+        "lat": 8.727,
+        "lng": 98.226
+      },
+      {
+        "i": 1,
+        "name": "Khuk Khak",
+        "lat": 8.694,
+        "lng": 98.253
+      },
+      {
+        "i": 2,
+        "name": "Bang Niang",
+        "lat": 8.667,
+        "lng": 98.253
+      },
+      {
+        "i": 3,
+        "name": "Nang Thong",
+        "lat": 8.647,
+        "lng": 98.253
+      }
+    ]
+  },
+  {
+    "id": "phuket",
+    "places": [
+      {
+        "i": 0,
+        "name": "Patong Beach",
+        "lat": 7.896,
+        "lng": 98.297
+      },
+      {
+        "i": 1,
+        "name": "Karon & Kata",
+        "lat": 7.835,
+        "lng": 98.298
+      },
+      {
+        "i": 2,
+        "name": "Kamala",
+        "lat": 7.954,
+        "lng": 98.283
+      },
+      {
+        "i": 3,
+        "name": "Bang Tao & Laguna",
+        "lat": 8.003,
+        "lng": 98.295
+      }
+    ]
+  },
+  {
+    "id": "krabi",
+    "places": [
+      {
+        "i": 0,
+        "name": "Phi Phi Don (Ton Sai sandspit)",
+        "lat": 7.739,
+        "lng": 98.773
+      },
+      {
+        "i": 1,
+        "name": "Ao Nang Beach",
+        "lat": 8.031,
+        "lng": 98.824
+      },
+      {
+        "i": 2,
+        "name": "Railay & Phra Nang",
+        "lat": 8.012,
+        "lng": 98.839
+      }
+    ]
+  },
+  {
+    "id": "satun-trang",
+    "places": [
+      {
+        "i": 0,
+        "name": "Koh Lipe (Pattaya & Sunrise Beach)",
+        "lat": 6.488,
+        "lng": 99.303
+      },
+      {
+        "i": 1,
+        "name": "Pak Bara Port",
+        "lat": 6.852,
+        "lng": 99.733
+      }
+    ]
+  },
+  {
+    "id": "ranong",
+    "places": [
+      {
+        "i": 0,
+        "name": "Koh Phayam",
+        "lat": 9.738,
+        "lng": 98.406
+      },
+      {
+        "i": 1,
+        "name": "Laem Son National Park",
+        "lat": 9.605,
+        "lng": 98.49
+      }
+    ]
+  },
+  {
+    "id": "gulf-thailand",
+    "places": [
+      {
+        "i": 0,
+        "name": "Hua Hin Coastline",
+        "lat": 12.568,
+        "lng": 99.96
+      },
+      {
+        "i": 1,
+        "name": "Koh Samui (Chaweng Beach)",
+        "lat": 9.53,
+        "lng": 100.06
+      }
+    ]
+  }
+]

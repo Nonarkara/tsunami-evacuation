@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "coverage": "Small snapshots around named places, not full provincial coverage. OSM mapping and height data are incomplete.",
+  "entries": [
+    {
+      "id": "khao-lak-0",
+      "region": "khao-lak",
+      "placeIndex": 0,
+      "name": "Pakarang Cape",
+      "url": "/data/buildings-khao-lak-0.json",
+      "queryBounds": [
+        98.214,
+        8.715,
+        98.238,
+        8.739
+      ],
+      "geometryBounds": [
+        98.2228091,
+        8.7215589,
+        98.2381427,
+        8.7336001
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.214,8.715,98.238,8.739",
+      "retrievedAt": "2026-10-27T18:25:45.145282+00:00",
+      "rawSha256": "9036755e37cf473c0d305ca5364126efe93ab09f5ff8ffa0acf45007319f770f",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 0,
+        "unknown": 71,
+        "total": 71
+      }
+    },
+    {
+      "id": "khao-lak-1",
+      "region": "khao-lak",
+      "placeIndex": 1,
+      "name": "Khuk Khak",
+      "url": "/data/buildings-khao-lak-1.json",
+      "queryBounds": [
+        98.241,
+        8.682,
+        98.265,
+        8.706
+      ],
+      "geometryBounds": [
+        98.2395211,
+        8.6814063,
+        98.265113,
+        8.7055814
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.241,8.682,98.265,8.706",
+      "retrievedAt": "2026-10-27T18:25:48.760605+00:00",
+      "rawSha256": "b5eb202d39144d9f8bbf78a03fc2be5a179e6f5deb47124a3149519288746bdc",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 1,
+        "unknown": 512,
+        "total": 513
+      }
+    },
+    {
+      "id": "khao-lak-2",
+      "region": "khao-lak",
+      "placeIndex": 2,
+      "name": "Bang Niang",
+      "url": "/data/buildings-khao-lak-2.json",
+      "queryBounds": [
+        98.24,
+        8.658,
+        98.29,
+        8.684
+      ],
+      "geometryBounds": [
+        98.2413823,
+        8.6578397,
+        98.2897954,
+        8.6843467
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.24,8.658,98.29,8.684",
+      "retrievedAt": "2026-10-27T18:25:49.771911+00:00",
+      "rawSha256": "11b15a8a256ea25f4c3743b656d2ab4b1032acdcd4c2a56a9ff8b2e6453dba9e",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 14,
+        "unknown": 1182,
+        "total": 1196
+      }
+    },
+    {
+      "id": "khao-lak-3",
+      "region": "khao-lak",
+      "placeIndex": 3,
+      "name": "Nang Thong",
+      "url": "/data/buildings-khao-lak-3.json",
+      "queryBounds": [
+        98.241,
+        8.635,
+        98.265,
+        8.659
+      ],
+      "geometryBounds": [
+        98.2446454,
+        8.6349448,
+        98.2570254,
+        8.658023
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.241,8.635,98.265,8.659",
+      "retrievedAt": "2026-10-27T18:25:55.133565+00:00",
+      "rawSha256": "9b5a3639c6f78fde18a145cfc5895cbe403a5a94771aef03fc1179fae77ffb8e",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 8,
+        "unknown": 560,
+        "total": 568
+      }
+    },
+    {
+      "id": "phuket-0",
+      "region": "phuket",
+      "placeIndex": 0,
+      "name": "Patong Beach",
+      "url": "/data/buildings-phuket-0.json",
+      "queryBounds": [
+        98.285,
+        7.884,
+        98.309,
+        7.908
+      ],
+      "geometryBounds": [
+        98.2848515,
+        7.8834655,
+        98.3092977,
+        7.9082692
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.285,7.884,98.309,7.908",
+      "retrievedAt": "2026-10-27T18:25:58.187047+00:00",
+      "rawSha256": "9828ea9a2b613ee40d50e1b47a7098e84258b6b5009a94faa1d14a8c63cae2dc",
+      "counts": {
+        "heightTag": 7,
+        "levelsEstimate": 88,
+        "unknown": 2915,
+        "total": 3010
+      }
+    },
+    {
+      "id": "phuket-1",
+      "region": "phuket",
+      "placeIndex": 1,
+      "name": "Karon & Kata",
+      "url": "/data/buildings-phuket-1.json",
+      "queryBounds": [
+        98.286,
+        7.823,
+        98.31,
+        7.847
+      ],
+      "geometryBounds": [
+        98.2921613,
+        7.8224075,
+        98.3102129,
+        7.8471756
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.286,7.823,98.31,7.847",
+      "retrievedAt": "2026-10-27T18:26:02.869306+00:00",
+      "rawSha256": "2fc5ac9974c74d5886b4b2b094184b20ecdd6aed9cef0c9b54502b39dd3c18aa",
+      "counts": {
+        "heightTag": 2,
+        "levelsEstimate": 306,
+        "unknown": 1231,
+        "total": 1539
+      }
+    },
+    {
+      "id": "phuket-2",
+      "region": "phuket",
+      "placeIndex": 2,
+      "name": "Kamala",
+      "url": "/data/buildings-phuket-2.json",
+      "queryBounds": [
+        98.271,
+        7.942,
+        98.295,
+        7.966
+      ],
+      "geometryBounds": [
+        98.2708037,
+        7.9418552,
+        98.2950662,
+        7.9648943
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.271,7.942,98.295,7.966",
+      "retrievedAt": "2026-10-27T18:26:04.765019+00:00",
+      "rawSha256": "ccc6e7adda4e83848c201b5f85033a2d7f65845430abea2d7801e85279a5a7ee",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 4,
+        "unknown": 1950,
+        "total": 1954
+      }
+    },
+    {
+      "id": "phuket-3",
+      "region": "phuket",
+      "placeIndex": 3,
+      "name": "Bang Tao & Laguna",
+      "url": "/data/buildings-phuket-3.json",
+      "queryBounds": [
+        98.283,
+        7.991,
+        98.307,
+        8.015
+      ],
+      "geometryBounds": [
+        98.2906132,
+        7.9907165,
+        98.3073577,
+        8.0152271
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.283,7.991,98.307,8.015",
+      "retrievedAt": "2026-10-27T18:26:08.105819+00:00",
+      "rawSha256": "996285ae89a64f19c6eb953bdf3317e11ee8bf22b3a5700a9e1394cb5735bc7b",
+      "counts": {
+        "heightTag": 1,
+        "levelsEstimate": 21,
+        "unknown": 813,
+        "total": 835
+      }
+    },
+    {
+      "id": "krabi-0",
+      "region": "krabi",
+      "placeIndex": 0,
+      "name": "Phi Phi Don (Ton Sai sandspit)",
+      "url": "/data/buildings-krabi-0.json",
+      "queryBounds": [
+        98.761,
+        7.727,
+        98.785,
+        7.751
+      ],
+      "geometryBounds": [
+        98.7649077,
+        7.7302854,
+        98.7851044,
+        7.7498451
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.761,7.727,98.785,7.751",
+      "retrievedAt": "2026-10-27T18:26:10.577995+00:00",
+      "rawSha256": "0fd3bdd339705710c962574bc873af10ccd5471c00e01a9678f1c58ec5775f8b",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 1,
+        "unknown": 610,
+        "total": 611
+      }
+    },
+    {
+      "id": "krabi-1",
+      "region": "krabi",
+      "placeIndex": 1,
+      "name": "Ao Nang Beach",
+      "url": "/data/buildings-krabi-1.json",
+      "queryBounds": [
+        98.812,
+        8.019,
+        98.836,
+        8.043
+      ],
+      "geometryBounds": [
+        98.8120694,
+        8.0189244,
+        98.8363883,
+        8.0431536
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.812,8.019,98.836,8.043",
+      "retrievedAt": "2026-10-27T18:26:14.527354+00:00",
+      "rawSha256": "bf7458a8355ba201e53589fc68c49c5f891c1d39b65c6323b75a6fbffcf0de26",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 156,
+        "unknown": 1557,
+        "total": 1713
+      }
+    },
+    {
+      "id": "krabi-2",
+      "region": "krabi",
+      "placeIndex": 2,
+      "name": "Railay & Phra Nang",
+      "url": "/data/buildings-krabi-2.json",
+      "queryBounds": [
+        98.827,
+        8.0,
+        98.851,
+        8.024
+      ],
+      "geometryBounds": [
+        98.8308375,
+        8.0051256,
+        98.8490655,
+        8.021935
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.827,8.0,98.851,8.024",
+      "retrievedAt": "2026-10-27T18:26:15.140716+00:00",
+      "rawSha256": "82f4f197b097061ccacb0e0356eb4f22079b650230543caed375f765e2be06f5",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 117,
+        "unknown": 271,
+        "total": 388
+      }
+    },
+    {
+      "id": "satun-trang-0",
+      "region": "satun-trang",
+      "placeIndex": 0,
+      "name": "Koh Lipe (Pattaya & Sunrise Beach)",
+      "url": "/data/buildings-satun-trang-0.json",
+      "queryBounds": [
+        99.291,
+        6.476,
+        99.315,
+        6.5
+      ],
+      "geometryBounds": [
+        99.2966683,
+        6.4814197,
+        99.3107513,
+        6.4955589
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=99.291,6.476,99.315,6.5",
+      "retrievedAt": "2026-10-27T18:26:19.138362+00:00",
+      "rawSha256": "11e30a03c98700aa8c8f378517a976dcd4dcc159f9c702b7d82fbd018ed17b16",
+      "counts": {
+        "heightTag": 12,
+        "levelsEstimate": 17,
+        "unknown": 959,
+        "total": 988
+      }
+    },
+    {
+      "id": "satun-trang-1",
+      "region": "satun-trang",
+      "placeIndex": 1,
+      "name": "Pak Bara Port",
+      "url": "/data/buildings-satun-trang-1.json",
+      "queryBounds": [
+        99.721,
+        6.84,
+        99.745,
+        6.864
+      ],
+      "geometryBounds": [
+        99.7209545,
+        6.8542578,
+        99.7267319,
+        6.8608929
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=99.721,6.84,99.745,6.864",
+      "retrievedAt": "2026-10-27T18:26:18.756327+00:00",
+      "rawSha256": "614b937696528530874584d4d1e865f431165d18a613be965cbefb79e408128a",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 3,
+        "unknown": 24,
+        "total": 27
+      }
+    },
+    {
+      "id": "ranong-0",
+      "region": "ranong",
+      "placeIndex": 0,
+      "name": "Koh Phayam",
+      "url": "/data/buildings-ranong-0.json",
+      "queryBounds": [
+        98.394,
+        9.726,
+        98.418,
+        9.75
+      ],
+      "geometryBounds": [
+        98.3979424,
+        9.7295977,
+        98.4128426,
+        9.7463127
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.394,9.726,98.418,9.75",
+      "retrievedAt": "2026-10-27T18:26:22.502912+00:00",
+      "rawSha256": "f66b65d896b03048c06394b590ea40f6aac0a54b6cfa7f2c86fbc4cc018a2415",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 0,
+        "unknown": 6,
+        "total": 6
+      }
+    },
+    {
+      "id": "ranong-1",
+      "region": "ranong",
+      "placeIndex": 1,
+      "name": "Laem Son National Park",
+      "url": "/data/buildings-ranong-1.json",
+      "queryBounds": [
+        98.478,
+        9.593,
+        98.502,
+        9.617
+      ],
+      "geometryBounds": [
+        98.4786136,
+        9.6037462,
+        98.4837533,
+        9.6086144
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.478,9.593,98.502,9.617",
+      "retrievedAt": "2026-10-27T18:26:23.860930+00:00",
+      "rawSha256": "1c9f33e2f59274ceb209818a101dbb7e970dfeb4eb43b5e9ad6e5b1ddcfdb45f",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 0,
+        "unknown": 2,
+        "total": 2
+      }
+    },
+    {
+      "id": "gulf-thailand-0",
+      "region": "gulf-thailand",
+      "placeIndex": 0,
+      "name": "Hua Hin Coastline",
+      "url": "/data/buildings-gulf-thailand-0.json",
+      "queryBounds": [
+        99.948,
+        12.556,
+        99.972,
+        12.58
+      ],
+      "geometryBounds": [
+        99.9475732,
+        12.5557792,
+        99.9635459,
+        12.5804875
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=99.948,12.556,99.972,12.58",
+      "retrievedAt": "2026-10-27T18:26:31.868325+00:00",
+      "rawSha256": "af884ab72295f4e15bd828dbd75615dbbd45e6d5909a95b388268565b65e445f",
+      "counts": {
+        "heightTag": 0,
+        "levelsEstimate": 3,
+        "unknown": 5534,
+        "total": 5537
+      }
+    },
+    {
+      "id": "gulf-thailand-1",
+      "region": "gulf-thailand",
+      "placeIndex": 1,
+      "name": "Koh Samui (Chaweng Beach)",
+      "url": "/data/buildings-gulf-thailand-1.json",
+      "queryBounds": [
+        100.048,
+        9.518,
+        100.072,
+        9.542
+      ],
+      "geometryBounds": [
+        100.0473962,
+        9.5177047,
+        100.0700022,
+        9.5429687
+      ],
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=100.048,9.518,100.072,9.542",
+      "retrievedAt": "2026-10-27T18:26:30.345873+00:00",
+      "rawSha256": "30020f5e2b4f37c746a168bbf330b320ffa4a51d59277899000a6cda1b245353",
+      "counts": {
+        "heightTag": 37,
+        "levelsEstimate": 313,
+        "unknown": 257,
+        "total": 607
+      }
+    }
+  ]
+}
