@@ -246,60 +246,52 @@ function App() {
                   </div>
                   <div className="place-stats">
                     <span className="stat-pill">
-                      Elev: <strong>{place.elevationM}m</strong>
+                      Elev: <strong>{place.elevationM}m MSL</strong>
                     </span>
                     <span className="stat-pill safe">
                       Safe Ridge: <strong>{place.safeDistM}m</strong>
                     </span>
-                    {place.walkMinutes && (
-                      <span className="stat-pill walk">
-                        Walk: <strong>~{place.walkMinutes} min</strong>
-                      </span>
-                    )}
+                    <span className="stat-pill walk">
+                      Contour: <strong>&gt;15m MSL</strong>
+                    </span>
                   </div>
                 </div>
 
-                {/* Evacuation Route Step-by-Step Waypoints */}
+                {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2024) */}
                 <div className="evacuation-route-waypoints">
                   <div className="waypoint-item start">
-                    <span className="wp-badge">01 START</span>
+                    <span className="wp-badge">01 IMMEDIATE</span>
                     <div>
-                      <strong>Beachfront / Resort Ground Zero (Elev {place.elevationM}m)</strong>
-                      <small>Siren sounds: depart immediately on foot. Leave vehicles behind.</small>
+                      <strong>Zero Motor Vehicles · Immediate Foot Departure</strong>
+                      <small>Siren or shaking triggers instant pedestrian departure. Leaving cars behind prevents fatal highway gridlock.</small>
                     </div>
                   </div>
                   <div className="waypoint-item walk">
-                    <span className="wp-badge">02 ROUTE</span>
+                    <span className="wp-badge">02 PERPENDICULAR</span>
                     <div>
-                      <strong>Perpendicular Foot Route ({place.safeDistM}m inland)</strong>
-                      <small>Bypass Highway 4 vehicle jams. Use designated walking paths.</small>
+                      <strong>Perpendicular Foot Route ({place.safeDistM}m to Safe Ground)</strong>
+                      <small>Evacuate directly inland away from shoreline. Bypass parallel highway corridors on foot.</small>
                     </div>
                   </div>
                   <div className="waypoint-item destination">
                     <span className="wp-badge">03 REFUGE</span>
                     <div>
-                      <strong>
-                        {place.verticalRefuge
-                          ? `Vertical Refuge: ${place.verticalRefuge.name} (${place.verticalRefuge.floors} Fl, Cap ${place.verticalRefuge.capacity})`
-                          : "Inland Granite Ridge (>15m Elevation MSL)"}
-                      </strong>
-                      <small>
-                        Arrival at ~{place.walkMinutes || 10} min (Well ahead of {region.waveEtaMin}m wave ETA).
-                      </small>
+                      <strong>{place.refugeStrategy}</strong>
+                      <small>Empirical defense: upper floors of certified reinforced concrete structures or terrain above 15m MSL.</small>
                     </div>
                   </div>
                 </div>
 
-                {/* Actionable Directive & Lethal Gridlock Warning */}
+                {/* Actionable Directive & Spatial Context */}
                 <div className="action-directive">
-                  <strong>⚠️ Actionable Evacuation Directive (Synthesized by Dr. Non):</strong>
+                  <strong>⚠️ Actionable Evacuation Directive:</strong>
                   <span>{place.actionableDirective}</span>
                 </div>
 
-                {place.gridlockWarning && (
+                {place.spatialContext && (
                   <div className="gridlock-warning-bar">
-                    <strong>⛔ Lethal Vehicular Gridlock Warning:</strong>
-                    <span>{place.gridlockWarning}</span>
+                    <strong>📍 Topographic &amp; Bottleneck Context:</strong>
+                    <span>{place.spatialContext}</span>
                   </div>
                 )}
 

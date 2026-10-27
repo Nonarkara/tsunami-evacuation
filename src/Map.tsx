@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { type CoastalRegion, type Place } from "./research";
+import { type CoastalRegion, type Place, KHAO_LAK_GROUND_TRUTH } from "./research";
 
 export function StudyMap({
   region,
@@ -196,7 +196,7 @@ export function StudyMap({
     }
   }, [selected, activePlace, isFlownIn, flyToPlace]);
 
-  // Render Evacuation Routes (Safe Walking vs Highway Gridlock)
+  // Render Evacuation Routes & Verified Ground Truth Landmarks
   useEffect(() => {
     if (!routeLayersRef.current || !activePlace) return;
     const group = routeLayersRef.current;
@@ -204,93 +204,60 @@ export function StudyMap({
 
     if (!showRoutes) return;
 
-    const beach = activePlace.beachCoord || [
-      activePlace.lat,
-      activePlace.lng - 0.007,
-    ];
-    const safeRidge = activePlace.safeRidgeCoord || [
-      activePlace.lat,
-      activePlace.lng + 0.012,
-    ];
-    const refuge = activePlace.verticalRefuge;
-
-    // 1. Safe Pedestrian Evacuation Path (Glowing Emerald)
-    const walkPoints: [number, number][] = [
-      beach,
-      [activePlace.lat, activePlace.lng],
-      safeRidge,
-    ];
-
-    const walkPolyline = L.polyline(walkPoints, {
-      color: "#10b981",
-      weight: 5,
-      opacity: 0.95,
-      dashArray: "8, 6",
-      className: "safe-walk-path",
-    }).bindTooltip(
-      `🚶 <strong>Safe Pedestrian Walking Route</strong><br/>
-       ${activePlace.safeDistM}m on foot · ~${activePlace.walkMinutes || 10} min to high ground (&gt;15m)`,
-      { sticky: true, className: "route-tooltip safe-tip" },
-    );
-    group.addLayer(walkPolyline);
-
-    // 2. Lethal Vehicular Gridlock Route (Crimson Warning Line)
-    // Runs roughly north-south parallel to coast (Highway 4 / main strip)
-    const gridlockPoints: [number, number][] = [
-      [activePlace.lat - 0.012, activePlace.lng],
-      [activePlace.lat, activePlace.lng],
-      [activePlace.lat + 0.012, activePlace.lng],
-    ];
-
-    const gridlockPolyline = L.polyline(gridlockPoints, {
-      color: "#ef4444",
-      weight: 4,
-      opacity: 0.85,
-      dashArray: "5, 8",
-      className: "gridlock-path",
-    }).bindTooltip(
-      `⛔ <strong>Lethal Vehicular Gridlock Route</strong><br/>
-       ${activePlace.gridlockWarning || "Highway chokes within 8 minutes of alert. Do not drive."}`,
-      { sticky: true, className: "route-tooltip danger-tip" },
-    );
-    group.addLayer(gridlockPolyline);
-
-    // 3. Certified Vertical Refuge Marker
-    if (refuge) {
-      const refugeMarker = L.circleMarker(
-        [activePlace.lat + 0.003, activePlace.lng + 0.004],
-        {
-          radius: 9,
-          fillColor: "#f59e0b",
-          color: "#ffffff",
-          weight: 2,
-          fillOpacity: 1,
-          className: "refuge-marker-pulse",
-        },
-      ).bindTooltip(
-        `🏢 <strong>Vertical Refuge: ${refuge.name}</strong><br/>
-         ${refuge.floors} Floors (${refuge.type}) · Cap: ${refuge.capacity} people · ${refuge.distM}m away`,
-        { sticky: true, className: "route-tooltip refuge-tip" },
+    // Ground Truth Features for Khao Lak (Core Empirical Study Site)
+    if (region.id === "khao-lak") {
+      // 1. Tor 813 Memorial Marker (Historical 2004 Inundation Limit)
+      const tor813 = KHAO_LAK_GROUND_TRUTH.tor813;
+      const torMarker = L.marker([tor813.lat, tor813.lng], {
+        icon: L.divIcon({
+          className: "tor813-marker",
+          html: `<div class="tor813-badge" title="Tor 813 Memorial">⚓ 813</div>`,
+          iconSize: [48, 22],
+          iconAnchor: [24, 11],
+        }),
+      }).bindTooltip(
+        `<strong>${tor813.name}</strong> (${tor813.thaiName})<br/>
+         ${tor813.significance}<br/>
+         <em>Ground Elevation: ${tor813.elevationM}m MSL</em>`,
+        { sticky: true, className: "route-tooltip tor-tip" },
       );
-      group.addLayer(refugeMarker);
+      group.addLayer(torMarker);
+
+      // 2. Highway 4 Bottleneck Corridor (Verified 2-Lane Evacuation Gridlock)
+      const hwy4 = KHAO_LAK_GROUND_TRUTH.highway4Corridor;
+      const hwy4Poly = L.polyline(hwy4.points, {
+        color: "#ef4444",
+        weight: 4,
+        opacity: 0.85,
+        dashArray: "6, 6",
+        className: "highway4-corridor",
+      }).bindTooltip(
+        `⛔ <strong>${hwy4.name}</strong><br/>
+         ${hwy4.significance}`,
+        { sticky: true, className: "route-tooltip danger-tip" },
+      );
+      group.addLayer(hwy4Poly);
     }
 
-    // 4. Safe Ridge (>15m High Ground) Marker
-    const safeRidgeMarker = L.circleMarker(safeRidge, {
-      radius: 9,
-      fillColor: "#10b981",
-      color: "#ffffff",
+    // Active Place Safe Buffer Zone & Vertical Refuge Context
+    const placeCircle = L.circle([activePlace.lat, activePlace.lng], {
+      radius: activePlace.safeDistM,
+      color: "#10b981",
       weight: 2,
-      fillOpacity: 1,
-      className: "safe-ridge-marker",
+      dashArray: "4, 6",
+      fillColor: "#10b981",
+      fillOpacity: 0.08,
+      className: "safe-buffer-zone",
     }).bindTooltip(
-      `🛡️ <strong>Safe Ridge High Ground</strong><br/>Elevation &gt;15m MSL (Safe from 2004 Max Runup)`,
+      `🚶 <strong>Pedestrian Evacuation Zone: ${activePlace.name}</strong><br/>
+       Safe Contour (&gt;15m MSL): ~${activePlace.safeDistM}m inland<br/>
+       <em>${activePlace.refugeStrategy}</em>`,
       { sticky: true, className: "route-tooltip safe-tip" },
     );
-    group.addLayer(safeRidgeMarker);
-  }, [activePlace, showRoutes]);
+    group.addLayer(placeCircle);
+  }, [activePlace, showRoutes, region.id]);
 
-  // Water Reach Level Animation & Inundation Simulation
+  // Empirical Water Reach Level & Historical 2004 Run-up Scale
   useEffect(() => {
     if (!surgeLayersRef.current || !activePlace) return;
     const group = surgeLayersRef.current;
@@ -298,56 +265,27 @@ export function StudyMap({
 
     if (waterLevelM <= 0) return;
 
-    // Calculate dynamic surge penetration distance inland
-    // At 15m runup, water reaches the full safe distance of the coast
-    const penetrationFactor = Math.min(waterLevelM / 15, 1);
-    const centerLng = activePlace.lng;
-    const centerLat = activePlace.lat;
+    // Pulse indicator at active place calibrated against Copernicus 30m DEM
+    const exceedsGroundElev = waterLevelM > activePlace.elevationM;
 
-    // Create an advancing coastal water polygon representing the tsunami surge
-    // Coastline is to the west in Andaman Sea; surge sweeps inland to the east
-    const surgeExtentLng = centerLng - 0.015 + penetrationFactor * 0.02;
-
-    const surgePolygonCoords: [number, number][] = [
-      [centerLat - 0.03, centerLng - 0.04],
-      [centerLat + 0.03, centerLng - 0.04],
-      [centerLat + 0.03, surgeExtentLng],
-      [centerLat + 0.015, surgeExtentLng + 0.002],
-      [centerLat, surgeExtentLng],
-      [centerLat - 0.015, surgeExtentLng + 0.003],
-      [centerLat - 0.03, surgeExtentLng],
-    ];
-
-    // Translucent Oceanic Surge Polygon
-    const surgePoly = L.polygon(surgePolygonCoords, {
-      fillColor: "#0284c7",
-      fillOpacity: 0.55 + penetrationFactor * 0.25,
-      color: "#38bdf8",
+    const runupIndicator = L.circleMarker([activePlace.lat, activePlace.lng], {
+      radius: exceedsGroundElev ? 22 : 14,
+      fillColor: exceedsGroundElev ? "#f59e0b" : "#10b981",
+      color: exceedsGroundElev ? "#ef4444" : "#059669",
       weight: 3,
-      className: "surge-wave-poly",
+      fillOpacity: exceedsGroundElev ? 0.45 : 0.25,
+      className: exceedsGroundElev ? "surge-pulse-danger" : "surge-pulse-safe",
     }).bindTooltip(
-      `🌊 <strong>Simulated Tsunami Wave Reach: +${waterLevelM.toFixed(1)}m</strong><br/>
-       Inland penetration: ~${Math.round(penetrationFactor * activePlace.safeDistM)}m`,
+      `🌊 <strong>Run-up Reach Level: +${waterLevelM.toFixed(1)}m MSL</strong><br/>
+       Ground elevation: ${activePlace.elevationM}m MSL<br/>
+       ${
+         exceedsGroundElev
+           ? `⚠️ Exceeds ground elevation. 2004 historical run-up benchmark: 8m–15m MSL.`
+           : `🛡️ Dry ground margin: +${(activePlace.elevationM - waterLevelM).toFixed(1)}m above current water level.`
+       }`,
       { sticky: true, className: "route-tooltip surge-tip" },
     );
-    group.addLayer(surgePoly);
-
-    // Advancing Wave Foam Crest (Leading Edge)
-    const crestLineCoords: [number, number][] = [
-      [centerLat - 0.03, surgeExtentLng],
-      [centerLat - 0.015, surgeExtentLng + 0.003],
-      [centerLat, surgeExtentLng],
-      [centerLat + 0.015, surgeExtentLng + 0.002],
-      [centerLat + 0.03, surgeExtentLng],
-    ];
-
-    const crestPolyline = L.polyline(crestLineCoords, {
-      color: "#e0f2fe",
-      weight: 5,
-      opacity: 0.95,
-      className: "wave-crest-line",
-    });
-    group.addLayer(crestPolyline);
+    group.addLayer(runupIndicator);
   }, [waterLevelM, activePlace]);
 
   // Automated Playback Timer for Water Reach Animation
@@ -375,14 +313,10 @@ export function StudyMap({
     }
   }
 
-  // Calculate Submersion Status for Selected Place
-  const isSubmerged = activePlace && waterLevelM > activePlace.elevationM;
-  const submergenceDepth =
-    activePlace && isSubmerged
-      ? (waterLevelM - activePlace.elevationM).toFixed(1)
-      : "0.0";
+  // Calculate Topographic Status for Selected Place
+  const exceedsGroundElev = activePlace && waterLevelM > activePlace.elevationM;
   const dryMargin =
-    activePlace && !isSubmerged
+    activePlace && !exceedsGroundElev
       ? (activePlace.elevationM - waterLevelM).toFixed(1)
       : "0.0";
 
@@ -393,16 +327,16 @@ export function StudyMap({
         ref={container}
         className={`map ${baseLayer === "sat" ? "satellite-view" : "topo-view"}`}
         role="region"
-        aria-label={`Interactive 3D aerial map and evacuation routes for ${region.name}.`}
+        aria-label={`Interactive map of ${region.name}`}
       />
 
       {failed && (
-        <div className="map-error" role="status">
-          Satellite feed reconnecting. Use the area coordinates below.
+        <div className="map-fallback-banner" role="alert">
+          Satellite feed degraded. Using offline vector contours.
         </div>
       )}
 
-      {/* Floating Control HUD: 3D Aerial, Fly-In, Routes & Layers */}
+      {/* ── § Overlaid Floating Camera & Layer Controls ── */}
       <div className="map-controls-overlay">
         <div className="control-button-group">
           <button
@@ -424,7 +358,7 @@ export function StudyMap({
           <button
             className={`map-ctrl-btn ${showRoutes ? "active" : ""}`}
             onClick={() => setShowRoutes(!showRoutes)}
-            title="Toggle Evacuation Walking Routes vs Vehicle Gridlock Overlays"
+            title="Toggle Evacuation Routes and Ground-Truth Benchmarks"
           >
             {showRoutes ? "🚶 Routes: ON" : "🚶 Routes: OFF"}
           </button>
@@ -468,7 +402,7 @@ export function StudyMap({
         </button>
 
         <div className="hud-slider-group">
-          <span className="hud-label">Surge Level:</span>
+          <span className="hud-label">Run-up:</span>
           <input
             id="water-level-slider"
             type="range"
@@ -488,14 +422,14 @@ export function StudyMap({
 
         <div className="hud-status-pill">
           {waterLevelM === 0 ? (
-            <span className="chip-normal">Normal Sea Level (0m)</span>
-          ) : isSubmerged ? (
-            <span className="chip-submerged">
-              ⚠️ {activePlace?.name} Submerged ({submergenceDepth}m Depth)
+            <span className="chip-normal">Normal Baseline (0m MSL)</span>
+          ) : !exceedsGroundElev ? (
+            <span className="chip-safe">
+              🛡️ Elev {activePlace?.elevationM}m (+{dryMargin}m dry margin)
             </span>
           ) : (
-            <span className="chip-safe">
-              🛡️ Safe Dry Margin (+{dryMargin}m)
+            <span className="chip-submerged">
+              ⚠️ Water Reach +{waterLevelM.toFixed(1)}m MSL &gt; Elev {activePlace?.elevationM}m (2004 Run-up: 8–15m)
             </span>
           )}
         </div>

@@ -765,6 +765,53 @@ main {
   border-left: 3px solid #38bdf8 !important;
 }
 
+.route-tooltip.tor-tip {
+  background: #1e1b4b !important;
+  color: #e0e7ff !important;
+  border-left: 3px solid #f59e0b !important;
+}
+
+.tor813-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f59e0b;
+  color: #1e1b4b;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 1px 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.highway4-corridor {
+  filter: drop-shadow(0 0 3px #ef4444);
+}
+
+.safe-buffer-zone {
+  filter: drop-shadow(0 0 3px #10b981);
+}
+
+.surge-pulse-danger {
+  animation: pulse-danger 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-danger {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.surge-pulse-safe {
+  animation: pulse-safe 2s ease-in-out infinite;
+}
+
+@keyframes pulse-safe {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+}
+
 .safe-walk-path {
   filter: drop-shadow(0 0 4px #10b981);
   animation: walk-dash 1.6s linear infinite;
