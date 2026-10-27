@@ -21,3 +21,5 @@ Masthead: preserve the owner's single-row brand + region + five navigation symbo
 Manual: keep the ? button available without adding a permanent reading band. Use the bilingual native dialog, compact quick start and expandable topics. Preserve form/replay state; verify close/Escape focus return, forward/reverse Tab containment and section-link focus. Long instructions earn scroll only when opened.
 
 Buildings: preserve unknown source heights as null. The owner authorizes labelled 3 m visual massing, not inferred safety or refuge status. Keep per-place bounds, source IDs, retrieval receipts and count conservation. Native terrain supplies extrusion bases and the 1.65 m eye camera; never add absolute DEM twice. Use complete jumpTo camera options to retain calculated elevation. Generic camera references and steps are exploration, not validated routes.
+
+Quantitative bars: show marked endpoints, intermediate divisions and compact unit-bearing metrics tied to the actual range. Preserve usable native inputs. Test label and sibling-control overlap at narrow widths and long values; page overflow alone does not prove a calibrated scale fits.

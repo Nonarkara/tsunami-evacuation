@@ -2647,6 +2647,7 @@ textarea {
 .ruler-start { left:0; }
 .ruler-middle { left:50%; transform:translateX(-50%); }
 .ruler-end { right:0; }
+.rehearsal-timeline .timeline-label > span:first-child { max-width:85px; white-space:normal; line-height:18px; }
 @container (max-width:130px) { .time-ruler.long-clock .ruler-middle { display:none; } }
 @container (max-width:95px) { .time-ruler .ruler-middle { display:none; } }
 .building-source-note { max-width:72ch; }
