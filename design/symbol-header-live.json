@@ -1,0 +1,37 @@
+{
+  "height": 46,
+  "names": [
+    {
+      "label": "Model",
+      "svg": true,
+      "title": "Model · แบบจำลอง",
+      "y": 4
+    },
+    {
+      "label": "Satellite",
+      "svg": true,
+      "title": "Satellite · ดาวเทียม",
+      "y": 4
+    },
+    {
+      "label": "Plan",
+      "svg": true,
+      "title": "Plan · แผน",
+      "y": 4
+    },
+    {
+      "label": "Drill",
+      "svg": true,
+      "title": "Drill · ซ้อมอพยพ",
+      "y": 4
+    },
+    {
+      "label": "Research / วิจัย",
+      "svg": true,
+      "title": "Research / วิจัย · งานวิจัย",
+      "y": 4
+    }
+  ],
+  "pageWidth": 390,
+  "width": 390
+}
