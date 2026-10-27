@@ -23,3 +23,5 @@ Manual: keep the ? button available without adding a permanent reading band. Use
 Buildings: preserve unknown source heights as null. The owner authorizes labelled 3 m visual massing, not inferred safety or refuge status. Keep per-place bounds, source IDs, retrieval receipts and count conservation. Native terrain supplies extrusion bases and the 1.65 m eye camera; never add absolute DEM twice. Use complete jumpTo camera options to retain calculated elevation. Generic camera references and steps are exploration, not validated routes.
 
 Quantitative bars: show marked endpoints, intermediate divisions and compact unit-bearing metrics tied to the actual range. Preserve usable native inputs. Test label and sibling-control overlap at narrow widths and long values; page overflow alone does not prove a calibrated scale fits.
+
+Comparison rows: use available space for sourced, decision-relevant comparisons on shared scales. Avoid a distant fixed-width mini-bar separated from its label by an empty middle column. Do not invent filler to occupy space; preserve direct values, qualifications and selection behavior. Measure row/plot geometry and test both timing conditions.

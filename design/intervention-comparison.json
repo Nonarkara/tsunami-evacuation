@@ -1,0 +1,115 @@
+{
+  "budgets": {
+    "maxRowHeight": 48,
+    "maxTableHeight": 300,
+    "minPlotWidth": 110,
+    "requiredBars": 10
+  },
+  "cases": [
+    {
+      "barCount": 10,
+      "overflow": false,
+      "plotWidth": 128,
+      "rows": [
+        43,
+        43,
+        43,
+        43,
+        43
+      ],
+      "table": {
+        "bottom": 422.5078125,
+        "height": 287.59375,
+        "left": 19,
+        "right": 341,
+        "top": 134.9140625,
+        "width": 322,
+        "x": 19,
+        "y": 134.9140625
+      },
+      "viewport": [
+        360,
+        800
+      ]
+    },
+    {
+      "barCount": 10,
+      "overflow": false,
+      "plotWidth": 158,
+      "rows": [
+        43,
+        43,
+        43,
+        43,
+        43
+      ],
+      "table": {
+        "bottom": 444.4140625,
+        "height": 287.59375,
+        "left": 19,
+        "right": 371,
+        "top": 156.8203125,
+        "width": 352,
+        "x": 19,
+        "y": 156.8203125
+      },
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "barCount": 10,
+      "overflow": false,
+      "plotWidth": 182.796875,
+      "rows": [
+        43,
+        43,
+        43,
+        43,
+        43
+      ],
+      "table": {
+        "bottom": 642.4140625,
+        "height": 268.796875,
+        "left": 35,
+        "right": 411.796875,
+        "top": 373.6171875,
+        "width": 376.796875,
+        "x": 35,
+        "y": 373.6171875
+      },
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "barCount": 10,
+      "overflow": false,
+      "plotWidth": 349.1953125,
+      "rows": [
+        43,
+        43,
+        43,
+        43,
+        43
+      ],
+      "table": {
+        "bottom": 789.6484375,
+        "height": 268.796875,
+        "left": 35,
+        "right": 578.1953125,
+        "top": 520.8515625,
+        "width": 543.1953125,
+        "x": 35,
+        "y": 520.8515625
+      },
+      "viewport": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "status": "PASS"
+}

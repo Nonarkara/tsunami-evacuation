@@ -1,0 +1,13 @@
+{
+  "barCount": 5,
+  "plotWidths": [
+    70,
+    70,
+    70,
+    70,
+    70
+  ],
+  "requiredBars": 10,
+  "minPlotWidth": 110,
+  "status": "FAIL"
+}

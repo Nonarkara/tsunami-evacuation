@@ -70,8 +70,8 @@ export const scenarios = [
   },
   {
     id: "practice",
-    label: "Practise vertical evacuation (VE50)",
-    short: "+ Practice",
+    label: "Increase vertical-evacuation preference to 50% (VE50)",
+    short: "+ VE50",
     affected: 1.3,
     delayed: 3.4,
     sites: 16,

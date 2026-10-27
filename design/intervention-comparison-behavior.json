@@ -1,0 +1,52 @@
+[
+  {
+    "current": "Study baseline (Vehicle gridlock): warning30/mean preparation14 minutes 21.8%, warning45/mean preparation28 minutes 22.6% modeled victims. Reference package.",
+    "heading": "Study baseline (Vehicle gridlock)",
+    "hud": "21.8%"
+  },
+  {
+    "current": "Increase walking preference to 50% (PD50): warning30/mean preparation14 minutes 7.0%, warning45/mean preparation28 minutes 10.6% modeled victims. 68% reduction versus reference under the selected timing condition.",
+    "heading": "Increase walking preference to 50% (PD50)",
+    "hud": "7.0%"
+  },
+  {
+    "current": "Add 14 candidate vertical sites (VS14): warning30/mean preparation14 minutes 3.7%, warning45/mean preparation28 minutes 5.6% modeled victims. 83% reduction versus reference under the selected timing condition.",
+    "heading": "Add 14 candidate vertical sites (VS14)",
+    "hud": "3.7%"
+  },
+  {
+    "current": "VE50 · vertical-evacuation preference50%: warning30/mean preparation14 minutes 1.3%, warning45/mean preparation28 minutes 3.4% modeled victims. 94% reduction versus reference under the selected timing condition.",
+    "heading": "Practise vertical evacuation (VE50)",
+    "hud": "1.3%"
+  },
+  {
+    "current": "Complete package: 135 signs (SG135): warning30/mean preparation14 minutes 1.2%, warning45/mean preparation28 minutes 2.9% modeled victims. 94% reduction versus reference under the selected timing condition.",
+    "heading": "Complete package: 135 signs (SG135)",
+    "hud": "1.2%"
+  },
+  {
+    "current": "Study baseline (Vehicle gridlock): warning30/mean preparation14 minutes 21.8%, warning45/mean preparation28 minutes 22.6% modeled victims. Reference package.",
+    "heading": "Study baseline (Vehicle gridlock)",
+    "hud": "22.6%"
+  },
+  {
+    "current": "Increase walking preference to 50% (PD50): warning30/mean preparation14 minutes 7.0%, warning45/mean preparation28 minutes 10.6% modeled victims. 53% reduction versus reference under the selected timing condition.",
+    "heading": "Increase walking preference to 50% (PD50)",
+    "hud": "10.6%"
+  },
+  {
+    "current": "Add 14 candidate vertical sites (VS14): warning30/mean preparation14 minutes 3.7%, warning45/mean preparation28 minutes 5.6% modeled victims. 75% reduction versus reference under the selected timing condition.",
+    "heading": "Add 14 candidate vertical sites (VS14)",
+    "hud": "5.6%"
+  },
+  {
+    "current": "VE50 · vertical-evacuation preference50%: warning30/mean preparation14 minutes 1.3%, warning45/mean preparation28 minutes 3.4% modeled victims. 85% reduction versus reference under the selected timing condition.",
+    "heading": "Practise vertical evacuation (VE50)",
+    "hud": "3.4%"
+  },
+  {
+    "current": "Complete package: 135 signs (SG135): warning30/mean preparation14 minutes 1.2%, warning45/mean preparation28 minutes 2.9% modeled victims. 87% reduction versus reference under the selected timing condition.",
+    "heading": "Complete package: 135 signs (SG135)",
+    "hud": "2.9%"
+  }
+]

@@ -7,6 +7,7 @@ import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
 import { Manual } from "./Manual";
+import { InterventionComparison } from "./InterventionComparison";
 import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
 import { NavSymbol } from "./NavSymbol";
 import { ResearchSection } from "./ResearchSection";
@@ -313,7 +314,7 @@ function App() {
               </details>
             </section>
 
-            {/* Section 02: Evidence & Modeling Engine (Tight 50/50 Split Cockpit) */}
+            {/* Section 02: Published evidence and intervention details */}
             <section className="evidence-pane" aria-labelledby="model-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
@@ -336,9 +337,9 @@ function App() {
                 </div>
               </div>
 
-              {/* ── Balanced Split Cockpit: Scenario Decision Table vs Active Package Directives ── */}
+              {/* Compare intervention packages and inspect the selected result */}
               <div className="modeling-split-grid">
-                {/* Column 1: Compact Scenario Decision Table (Fixed-Width Bars, Zero Hallucination) */}
+                {/* Shared-scale comparison of the two published timing conditions */}
                 <div className="split-col-left">
                   <div className="result-hud" aria-live="polite">
                     <div className="hud-primary">
@@ -362,7 +363,7 @@ function App() {
                           <span className="reduction-pct">
                             −{reduction(step, condition).toFixed(0)}%
                           </span>
-                          <span className="reduction-sub">Casualty Drop</span>
+                          <span className="reduction-sub">Modeled reduction</span>
                         </div>
                       ) : (
                         <div className="hud-baseline-badge">
@@ -372,56 +373,10 @@ function App() {
                     </div>
                   </div>
 
-                  {/* Compact Scenario Selector (Fixed 70px Mini-Bars, Never Stretched) */}
-                  <div
-                    className="scenario-table-compact"
-                    role="region"
-                    aria-label="Intervention package selector"
-                  >
-                    <div className="scenario-table-header" aria-hidden="true">
-                      <span className="col-pkg">Intervention Package</span>
-                      <span className="col-rate">Casualties (25% Scale)</span>
-                    </div>
-
-                    <div className="scenario-list">
-                      {scenarios.map((s, i) => {
-                        const rate = resultFor(i, condition);
-                        const isBase = i === 0;
-                        const red = reduction(i, condition);
-                        return (
-                          <button
-                            className={step === i ? "active" : ""}
-                            key={s.id}
-                            onClick={() => setStep(i)}
-                            aria-pressed={step === i}
-                          >
-                            <span className="scenario-label">
-                              <span className="step-num">{isBase ? "—" : `0${i}`}</span>
-                              <span className="step-text">{s.short}</span>
-                            </span>
-                            <div className="scenario-meter-group">
-                              <span className="mini-bar-track" aria-hidden="true">
-                                <span
-                                  style={{
-                                    width: `${Math.min((rate / 25) * 100, 100)}%`,
-                                  }}
-                                />
-                              </span>
-                              <strong className="rate-num">{rate.toFixed(1)}%</strong>
-                              {!isBase ? (
-                                <span className="red-pill">−{red.toFixed(0)}%</span>
-                              ) : (
-                                <span className="base-pill">Base</span>
-                              )}
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <InterventionComparison step={step} condition={condition} onSelect={setStep} />
                 </div>
 
-                {/* Column 2: Active Package Directive & Compact 100% Outcome Breakdown */}
+                {/* Selected package and reported outcome accounting */}
                 <div className="split-col-right">
                   {/* Active Package Inspector Card */}
                   <div className="active-package-card">
