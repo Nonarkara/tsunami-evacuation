@@ -9,3 +9,5 @@ Real browser measurements at320/360/390/681/800/1024/1440px show46px phone/narro
 `design/symbol-header-metrics.json` stores rendered evidence; `symbol-header-result.json` applies the48px/one-row/inside/overflow budgets. The actual archived old390px masthead (`design/research-captures.json`, Thai390case) measured86px, so it fails the same48px budget. Current phone height recovers40px for operating content. Screenshots: `docs/evidence/symbol-header-phone.png`, `symbol-header-360-gulf.png`, `symbol-header-desktop.png`. Final canonical screenshot is appended after deploy.
 
 Independent reviewer checked the phone composition, accessible naming, SVG semantics, target sizes and selected/focus indicators. Final desktop/narrow result and release verification follow below.
+
+Independent final desktop/narrow review passed with no remaining blockers. Parent browser exercised all five destinations; screenshot review covered desktop and360px Gulf selection. Three existing map/task geometry cases at390/1024/1440 also passed unchanged budgets (`design/symbol-header-map.json`).26automated tests passed in the release command; production build/deployment receipt follows.
