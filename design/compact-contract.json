@@ -1008,6 +1008,165 @@
         "firstScreen": true,
         "reason": "Keep the active input adjacent to the evidence it changes."
       }
+    },
+    {
+      "id": "360x800-crowd",
+      "state": "crowd",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(1)[aria-pressed=true]",
+      "width": 360,
+      "height": 800,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 120,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 320,
+          "minHeight": 230,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "counts",
+          "selector": ".rehearsal-readout",
+          "maxHeight": 80,
+          "firstScreen": true,
+          "reason": "See all crowd counts and arrival estimates with Run."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 140,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        },
+        {
+          "id": "caption",
+          "selector": ".terrain-caption",
+          "maxHeight": 50,
+          "reason": "Credit and key controls stay below the map in a compact reading line."
+        },
+        {
+          "id": "parameters",
+          "selector": ".rehearsal-controls",
+          "maxHeight": 90,
+          "reason": "Parameters are intrinsic label/value rows, not four oversized form cards and a full-width Run bar."
+        },
+        {
+          "id": "run",
+          "selector": ".rehearsal-play",
+          "maxWidth": 145,
+          "maxHeight": 36,
+          "reason": "Run is a short action that fits its label instead of spanning the phone."
+        },
+        {
+          "id": "placeMarker",
+          "selector": ".terrain-stage .terrain-place-label[aria-label=\"Select geographic place Bang Niang\"]",
+          "maxWidth": 24,
+          "maxHeight": 24,
+          "reason": "Geographic points must not become placename banners over the terrain."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 260,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".rehearsal-readout",
+        "action": ".rehearsal-play",
+        "maxGap": 130,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
+    },
+    {
+      "id": "360x800-water",
+      "state": "water",
+      "stateSelector": ".terrain-rehearsal[data-state=ready] .experiment-tabs button:nth-child(2)[aria-pressed=true]",
+      "width": 360,
+      "height": 800,
+      "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+      "regions": [
+        {
+          "id": "title",
+          "selector": ".geography-pane > .pane-header",
+          "maxHeight": 80,
+          "reason": "Name the geographic study without an oversized introduction."
+        },
+        {
+          "id": "camera",
+          "selector": ".terrain-toolbar",
+          "maxHeight": 120,
+          "reason": "Retain five usable camera controls and the source status."
+        },
+        {
+          "id": "terrain",
+          "selector": ".terrain-stage",
+          "minWidth": 320,
+          "minHeight": 230,
+          "maxHeight": 460,
+          "firstScreen": true,
+          "reason": "Preserve an operating terrain viewport independent of the research section."
+        },
+        {
+          "id": "waterControl",
+          "selector": ".terrain-secondary > .water-experiment",
+          "maxHeight": 160,
+          "firstScreen": true,
+          "reason": "Water screening must be controlled while its terrain is visible."
+        },
+        {
+          "id": "footer",
+          "selector": ".soonami-footer",
+          "maxHeight": 140,
+          "reason": "Credits must wrap inside their background without clipped or spilled lines."
+        },
+        {
+          "id": "caption",
+          "selector": ".terrain-caption",
+          "maxHeight": 50,
+          "reason": "Credit and key controls stay below the map in a compact reading line."
+        },
+        {
+          "id": "placeMarker",
+          "selector": ".terrain-stage .terrain-place-label[aria-label=\"Select geographic place Bang Niang\"]",
+          "maxWidth": 24,
+          "maxHeight": 24,
+          "reason": "Geographic points must not become placename banners over the terrain."
+        }
+      ],
+      "chrome": {
+        "selectors": [
+          "header",
+          ".geography-pane > .pane-header",
+          ".terrain-toolbar"
+        ],
+        "maxHeight": 260,
+        "reason": "Identity, title and camera controls must leave the operating content its screen."
+      },
+      "decision": {
+        "information": ".terrain-stage",
+        "action": ".water-experiment input[type=range]",
+        "maxGap": 70,
+        "firstScreen": true,
+        "reason": "Keep the active input adjacent to the evidence it changes."
+      }
     }
   ]
 }

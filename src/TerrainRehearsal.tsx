@@ -167,7 +167,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
         <label>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
         <label>Pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>
         <label>Route<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
-        <button className="rehearsal-play" disabled={flat || !ready} onClick={() => { if (seconds >= model.duration) setSeconds(0); setPlaying(v => !v); }}>{playing ? 'Pause rehearsal' : 'Run rehearsal'}</button>
+        <button className="rehearsal-play" aria-label={playing ? "Pause rehearsal" : "Run crowd rehearsal"} disabled={flat || !ready} onClick={() => { if (seconds >= model.duration) setSeconds(0); setPlaying(v => !v); }}>{playing ? 'Pause' : 'Run'}</button>
       </div>
       <div className="rehearsal-timeline">
         <button onClick={() => { setSeconds(0); setPlaying(false); }}>Reset</button>

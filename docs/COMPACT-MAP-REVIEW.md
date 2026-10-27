@@ -12,7 +12,7 @@ The user correctly rejected the previous release’s large placename banners, ma
 
 ## Measured result
 
-At390×844, parameters decreased from180.6px to77px, the timeline from66.8px to40px, and Run from352×42px to107.5×32px. The terrain viewport increased from352×230px to352×300px while releasing the former overlay area. Readable font sizes were retained.
+At390×844, parameters decreased from180.6px to77px, the timeline from66.8px to40px, and Run from352×42px to a label-sized32px-high action. The terrain viewport increased from352×230px to352×300px while releasing the former overlay area. Readable font sizes were retained.
 
 At1024/1280/1440 widths the parameters occupy41px. Routine legend/mode/attribution overlays inside the terrain: zero. Place buttons contain no placename text; visible credit links lie below the terrain at all four widths. Existing map, crowd, camera, terrain-water, comparison, planning and drill behavior is preserved.
 
@@ -22,8 +22,12 @@ Independent reviewer `/root/compact_review` inspected all four default screensho
 
 The exercise remains an uncalibrated synthetic point-queue model and static terrain-water experiment, not approved evacuation routing or a tsunami flood forecast.
 
-The final compact Water control uses one checkbox/value/slider row. An initial phone measurement caught73.8px map-to-slider separation after relocating credits; regrouping the redundant heading and controls fixed the existing70px budget without loosening it. All12 declared crowd/water/expanded-method cases pass. The local regression fixture fails parameter height175px>90px, Run352×42px>145×36px and placename banner86×32px>24×24px, as well as first-screen visibility.
+The final compact Water control uses one checkbox/value/slider row. An initial phone measurement caught73.8px map-to-slider separation after relocating credits; regrouping the redundant heading and controls fixed the existing70px budget without loosening it. All14 declared crowd/water/expanded-method cases pass. The local regression fixture fails parameter height175px>90px, Run352×42px>145×36px and placename banner86×32px>24×24px, as well as first-screen visibility.
 
 The2D fallback also keeps routine credits and camera/layer controls outside its geographic canvas, with no automatic selected-place tooltip. Credit links remain immediately below it. The fallback controls use the same compact neutral treatment instead of colored floating boxes.
 
-Final independent follow-up inspected the refreshed default phone,2D and expanded-key screenshots: visual findings closed, no visual blockers. Its final copy correction was applied: the DEM-click instruction is shown only in3D, where that interaction exists. The model and data assumptions did not change. Tests12/12, strict build, contrast and the12-case compact geometry gate pass.
+Final independent follow-up inspected the refreshed default phone,2D and expanded-key screenshots: visual findings closed, no visual blockers. Its final copy correction was applied: the DEM-click instruction is shown only in3D, where that interaction exists. The model and data assumptions did not change. Tests12/12, strict build, contrast and the14-case compact geometry gate pass.
+
+An additional360px panel check exposed a third parameter row with the repeated “Run rehearsal” label. The visible action now says “Run”/“Pause” with its full accessible name retained, keeping the narrow phone parameters in two rows.
+
+Final narrow-action measurements: label-sized Run retains its full accessible name. The complete refreshed14-case contract includes360×800 Crowd/Water cases, with all counts and actions inside the first screen.
