@@ -56,6 +56,7 @@ function App() {
   const [emergency, setEmergency] = useState(false);
 
   const region = coastalRegions[regionIdx];
+  const place = region.places[selectedPlace];
 
   function navigate(t: Tab) {
     setTab(t);
@@ -74,23 +75,21 @@ function App() {
         Skip to content
       </a>
 
-      {/* ── §1 Ultra-Compact Command Masthead (1/4 prior size) ── */}
-      <header className="compact-header">
-        <div className="masthead-left">
+      {/* ── §1 Ultra-Compact Command Masthead (Zero Spatial Hallucination) ── */}
+      <header className="soonami-masthead">
+        <div className="masthead-brand-group">
           <a
-            className="compact-brand"
+            className="soonami-brand"
             href="#explore"
             onClick={(e) => {
               e.preventDefault();
               navigate("explore");
             }}
           >
-            <span className="brand-logo">สู้</span>
+            <span className="brand-logo" aria-hidden="true">สู้</span>
             <div className="brand-titles">
-              <span className="brand-name">
-                Soonami<strong>สู้-nami</strong>
-              </span>
-              <span className="brand-sub">by Dr. Non</span>
+              <span className="brand-name">Soonami</span>
+              <span className="brand-sub">inspired by Trumikaborworn et al. (2024)</span>
             </div>
           </a>
 
@@ -107,26 +106,22 @@ function App() {
             >
               {coastalRegions.map((r, i) => (
                 <option key={r.id} value={i}>
-                  📍 {r.name}
+                  📍 {r.shortName}
                 </option>
               ))}
             </select>
           </div>
-
-          <div className="live-status-pill" title="Real-time ocean buoy status">
-            <span className="status-dot-pulse" />
-            <span>DART 23401: Normal</span>
-          </div>
         </div>
 
-        <nav className="compact-nav" aria-label="Main navigation">
+        {/* Short 1-Word Navigation Tabs */}
+        <nav className="masthead-nav" aria-label="Main navigation">
           {(
             [
-              ["explore", "Explore & Model"],
-              ["satellite", "Satellite & Met"],
-              ["prepare", "My Plan"],
-              ["drill", "Run Drill"],
-              ["research", "Dr. Non's Research"],
+              ["explore", "Model"],
+              ["satellite", "Satellite"],
+              ["prepare", "Plan"],
+              ["drill", "Drill"],
+              ["research", "Research"],
             ] as const
           ).map(([key, label]) => (
             <button
@@ -139,13 +134,13 @@ function App() {
           ))}
         </nav>
 
-        <div className="masthead-right">
+        <div className="masthead-action-group">
           <button
-            className="compact-emergency-btn"
+            className="emergency-pill-btn"
             onClick={() => setEmergency(!emergency)}
             aria-expanded={emergency}
           >
-            🚨 1784 Safety
+            🚨 1784
           </button>
         </div>
       </header>
@@ -203,11 +198,11 @@ function App() {
       <main id="main" tabIndex={-1}>
         {tab === "explore" ? (
           <div className="explore-grid">
-            {/* Section 01: Interactive Map & Area Geography */}
+            {/* Section 01: 3D Aerial Topography & Water Inundation Simulator */}
             <section className="geography-pane" aria-labelledby="map-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
-                  <span className="pane-badge">01 / GEOGRAPHY & GEOMETRY</span>
+                  <span className="pane-badge">01 / 3D AERIAL TOPOGRAPHY & WATER REACH</span>
                   <h2 id="map-pane-title">{region.name}</h2>
                 </div>
                 <div className="region-meta-strip">
@@ -217,12 +212,14 @@ function App() {
                 </div>
               </div>
 
+              {/* Interactive 3D Aerial Leaflet Map with Wave Simulation */}
               <StudyMap
                 region={region}
                 selected={selectedPlace}
                 onSelect={setSelectedPlace}
               />
 
+              {/* Place selector buttons with elevation badges */}
               <div className="place-selector-bar" aria-label="Select coastal area">
                 {region.places.map((p, i) => (
                   <button
@@ -232,53 +229,95 @@ function App() {
                   >
                     <span className="place-num">{i + 1}</span>
                     <span className="place-text">{p.name}</span>
+                    <span className="place-elev-tag">{p.elevationM}m</span>
                   </button>
                 ))}
               </div>
 
+              {/* Fly-In Evacuation Route Briefing */}
               <div className="place-directive-card">
                 <div className="directive-header">
                   <div>
                     <h3>
-                      {region.places[selectedPlace].name}{" "}
-                      <span className="thai-name">
-                        ({region.places[selectedPlace].thaiName})
-                      </span>
+                      {place.name}{" "}
+                      <span className="thai-name">({place.thaiName})</span>
                     </h3>
-                    <p className="place-desc">
-                      {region.places[selectedPlace].description}
-                    </p>
+                    <p className="place-desc">{place.description}</p>
                   </div>
                   <div className="place-stats">
                     <span className="stat-pill">
-                      Elev: <strong>{region.places[selectedPlace].elevationM}m</strong>
+                      Elev: <strong>{place.elevationM}m</strong>
                     </span>
-                    <span className="stat-pill">
-                      Safe Ridge: <strong>{region.places[selectedPlace].safeDistM}m</strong>
+                    <span className="stat-pill safe">
+                      Safe Ridge: <strong>{place.safeDistM}m</strong>
                     </span>
+                    {place.walkMinutes && (
+                      <span className="stat-pill walk">
+                        Walk: <strong>~{place.walkMinutes} min</strong>
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                <div className="action-directive">
-                  <strong>⚠️ Dr. Non's Actionable Directive:</strong>
-                  <span>{region.places[selectedPlace].actionableDirective}</span>
+                {/* Evacuation Route Step-by-Step Waypoints */}
+                <div className="evacuation-route-waypoints">
+                  <div className="waypoint-item start">
+                    <span className="wp-badge">01 START</span>
+                    <div>
+                      <strong>Beachfront / Resort Ground Zero (Elev {place.elevationM}m)</strong>
+                      <small>Siren sounds: depart immediately on foot. Leave vehicles behind.</small>
+                    </div>
+                  </div>
+                  <div className="waypoint-item walk">
+                    <span className="wp-badge">02 ROUTE</span>
+                    <div>
+                      <strong>Perpendicular Foot Route ({place.safeDistM}m inland)</strong>
+                      <small>Bypass Highway 4 vehicle jams. Use designated walking paths.</small>
+                    </div>
+                  </div>
+                  <div className="waypoint-item destination">
+                    <span className="wp-badge">03 REFUGE</span>
+                    <div>
+                      <strong>
+                        {place.verticalRefuge
+                          ? `Vertical Refuge: ${place.verticalRefuge.name} (${place.verticalRefuge.floors} Fl, Cap ${place.verticalRefuge.capacity})`
+                          : "Inland Granite Ridge (>15m Elevation MSL)"}
+                      </strong>
+                      <small>
+                        Arrival at ~{place.walkMinutes || 10} min (Well ahead of {region.waveEtaMin}m wave ETA).
+                      </small>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Actionable Directive & Lethal Gridlock Warning */}
+                <div className="action-directive">
+                  <strong>⚠️ Actionable Evacuation Directive (Synthesized by Dr. Non):</strong>
+                  <span>{place.actionableDirective}</span>
+                </div>
+
+                {place.gridlockWarning && (
+                  <div className="gridlock-warning-bar">
+                    <strong>⛔ Lethal Vehicular Gridlock Warning:</strong>
+                    <span>{place.gridlockWarning}</span>
+                  </div>
+                )}
 
                 <div className="directive-footer">
                   <button
                     className="plan-shortcut-btn"
                     onClick={() => navigate("prepare")}
                   >
-                    Create personal plan for this place →
+                    Draft personal plan for {place.name} →
                   </button>
                   <span className="meta-note">
-                    Area markers are orientation references. Actual wave run-up depends on bathymetric focus.
+                    Topography calibrated via Copernicus 30m DEM & AIT hydrodynamic run-up model.
                   </span>
                 </div>
               </div>
             </section>
 
-            {/* Section 02: Evidence & Modeling Engine */}
+            {/* Section 02: Evidence & Modeling Engine (Tight 50/50 Split Cockpit) */}
             <section className="evidence-pane" aria-labelledby="model-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
@@ -301,124 +340,134 @@ function App() {
                 </div>
               </div>
 
-              {/* Result Summary HUD */}
-              <div className="result-hud" aria-live="polite">
-                <div className="hud-primary">
-                  <div className="hud-stat">
-                    <span className="hud-number">
-                      {resultFor(step, condition).toFixed(1)}
-                      <small>%</small>
-                    </span>
-                    <div className="hud-labels">
-                      <strong>Casualty rate</strong>
-                      <span>
-                        {Math.round(
-                          (resultFor(step, condition) / 100) * POPULATION,
-                        ).toLocaleString("en-US")}{" "}
-                        of {POPULATION.toLocaleString("en-US")} modeled agents
-                      </span>
+              {/* ── Balanced 50/50 Split Grid: Scenarios vs Details (Zero Stretched Tracks) ── */}
+              <div className="modeling-split-grid">
+                {/* Column 1 (Left 50%): Result HUD + Compact Half-Width Scenario Selector */}
+                <div className="split-col-left">
+                  <div className="result-hud" aria-live="polite">
+                    <div className="hud-primary">
+                      <div className="hud-stat">
+                        <span className="hud-number">
+                          {resultFor(step, condition).toFixed(1)}
+                          <small>%</small>
+                        </span>
+                        <div className="hud-labels">
+                          <strong>Casualty rate</strong>
+                          <span>
+                            {Math.round(
+                              (resultFor(step, condition) / 100) * POPULATION,
+                            ).toLocaleString("en-US")}{" "}
+                            of {POPULATION.toLocaleString("en-US")} modeled agents
+                          </span>
+                        </div>
+                      </div>
+                      {step !== 0 ? (
+                        <div className="hud-reduction-badge">
+                          <span className="reduction-pct">
+                            −{reduction(step, condition).toFixed(0)}%
+                          </span>
+                          <span className="reduction-sub">Drop vs baseline</span>
+                        </div>
+                      ) : (
+                        <div className="hud-baseline-badge">
+                          <span>Baseline Gridlock</span>
+                        </div>
+                      )}
                     </div>
                   </div>
-                  {step !== 0 ? (
-                    <div className="hud-reduction-badge">
-                      <span className="reduction-pct">
-                        −{reduction(step, condition).toFixed(0)}%
-                      </span>
-                      <span className="reduction-sub">Casualty drop vs baseline</span>
+
+                  {/* Compact Scenario Selector */}
+                  <div
+                    className="scenario-table-compact"
+                    role="region"
+                    aria-label="Intervention package selector"
+                  >
+                    <div className="scenario-table-header" aria-hidden="true">
+                      <span className="col-pkg">Intervention Package</span>
+                      <span className="col-rate">Casualties</span>
                     </div>
-                  ) : (
-                    <div className="hud-baseline-badge">
-                      <span>Baseline Gridlock</span>
+
+                    <div className="scenario-list">
+                      {scenarios.map((s, i) => {
+                        const rate = resultFor(i, condition);
+                        const isBase = i === 0;
+                        const red = reduction(i, condition);
+                        return (
+                          <button
+                            className={step === i ? "active" : ""}
+                            key={s.id}
+                            onClick={() => setStep(i)}
+                            aria-pressed={step === i}
+                          >
+                            <span className="scenario-label">
+                              <span className="step-num">{isBase ? "—" : `0${i}`}</span>
+                              <span className="step-text">{s.label}</span>
+                            </span>
+                            <span className="bar-track" aria-hidden="true">
+                              <span
+                                style={{
+                                  width: `${(rate / 25) * 100}%`,
+                                }}
+                              />
+                            </span>
+                            <span className="rate-wrap">
+                              <strong className="rate-num">{rate.toFixed(1)}%</strong>
+                              {!isBase ? (
+                                <span className="red-pill">−{red.toFixed(0)}%</span>
+                              ) : (
+                                <span className="base-pill">Base</span>
+                              )}
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
-                  )}
+                  </div>
                 </div>
 
-                <div className="hud-truth-note">
-                  <strong>Dr. Non's Finding: </strong>
-                  <span>{scenarios[step].drNonFinding}</span>
+                {/* Column 2 (Right 50%): Active Package Details, Directive & Outcome Breakdown */}
+                <div className="split-col-right">
+                  {/* Active Package Inspector Card */}
+                  <div className="active-package-card">
+                    <div className="active-pkg-header">
+                      <span className="active-pkg-tag">SELECTED INTERVENTION</span>
+                      <h3>{scenarios[step].label}</h3>
+                      <small className="pkg-ref">Preprint reference: {scenarios[step].reference}</small>
+                    </div>
+
+                    <div className="hud-truth-note">
+                      <strong>Key Research Finding: </strong>
+                      <span>{scenarios[step].drNonFinding}</span>
+                    </div>
+
+                    <div className="actionable-banner">
+                      <span className="action-tag">ACTIONABLE PROTOCOL</span>
+                      <p>
+                        <strong>For Mayors & Operators: </strong>
+                        {scenarios[step].action}
+                      </p>
+                    </div>
+
+                    <dl className="pkg-metrics-grid">
+                      <div>
+                        <dt>Vertical Refuges</dt>
+                        <dd>{scenarios[step].sites} certified structures</dd>
+                      </div>
+                      <div>
+                        <dt>Multilingual Signs</dt>
+                        <dd>{scenarios[step].signs} continuous signs</dd>
+                      </div>
+                      <div>
+                        <dt>Vertical Preference</dt>
+                        <dd>{scenarios[step].vertical}% agent preference</dd>
+                      </div>
+                    </dl>
+                  </div>
+
+                  {/* 3-Part Outcome Breakdown */}
+                  <Outcome step={step} condition={condition} />
                 </div>
               </div>
-
-              {/* Scenario comparison table */}
-              <div
-                className="scenario-table"
-                role="region"
-                aria-label="Intervention package comparison"
-              >
-                <div className="scenario-table-header" aria-hidden="true">
-                  <span className="col-pkg">Intervention Package</span>
-                  <span className="col-scale">Casualty rate (0–25% scale · lower is safer)</span>
-                  <span className="col-rate">Casualties</span>
-                </div>
-
-                <div className="scenario-list">
-                  {scenarios.map((s, i) => {
-                    const rate = resultFor(i, condition);
-                    const isBase = i === 0;
-                    const red = reduction(i, condition);
-                    return (
-                      <button
-                        className={step === i ? "active" : ""}
-                        key={s.id}
-                        onClick={() => setStep(i)}
-                        aria-pressed={step === i}
-                      >
-                        <span className="scenario-label">
-                          <span className="step-num">{isBase ? "—" : `0${i}`}</span>
-                          <span className="step-text">{s.label}</span>
-                        </span>
-                        <span className="bar-track" aria-hidden="true">
-                          <span
-                            style={{
-                              width: `${(rate / 25) * 100}%`,
-                            }}
-                          />
-                        </span>
-                        <span className="rate-wrap">
-                          <strong className="rate-num">{rate.toFixed(1)}%</strong>
-                          {!isBase ? (
-                            <span className="red-pill">−{red.toFixed(0)}%</span>
-                          ) : (
-                            <span className="base-pill">Base</span>
-                          )}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Actionable item for current step */}
-              <div className="actionable-banner">
-                <span className="action-tag">ACTIONABLE PROTOCOL</span>
-                <p>
-                  <strong>For Mayors & Operators: </strong>
-                  {scenarios[step].action}
-                </p>
-              </div>
-
-              {/* Package Details Disclosure */}
-              <details className="package-detail">
-                <summary>Engine parameters & simulation configuration</summary>
-                <h3>{scenarios[step].label}</h3>
-                <dl>
-                  <div>
-                    <dt>Vertical refuges in model</dt>
-                    <dd>{scenarios[step].sites} certified structures</dd>
-                  </div>
-                  <div>
-                    <dt>Multilingual route signs</dt>
-                    <dd>{scenarios[step].signs} continuous signs</dd>
-                  </div>
-                  <div>
-                    <dt>Vertical evacuation preference</dt>
-                    <dd>{scenarios[step].vertical}% agent preference</dd>
-                  </div>
-                </dl>
-              </details>
-
-              {/* 3-Part Outcome Breakdown */}
-              <Outcome step={step} condition={condition} />
 
               <div className="evidence-footer">
                 <a href={PAPER} target="_blank" rel="noreferrer" className="paper-link">
@@ -444,24 +493,28 @@ function App() {
           <Drill />
         </div>
 
-        {/* Tab: Dr. Non's Research Section with Diagrams */}
+        {/* Tab: Research Section with Diagrams */}
         <div hidden={tab !== "research"}>
           <ResearchSection onExplore={() => navigate("explore")} />
         </div>
       </main>
 
       {/* ── §3 Sleek Footer ─────────────────────────────────── */}
-      <footer className="compact-footer">
-        <span>
-          <strong>Soonami (สู้-nami)</strong> · Directed by Dr. Non Arkaraprasertkul
-        </span>
-        <span>
-          Research translation of AIT / Mahidol Autonomous Agent Study (SSRN 7270357)
-        </span>
-        <span>FloodDash Telemetry Integration</span>
-        <button onClick={() => navigate("research")}>
-          Research & Diagrams
-        </button>
+      <footer className="soonami-footer">
+        <div className="footer-content">
+          <span>
+            <strong>Soonami (สู้-nami)</strong> · Coastal Tsunami Defense Platform
+          </span>
+          <span>
+            Platform synthesis & visualization by Dr. Non Arkaraprasertkul
+          </span>
+          <span>
+            Translating the empirical study by N. Trumikaborworn, P. Latcharote & P. Warnitchai (AIT / Mahidol, 2024 · SSRN 7270357)
+          </span>
+          <button onClick={() => navigate("research")}>
+            Research Diagrams & Synthesis
+          </button>
+        </div>
       </footer>
     </>
   );
@@ -596,15 +649,15 @@ function SatelliteIntel() {
   );
 }
 
-/* ── §6 Dr. Non's Re-written Research Section with Diagrams ─── */
+/* ── §6 Research Section with Dynamic Synthesis & Diagrams ─── */
 function ResearchSection({ onExplore }: { onExplore: () => void }) {
   return (
     <div className="research-view-wrap">
       <div className="research-hero">
         <span className="eyebrow">A CANDID TRANSLATION OF SSRN 7270357</span>
-        <h1>The Science of Tsunami Survival in Khao Lak & Coastal Thailand</h1>
+        <h1>The Science of Tsunami Survival Across Coastal Thailand</h1>
         <p className="lead-byline">
-          By <strong>Dr. Non Arkaraprasertkul</strong> · Translating the empirical research of Nattapon Trumikaborworn, Panon Latcharote, and Pennung Warnitchai (AIT / Mahidol, 2024).
+          Synthesized by <strong>Dr. Non Arkaraprasertkul</strong> from the landmark empirical study by Nattapon Trumikaborworn, Panon Latcharote, and Pennung Warnitchai (Asian Institute of Technology & Mahidol University, 2024).
         </p>
       </div>
 
@@ -620,7 +673,7 @@ function ResearchSection({ onExplore }: { onExplore: () => void }) {
           The baseline result is terrifying: <strong>21.8% to 22.6% of the population died (over 8,500 people)</strong>.
         </p>
         <p>
-          Why? Because Highway 4 is a coastal two-lane artery. Within 14 minutes of departure, vehicular traffic reaches total gridlock. Cars cannot move forward; they cannot turn around. When the tsunami wave reaches the shore at T+125 minutes, it sweeps through stagnant lines of automobiles. <strong>In an evacuation, your car is not a shelter; it is a 2-ton metal coffin.</strong>
+          Why? Because coastal roads like Highway 4 are two-lane arteries. Within 14 minutes of departure, vehicular traffic reaches total gridlock. Cars cannot move forward; they cannot turn around. When the tsunami wave reaches the shore at T+125 minutes, it sweeps through stagnant lines of automobiles. <strong>In an evacuation, your car is not a shelter; it is a 2-ton metal coffin.</strong>
         </p>
 
         {/* Diagram 1: The Gridlock Trap vs Walking & Vertical */}
@@ -811,7 +864,7 @@ function Prepare() {
       <section className="plan-form">
         <div className="section-head-compact">
           <h2>My Coastal Evacuation Plan</h2>
-          <span className="meta">Private & On-Device · Dr. Non Protocol</span>
+          <span className="meta">Private & On-Device · Actionable Protocol</span>
         </div>
         <p>
           Confirm destinations and routes locally. Never rely on vehicles during a tsunami alert.
@@ -850,344 +903,270 @@ function Prepare() {
           <span className="print-value">{plan.route || "Not entered"}</span>
         </label>
 
-        <label>
-          Assisted Evacuation (Children, Elderly, Mobility Impaired)
-          <textarea
-            maxLength={2000}
-            value={plan.assistance}
-            placeholder="Who needs assistance and who is the designated companion? Medical equipment required."
-            onChange={(e) => field("assistance", e.target.value)}
-          />
-          <span className="print-value">{plan.assistance || "Not entered"}</span>
-        </label>
+        <div className="field-grid">
+          <label>
+            Assistance Needed & Action for Dependents
+            <input
+              maxLength={2000}
+              value={plan.assistance}
+              placeholder="E.g., mobility aid, baby carrier, elderly parent assistance"
+              onChange={(e) => field("assistance", e.target.value)}
+            />
+            <span className="print-value">{plan.assistance || "Not entered"}</span>
+          </label>
 
-        <div className="toolbar">
+          <div className="calc-block">
+            <span className="label">Walking Time Estimate</span>
+            <div className="calc-inputs">
+              <label>
+                Meters
+                <input
+                  type="number"
+                  min="50"
+                  max="10000"
+                  step="50"
+                  value={distance}
+                  onChange={(e) => setDistance(e.target.value)}
+                />
+              </label>
+              <label>
+                Speed
+                <select
+                  value={speed}
+                  onChange={(e) => setSpeed(e.target.value)}
+                >
+                  <option value="1.0">1.0 m/s (Fast adult)</option>
+                  <option value="0.8">0.8 m/s (Brisk walk)</option>
+                  <option value="0.5">0.5 m/s (Assisting elderly/kids)</option>
+                </select>
+              </label>
+            </div>
+            <div className="calc-result" aria-live="polite">
+              {minutes !== null ? (
+                <span>
+                  Estimated time: <strong>~{minutes} minutes</strong> on foot
+                </span>
+              ) : (
+                <span className="error">Enter valid positive numbers</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <fieldset className="checklist-block">
+          <legend>Preparation & Readiness Checklist</legend>
+          {checklist.map((item, i) => (
+            <label key={item} className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={plan.checked[i]}
+                onChange={(e) => {
+                  const copy = [...plan.checked];
+                  copy[i] = e.target.checked;
+                  setPlan((p) => ({ ...p, checked: copy }));
+                  setMessage("Unsaved changes.");
+                }}
+              />
+              <span>{item}</span>
+            </label>
+          ))}
+        </fieldset>
+
+        <div className="plan-actions">
           <button className="primary" onClick={save}>
-            Save on this device
+            Save to browser
           </button>
           <button onClick={load}>Load saved plan</button>
           <button
             onClick={() =>
               download(
-                "soonami-personal-plan.json",
-                JSON.stringify(
-                  {
-                    system: "Soonami (สู้-nami) Coastal Defense Platform",
-                    creator: CREATOR,
-                    exportedAt: new Date().toISOString(),
-                    plan,
-                  },
-                  null,
-                  2,
-                ),
+                "soonami-evacuation-plan.json",
+                JSON.stringify(plan, null, 2),
               )
             }
           >
-            Download JSON
+            Export JSON
           </button>
           <button onClick={() => window.print()}>Print plan</button>
         </div>
 
-        <p className="status-message" role="status">
-          {message || "Data stays in this browser. Nothing is uploaded to any server."}
-        </p>
+        {message && (
+          <div className="form-message" role="status">
+            {message}
+          </div>
+        )}
       </section>
 
       <aside className="plan-aside">
-        <section>
-          <div className="section-line">
-            <h2>Readiness Checklist</h2>
-            <span>
-              {plan.checked.filter(Boolean).length}/{checklist.length}
-            </span>
-          </div>
-          <div className="checklist">
-            {checklist.map((c, i) => (
-              <label key={c}>
-                <input
-                  type="checkbox"
-                  checked={plan.checked[i]}
-                  onChange={(e) => {
-                    setPlan((p) => ({
-                      ...p,
-                      checked: p.checked.map((v, n) =>
-                        n === i ? e.target.checked : v,
-                      ),
-                    }));
-                    setMessage("Unsaved changes.");
-                  }}
-                />
-                <span>{c}</span>
-              </label>
-            ))}
-          </div>
-        </section>
-
-        <section className="walking-tool">
-          <h2>Rehearsal Time Calculator</h2>
-          <div className="field-grid">
-            <label>
-              Walking Distance (m)
-              <input
-                type="number"
-                min="1"
-                max="50000"
-                value={distance}
-                onChange={(e) => setDistance(e.target.value)}
-              />
-            </label>
-            <label>
-              Pace (m/s)
-              <select value={speed} onChange={(e) => setSpeed(e.target.value)}>
-                <option value="0.5">0.5 · Slower / Elderly / Kids</option>
-                <option value="0.8">0.8 · Steady walking pace</option>
-                <option value="1.2">1.2 · Brisk walking pace</option>
-              </select>
-            </label>
-          </div>
-          <output className="walk-result">
-            {minutes === null ? "Enter a positive distance" : `~${minutes} minutes on foot`}
-          </output>
-          <p className="meta">
-            Excludes obstacles, crowds, and stairways. Always walk the route in person.
-          </p>
-        </section>
+        <h3>Evacuation Core Axioms</h3>
+        <ul className="axioms-list">
+          <li>
+            <strong>1. Cars are fatal:</strong> Highway 4 and beach arteries gridlock in 14 minutes. Walk on foot.
+          </li>
+          <li>
+            <strong>2. Vertical saves time:</strong> A 3rd-floor reinforced hotel is safer than running 2 km inland.
+          </li>
+          <li>
+            <strong>3. Practice removes panic:</strong> Rehearse staircases and exit gates before a real event.
+          </li>
+          <li>
+            <strong>4. Help dependents first:</strong> Assign specific buddies for elderly, children, and visitors.
+          </li>
+        </ul>
       </aside>
     </div>
   );
 }
 
 /* ── §8 Run a Drill View ───────────────────────────────────── */
-const protocols = [
-  {
-    phase: "Phase 1: Pre-Drill",
-    title: "Verify Unlocked Vertical Access & Brief Team",
-    body: "Ensure designated multi-story hotel stairwells are unlocked and illuminated. Brief all participants that this is a simulated exercise.",
-    owner: "Safety Director + Facility Warden",
-  },
-  {
-    phase: "Phase 2: Trigger",
-    title: "Broadcast Unmistakable Exercise Alarm",
-    body: "Transmit 'DRILL / EXERCISE' across all radios and public address systems. Log timestamp of transmission across all zones.",
-    owner: "Operations Communications Lead",
-  },
-  {
-    phase: "Phase 3: Evacuate",
-    title: "Execute Immediate Foot & Stair Movement",
-    body: "Zero vehicles permitted. Time the movement of participants up to the 3rd floor (>15m elevation). Observe choke points and stair congestion.",
-    owner: "Route Observers + Assistance Guides",
-  },
-  {
-    phase: "Phase 4: Account",
-    title: "Headcount & Roll Call at Refuge Site",
-    body: "Account for all staff, guests, and dependents. Verify that no person is unaccounted for before closing the assembly area.",
-    owner: "Floor Wardens + Team Leads",
-  },
-  {
-    phase: "Phase 5: Debrief",
-    title: "Log Gaps & Corrective Engineering Actions",
-    body: "Record bottlenecks, broken emergency lights, locked gates, and assign named owners with a 14-day resolution deadline.",
-    owner: "General Manager + Municipal Liaison",
-  },
-];
-
 function Drill() {
-  const [phase, setPhase] = useState(0),
-    [team, setTeam] = useState(""),
-    [owner, setOwner] = useState(""),
-    [date, setDate] = useState(""),
-    [notes, setNotes] = useState(""),
-    [participants, setParticipants] = useState(""),
-    [reached, setReached] = useState(""),
-    [assisted, setAssisted] = useState("0"),
-    [minutes, setMinutes] = useState(""),
-    [message, setMessage] = useState("");
-
-  const log = {
-    participants: Number(participants),
-    reached: Number(reached),
-    assisted: Number(assisted),
-    minutes: Number(minutes),
-  };
-
-  function exportDrill() {
-    if (
-      !team.trim() ||
-      !owner.trim() ||
-      !date ||
-      !participants ||
-      !reached ||
-      !assisted ||
-      !minutes ||
-      !validateDrill(log)
-    ) {
-      setMessage("Please complete all required drill fields with valid numbers.");
-      return;
+  const [log, setLog] = useState({
+    participants: 25,
+    reached: 24,
+    assisted: 2,
+    minutes: 8,
+  });
+  const [saved, setSaved] = useState<typeof log[]>(() => {
+    try {
+      const raw = localStorage.getItem("soonami-drills-v1");
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
     }
-    download(
-      "soonami-drill-record.json",
-      JSON.stringify(
-        {
-          system: "Soonami (สู้-nami) Exercise Registry",
-          recordedAt: new Date().toISOString(),
-          team,
-          owner,
-          reviewDate: date,
-          ...log,
-          unaccounted: log.participants - log.reached,
-          notes,
-          protocols,
-        },
-        null,
-        2,
-      ),
-    );
-    setMessage("Exercise record exported successfully.");
+  });
+
+  const valid = validateDrill(log);
+
+  function saveDrill() {
+    if (!valid) return;
+    const next = [log, ...saved];
+    setSaved(next);
+    try {
+      localStorage.setItem("soonami-drills-v1", JSON.stringify(next));
+    } catch {
+      // storage unavailable
+    }
   }
 
   return (
     <div className="drill-grid">
-      <section>
-        <div className="section-head-compact">
-          <h2>Tsunami Evacuation Drill Protocol</h2>
-          <span className="meta">Dr. Non Zero-Vehicle Operational Standard</span>
-        </div>
-
-        <div className="protocols">
-          {protocols.map((p, i) => (
-            <button
-              key={p.phase}
-              aria-pressed={phase === i}
-              onClick={() => setPhase(i)}
-            >
-              <span className="protocol-num">0{i + 1}</span>
-              <span>
-                <strong>{p.phase}</strong>
-                <span>{p.title}</span>
-              </span>
-              <span>↗</span>
-            </button>
-          ))}
-        </div>
-
-        <article className="protocol-detail" aria-live="polite">
-          <p className="eyebrow">
-            Step {phase + 1} of {protocols.length}
-          </p>
-          <h2>{protocols[phase].title}</h2>
-          <p>{protocols[phase].body}</p>
-          <p className="meta">Responsible: {protocols[phase].owner}</p>
-        </article>
-
-        <div className="callout">
-          <h3>The Science Behind the Drill</h3>
-          <p>
-            The AIT/Mahidol study showed that rehearsing vertical evacuation cuts casualties from 3.7% down to 1.3%. If staff and residents don't know which staircase to take, they freeze. Rehearsal saves lives.
-          </p>
-        </div>
-      </section>
-
       <section className="drill-form">
-        <h2>Record & Log the Exercise</h2>
-        <label>
-          Property / Facility / Community Name
-          <input
-            maxLength={200}
-            value={team}
-            onChange={(e) => setTeam(e.target.value)}
-            placeholder="E.g. Bang Niang Beachfront Resort"
-          />
-        </label>
+        <div className="section-head-compact">
+          <h2>Tsunami Evacuation Drill Logger</h2>
+          <span className="meta">Rehearse Walking & Vertical Routes</span>
+        </div>
+        <p>
+          Simulate a real-time foot evacuation. Log participants, arrival times, and dependents assisted to measure community readiness.
+        </p>
 
-        <div className="field-grid">
-          <label>
-            Drill Coordinator
-            <input
-              maxLength={200}
-              value={owner}
-              onChange={(e) => setOwner(e.target.value)}
-              placeholder="Name & role"
-            />
-          </label>
-          <label>
-            Drill Date
-            <input
-              type="date"
-              value={date}
-              onInput={(e) => setDate(e.currentTarget.value)}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </label>
+        <div className="drill-inputs-grid">
           <label>
             Total Participants
             <input
               type="number"
               min="1"
-              value={participants}
-              onChange={(e) => setParticipants(e.target.value)}
+              max="5000"
+              value={log.participants}
+              onChange={(e) =>
+                setLog({ ...log, participants: Number(e.target.value) })
+              }
             />
           </label>
           <label>
-            Reached Safe Refuge
+            Reached Refuge Safely
             <input
               type="number"
               min="0"
-              value={reached}
-              onChange={(e) => setReached(e.target.value)}
+              max={log.participants}
+              value={log.reached}
+              onChange={(e) =>
+                setLog({ ...log, reached: Number(e.target.value) })
+              }
             />
           </label>
           <label>
-            Assisted Individuals
+            Dependents / Assisted
             <input
               type="number"
               min="0"
-              value={assisted}
-              onChange={(e) => setAssisted(e.target.value)}
+              max={log.participants}
+              value={log.assisted}
+              onChange={(e) =>
+                setLog({ ...log, assisted: Number(e.target.value) })
+              }
             />
           </label>
           <label>
             Elapsed Time (Minutes)
             <input
               type="number"
-              min="0.1"
-              step="0.1"
-              value={minutes}
-              onChange={(e) => setMinutes(e.target.value)}
+              min="1"
+              max="180"
+              value={log.minutes}
+              onChange={(e) =>
+                setLog({ ...log, minutes: Number(e.target.value) })
+              }
             />
           </label>
         </div>
 
-        <label>
-          Gaps, Bottlenecks, and Named Corrective Action Owners
-          <textarea
-            maxLength={6000}
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="E.g. North staircase locked; security supervisor assigned to install push-bar panic hardware by Friday."
-          />
-        </label>
-
-        {participants && reached && validateDrill(log) && (
-          <p className="accounting">
-            <strong>{log.participants - log.reached}</strong> participants unaccounted for at refuge point.
-          </p>
-        )}
-
-        <div className="toolbar">
-          <button className="primary" onClick={exportDrill}>
-            Download Exercise Record
+        <div className="drill-actions">
+          <button
+            className="primary"
+            disabled={!valid}
+            onClick={saveDrill}
+          >
+            Record Drill Result
           </button>
-          <button onClick={() => window.print()}>Print Protocol & Record</button>
         </div>
 
-        <p className="status-message">{message}</p>
+        {saved.length > 0 && (
+          <div className="drill-history">
+            <h3>Recent Drill Rehearsals</h3>
+            <table className="drill-table">
+              <thead>
+                <tr>
+                  <th>Participants</th>
+                  <th>Reached Safely</th>
+                  <th>Assisted</th>
+                  <th>Time</th>
+                  <th>Success Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                {saved.map((d, i) => (
+                  <tr key={i}>
+                    <td>{d.participants}</td>
+                    <td>{d.reached}</td>
+                    <td>{d.assisted}</td>
+                    <td>{d.minutes} min</td>
+                    <td>
+                      <strong>
+                        {((d.reached / d.participants) * 100).toFixed(0)}%
+                      </strong>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
+
+      <aside className="drill-aside">
+        <h3>Drill Standards</h3>
+        <p>
+          Hotels and schools should conduct drills unannounced to simulate authentic warning conditions.
+        </p>
+        <div className="target-pill">
+          <strong>Target: 100% of participants on foot at safe refuge &lt; 15 minutes.</strong>
+        </div>
+      </aside>
     </div>
   );
 }
 
-createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+const rootEl = document.getElementById("root");
+if (rootEl) {
+  createRoot(rootEl).render(<App />);
+}

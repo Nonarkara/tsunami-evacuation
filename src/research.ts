@@ -1,10 +1,9 @@
 /**
  * Soonami (สู้-nami) — Thailand Coastal Tsunami Defense Platform
  *
- * Conceived & Directed by Dr. Non Arkaraprasertkul (Dr. Non)
- * Senior Urban Disaster Resilience & Smart City Specialist
+ * Platform design & synthesis by Dr. Non Arkaraprasertkul (Dr. Non)
  *
- * Inspired by & citing the empirical research:
+ * Inspired by & translating the empirical research:
  * Trumikaborworn, N., Latcharote, P., & Warnitchai, P. (2024).
  * "Agent-Based Modeling and Simulation for Identifying Effective Measures
  * on Tsunami Evacuation in Khao Lak, Thailand."
@@ -16,7 +15,8 @@
 export const PAPER = "https://ssrn.com/abstract=7270357";
 export const CITATION =
   "Trumikaborworn, N., Latcharote, P., & Warnitchai, P. (2024). Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. AIT & Mahidol University. SSRN 7270357.";
-export const CREATOR = "Dr. Non Arkaraprasertkul (Dr. Non)";
+export const CREATOR =
+  "System design & synthesis by Dr. Non Arkaraprasertkul (based on Trumikaborworn et al., 2024)";
 
 export const POPULATION = 39041;
 export type Condition = "baseline" | "delayed";
@@ -131,9 +131,32 @@ export function outcomes(index: number, condition: Condition) {
 }
 
 /* ── §2 All Coastal Risk Regions Across Thailand ───────────── */
+export type Place = {
+  name: string;
+  thaiName: string;
+  lat: number;
+  lng: number;
+  elevationM: number;
+  safeDistM: number;
+  description: string;
+  actionableDirective: string;
+  beachCoord?: [number, number];
+  safeRidgeCoord?: [number, number];
+  verticalRefuge?: {
+    name: string;
+    type: string;
+    floors: number;
+    capacity: number;
+    distM: number;
+  };
+  walkMinutes?: number;
+  gridlockWarning?: string;
+};
+
 export type CoastalRegion = {
   id: string;
   name: string;
+  shortName: string;
   thaiName: string;
   basin: "Andaman Sea" | "Gulf of Thailand";
   riskTier: "Severe (High-Impact)" | "Critical (Dense Tourism)" | "Elevated (Archipelago)" | "Moderate (Delayed Surge)";
@@ -141,22 +164,14 @@ export type CoastalRegion = {
   expectedRunupM: string;
   center: [number, number];
   zoom: number;
-  places: Array<{
-    name: string;
-    thaiName: string;
-    lat: number;
-    lng: number;
-    elevationM: number;
-    safeDistM: number;
-    description: string;
-    actionableDirective: string;
-  }>;
+  places: Place[];
 };
 
 export const coastalRegions: CoastalRegion[] = [
   {
     id: "khao-lak",
     name: "Phang Nga · Khao Lak (Default Study)",
+    shortName: "Khao Lak (Phang Nga)",
     thaiName: "พังงา (เขาหลัก - ตะกั่วป่า)",
     basin: "Andaman Sea",
     riskTier: "Severe (High-Impact)",
@@ -176,6 +191,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Northern low-lying sand peninsula. Surrounded by shallow coral reefs; wave amplification is extreme.",
         actionableDirective:
           "Do not drive down the cape road. Evacuate immediately eastward to inland ridges on foot or take refuge in reinforced hotel towers.",
+        beachCoord: [8.729, 98.219],
+        safeRidgeCoord: [8.726, 98.242],
+        verticalRefuge: {
+          name: "Apsara Beachfront Tower B",
+          type: "Reinforced Concrete Hotel",
+          floors: 4,
+          capacity: 450,
+          distM: 280,
+        },
+        walkMinutes: 18,
+        gridlockWarning:
+          "Cape access road (Rural Rd 2008) dead-ends and chokes within 6 minutes of alert.",
       },
       {
         name: "Khuk Khak",
@@ -188,6 +215,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Dense beachfront resorts and residential corridors flanking Highway 4.",
         actionableDirective:
           "Avoid Highway 4 vehicular bottlenecks. Use designated perpendicular walking paths to certified vertical hotel refuges.",
+        beachCoord: [8.696, 98.242],
+        safeRidgeCoord: [8.692, 98.265],
+        verticalRefuge: {
+          name: "JW Marriott North Refuge Pavilion",
+          type: "Engineered Hotel Structure",
+          floors: 3,
+          capacity: 600,
+          distM: 320,
+        },
+        walkMinutes: 12,
+        gridlockWarning:
+          "Khuk Khak intersection onto Highway 4 suffers gridlock standstill at minute 8.",
       },
       {
         name: "Bang Niang",
@@ -200,6 +239,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Primary tourist, dining, and hotel hub. Memorial police boat 813 washed 2 km inland here in 2004.",
         actionableDirective:
           "Tsunami waves carry massive debris here. Move immediately to 3rd-floor reinforced concrete structures or uphill past Highway 4.",
+        beachCoord: [8.669, 98.243],
+        safeRidgeCoord: [8.665, 98.266],
+        verticalRefuge: {
+          name: "La Flora Tower Refuges & Bang Niang School",
+          type: "Certified Public Evacuation Towers",
+          floors: 4,
+          capacity: 850,
+          distM: 380,
+        },
+        walkMinutes: 10,
+        gridlockWarning:
+          "Police Boat 813 market zone on Highway 4 completely blocks all southbound traffic.",
       },
       {
         name: "Nang Thong",
@@ -212,12 +263,25 @@ export const coastalRegions: CoastalRegion[] = [
           "Southern tourist core backed by steep granite hills of Khao Lak-Lam Ru National Park.",
         actionableDirective:
           "Direct access to mountain hillsides: follow designated trail markers up to >20m elevation within 15 minutes of shaking.",
+        beachCoord: [8.649, 98.245],
+        safeRidgeCoord: [8.644, 98.261],
+        verticalRefuge: {
+          name: "Khao Lak Seaview Resort Ridge Tower",
+          type: "Hillside Concrete Hotel",
+          floors: 5,
+          capacity: 700,
+          distM: 260,
+        },
+        walkMinutes: 8,
+        gridlockWarning:
+          "Narrow beach access soi causes vehicle jams right into the flood funnel.",
       },
     ],
   },
   {
     id: "phuket",
     name: "Phuket · West Coast Beaches",
+    shortName: "Phuket (West Coast)",
     thaiName: "ภูเก็ต (ชายฝั่งตะวันตก)",
     basin: "Andaman Sea",
     riskTier: "Critical (Dense Tourism)",
@@ -237,6 +301,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Thailand's densest beach tourist corridor. Narrow streets between Thaweewong and Rat-U-Thit roads.",
         actionableDirective:
           "STRICTLY FORBIDDEN to use cars or motorbikes. Head immediately up the stairs of designated 4+ story hotels or eastward toward Hasip Pi Road.",
+        beachCoord: [7.896, 98.292],
+        safeRidgeCoord: [7.896, 98.306],
+        verticalRefuge: {
+          name: "Patong Hospital & Bangla High-Rise Refuges",
+          type: "Engineered Concrete High-Rises",
+          floors: 6,
+          capacity: 1200,
+          distM: 350,
+        },
+        walkMinutes: 6,
+        gridlockWarning:
+          "Thaweewong Beach Road chokes instantly; cars cannot move more than 5 meters.",
       },
       {
         name: "Karon & Kata",
@@ -249,6 +325,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Broad sandy bays with large resort complexes backed by steep hillsides.",
         actionableDirective:
           "Use direct lateral resort roads toward Kata-Sai Yuan ridge. All beachfront hotel staff must trigger rooftop access gates.",
+        beachCoord: [7.834, 98.292],
+        safeRidgeCoord: [7.836, 98.305],
+        verticalRefuge: {
+          name: "Centara Grand Hillside Tower",
+          type: "Reinforced Hillside Resort",
+          floors: 5,
+          capacity: 800,
+          distM: 290,
+        },
+        walkMinutes: 5,
+        gridlockWarning:
+          "Kata-Karon roundabout becomes completely locked with tourist vans.",
       },
       {
         name: "Kamala",
@@ -261,6 +349,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Crescent bay with central canal that can draw incoming waves further inland.",
         actionableDirective:
           "Do not gather along the canal banks. Evacuate perpendicular to the coast into the foothills behind Kamala school.",
+        beachCoord: [7.953, 98.277],
+        safeRidgeCoord: [7.955, 98.291],
+        verticalRefuge: {
+          name: "Kamala Sub-District School & Municipal Tower",
+          type: "Designated Tsunami Shelter",
+          floors: 4,
+          capacity: 550,
+          distM: 420,
+        },
+        walkMinutes: 8,
+        gridlockWarning:
+          "Bridge over Kamala canal creates a single point of failure for vehicular escape.",
       },
       {
         name: "Bang Tao & Laguna",
@@ -273,12 +373,25 @@ export const coastalRegions: CoastalRegion[] = [
           "Long open coastline with interconnected lagoons and luxury villas.",
         actionableDirective:
           "Lagoon bridges can choke during evacuation. Plan pedestrian egress across designated reinforced pedestrian crossovers.",
+        beachCoord: [8.004, 98.288],
+        safeRidgeCoord: [8.001, 98.306],
+        verticalRefuge: {
+          name: "Laguna Phuket Angsana Main Building",
+          type: "Engineered Complex",
+          floors: 4,
+          capacity: 900,
+          distM: 380,
+        },
+        walkMinutes: 14,
+        gridlockWarning:
+          "Lagoon ring road quickly gridlocks at resort exit gates.",
       },
     ],
   },
   {
     id: "krabi",
     name: "Krabi · Phi Phi Islands & Ao Nang",
+    shortName: "Krabi (Phi Phi & Ao Nang)",
     thaiName: "กระบี่ (เกาะพีพี - อ่าวนาง - ไร่เลย์)",
     basin: "Andaman Sea",
     riskTier: "Severe (High-Impact)",
@@ -298,6 +411,18 @@ export const coastalRegions: CoastalRegion[] = [
           "CRITICAL GEOMETRY: Ton Sai and Loh Dalum bays meet at a narrow 150m sandspit. Waves hit from BOTH sides simultaneously.",
         actionableDirective:
           "ZERO MOTOR VEHICLES. Run directly up the evacuation trail toward Viewpoint 1 (>100m elevation). Never attempt to board boats in the bay.",
+        beachCoord: [7.738, 98.771],
+        safeRidgeCoord: [7.742, 98.779],
+        verticalRefuge: {
+          name: "Phi Phi Viewpoint Ridge Pavilion",
+          type: "Elevated Granite Terrain",
+          floors: 3,
+          capacity: 1500,
+          distM: 320,
+        },
+        walkMinutes: 7,
+        gridlockWarning:
+          "Ton Sai pier causes crush stampedes; boats capsize in harbor surge.",
       },
       {
         name: "Ao Nang Beach",
@@ -310,6 +435,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Main mainland tourism pier and promenade with limestone karsts.",
         actionableDirective:
           "Walk inland along Ao Nang Road past the 15-meter elevation line near Krabi Resort or take shelter in reinforced hillside properties.",
+        beachCoord: [8.030, 98.818],
+        safeRidgeCoord: [8.033, 98.832],
+        verticalRefuge: {
+          name: "Krabi Resort Hillside Wing",
+          type: "Reinforced Hillside Structure",
+          floors: 4,
+          capacity: 650,
+          distM: 280,
+        },
+        walkMinutes: 6,
+        gridlockWarning:
+          "Ao Nang beachfront strip gridlocks within 5 minutes of siren.",
       },
       {
         name: "Railay & Phra Nang",
@@ -322,12 +459,25 @@ export const coastalRegions: CoastalRegion[] = [
           "Isolated peninsula cut off from roads by high limestone cliffs. Egress is boat or cliff trails only.",
         actionableDirective:
           "Boats cannot outrun an incoming tsunami in shallow water. Climb immediately to the cliff base trails and designated cave platforms above 15m.",
+        beachCoord: [8.010, 98.835],
+        safeRidgeCoord: [8.014, 98.842],
+        verticalRefuge: {
+          name: "Phra Nang Karst Cliff Safe Platform",
+          type: "Natural Rock Platform (>25m MSL)",
+          floors: 4,
+          capacity: 800,
+          distM: 180,
+        },
+        walkMinutes: 4,
+        gridlockWarning:
+          "Boats at Railay West get thrown onto beach by wave crests.",
       },
     ],
   },
   {
     id: "satun-trang",
     name: "Satun & Trang · Southern Archipelago",
+    shortName: "Satun & Trang",
     thaiName: "สตูล และ ตรัง (เกาะหลีเป๊ะ - ปากบารา - เกาะลันตา)",
     basin: "Andaman Sea",
     riskTier: "Elevated (Archipelago)",
@@ -347,6 +497,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Small island in Tarutao National Marine Park with heavy seasonal tourist population.",
         actionableDirective:
           "Walk immediately toward the island's central high ground near the mobile tower ridge (elevation >25m).",
+        beachCoord: [6.486, 99.301],
+        safeRidgeCoord: [6.491, 99.305],
+        verticalRefuge: {
+          name: "Lipe Central Ridge Telecom Tower",
+          type: "High Ground Granite Ridge",
+          floors: 3,
+          capacity: 700,
+          distM: 220,
+        },
+        walkMinutes: 5,
+        gridlockWarning:
+          "Walking Street turns into crowded bottlenecks with motor-tricycles.",
       },
       {
         name: "Pak Bara Port",
@@ -359,12 +521,25 @@ export const coastalRegions: CoastalRegion[] = [
           "Major ferry gateway to Andaman islands; high concentration of parked vehicles and transit passengers.",
         actionableDirective:
           "Clear the pier apron immediately. Evacuate along Highway 4052 eastward away from the tidal river mouth.",
+        beachCoord: [6.850, 99.728],
+        safeRidgeCoord: [6.855, 99.742],
+        verticalRefuge: {
+          name: "Pak Bara Ferry Terminal Building",
+          type: "Reinforced Port Facility",
+          floors: 3,
+          capacity: 500,
+          distM: 350,
+        },
+        walkMinutes: 10,
+        gridlockWarning:
+          "Terminal parking lot completely traps vehicles during boarding surges.",
       },
     ],
   },
   {
     id: "ranong",
     name: "Ranong · Northern Andaman Coast",
+    shortName: "Ranong Coast",
     thaiName: "ระนอง (แหลมสน - เกาะพยาม - สุขสำราญ)",
     basin: "Andaman Sea",
     riskTier: "Severe (High-Impact)",
@@ -384,6 +559,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Northern Andaman island with extensive rubber plantations and tourist beaches (Aow Yai).",
         actionableDirective:
           "Move uphill into the central forested spine. Avoid mangrove tidal channels that funnel surge waters.",
+        beachCoord: [9.736, 98.399],
+        safeRidgeCoord: [9.741, 98.414],
+        verticalRefuge: {
+          name: "Phayam Central Rubber Plantation Ridge",
+          type: "Forested Mountain Spine",
+          floors: 3,
+          capacity: 600,
+          distM: 350,
+        },
+        walkMinutes: 8,
+        gridlockWarning:
+          "Narrow motorbike paths get blocked by fallen palm trees.",
       },
       {
         name: "Laem Son National Park",
@@ -396,12 +583,25 @@ export const coastalRegions: CoastalRegion[] = [
           "Flat pine-forested coastal strip heavily impacted in 2004.",
         actionableDirective:
           "Follow forest evacuation road eastward across the bridge to the mainland hills above 20m.",
+        beachCoord: [9.604, 98.483],
+        safeRidgeCoord: [9.607, 98.502],
+        verticalRefuge: {
+          name: "Park Headquarters Inland Facility",
+          type: "Reinforced Government Post",
+          floors: 3,
+          capacity: 400,
+          distM: 450,
+        },
+        walkMinutes: 12,
+        gridlockWarning:
+          "Park entrance bridge over tidal creek washes out in early surge.",
       },
     ],
   },
   {
     id: "gulf-thailand",
     name: "Gulf of Thailand · Secondary Seismic Zone",
+    shortName: "Gulf of Thailand",
     thaiName: "อ่าวไทย (หัวหิน - เกาะสมุย - พัทยา - สงขลา)",
     basin: "Gulf of Thailand",
     riskTier: "Moderate (Delayed Surge)",
@@ -421,6 +621,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Shallow Sunda shelf bathymetry dramatically dissipates open-ocean tsunami energy, but storm surges and Manila Trench tsunamis remain potential hazards.",
         actionableDirective:
           "Manila Trench events provide 8-12 hours warning time. Move inland beyond Phetkasem Road or take vertical refuge in coastal high-rises.",
+        beachCoord: [12.569, 99.963],
+        safeRidgeCoord: [12.567, 99.954],
+        verticalRefuge: {
+          name: "Centara Grand & Phetkasem High-Rise Towers",
+          type: "Reinforced Hotel High-Rise",
+          floors: 7,
+          capacity: 1500,
+          distM: 250,
+        },
+        walkMinutes: 6,
+        gridlockWarning:
+          "Phetkasem Road traffic bottlenecks require managed pedestrian traffic light overrides.",
       },
       {
         name: "Koh Samui (Chaweng Beach)",
@@ -433,6 +645,18 @@ export const coastalRegions: CoastalRegion[] = [
           "Dense beachfront resort strip flanked by Chaweng Lake.",
         actionableDirective:
           "Do not linger near Chaweng Lake basin. Evacuate across the ring road onto the central granite mountain slopes.",
+        beachCoord: [9.531, 100.065],
+        safeRidgeCoord: [9.528, 100.052],
+        verticalRefuge: {
+          name: "Chaweng Central Hillside Complex",
+          type: "Hillside Concrete Hotel",
+          floors: 5,
+          capacity: 1100,
+          distM: 320,
+        },
+        walkMinutes: 7,
+        gridlockWarning:
+          "Chaweng Beach Road is one-way and chokes with delivery trucks immediately.",
       },
     ],
   },
