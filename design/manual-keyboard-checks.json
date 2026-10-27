@@ -1,0 +1,26 @@
+[
+  {
+    "state": "collapsed",
+    "key": "Tab",
+    "steps": 24,
+    "pass": true
+  },
+  {
+    "state": "collapsed",
+    "key": "Shift+Tab",
+    "steps": 24,
+    "pass": true
+  },
+  {
+    "state": "expanded",
+    "key": "Tab",
+    "steps": 24,
+    "pass": true
+  },
+  {
+    "state": "expanded",
+    "key": "Shift+Tab",
+    "steps": 24,
+    "pass": true
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 282,
+    "close": {
+      "bottom": 132.3125,
+      "height": 30,
+      "left": 259,
+      "right": 289,
+      "top": 102.3125,
+      "width": 30,
+      "x": 259,
+      "y": 102.3125
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 710.6796875,
+      "height": 621.3671875,
+      "left": 18,
+      "right": 302,
+      "top": 89.3125,
+      "width": 284,
+      "x": 18,
+      "y": 89.3125
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 177.3125,
+      "height": 87,
+      "left": 31,
+      "right": 289,
+      "top": 90.3125,
+      "width": 258,
+      "x": 31,
+      "y": 90.3125
+    },
+    "height": 800,
+    "language": "en",
+    "quickStart": {
+      "bottom": 465.578125,
+      "height": 201.1796875,
+      "left": 31,
+      "right": 289,
+      "top": 264.3984375,
+      "width": 258,
+      "x": 31,
+      "y": 264.3984375
+    },
+    "scrollWidth": 282,
+    "width": 320
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 352,
+    "close": {
+      "bottom": 186.859375,
+      "height": 30,
+      "left": 329,
+      "right": 359,
+      "top": 156.859375,
+      "width": 30,
+      "x": 329,
+      "y": 156.859375
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 700.140625,
+      "height": 556.28125,
+      "left": 18,
+      "right": 372,
+      "top": 143.859375,
+      "width": 354,
+      "x": 18,
+      "y": 143.859375
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 231.859375,
+      "height": 87,
+      "left": 31,
+      "right": 359,
+      "top": 144.859375,
+      "width": 328,
+      "x": 31,
+      "y": 144.859375
+    },
+    "height": 844,
+    "language": "en",
+    "quickStart": {
+      "bottom": 476.734375,
+      "height": 179.484375,
+      "left": 31,
+      "right": 359,
+      "top": 297.25,
+      "width": 328,
+      "x": 31,
+      "y": 297.25
+    },
+    "scrollWidth": 352,
+    "width": 390
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 638,
+    "close": {
+      "bottom": 210.25,
+      "height": 30,
+      "left": 783,
+      "right": 813,
+      "top": 180.25,
+      "width": 30,
+      "x": 783,
+      "y": 180.25
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 600.75,
+      "height": 433.5,
+      "left": 192,
+      "right": 832,
+      "top": 167.25,
+      "width": 640,
+      "x": 192,
+      "y": 167.25
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 219.25,
+      "height": 51,
+      "left": 211,
+      "right": 813,
+      "top": 168.25,
+      "width": 602,
+      "x": 211,
+      "y": 168.25
+    },
+    "height": 768,
+    "language": "en",
+    "quickStart": {
+      "bottom": 377.34375,
+      "height": 114.3984375,
+      "left": 211,
+      "right": 813,
+      "top": 262.9453125,
+      "width": 602,
+      "x": 211,
+      "y": 262.9453125
+    },
+    "scrollWidth": 638,
+    "width": 1024
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 638,
+    "close": {
+      "bottom": 276.25,
+      "height": 30,
+      "left": 991,
+      "right": 1021,
+      "top": 246.25,
+      "width": 30,
+      "x": 991,
+      "y": 246.25
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 666.75,
+      "height": 433.5,
+      "left": 400,
+      "right": 1040,
+      "top": 233.25,
+      "width": 640,
+      "x": 400,
+      "y": 233.25
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 285.25,
+      "height": 51,
+      "left": 419,
+      "right": 1021,
+      "top": 234.25,
+      "width": 602,
+      "x": 419,
+      "y": 234.25
+    },
+    "height": 900,
+    "language": "en",
+    "quickStart": {
+      "bottom": 443.34375,
+      "height": 114.3984375,
+      "left": 419,
+      "right": 1021,
+      "top": 328.9453125,
+      "width": 602,
+      "x": 419,
+      "y": 328.9453125
+    },
+    "scrollWidth": 638,
+    "width": 1440
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 282,
+    "close": {
+      "bottom": 138.921875,
+      "height": 30,
+      "left": 259,
+      "right": 289,
+      "top": 108.921875,
+      "width": 30,
+      "x": 259,
+      "y": 108.921875
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 704.0703125,
+      "height": 608.1484375,
+      "left": 18,
+      "right": 302,
+      "top": 95.921875,
+      "width": 284,
+      "x": 18,
+      "y": 95.921875
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 184.671875,
+      "height": 87.75,
+      "left": 31,
+      "right": 289,
+      "top": 96.921875,
+      "width": 258,
+      "x": 31,
+      "y": 96.921875
+    },
+    "height": 800,
+    "language": "th",
+    "quickStart": {
+      "bottom": 469.5703125,
+      "height": 189.3984375,
+      "left": 31,
+      "right": 289,
+      "top": 280.171875,
+      "width": 258,
+      "x": 31,
+      "y": 280.171875
+    },
+    "scrollWidth": 282,
+    "width": 320
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 352,
+    "close": {
+      "bottom": 173.171875,
+      "height": 30,
+      "left": 329,
+      "right": 359,
+      "top": 143.171875,
+      "width": 30,
+      "x": 329,
+      "y": 143.171875
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 713.8203125,
+      "height": 583.6484375,
+      "left": 18,
+      "right": 372,
+      "top": 130.171875,
+      "width": 354,
+      "x": 18,
+      "y": 130.171875
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 218.921875,
+      "height": 87.75,
+      "left": 31,
+      "right": 359,
+      "top": 131.171875,
+      "width": 328,
+      "x": 31,
+      "y": 131.171875
+    },
+    "height": 844,
+    "language": "th",
+    "quickStart": {
+      "bottom": 479.3203125,
+      "height": 189.3984375,
+      "left": 31,
+      "right": 359,
+      "top": 289.921875,
+      "width": 328,
+      "x": 31,
+      "y": 289.921875
+    },
+    "scrollWidth": 352,
+    "width": 390
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 638,
+    "close": {
+      "bottom": 190.296875,
+      "height": 30,
+      "left": 783,
+      "right": 813,
+      "top": 160.296875,
+      "width": 30,
+      "x": 783,
+      "y": 160.296875
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 621.0703125,
+      "height": 474.1484375,
+      "left": 192,
+      "right": 832,
+      "top": 146.921875,
+      "width": 640,
+      "x": 192,
+      "y": 146.921875
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 199.671875,
+      "height": 51.75,
+      "left": 211,
+      "right": 813,
+      "top": 147.921875,
+      "width": 602,
+      "x": 211,
+      "y": 147.921875
+    },
+    "height": 768,
+    "language": "th",
+    "quickStart": {
+      "bottom": 386.5703125,
+      "height": 115.8984375,
+      "left": 211,
+      "right": 813,
+      "top": 270.671875,
+      "width": 602,
+      "x": 211,
+      "y": 270.671875
+    },
+    "scrollWidth": 638,
+    "width": 1024
+  },
+  {
+    "allTopicsVisible": true,
+    "clientWidth": 638,
+    "close": {
+      "bottom": 256.296875,
+      "height": 30,
+      "left": 991,
+      "right": 1021,
+      "top": 226.296875,
+      "width": 30,
+      "x": 991,
+      "y": 226.296875
+    },
+    "closeVisible": true,
+    "dialog": {
+      "bottom": 687.0703125,
+      "height": 474.1484375,
+      "left": 400,
+      "right": 1040,
+      "top": 212.921875,
+      "width": 640,
+      "x": 400,
+      "y": 212.921875
+    },
+    "expanded": 0,
+    "heading": {
+      "bottom": 265.671875,
+      "height": 51.75,
+      "left": 419,
+      "right": 1021,
+      "top": 213.921875,
+      "width": 602,
+      "x": 419,
+      "y": 213.921875
+    },
+    "height": 900,
+    "language": "th",
+    "quickStart": {
+      "bottom": 452.5703125,
+      "height": 115.8984375,
+      "left": 419,
+      "right": 1021,
+      "top": 336.671875,
+      "width": 602,
+      "x": 419,
+      "y": 336.671875
+    },
+    "scrollWidth": 638,
+    "width": 1440
+  }
+]

@@ -6,6 +6,7 @@ import "@fontsource/jost/600.css";
 import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
+import { Manual } from "./Manual";
 import { NavSymbol } from "./NavSymbol";
 import { ResearchSection } from "./ResearchSection";
 import "@fontsource/prompt/thai-400.css";
@@ -61,6 +62,7 @@ function App() {
   const [step, setStep] = useState(4);
   const [condition, setCondition] = useState<Condition>("baseline");
   const [emergency, setEmergency] = useState(false);
+  const [manualOpen, setManualOpen] = useState(false);
 
   const region = coastalRegions[regionIdx];
   const place = region.places[selectedPlace];
@@ -142,6 +144,9 @@ function App() {
               <NavSymbol name={key} />
             </button>
           ))}
+          <button className="manual-trigger" aria-label="Manual / คู่มือ" title="Manual / คู่มือ" aria-haspopup="dialog" onClick={() => setManualOpen(true)}>
+            <svg className="nav-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.5 8.5a2.5 2.5 0 1 1 4.1 1.9c-1 .7-1.6 1-1.6 2.6"/><circle cx="12" cy="16.5" r=".8" fill="currentColor" stroke="none"/></svg>
+          </button>
         </nav>
 
         <div className="masthead-action-group">
@@ -154,6 +159,8 @@ function App() {
           </button>
         </div>
       </header>
+
+      <Manual open={manualOpen} page={tab} onClose={() => setManualOpen(false)} onNavigate={page => { setManualOpen(false); navigate(page); requestAnimationFrame(() => document.getElementById("main")?.focus()); }} />
 
       {/* Emergency guidance drawer */}
       {emergency && (
