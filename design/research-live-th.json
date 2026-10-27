@@ -1,0 +1,512 @@
+[
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.75,
+        "width": 370,
+        "x": 10,
+        "y": 429.640625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 86,
+          "width": 390,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 81.9453125,
+          "width": 370,
+          "x": 10,
+          "y": 100
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 73.5,
+          "width": 370,
+          "x": 10,
+          "y": 189.9453125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 66,
+          "width": 370,
+          "x": 10,
+          "y": 271.4453125
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 390,
+    "fontsReady": true,
+    "height": 844,
+    "id": "th-390x844",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 336.75,
+        "width": 370,
+        "x": 10,
+        "y": 468.390625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "controls": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.75,
+          "width": 370,
+          "x": 10,
+          "y": 429.640625
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "heading": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 81.9453125,
+          "width": 370,
+          "x": 10,
+          "y": 100
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "index": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 66,
+          "width": 370,
+          "x": 10,
+          "y": 271.4453125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "results": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 336.75,
+          "width": 370,
+          "x": 10,
+          "y": 468.390625
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "scope": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 73.5,
+          "width": 370,
+          "x": 10,
+          "y": 189.9453125
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "th",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 5046.265625,
+        "width": 370,
+        "x": 10,
+        "y": 96
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "width": 390
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.75,
+        "width": 984,
+        "x": 20,
+        "y": 298.6328125
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1024,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 71.5859375,
+          "width": 984,
+          "x": 20,
+          "y": 56
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 49,
+          "width": 504,
+          "x": 20,
+          "y": 135.5859375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 37.5,
+          "width": 984,
+          "x": 20,
+          "y": 192.5859375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1024,
+    "fontsReady": true,
+    "height": 768,
+    "id": "th-1024x768",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 310.75,
+        "width": 984,
+        "x": 20,
+        "y": 337.3828125
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "controls": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.75,
+          "width": 984,
+          "x": 20,
+          "y": 298.6328125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "heading": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 71.5859375,
+          "width": 984,
+          "x": 20,
+          "y": 56
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "index": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 37.5,
+          "width": 984,
+          "x": 20,
+          "y": 192.5859375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "results": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 310.75,
+          "width": 984,
+          "x": 20,
+          "y": 337.3828125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "scope": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 49,
+          "width": 504,
+          "x": 20,
+          "y": 135.5859375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "th",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 3811.1640625,
+        "width": 984,
+        "x": 20,
+        "y": 52
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "width": 1024
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.75,
+        "width": 1100,
+        "x": 170,
+        "y": 304.796875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1440,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 77.75,
+          "width": 1100,
+          "x": 170,
+          "y": 56
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 49,
+          "width": 504,
+          "x": 170,
+          "y": 141.75
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 37.5,
+          "width": 1100,
+          "x": 170,
+          "y": 198.75
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1440,
+    "fontsReady": true,
+    "height": 900,
+    "id": "th-1440x900",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 310.75,
+        "width": 1100,
+        "x": 170,
+        "y": 343.546875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "controls": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.75,
+          "width": 1100,
+          "x": 170,
+          "y": 304.796875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "heading": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 77.75,
+          "width": 1100,
+          "x": 170,
+          "y": 56
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "index": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 37.5,
+          "width": 1100,
+          "x": 170,
+          "y": 198.75
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "results": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 310.75,
+          "width": 1100,
+          "x": 170,
+          "y": 343.546875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "scope": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 49,
+          "width": 504,
+          "x": 170,
+          "y": 141.75
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "th",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": false,
+      "matches": 1,
+      "rect": {
+        "height": 3791.078125,
+        "width": 1100,
+        "x": 170,
+        "y": 52
+      },
+      "unobstructed": false,
+      "visible": true
+    },
+    "width": 1440
+  }
+]

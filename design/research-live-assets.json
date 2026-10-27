@@ -1,0 +1,47 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "512071bdfd37e08d7f1cee63dc2be96c8a8e53370e4dce90229db298cde0e4fc",
+    "matchesProduction": true
+  },
+  {
+    "path": "vendor/PROMPT-OFL.txt",
+    "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/index-BJ_PWthV.js",
+    "sha256": "f75d2071be1331455ed1139b2155f3451db4ef7a3bfd39699b7a58bd532aeb07",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/maplibre-gl-worker-Dro7GA4u.js",
+    "sha256": "d0b740a4ace50a3fa08b8d279090a66bebdbbe990b1e8e6ddfe901e086abee13",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/index-GxEHKt9T.css",
+    "sha256": "1b5335ba511683ffa90aacf8638bfd799d6d5af0ccf648fe51c83c22a5379d36",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/prompt-thai-400-normal-BrkKv8cO.woff2",
+    "sha256": "d10643e148806b6ec9976370cf78b43b0542b6c457ca14b5fc89a5d2fdd156f1",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/prompt-thai-700-normal-Cg4aQ0Nn.woff2",
+    "sha256": "6709b0361745936ff7ec5b75bb63c4d67deb04669fbf40285e39e3421a0ab510",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/prompt-thai-600-normal-MrdfU7zR.woff2",
+    "sha256": "a7f3d9ca1d17420a311da6785fbfa670c0f7a57ea421eaca4ffe354d61a43a12",
+    "matchesProduction": true
+  },
+  {
+    "path": "assets/prompt-thai-500-normal-C18pDUoL.woff2",
+    "sha256": "3ed6cc86f385acb545a840d88356378551c9a8de5f59c7d19b62464e85dea55d",
+    "matchesProduction": true
+  }
+]

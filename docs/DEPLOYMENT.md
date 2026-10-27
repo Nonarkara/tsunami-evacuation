@@ -40,3 +40,5 @@ A public browser check also confirmed the deployed Sites snapshot's scenario con
 Application commit `817e47319fa8d3a8096a0c9451bd54861761aac7`; Worker version `1cdfa078-1312-4769-8855-8baa6d05bfe6`. Published with `npm run deploy` after tests/build/contrast checks. Exact canonical HTML, all JS/CSS/worker assets and both data snapshots matched local production bytes. Real browser terrain, fly-by, crowd playback and water screening worked under the deployed CSP; eight live core geometry cases passed. Full receipts: [terrain verification](TERRAIN-VERIFICATION.md). Sites remains the initial snapshot.
 
 Guided rehearsal release: source `17ad580`, Worker `87a82993-389b-46f2-acbc-e1739bddd6d9`. Canonical HTML/JS/CSS/worker/schema/data matched production bytes; real browser verified walk, 2D, playback and illustrative water. [Receipt and limits](GUIDED-REHEARSAL.md).
+
+Bilingual research release28October2026: application `21a3343` plus font-license `fb50115`, Worker `7634b2b2-974f-47f7-955a-18062a56d4a7`. Verified canonical Thai/English content, four layout cases, Thai fonts and production asset bytes. [Detailed receipt](BILINGUAL-RESEARCH.md).
