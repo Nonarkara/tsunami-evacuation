@@ -1,0 +1,702 @@
+[
+  {
+    "allInside": true,
+    "height": 46,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 35,
+          "height": 26,
+          "left": 8,
+          "right": 89.1171875,
+          "top": 9,
+          "width": 81.1171875,
+          "x": 8,
+          "y": 9
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 38,
+          "height": 32,
+          "left": 97.1171875,
+          "right": 166,
+          "top": 6,
+          "width": 68.8828125,
+          "x": 97.1171875,
+          "y": 6
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 172,
+          "right": 200,
+          "top": 4,
+          "width": 28,
+          "x": 172,
+          "y": 4
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 200,
+          "right": 228,
+          "top": 4,
+          "width": 28,
+          "x": 200,
+          "y": 4
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 228,
+          "right": 256,
+          "top": 4,
+          "width": 28,
+          "x": 228,
+          "y": 4
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 256,
+          "right": 284,
+          "top": 4,
+          "width": 28,
+          "x": 256,
+          "y": 4
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 284,
+          "right": 312,
+          "top": 4,
+          "width": 28,
+          "x": 284,
+          "y": 4
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 320,
+    "viewport": 320
+  },
+  {
+    "allInside": true,
+    "height": 46,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 35,
+          "height": 26,
+          "left": 8,
+          "right": 89.1171875,
+          "top": 9,
+          "width": 81.1171875,
+          "x": 8,
+          "y": 9
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 38,
+          "height": 32,
+          "left": 97.1171875,
+          "right": 206,
+          "top": 6,
+          "width": 108.8828125,
+          "x": 97.1171875,
+          "y": 6
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 212,
+          "right": 240,
+          "top": 4,
+          "width": 28,
+          "x": 212,
+          "y": 4
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 240,
+          "right": 268,
+          "top": 4,
+          "width": 28,
+          "x": 240,
+          "y": 4
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 268,
+          "right": 296,
+          "top": 4,
+          "width": 28,
+          "x": 268,
+          "y": 4
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 296,
+          "right": 324,
+          "top": 4,
+          "width": 28,
+          "x": 296,
+          "y": 4
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 324,
+          "right": 352,
+          "top": 4,
+          "width": 28,
+          "x": 324,
+          "y": 4
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 360,
+    "viewport": 360
+  },
+  {
+    "allInside": true,
+    "height": 46,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 35,
+          "height": 26,
+          "left": 8,
+          "right": 93.1328125,
+          "top": 9,
+          "width": 85.1328125,
+          "x": 8,
+          "y": 9
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 38,
+          "height": 32,
+          "left": 101.1328125,
+          "right": 226,
+          "top": 6,
+          "width": 124.8671875,
+          "x": 101.1328125,
+          "y": 6
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 232,
+          "right": 262,
+          "top": 4,
+          "width": 30,
+          "x": 232,
+          "y": 4
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 262,
+          "right": 292,
+          "top": 4,
+          "width": 30,
+          "x": 262,
+          "y": 4
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 292,
+          "right": 322,
+          "top": 4,
+          "width": 30,
+          "x": 292,
+          "y": 4
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 322,
+          "right": 352,
+          "top": 4,
+          "width": 30,
+          "x": 322,
+          "y": 4
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 352,
+          "right": 382,
+          "top": 4,
+          "width": 30,
+          "x": 352,
+          "y": 4
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 390,
+    "viewport": 390
+  },
+  {
+    "allInside": true,
+    "height": 46,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 35,
+          "height": 26,
+          "left": 8,
+          "right": 93.1328125,
+          "top": 9,
+          "width": 85.1328125,
+          "x": 8,
+          "y": 9
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 38,
+          "height": 32,
+          "left": 101.1328125,
+          "right": 246.1328125,
+          "top": 6,
+          "width": 145,
+          "x": 101.1328125,
+          "y": 6
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 453.15625,
+          "right": 483.15625,
+          "top": 4,
+          "width": 30,
+          "x": 453.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 483.15625,
+          "right": 513.15625,
+          "top": 4,
+          "width": 30,
+          "x": 483.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 513.15625,
+          "right": 543.15625,
+          "top": 4,
+          "width": 30,
+          "x": 513.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 543.15625,
+          "right": 573.15625,
+          "top": 4,
+          "width": 30,
+          "x": 543.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 573.15625,
+          "right": 603.15625,
+          "top": 4,
+          "width": 30,
+          "x": 573.15625,
+          "y": 4
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 681,
+    "viewport": 681
+  },
+  {
+    "allInside": true,
+    "height": 46,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 35,
+          "height": 26,
+          "left": 8,
+          "right": 93.1328125,
+          "top": 9,
+          "width": 85.1328125,
+          "x": 8,
+          "y": 9
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 38,
+          "height": 32,
+          "left": 101.1328125,
+          "right": 246.1328125,
+          "top": 6,
+          "width": 145,
+          "x": 101.1328125,
+          "y": 6
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 572.15625,
+          "right": 602.15625,
+          "top": 4,
+          "width": 30,
+          "x": 572.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 602.15625,
+          "right": 632.15625,
+          "top": 4,
+          "width": 30,
+          "x": 602.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 632.15625,
+          "right": 662.15625,
+          "top": 4,
+          "width": 30,
+          "x": 632.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 662.15625,
+          "right": 692.15625,
+          "top": 4,
+          "width": 30,
+          "x": 662.15625,
+          "y": 4
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 40,
+          "height": 36,
+          "left": 692.15625,
+          "right": 722.15625,
+          "top": 4,
+          "width": 30,
+          "x": 692.15625,
+          "y": 4
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 800,
+    "viewport": 800
+  },
+  {
+    "allInside": true,
+    "height": 38,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 30,
+          "height": 24,
+          "left": 14,
+          "right": 303.6953125,
+          "top": 6,
+          "width": 289.6953125,
+          "x": 14,
+          "y": 6
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 33,
+          "height": 30,
+          "left": 313.6953125,
+          "right": 409.6953125,
+          "top": 3,
+          "width": 96,
+          "x": 313.6953125,
+          "y": 3
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 583.9296875,
+          "right": 619.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 583.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 621.9296875,
+          "right": 657.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 621.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 659.9296875,
+          "right": 695.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 659.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 697.9296875,
+          "right": 733.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 697.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 735.9296875,
+          "right": 771.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 735.9296875,
+          "y": 0
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 1024,
+    "viewport": 1024
+  },
+  {
+    "allInside": true,
+    "height": 38,
+    "items": [
+      {
+        "label": "สู้Soonamiinspired by Trumikaborworn et al. (2026)",
+        "rect": {
+          "bottom": 30,
+          "height": 24,
+          "left": 14,
+          "right": 303.6953125,
+          "top": 6,
+          "width": 289.6953125,
+          "x": 14,
+          "y": 6
+        }
+      },
+      {
+        "label": "Khao Lak (Phang Nga)",
+        "rect": {
+          "bottom": 33,
+          "height": 30,
+          "left": 313.6953125,
+          "right": 409.6953125,
+          "top": 3,
+          "width": 96,
+          "x": 313.6953125,
+          "y": 3
+        }
+      },
+      {
+        "label": "Model",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 791.9296875,
+          "right": 827.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 791.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Satellite",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 829.9296875,
+          "right": 865.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 829.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Plan",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 867.9296875,
+          "right": 903.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 867.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Drill",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 905.9296875,
+          "right": 941.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 905.9296875,
+          "y": 0
+        }
+      },
+      {
+        "label": "Research / วิจัย",
+        "rect": {
+          "bottom": 36,
+          "height": 36,
+          "left": 943.9296875,
+          "right": 979.9296875,
+          "top": 0,
+          "width": 36,
+          "x": 943.9296875,
+          "y": 0
+        }
+      }
+    ],
+    "oneRow": true,
+    "pageWidth": 1440,
+    "viewport": 1440
+  }
+]

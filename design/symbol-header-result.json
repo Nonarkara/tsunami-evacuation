@@ -1,0 +1,20 @@
+{
+  "budget": {
+    "maxHeaderHeight": 48,
+    "oneRow": true,
+    "allControlsInside": true,
+    "requiredWidths": [
+      320,
+      360,
+      390,
+      681,
+      800,
+      1024,
+      1440
+    ]
+  },
+  "current": "PASS",
+  "beforeSource": "design/research-captures.json; th-390x844 chrome[0]",
+  "beforeHeight": 86,
+  "oldFailureRejected": true
+}

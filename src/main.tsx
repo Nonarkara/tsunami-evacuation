@@ -6,6 +6,7 @@ import "@fontsource/jost/600.css";
 import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
+import { NavSymbol } from "./NavSymbol";
 import { ResearchSection } from "./ResearchSection";
 import "@fontsource/prompt/thai-400.css";
 import "@fontsource/prompt/thai-500.css";
@@ -107,12 +108,13 @@ function App() {
             <select
               id="region-select"
               className="region-select"
+              title={region.shortName}
               value={regionIdx}
               onChange={(e) => handleRegionChange(Number(e.target.value))}
             >
               {coastalRegions.map((r, i) => (
                 <option key={r.id} value={i}>
-                  📍 {r.shortName}
+                  {["Khao Lak", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i]}
                 </option>
               ))}
             </select>
@@ -132,10 +134,12 @@ function App() {
           ).map(([key, label]) => (
             <button
               key={key}
+              aria-label={label}
+              title={`${label} · ${{explore:"แบบจำลอง", satellite:"ดาวเทียม", prepare:"แผน", drill:"ซ้อมอพยพ", research:"งานวิจัย"}[key]}`}
               aria-current={tab === key ? "page" : undefined}
               onClick={() => navigate(key)}
             >
-              {label}
+              <NavSymbol name={key} />
             </button>
           ))}
         </nav>
