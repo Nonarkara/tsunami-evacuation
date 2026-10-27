@@ -1,0 +1,22 @@
+{
+  "commit": "7c9b728",
+  "workerVersion": "8f783cef-b957-4a53-b9a6-998b24140a3c",
+  "htmlMatches": true,
+  "assets": [
+    {
+      "path": "/assets/index-jak6PYH0.js",
+      "sha256": "2b0e53e1bbea40fd0cdc59c3c0dfeee6f09046f70a351fd1f6d3afddb83260b4"
+    },
+    {
+      "path": "/assets/index-Bbrt-ztQ.css",
+      "sha256": "9595c091dbc226638655e733cdfa6d115d6ff7381f220570293e82b4bfdb16bb"
+    }
+  ],
+  "browser": {
+    "language": "th",
+    "bars": 10,
+    "delayedVE50VictimShare": 3.4,
+    "label": "Increase vertical-evacuation preference to 50% (VE50)",
+    "restoredBaseline": true
+  }
+}
