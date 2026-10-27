@@ -21,3 +21,9 @@ The six-control header (five destinations + manual) remains one row,46px phone /
 Independent reviewer `bilingual_research_review` inspected source fidelity, native-dialog lifecycle, final compact screenshots, expanded/readiness metrics and the explicit keyboard fix. All findings were closed. Source review confirmed actual drill fields and distinguishing imported research replay from default illustrations.27unit tests passed, including language precedence/fallback, and strict TypeScript compilation passed. The release command reruns tests/build/contrast before deployment. Screenshots are in `docs/evidence/manual-*.png`.
 
 Canonical commit, Worker and live verification follow after successful deployment.
+
+## Canonical release receipt
+
+Final application source7c5cc38, Worker43e7b5af-d1c5-4909-8f22-e31262296aa6. The final link-focus correction uses preventScroll so choosing a section focuses main without hiding the masthead (before scrollY38, after0; `design/manual-section-focus.json`). Both release passes ran27tests, production build and six contrast checks; the existing large MapLibre bundle warning remains.
+
+Public-site trial at390×844 confirmed Thai title, five initially visible topics, close focus,46px header and no horizontal modal overflow. English switch worked;16forwardTab steps remained contained. Escape restored the Manual opener. Make a plan closed the dialog, navigated to prepare, focused main and retained scrollY0. Receipt: `design/manual-live.json`. Canonical HTML/JS/CSS matched production SHA-256 bytes through normal TLS (`manual-live-assets.json`). Screenshot: `docs/evidence/manual-live-th.png`. Full content remains available in both languages, with no automatic guide overlay on first visit.

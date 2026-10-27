@@ -81,3 +81,5 @@ The Bang Niang pilot now includes warning-relative preparation delay, route arro
 ## Thai / English research
 
 A bilingual research dossier provides reported results, source-defined outcomes, uncertainty and replication requirements, a source ledger, validation agenda and CSV/BibTeX downloads. [Research methods and verification](docs/BILINGUAL-RESEARCH.md). Direct links: [ไทย](https://tsunami.nonarkara.org/?lang=th#research), [English](https://tsunami.nonarkara.org/?lang=en#research).
+
+Use the question-mark button in the top bar for the Thai/English manual: a quick start and expandable instructions for each section. [Manual behavior and verification](docs/MANUAL.md).

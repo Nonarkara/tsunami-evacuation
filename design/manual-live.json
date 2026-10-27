@@ -1,0 +1,23 @@
+{
+  "arrival": {
+    "allTopicsVisible": true,
+    "focus": "Close manual / ปิดคู่มือ",
+    "headerHeight": 46,
+    "height": 583.6484375,
+    "language": "th",
+    "noOverflow": true,
+    "title": "วิธีใช้ Soonami",
+    "topics": 5
+  },
+  "tabSteps": 16,
+  "tabContained": true,
+  "close": {
+    "focus": "Manual / คู่มือ",
+    "open": false
+  },
+  "navigation": {
+    "focus": "main",
+    "hash": "#prepare",
+    "scrollY": 0
+  }
+}
