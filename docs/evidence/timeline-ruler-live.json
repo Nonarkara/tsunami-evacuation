@@ -1,0 +1,20 @@
+{
+  "commit": "e95c99e",
+  "workerVersion": "fdd97674-7e36-4e3c-9271-89c1b8c8afb3",
+  "htmlMatches": true,
+  "assets": [
+    {
+      "path": "/assets/index-D0NOiUaD.js",
+      "sha256": "df4404554acb653ccf3977f56238b600d61f7ca77e466fc0eab6806fdfe61521"
+    },
+    {
+      "path": "/assets/index-CJfLYDPn.css",
+      "sha256": "8000ddc6506aceb323f4cbafb16ec03c5e0b1180ece5dbc4dce1b5fdf88f7175"
+    }
+  ],
+  "browser": {
+    "ticks": 9,
+    "keyboardValue": "63:34 / 63:35",
+    "rowHeight": 44
+  }
+}
