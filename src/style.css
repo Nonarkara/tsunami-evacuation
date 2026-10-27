@@ -2482,3 +2482,18 @@ textarea {
   .rehearsal-panel { display: block; }
   .rehearsal-panel .rehearsal-timeline { max-width: none; }
 }
+/* Guided rehearsal settings expand as reading; they do not sit on the terrain. */
+.terrain-rehearsal > .exercise-settings, .terrain-rehearsal > .area-data-status,
+.terrain-rehearsal > .imported-replay-controls { grid-column: 1 / -1; }
+.exercise-settings { border-top: 1px solid var(--line); margin-top: 4px; font-size: 13px; }
+.exercise-settings > summary { cursor: pointer; padding: 5px 0; font-weight: 600; }
+.scenario-settings-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-block: 6px; }
+.scenario-settings-row label { display: flex; flex-direction: row; align-items: center; gap: 5px; }
+.scenario-settings-row input[type=checkbox] { width: 18px; height: 18px; min-height: 18px; margin: 0; padding: 0; accent-color: var(--companion); }
+.exercise-settings p { max-width: 82ch; margin-block: 6px; line-height: 1.45; }
+.scenario-import { max-width: 65ch; margin-block: 8px !important; }
+.scenario-import input { min-height: 32px; padding: 4px; font-size: 13px; }
+.area-data-status { font-size: 13px; max-width: 75ch; margin: 6px 0; }
+.route-profile .route-cue { font-size: 12px; margin: 3px 0; color: var(--ink-2); }
+.imported-replay-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-block: 6px; }
+.imported-replay-controls label { flex: 1; min-width: 180px; flex-direction: row; align-items: center; }

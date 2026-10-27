@@ -9,8 +9,9 @@ export function distance(a: Coord, b: Coord) {
   const rad = Math.PI / 180, dy = (b[1] - a[1]) * rad, dx = (b[0] - a[0]) * rad;
   return 6371000 * 2 * Math.asin(Math.sqrt(Math.sin(dy / 2) ** 2 + Math.cos(a[1] * rad) * Math.cos(b[1] * rad) * Math.sin(dx / 2) ** 2));
 }
-export function simulate(data: RouteData, count: number, speed: number, width: number): Rehearsal {
+export function simulate(data: RouteData, count: number, speed: number, width: number, preparationSeconds = 0): Rehearsal {
   if (!Number.isInteger(count) || count < 1 || count > 10000 || !Number.isFinite(speed) || !Number.isFinite(width) || speed <= 0 || width <= 0) throw new Error('Invalid exercise inputs');
+  if (!Number.isFinite(preparationSeconds) || preparationSeconds < 0 || preparationSeconds > 3600) throw new Error('Invalid preparation delay');
   // The route snapshot is a shortest-path tree: each shared node has one downstream link.
   const nodes = new Map<string, { from: Coord; to: Coord; next: string; remaining: number; arrivals: { id: number; time: number }[] }>();
   const lengths = data.routes.map(r => r.coordinates.slice(1).reduce((v, p, i) => v + distance(r.coordinates[i], p), 0));
@@ -27,7 +28,7 @@ export function simulate(data: RouteData, count: number, speed: number, width: n
   const shared = [...nodes].filter(([id]) => data.routes.every(r => r.nodeIds.includes(id))).sort((a, b) => b[1].remaining - a[1].remaining);
   const bottleneck = shared[Math.min(2, shared.length - 1)]?.[0] ?? data.routes[0].nodeIds[0];
   const people: Person[] = Array.from({ length: count }, (_, id) => ({ id, route: id % data.routes.length, legs: [], finish: 0 }));
-  people.forEach(p => nodes.get(data.routes[p.route].nodeIds[0])!.arrivals.push({ id: p.id, time: Math.floor(p.id / data.routes.length) * 0.15 }));
+  people.forEach(p => nodes.get(data.routes[p.route].nodeIds[0])!.arrivals.push({ id: p.id, time: preparationSeconds + Math.floor(p.id / data.routes.length) * 0.15 }));
   let maxQueueWait = 0;
   [...nodes].sort((a, b) => b[1].remaining - a[1].remaining).forEach(([id, n]) => {
     n.arrivals.sort((a, b) => a.time - b.time || a.id - b.id);

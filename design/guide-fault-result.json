@@ -1,0 +1,47 @@
+{
+  "status": "FAIL",
+  "cases": 1,
+  "failures": [
+    {
+      "case": "390x844-crowd",
+      "code": "region-not-visible",
+      "detail": "counts: the preserved operating region must fit the initial viewport without a centre obstruction."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "maxHeight",
+      "detail": "parameters: 175.390625px violates maxHeight 90px. Parameters are intrinsic label/value rows, not four oversized form cards and a full-width Run bar."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "maxHeight",
+      "detail": "run: 42px violates maxHeight 36px. Run is a short action that fits its label instead of spanning the phone."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "maxWidth",
+      "detail": "run: 352px violates maxWidth 145px. Run is a short action that fits its label instead of spanning the phone."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "maxHeight",
+      "detail": "placeMarker: 32px violates maxHeight 24px. Geographic points must not become placename banners over the terrain."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "maxWidth",
+      "detail": "placeMarker: 86.140625px violates maxWidth 24px. Geographic points must not become placename banners over the terrain."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "missing-measurement",
+      "detail": "timeline: selector missing, ambiguous, invalid or unmeasured."
+    },
+    {
+      "case": "390x844-crowd",
+      "code": "decision-not-visible",
+      "detail": "Information and action must both fit and have an unobstructed centre on the initial screen."
+    }
+  ],
+  "scope": "Declared geometry budgets only; screenshots, task trial and independent review remain required."
+}

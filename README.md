@@ -73,3 +73,7 @@ See [verification](docs/VERIFICATION.md) for actual checks and known limits. The
 ## License and credits
 
 Original application code: MIT; see LICENSE. Upstream Axiom and Palette notices are in `public/vendor/`. The source research, third-party maps, fonts and their respective rights remain with their authors. No endorsement by the authors or public agencies is implied.
+
+## Guided 2D/3D rehearsal
+
+The Bang Niang pilot now includes warning-relative preparation delay, route arrows, aerial following, approximate terrain walk-through and optional illustrative water rise. Local research inundation files can be replayed without upload. Routes and endpoints remain unapproved; water is not coupled to the crowd model. [Scenario format, public-source expansion and verification](docs/GUIDED-REHEARSAL.md).

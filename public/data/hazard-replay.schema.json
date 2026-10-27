@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tsunami.nonarkara.org/data/hazard-replay.schema.json",
+  "title": "Research inundation replay; no automatic authority approval",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "areaId",
+    "title",
+    "sourceUrl",
+    "model",
+    "license",
+    "timeOrigin",
+    "verticalDatum",
+    "depthUnit",
+    "grid",
+    "frames"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "areaId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "timeOrigin": {
+      "const": "warning"
+    },
+    "verticalDatum": {
+      "const": "MSL"
+    },
+    "depthUnit": {
+      "const": "m"
+    },
+    "grid": {
+      "type": "object",
+      "required": [
+        "west",
+        "east",
+        "south",
+        "north",
+        "rows",
+        "cols",
+        "rowOrder"
+      ],
+      "properties": {
+        "west": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "east": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "south": {
+          "type": "number",
+          "minimum": -85,
+          "maximum": 85
+        },
+        "north": {
+          "type": "number",
+          "minimum": -85,
+          "maximum": 85
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384
+        },
+        "cols": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384
+        },
+        "rowOrder": {
+          "const": "north-to-south"
+        },
+        "groundM": {
+          "type": "array",
+          "maxItems": 16384,
+          "items": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "description": "Bounds are cell edges. rows*cols <=16384; each grid array must have exactly that many cells. groundM is optional model topography in MSL metres, needed for a 3D model water surface."
+    },
+    "waveGauge": {
+      "type": "object",
+      "required": [
+        "name",
+        "longitude",
+        "latitude",
+        "quantity"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -85,
+          "maximum": 85
+        },
+        "quantity": {
+          "const": "crest-to-trough wave height"
+        }
+      }
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 120,
+      "items": {
+        "type": "object",
+        "required": [
+          "seconds",
+          "depthM"
+        ],
+        "properties": {
+          "seconds": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 604800
+          },
+          "depthM": {
+            "type": "array",
+            "maxItems": 16384,
+            "items": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "waveHeightM": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "description": "Strictly increasing warning-relative seconds. Null cells mean unknown, never safe."
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "frames": {
+            "contains": {
+              "required": [
+                "waveHeightM"
+              ]
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "waveGauge"
+        ]
+      }
+    }
+  ]
+}
