@@ -1,0 +1,165 @@
+{
+  "budgets": {
+    "englishOutcomeMax": 75,
+    "thaiOutcomeMax": 95,
+    "footerMax": 36,
+    "areaMax": 36,
+    "phoneClosingMax": 145,
+    "wideClosingMax": 180
+  },
+  "cases": [
+    {
+      "area": 32,
+      "clip": {
+        "height": 127,
+        "width": 360,
+        "x": 0,
+        "y": 1828.859375
+      },
+      "footer": 33,
+      "gap": 19,
+      "lang": "en",
+      "outcome": 75,
+      "overflow": false,
+      "total": 127,
+      "viewport": [
+        360,
+        800
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 113,
+        "width": 390,
+        "x": 0,
+        "y": 1778.46875
+      },
+      "footer": 33,
+      "gap": 19,
+      "lang": "en",
+      "outcome": 61,
+      "overflow": false,
+      "total": 113,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 168.53125,
+        "width": 1024,
+        "x": 0,
+        "y": 1218.390625
+      },
+      "footer": 33,
+      "gap": 74.53125,
+      "lang": "en",
+      "outcome": 61,
+      "overflow": false,
+      "total": 168.53125,
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 168.53125,
+        "width": 1440,
+        "x": 0,
+        "y": 1279.1171875
+      },
+      "footer": 33,
+      "gap": 74.53125,
+      "lang": "en",
+      "outcome": 61,
+      "overflow": false,
+      "total": 168.53125,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 138.9765625,
+        "width": 360,
+        "x": 0,
+        "y": 1945.65625
+      },
+      "footer": 33,
+      "gap": 19,
+      "lang": "th",
+      "outcome": 86.9765625,
+      "overflow": false,
+      "total": 138.9765625,
+      "viewport": [
+        360,
+        800
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 138.9765625,
+        "width": 390,
+        "x": 0,
+        "y": 1893.265625
+      },
+      "footer": 33,
+      "gap": 19,
+      "lang": "th",
+      "outcome": 86.9765625,
+      "overflow": false,
+      "total": 138.9765625,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 168.53125,
+        "width": 1024,
+        "x": 0,
+        "y": 1315.3828125
+      },
+      "footer": 33,
+      "gap": 66.1484375,
+      "lang": "th",
+      "outcome": 69.3828125,
+      "overflow": false,
+      "total": 168.53125,
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "area": 32,
+      "clip": {
+        "height": 168.53125,
+        "width": 1440,
+        "x": 0,
+        "y": 1279.1171875
+      },
+      "footer": 33,
+      "gap": 66.1484375,
+      "lang": "th",
+      "outcome": 69.3828125,
+      "overflow": false,
+      "total": 168.53125,
+      "viewport": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "status": "PASS"
+}

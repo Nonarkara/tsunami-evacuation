@@ -7,6 +7,9 @@ import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
 import { Manual } from "./Manual";
+import { OutcomeSummary } from "./OutcomeSummary";
+import { SourceFooter } from "./SourceFooter";
+import { manualLanguage } from "./manual-content";
 import { InterventionComparison } from "./InterventionComparison";
 import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
 import { NavSymbol } from "./NavSymbol";
@@ -17,9 +20,6 @@ import "@fontsource/prompt/thai-600.css";
 import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
 import {
-  PAPER,
-  CITATION,
-  CREATOR,
   POPULATION,
   scenarios,
   coastalRegions,
@@ -29,7 +29,6 @@ import {
   walkingMinutes,
   resultFor,
   reduction,
-  outcomes,
   validateDrill,
   type Plan,
   type Condition,
@@ -64,6 +63,7 @@ function App() {
   const [condition, setCondition] = useState<Condition>("baseline");
   const [emergency, setEmergency] = useState(false);
   const [manualOpen, setManualOpen] = useState(false);
+  const [language, setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
 
   const region = coastalRegions[regionIdx];
   const place = region.places[selectedPlace];
@@ -234,20 +234,10 @@ function App() {
                 onSelect={setSelectedPlace}
               />
 
-              {/* Place selector buttons with elevation badges */}
-              <div className="place-selector-bar" aria-label="Select coastal area">
-                {region.places.map((p, i) => (
-                  <button
-                    key={p.name}
-                    aria-pressed={selectedPlace === i}
-                    onClick={() => setSelectedPlace(i)}
-                  >
-                    <span className="place-num">{i + 1}</span>
-                    <span className="place-text">{p.name}</span>
-
-                  </button>
-                ))}
-              </div>
+              <label className="area-selector">Area / พื้นที่
+                <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
+                <span>{selectedPlace+1}/{region.places.length}</span>
+              </label>
 
               {/* Fly-In Evacuation Route Briefing */}
               <details className="place-directive-card"><summary>Local context and personal plan · {place.name}</summary>
@@ -415,15 +405,11 @@ function App() {
                   </div>
 
                   {/* Compact 100% Outcome Breakdown */}
-                  <Outcome step={step} condition={condition} />
+                  <OutcomeSummary step={step} condition={condition} />
                 </div>
               </div>
 
-              <div className="evidence-footer">
-                <a href={PAPER} target="_blank" rel="noreferrer" className="paper-link">
-                  📄 {CITATION} ↗
-                </a>
-              </div>
+
             </section>
           </div>
         ) : null}
@@ -445,79 +431,12 @@ function App() {
 
         {/* Tab: Research Section with Diagrams */}
         <div hidden={tab !== "research"}>
-          <ResearchSection onExplore={() => navigate("explore")} />
+          <ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} />
         </div>
       </main>
 
-      {/* ── §3 Ultra-Compact Baseline Footer (Single Line 30px) ─── */}
-      <footer className="soonami-footer">
-        <div className="footer-content">
-          <span>
-            <strong>Soonami (สู้-nami)</strong> · Inspired by Trumikaborworn et al. (AIT/Mahidol, 2026 · SSRN 7270357) · Directed by Dr. Non
-          </span>
-          <button className="footer-research-link" onClick={() => navigate("research")}>
-            Research Diagrams & Synthesis →
-          </button>
-        </div>
-      </footer>
+      <SourceFooter language={language} onResearch={()=>navigate("research")} />
     </>
-  );
-}
-
-/* ── §4 Compact Outcome Component (Zero Spatial Hallucination) ─── */
-function Outcome({ step, condition }: { step: number; condition: Condition }) {
-  const o = outcomes(step, condition);
-  return (
-    <div className="outcome-compact-card">
-      <div className="outcome-compact-head">
-        <span className="outcome-tag">SIMULATION OUTCOME</span>
-        <strong>{POPULATION.toLocaleString("en-US")} Modeled Agents</strong>
-      </div>
-      {o.reached === null ? (
-        <div className="outcome-compact-body">
-          <div className="compact-meter-track" aria-hidden="true">
-            <span className="meter-bar victims" style={{ width: `${o.affected}%` }} />
-            <span className="meter-bar unclassified" style={{ width: `${100 - o.affected}%` }} />
-          </div>
-          <div className="compact-legend-row">
-            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Modeled victims</span>
-            <span className="leg-chip safe">● {(100 - o.affected).toFixed(1)}% Not classified as modeled victims</span>
-          </div>
-        </div>
-      ) : (
-        <div className="outcome-compact-body">
-          <div
-            className="compact-stacked-bar"
-            role="img"
-            aria-label={`Outcome: ${o.reached.toFixed(1)}% reached modeled site, ${o.outside?.toFixed(1)}% outside hazard, ${o.affected.toFixed(1)}% modeled victims.`}
-          >
-            <span
-              className="segment-reached"
-              style={{ width: `${o.reached}%` }}
-              title={`Modeled site: ${o.reached.toFixed(1)}%`}
-            />
-            <span
-              className="segment-outside"
-              style={{ width: `${o.outside}%` }}
-              title={`Outside zone: ${o.outside?.toFixed(1)}%`}
-            />
-            <span
-              className="segment-victims"
-              style={{ width: `${o.affected}%` }}
-              title={`Modeled victims: ${o.affected.toFixed(1)}%`}
-            />
-          </div>
-          <div className="compact-legend-row">
-            <span className="leg-chip reached">● {o.reached.toFixed(1)}% Reached modeled sites</span>
-            <span className="leg-chip outside">● {o.outside?.toFixed(1)}% Outside Hazard</span>
-            <span className="leg-chip victims">● {o.affected.toFixed(1)}% Modeled victims</span>
-          </div>
-          <p className="outcome-stat-note">
-            Modeled site arrivals increase from {condition === "baseline" ? "60.7%" : "56.8%"} up to {condition === "baseline" ? "93.6%" : "88.9%"}.
-          </p>
-        </div>
-      )}
-    </div>
   );
 }
 

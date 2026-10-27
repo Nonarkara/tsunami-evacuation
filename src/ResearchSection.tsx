@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { scenarios, POPULATION, type Condition } from './research';
+import { scenarios, POPULATION } from './research';
 import { bi, bibtex, evidenceCsv, glossary, packageNames, paperCitation, reviewedOn, sourceRows, type ResearchLanguage } from './research-ledger';
 
-export function ResearchSection({ onExplore }: { onExplore: () => void }) {
+export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: () => void; onLanguageChange: (language: ResearchLanguage) => void }) {
   const [language, setLanguage] = useState<ResearchLanguage>(() => {
     const requested = new URLSearchParams(location.search).get('lang');
     return requested === 'th' || requested === 'en' ? requested : navigator.language.startsWith('th') ? 'th' : 'en';
   });
-  const [condition, setCondition] = useState<Condition>('baseline');
   const [filter, setFilter] = useState('all');
   const t = (en: string, th: string) => language === 'th' ? th : en;
   function changeLanguage(next: ResearchLanguage) {
     setLanguage(next);
     const url = new URL(location.href); url.searchParams.set('lang', next);
     history.replaceState(null, '', url);
+    onLanguageChange(next);
   }
   function save(name: string, content: string, type: string) {
     const url = URL.createObjectURL(new Blob([content], { type }));
@@ -40,13 +40,10 @@ export function ResearchSection({ onExplore }: { onExplore: () => void }) {
     <section id="research-results" aria-labelledby="results-title">
       <div className="research-section-head"><h2 id="results-title">{t('01 / Reported scenario results','01 / ผลลัพธ์ของฉากทัศน์ที่รายงาน')}</h2><a href="#source-R1" onClick={e=>{ e.preventDefault(); setFilter("all"); requestAnimationFrame(()=>{ document.getElementById("source-R1")?.scrollIntoView(); history.replaceState(null,"","#source-R1"); }); }}>{t('Source [R1] · §4.1–4.5','แหล่ง [R1] · หัวข้อ 4.1–4.5')}</a></div>
 
-      <div className="research-comparison-controls" role="group" aria-label={t('Timing condition for bars','เงื่อนไขเวลาสำหรับกราฟ')}>
-        <span>{t('Bar comparison','เปรียบเทียบกราฟ')}</span><button aria-pressed={condition === 'baseline'} onClick={()=>setCondition('baseline')}>{t('Baseline timing','เงื่อนไขเวลาฐาน')}</button><button aria-pressed={condition === 'delayed'} onClick={()=>setCondition('delayed')}>{t('Delayed conditions','เงื่อนไขล่าช้า')}</button>
-      </div>
       <figure className="research-results-figure">
         <figcaption>{t('Modeled victim share (%) · cumulative packages · bars 0–25%','ผู้ประสบภัยตามเกณฑ์แบบจำลอง (%) · มาตรการสะสม · กราฟ 0–25%')}</figcaption>
         <table className="research-results-table"><thead><tr><th scope="col">{t('Package','ชุดมาตรการ')}</th><th scope="col">{t('Baseline','ฐาน')}</th><th scope="col">{t('Delayed','ล่าช้า')}</th></tr></thead>
-          <tbody>{scenarios.map((s,i)=><tr key={s.id}><th scope="row">{packageNames[i][language]}</th>{(['baseline','delayed'] as const).map(c=><td key={c} className={condition===c?'research-selected-value':undefined}>{(c==='baseline'?s.affected:s.delayed).toFixed(1)}%<span className="research-bar-track" aria-hidden="true"><span style={{width:`${(c==='baseline'?s.affected:s.delayed)/25*100}%`,opacity:condition===c?1:.3}} /></span></td>)}</tr>)}</tbody>
+          <tbody>{scenarios.map((s,i)=><tr key={s.id}><th scope="row">{packageNames[i][language]}</th>{(['baseline','delayed'] as const).map(c=><td key={c} className={`research-value ${c}`}>{(c==='baseline'?s.affected:s.delayed).toFixed(1)}%<span className="research-bar-track" aria-hidden="true"><span style={{width:`${(c==='baseline'?s.affected:s.delayed)/25*100}%`}} /></span></td>)}</tr>)}</tbody>
         </table>
       </figure>
       <p className="research-qualification">{t('Population is estimated, not a current census. “Victims” means trapped agents in cells with water deeper than 0.5 m under the source rule (§3.2.5, pp. 15–16). These are not observed deaths, individual probabilities or independently reproduced predictions.', 'จำนวนประชากรเป็นค่าประมาณ ไม่ใช่สำมะโนปัจจุบัน “ผู้ประสบภัย” หมายถึงตัวแทนที่ติดอยู่ในกริดซึ่งมีน้ำลึกเกิน 0.5 เมตร ตามเกณฑ์ของต้นฉบับ (หัวข้อ 3.2.5 หน้า 15–16) ไม่ใช่จำนวนผู้เสียชีวิตจริง ความน่าจะเป็นรายบุคคล หรือการพยากรณ์ที่ทำซ้ำโดยอิสระแล้ว')}</p>

@@ -25,3 +25,5 @@ Buildings: preserve unknown source heights as null. The owner authorizes labelle
 Quantitative bars: show marked endpoints, intermediate divisions and compact unit-bearing metrics tied to the actual range. Preserve usable native inputs. Test label and sibling-control overlap at narrow widths and long values; page overflow alone does not prove a calibrated scale fits.
 
 Comparison rows: use available space for sourced, decision-relevant comparisons on shared scales. Avoid a distant fixed-width mini-bar separated from its label by an empty middle column. Do not invent filler to occupy space; preserve direct values, qualifications and selection behavior. Measure row/plot geometry and test both timing conditions.
+
+Closing path: consolidate repeated outcome, citation and identity bands. Keep outcome percentages/categories visible; full bibliography and credits may use a clearly labelled native disclosure with direct source access. Static research comparisons show both conditions immediately, without a toggle that only fades one series. Area choices must not form an oversized orphan tab row. Report measured reduction, never an aspirational percentage.

@@ -33,7 +33,7 @@ export const manualTopics = {
   research: {
     name: both('Research · inspect the evidence', 'งานวิจัย · ตรวจสอบหลักฐาน'),
     steps: [
-      both('Switch ไทย / English in the research heading. Compare baseline and delayed conditions; both columns show reported study results, while the selected condition is emphasized.', 'สลับ ไทย / English ที่หัวข้องานวิจัย เปรียบเทียบเงื่อนไขฐานกับเงื่อนไขล่าช้า ทั้งสองคอลัมน์เป็นผลที่บทความรายงาน โดยเน้นเงื่อนไขที่เลือก'),
+      both('Switch ไทย / English in the research heading. Baseline and delayed results are shown together at equal prominence; no timing toggle is needed. Open Study & credits in the footer for the complete citation and outcome context.', 'สลับ ไทย / English ที่หัวข้องานวิจัย ผลเงื่อนไขฐานและล่าช้าแสดงพร้อมกันโดยไม่ต้องกดสลับ เปิดที่มาและผู้จัดทำในส่วนท้ายเพื่ออ่านบรรณานุกรมเต็มและบริบทผลแบบจำลอง'),
       both('Open definitions and uncertainty notes before interpreting percentages. Follow source IDs to the evidence ledger; Used here, Candidates and Reporting method have different roles.', 'อ่านนิยามและข้อจำกัดด้านความไม่แน่นอนก่อนตีความร้อยละ ตามรหัสแหล่งข้อมูลไปยังบัญชีหลักฐาน แหล่งที่ใช้ในระบบ แหล่งที่เสนอ และแนวทางรายงาน มีบทบาทต่างกัน'),
       both('Use Reproduce & cite to download the results CSV and BibTeX citation, inspect code or read the proposed validation agenda.', 'ใช้ ทำซ้ำและอ้างอิง เพื่อดาวน์โหลดผล CSV และข้อมูลอ้างอิง BibTeX ตรวจโค้ด หรืออ่านแผนตรวจสอบที่เสนอ'),
     ],
