@@ -46,7 +46,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -106,7 +106,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -166,7 +166,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -226,7 +226,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -286,7 +286,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -346,7 +346,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -406,7 +406,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -466,7 +466,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -533,7 +533,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -600,7 +600,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -667,7 +667,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
@@ -734,7 +734,7 @@
       ],
       "chrome": {
         "selectors": [
-          "header",
+          ".soonami-masthead",
           ".geography-pane > .pane-header",
           ".terrain-toolbar"
         ],
