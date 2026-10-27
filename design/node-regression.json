@@ -1,0 +1,8 @@
+{
+  "case": "5000 people / 1m / 4416 seconds",
+  "oldWaitingFeatures": 2799,
+  "oldOffNodeCoordinates": 2799,
+  "newWaitingSymbols": 1,
+  "newOffNodeCoordinates": 0,
+  "newWeightedWaitingCount": 2799
+}

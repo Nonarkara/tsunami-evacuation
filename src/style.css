@@ -2465,3 +2465,20 @@ textarea {
 
 .water-control-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
 .water-control-row > label:last-child { flex: 1; min-width: 120px; }
+/* Operating controls, their results and route profile form one desktop workbench. */
+.rehearsal-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; }
+.rehearsal-panel .rehearsal-controls { flex: none; border-bottom: 0; }
+.rehearsal-panel .rehearsal-timeline { flex: 1 1 330px; max-width: 530px; }
+.rehearsal-panel .exercise-boundary, .rehearsal-panel .rehearsal-readout { flex-basis: 100%; }
+@media (min-width: 1280px) {
+  .terrain-rehearsal { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 18px; }
+  .terrain-rehearsal > .terrain-toolbar, .terrain-rehearsal > .terrain-stage,
+  .terrain-rehearsal > .map-wrap, .terrain-rehearsal > .terrain-caption,
+  .terrain-rehearsal > .exercise-method, .terrain-rehearsal > .terrain-secondary.water { grid-column: 1 / -1; }
+  .rehearsal-panel { grid-column: 1; display: block; }
+  .terrain-secondary.crowd { grid-column: 2; }
+}
+@media (max-width: 680px) {
+  .rehearsal-panel { display: block; }
+  .rehearsal-panel .rehearsal-timeline { max-width: none; }
+}

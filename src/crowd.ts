@@ -47,6 +47,7 @@ export function simulate(data: RouteData, count: number, speed: number, width: n
 export function frame(model: Rehearsal, seconds: number) {
   let arrived = 0, queued = 0, walking = 0, pending = 0;
   const features: GeoJSON.Feature<GeoJSON.Point>[] = [];
+  const groups = new Map<string, GeoJSON.Feature<GeoJSON.Point>>();
   model.people.forEach(p => {
     if (seconds >= p.finish) { arrived++; return; }
     let lo = 0, hi = p.legs.length - 1;
@@ -57,11 +58,19 @@ export function frame(model: Rehearsal, seconds: number) {
     else walking++;
     const moving = seconds >= leg.enter;
     const t = moving ? Math.min(1, (seconds - leg.enter) / (leg.exit - leg.enter)) : 0;
-    // Small lateral offsets distinguish dots; they do not represent lane-accurate positions.
-    const offset = ((p.id % 7) - 3) * 0.000006;
-    const angle = p.id * 2.399963, radius = !moving ? Math.sqrt((p.id * 73 % 997) / 997) * .00018 : 0;
-    features.push({ type: 'Feature', properties: { queued: seconds >= leg.arrival && seconds < leg.enter, status: seconds < leg.arrival ? 'pending' : seconds < leg.enter ? 'queued' : 'walking', route: p.route }, geometry: { type: 'Point', coordinates: [leg.from[0] + (leg.to[0] - leg.from[0]) * t + offset + Math.cos(angle) * radius, leg.from[1] + (leg.to[1] - leg.from[1]) * t + Math.sin(angle) * radius] } });
+    // Point queues have no modeled physical footprint. Aggregate at the exact node.
+    const status = seconds < leg.arrival ? 'pending' : seconds < leg.enter ? 'queued' : 'walking';
+    const coordinates: Coord = [leg.from[0] + (leg.to[0] - leg.from[0]) * t, leg.from[1] + (leg.to[1] - leg.from[1]) * t];
+    if (moving) {
+      features.push({ type: 'Feature', properties: { status, count: 1, person: p.id, route: p.route, edge: leg.edge }, geometry: { type: 'Point', coordinates } });
+    } else {
+      const key = `${status}:${leg.edge}`;
+      const existing = groups.get(key);
+      if (existing) existing.properties!.count++;
+      else groups.set(key, { type: 'Feature', properties: { status, count: 1, edge: leg.edge }, geometry: { type: 'Point', coordinates: [...leg.from] } });
+    }
   });
+  features.push(...groups.values());
   return { arrived, queued, walking, pending, type: 'FeatureCollection' as const, features };
 }
 export type TerrainGrid = { w: number; h: number; west: number; east: number; north: number; south: number; heights: number[]; source: string; accessed: string };

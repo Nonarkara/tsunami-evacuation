@@ -8,7 +8,7 @@ test('crowd counts are conserved across release, queues, movement and completion
   for (const t of [0, 10, 50, 500, 2000, model.duration]) {
     const f = frame(model, t);
     assert.equal(f.arrived + f.queued + f.walking + f.pending, 120);
-    assert.equal(f.features.length, 120 - f.arrived);
+    assert.equal(f.features.reduce((sum, feature) => sum + Number(feature.properties?.count), 0), 120 - f.arrived);
   }
   assert.equal(frame(model, model.duration).arrived, 120);
 });
@@ -49,5 +49,33 @@ test('source routes share a downstream network and retain OSM way provenance', (
     assert.equal(r.osmWays.length, r.nodeIds.length-1);
     assert.deepEqual(r.coordinates.at(-1), routes.destination);
     assert.ok(r.osmWays.every(id => /^\d+$/.test(id)));
+  }
+});
+
+test('waiting people are totals at exact model nodes, never an invented crowd footprint', () => {
+  const model = simulate(routes, 5000, 1.4, 1);
+  const f = frame(model, 4416);
+  assert.equal(f.queued, 2799);
+  assert.equal(f.walking, 729);
+  assert.equal(f.arrived, 1472);
+  const groups = f.features.filter(p => p.properties?.status !== 'walking');
+  assert.ok(groups.length > 0 && groups.length < f.queued);
+  const ids = new Set<string>();
+  for (const g of groups) {
+    const key = `${g.properties?.status}:${g.properties?.edge}`;
+    assert.ok(!ids.has(key)); ids.add(key);
+    const leg = model.people.find(p => p.legs.some(l => l.edge === g.properties?.edge))!.legs.find(l => l.edge === g.properties?.edge)!;
+    assert.deepEqual(g.geometry.coordinates, leg.from);
+  }
+  assert.equal(f.features.reduce((sum, p) => sum + Number(p.properties?.count), 0) + f.arrived, 5000);
+});
+test('moving points remain exactly on their modeled road segment', () => {
+  const model = simulate(routes, 120, 1.4, 1), time = 400;
+  const f = frame(model, time);
+  for (const p of f.features.filter(p => p.properties?.status === 'walking')) {
+    const person = model.people[Number(p.properties?.person)];
+    const leg = person.legs.find(l => l.enter <= time && time < l.exit)!;
+    const t = (time - leg.enter) / (leg.exit - leg.enter);
+    assert.deepEqual(p.geometry.coordinates, [leg.from[0] + (leg.to[0] - leg.from[0]) * t, leg.from[1] + (leg.to[1] - leg.from[1]) * t]);
   }
 });

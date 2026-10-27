@@ -20,6 +20,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   const [camera, setCamera] = useState<'overview' | 'coast' | 'route'>('overview');
   const [mode, setMode] = useState<'crowd' | 'water'>('crowd');
   const [route, setRoute] = useState(1), [water, setWater] = useState(0), [screen, setScreen] = useState(false);
+  const [queueFocus, setQueueFocus] = useState<{ edge: string; status: string }>();
   const [point, setPoint] = useState<{ coord: Coord; elevation: number | null }>();
   const isStudy = region.id === 'khao-lak';
   const lastSelection = useRef(`${region.id}:${selected}`);
@@ -32,7 +33,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   }, []);
   const model = useMemo(() => data ? simulate(data, count, speed, width) : undefined, [data, count, speed, width]);
   const current = useMemo(() => model ? frame(model, seconds) : undefined, [model, seconds]);
-  useEffect(() => { setSeconds(0); setPlaying(false); }, [count, speed, width, region.id]);
+  useEffect(() => { setSeconds(0); setPlaying(false); setQueueFocus(undefined); }, [count, speed, width, region.id]);
   useEffect(() => {
     if (!playing || !model) return;
     const timer = window.setInterval(() => setSeconds(t => Math.min(model.duration, t + rate / 5)), 200);
@@ -71,12 +72,18 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       m.addLayer({ id: 'water', type: 'fill', source: 'water', paint: { 'fill-color': '#3b99ca', 'fill-opacity': .4 } });
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
       m.addLayer({ id: 'routes', type: 'line', source: 'routes', paint: { 'line-color': ['match', ['get', 'route'], 0, '#fafaf7', 1, '#f59e0b', '#b9ddf0'], 'line-width': 3 } });
-      m.addLayer({ id: 'people', type: 'circle', source: 'people', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 17, 4], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': .5 } });
+      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1, 17, 2], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': .5 } });
       m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-radius': 4, 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
       m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
+      m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-radius': 4, 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
       setReady(true);
     });
-    m.on('click', e => setPoint({ coord: [e.lngLat.lng, e.lngLat.lat], elevation: m.queryTerrainElevation(e.lngLat) }));
+    m.on('click', e => {
+      const group = m.getLayer('waiting-groups') ? m.queryRenderedFeatures(e.point, { layers: ['waiting-groups'] })[0] : undefined;
+      if (group?.properties) { setQueueFocus({ edge: String(group.properties.edge), status: String(group.properties.status) }); setPoint(undefined); return; }
+      setQueueFocus(undefined);
+      setPoint({ coord: [e.lngLat.lng, e.lngLat.lat], elevation: m.queryTerrainElevation(e.lngLat) });
+    });
     m.getCanvas().addEventListener('webglcontextlost', () => setFailure('3D graphics context lost. Use the 2D fallback.'));
     const observer = new ResizeObserver(() => m.resize()); observer.observe(host.current);
     return () => { window.clearTimeout(loadTimeout); observer.disconnect(); m.remove(); map.current = null; };
@@ -111,7 +118,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       button.className = `terrain-place-label${i === selected ? ' selected' : ''}`;
       button.title = place.name;
       button.setAttribute('aria-label', `Select geographic place ${place.name}`);
-      button.addEventListener('click', event => { event.stopPropagation(); setPoint(undefined); onSelect(i); });
+      button.addEventListener('click', event => { event.stopPropagation(); setPoint(undefined); setQueueFocus(undefined); onSelect(i); });
       return new maplibregl.Marker({ element: button }).setLngLat([place.lng, place.lat]).addTo(m);
     });
     const key = `${region.id}:${selected}`;
@@ -131,20 +138,22 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   useEffect(() => { if (ready && data && isStudy) fitRoutes(); }, [ready, data, isStudy]);
   function view(which: typeof camera) {
     setCamera(which);
+    setQueueFocus(undefined);
     if (which === 'overview' && isStudy) { fitRoutes(); return; }
     if (which === 'overview') map.current?.flyTo({ center: isStudy ? [98.265, 8.669] : [region.center[1], region.center[0]], zoom: isStudy ? 13.6 : region.zoom, pitch: 58, bearing: -65, duration: 1800 });
     if (which === 'coast') map.current?.flyTo({ center: [98.273, 8.672], zoom: 14.5, pitch: 70, bearing: 85, duration: 6000, essential: false });
   }
+  const queueCount = current?.features.find(f => f.properties?.edge === queueFocus?.edge && f.properties?.status === queueFocus?.status)?.properties?.count ?? 0;
   const active = data?.routes[route];
   const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p) ?? 0) : [], [active, grid]);
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
-  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
+  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <div className="terrain-toolbar">
-      {isStudy && <div className="experiment-tabs" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} onClick={() => { setMode('crowd'); setScreen(false); }}>Crowd</button><button aria-pressed={mode === 'water'} onClick={() => { setMode('water'); setScreen(true); setPlaying(false); }}>Water level</button></div>}
+      {isStudy && <div className="experiment-tabs" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} onClick={() => { setMode('crowd'); setScreen(false); }}>Crowd</button><button aria-pressed={mode === 'water'} onClick={() => { setMode('water'); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}>Water level</button></div>}
       <div className="terrain-view-controls" aria-label="Camera controls">
         <button aria-pressed={!flat} onClick={() => setFlat(false)}>3D terrain</button>
-        <button aria-pressed={flat} onClick={() => { setFlat(true); setPoint(undefined); setPlaying(false); }}>2D map</button>
-        {!flat && <><button disabled={!ready || !isStudy} onClick={() => view('coast')} title="Mountain fly-by">Fly-by</button><button disabled={!ready || !isStudy} aria-pressed={camera === 'route'} onClick={() => view('route')}>Follow route</button><button disabled={!ready} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} onClick={() => { const p = model?.people[0].legs.find(l => l.edge === model.bottleneck)?.from; if (p) { setCamera('overview'); map.current?.flyTo({ center: p, zoom: 17, pitch: 60, bearing: 70, duration: 1500 }); } }} title="Inspect queue">Queue</button></>}
+        <button aria-pressed={flat} onClick={() => { setFlat(true); setPoint(undefined); setQueueFocus(undefined); setPlaying(false); }}>2D map</button>
+        {!flat && <><button disabled={!ready || !isStudy} onClick={() => view('coast')} title="Mountain fly-by">Fly-by</button><button disabled={!ready || !isStudy} aria-pressed={camera === 'route'} onClick={() => view('route')}>Follow route</button><button disabled={!ready} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} onClick={() => { const p = model?.people[0].legs.find(l => l.edge === model.bottleneck)?.from; if (p && model) { setCamera('overview'); setQueueFocus({ edge: model.bottleneck, status: 'queued' }); map.current?.flyTo({ center: p, zoom: 17, pitch: 60, bearing: 70, duration: 1500 }); } }} title="Inspect queue">Queue</button></>}
       </div>
 
     </div>
@@ -156,12 +165,12 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
 
     </div>}
     <div className="terrain-caption">
-      <span>{point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${region.places[selected]?.name} · ${flat ? '2D reference' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
+      <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${region.places[selected]?.name} · ${flat ? '2D reference' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
-      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White dots: walking; amber: queued; gray: awaiting release.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
+      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
     </div>
     {isStudy && model && data && <>
-      <div hidden={mode !== 'crowd'}>
+      <div className="rehearsal-panel" hidden={mode !== 'crowd'}>
       <div className="rehearsal-controls">
         <label>People<select aria-label="People" value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
         <label>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
@@ -170,13 +179,13 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
         <button className="rehearsal-play" aria-label={playing ? "Pause rehearsal" : "Run crowd rehearsal"} disabled={flat || !ready} onClick={() => { if (seconds >= model.duration) setSeconds(0); setPlaying(v => !v); }}>{playing ? 'Pause' : 'Run'}</button>
       </div>
       <div className="rehearsal-timeline">
-        <button onClick={() => { setSeconds(0); setPlaying(false); }}>Reset</button>
+        <button onClick={() => { setSeconds(0); setPlaying(false); setQueueFocus(undefined); }}>Reset</button>
         <label className="timeline-label">Exercise time {minutes(seconds)}<input aria-label="Exercise time" type="range" min={0} max={model.duration} step={1} value={seconds} onChange={e => { setSeconds(Number(e.target.value)); setPlaying(false); }} /></label>
         <label>Rate<select aria-label="Playback" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
-      <p className="exercise-boundary">Bang Niang exercise · unapproved endpoint · no water interaction</p>
+      <p className="exercise-boundary">Network exercise · unapproved endpoint · no flood interaction</p>
       <div className="rehearsal-readout" aria-label="Crowd counts">
-        <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
+        <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued at nodes</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
       </div>
       </div>
       <div className={`terrain-secondary ${mode}`}>
@@ -192,7 +201,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
 
       </div>
       </div>
-      <details className="exercise-method"><summary>Sources, assumptions and what needs validation</summary><p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each dot represents one synthetic person. A deterministic FIFO point-queue model uses {speed} m/s, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-ring link and an assumed flow of 1.2 people/m/s. Queues are displayed at nodes; dots are offset for visibility. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p></details>
+      <details className="exercise-method"><summary>Sources, assumptions and what needs validation</summary><p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p></details>
     </>}
   </section>;
 }
