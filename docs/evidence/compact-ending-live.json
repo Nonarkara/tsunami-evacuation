@@ -1,0 +1,27 @@
+{
+  "verifiedAt": "2026-10-27T19:35:18.135561+00:00",
+  "commit": "f6f08ac",
+  "workerVersion": "1b6f9e28-7124-4547-ae65-5b8db7283ac2",
+  "htmlMatches": true,
+  "assets": [
+    {
+      "path": "/assets/index-DffktsgA.js",
+      "sha256": "d9478a71c67f7418fe3adf7fc7d40fd0f3bee830614a649e5532b6679fecf355"
+    },
+    {
+      "path": "/assets/index-CRp3ZS7D.css",
+      "sha256": "cea6f7306481e88fe69cdc9a8cfa10f8e68ba91420452dbf7cb0dbf3dc6ebd4b"
+    }
+  ],
+  "browser": {
+    "researchCells": 10,
+    "timingToggles": 0,
+    "allBarsFullOpacity": true,
+    "localeUpdatesFooter": true,
+    "fullCitationKeyboardAccessible": true,
+    "areaPackSelectionRestored": true,
+    "thai390ClosingHeight": 138.9765625,
+    "footerHeight": 33,
+    "areaHeight": 32
+  }
+}
