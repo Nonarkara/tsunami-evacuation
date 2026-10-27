@@ -49,3 +49,7 @@ The reviewer was asked to reopen and verify these dispositions after the fixes. 
 ## Explicit limits
 
 Actual OS print/PDF pagination, a physical printer, downloads on third-party mobile browsers, screen-reader testing and a real local-user field trial remain unverified. Full-value print rendering is implemented and source-reviewed; do not confuse that with complete printer validation. No claim of operational route, refuge, warning-feed or model-engine verification is made. Live publication/domain verification is recorded separately in DEPLOYMENT.md.
+
+## Published UI check
+
+The public Sites snapshot (same application bytes as the canonical Worker release) was opened in a real browser. Delayed warning changed the full package result to 2.9% and 87% reduction; baseline restored 1.2%. All 8 visible map tiles loaded, document width equaled the 1280px viewport, and no browser script errors were reported in the earlier local checks. Screenshot: screenshots/published-pilot.png. The browser's canonical-host navigation still met local negative DNS caching; canonical TLS/HTML/JS/CSS were instead verified by hostname with a public DNS address and certificate checks enabled. This is recorded rather than calling that failed browser navigation a pass.

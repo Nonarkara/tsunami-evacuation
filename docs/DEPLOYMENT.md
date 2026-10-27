@@ -22,3 +22,13 @@ The Sites URL is an initial published snapshot; the canonical Worker is the depl
 The site is public by the owner's go-live instruction. Static hosting contains no paid API credential, account workflow, survey respondent data or uploaded personal plans. Local form entries remain in the visitor's browser.
 
 Final deployed Worker version and live-response verification are appended after deployment succeeds.
+
+## Verified canonical release
+
+Deployed source commit: c4c6550a76420a69edbc4ad9e49ee918b99b9fd3. Cloudflare Worker version: ef66af4d-a07a-4bd5-b159-ebe68095fc0a. Deployment completed 27 October 2026, about 18:11 Bangkok time.
+
+Public DNS at 1.1.1.1 and the default resolver returns Cloudflare addresses. HTTPS at the exact canonical hostname returns 200 with normal certificate verification. HTML, JavaScript and CSS bytes match the local production build exactly. The page serves its CSP and nosniff headers; /.DS_Store and an unknown path both return 404. The first HTTPS byte check used curl --resolve with a publicly resolved address because the OS initially cached the pre-deployment NXDOMAIN response; certificate validation remained enabled. A browser navigation initially encountered the same local negative DNS cache, so that initial attempt alone did not establish browser-level canonical verification.
+
+GitHub CI for this source completed successfully: https://github.com/Nonarkara/tsunami-evacuation/actions/runs/40494152265 . Browser flows had already been exercised on the identical application build locally; the final hostname is separately checked as above.
+
+A public browser check also confirmed the deployed Sites snapshot's scenario controls and all visible map tiles. The live source snapshot and canonical build's application asset hashes are identical. The canonical hostname's normal system-resolver request still had local NXDOMAIN caching at closeout, while `dig` through the default resolver and 1.1.1.1 returned its new addresses. No system DNS settings were changed and no TLS warnings were bypassed.
