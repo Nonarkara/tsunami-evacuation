@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tsunami.nonarkara.org/sitemap.xml

@@ -1,0 +1,52 @@
+[
+  {
+    "heading": 102.59375,
+    "tab": "Explore",
+    "viewport": 1024,
+    "visibleChrome": 98.1875,
+    "width": 1024
+  },
+  {
+    "tab": "My plan",
+    "viewport": 1024,
+    "visibleChrome": 98.1875,
+    "width": 1024
+  },
+  {
+    "tab": "Run a drill",
+    "viewport": 1024,
+    "visibleChrome": 98.1875,
+    "width": 1024
+  },
+  {
+    "tab": "The research",
+    "viewport": 1024,
+    "visibleChrome": 98.1875,
+    "width": 1024
+  },
+  {
+    "heading": 131.7890625,
+    "tab": "Explore",
+    "viewport": 390,
+    "visibleChrome": 168.1796875,
+    "width": 390
+  },
+  {
+    "tab": "My plan",
+    "viewport": 390,
+    "visibleChrome": 168.1796875,
+    "width": 390
+  },
+  {
+    "tab": "Run a drill",
+    "viewport": 390,
+    "visibleChrome": 168.1796875,
+    "width": 390
+  },
+  {
+    "tab": "The research",
+    "viewport": 390,
+    "visibleChrome": 168.1796875,
+    "width": 390
+  }
+]

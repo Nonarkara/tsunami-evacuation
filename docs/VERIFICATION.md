@@ -1,0 +1,51 @@
+# Pilot verification — 27 October 2026
+
+## Automated checks
+
+- Five Node test cases pass: exact scenario transcription; outcome accounting; invalid arithmetic; saved-plan schema boundary; drill headcount boundary.
+- TypeScript strict compile and Vite production build pass.
+- All six authored text/background contrast pairs exceed 4.5:1. Lowest is amber navigation on the Palette blue masthead: 5.94:1. Body text: 15.44:1. Secondary text: 6.55:1.
+- npm dependency audit at initial install: no known vulnerabilities reported.
+
+## Browser flows exercised
+
+Real in-app browser, through supported CUA controls:
+
+- Select delayed warning: full package shows 2.9%, same-condition relative reduction 87%.
+- Select delayed baseline: shows 22.6%; expand outcomes to read 56.8% reached and 20.6% outside affected area.
+- Change area selector and map selection; all four map markers remain visible in phone overview after fitBounds repair.
+- Enter plan, toggle checklist, save, switch tabs, reload, explicitly load saved plan: entries retained. Zero walking distance shows validation instead of an arrival estimate.
+- Attempt empty drill export: validation displayed. Enter 30 participants, 28 reached, 3 needing assistance and 12.5 minutes plus team/coordinator/review date: successful export message displayed. The browser's native download-event handle timed out once; the final valid export was verified through the app's success state. The JSON filesystem bytes have not been independently inspected.
+- Date input fix: the in-app browser changed the date control visually without React's date onChange retaining it; onInput now synchronizes the value. Valid export succeeded after this change.
+- Expanded package/outcome panels checked at 1440px; document width remains 1440.
+- All four views checked at 390px and 1024px: body width equals viewport, no horizontal page bleed. See geometry.json and screenshots/.
+
+## Geometry correction
+
+User flagged spatial waste and bleed in the first preview. The oversized title and a stretch-height map pushed meaningful actions below the first screen. Text was regrouped; source/detail content remains available through explicit disclosures. The actual map and chart were retained.
+
+| Measure | First desktop preview | Revised desktop |
+|---|---:|---:|
+| Page height, 1440px width | 1,273px | 978px |
+| Heading region | 192.6px | 102.6px |
+| Map | 542.5px, stretched by sibling | 390px, task-sized |
+| Top chrome | 112.2px | 100.2px |
+| Scenario panel | 797.1px | 616.4px |
+| Action row lower edge | 1,188px | 894px |
+
+Regression budgets for the collapsed desktop view: heading <=130px; chrome <=115px; main action row ends <=900px. The original values fail all three budgets; the revised values pass. On phone, geography and the personal-plan action fit in the first 844px; detailed comparison follows as a distinct reading task. Chrome is 168.2px (19.9%) on the 390×844 phone, 98.2px (10.9%) at 1024×900, and 100.2px (11.1%) at 1440×900. None is fixed or sticky.
+
+## Independent review and disposition
+
+A separate verifier reviewed source and screenshots. Findings:
+
+1. P1: long form values could clip in print. Fixed by separate full, wrapping print values for all free-text fields.
+2. P1: print protocol contained only selected stage detail. Fixed by a print-only rendering of all five bodies and responsible roles.
+3. P2: phone map annotation covered northern geography. Removed overlay; limitation remains in outside-map caption. Latest phone screenshot shows all four unobstructed markers.
+4. P2: a blank assistance count became zero. Export now rejects a blank string; zero remains a valid explicit count.
+
+The reviewer was asked to reopen and verify these dispositions after the fixes. Final review status is recorded in REVIEW.md.
+
+## Explicit limits
+
+Actual OS print/PDF pagination, a physical printer, downloads on third-party mobile browsers, screen-reader testing and a real local-user field trial remain unverified. Full-value print rendering is implemented and source-reviewed; do not confuse that with complete printer validation. No claim of operational route, refuge, warning-feed or model-engine verification is made. Live publication/domain verification is recorded separately in DEPLOYMENT.md.
