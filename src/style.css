@@ -1435,22 +1435,6 @@ main {
   line-height: 1.3;
 }
 
-.action-tag {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--companion);
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  margin-bottom: 3px;
-}
-
-.actionable-banner p {
-  font-size: 12px;
-  line-height: 1.35;
-  margin: 0;
-}
-
 /* Package Details */
 .package-detail {
   padding: 6px 0;

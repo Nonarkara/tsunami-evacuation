@@ -14,12 +14,35 @@ Existing frameworks assessed:
 
 ## Modules
 
-- src/research.ts: transcribed, typed results; outcome accounting; plan validation; walking arithmetic; drill boundary validation.
-- src/Map.tsx: interactive Leaflet map, reference area markers, geographic fallback message and keyboard alternative.
-- src/main.tsx: four task views, semantic controls, emergency guidance, opt-in local plan persistence, downloads and print representations. Form panes stay mounted when hidden, preserving in-memory entries across tabs.
+- src/research.ts: transcribed, typed results; outcome accounting; plan validation; walking arithmetic; drill boundary validation; all coastal regions and satellite feed catalogue.
+- src/research-ledger.ts: bilingual source ledger, package names, glossary, evidence CSV and BibTeX citation.
+- src/ResearchSection.tsx: bilingual research dossier — results table, four physical axioms, platform section, methods, sources, validation agenda, reproduce & cite.
+- src/Map.tsx: interactive Leaflet 2D reference map, area markers, geographic fallback message and keyboard alternative.
+- src/TerrainRehearsal.tsx: MapLibre 3D terrain and crowd rehearsal — camera views (overview/route/coast/walk), experiment controls, water-level demonstration, building massing, hazard replay import.
+- src/crowd.ts: pure FIFO point-queue exercise; deterministic simulation and per-frame sampling; static terrain elevation and water screening.
+- src/rehearsal.ts: route chainage, along-route sampling, walker progress state, next-turn cues, route arrows, hazard replay parsing and interpolation.
+- src/buildings.ts: OSM building snapshot parsing and validation; 1.65m eye-height camera step; 3m unknown-height massing convention.
+- src/main.tsx: app shell — masthead, five tab views (explore/satellite/prepare/drill/research), emergency guidance drawer, manual dialog, source footer. Form panes stay mounted when hidden, preserving in-memory entries across tabs.
+- src/InterventionComparison.tsx: shared-scale cumulative intervention package selector with proportional bars and per-condition values.
+- src/OutcomeSummary.tsx: 100% modeled outcome breakdown strip and label/value records (reached / outside / victims).
+- src/Manual.tsx: on-demand bilingual manual dialog with Escape focus return, Tab containment and section links.
+- src/manual-content.ts: manual topics, step text, page order and language detection.
+- src/SatelliteCatalogue.tsx: disconnected satellite and meteorological source catalogue (DART buoy, tide gauge, SAR, DEM).
+- src/SourceFooter.tsx: study credits footer with citation, creator and outcome context.
+- src/NavSymbol.tsx: SVG navigation symbols for masthead tabs and manual topics.
+- src/ReplayWaterLayer.ts: custom MapLibre WebGL layer rendering an actual horizontal water surface (no procedural wave dynamics).
+- src/TimeScrubber.tsx: time scrubber input with min:sec ruler.
 - src/style.css: responsive compositions, project overrides of Axiom tokens, Palette color roles, reduced motion and print styles.
-- src/research.test.ts: source-series fidelity, outcome accounting, corrupt saved-plan rejection, time and drill validation.
 - public/: metadata, safe response headers and upstream notices.
+
+## Tests
+
+- src/research.test.ts: source-series fidelity, outcome accounting, corrupt saved-plan rejection, time and drill validation.
+- src/crowd.test.ts: crowd count conservation, trajectory fidelity, pinch-point behavior, terrain screening.
+- src/rehearsal.test.ts: route camera and arrows, preparation state, walker progress, water rise bounds, hazard replay import validation.
+- src/buildings.test.ts: 17 place building snapshots and count conservation, boundary validation, eye-height and massing constants, disconnected instrument records.
+- src/manual-content.test.ts: manual language detection and fallback.
+- scripts/test_*.py: 10 Python building massing tests.
 
 ## Data paths
 
