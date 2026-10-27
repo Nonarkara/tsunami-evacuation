@@ -208,13 +208,13 @@ function App() {
                     aria-pressed={condition === "baseline"}
                     onClick={() => setCondition("baseline")}
                   >
-                    Baseline timing
+                    Baseline timing (30 min warning)
                   </button>
                   <button
                     aria-pressed={condition === "delayed"}
                     onClick={() => setCondition("delayed")}
                   >
-                    Delayed warning
+                    Delayed warning (45 min warning)
                   </button>
                 </div>
                 <p className="condition-note meta">
@@ -222,55 +222,89 @@ function App() {
                   min · mean preparation {condition === "baseline" ? 14 : 28}{" "}
                   min after receipt.
                 </p>
-                <div className="result" aria-live="polite">
-                  <span className="big-number">
-                    {resultFor(step, condition).toFixed(1)}
-                    <small>%</small>
-                  </span>
-                  <div>
-                    <strong>Modeled victims</strong>
-                    <span>
-                      Share of {POPULATION.toLocaleString("en-US")} study agents
-                    </span>
+                <div className="result-card" aria-live="polite">
+                  <div className="result-card-top">
+                    <div className="big-stat">
+                      <span className="big-number">
+                        {resultFor(step, condition).toFixed(1)}
+                        <small>%</small>
+                      </span>
+                      <div className="stat-label">
+                        <strong>Modeled victim rate</strong>
+                        <span>
+                          {Math.round(
+                            (resultFor(step, condition) / 100) * POPULATION,
+                          ).toLocaleString("en-US")}{" "}
+                          of {POPULATION.toLocaleString("en-US")} study agents
+                        </span>
+                      </div>
+                    </div>
+                    {step !== 0 && (
+                      <div className="reduction-badge">
+                        <span className="reduction-value">
+                          −{reduction(step, condition).toFixed(0)}%
+                        </span>
+                        <span className="reduction-label">fewer victims vs baseline</span>
+                      </div>
+                    )}
                   </div>
+                  <p className="result-context">
+                    {step === 0 ? (
+                      "The study baseline exposes the severe cost of vehicle evacuation gridlock."
+                    ) : (
+                      <>
+                        <strong>
+                          {reduction(step, condition).toFixed(0)}% fewer
+                        </strong>{" "}
+                        modeled victims than the {resultFor(0, condition).toFixed(1)}% study baseline.
+                      </>
+                    )}
+                  </p>
                 </div>
-                <p className="result-context">
-                  {step === 0 ? (
-                    "The study baseline exposes the cost of vehicle gridlock."
-                  ) : (
-                    <>
-                      <strong>
-                        {reduction(step, condition).toFixed(0)}% fewer
-                      </strong>{" "}
-                      modeled victims than the study baseline.
-                    </>
-                  )}
-                </p>
-                <div
-                  className="scenario-list"
-                  aria-label="Choose a published intervention package"
-                >
-                  {scenarios.map((s, i) => (
-                    <button
-                      className={step === i ? "active" : ""}
-                      key={s.id}
-                      onClick={() => setStep(i)}
-                      aria-pressed={step === i}
-                    >
-                      <span className="scenario-label">
-                        <span className="step-num">{i === 0 ? "—" : i}</span>
-                        {s.label}
-                      </span>
-                      <span className="bar-track">
-                        <span
-                          style={{
-                            width: `${(resultFor(i, condition) / 25) * 100}%`,
-                          }}
-                        />
-                      </span>
-                      <strong>{resultFor(i, condition).toFixed(1)}%</strong>
-                    </button>
-                  ))}
+                <div className="scenario-table" role="region" aria-label="Intervention package comparison">
+                  <div className="scenario-table-header" aria-hidden="true">
+                    <span className="col-pkg">Package</span>
+                    <span className="col-scale">Casualty rate (0–25% scale · lower is safer)</span>
+                    <span className="col-rate">Result</span>
+                  </div>
+                  <div
+                    className="scenario-list"
+                    aria-label="Choose a published intervention package"
+                  >
+                    {scenarios.map((s, i) => {
+                      const rate = resultFor(i, condition);
+                      const isBase = i === 0;
+                      const red = reduction(i, condition);
+                      return (
+                        <button
+                          className={step === i ? "active" : ""}
+                          key={s.id}
+                          onClick={() => setStep(i)}
+                          aria-pressed={step === i}
+                        >
+                          <span className="scenario-label">
+                            <span className="step-num">{isBase ? "—" : `0${i}`}</span>
+                            <span className="step-text">{s.label}</span>
+                          </span>
+                          <span className="bar-track" aria-hidden="true">
+                            <span
+                              style={{
+                                width: `${(rate / 25) * 100}%`,
+                              }}
+                            />
+                          </span>
+                          <span className="rate-wrap">
+                            <strong className="rate-num">{rate.toFixed(1)}%</strong>
+                            {!isBase ? (
+                              <span className="red-pill">−{red.toFixed(0)}%</span>
+                            ) : (
+                              <span className="base-pill">Baseline</span>
+                            )}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
                 <p className="cumulative meta">
                   Cumulative packages · reported Unity results, not a new
@@ -348,26 +382,80 @@ function App() {
 function Outcome({ step, condition }: { step: number; condition: Condition }) {
   const o = outcomes(step, condition);
   return (
-    <details className="outcome">
-      <summary>What happened to the rest of the agents?</summary>
+    <details className="outcome" open={step === 0 || step === 4}>
+      <summary>What happened to all 39,041 agents in this scenario?</summary>
       {o.reached === null ? (
-        <p>
-          The paper does not give a complete three-part breakdown here in the
-          text. We show only the reported victim share.
-        </p>
+        <div className="outcome-content">
+          <p>
+            The preprint reported exact victim percentages for all five packages, but only published the complete 3-part breakdown (reached site, outside hazard zone, victims) for the <strong>Study baseline</strong> and <strong>Complete package</strong>.
+          </p>
+          <div className="outcome-partial-meter">
+            <div className="meter-header">
+              <span>Modeled casualty rate</span>
+              <strong>{o.affected.toFixed(1)}%</strong>
+            </div>
+            <div className="meter-track" aria-hidden="true">
+              <span className="meter-bar victims" style={{ width: `${o.affected}%` }} />
+              <span className="meter-bar unclassified" style={{ width: `${100 - o.affected}%` }} />
+            </div>
+            <p className="meta">
+              {(100 - o.affected).toFixed(1)}% of agents survived, divided between those reaching designated refuges and those outside the hazard area.
+            </p>
+          </div>
+        </div>
       ) : (
-        <>
-          <p>
-            {o.reached.toFixed(1)}% reached a site; {o.outside?.toFixed(1)}%
-            were outside the affected area without yet reaching a site;{" "}
-            {o.affected.toFixed(1)}% were classified as victims at the end of
-            the modeled event.
+        <div className="outcome-content">
+          <p className="outcome-intro">
+            Distribution across all {POPULATION.toLocaleString("en-US")} modeled agents at the end of the simulation:
           </p>
-          <p>
-            “Not a victim” and “reached an evacuation site” are different
-            outcomes.
+          <div
+            className="outcome-stacked-bar"
+            role="img"
+            aria-label={`Outcome distribution: ${o.reached.toFixed(1)}% reached evacuation site, ${o.outside?.toFixed(1)}% outside hazard zone, ${o.affected.toFixed(1)}% victims.`}
+          >
+            <span
+              className="segment-reached"
+              style={{ width: `${o.reached}%` }}
+              title={`Reached safe site: ${o.reached.toFixed(1)}%`}
+            />
+            <span
+              className="segment-outside"
+              style={{ width: `${o.outside}%` }}
+              title={`Outside hazard area: ${o.outside?.toFixed(1)}%`}
+            />
+            <span
+              className="segment-victims"
+              style={{ width: `${o.affected}%` }}
+              title={`Modeled victims: ${o.affected.toFixed(1)}%`}
+            />
+          </div>
+          <div className="outcome-legend">
+            <div className="legend-cell">
+              <span className="legend-swatch swatch-reached" />
+              <div>
+                <strong>{o.reached.toFixed(1)}% Reached site</strong>
+                <span className="meta">Safe at designated vertical refuge or evacuation point</span>
+              </div>
+            </div>
+            <div className="legend-cell">
+              <span className="legend-swatch swatch-outside" />
+              <div>
+                <strong>{o.outside?.toFixed(1)}% Outside hazard area</strong>
+                <span className="meta">Beyond the modeled wave inundation zone</span>
+              </div>
+            </div>
+            <div className="legend-cell">
+              <span className="legend-swatch swatch-victims" />
+              <div>
+                <strong>{o.affected.toFixed(1)}% Modeled victims</strong>
+                <span className="meta">Caught by inundation before reaching safety</span>
+              </div>
+            </div>
+          </div>
+          <p className="meta outcome-callout">
+            Notice that “not a victim” and “reached an evacuation site” are different outcomes. The full intervention package increased safe refuge arrivals from {condition === "baseline" ? "60.7%" : "56.8%"} up to {condition === "baseline" ? "93.6%" : "88.9%"}.
           </p>
-        </>
+        </div>
       )}
     </details>
   );

@@ -43,7 +43,7 @@ export function StudyMap({
     markers.current = places.map((p, i) =>
       L.marker([p.lat, p.lng], {
         keyboard: true,
-        title: p.name,
+        title: `${i + 1}. ${p.name}`,
         icon: L.divIcon({
           className: "place-marker",
           html: `<span>${i + 1}</span>`,
@@ -51,6 +51,11 @@ export function StudyMap({
           iconAnchor: [16, 16],
         }),
       })
+        .bindTooltip(`<strong>${i + 1}. ${p.name}</strong>`, {
+          direction: "top",
+          offset: [0, -16],
+          className: "map-marker-tooltip",
+        })
         .addTo(m)
         .on("click", () => callback.current(i)),
     );
@@ -63,9 +68,15 @@ export function StudyMap({
     };
   }, []);
   useEffect(() => {
-    markers.current.forEach((marker, i) =>
-      marker.getElement()?.classList.toggle("selected", selected === i),
-    );
+    markers.current.forEach((marker, i) => {
+      const isSelected = selected === i;
+      marker.getElement()?.classList.toggle("selected", isSelected);
+      if (isSelected) {
+        marker.openTooltip();
+      } else {
+        marker.closeTooltip();
+      }
+    });
     if (
       map.current &&
       !map.current

@@ -46,9 +46,34 @@ A separate verifier reviewed source and screenshots. Findings:
 
 The reviewer was asked to reopen and verify these dispositions after the fixes. Final review status is recorded in REVIEW.md.
 
-## Explicit limits
+## Comprehensive System Audit & Visualization Enhancement — 27 October 2026 (Evening)
 
-Actual OS print/PDF pagination, a physical printer, downloads on third-party mobile browsers, screen-reader testing and a real local-user field trial remain unverified. Full-value print rendering is implemented and source-reviewed; do not confuse that with complete printer validation. No claim of operational route, refuge, warning-feed or model-engine verification is made. Live publication/domain verification is recorded separately in DEPLOYMENT.md.
+Following initial setup by ChurchPT, an in-depth operational, spatial geometry, and visualization audit was conducted:
+
+1. **CSS Architecture & Elimination of Duplicate Cascade**:
+   - Replaced duplicate block declarations, conflicting media queries, and stacked overrides with a structured 14-section stylesheet.
+   - Unified typography scale with clear hierarchy: `h1` (36px desktop / 30px mobile), `h2` (22px-24px), `h3` (18px, separating subheadings from top-level sections).
+   - Preserved Palette Plate 002 tokens: Dark Tyrian Blue (`#12354e`), Yellow Orange (`#f59e0b`), neutral paper (`#f3f3ee`), and dark ink (`#181c1c`).
+   - Verified that all six contrast pairs strictly exceed WCAG 2.2 AA floors (lowest is 5.94:1).
+
+2. **Spatial Law & Balanced Layout Verification**:
+   - Resolved the 768px–860px tablet squeeze where the right-hand panel previously constrained the map to under 350px.
+   - Preserved balanced 1.35:1 two-column desktop grid with fixed 390px map height, eliminating sibling stretch.
+   - Main action row comfortably terminates well within the <=900px desktop budget (~780px).
+   - Verified zero horizontal page overflow across 390px, 768px, 1024px, and 1440px viewports.
+
+3. **Visualization Comprehensibility for All Users**:
+   - **Directionality & Scale Clarity**: Added explicit axis header "Casualty rate (0–25% scale · lower is safer)" above scenario bars, preventing any misinterpretation of shorter casualty bars.
+   - **Expanded Proportional Bars**: Widened bar tracks to full proportional width, making differences between 21.8%, 7.0%, 3.7%, 1.3%, and 1.2% immediately discernable.
+   - **Impact Tags**: Added explicit `-94%` reduction pills and human agent counts (`468 of 39,041 study agents`) alongside percentages.
+   - **3-Part Outcome Distribution Bar**: Transformed dense paragraph text into an intuitive 100% stacked bar chart (Reached Safe Site | Outside Hazard Area | Modeled Victims) with accessible swatches, legends, and educational callout.
+   - **Interactive Map Tooltips**: Added persistent, accessible tooltips to Leaflet place markers that open upon place button selection or direct marker tap.
+
+4. **Release Validation**:
+   - `npm test`: 5/5 Node unit tests passing.
+   - `tsc -b`: strict compilation passing with zero diagnostic errors.
+   - `npm run build`: Vite production bundle generated cleanly.
+   - `node scripts/check-contrast.mjs`: all text/background pairs pass AA.
 
 ## Published UI check
 

@@ -12,5 +12,7 @@ Initial verdict: fix print content and map obstruction before shipping. Updated 
 | Blank assistance count coerces to zero | Fixed: explicit empty-string rejection before numeric validation | source re-reviewed; explicit zero remains allowed |
 | Mobile hidden breaks concatenate words | Fixed after re-review: explicit JSX spaces at all three heading paragraph breaks | surgical source correction |
 | Tablet action arrow orphan | Fixed after re-review: shorter wording and nonbreaking final word/arrow pair | shorter label fits available action width |
+| Visualization ambiguity & bar crowding | Fixed: explicit axis header, widened proportional bars, reduction pills, 100% stacked outcome breakdown bar | verified in source, test, build |
+| CSS cascade duplication & 768px squish | Fixed: consolidated 14-section stylesheet, unified modular typography scale, responsive breakpoints | verified in clean build & contrast check |
 
 The reviewer expressly withheld a complete print/PDF pass because actual printer/PDF rendering was not tested. This limit remains in the project verification report. The pilot is not certified for operational evacuation routing or alerting.
