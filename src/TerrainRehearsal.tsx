@@ -37,10 +37,25 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   const [buildingError, setBuildingError] = useState('');
   const [freeWalk, setFreeWalk] = useState<{ coord: Coord; bearing: number }>();
   const [eyeViewReady, setEyeViewReady] = useState(false);
+  const [walkCompare, setWalkCompare] = useState<'off' | 'compare'>('off');
   const areaPack = areaPacks[region.id];
   const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
   const terrainGridRef = useRef(grid); terrainGridRef.current = grid;
   const lastSelection = useRef(`${region.id}:${selected}`);
+  const refugeBuilding = useMemo(() => {
+    if (!buildings || !data) return null;
+    const dest = data.destination;
+    let nearest: { coord: Coord; distanceM: number } | null = null;
+    for (const f of buildings.features) {
+      const ring = f.geometry.coordinates[0];
+      let cx = 0, cy = 0;
+      for (const p of ring) { cx += p[0]; cy += p[1]; }
+      cx /= ring.length; cy /= ring.length;
+      const d = distance([cx, cy], dest);
+      if (!nearest || d < nearest.distanceM) nearest = { coord: [cx, cy], distanceM: d };
+    }
+    return nearest;
+  }, [buildings, data]);
   useEffect(() => {
     setBuildings(undefined); setBuildingError('');
     if (!buildingsEnabled || flat) return;
@@ -64,7 +79,9 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     return () => abort.abort();
   }, [areaPack]);
   const model = useMemo(() => data && isStudy ? simulate(data, count, speed, width, preparation) : undefined, [data, count, speed, width, preparation, isStudy]);
+  const compareModel = useMemo(() => data && isStudy && walkCompare === 'compare' ? simulate(data, count, speed, width, 0) : undefined, [data, count, speed, width, walkCompare, isStudy]);
   const current = useMemo(() => model ? frame(model, started ? seconds : -1) : undefined, [model, seconds, started]);
+  const compareCurrent = useMemo(() => compareModel ? frame(compareModel, started ? seconds : -1) : undefined, [compareModel, seconds, started]);
   useEffect(() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }, [count, speed, width, preparation, region.id, selected]);
   const duration = Math.max(model?.duration ?? 0, hazard?.frames.at(-1)?.seconds ?? 0, animateWater ? riseMinutes * 60 : 0);
   const waterFrame = hazard ? replayAt(hazard, seconds) : null;
@@ -103,7 +120,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     m.on('sourcedata', e => { if (e.sourceId === 'dem' && e.isSourceLoaded) setTerrainLoaded(true); });
     m.on('load', () => {
       didLoad = true; window.clearTimeout(loadTimeout); setFailure('');
-      for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings']) m.addSource(id, { type: 'geojson', data: empty });
+      for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings', 'refuge']) m.addSource(id, { type: 'geojson', data: empty });
       m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#d5e2df', 'line-width':.7, 'line-opacity':.65 } });
       m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#9ba39a','#d5e2df'], 'fill-extrusion-opacity':.88 } });
       m.addLayer({ id: 'water', type: 'fill', source: 'water', paint: { 'fill-color': '#3b99ca', 'fill-opacity': .48 } });
@@ -113,6 +130,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 15, 3.5, 17, 6, 19, 9], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
       m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['case', ['==',['get','role'],'destination'], 7, 3], 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
       m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
+      m.addLayer({ id: 'refuge-marker', type: 'circle', source: 'refuge', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 6, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 2 } });
       m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 3, 15, 5.5, 17, 8, 19, 13], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
       const side = 20, pixels = new Uint8Array(side * side * 4);
       for (let y = 0; y < side; y++) for (let x = 0; x < side; x++) {
@@ -148,7 +166,12 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       const p = model.people[0].legs.find(l => l.edge === model.bottleneck)?.from;
       (m.getSource('pinch') as GeoJSONSource | undefined)?.setData(p ? { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: p } } : empty);
     }
-  }, [ready, data, isStudy, model]);
+    if (refugeBuilding && isStudy) {
+      (m.getSource('refuge') as GeoJSONSource | undefined)?.setData({ type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: refugeBuilding.coord } }] });
+    } else {
+      (m.getSource('refuge') as GeoJSONSource | undefined)?.setData(empty);
+    }
+  }, [ready, data, isStudy, model, refugeBuilding]);
   useEffect(() => {
     if (ready && current) (map.current?.getSource('people') as GeoJSONSource)?.setData(isStudy && mode === 'crowd' ? { type: 'FeatureCollection', features: current.features } : empty);
   }, [ready, current, isStudy, mode]);
@@ -172,6 +195,18 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   }, [dimension, ready, flat]);
   const selectedWalker = model?.people.find(p => p.route === route);
   const progress = selectedWalker && data ? walkerProgress(selectedWalker, data.routes[route], started ? seconds : -1) : undefined;
+  const selectedCompareWalker = compareModel?.people.find(p => p.route === route);
+  const compareProgress = selectedCompareWalker && data ? walkerProgress(selectedCompareWalker, data.routes[route], started ? seconds : -1) : undefined;
+  const walkSurvival = useMemo(() => {
+    if (!progress || !model) return null;
+    const distanceRemainingM = Math.max(0, progress.total - progress.metres);
+    const walkingTimeRemainingMin = distanceRemainingM / speed / 60;
+    const arrived = progress.state === 'arrived';
+    const arrivalMinutes = arrived ? Math.ceil(model.duration / 60) : null;
+    const shoreArrivalMin = 135;
+    const wouldReachBeforeShore = arrivalMinutes !== null ? arrivalMinutes <= shoreArrivalMin : (walkingTimeRemainingMin + seconds / 60) <= shoreArrivalMin;
+    return { distanceRemainingM, walkingTimeRemainingMin, arrived, arrivalMinutes, wouldReachBeforeShore, shoreArrivalMin };
+  }, [progress, model, speed, seconds]);
   useEffect(() => {
     const m=map.current, source=m?.getSource('arrows') as GeoJSONSource | undefined;
     if (!source) return;
@@ -310,7 +345,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       <div className="terrain-view-controls" aria-label="Camera controls">
         <button aria-pressed={!flat && dimension === '3d'} onClick={() => { setFlat(false); setDimension('3d'); }}>3D terrain</button>
         <button aria-pressed={!flat && dimension === '2d'} onClick={() => { setFlat(false); setDimension('2d'); setCamera('overview'); setQueueFocus(undefined); }}>2D map</button>
-        {!flat && <><button disabled={!ready} aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }} title="Fly over the selected route or geographic area">Fly-by</button><button disabled={!ready || (isStudy && !model) || (!isStudy && buildingsEnabled && !buildings && !buildingError)} aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); if (!isStudy) { const p=region.places[selected], start=buildings?.walkStart; const coord:Coord=start?.coord ?? [p.lng,p.lat]; setFreeWalk({coord,bearing:start?.bearing ?? 0}); map.current?.easeTo({center:coord,zoom:16,pitch:60,duration:600}); map.current?.getCanvas().focus({preventScroll:true}); } }}>Walk-through</button><button disabled={!ready} aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} aria-pressed={!!queueFocus} onClick={inspectQueue} title="Inspect queue">Queue</button></>}
+        {!flat && <><button disabled={!ready} aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }} title="Fly over the selected route or geographic area">Fly-by</button><button disabled={!ready || (isStudy && !model) || (!isStudy && buildingsEnabled && !buildings && !buildingError)} aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); if (!isStudy) { const p=region.places[selected], start=buildings?.walkStart; const coord:Coord=start?.coord ?? [p.lng,p.lat]; setFreeWalk({coord,bearing:start?.bearing ?? 0}); map.current?.easeTo({center:coord,zoom:16,pitch:60,duration:600}); map.current?.getCanvas().focus({preventScroll:true}); } }}>Walk-through</button><button disabled={!ready} aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} aria-pressed={!!queueFocus} onClick={inspectQueue} title="Inspect queue">Queue</button>{isStudy && model && <button aria-pressed={walkCompare === 'compare'} onClick={() => setWalkCompare(walkCompare === 'off' ? 'compare' : 'off')} title="Compare immediate vs delayed departure survival">{walkCompare === 'compare' ? '✓ Compare' : 'Compare departures'}</button>}</>}
       </div>
 
     </div>
@@ -364,6 +399,32 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       <div className="rehearsal-readout" aria-label="Crowd counts">
         <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued at nodes</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
       </div>
+      {camera === 'walk' && progress && (
+        <div className="survival-panel" aria-label="Walk-through survival outcome">
+          <div className="survival-row"><span className="survival-label">Distance to exercise end</span><span className="survival-value">{walkSurvival?.distanceRemainingM?.toFixed(0) ?? 0} m</span><span className="survival-meta">≈ {walkSurvival?.walkingTimeRemainingMin?.toFixed(0) ?? 0} min walking at {speed} m/s</span></div>
+          <div className="survival-row"><span className="survival-label">Progress vs 135-min shore arrival*</span><span className={`survival-value ${walkSurvival?.wouldReachBeforeShore ? 'survival-ok' : 'survival-risk'}`}>{progress.state === 'arrived' ? 'Reached exercise end' : walkSurvival?.wouldReachBeforeShore ? 'On track to reach end' : 'May not reach before shore arrival'}</span><span className="survival-meta">Research scenario: wave reaches shore at ~135 minutes after earthquake</span></div>
+          {refugeBuilding && (
+            <div className="survival-row"><span className="survival-label">Vertical refuge option</span><span className="survival-value">Nearest building ≈ {refugeBuilding.distanceM.toFixed(0)} m</span><span className="survival-meta">Climb ~3 min vs ~30-min inland sprint (research: VE50)</span></div>
+          )}
+          <p className="survival-note">* Research scenario benchmark, not a live forecast. Endpoint is unapproved. Buildings are not certified refuges.</p>
+        </div>
+      )}
+      {walkCompare === 'compare' && compareProgress && progress && (
+        <div className="compare-panel" aria-label="Departure timing comparison">
+          <div className="compare-heading">Immediate vs delayed departure — who reaches safety first</div>
+          <div className="compare-timeline">
+            <div className="compare-bar">
+              <div className="compare-fill immediate" style={{width: `${Math.min(100, (compareProgress.metres / compareProgress.total) * 100)}%`}}></div>
+              <span className="compare-label">Leave now (0 s delay) · {compareProgress.state === 'arrived' ? 'arrived' : compareProgress.state}</span>
+            </div>
+            <div className="compare-bar">
+              <div className="compare-fill delayed" style={{width: `${Math.min(100, (progress.metres / progress.total) * 100)}%`}}></div>
+              <span className="compare-label">Delayed ({Math.round(preparation / 60)} min prep) · {progress.state}</span>
+            </div>
+          </div>
+          <p className="compare-note">Leaving earlier moves the walker further along the route at the same moment. Delayed departure means more people still queued when the wave arrives.</p>
+        </div>
+      )}
       </div>
       <div className={`terrain-secondary ${mode}`}>
       {mode === 'water' &&         <div className="water-experiment"><div className="water-control-row"><label><input type="checkbox" checked={screen} onChange={e => setScreen(e.target.checked)} /> Screen terrain</label>

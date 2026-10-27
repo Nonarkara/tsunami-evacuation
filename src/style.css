@@ -2428,6 +2428,48 @@ textarea {
 .terrain-secondary > .water-experiment { padding-block: 8px; }
 @media (max-width: 680px) { .terrain-secondary.water { grid-template-columns: minmax(0,1fr); gap: 0; } }
 
+/* Walk-through survival panel — shows how departure timing and vertical refuge affect survival */
+.survival-panel {
+  border: 1px solid var(--line-2);
+  background: var(--panel-card);
+  padding: 8px 10px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.survival-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 4px 0;
+  flex-wrap: wrap;
+}
+.survival-label { color: var(--ink-2); font-weight: 600; flex: 0 0 auto; }
+.survival-value { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; flex: 0 0 auto; }
+.survival-value.survival-ok { color: #14532d; }
+.survival-value.survival-risk { color: #991b1b; }
+.survival-meta { color: var(--ink-2); font-size: 11px; flex: 1 1 auto; min-width: 120px; }
+.survival-note { color: var(--ink-2); font-size: 11px; margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
+
+/* Departure timing comparison — immediate vs delayed */
+.compare-panel {
+  border: 1px solid var(--line-2);
+  background: var(--panel-card);
+  padding: 8px 10px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.compare-heading { font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 13px; }
+.compare-timeline { display: flex; flex-direction: column; gap: 6px; }
+.compare-bar { display: flex; align-items: center; gap: 8px; height: 20px; }
+.compare-fill { height: 100%; border-radius: 0; transition: width 0.3s ease-out; }
+.compare-fill.immediate { background: var(--segment-reached); }
+.compare-fill.delayed { background: var(--segment-victims); }
+.compare-label { font-size: 11px; color: var(--ink-2); white-space: nowrap; flex-shrink: 0; min-width: 150px; }
+.compare-note { color: var(--ink-2); font-size: 11px; margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
+
 /* Map text belongs beside the terrain, never over its operating area. */
 .terrain-caption { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 12px; padding-block: 4px; color: var(--ink-2); font-size: 12px; }
 .terrain-credits { margin-left: auto; white-space: nowrap; }
