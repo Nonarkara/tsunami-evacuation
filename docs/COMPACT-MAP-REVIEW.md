@@ -31,3 +31,9 @@ Final independent follow-up inspected the refreshed default phone,2D and expande
 An additional360px panel check exposed a third parameter row with the repeated “Run rehearsal” label. The visible action now says “Run”/“Pause” with its full accessible name retained, keeping the narrow phone parameters in two rows.
 
 Final narrow-action measurements: label-sized Run retains its full accessible name. The complete refreshed14-case contract includes360×800 Crowd/Water cases, with all counts and actions inside the first screen.
+
+## Live verification
+
+Final application commit `314ce5865a98738086c53065a6de684af38e9835`; Worker version `5d514ba4-11a9-4997-b45e-d70bde79e888`. Canonical HTML, JavaScript `index-jLbt-Umd.js` and CSS `index-DwfeN__M.css` returned200 and matched local production bytes exactly. GitHub CI passed: https://github.com/Nonarkara/tsunami-evacuation/actions/runs/40529590455 .
+
+The live360×800 crowd case passes the same compact contract: parameters77px, Run47.37×32px, counts finish at794.67px, no routine mode/key/attribution panels inside the terrain. The live DEM loaded and Run→Pause playback changed the counts. `design/compact-live-360.json` and `docs/evidence/compact-live-360.png` preserve the live result. Restoring the normal in-app browser size showed the same compact treatment in the actual narrow browser panel.

@@ -1,0 +1,211 @@
+[
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32,
+        "width": 47.3671875,
+        "x": 261.9921875,
+        "y": 609.6875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 86,
+          "width": 360,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 322,
+          "x": 19,
+          "y": 105
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 70,
+          "width": 322,
+          "x": 19,
+          "y": 156.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 360,
+    "fontsReady": true,
+    "height": 800,
+    "id": "360x800-crowd",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 70.390625,
+        "width": 322,
+        "x": 19,
+        "y": 724.28125
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 70,
+          "width": 322,
+          "x": 19,
+          "y": 156.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "caption": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 43.59375,
+          "width": 322,
+          "x": 19,
+          "y": 526.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "counts": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 70.390625,
+          "width": 322,
+          "x": 19,
+          "y": 724.28125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 80.796875,
+          "width": 360,
+          "x": 0,
+          "y": 2012.96875
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "parameters": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 77,
+          "width": 322,
+          "x": 19,
+          "y": 569.6875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "placeMarker": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 24,
+          "width": 24,
+          "x": 75,
+          "y": 334.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "run": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32,
+          "width": 47.3671875,
+          "x": 261.9921875,
+          "y": 609.6875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 300,
+          "width": 322,
+          "x": 19,
+          "y": 226.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 322,
+          "x": 19,
+          "y": 105
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "crowd",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32,
+        "width": 53.65625,
+        "x": 19,
+        "y": 156.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 360
+  }
+]
