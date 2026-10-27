@@ -5,6 +5,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import terrainWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(terrainWorker);
 import { ReplayWaterLayer } from './ReplayWaterLayer';
+import { TimeScrubber } from './TimeScrubber';
 import { buildingAreaId, parseBuildings, cameraStep, EYE_HEIGHT_M, UNKNOWN_BUILDING_MASSING_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
 import type { CoastalRegion } from './research';
@@ -333,7 +334,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       <span>{eyeViewReady ? '1.65m camera' : 'Loading ground height'} · no route guidance / ไม่ใช่เส้นทางอพยพ</span>
     </div>}
     {!isStudy && <p className="area-data-status">Terrain views available. No local route/destination pack is connected for this selected place. {hazard ? 'Research inundation frames are loaded.' : 'Wave predictions are not connected.'}</p>}
-    {!model && (hazard || animateWater) && <div className="imported-replay-controls"><button onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start warning'}</button><label>Warning +{minutes(seconds)}<input aria-label="Imported scenario time" type="range" min={0} max={duration} step={1} value={seconds} onChange={e => { setStarted(true); setSeconds(Number(e.target.value)); setPlaying(false); }} /></label><span>{waterFrame ? 'Imported research frame' : 'No model frame at this time'}</span></div>}
+    {!model && (hazard || animateWater) && <div className="imported-replay-controls"><button onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start warning'}</button><label>Warning +{minutes(seconds)}<TimeScrubber label="Imported scenario time" duration={duration} value={seconds} onChange={value => { setStarted(true); setSeconds(value); setPlaying(false); }} /></label><span>{waterFrame ? 'Imported research frame' : 'No model frame at this time'}</span></div>}
     {isStudy && model && data && <>
       <div className="rehearsal-panel" hidden={mode !== 'crowd'}>
       <div className="rehearsal-controls">
@@ -345,7 +346,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       </div>
       <div className="rehearsal-timeline">
         <button onClick={() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }}>Reset</button>
-        <label className="timeline-label">{started ? 'Warning +' : 'Ready · '}{minutes(seconds)}<input aria-label="Exercise time" type="range" min={0} max={duration} step={1} value={seconds} onChange={e => { setSeconds(Number(e.target.value)); setStarted(true); setPlaying(false); }} /></label>
+        <label className="timeline-label"><span>{started ? 'Warning +' : 'Ready · '}{minutes(seconds)}</span><TimeScrubber label="Exercise time" duration={duration} value={seconds} onChange={value => { setSeconds(value); setStarted(true); setPlaying(false); }} /></label>
         <label>Rate<select aria-label="Playback" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
       <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : 'Evacuation rehearsal') : 'Ready to start warning'} · {hazard ? (waterFrame ? 'unverified model replay' : 'no hazard frame at this time') : animateWater ? `Demo +${shownWaterLevel.toFixed(1)}m MSL; agents unaffected` : 'wave prediction unavailable'} · endpoint unapproved</p>

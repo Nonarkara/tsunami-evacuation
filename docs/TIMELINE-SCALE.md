@@ -1,0 +1,11 @@
+# Compact time scale
+
+2026-10-28 · Agent: codex
+
+Owner request: a bare timeline needs endpoint marks, intermediate divisions and small metrics. The shared `TimeScrubber` retains the native one-second range input and adds nine evenly spaced ticks, with stronger beginning/midpoint/end marks. Labels show elapsed minutes:seconds at zero, halfway and the actual scenario end. The tooltip identifies units in Thai/English; accessible value text includes current and total time. The scale updates with model or imported replay duration, not a fixed decorative maximum.
+
+The same scale serves the crowd rehearsal and imported-scenario playback. The current clock, Reset, rate selector, keyboard operation and simulation remain intact. The row remains 44 px high. Narrow bars omit the middle label when it would collide; long clocks use a compact zero label while preserving the complete end value and all ticks.
+
+Verification: all 31 JS and 10 Python tests, production build and six contrast checks passed. `design/timeline-ruler-geometry.json` passes all 14 unchanged geometry cases. Captures `evidence/timeline-ruler-360.png`, `-390.png`, `-1024.png`, `-1440.png` show the actual operating task. End followed by ArrowLeft produced `63:34 / 63:35`. A synthetic seven-day file imported locally into Khao Lak extended the maximum to 604800 seconds; `timeline-ruler-long-360.png` shows zero and `10080:00` separated by 10.6 px, no overflow and a 44 px row. It is a format/layout test, not hazard evidence; no fixture was published as research.
+
+The owner's before screenshot has no scale marks or axis labels: it fails the explicit requirement for nine divisions and labelled endpoints. The new rendered view supplies them without enlarging the map or separating controls. Independent source and visual review checked timing semantics, accessible native input and narrow/long-clock label behavior. Live release verification follows after deployment.
