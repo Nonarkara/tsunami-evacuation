@@ -313,7 +313,7 @@ function App() {
               </button>
               <button onClick={() => navigate("drill")}>
                 <strong>Hotels & local teams</strong>
-                <span>Assign roles. Practise. Record the gaps. →</span>
+                <span>Assign roles. Practise. Record gaps →</span>
               </button>
             </section>
           </>
@@ -417,7 +417,7 @@ function Prepare() {
           <h1>My evacuation plan</h1>
         </div>
         <p>
-          Build this with your hotel or local authority.
+          Build this with your hotel or local authority.{" "}
           <br />
           Your entries stay in this browser.
         </p>
@@ -721,7 +721,7 @@ function Drill() {
           <h1>Plan and record a drill</h1>
         </div>
         <p>
-          Work through the protocol.
+          Work through the protocol.{" "}
           <br />
           Record what happened. Give each gap an owner.
         </p>
@@ -898,7 +898,7 @@ function Research({ onExplore }: { onExplore: () => void }) {
           <h1>Research and sources</h1>
         </div>
         <p>
-          A transparent bridge from a preprint
+          A transparent bridge from a preprint{" "}
           <br />
           to a planning tool.
         </p>
