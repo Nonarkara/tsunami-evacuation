@@ -8,6 +8,8 @@ A research-informed planning pilot for residents, visitors, hotels and local tea
 
 The application translates the supplied preprint into four working views. It preserves the original model's authorship and published results; it does not claim to run or replace the Unity simulation.
 
+![The Khao Lak preparedness pilot](docs/screenshots/explore-1440.png)
+
 ## What works
 
 - **Explore:** interactive Leaflet map, four approximate named area markers, zoom/reset and keyboard area controls. The map provides geographic orientation. No made-up flood boundary or approved refuge pins.
@@ -64,7 +66,7 @@ No backend or analytics endpoint. Personal plans and exercise records are never 
 
 ## Deployment
 
-Tracked configuration: `.openai/hosting.json`. Build output: `dist/`. Use the supported Sites source workflow to push and package the exact source commit, then save and deploy that version. GitHub is a separate human-facing source mirror. Never store short-lived source credentials in this repository. Custom-domain verification and DNS must both be active before the canonical address is reported as live.
+Canonical hosting configuration: `wrangler.jsonc`; build output: `dist/`. Run `npm run deploy` after authenticating the operator with Cloudflare. The release command gates deployment on tests, the production build and contrast checks. GitHub Actions validates changes but does not automatically deploy. A separately published initial Sites snapshot is described in [deployment notes](docs/DEPLOYMENT.md); `.openai/hosting.json` preserves that snapshot identity. Never store short-lived source or Cloudflare credentials in this repository.
 
 See [verification](docs/VERIFICATION.md) for actual checks and known limits. The release must be checked at the final public hostname; a successful build alone is insufficient.
 

@@ -2,7 +2,7 @@
 
 ## Decision
 
-A static React 19 + TypeScript + Vite application, Leaflet for geographic orientation. Static assets are built into dist/ and hosted through Sites. This avoids an always-on server, paid inference, accounts, collection of personal plans and unmaintained data ingestion. It is a planning pilot, not an emergency dispatch platform.
+A static React 19 + TypeScript + Vite application, Leaflet for geographic orientation. Static assets are built into dist/ and hosted at the canonical hostname through Cloudflare Workers Static Assets. This avoids an always-on server, paid inference, accounts, collection of personal plans and unmaintained data ingestion. It is a planning pilot, not an emergency dispatch platform.
 
 Existing frameworks assessed:
 
@@ -39,3 +39,5 @@ Node 22+, npm ci, npm test, npm run build. The hosting manifest binds the exact 
 ## Intentional limits
 
 No live alerts; no original simulator; no verified routes/refuges/hazard polygons; no current occupancy or capacity; no promise of personal survival; no synchronized team record store. English working interface plus brief Thai emergency guidance; a full independently reviewed Thai interface remains future work. No offline PWA cache: a stale emergency shell must not quietly masquerade as current information. Print/download plans for use without connectivity.
+
+Canonical deployment moved to native Cloudflare Worker Static Assets because the Sites custom-domain path required unavailable DNS-edit scope. The Sites version remains an explicitly dated snapshot. See DEPLOYMENT.md for the exact release command and synchronization boundary.
