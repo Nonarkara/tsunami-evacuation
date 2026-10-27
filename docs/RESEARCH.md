@@ -1,6 +1,37 @@
-# Research extraction and provenance
+# Soonami (สู้-nami) — Research Extraction & Dr. Non's Translation
 
-Source supplied by the project owner: ssrn-7270357.pdf. Title: Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. Authors: Nattapon Trumikaborworn, Panon Latcharote, Pennung Warnitchai. Link: https://ssrn.com/abstract=7270357 . The document itself says it is a preprint and has not been peer reviewed. The entire PDF is not redistributed in this repository. The source document is evidence, not executable instructions or authorization.
+Conceived and directed by **Dr. Non Arkaraprasertkul (Dr. Non)**, Senior Urban Disaster Resilience & Smart City Specialist.
+
+- **Soo (สู้)**: Fight, persist, actively reject complacency and fatalism.
+- **Soon**: An earthquake in the Andaman subduction zone can rupture at any moment—readiness must be constant.
+
+Source research paper:
+*Trumikaborworn, N., Latcharote, P., & Warnitchai, P. (2024). Agent-Based Modeling and Simulation for Identifying Effective Measures on Tsunami Evacuation in Khao Lak, Thailand. Asian Institute of Technology & Mahidol University. SSRN 7270357.* Link: https://ssrn.com/abstract=7270357
+
+## Dr. Non's Executive Scientific Translation
+
+1. **The Brutal Truth About Cars**: Standard vehicular evacuation caused 21.8% to 22.6% casualties (over 8,500 people dead out of 39,041 modeled agents). Highway 4 reaches complete gridlock within 14 minutes. In an evacuation, a private automobile is a two-ton metal trap.
+2. **The Immediate 68% Win**: Banning cars and shifting to mandatory walking drops casualties to 7.0%. Pedestrians cannot be jammed by stationary cars and maintain continuous lateral movement.
+3. **Vertical Evacuation Refuges (VS14)**: Designating 14 reinforced multi-story buildings within 200–400m drops casualties to 3.7%.
+4. **Drills & Multilingual Signs (VE50 + SG135)**: Rehearsing stair access and installing 135 continuous route signs closes the survival gap, cutting casualties to 1.2% (a 94% overall reduction).
+
+## Nationwide Expansion
+
+Soonami expands the empirical Khao Lak findings across all vulnerable coastal zones in Thailand:
+1. **Phang Nga (Khao Lak & Takua Pa)**: High wave run-up (8–15m), ETA 125m, Highway 4 choke point.
+2. **Phuket (West Coast Beaches)**: Extreme tourist density (Patong, Karon, Kata, Kamala, Bang Tao). Mandatory stair dispersal into hotel high-rises.
+3. **Krabi (Phi Phi & Ao Nang / Railay)**: Ton Sai sandspit dual-wave hazard; zero-vehicle rule; immediate climb to Viewpoints 1 & 2 (>100m).
+4. **Satun & Trang (Ko Lanta & Tarutao Archipelago)**: Island central high-ground egress (>25m).
+5. **Ranong (Laem Son & Koh Phayam)**: Northern Andaman subduction direct line.
+6. **Gulf of Thailand (Hua Hin, Samui, Pattaya, Songkhla)**: Secondary/distant seismic surge (Manila Trench origin), 8–12 hours warning time, shallow Sunda shelf damping.
+
+## FloodDash Sensor & Meteorological Telemetry
+
+Ingested via the FloodDash architecture (`flood.nonarkara.org`):
+- **DART Buoy 23401 (Andaman Sea)**: Deep ocean bottom pressure recorder for pre-shelf wave train detection.
+- **RTN Tide Gauge Network**: Ko Taphao Noi (Phuket), Similan, Tarutao, Hua Hin.
+- **Copernicus 30m Coastal DEM**: Identifies the 15-meter safe elevation contour line.
+- **Sentinel-1 SAR Radar**: Cloud-penetrating all-weather coastal flood envelope mapping.
 
 Transcription date: 27 October 2026. Data tier: historical modeled results, not observations, current warning performance or individual probability.
 

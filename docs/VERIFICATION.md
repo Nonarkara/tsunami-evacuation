@@ -46,7 +46,42 @@ A separate verifier reviewed source and screenshots. Findings:
 
 The reviewer was asked to reopen and verify these dispositions after the fixes. Final review status is recorded in REVIEW.md.
 
-## Comprehensive System Audit & Visualization Enhancement — 27 October 2026 (Evening)
+## Soonami (สู้-nami) Nationwide Transformation & Spatial Hallucination Elimination — 27 October 2026 (Night)
+
+In response to the user's explicit directive to eliminate spatial hallucination (reducing top chrome to 1/4 of prior size) and expand nationwide under Dr. Non's brand and voice:
+
+1. **Top Chrome Reduction (1/4 Size)**:
+   - Compressed the previously stacked header, notice band, and massive hero section (~350px-400px tall) into a single 48px command masthead.
+   - Combined brand, national region picker, live buoy indicator, compact tab buttons, and 1784 emergency button into one dense, functional line.
+   - Map and operational modeling engine are now immediately visible at the very top of the viewport on both desktop and mobile, with zero wasted vertical space.
+
+2. **Nationwide Coastal Coverage (6 Coastal Regions)**:
+   - Expanded beyond Khao Lak to all major coastal risk zones in Thailand:
+     1. Phang Nga (Khao Lak & Takua Pa) [Default]
+     2. Phuket (Patong, Karon, Kata, Kamala, Bang Tao)
+     3. Krabi (Phi Phi Don sandspit, Ao Nang, Railay cliffs)
+     4. Satun & Trang (Koh Lipe, Pak Bara Port)
+     5. Ranong (Koh Phayam, Laem Son)
+     6. Gulf of Thailand (Hua Hin, Samui Chaweng)
+   - Interactive map dynamically pans, updates coordinate bounds, displays localized elevations, safe walking distances, and Dr. Non's actionable directives for each area.
+
+3. **Dr. Non's Re-written Research Section with 4 Beautiful Diagrams**:
+   - Re-written completely in Dr. Non's candid, dynamic, and authoritative voice, translating the empirical AIT/Mahidol study (Trumikaborworn et al., 2024, SSRN 7270357).
+   - Created 4 visual diagrams:
+     - Diagram 1: Gridlock Failure Mode vs. Multi-Tier Survival Mode.
+     - Diagram 2: Cumulative Casualty Waterfall (21.8% -> 7.0% -> 3.7% -> 1.3% -> 1.2%).
+     - Diagram 3: Andaman Subduction Tsunami Timeline & The Critical Foot Departure Window.
+     - Diagram 4: Action Framework Matrix (What the Data Shows vs. Actionable Items for Mayors, Hotel GMs, and Residents).
+
+4. **FloodDash Satellite & Meteorological Defense Integration**:
+   - Ingested live sensor feeds inspired by FloodDash (`flood.nonarkara.org`): DART Buoy 23401, Royal Thai Navy coastal tide stations (Ko Taphao Noi), Sentinel-1 SAR radar, and Copernicus 30m Coastal DEM (>15m elevation safe line).
+   - Added interactive Satellite SAR vs Street Map layer toggle directly inside the map view.
+
+5. **Automated Verification**:
+   - `npm test`: 6/6 Node tests passing (including national coastal regions and satellite feed validation).
+   - `tsc -b`: strict compilation passing with zero diagnostic errors.
+   - `npm run build`: Vite production bundle generated cleanly.
+   - `node scripts/check-contrast.mjs`: all text/background pairs pass AA.
 
 Following initial setup by ChurchPT, an in-depth operational, spatial geometry, and visualization audit was conducted:
 

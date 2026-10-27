@@ -9,6 +9,10 @@ import {
   blankPlan,
   walkingMinutes,
   validateDrill,
+  coastalRegions,
+  satelliteToolkits,
+  CITATION,
+  CREATOR,
 } from "./research";
 test("both condition series preserve the exact reported victim shares", () => {
   assert.deepEqual(
@@ -62,4 +66,24 @@ test("headcounts reconcile and fractional/negative/overflow counts are refused",
   ])
     assert.equal(validateDrill({ ...log, ...patch }), false);
   assert.ok(validateDrill({ ...log, reached: 0 }));
+});
+test("all national coastal regions and satellite feeds are well-formed", () => {
+  assert.ok(coastalRegions.length >= 6);
+  assert.ok(coastalRegions.some((r) => r.id === "khao-lak"));
+  assert.ok(coastalRegions.some((r) => r.id === "phuket"));
+  assert.ok(coastalRegions.some((r) => r.id === "krabi"));
+  assert.ok(coastalRegions.some((r) => r.id === "gulf-thailand"));
+  for (const r of coastalRegions) {
+    assert.ok(r.places.length > 0);
+    for (const p of r.places) {
+      assert.ok(p.lat >= 5 && p.lat <= 15);
+      assert.ok(p.lng >= 97 && p.lng <= 103);
+      assert.ok(p.safeDistM > 0);
+      assert.ok(p.actionableDirective.length > 10);
+    }
+  }
+  assert.ok(satelliteToolkits.some((s) => s.id === "dart-23401"));
+  assert.ok(satelliteToolkits.some((s) => s.id === "rtn-phuket"));
+  assert.ok(CITATION.includes("Trumikaborworn"));
+  assert.ok(CREATOR.includes("Dr. Non"));
 });
