@@ -45,3 +45,9 @@ Walkthrough testing found that MapLibre's `easeTo` ignored the elevation returne
 - Independent reviewer closed all source, camera, provenance and geometry findings. The same current geometry budgets reject the preserved oversized-layout fault with eight violations. Browser trial also exercised camera movement/turning, building off/on and return to 2D. Live release receipt follows below.
 
 Real evacuation guidance and predictions still require validated local hazard fields, surveyed accessible routes, authority-approved destinations and field/user validation. None of those are inferred from building massing or coarse terrain.
+
+## Live release receipt
+
+Source commit `a16476d` pushed to GitHub main and deployed with `npm run deploy`. Cloudflare Worker version: `86d39866-8028-41ef-9bda-ee64a765e2bf`, custom domain `https://tsunami.nonarkara.org/`. Release gates repeated all 41 tests, build and contrast checks successfully.
+
+Canonical HTML, both referenced JS/CSS assets, the building index and all 17 packs matched local production bytes through ordinary TLS requests without cache-busting parameters. Hashes and check time: `evidence/buildings-live-receipt.json`. A live browser exercised Bang Niang Walk-through, Thai manual opening/Escape with focus return, Thai research including R8, regional selection and Phuket 2D-to-Fly-by. `evidence/buildings-live-walk.png` records the published street perspective. The final documentation-only commit does not change deployed assets.

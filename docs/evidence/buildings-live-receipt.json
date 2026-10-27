@@ -1,0 +1,108 @@
+{
+  "verifiedAt": "2026-10-27T18:59:04.658937+00:00",
+  "sourceCommit": "a16476db2825e4c7e9e6bd683ebe1237f18f21da",
+  "url": "https://tsunami.nonarkara.org",
+  "htmlMatches": true,
+  "assets": [
+    {
+      "path": "/assets/index-L_B5a1m7.js",
+      "bytes": 1619686,
+      "sha256": "7c01425382fd1cb0fa819beabb6fc666b1b9b938d59f80b314fac1c7f6523600"
+    },
+    {
+      "path": "/assets/index-CvlcH-bj.css",
+      "bytes": 146483,
+      "sha256": "58c6eac69d5c7fdca365a6c480f8e235674b8996e7e3b468276d1b30e03ccc03"
+    },
+    {
+      "path": "/data/buildings-index.json",
+      "bytes": 12824,
+      "sha256": "fa23056a4bf98e8672926c707c2e632448996bce71da97b5a6809c876c301257"
+    },
+    {
+      "path": "/data/buildings-khao-lak-0.json",
+      "bytes": 25380,
+      "sha256": "bbe025bd34b22a93f7335dda375103dbcbfbf4ce9b0d8c886baf035ec6af7eb0"
+    },
+    {
+      "path": "/data/buildings-khao-lak-1.json",
+      "bytes": 180658,
+      "sha256": "863e1505ad13561528bc731bd73704bf105f3cf2f567f84cf872ca0db1de7499"
+    },
+    {
+      "path": "/data/buildings-khao-lak-2.json",
+      "bytes": 401069,
+      "sha256": "fe78ae719a10f996b48102b62dadd44eab717767c21ecbdb3c032de0e1fa2585"
+    },
+    {
+      "path": "/data/buildings-khao-lak-3.json",
+      "bytes": 207525,
+      "sha256": "dfbb6fd6a3261bef61cf98423329cdb80e79fd1e7d81c664565665a4ea927221"
+    },
+    {
+      "path": "/data/buildings-phuket-0.json",
+      "bytes": 1023804,
+      "sha256": "ba028018ea63faacf6a4060863bb6a7bb1e8e83d390596fa4cd5dc6d10680e45"
+    },
+    {
+      "path": "/data/buildings-phuket-1.json",
+      "bytes": 537350,
+      "sha256": "85053fa5ce20d12da518682bc4cb430c6f22f69a06890d64da84dae2ea25a88f"
+    },
+    {
+      "path": "/data/buildings-phuket-2.json",
+      "bytes": 661007,
+      "sha256": "35f34c8daefe341b90117b0353e740ba7f0453c04cd30fa597455cbe6f77c04c"
+    },
+    {
+      "path": "/data/buildings-phuket-3.json",
+      "bytes": 310010,
+      "sha256": "40253cd00abd9f8763c41402091a1b56e9639776b776643e0bc6878f32e3d30a"
+    },
+    {
+      "path": "/data/buildings-krabi-0.json",
+      "bytes": 209301,
+      "sha256": "80925c6b42dfd6ad01271797b6c3cd6a0dfdc76f9bf81737e8be090fd4d4c685"
+    },
+    {
+      "path": "/data/buildings-krabi-1.json",
+      "bytes": 599727,
+      "sha256": "714d6b3382a50d4f3aa5622e1b2fec1e018671d5ded0f59633794f38b6a403bc"
+    },
+    {
+      "path": "/data/buildings-krabi-2.json",
+      "bytes": 138269,
+      "sha256": "d26cb598a4bbc83b65582127387d2625e384d6be57c11f395f68abc20390b45f"
+    },
+    {
+      "path": "/data/buildings-satun-trang-0.json",
+      "bytes": 326088,
+      "sha256": "19b6d894b38cfb3b8fd32f55a287bb3b914c1c28b40cf8cf46262bf340a5c283"
+    },
+    {
+      "path": "/data/buildings-satun-trang-1.json",
+      "bytes": 10980,
+      "sha256": "37ee468c70b9f0f06221f40c324c43afb74fb4b118b995b25a187a742582334f"
+    },
+    {
+      "path": "/data/buildings-ranong-0.json",
+      "bytes": 3697,
+      "sha256": "f3fa819c63cc496f52ca7c7a508f9851e3b06ccfe0d77f52292d246127f0f352"
+    },
+    {
+      "path": "/data/buildings-ranong-1.json",
+      "bytes": 2313,
+      "sha256": "b90971a24dd5e7fc0153060e235e7b1db0bf9c9e8b14aecd0b0d4ed711ac960d"
+    },
+    {
+      "path": "/data/buildings-gulf-thailand-0.json",
+      "bytes": 1879965,
+      "sha256": "aed90d44e7e127e36bc15aa96abe5aa1ce3d53957a15076cc2f1dbdd76f4ea5b"
+    },
+    {
+      "path": "/data/buildings-gulf-thailand-1.json",
+      "bytes": 213898,
+      "sha256": "1e802b94e6fe0504fd8672100cd11873a94cdd64f8fff92a442ec0ad97df36be"
+    }
+  ]
+}
