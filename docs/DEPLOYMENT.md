@@ -34,3 +34,7 @@ Public DNS at 1.1.1.1 and the default resolver returns Cloudflare addresses. HTT
 GitHub CI for this source completed successfully: https://github.com/Nonarkara/tsunami-evacuation/actions/runs/40494152265 . Browser flows had already been exercised on the identical application build locally; the final hostname is separately checked as above.
 
 A public browser check also confirmed the deployed Sites snapshot's scenario controls and all visible map tiles. The live source snapshot and canonical build's application asset hashes are identical. The canonical hostname's normal system-resolver request still had local NXDOMAIN caching at closeout, while `dig` through the default resolver and 1.1.1.1 returned its new addresses. No system DNS settings were changed and no TLS warnings were bypassed.
+
+## Terrain and crowd release —27 October2026
+
+Application commit `817e47319fa8d3a8096a0c9451bd54861761aac7`; Worker version `1cdfa078-1312-4769-8855-8baa6d05bfe6`. Published with `npm run deploy` after tests/build/contrast checks. Exact canonical HTML, all JS/CSS/worker assets and both data snapshots matched local production bytes. Real browser terrain, fly-by, crowd playback and water screening worked under the deployed CSP; eight live core geometry cases passed. Full receipts: [terrain verification](TERRAIN-VERIFICATION.md). Sites remains the initial snapshot.

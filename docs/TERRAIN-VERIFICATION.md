@@ -44,3 +44,13 @@ No original Unity project, approved route/refuge GIS or time-indexed tsunami dep
 Source-failure trial: a separate localhost5175 proxy returned503 only for Vite worker-file requests. The application rendered its loading state, then exposed its18-second timeout and “Open2D map” action. Clicking that action recovered the geographic Leaflet map; screenshots preserve loading, failure and recovery. This tests an actual unavailable worker without changing production sources or browser security settings.
 
 Final geometry gate:12/12 declared cases pass (Crowd, Water and expanded methods ×390/1024/1280/1440). Combined measured chrome is243px on phone and125px wide; the crowd-count/Run edge gap is85px. Phone crowd counts finish at824px inside844px. Additional real page-height/row measurements are in `design/page-metrics.json`; longer page height is earned by the preserved research and expanded method, rather than sibling stretch. All four preserved non-map views were opened at390px; document width remained390px (Plan1902px high, Drill844px, Research3177px, Satellite catalogue1615px). This is overflow verification, not a full content certification of every inherited paragraph.
+
+## Live release
+
+Application source commit `817e47319fa8d3a8096a0c9451bd54861761aac7`, Cloudflare Worker version `1cdfa078-1312-4769-8855-8baa6d05bfe6`, published to `https://tsunami.nonarkara.org/` on27 October2026. GitHub CI passed: https://github.com/Nonarkara/tsunami-evacuation/actions/runs/40524415389 . Canonical HTML returned200 and matched `dist/index.html` byte-for-byte. Live JS, CSS, worker, terrain and route JSON each returned200 and exactly matched local production bytes. Security headers include the explicit terrain/imagery connection origins and same-origin workers.
+
+SHA-256 prefixes: CSS `0d498b6f417befb2`; application JS `5ead2f095f9cdb03`; worker JS `d0b740a4ace50a3f`; terrain JSON `0b38b6bb5de512fe`; routes JSON `03479dc0157e9930`.
+
+Live browser verification: DEM loaded and real relief rendered; Mountain fly-by and crowd Run/Pause changed the camera/counts; water screening+20m rendered separately. Eight core live Crowd/Water cases across390×844,1024×768,1280×720 and1440×900 passed the same budgets. `design/live-captures.json` and `live-result.json` preserve measurements; `docs/evidence/live-*.png` show the exact canonical hostname. No canonical-origin browser errors were captured. Prior local HMR notices and intentional failed-worker fixture errors were not attributed to production.
+
+The Sites URL remains the dated initial snapshot. The canonical Cloudflare hostname above is the verified current release; GitHub pushes do not update the old Sites snapshot.

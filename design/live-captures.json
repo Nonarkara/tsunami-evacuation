@@ -1,0 +1,1258 @@
+[
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 42,
+        "width": 352,
+        "x": 19,
+        "y": 627.28125
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 86,
+          "width": 390,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 352,
+          "x": 19,
+          "y": 105
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 111.59375,
+          "width": 352,
+          "x": 19,
+          "y": 156.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 390,
+    "fontsReady": true,
+    "height": 844,
+    "id": "390x844-crowd",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 70.390625,
+        "width": 352,
+        "x": 19,
+        "y": 753.875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 111.59375,
+          "width": 352,
+          "x": 19,
+          "y": 156.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "counts": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 70.390625,
+          "width": 352,
+          "x": 19,
+          "y": 753.875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 80.796875,
+          "width": 390,
+          "x": 0,
+          "y": 2058.5625
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 230,
+          "width": 352,
+          "x": 19,
+          "y": 267.6875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 352,
+          "x": 19,
+          "y": 105
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "crowd",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 58.328125,
+        "x": 27,
+        "y": 275.6875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 390
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 146.359375,
+        "x": 842.640625,
+        "y": 540.1640625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1024,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 954,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 954,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1024,
+    "fontsReady": true,
+    "height": 768,
+    "id": "1024x768-crowd",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.1953125,
+        "width": 954,
+        "x": 35,
+        "y": 660.7578125
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 954,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "counts": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.1953125,
+          "width": 954,
+          "x": 35,
+          "y": 660.7578125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1024,
+          "x": 0,
+          "y": 1507.28125
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 353.2734375,
+          "width": 954,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 954,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "crowd",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 58.328125,
+        "x": 43,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1024
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 146.359375,
+        "x": 1098.640625,
+        "y": 518.0859375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1280,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1210,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1210,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1280,
+    "fontsReady": true,
+    "height": 720,
+    "id": "1280x720-crowd",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.1953125,
+        "width": 1210,
+        "x": 35,
+        "y": 638.6796875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1210,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "counts": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.1953125,
+          "width": 1210,
+          "x": 35,
+          "y": 638.6796875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1280,
+          "x": 0,
+          "y": 1469.8046875
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 331.1953125,
+          "width": 1210,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1210,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "crowd",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 58.328125,
+        "x": 43,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1280
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 146.359375,
+        "x": 1258.640625,
+        "y": 600.890625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1440,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1370,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1370,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1440,
+    "fontsReady": true,
+    "height": 900,
+    "id": "1440x900-crowd",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 32.1953125,
+        "width": 1370,
+        "x": 35,
+        "y": 721.484375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1370,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "counts": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32.1953125,
+          "width": 1370,
+          "x": 35,
+          "y": 721.484375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1440,
+          "x": 0,
+          "y": 1552.609375
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 414,
+          "width": 1370,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1370,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "crowd",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 58.328125,
+        "x": 43,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1440
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 24,
+        "width": 240.953125,
+        "x": 130.046875,
+        "y": 527.8828125
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 86,
+          "width": 390,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 352,
+          "x": 19,
+          "y": 105
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 111.59375,
+          "width": 352,
+          "x": 19,
+          "y": 156.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 390,
+    "fontsReady": true,
+    "height": 844,
+    "id": "390x844-water",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 230,
+        "width": 352,
+        "x": 19,
+        "y": 267.6875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 111.59375,
+          "width": 352,
+          "x": 19,
+          "y": 156.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 80.796875,
+          "width": 390,
+          "x": 0,
+          "y": 1865.3671875
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 230,
+          "width": 352,
+          "x": 19,
+          "y": 267.6875
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 352,
+          "x": 19,
+          "y": 105
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "waterControl": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 133.3828125,
+          "width": 352,
+          "x": 19,
+          "y": 497.6875
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "water",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 82.703125,
+        "x": 88.328125,
+        "y": 275.6875
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 390
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 24,
+        "width": 356.953125,
+        "x": 146.046875,
+        "y": 543.5625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1024,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 954,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 954,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1024,
+    "fontsReady": true,
+    "height": 768,
+    "id": "1024x768-water",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 353.2734375,
+        "width": 954,
+        "x": 35,
+        "y": 160.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 954,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1024,
+          "x": 0,
+          "y": 1330.4921875
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 353.2734375,
+          "width": 954,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 954,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "waterControl": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 116.5859375,
+          "width": 468,
+          "x": 35,
+          "y": 513.3671875
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "water",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 82.703125,
+        "x": 104.328125,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1024
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 24,
+        "width": 484.953125,
+        "x": 146.046875,
+        "y": 521.484375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1280,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1210,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1210,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1280,
+    "fontsReady": true,
+    "height": 720,
+    "id": "1280x720-water",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 331.1953125,
+        "width": 1210,
+        "x": 35,
+        "y": 160.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1210,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1280,
+          "x": 0,
+          "y": 1293.015625
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 331.1953125,
+          "width": 1210,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1210,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "waterControl": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 116.5859375,
+          "width": 596,
+          "x": 35,
+          "y": 491.2890625
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "water",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 82.703125,
+        "x": 104.328125,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1280
+  },
+  {
+    "action": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 24,
+        "width": 564.953125,
+        "x": 146.046875,
+        "y": 604.2890625
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "chrome": [
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 38,
+          "width": 1440,
+          "x": 0,
+          "y": 0
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1370,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1370,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    ],
+    "documentWidth": 1440,
+    "fontsReady": true,
+    "height": 900,
+    "id": "1440x900-water",
+    "information": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 414,
+        "width": 1370,
+        "x": 35,
+        "y": 160.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "regions": {
+      "camera": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 42,
+          "width": 1370,
+          "x": 35,
+          "y": 118.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "footer": {
+        "clipped": false,
+        "firstScreen": false,
+        "matches": 1,
+        "rect": {
+          "height": 30,
+          "width": 1440,
+          "x": 0,
+          "y": 1373.0234375
+        },
+        "unobstructed": false,
+        "visible": true
+      },
+      "terrain": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 414,
+          "width": 1370,
+          "x": 35,
+          "y": 160.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "title": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 45.09375,
+          "width": 1370,
+          "x": 35,
+          "y": 67
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "waterControl": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 99.7890625,
+          "width": 676,
+          "x": 35,
+          "y": 574.09375
+        },
+        "unobstructed": true,
+        "visible": true
+      }
+    },
+    "scrollX": 0,
+    "scrollY": 0,
+    "state": "water",
+    "stateElement": {
+      "clipped": false,
+      "firstScreen": true,
+      "matches": 1,
+      "rect": {
+        "height": 36,
+        "width": 82.703125,
+        "x": 104.328125,
+        "y": 168.09375
+      },
+      "unobstructed": true,
+      "visible": true
+    },
+    "width": 1440
+  }
+]
