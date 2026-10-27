@@ -47,6 +47,43 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
         </table>
       </figure>
       <p className="research-qualification">{t('Population is estimated, not a current census. “Victims” means trapped agents in cells with water deeper than 0.5 m under the source rule (§3.2.5, pp. 15–16). These are not observed deaths, individual probabilities or independently reproduced predictions.', 'จำนวนประชากรเป็นค่าประมาณ ไม่ใช่สำมะโนปัจจุบัน “ผู้ประสบภัย” หมายถึงตัวแทนที่ติดอยู่ในกริดซึ่งมีน้ำลึกเกิน 0.5 เมตร ตามเกณฑ์ของต้นฉบับ (หัวข้อ 3.2.5 หน้า 15–16) ไม่ใช่จำนวนผู้เสียชีวิตจริง ความน่าจะเป็นรายบุคคล หรือการพยากรณ์ที่ทำซ้ำโดยอิสระแล้ว')}</p>
+      <div className="research-axioms-card">
+        <h3>{t('Four Physical Axioms: Why the casualty rate falls from 21.8% to 1.2%', '4 สัจพจน์เชิงประจักษ์: เหตุใดตัวเลขความสูญเสียจึงลดลงจาก 21.8% สู่ 1.2%')}</h3>
+        <div className="research-axiom-grid">
+          <div className="axiom-box">
+            <span className="axiom-tag">01 / {t('Vehicular Gridlock', 'กับดักยานพาหนะ')}</span>
+            <strong>{t('Highway 4 becomes a trap', 'ทางหลวงหมายเลข 4 กลายเป็นคอขวดมรณะ')}</strong>
+            <p>{t(
+              'Attempting to flee by car chokes Highway 4 into standstill gridlock within 6–8 minutes. Switching 50% to foot evacuation (PD50) clears arterial jams and cuts victim share from 21.8% to 7.0%—a 68% drop achieved by walking alone.',
+              'การพยายามหนีด้วยรถยนต์ทำให้ทางหลวงหมายเลข 4 กลายเป็นอัมพาตภายใน 6–8 นาที ผู้หนีภัยติดค้างในรถเมื่อคลื่นมาถึง การเปลี่ยนให้เดินเท้า 50% (PD50) ช่วยปลดล็อกคอขวดบนถนนสายหลัก ลดผู้ประสบภัยจาก 21.8% เหลือ 7.0% (ลดลงถึง 68% จากการเดินเท้าเพียงอย่างเดียว)'
+            )}</p>
+          </div>
+          <div className="axiom-box">
+            <span className="axiom-tag">02 / {t('Vertical Refuge', 'อาคารหลบภัยแนวดิ่ง')}</span>
+            <strong>{t('TVEBs within 200–400m save lives', 'อาคารหลบภัยในระยะ 200–400 ม. ชี้ขาดรอดชีวิต')}</strong>
+            <p>{t(
+              'Khao Lak’s hills sit 1.5–2.5 km inland—too far for vulnerable pedestrians to reach in time. Designating 14 certified reinforced concrete hotel buildings (VS14) and directing 50% vertically (VE50) plummets victim share to 1.3%, replacing a 30-minute flat sprint with a 3-minute stair climb.',
+              'เนินเขาของเขาหลักอยู่ลึกเข้าไป 1.5–2.5 กม. ซึ่งไกลเกินกว่ากลุ่มเปราะบางจะเดินเท้าถึงได้ทัน การกำหนดอาคารคอนกรีตเสริมเหล็กริมหาด 14 แห่ง (VS14) และนำคน 50% ขึ้นชั้น 3 ขึ้นไป (VE50) ลดผู้ประสบภัยเหลือ 1.3% เปลี่ยนการวิ่งหนี 30 นาที เป็นการขึ้นที่สูงในเวลาเพียง 3 นาที'
+            )}</p>
+          </div>
+          <div className="axiom-box">
+            <span className="axiom-tag">03 / {t('Signage Multiplier', 'พลังทวีคูณของป้าย')}</span>
+            <strong>{t('135 signs resolve intersection hesitation', 'ป้ายบอกทาง 135 จุด ขจัดความลังเลที่ทางแยก')}</strong>
+            <p>{t(
+              'Installing 135 bilingual wayfinding signs along perpendicular foot corridors eliminates intersection confusion and wrong-way fleeing, driving casualties down to 1.2% (baseline) and 2.9% (delayed)—a 94.5% cumulative reduction.',
+              'การติดตั้งป้ายนำทาง 2 ภาษา 135 จุด ตลอดเส้นทางเดินตั้งฉากกับชายหาด ช่วยขจัดความสับสน ณ ทางแยก ลดผู้ประสบภัยเหลือ 1.2% (กรณีฐาน) และ 2.9% (กรณีล่าช้า) บรรลุการลดทอนความสูญเสียสะสมถึง 94.5%'
+            )}</p>
+          </div>
+          <div className="axiom-box">
+            <span className="axiom-tag">04 / {t('Warning Buffer', 'เวลาเตือนภัย')}</span>
+            <strong>{t('15 minutes delay doubles the casualties', 'ความล่าช้า 15 นาที เพิ่มผู้ประสบภัยกว่าเท่าตัว')}</strong>
+            <p>{t(
+              'A 15-minute delay in broadcasting the siren (30m vs 45m post-earthquake) more than doubles casualties in the optimal package (1.2% → 2.9%). Early automated detection and immediate foot departure without waiting for confirmation are non-negotiable.',
+              'การแจ้งเตือนช้าไปเพียง 15 นาที (จาก 30 นาที เป็น 45 นาทีหลังแผ่นดินไหว) ทำให้ยอดผู้ประสบภัยเพิ่มขึ้นกว่าเท่าตัวแม้ใช้มาตรการสูงสุด (1.2% → 2.9%) การเตือนภัยอัตโนมัติที่รวดเร็วและการออกเดินเท้าทันทีจึงเป็นเรื่องที่ประนีประนอมไม่ได้'
+            )}</p>
+          </div>
+        </div>
+      </div>
       <p>{t('Question: under the study’s assumptions, how do cumulative walking, refuge, preference and signage measures change modeled victim share among 39,041 agents?', 'คำถาม: ภายใต้สมมติฐานของงานวิจัย การเพิ่มมาตรการเดินเท้า จุดอพยพ ความนิยมเลือกอพยพขึ้นอาคาร และป้ายบอกทางแบบสะสม เปลี่ยนสัดส่วนผู้ประสบภัยตามเกณฑ์ของแบบจำลองในตัวแทน 39,041 รายอย่างไร?')}</p>
       <details className="research-definitions"><summary>{t('Read package definitions and outcome accounting','อ่านนิยามมาตรการและการจัดหมวดผลลัพธ์')}</summary>
         <dl>{[
@@ -65,6 +102,13 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
       <div className="research-method-pair">
         <div><h3>{t('Published Unity ABMS [R1]','แบบจำลอง Unity ABMS ในบทความ [R1]')}</h3><p>{t('Environment + synthetic population → departure and mode choice → road/refuge movement → inundation-based outcome. The source estimates 39,041 people from 8,707 building units digitized from 2019 imagery and occupancy assumptions (Table 1, §3.2.1). Hazard cells are 30 × 30 m, updated every minute.', 'สภาพแวดล้อมและประชากรสังเคราะห์ → เวลาออกเดินทางและวิธีเดินทาง → การเคลื่อนที่ตามถนนและจุดอพยพ → ผลลัพธ์ตามน้ำท่วม ต้นฉบับประมาณประชากร 39,041 รายจากอาคาร 8,707 หน่วยที่ดิจิไทซ์จากภาพปี 2019 และสมมติฐานการใช้พื้นที่ (ตาราง 1 หัวข้อ 3.2.1) กริดน้ำท่วมมีขนาด 30 × 30 เมตร อัปเดตทุกนาที')}</p></div>
         <div><h3>{t('Browser point-queue rehearsal','แบบฝึกคิวบนโครงข่ายในเบราว์เซอร์')}</h3><p>{t('OSM paths + selected population, speed, width and preparation delay → FIFO link queues → route-following points and node totals. It has no physical crowd storage, collision, spillback, mobility mix, slope-speed response or water interaction. It does not reproduce the published victim rates.', 'เส้นทาง OSM และค่าจำนวนคน ความเร็ว ความกว้าง และเวลาเตรียมตัวที่เลือก → คิวบนช่วงทางแบบมาก่อนได้ก่อน → จุดเคลื่อนที่ตามทางและยอดรวมที่จุดคิว ไม่มีพื้นที่เก็บฝูงชนจริง การชน คิวล้นย้อนกลับ กลุ่มการเคลื่อนไหวที่หลากหลาย ผลความชันต่อความเร็ว หรือปฏิสัมพันธ์กับน้ำ และไม่ได้คำนวณสัดส่วนผู้ประสบภัยของบทความซ้ำ')}</p></div>
+      </div>
+      <div className="research-platform-card">
+        <h3>{t('How Soonami Builds on the Research', 'Soonami ต่อยอดและยกระดับงานวิจัยอย่างไร')}</h3>
+        <p>{t(
+          'The 2026 SSRN preprint modeled a synthetic population in Khao Lak inside a standalone Unity environment. Soonami transforms these empirical insights into an active nationwide decision platform: expanding across 6 coastal regions in Thailand, integrating NOAA DART buoy 23401 deep-water pressure sensors and Royal Thai Navy tide gauge telemetry, rendering 3D digital elevation models with street-level walking networks, and offering interactive personal evacuation planners and community drill logs.',
+          'บทความวิจัยปี 2026 จำลองประชากรสังเคราะห์ในเขาหลักด้วยระบบปิดของ Unity แต่ Soonami นำข้อค้นพบเชิงประจักษ์นี้มายกระดับเป็นแพลตฟอร์มการตัดสินใจระดับประเทศ: ขยายขอบเขตครอบคลุม 6 ภูมิภาคชายฝั่งทั่วไทย, เชื่อมโยงทุ่นเตือนภัยน้ำลึก NOAA DART 23401 และสถานีวัดระดับน้ำกองทัพเรือ, แสดงผลภูมิประเทศ 3 มิติพร้อมโครงข่ายทางเดินจริง, และมอบเครื่องมือวางแผนการอพยพรายบุคคลรวมถึงบันทึกการซ้อมอพยพของชุมชน'
+        )}</p>
       </div>
       <figure className="research-timing"><figcaption>{t('Study timing (minutes): warning/shore arrival from earthquake; preparation is a duration [R1, §4.1–4.2; §3.2.3.1]','เวลาในงานวิจัย (นาที): คำเตือน/คลื่นถึงฝั่งนับจากแผ่นดินไหว ส่วนการเตรียมตัวเป็นระยะเวลา [R1 หัวข้อ 4.1–4.2 และ 3.2.3.1]')}</figcaption><table><thead><tr><th>{t('Assumption','สมมติฐาน')}</th><th>{t('Baseline','ฐาน')}</th><th>{t('Delayed','ล่าช้า')}</th></tr></thead><tbody>{timing.map(([label,a,b])=><tr key={label.en}><th scope="row">{label[language]}</th><td>{a}</td><td>{b}</td></tr>)}</tbody></table></figure>
       <p>{t('Preparation values are population-weighted means of distributions, not identical delays for everyone. Outside modeled warning-tower coverage, the paper assumes 15 more minutes of warning delay. The 135-minute shore arrival belongs to one earthquake scenario. The browser clock instead starts at the exercise warning; do not mix the time origins or use either clock as permission to wait.', 'เวลาเตรียมตัวเป็นค่าเฉลี่ยถ่วงน้ำหนักประชากรจากการแจกแจง ไม่ใช่ให้ทุกคนรอเท่ากัน พื้นที่นอกระยะหอเตือนภัยที่จำลองไว้ถูกสมมติให้ได้รับคำเตือนช้าเพิ่ม 15 นาที ส่วนคลื่นถึงฝั่งที่ 135 นาทีเป็นของฉากทัศน์แผ่นดินไหวหนึ่งกรณีเท่านั้น นาฬิกาในเบราว์เซอร์เริ่มที่คำเตือนของแบบฝึก ห้ามสับสนจุดเริ่มเวลาและห้ามใช้เวลาใดเป็นเหตุผลให้รอ')}</p>

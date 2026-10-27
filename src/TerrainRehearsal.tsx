@@ -110,10 +110,10 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       const surface = new ReplayWaterLayer(setWaterSurfaceError); m.addLayer(surface); waterLayer.current = surface;
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
       m.addLayer({ id: 'routes', type: 'line', source: 'routes', paint: { 'line-color': ['match', ['get', 'route'], 0, '#fafaf7', 1, '#f59e0b', '#b9ddf0'], 'line-width': 3 } });
-      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1, 17, 2], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': .5 } });
+      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 15, 3.5, 17, 6, 19, 9], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
       m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['case', ['==',['get','role'],'destination'], 7, 3], 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
       m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
-      m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 4, 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
+      m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 3, 15, 5.5, 17, 8, 19, 13], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
       const side = 20, pixels = new Uint8Array(side * side * 4);
       for (let y = 0; y < side; y++) for (let x = 0; x < side; x++) {
         const edge = Math.abs(x - 9.5);
@@ -342,6 +342,17 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
         <label>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
         <label>Delay<select aria-label="Preparation delay" value={preparation} onChange={e => setPreparation(Number(e.target.value))}><option value={0}>0 s</option><option value={60}>1 min</option><option value={300}>5 min</option></select></label>
         <label>Route<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
+        <label>Surge<select aria-label="Tsunami surge reach demonstration" value={animateWater ? peak : 0} onChange={e => {
+          const val = Number(e.target.value);
+          if (val === 0) {
+            setAnimateWater(false);
+            setScreen(false);
+          } else {
+            setPeak(val);
+            setAnimateWater(true);
+            setScreen(true);
+          }
+        }}><option value={0}>Off</option><option value={5}>+5m</option><option value={10}>+10m (2004)</option><option value={15}>+15m (Max)</option></select></label>
         <button className="rehearsal-play" aria-label={playing ? "Pause rehearsal" : "Run crowd rehearsal"} disabled={flat || !ready} onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start'}</button>
       </div>
       <div className="rehearsal-timeline">
@@ -349,7 +360,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
         <label className="timeline-label"><span>{started ? 'Warning +' : 'Ready · '}{minutes(seconds)}</span><TimeScrubber label="Exercise time" duration={duration} value={seconds} onChange={value => { setSeconds(value); setStarted(true); setPlaying(false); }} /></label>
         <label>Rate<select aria-label="Playback" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
-      <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : 'Evacuation rehearsal') : 'Ready to start warning'} · {hazard ? (waterFrame ? 'unverified model replay' : 'no hazard frame at this time') : animateWater ? `Demo +${shownWaterLevel.toFixed(1)}m MSL; agents unaffected` : 'wave prediction unavailable'} · endpoint unapproved</p>
+      <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : 'Evacuation rehearsal') : 'Ready to start warning'} · {hazard ? (waterFrame ? 'unverified model replay' : 'no hazard frame at this time') : animateWater ? `Tsunami surge: +${shownWaterLevel.toFixed(1)}m MSL (illustrative) · Walker ground ≈ ${Math.round(profile[Math.min(profile.length - 1, progress?.index ?? 0)] ?? 0)}m MSL` : 'wave surge off'} · endpoint unapproved</p>
       <div className="rehearsal-readout" aria-label="Crowd counts">
         <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued at nodes</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
       </div>
