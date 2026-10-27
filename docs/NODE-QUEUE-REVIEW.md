@@ -23,3 +23,9 @@ Independent review `/root/queue_geometry_review` passed source/tests and the que
 All14 declared layout cases pass with the new presentation identity. At1280×720 the operation and profile columns are596px each; the timeline is530px wide and40px high. The selected5000-person queue case also fits a360×800 panel: document width360px, counts bottom776.88px. One initial390px capture occurred during an overview camera flight; the stable overview was recaptured and passed without changing budgets.
 
 The executable isolated regression compares the old frame function to the corrected one:2799 old waiting features had off-node invented coordinates; the new frame has one queue symbol at the exact node, weighted2799, and zero off-node queue coordinates. See `design/node-regression.json`.
+
+## Live release
+
+Application commit `cf61db7eb7593965b6d72c2c56e3d0484bab771e`; Cloudflare Worker version `32025a2a-9053-4361-a503-801301d22cd0`. Tests14/14, strict build and contrast passed before publishing. GitHub CI: https://github.com/Nonarkara/tsunami-evacuation/actions/runs/40533253233 . Canonical HTML plus `index-C4qcbcqd.js` and `index-DQeM1d_S.css` returned200 and exactly matched local production bytes.
+
+The live page loaded `network-node-totals`, reproduced the same729/2799/1472 result, displayed the selected node count outside the terrain and rendered the regrouped596px operation/profile columns with530px timeline. The selected-queue geometry case passes; coastal-place marker visibility is excluded only for this inland close-up, while all default overview cases retain that check. `design/node-live.json` and `docs/evidence/node-live-1280.png` preserve the live result.

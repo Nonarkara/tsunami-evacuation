@@ -1,0 +1,310 @@
+{
+  "contract": {
+    "version": 1,
+    "cases": [
+      {
+        "id": "1280x720-selected-queue",
+        "state": "selected-queue",
+        "stateSelector": ".terrain-rehearsal[data-state=ready][data-presentation=network-node-totals] .terrain-caption",
+        "width": 1280,
+        "height": 720,
+        "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
+        "regions": [
+          {
+            "id": "title",
+            "selector": ".geography-pane > .pane-header",
+            "maxHeight": 80,
+            "reason": "Name the geographic study without an oversized introduction."
+          },
+          {
+            "id": "camera",
+            "selector": ".terrain-toolbar",
+            "maxHeight": 60,
+            "reason": "Retain five usable camera controls and the source status."
+          },
+          {
+            "id": "terrain",
+            "selector": ".terrain-stage",
+            "minWidth": 800,
+            "minHeight": 280,
+            "maxHeight": 460,
+            "firstScreen": true,
+            "reason": "Preserve an operating terrain viewport independent of the research section."
+          },
+          {
+            "id": "counts",
+            "selector": ".rehearsal-readout",
+            "maxHeight": 80,
+            "firstScreen": true,
+            "reason": "See all crowd counts and arrival estimates with Run."
+          },
+          {
+            "id": "footer",
+            "selector": ".soonami-footer",
+            "maxHeight": 70,
+            "reason": "Credits must wrap inside their background without clipped or spilled lines."
+          },
+          {
+            "id": "caption",
+            "selector": ".terrain-caption",
+            "maxHeight": 50,
+            "reason": "Credit and key controls stay below the map in a compact reading line."
+          },
+          {
+            "id": "parameters",
+            "selector": ".rehearsal-controls",
+            "maxHeight": 48,
+            "reason": "Parameters are intrinsic label/value rows, not four oversized form cards and a full-width Run bar."
+          },
+          {
+            "id": "run",
+            "selector": ".rehearsal-play",
+            "maxWidth": 145,
+            "maxHeight": 36,
+            "reason": "Run is a short action that fits its label instead of spanning the phone."
+          },
+          {
+            "id": "timeline",
+            "selector": ".rehearsal-timeline",
+            "maxWidth": 530,
+            "maxHeight": 44,
+            "reason": "An exercise clock does not need a page-wide scrubber or a separate tall reading band."
+          }
+        ],
+        "chrome": {
+          "selectors": [
+            "header",
+            ".geography-pane > .pane-header",
+            ".terrain-toolbar"
+          ],
+          "maxHeight": 150,
+          "reason": "Identity, title and camera controls must leave the operating content its screen."
+        },
+        "decision": {
+          "information": ".rehearsal-readout",
+          "action": ".rehearsal-play",
+          "maxGap": 130,
+          "firstScreen": true,
+          "reason": "Keep the active input adjacent to the evidence it changes."
+        }
+      }
+    ]
+  },
+  "captures": [
+    {
+      "action": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 32,
+          "width": 47.3671875,
+          "x": 537.296875,
+          "y": 514.0859375
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "chrome": [
+        {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 38,
+            "width": 1280,
+            "x": 0,
+            "y": 0
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 45.09375,
+            "width": 1210,
+            "x": 35,
+            "y": 67
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 36,
+            "width": 1210,
+            "x": 35,
+            "y": 118.09375
+          },
+          "unobstructed": true,
+          "visible": true
+        }
+      ],
+      "documentWidth": 1280,
+      "fontsReady": true,
+      "height": 720,
+      "id": "1280x720-selected-queue",
+      "information": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 54.390625,
+          "width": 596,
+          "x": 35,
+          "y": 610.8828125
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "regions": {
+        "camera": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 36,
+            "width": 1210,
+            "x": 35,
+            "y": 118.09375
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "caption": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 24.796875,
+            "width": 1210,
+            "x": 35,
+            "y": 485.2890625
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "counts": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 54.390625,
+            "width": 596,
+            "x": 35,
+            "y": 610.8828125
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "footer": {
+          "clipped": false,
+          "firstScreen": false,
+          "matches": 1,
+          "rect": {
+            "height": 30,
+            "width": 1280,
+            "x": 0,
+            "y": 1346.4140625
+          },
+          "unobstructed": false,
+          "visible": true
+        },
+        "parameters": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 40,
+            "width": 596,
+            "x": 35,
+            "y": 510.0859375
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "run": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 32,
+            "width": 47.3671875,
+            "x": 537.296875,
+            "y": 514.0859375
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "terrain": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 331.1953125,
+            "width": 1210,
+            "x": 35,
+            "y": 154.09375
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "timeline": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 40,
+            "width": 530,
+            "x": 35,
+            "y": 550.0859375
+          },
+          "unobstructed": true,
+          "visible": true
+        },
+        "title": {
+          "clipped": false,
+          "firstScreen": true,
+          "matches": 1,
+          "rect": {
+            "height": 45.09375,
+            "width": 1210,
+            "x": 35,
+            "y": 67
+          },
+          "unobstructed": true,
+          "visible": true
+        }
+      },
+      "scrollX": 0,
+      "scrollY": 0,
+      "state": "selected-queue",
+      "stateElement": {
+        "clipped": false,
+        "firstScreen": true,
+        "matches": 1,
+        "rect": {
+          "height": 24.796875,
+          "width": 1210,
+          "x": 35,
+          "y": 485.2890625
+        },
+        "unobstructed": true,
+        "visible": true
+      },
+      "width": 1280
+    }
+  ],
+  "result": {
+    "status": "BUDGETS_PASS",
+    "cases": 1,
+    "failures": [],
+    "scope": "Declared geometry budgets only; screenshots, task trial and independent review remain required."
+  }
+}
