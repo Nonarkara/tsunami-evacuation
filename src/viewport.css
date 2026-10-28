@@ -161,7 +161,10 @@
   .terrain-operations .walkthrough-coach { border:0; padding:0; }
   .terrain-operations .coach-heading { display:flex; align-items:baseline; gap:6px; }
   .terrain-operations .coach-heading strong { font-size:14px; }
-  .terrain-operations .terrain-secondary { display:none; }
+  /* the operations flow fragments its route profile across columns on a phone and
+     splits the chart in half; the phone keeps the map, the controls and the counts. */
+  .terrain-operations .terrain-secondary,
+  .operations-pages .flow-content > .terrain-secondary { display:none; }
   .terrain-rehearsal > .exercise-console { grid-row:1; }
   .exercise-console > summary { font-size:0; width:28px; padding:3px; }
   .exercise-console > summary svg { width:20px; height:20px; }

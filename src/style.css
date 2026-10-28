@@ -2635,92 +2635,6 @@ main { padding-bottom:6px; }
 .catalogue-physics p { font-size:14px; }
 @media(max-width:650px) { .sensor-record { grid-template-columns:1fr; gap:6px; } .catalogue-heading h1 { font-size:22px; } }
 
-/* ── § Masthead console: every glyph opens the real contents of its section ── */
-.masthead-nav { position: relative; }
-
-.console-trigger {
-  border: 0;
-  padding: 4px 10px;
-  color: #c4d7e5;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  background: transparent;
-  cursor: pointer;
-}
-
-.console-trigger:hover,
-.console-trigger[aria-expanded="true"] {
-  background: #204966;
-  color: #ffffff;
-}
-
-.console-trigger[aria-current] {
-  background: #204966;
-  color: #ffffff;
-  box-shadow: inset 0 -2px var(--accent);
-}
-
-.console-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 320;
-  min-width: 268px;
-  padding: 10px 12px 12px;
-  background: var(--panel);
-  color: var(--ink);
-  border: 1px solid var(--line-2);
-  border-top: 2px solid var(--accent);
-  border-radius: 3px;
-  box-shadow: 0 10px 26px rgba(18, 53, 78, 0.28);
-}
-
-.console-menu-note {
-  margin: 0 0 8px;
-  font-size: 11px;
-  line-height: 1.35;
-  color: var(--ink-2);
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 7px;
-}
-
-.console-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.console-menu button {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 6px 8px;
-  background: transparent;
-  border: 0;
-  border-radius: 2px;
-  color: var(--ink);
-  font-size: 13px;
-  text-align: left;
-  cursor: pointer;
-}
-
-.console-menu button:hover { background: #eef1ee; }
-
-.console-menu em {
-  font-style: normal;
-  font-size: 11px;
-  color: var(--ink-2);
-  white-space: nowrap;
-}
-
 /* ── § Icon-led control bar: symbols carry the meaning, names live in the tooltip ── */
 .terrain-toolbar {
   display: flex;
@@ -2853,15 +2767,13 @@ main { padding-bottom:6px; }
 .geography-pane,
 .evidence-pane,
 .terrain-rehearsal,
-.console-section,
-.console-menu {
+.console-section {
   overflow-wrap: break-word;
 }
 
 .terrain-rehearsal svg { max-width: 100%; }
 
 @media (max-width: 900px) {
-  .console-menu { left: auto; right: 0; transform: none; min-width: 240px; }
   .pane-header { flex-wrap: wrap; }
 }
 

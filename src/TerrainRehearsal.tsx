@@ -115,7 +115,9 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       didLoad = true; window.clearTimeout(loadTimeout); setFailure('');
       for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings']) m.addSource(id, { type: 'geojson', data: empty });
       m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#d5e2df', 'line-width':.7, 'line-opacity':.65 } });
-      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#9ba39a','#d5e2df'], 'fill-extrusion-opacity':.88 } });
+      // Massing is solid, not glass: at eye height a translucent box reads as a floating slab
+      // rather than a building. The vertical gradient separates the roof plane from the facade.
+      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#8d9189','#e3e9e4'], 'fill-extrusion-opacity':1, 'fill-extrusion-vertical-gradient':true } });
       m.addLayer({ id: 'water', type: 'fill', source: 'water', paint: { 'fill-color': '#3b99ca', 'fill-opacity': .48 } });
       const surface = new ReplayWaterLayer(setWaterSurfaceError); m.addLayer(surface); waterLayer.current = surface;
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
