@@ -1,0 +1,169 @@
+{
+  "dialogFocus": [
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "BUTTON"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "BUTTON"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "BUTTON"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "BUTTON"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "BUTTON"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "SUMMARY"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    },
+    {
+      "inside": true,
+      "scrollY": 0,
+      "tag": "A"
+    }
+  ],
+  "dialogClose": {
+    "focus": "Sources, assumptions, settings & coverage",
+    "open": false,
+    "scrollY": 0
+  }
+}

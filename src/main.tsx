@@ -6,6 +6,9 @@ import "@fontsource/jost/600.css";
 import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
+import "./viewport.css";
+import { PagedFlow } from "./PagedFlow";
+import { ReadingDialog } from "./ReadingDialog";
 import { Manual } from "./Manual";
 import { Drill } from "./Drill";
 import { OutcomeSummary } from "./OutcomeSummary";
@@ -61,7 +64,7 @@ function App() {
   const [selectedPlace, setSelectedPlace] = useState(2);
   const [step, setStep] = useState(4);
   const [condition, setCondition] = useState<Condition>("baseline");
-  const [emergency, setEmergency] = useState(false);
+  const [modelView,setModelView]=useState("terrain");
   const [manualOpen, setManualOpen] = useState(false);
   const [language, setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
 
@@ -146,6 +149,49 @@ function App() {
         </div>
   );
 
+  const emergencyGuidance=(
+        <section
+          className="emergency-panel"
+          aria-label="Tsunami safety guidance"
+        >
+          <div>
+            <h2>Follow designated evacuation routes to high ground or inland.</h2>
+            <p>
+              Natural signs: violent ground shaking, sudden sea recession, or a roaring ocean sound. Move immediately when you can do so safely. Follow official guidance and arrange assistance. Do not wait for website updates.
+            </p>
+            <p lang="th">
+              หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพไปยังพื้นที่สูงหรือพื้นที่ด้านในตามเส้นทางที่ทางการกำหนด และช่วยเหลือผู้ที่ต้องการความช่วยเหลือ
+            </p>
+          </div>
+          <div>
+            <p>
+              Hotline: <strong>DDPM Thailand · 1784</strong> (24/7)
+            </p>
+            <a href="tel:1784" className="call-btn">
+              Call DDPM 1784 Now
+            </a>
+            <div className="emergency-links">
+              <a
+                href="https://www.tmd.go.th/en/CAP"
+                target="_blank"
+                rel="noreferrer"
+              >
+                TMD Warnings ↗
+              </a>{" "}
+              ·{" "}
+              <a
+                href="https://www.disaster.go.th/home"
+                target="_blank"
+                rel="noreferrer"
+              >
+                DDPM Portal ↗
+              </a>
+            </div>
+
+          </div>
+        </section>
+  );
+
   return (
     <>
       <a className="skip" href="#main">
@@ -202,74 +248,21 @@ function App() {
           }
         />
 
+        <div className="masthead-status">{language==='th'?'งานวิจัยและฝึกซ้อม · ไม่มีคำเตือนสด':'Research & practice · no live warning'}</div>
         <div className="masthead-action-group">
-          <button
-            className="emergency-pill-btn"
-            onClick={() => setEmergency(!emergency)}
-            aria-expanded={emergency}
-          >
-            🚨 1784
-          </button>
+          <ReadingDialog title="Warning guidance / คำเตือน" triggerLabel="1784" className="emergency-pill-btn">{emergencyGuidance}</ReadingDialog>
         </div>
       </header>
 
       <Manual open={manualOpen} page={tab} onClose={() => setManualOpen(false)} onNavigate={page => { setManualOpen(false); navigate(page); requestAnimationFrame(() => document.getElementById("main")?.focus({ preventScroll: true })); }} />
 
-      {/* Emergency guidance drawer */}
-      {emergency && (
-        <section
-          className="emergency-panel"
-          aria-label="Tsunami safety guidance"
-        >
-          <div>
-            <h2>Follow designated evacuation routes to high ground or inland.</h2>
-            <p>
-              Natural signs: violent ground shaking, sudden sea recession, or a roaring ocean sound. Move immediately when you can do so safely. Follow official guidance and arrange assistance. Do not wait for website updates.
-            </p>
-            <p lang="th">
-              หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพไปยังพื้นที่สูงหรือพื้นที่ด้านในตามเส้นทางที่ทางการกำหนด และช่วยเหลือผู้ที่ต้องการความช่วยเหลือ
-            </p>
-          </div>
-          <div>
-            <p>
-              Hotline: <strong>DDPM Thailand · 1784</strong> (24/7)
-            </p>
-            <a href="tel:1784" className="call-btn">
-              Call DDPM 1784 Now
-            </a>
-            <div className="emergency-links">
-              <a
-                href="https://www.tmd.go.th/en/CAP"
-                target="_blank"
-                rel="noreferrer"
-              >
-                TMD Warnings ↗
-              </a>{" "}
-              ·{" "}
-              <a
-                href="https://www.disaster.go.th/home"
-                target="_blank"
-                rel="noreferrer"
-              >
-                DDPM Portal ↗
-              </a>
-            </div>
-            <button
-              className="close-emergency-btn"
-              onClick={() => setEmergency(false)}
-            >
-              Close guidance
-            </button>
-          </div>
-        </section>
-      )}
-
       {/* ── §2 Main Operational Content ──────────────────────── */}
-      <main id="main" tabIndex={-1}>
+      <main id="main" tabIndex={-1} data-page={tab}>
         {tab === "explore" ? (
-          <div className="explore-grid">
+          <div className="explore-grid" data-view={modelView}>
+            <nav className="workspace-switch" aria-label="Model workspace"><button aria-pressed={modelView==='terrain'} onClick={()=>setModelView("terrain")}>Terrain / ภูมิประเทศ</button><button aria-pressed={modelView==='evidence'} onClick={()=>setModelView("evidence")}>Published outcomes / ผลวิจัย</button><span>Research rehearsal · no live warning / แบบฝึก ไม่ใช่คำเตือนสด</span></nav>
             {/* Section 01: 3D Aerial Topography & Water Inundation Simulator */}
-            <section className="geography-pane" id="geography-pane" aria-labelledby="map-pane-title">
+            <section hidden={modelView!=="terrain"} className="geography-pane" id="geography-pane" aria-labelledby="map-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
                   <span className="pane-badge">01 / TERRAIN & CROWD REHEARSAL</span>
@@ -296,7 +289,7 @@ function App() {
 
 
             {/* Section 02: Published evidence and intervention details */}
-            <section className="evidence-pane" aria-labelledby="model-pane-title">
+            <section hidden={modelView!=="evidence"} className="evidence-pane" aria-labelledby="model-pane-title"><PagedFlow label="Published outcomes">
               <div className="pane-header">
                 <div className="pane-titles">
                   <span className="pane-badge">02 / MODELING & MITIGATION</span>
@@ -401,28 +394,28 @@ function App() {
               </div>
 
 
-            </section>
+            </PagedFlow></section>
           </div>
         ) : null}
 
         {/* Tab: Satellite & Meteorological Intel */}
         <div hidden={tab !== "satellite"}>
-          <SatelliteIntel />
+          <PagedFlow label="Sources & sensors"><SatelliteIntel /></PagedFlow>
         </div>
 
         {/* Tab: My Plan */}
         <div hidden={tab !== "prepare"}>
-          <Prepare />
+          <PagedFlow label="Personal plan"><Prepare /></PagedFlow>
         </div>
 
         {/* Tab: Run a Drill */}
         <div hidden={tab !== "drill"}>
-          <Drill language={language} />
+          <PagedFlow label="Drill record and walkthrough"><Drill language={language} /></PagedFlow>
         </div>
 
         {/* Tab: Research Section with Diagrams */}
         <div hidden={tab !== "research"}>
-          <ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} />
+          <PagedFlow label="Research"><ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} /></PagedFlow>
         </div>
       </main>
 

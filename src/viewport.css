@@ -1,0 +1,355 @@
+/* Fixed-screen workspaces. Secondary reading turns pages at readable type sizes. */
+@media screen {
+ html, body, #root { width:100%; height:100%; margin:0; overflow:hidden; }
+ #root { height:100dvh; display:grid; grid-template-rows:44px minmax(0,1fr) 28px; }
+ #root > .skip { position:fixed; }
+ #root > .soonami-masthead { height:44px; min-height:44px; padding:0 10px; gap:12px; }
+ .masthead-brand-group { padding-right:8px; gap:12px; }
+ .brand-sub { display:none; }
+ .soonami-brand .brand-name { font-size:20px; }
+ .masthead-nav { flex:0 0 auto; gap:4px; }
+ .masthead-nav .console-trigger { width:auto; display:flex; align-items:center; gap:6px; padding:4px 9px; font-size:14px; }
+ .masthead-nav .nav-symbol { width:23px; height:23px; }
+ .masthead-status { margin-left:auto; font-size:12px; color:var(--paper,#f7f7ef); }
+ .masthead-action-group { margin-left:0; }
+ #main { min-height:0; min-width:0; width:100%; max-width:none; padding:8px 12px; margin:0; overflow:hidden; }
+ #main > div:not([hidden]) { height:100%; min-height:0; }
+ [hidden] { display:none !important; }
+ .soonami-footer.source-footer { margin:0; padding:2px 12px; height:28px; min-height:0; border-top:1px solid var(--line); }
+ .source-footer-row { height:24px; align-items:center; }
+ .source-footer-row summary, .source-footer-row button,.source-short-link { min-height:22px; padding-block:0; line-height:22px; font-size:12px; }
+ .source-credit-text { max-width:none; }
+ .source-credits[open] > .paged-flow { position:fixed; z-index:150; inset:80px 8vw 60px; height:auto; padding:18px; background:var(--panel); border:1px solid var(--line-2); box-shadow:0 0 0 100vmax #12354e66; }
+ .source-credits[open] > summary { position:relative; z-index:151; background:var(--panel); }
+ .explore-grid { display:grid; grid-template-rows:30px minmax(0,1fr); gap:6px; }
+ .workspace-switch { display:flex; align-items:center; gap:6px; min-width:0; }
+ .workspace-switch button { min-height:28px; padding:3px 8px; font-size:13px; background:transparent; border:0; border-bottom:2px solid transparent; }
+ .workspace-switch button[aria-pressed=true] { border-color:var(--companion); font-weight:600; }
+ .workspace-switch > span { margin-left:auto; color:var(--ink-2); font-size:12px; }
+ .geography-pane { min-height:0; padding:0; border:0; background:transparent; display:grid; grid-template-rows:30px minmax(0,1fr); }
+ .geography-pane > .pane-header { display:flex; flex-wrap:nowrap; height:30px; margin:0; padding:0; border:0; gap:8px; }
+ .geography-pane .pane-titles { display:flex; align-items:baseline; gap:10px; min-width:0; }
+ .geography-pane .pane-badge { display:none; }
+ .geography-pane h2 { margin:0; font-size:19px; line-height:1.25; }
+ .geography-pane .area-selector { margin:0 0 0 auto; }
+ .geography-pane .area-selector select { min-width:170px; width:170px; max-width:170px; min-height:28px; font-size:13px; }
+ .terrain-rehearsal, .terrain-rehearsal[data-camera=walk]:not([data-state=flat]), .terrain-rehearsal:not([data-camera=walk]) {
+  display:grid; height:100%; min-height:0; grid-template-columns:minmax(0,1fr) 350px; grid-template-rows:34px minmax(0,1fr) 30px; gap:4px 16px; align-items:stretch;
+ }
+ .terrain-rehearsal > .terrain-toolbar { grid-column:1; grid-row:1; min-height:0; margin:0; padding:0; gap:8px; }
+ .terrain-toolbar button { min-height:30px; height:30px; }
+ .terrain-rehearsal > .terrain-stage, .terrain-rehearsal[data-camera=walk] > .terrain-stage, .terrain-rehearsal > .map-wrap { grid-column:1; grid-row:2; height:auto; min-height:0; width:100%; }
+ .terrain-rehearsal > .terrain-caption, .terrain-rehearsal[data-camera=walk] > .terrain-caption { grid-column:1; grid-row:3; margin:0; padding:0; min-height:0; font-size:11px; line-height:14px; align-content:center; }
+ .terrain-rehearsal > .terrain-operations, .terrain-rehearsal[data-camera=walk] > .terrain-operations { grid-column:2; grid-row:1/4; display:flex; flex-direction:column; gap:10px; min-height:0; min-width:0; }
+ .terrain-operations .walkthrough-coach { margin:0; padding:0 0 8px; border-top:0; border-bottom:1px solid var(--line); }
+ .coach-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .coach-metrics dt { font-size:12px; }
+ .coach-metrics dd { font-size:19px; }
+ .coach-heading { display:block; }
+ .coach-heading > span { font-size:12px; }
+ .coach-heading > strong { display:block; font-size:19px; }
+ .walkthrough-coach > p { font-size:13px; line-height:1.45; }
+ .terrain-operations .rehearsal-panel { display:flex; flex-direction:column; align-items:stretch; gap:6px; }
+ .terrain-operations .rehearsal-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px 12px; padding:0; }
+ .terrain-operations .rehearsal-controls label { display:flex; flex-direction:row; justify-content:space-between; align-items:center; gap:6px; font-size:13px; }
+ .terrain-operations .rehearsal-controls select { font-size:13px; min-width:0; max-width:92px; }
+ .terrain-operations .rehearsal-play { justify-self:end; min-width:72px; }
+ .terrain-operations .rehearsal-timeline { flex:none; width:100%; max-width:none; padding:0; margin:0; }
+ .terrain-operations .rehearsal-timeline .timeline-label { flex:1; min-width:0; }
+ .terrain-operations .rehearsal-readout { display:grid; grid-template-columns:1fr 1fr; gap:5px 10px; padding:7px 0; font-size:13px; }
+ .terrain-operations .rehearsal-readout span:last-child { grid-column:1/-1; }
+ .terrain-operations .rehearsal-readout strong { font-size:16px; }
+ .terrain-operations .exercise-boundary { margin:0; font-size:12px; line-height:1.4; }
+ .terrain-operations .terrain-secondary { min-height:0; flex:1; display:flex; flex-direction:column; }
+ .terrain-operations .terrain-analysis-row { display:flex; min-height:0; height:100%; }
+ .terrain-operations .route-profile { display:flex; flex-direction:column; min-height:0; width:100%; padding:0; }
+ .terrain-operations .route-profile > strong { font-size:14px; }
+ .terrain-operations .route-profile > span { font-size:12px; }
+ .terrain-operations .route-profile svg { flex:1; min-height:40px; max-height:150px; width:100%; }
+ .terrain-operations .route-cue { font-size:12px; margin:3px 0; line-height:1.4; }
+ .terrain-operations .profile-scale { flex-wrap:wrap; font-size:11px; gap:3px 8px; }
+ .terrain-rehearsal > .exercise-console { grid-column:1; grid-row:1; justify-self:end; align-self:center; margin:0; padding:0; border:0; }
+ .exercise-console > summary { min-height:28px; font-size:12px; padding:3px 6px; background:var(--panel); }
+ .exercise-console[open] > .paged-flow { position:fixed; z-index:100; inset:90px 5vw 55px; height:auto; background:var(--panel); border:1px solid var(--line-2); padding:16px; box-shadow:0 0 0 100vmax #12354e66; }
+ .exercise-console[open] > summary { position:relative; z-index:101; }
+ .console-sections,.console-section { display:contents; }
+ .console-section > summary { display:block; }
+ .console-section p { font-size:14px; line-height:1.5; }
+ .coach-next details[open] > .paged-flow { position:fixed; z-index:120; inset:80px 6vw 50px; height:auto; padding:18px; background:var(--panel); border:1px solid var(--line-2); box-shadow:0 0 0 100vmax #12354e66; }
+ .coach-next details[open] > summary { position:relative; z-index:121; background:var(--panel); }
+ .terrain-map-key[open] > p { position:fixed; z-index:110; inset:auto 8vw 55px; background:var(--panel); padding:16px; border:1px solid var(--line-2); font-size:14px; max-width:70ch; }
+ .emergency-panel { position:fixed; z-index:160; inset:65px 5vw auto; max-height:calc(100dvh - 100px); background:var(--panel); }
+ .evidence-pane { width:100%; max-width:none; padding:0; border:0; min-height:0; }
+ .evidence-pane .modeling-split-grid { display:contents; }
+ .evidence-pane .split-col-left,.evidence-pane .split-col-right { display:contents; }
+ .evidence-pane .pane-header { display:block; margin:0 0 8px; padding:0; }
+ .evidence-pane .condition-toggle-group { margin-top:8px; }
+ .evidence-pane .result-hud,.evidence-pane .intervention-comparison,.evidence-pane .active-package-card,.evidence-pane .outcome-summary { break-inside:avoid; }
+ .paged-flow { height:100%; min-height:0; min-width:0; display:grid; grid-template-rows:minmax(0,1fr) 32px; gap:8px; }
+ .flow-window { min-height:0; min-width:0; overflow:clip; }
+ .flow-content { height:100%; column-count:2; column-gap:24px; column-fill:auto; transform-origin:left top; }
+ .flow-content > article, .flow-content > .planning-grid { display:contents; }
+ .flow-content .drill-task-grid,.flow-content .planning-grid,.flow-content .field-grid,.flow-content .plan-assistance-timing { display:contents; }
+ .flow-content .drill-form,.flow-content .drill-guide,.flow-content .plan-form,.flow-content .plan-aside { display:contents; }
+ .flow-content .drill-form label,.flow-content .planning-grid label,.flow-content .plan-form > label { break-inside:avoid; margin:0 0 10px; }
+ .flow-content .drill-counter-grid { break-inside:avoid; margin-block:10px; }
+ .flow-content .task-heading,.flow-content .research-heading,.flow-content .catalogue-heading { break-after:avoid; margin:0 0 10px; }
+ .flow-content h1 { font-size:26px; margin:0 0 8px; line-height:1.2; }
+ .flow-content h2 { font-size:20px; margin:10px 0 7px; break-after:avoid; }
+ .flow-content h3 { font-size:17px; break-after:avoid; }
+ .flow-content p,.flow-content li { font-size:14px; line-height:1.5; }
+ .flow-content p { margin:6px 0 10px; }
+ .flow-content label { font-size:14px; }
+ .flow-content .research-dossier > section { margin:0; padding:0; border:0; }
+ .flow-content .research-dossier { max-width:none; }
+ .flow-content .research-results-figure,.flow-content .research-timing { margin:8px 0; overflow:visible; }
+ .flow-content .research-results-table { min-width:0; width:100%; }
+ .flow-content .research-results-table th,.flow-content .research-results-table td { font-size:14px; padding:7px; }
+ .flow-content .research-ledger > li,.flow-content .research-validation > li,.flow-content .sensor-record,.flow-content .evacuation-guide li,.flow-content .drill-history li { break-inside:avoid; }
+ .flow-content .research-ledger > li { display:block; }
+ .flow-content .research-ledger > li > div { margin-bottom:4px; }
+ .flow-content .sensor-ledger { display:contents; }
+ .flow-content .sensor-record { display:block; padding:10px 0; }
+ .flow-content .sensor-record h2 { margin-top:0; }
+ .flow-content .sensor-record > div { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 10px; }
+ .flow-content .sensor-record h2 { flex-basis:100%; }
+ .flow-content .catalogue-physics { margin-top:12px; }
+ .flow-content .research-index { display:flex; flex-wrap:wrap; gap:5px 12px; margin-block:8px; }
+ .flow-content .research-observations dl > div { display:block; padding:5px 0; break-inside:avoid; }
+ .flow-content .research-observations dd { font-size:14px; }
+ .page-turner { display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:3px; font-size:13px; }
+ .page-turner button { min-height:28px; padding:2px 8px; background:transparent; border:0; color:var(--companion); font:inherit; }
+ .page-turner button:disabled { color:var(--ink-2); opacity:.5; }
+ .flow-content .checklist-block { break-inside:avoid; }
+ .flow-content .plan-actions { break-inside:avoid; }
+ @media(min-width:1600px) { .flow-content { column-count:3; } }
+ @media(max-width:1100px) {
+  .masthead-status { display:none; }
+  .masthead-nav .console-trigger { padding-inline:6px; }
+  .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-columns:minmax(0,1fr) 320px; }
+  .workspace-switch > span { display:none; }
+ }
+ @media(max-width:760px) {
+  #root { grid-template-rows:44px minmax(0,1fr) 24px; }
+  #main { padding:6px 8px; }
+  .masthead-nav .nav-caption { display:none; }
+  #root > .soonami-masthead { gap:5px; padding-inline:6px; }
+  .soonami-brand .brand-name { font-size:16px; }
+  .masthead-brand-group { gap:6px; padding-right:4px; }
+  .masthead-nav { gap:2px; }
+  .masthead-nav .console-trigger { padding:3px; width:28px; }
+  .masthead-nav .nav-symbol { width:22px; height:22px; }
+  .masthead-action-group { display:none; }
+  .flow-content { column-count:1; }
+  .flow-content h1 { font-size:24px; }
+  .source-footer.source-footer { height:24px; padding-inline:8px; }
+  .workspace-switch button { font-size:12px; padding-inline:4px; }
+  .geography-pane { grid-template-rows:28px minmax(0,1fr); }
+  .geography-pane h2 { font-size:16px; }
+  .geography-pane .area-selector select { min-width:135px; width:135px; max-width:135px; font-size:12px; }
+  .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-columns:minmax(0,1fr); grid-template-rows:32px minmax(190px,1fr) 32px auto; gap:3px; }
+  .terrain-rehearsal > .terrain-toolbar { grid-column:1; grid-row:1; }
+  .terrain-rehearsal > .terrain-stage,.terrain-rehearsal[data-camera=walk] > .terrain-stage,.terrain-rehearsal > .map-wrap { grid-column:1; grid-row:2; }
+  .terrain-rehearsal > .terrain-caption,.terrain-rehearsal[data-camera=walk] > .terrain-caption { grid-column:1; grid-row:3; font-size:10px; line-height:13px; }
+  .terrain-rehearsal > .terrain-operations,.terrain-rehearsal[data-camera=walk] > .terrain-operations { grid-column:1; grid-row:4; gap:5px; }
+  .terrain-operations .rehearsal-controls { display:flex; flex-wrap:wrap; gap:2px 8px; }
+  .terrain-operations .rehearsal-controls label,.terrain-operations .rehearsal-controls select { font-size:12px; }
+  .terrain-operations .rehearsal-timeline { height:40px; }
+  .terrain-operations .rehearsal-readout { grid-template-columns:repeat(2,1fr); gap:2px 8px; padding:3px 0; font-size:12px; }
+  .terrain-operations .rehearsal-readout strong { font-size:13px; }
+  .terrain-operations .walkthrough-coach > p,.terrain-operations .coach-metrics,.terrain-operations .coach-next { display:none; }
+  .terrain-operations .walkthrough-coach { border:0; padding:0; }
+  .terrain-operations .coach-heading { display:flex; align-items:baseline; gap:6px; }
+  .terrain-operations .coach-heading strong { font-size:14px; }
+  .terrain-operations .terrain-secondary { display:none; }
+  .terrain-rehearsal > .exercise-console { grid-row:1; }
+  .exercise-console > summary { font-size:0; width:28px; padding:3px; }
+  .exercise-console > summary svg { width:20px; height:20px; }
+  .exercise-console[open] > .paged-flow,.coach-next details[open] > .paged-flow,.source-credits[open] > .paged-flow { inset:80px 8px 48px; padding:12px; }
+ }
+ @media(max-height:760px) and (min-width:761px) {
+  .terrain-operations { gap:6px; }
+  .walkthrough-coach > p { font-size:12px; line-height:1.35; margin:4px 0; }
+  .coach-metrics { margin-block:4px; gap:3px 10px; }
+  .coach-metrics dd { font-size:17px; }
+  .terrain-operations .route-cue { margin:2px 0; }
+ }
+}
+@media print {
+ .paged-flow,.flow-window,.flow-content { display:contents; height:auto; transform:none !important; overflow:visible; }
+ .page-turner,.workspace-switch { display:none; }
+}
+@media screen {
+ .operations-pages .flow-content { column-count:1; }
+ .operations-pages .flow-content > .rehearsal-panel { display:contents; }
+ .operations-pages .flow-content > .terrain-secondary { display:block; margin-top:10px; }
+ .operations-pages .rehearsal-controls,.operations-pages .rehearsal-timeline,.operations-pages .rehearsal-readout,.operations-pages .walkthrough-coach,.operations-pages .compare-panel,.operations-pages .route-profile { break-inside:avoid; }
+ .operations-pages .route-profile svg { height:80px; flex:none; }
+ .operations-pages .walkthrough-coach { margin-bottom:10px; }
+ .operations-pages .page-turner { font-size:12px; }
+ @media(max-width:760px) {
+  .terrain-rehearsal > .terrain-operations,.terrain-rehearsal[data-camera=walk] > .terrain-operations { height:270px; }
+  .terrain-operations .walkthrough-coach > p,.terrain-operations .coach-metrics,.terrain-operations .coach-next { display:block; }
+  .terrain-operations .coach-metrics { display:grid; }
+  .terrain-operations .terrain-secondary { display:block; }
+  .terrain-operations .coach-heading { display:block; }
+  .operations-pages .flow-content > .walkthrough-coach { break-inside:auto; }
+  .operations-pages .route-profile { break-inside:auto; }
+  .operations-pages .route-profile svg { min-height:50px; height:50px; }
+ }
+}
+@media screen {
+ #main .explore-grid { grid-template-columns:minmax(0,1fr); }
+ #main .explore-grid > .workspace-switch { grid-column:1; grid-row:1; }
+ #main .explore-grid > .geography-pane,#main .explore-grid > .evidence-pane { grid-column:1; grid-row:2; }
+}
+@media screen {
+ #main .terrain-rehearsal > .terrain-operations { grid-column:2; grid-row:1/4; }
+ #main .terrain-rehearsal > .terrain-toolbar { grid-column:1; grid-row:1; }
+ #main .terrain-rehearsal > .exercise-console { grid-column:1; grid-row:1; }
+ #main .terrain-rehearsal > .terrain-stage,#main .terrain-rehearsal > .map-wrap { grid-column:1; grid-row:2; }
+ #main .terrain-rehearsal > .terrain-caption { grid-column:1; grid-row:3; }
+ @media(max-width:760px) {
+  #main .terrain-rehearsal > .terrain-operations { grid-column:1; grid-row:4; }
+ }
+}
+@media screen {
+ #main .geography-pane { height:100%; }
+ .reading-trigger { background:transparent; border:0; padding:3px 6px; font:inherit; cursor:pointer; color:var(--companion); }
+ .exercise-console .reading-trigger { min-height:28px; font-size:12px; background:var(--panel); }
+ .reading-dialog { width:min(1100px,calc(100vw - 32px)); height:min(740px,calc(100dvh - 64px)); max-height:calc(100dvh - 32px); padding:16px; border:1px solid var(--line-2); background:var(--panel); color:var(--ink); overflow:hidden; }
+ .reading-dialog[open] { display:grid; grid-template-rows:auto minmax(0,1fr); gap:12px; }
+ .reading-dialog::backdrop { background:#12354e80; }
+ .reading-dialog > header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+ .reading-dialog > header h2 { font-size:21px; margin:0; }
+ .reading-dialog > header button { font-size:25px; width:32px; height:32px; padding:0; background:transparent; border:0; }
+ .reading-dialog .console-sections { display:contents; }
+ .user-manual[open] { display:grid; grid-template-rows:auto minmax(0,1fr); height:calc(100dvh - 64px); max-height:740px; overflow:hidden; }
+ .user-manual .flow-content { column-count:1; }
+ .user-manual .manual-topics { display:contents; }
+ .user-manual details { break-inside:avoid; }
+ .terrain-caption .reading-trigger { font-size:11px; padding:0; }
+ @media(max-width:760px) {
+  .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-rows:32px minmax(70px,1fr) 32px minmax(0,240px); }
+  #main .terrain-rehearsal > .terrain-operations { height:100%; }
+  .exercise-console .reading-trigger { font-size:10px; max-width:92px; line-height:1.1; }
+  .reading-dialog { padding:12px; height:calc(100dvh - 40px); width:calc(100vw - 24px); }
+  .reading-dialog > header h2 { font-size:18px; }
+ }
+ @media(min-width:600px) and (max-height:500px) {
+  .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-columns:minmax(0,1fr) 290px; grid-template-rows:32px minmax(0,1fr) 30px; }
+  #main .terrain-rehearsal > .terrain-operations { grid-column:2; grid-row:1/4; height:100%; }
+  .workspace-switch { height:26px; }
+  .geography-pane { grid-template-rows:26px minmax(0,1fr); }
+  .terrain-toolbar { gap:2px; }
+  .terrain-toolbar button { padding:2px; width:25px; }
+  .exercise-console { display:none; }
+  .flow-content { column-count:2; }
+  .operations-pages .flow-content { column-count:1; }
+ }
+}
+@media screen {
+ .operation-switch { display:flex; gap:6px; border-bottom:1px solid var(--line); flex:none; }
+ .operation-switch button { font-size:12px; min-height:28px; padding:2px 5px; }
+ .operation-switch button[aria-pressed=true] { border-bottom:2px solid var(--companion); }
+ .terrain-operations > .paged-flow { flex:1; height:auto; min-height:0; }
+ .operations-content { display:contents; }
+ @media(min-width:600px) and (max-height:500px) {
+  #main .terrain-rehearsal > .exercise-console { display:block; }
+  .exercise-console .reading-trigger { font-size:0; width:24px; }
+  .exercise-console .reading-trigger::before { content:'ⓘ'; font-size:20px; }
+ }
+}
+@media screen and (max-width:760px) {
+ .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-rows:32px minmax(70px,1fr) 32px minmax(0,min(300px,calc(100dvh - 300px))); }
+ .exercise-console .reading-trigger { font-size:0; width:26px; min-height:28px; max-width:26px; }
+ .exercise-console .reading-trigger::before { content:'ⓘ'; font-size:21px; line-height:24px; }
+ .terrain-operations .rehearsal-readout { break-inside:avoid; }
+}
+@media screen and (min-width:600px) and (max-height:500px) {
+ .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-rows:32px minmax(0,1fr) 30px; }
+}
+@media screen {
+ .operations-pages .rehearsal-panel { display:contents; }
+ .flow-content button,.flow-content label,.flow-content input,.flow-content select,.flow-content textarea { break-inside:avoid; }
+ .flow-content .research-language,.flow-content .research-downloads,.flow-content .plan-actions,.flow-content .drill-actions { break-inside:avoid; }
+ .workspace-switch > span { display:none; }
+ .masthead-brand-group { flex:0 0 auto; }
+ @media(min-width:600px) and (max-width:760px) {
+  .masthead-nav .nav-caption { display:inline; font-size:13px; }
+  .masthead-nav .console-trigger { width:auto; padding-inline:5px; }
+  .region-picker-wrap { width:100px; max-width:100px; }
+ }
+}
+@media screen {
+ .page-jump { width:180px; max-width:45%; min-height:28px; height:28px; padding:2px 5px; font-size:12px; }
+ .operations-pages .terrain-analysis-row,.operations-pages .route-profile { display:block; height:auto; }
+ .operations-pages .route-profile > span { display:block; }
+ .operations-pages .route-profile svg { display:block; height:80px; width:100%; }
+ .operations-pages .route-profile { break-inside:auto; }
+ @media(max-width:760px) { .page-turner:has(.page-jump) button span { display:none; } }
+ @media(max-width:360px) {
+  .soonami-masthead .brand-logo { display:none; }
+  .soonami-brand .brand-name { font-size:15px; }
+  .region-picker-wrap { width:80px; max-width:80px; }
+  .masthead-nav .console-trigger { width:25px; padding:2px; }
+  .masthead-nav .manual-trigger { width:25px; min-width:25px; padding:2px; }
+ }
+}
+@media screen {
+ .paged-flow[data-pages="1"] { grid-template-rows:minmax(0,1fr); gap:0; }
+ .paged-flow[data-pages="1"] > .page-turner { display:none; }
+}
+@media screen {
+ .flow-content .drill-workspace .task-heading { margin-bottom:6px; }
+ .flow-content .drill-counter-grid { gap:8px 16px; margin-block:8px; }
+ .flow-content .drill-counter-grid label { margin:0; }
+ .flow-content .drill-reconciliation { padding:6px 0; margin:4px 0; }
+ .flow-content .drill-review textarea { min-height:50px; }
+ .flow-content .evacuation-guide li { padding-bottom:6px; }
+ .flow-content .evacuation-guide p { margin:3px 0 5px; }
+ .flow-content .research-qualification { font-size:14px !important; }
+ .reading-dialog[lang=th] { font-family:'Prompt','Jost',sans-serif; }
+}
+@media screen and (max-width:760px) {
+ #main .terrain-toolbar { flex-wrap:nowrap; gap:2px; padding-right:28px; }
+ #main .terrain-toolbar button { width:26px; min-width:26px; padding:2px; }
+ #main .terrain-toolbar .terrain-view-controls,#main .terrain-toolbar .experiment-tabs { flex-wrap:nowrap; gap:2px; }
+ #main .terrain-toolbar .toolbar-divider { margin-inline:2px; }
+}
+@media screen and (max-width:360px) {
+ .masthead-nav { gap:1px; }
+ .geography-pane { grid-template-rows:42px minmax(0,1fr); }
+ .geography-pane > .pane-header { height:42px; }
+ .geography-pane h2 { white-space:normal; }
+}
+@media screen {
+ .operations-pages .walkthrough-coach { break-inside:auto; }
+ .walkthrough-coach > .evacuation-guide { margin-top:12px; }
+ .walkthrough-coach > .evacuation-guide p { font-size:14px; }
+}
+@media screen {
+ .reading-dialog .emergency-panel { display:contents; position:static; max-height:none; padding:0; border:0; }
+ .reading-dialog .emergency-panel > div { display:contents; }
+ .masthead-action-group .reading-trigger { color:var(--ink); background:var(--accent); font-weight:600; min-height:30px; padding:3px 10px; }
+}
+@media screen {
+ .profile-chart { position:relative; height:120px; min-height:90px; margin:8px 0; }
+ .operations-pages .profile-chart svg { position:absolute; left:34px; top:0; width:calc(100% - 34px); height:calc(100% - 20px); min-height:0; max-height:none; }
+ .profile-y-scale { position:absolute; inset:0 auto 20px 0; width:30px; font-size:11px; color:var(--ink-2); }
+ .profile-y-scale span { position:absolute; right:3px; transform:translateY(-50%); }
+ .profile-y-scale span:nth-child(1) { top:11.11%; }
+ .profile-y-scale span:nth-child(2) { top:51.85%; }
+ .profile-y-scale span:nth-child(3) { top:92.59%; }
+ .profile-x-scale { position:absolute; inset:auto 0 0 34px; display:flex; justify-content:space-between; font-size:11px; color:var(--ink-2); }
+ .operations-pages[data-pages="1"] .flow-content { display:flex; flex-direction:column; }
+ .operations-pages[data-pages="1"] .terrain-secondary { flex:1; display:flex; min-height:0; }
+ .operations-pages[data-pages="1"] .terrain-analysis-row,.operations-pages[data-pages="1"] .route-profile { display:flex; flex:1; flex-direction:column; min-height:0; }
+ .operations-pages[data-pages="1"] .profile-chart { flex:1; height:auto; min-height:90px; }
+}
+@media screen {
+ .operations-pages[data-pages="1"] .terrain-secondary,.operations-pages[data-pages="1"] .terrain-analysis-row,.operations-pages[data-pages="1"] .route-profile { height:auto; }
+}
+@media screen {
+ .operations-pages[data-pages="1"] .rehearsal-controls,.operations-pages[data-pages="1"] .rehearsal-timeline,.operations-pages[data-pages="1"] .exercise-boundary,.operations-pages[data-pages="1"] .rehearsal-readout,.operations-pages[data-pages="1"] .compare-panel { flex:0 0 auto; }
+}

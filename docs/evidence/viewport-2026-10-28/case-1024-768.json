@@ -1,0 +1,877 @@
+[
+  {
+    "route": "model",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "headerControls": [
+      {
+        "name": null,
+        "rect": {
+          "bottom": 36,
+          "height": 30,
+          "left": 130.203125,
+          "right": 226.203125,
+          "top": 6,
+          "width": 96,
+          "x": 130.203125,
+          "y": 6
+        }
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 367.625,
+          "right": 448.625,
+          "top": 3,
+          "width": 81,
+          "x": 367.625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 452.625,
+          "right": 542.09375,
+          "top": 3,
+          "width": 89.46875,
+          "x": 452.625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 546.09375,
+          "right": 613.3203125,
+          "top": 3,
+          "width": 67.2265625,
+          "x": 546.09375,
+          "y": 3
+        }
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 617.3203125,
+          "right": 683.9609375,
+          "top": 3,
+          "width": 66.640625,
+          "x": 617.3203125,
+          "y": 3
+        }
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 687.9609375,
+          "right": 784.7421875,
+          "top": 3,
+          "width": 96.78125,
+          "x": 687.9609375,
+          "y": 3
+        }
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 788.7421875,
+          "right": 824.7421875,
+          "top": 3,
+          "width": 36,
+          "x": 788.7421875,
+          "y": 3
+        }
+      },
+      {
+        "name": "Warning guidance / คำเตือน",
+        "rect": {
+          "bottom": 36,
+          "height": 30,
+          "left": 957.15625,
+          "right": 1014,
+          "top": 6,
+          "width": 56.84375,
+          "x": 957.15625,
+          "y": 6
+        }
+      }
+    ],
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อนSections / หัวข้อWalk the plan, then review itIf warnings are real1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 698,
+          "height": 542,
+          "left": 12,
+          "right": 676,
+          "top": 156,
+          "width": 664,
+          "x": 12,
+          "y": 156
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 732,
+          "height": 30,
+          "left": 12,
+          "right": 676,
+          "top": 702,
+          "width": 664,
+          "x": 12,
+          "y": 702
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 732,
+          "height": 614,
+          "left": 692,
+          "right": 1012,
+          "top": 118,
+          "width": 320,
+          "x": 692,
+          "y": 118
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 535,
+          "left": 692,
+          "right": 1012,
+          "top": 157,
+          "width": 320,
+          "x": 692,
+          "y": 157
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 692,
+          "right": 1012,
+          "top": 700,
+          "width": 320,
+          "x": 692,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "toolbar": [
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Rehearsal"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Water level"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "3D terrain"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "2D map"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Fly-by"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Walk-through"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Overview"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Queue"
+      },
+      {
+        "clear": true,
+        "inside": true,
+        "name": "Compare departures"
+      }
+    ],
+    "width": 1024
+  },
+  {
+    "route": "satellite",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "headerControls": [
+      {
+        "name": null,
+        "rect": {
+          "bottom": 36,
+          "height": 30,
+          "left": 130.203125,
+          "right": 226.203125,
+          "top": 6,
+          "width": 96,
+          "x": 130.203125,
+          "y": 6
+        }
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 363.640625,
+          "right": 443.578125,
+          "top": 3,
+          "width": 79.9375,
+          "x": 363.640625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 447.578125,
+          "right": 539.078125,
+          "top": 3,
+          "width": 91.5,
+          "x": 447.578125,
+          "y": 3
+        }
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 543.078125,
+          "right": 610.3046875,
+          "top": 3,
+          "width": 67.2265625,
+          "x": 543.078125,
+          "y": 3
+        }
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 614.3046875,
+          "right": 680.9453125,
+          "top": 3,
+          "width": 66.640625,
+          "x": 614.3046875,
+          "y": 3
+        }
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 684.9453125,
+          "right": 781.7265625,
+          "top": 3,
+          "width": 96.78125,
+          "x": 684.9453125,
+          "y": 3
+        }
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 785.7265625,
+          "right": 821.7265625,
+          "top": 3,
+          "width": 36,
+          "x": 785.7265625,
+          "y": 3
+        }
+      },
+      {
+        "name": null,
+        "rect": {
+          "bottom": 34,
+          "height": 26,
+          "left": 950.15625,
+          "right": 1014,
+          "top": 8,
+          "width": 63.84375,
+          "x": 950.15625,
+          "y": 8
+        }
+      }
+    ],
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 732,
+          "height": 680,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      }
+    ],
+    "scrollY": 0,
+    "toolbar": [],
+    "width": 1024
+  },
+  {
+    "route": "plan",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "headerControls": [
+      {
+        "name": null,
+        "rect": {
+          "bottom": 36,
+          "height": 30,
+          "left": 130.203125,
+          "right": 226.203125,
+          "top": 6,
+          "width": 96,
+          "x": 130.203125,
+          "y": 6
+        }
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 364.203125,
+          "right": 444.140625,
+          "top": 3,
+          "width": 79.9375,
+          "x": 364.203125,
+          "y": 3
+        }
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 448.140625,
+          "right": 537.609375,
+          "top": 3,
+          "width": 89.46875,
+          "x": 448.140625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 541.609375,
+          "right": 609.734375,
+          "top": 3,
+          "width": 68.125,
+          "x": 541.609375,
+          "y": 3
+        }
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 613.734375,
+          "right": 680.375,
+          "top": 3,
+          "width": 66.640625,
+          "x": 613.734375,
+          "y": 3
+        }
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 684.375,
+          "right": 781.15625,
+          "top": 3,
+          "width": 96.78125,
+          "x": 684.375,
+          "y": 3
+        }
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 785.15625,
+          "right": 821.15625,
+          "top": 3,
+          "width": 36,
+          "x": 785.15625,
+          "y": 3
+        }
+      },
+      {
+        "name": null,
+        "rect": {
+          "bottom": 34,
+          "height": 26,
+          "left": 950.15625,
+          "right": 1014,
+          "top": 8,
+          "width": 63.84375,
+          "x": 950.15625,
+          "y": 8
+        }
+      }
+    ],
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 732,
+          "height": 680,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      }
+    ],
+    "scrollY": 0,
+    "toolbar": [],
+    "width": 1024
+  },
+  {
+    "route": "drill",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "headerControls": [
+      {
+        "name": null,
+        "rect": {
+          "bottom": 36,
+          "height": 30,
+          "left": 130.203125,
+          "right": 226.203125,
+          "top": 6,
+          "width": 96,
+          "x": 130.203125,
+          "y": 6
+        }
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 364.21875,
+          "right": 444.15625,
+          "top": 3,
+          "width": 79.9375,
+          "x": 364.21875,
+          "y": 3
+        }
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 448.15625,
+          "right": 537.625,
+          "top": 3,
+          "width": 89.46875,
+          "x": 448.15625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 541.625,
+          "right": 608.8515625,
+          "top": 3,
+          "width": 67.2265625,
+          "x": 541.625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 612.8515625,
+          "right": 680.359375,
+          "top": 3,
+          "width": 67.5078125,
+          "x": 612.8515625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 684.359375,
+          "right": 781.140625,
+          "top": 3,
+          "width": 96.78125,
+          "x": 684.359375,
+          "y": 3
+        }
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 785.140625,
+          "right": 821.140625,
+          "top": 3,
+          "width": 36,
+          "x": 785.140625,
+          "y": 3
+        }
+      },
+      {
+        "name": null,
+        "rect": {
+          "bottom": 34,
+          "height": 26,
+          "left": 950.15625,
+          "right": 1014,
+          "top": 8,
+          "width": 63.84375,
+          "x": 950.15625,
+          "y": 8
+        }
+      }
+    ],
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 732,
+          "height": 680,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      }
+    ],
+    "scrollY": 0,
+    "toolbar": [],
+    "width": 1024
+  },
+  {
+    "route": "research",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "headerControls": [
+      {
+        "name": null,
+        "rect": {
+          "bottom": 36,
+          "height": 30,
+          "left": 130.203125,
+          "right": 226.203125,
+          "top": 6,
+          "width": 96,
+          "x": 130.203125,
+          "y": 6
+        }
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 363.78125,
+          "right": 443.71875,
+          "top": 3,
+          "width": 79.9375,
+          "x": 363.78125,
+          "y": 3
+        }
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 447.71875,
+          "right": 537.1875,
+          "top": 3,
+          "width": 89.46875,
+          "x": 447.71875,
+          "y": 3
+        }
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 541.1875,
+          "right": 608.4140625,
+          "top": 3,
+          "width": 67.2265625,
+          "x": 541.1875,
+          "y": 3
+        }
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 612.4140625,
+          "right": 679.0546875,
+          "top": 3,
+          "width": 66.640625,
+          "x": 612.4140625,
+          "y": 3
+        }
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 683.0546875,
+          "right": 781.5859375,
+          "top": 3,
+          "width": 98.53125,
+          "x": 683.0546875,
+          "y": 3
+        }
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "bottom": 39,
+          "height": 36,
+          "left": 785.5859375,
+          "right": 821.5859375,
+          "top": 3,
+          "width": 36,
+          "x": 785.5859375,
+          "y": 3
+        }
+      },
+      {
+        "name": null,
+        "rect": {
+          "bottom": 34,
+          "height": 26,
+          "left": 950.15625,
+          "right": 1014,
+          "top": 8,
+          "width": 63.84375,
+          "x": 950.15625,
+          "y": 8
+        }
+      }
+    ],
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อนSections / หัวข้อ01 / Reported scenario resultsWhat the reported comparisons supportRead package definitions and outcome accounting02 / Two models, different purposesPublished Unity ABMS [R1]Browser point-queue rehearsalHow Soonami Builds on the ResearchUncertainty, repeatability and interpretation03 / Evidence & data ledger04 / Validation agenda · proposed, not completedReproduce the source modelHindcast the physical hazardSurvey routes and candidate refugesTest behavior and language in the fieldStress-test and publish the failures05 / Reproduce, inspect & citeReplication record and author questionsThai / English terminology1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 640,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 12,
+          "right": 1012,
+          "top": 700,
+          "width": 1000,
+          "x": 12,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "toolbar": [],
+    "width": 1024
+  }
+]

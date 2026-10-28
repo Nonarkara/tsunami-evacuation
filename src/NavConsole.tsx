@@ -110,7 +110,7 @@ export function NavConsole({
           aria-current={active === entry.key ? 'page' : undefined}
           onClick={() => onNavigate(entry.key)}
         >
-          <NavSymbol name={entry.key} />
+          <NavSymbol name={entry.key} /><span className="nav-caption">{entry.label}</span>
         </button>
       ))}
       {manual}

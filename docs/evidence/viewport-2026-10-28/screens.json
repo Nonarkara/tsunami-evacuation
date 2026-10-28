@@ -1,0 +1,2375 @@
+[
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 844,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "main": {
+      "bottom": 820,
+      "height": 776,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 476,
+          "height": 327,
+          "left": 8,
+          "right": 382,
+          "top": 149,
+          "width": 374,
+          "x": 8,
+          "y": 149
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 511,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 479,
+          "width": 374,
+          "x": 8,
+          "y": 479
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 814,
+          "height": 300,
+          "left": 8,
+          "right": 382,
+          "top": 514,
+          "width": 374,
+          "x": 8,
+          "y": 514
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 774,
+          "height": 226,
+          "left": 8,
+          "right": 382,
+          "top": 548,
+          "width": 374,
+          "x": 8,
+          "y": 548
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 814,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 782,
+          "width": 374,
+          "x": 8,
+          "y": 782
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 844,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "main": {
+      "bottom": 820,
+      "height": 776,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 774,
+          "height": 724,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 814,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 782,
+          "width": 374,
+          "x": 8,
+          "y": 782
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 844,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "main": {
+      "bottom": 820,
+      "height": 776,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 774,
+          "height": 724,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 814,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 782,
+          "width": 374,
+          "x": 8,
+          "y": 782
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 844,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "main": {
+      "bottom": 820,
+      "height": 776,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 774,
+          "height": 724,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 814,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 782,
+          "width": 374,
+          "x": 8,
+          "y": 782
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 844,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "main": {
+      "bottom": 820,
+      "height": 776,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 8Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 774,
+          "height": 724,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 814,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 782,
+          "width": 374,
+          "x": 8,
+          "y": 782
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 698,
+          "height": 542,
+          "left": 12,
+          "right": 676,
+          "top": 156,
+          "width": 664,
+          "x": 12,
+          "y": 156
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 732,
+          "height": 30,
+          "left": 12,
+          "right": 676,
+          "top": 702,
+          "width": 664,
+          "x": 12,
+          "y": 702
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 732,
+          "height": 614,
+          "left": 692,
+          "right": 1012,
+          "top": 118,
+          "width": 320,
+          "x": 692,
+          "y": 118
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 535,
+          "left": 692,
+          "right": 1012,
+          "top": 157,
+          "width": 320,
+          "x": 692,
+          "y": 157
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 692,
+          "right": 1012,
+          "top": 700,
+          "width": 320,
+          "x": 692,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1024
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 640,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 12,
+          "right": 1012,
+          "top": 700,
+          "width": 1000,
+          "x": 12,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1024
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 640,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 12,
+          "right": 1012,
+          "top": 700,
+          "width": 1000,
+          "x": 12,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1024
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 640,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 12,
+          "right": 1012,
+          "top": 700,
+          "width": 1000,
+          "x": 12,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1024
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 768,
+    "documentWidth": 1024,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 768,
+    "main": {
+      "bottom": 740,
+      "height": 696,
+      "left": 0,
+      "right": 1024,
+      "top": 44,
+      "width": 1024,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 692,
+          "height": 640,
+          "left": 12,
+          "right": 1012,
+          "top": 52,
+          "width": 1000,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 732,
+          "height": 32,
+          "left": 12,
+          "right": 1012,
+          "top": 700,
+          "width": 1000,
+          "x": 12,
+          "y": 700
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1024
+  },
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 720,
+    "documentWidth": 1280,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 692,
+      "height": 648,
+      "left": 0,
+      "right": 1280,
+      "top": 44,
+      "width": 1280,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 650,
+          "height": 494,
+          "left": 12,
+          "right": 902,
+          "top": 156,
+          "width": 890,
+          "x": 12,
+          "y": 156
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 684,
+          "height": 30,
+          "left": 12,
+          "right": 902,
+          "top": 654,
+          "width": 890,
+          "x": 12,
+          "y": 654
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 684,
+          "height": 566,
+          "left": 918,
+          "right": 1268,
+          "top": 118,
+          "width": 350,
+          "x": 918,
+          "y": 118
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 644,
+          "height": 487,
+          "left": 918,
+          "right": 1268,
+          "top": 157,
+          "width": 350,
+          "x": 918,
+          "y": 157
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 684,
+          "height": 32,
+          "left": 918,
+          "right": 1268,
+          "top": 652,
+          "width": 350,
+          "x": 918,
+          "y": 652
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1280
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 720,
+    "documentWidth": 1280,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 692,
+      "height": 648,
+      "left": 0,
+      "right": 1280,
+      "top": 44,
+      "width": 1280,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 644,
+          "height": 592,
+          "left": 12,
+          "right": 1268,
+          "top": 52,
+          "width": 1256,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 684,
+          "height": 32,
+          "left": 12,
+          "right": 1268,
+          "top": 652,
+          "width": 1256,
+          "x": 12,
+          "y": 652
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1280
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 720,
+    "documentWidth": 1280,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 692,
+      "height": 648,
+      "left": 0,
+      "right": 1280,
+      "top": 44,
+      "width": 1280,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 644,
+          "height": 592,
+          "left": 12,
+          "right": 1268,
+          "top": 52,
+          "width": 1256,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 684,
+          "height": 32,
+          "left": 12,
+          "right": 1268,
+          "top": 652,
+          "width": 1256,
+          "x": 12,
+          "y": 652
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1280
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 720,
+    "documentWidth": 1280,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 692,
+      "height": 648,
+      "left": 0,
+      "right": 1280,
+      "top": 44,
+      "width": 1280,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 644,
+          "height": 592,
+          "left": 12,
+          "right": 1268,
+          "top": 52,
+          "width": 1256,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 684,
+          "height": 32,
+          "left": 12,
+          "right": 1268,
+          "top": 652,
+          "width": 1256,
+          "x": 12,
+          "y": 652
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1280
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 720,
+    "documentWidth": 1280,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "height": 720,
+    "main": {
+      "bottom": 692,
+      "height": 648,
+      "left": 0,
+      "right": 1280,
+      "top": 44,
+      "width": 1280,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 644,
+          "height": 592,
+          "left": 12,
+          "right": 1268,
+          "top": 52,
+          "width": 1256,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 684,
+          "height": 32,
+          "left": 12,
+          "right": 1268,
+          "top": 652,
+          "width": 1256,
+          "x": 12,
+          "y": 652
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1280
+  },
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 900,
+    "documentWidth": 1440,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "main": {
+      "bottom": 872,
+      "height": 828,
+      "left": 0,
+      "right": 1440,
+      "top": 44,
+      "width": 1440,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 830,
+          "height": 674,
+          "left": 12,
+          "right": 1062,
+          "top": 156,
+          "width": 1050,
+          "x": 12,
+          "y": 156
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 864,
+          "height": 30,
+          "left": 12,
+          "right": 1062,
+          "top": 834,
+          "width": 1050,
+          "x": 12,
+          "y": 834
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 864,
+          "height": 746,
+          "left": 1078,
+          "right": 1428,
+          "top": 118,
+          "width": 350,
+          "x": 1078,
+          "y": 118
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 824,
+          "height": 667,
+          "left": 1078,
+          "right": 1428,
+          "top": 157,
+          "width": 350,
+          "x": 1078,
+          "y": 157
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 864,
+          "height": 32,
+          "left": 1078,
+          "right": 1428,
+          "top": 832,
+          "width": 350,
+          "x": 1078,
+          "y": 832
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1440
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 900,
+    "documentWidth": 1440,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "main": {
+      "bottom": 872,
+      "height": 828,
+      "left": 0,
+      "right": 1440,
+      "top": 44,
+      "width": 1440,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 824,
+          "height": 772,
+          "left": 12,
+          "right": 1428,
+          "top": 52,
+          "width": 1416,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 864,
+          "height": 32,
+          "left": 12,
+          "right": 1428,
+          "top": 832,
+          "width": 1416,
+          "x": 12,
+          "y": 832
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1440
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 900,
+    "documentWidth": 1440,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "main": {
+      "bottom": 872,
+      "height": 828,
+      "left": 0,
+      "right": 1440,
+      "top": 44,
+      "width": 1440,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 824,
+          "height": 772,
+          "left": 12,
+          "right": 1428,
+          "top": 52,
+          "width": 1416,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 864,
+          "height": 32,
+          "left": 12,
+          "right": 1428,
+          "top": 832,
+          "width": 1416,
+          "x": 12,
+          "y": 832
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1440
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 900,
+    "documentWidth": 1440,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "main": {
+      "bottom": 872,
+      "height": 828,
+      "left": 0,
+      "right": 1440,
+      "top": 44,
+      "width": 1440,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 824,
+          "height": 772,
+          "left": 12,
+          "right": 1428,
+          "top": 52,
+          "width": 1416,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 864,
+          "height": 32,
+          "left": 12,
+          "right": 1428,
+          "top": 832,
+          "width": 1416,
+          "x": 12,
+          "y": 832
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1440
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 900,
+    "documentWidth": 1440,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "main": {
+      "bottom": 872,
+      "height": 828,
+      "left": 0,
+      "right": 1440,
+      "top": 44,
+      "width": 1440,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 824,
+          "height": 772,
+          "left": 12,
+          "right": 1428,
+          "top": 52,
+          "width": 1416,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 864,
+          "height": 32,
+          "left": 12,
+          "right": 1428,
+          "top": 832,
+          "width": 1416,
+          "x": 12,
+          "y": 832
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1440
+  },
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 375,
+    "documentWidth": 667,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 667,
+      "top": 0,
+      "width": 667,
+      "x": 0,
+      "y": 0
+    },
+    "height": 375,
+    "main": {
+      "bottom": 351,
+      "height": 307,
+      "left": 0,
+      "right": 667,
+      "top": 44,
+      "width": 667,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 312,
+          "height": 165,
+          "left": 8,
+          "right": 366,
+          "top": 147,
+          "width": 358,
+          "x": 8,
+          "y": 147
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 345,
+          "height": 30,
+          "left": 8,
+          "right": 366,
+          "top": 315,
+          "width": 358,
+          "x": 8,
+          "y": 315
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 345,
+          "height": 233,
+          "left": 369,
+          "right": 659,
+          "top": 112,
+          "width": 290,
+          "x": 369,
+          "y": 112
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 305,
+          "height": 147.40625,
+          "left": 369,
+          "right": 659,
+          "top": 157.59375,
+          "width": 290,
+          "x": 369,
+          "y": 157.59375
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 345,
+          "height": 32,
+          "left": 369,
+          "right": 659,
+          "top": 313,
+          "width": 290,
+          "x": 369,
+          "y": 313
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 667
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 375,
+    "documentWidth": 667,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 667,
+      "top": 0,
+      "width": 667,
+      "x": 0,
+      "y": 0
+    },
+    "height": 375,
+    "main": {
+      "bottom": 351,
+      "height": 307,
+      "left": 0,
+      "right": 667,
+      "top": 44,
+      "width": 667,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 305,
+          "height": 255,
+          "left": 8,
+          "right": 659,
+          "top": 50,
+          "width": 651,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 345,
+          "height": 32,
+          "left": 8,
+          "right": 659,
+          "top": 313,
+          "width": 651,
+          "x": 8,
+          "y": 313
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 667
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 375,
+    "documentWidth": 667,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 667,
+      "top": 0,
+      "width": 667,
+      "x": 0,
+      "y": 0
+    },
+    "height": 375,
+    "main": {
+      "bottom": 351,
+      "height": 307,
+      "left": 0,
+      "right": 667,
+      "top": 44,
+      "width": 667,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 305,
+          "height": 255,
+          "left": 8,
+          "right": 659,
+          "top": 50,
+          "width": 651,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 345,
+          "height": 32,
+          "left": 8,
+          "right": 659,
+          "top": 313,
+          "width": 651,
+          "x": 8,
+          "y": 313
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 667
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 375,
+    "documentWidth": 667,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 667,
+      "top": 0,
+      "width": 667,
+      "x": 0,
+      "y": 0
+    },
+    "height": 375,
+    "main": {
+      "bottom": 351,
+      "height": 307,
+      "left": 0,
+      "right": 667,
+      "top": 44,
+      "width": 667,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 305,
+          "height": 255,
+          "left": 8,
+          "right": 659,
+          "top": 50,
+          "width": 651,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 345,
+          "height": 32,
+          "left": 8,
+          "right": 659,
+          "top": 313,
+          "width": 651,
+          "x": 8,
+          "y": 313
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 667
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 375,
+    "documentWidth": 667,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 667,
+      "top": 0,
+      "width": 667,
+      "x": 0,
+      "y": 0
+    },
+    "height": 375,
+    "main": {
+      "bottom": 351,
+      "height": 307,
+      "left": 0,
+      "right": 667,
+      "top": 44,
+      "width": 667,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 16Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 305,
+          "height": 255,
+          "left": 8,
+          "right": 659,
+          "top": 50,
+          "width": 651,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 345,
+          "height": 32,
+          "left": 8,
+          "right": 659,
+          "top": 313,
+          "width": 651,
+          "x": 8,
+          "y": 313
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 667
+  },
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 600,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 600,
+    "main": {
+      "bottom": 576,
+      "height": 532,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 232,
+          "height": 83,
+          "left": 8,
+          "right": 382,
+          "top": 149,
+          "width": 374,
+          "x": 8,
+          "y": 149
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 267,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 235,
+          "width": 374,
+          "x": 8,
+          "y": 235
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 570,
+          "height": 300,
+          "left": 8,
+          "right": 382,
+          "top": 270,
+          "width": 374,
+          "x": 8,
+          "y": 270
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 530,
+          "height": 226,
+          "left": 8,
+          "right": 382,
+          "top": 304,
+          "width": 374,
+          "x": 8,
+          "y": 304
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 570,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 538,
+          "width": 374,
+          "x": 8,
+          "y": 538
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 600,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 600,
+    "main": {
+      "bottom": 576,
+      "height": 532,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 530,
+          "height": 480,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 570,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 538,
+          "width": 374,
+          "x": 8,
+          "y": 538
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 600,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 600,
+    "main": {
+      "bottom": 576,
+      "height": 532,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 530,
+          "height": 480,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 570,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 538,
+          "width": 374,
+          "x": 8,
+          "y": 538
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 600,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 600,
+    "main": {
+      "bottom": 576,
+      "height": 532,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 530,
+          "height": 480,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 570,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 538,
+          "width": 374,
+          "x": 8,
+          "y": 538
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 600,
+    "documentWidth": 390,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 600,
+    "main": {
+      "bottom": 576,
+      "height": 532,
+      "left": 0,
+      "right": 390,
+      "top": 44,
+      "width": 390,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 13Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 530,
+          "height": 480,
+          "left": 8,
+          "right": 382,
+          "top": 50,
+          "width": 374,
+          "x": 8,
+          "y": 50
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 570,
+          "height": 32,
+          "left": 8,
+          "right": 382,
+          "top": 538,
+          "width": 374,
+          "x": 8,
+          "y": 538
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 390
+  },
+  {
+    "route": "Model / แบบจำลอง",
+    "documentHeight": 674,
+    "documentWidth": 1169,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1169,
+      "top": 0,
+      "width": 1169,
+      "x": 0,
+      "y": 0
+    },
+    "height": 674,
+    "main": {
+      "bottom": 646,
+      "height": 602,
+      "left": 0,
+      "right": 1169,
+      "top": 44,
+      "width": 1169,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "bottom": 604,
+          "height": 448,
+          "left": 12,
+          "right": 791,
+          "top": 156,
+          "width": 779,
+          "x": 12,
+          "y": 156
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "bottom": 638,
+          "height": 30,
+          "left": 12,
+          "right": 791,
+          "top": 608,
+          "width": 779,
+          "x": 12,
+          "y": 608
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "bottom": 638,
+          "height": 520,
+          "left": 807,
+          "right": 1157,
+          "top": 118,
+          "width": 350,
+          "x": 807,
+          "y": 118
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 598,
+          "height": 441,
+          "left": 807,
+          "right": 1157,
+          "top": 157,
+          "width": 350,
+          "x": 807,
+          "y": 157
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 638,
+          "height": 32,
+          "left": 807,
+          "right": 1157,
+          "top": 606,
+          "width": 350,
+          "x": 807,
+          "y": 606
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1169
+  },
+  {
+    "route": "Satellite / ดาวเทียม",
+    "documentHeight": 674,
+    "documentWidth": 1169,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1169,
+      "top": 0,
+      "width": 1169,
+      "x": 0,
+      "y": 0
+    },
+    "height": 674,
+    "main": {
+      "bottom": 646,
+      "height": 602,
+      "left": 0,
+      "right": 1169,
+      "top": 44,
+      "width": 1169,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 1Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 598,
+          "height": 546,
+          "left": 12,
+          "right": 1157,
+          "top": 52,
+          "width": 1145,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 638,
+          "height": 32,
+          "left": 12,
+          "right": 1157,
+          "top": 606,
+          "width": 1145,
+          "x": 12,
+          "y": 606
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1169
+  },
+  {
+    "route": "Plan / แผน",
+    "documentHeight": 674,
+    "documentWidth": 1169,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1169,
+      "top": 0,
+      "width": 1169,
+      "x": 0,
+      "y": 0
+    },
+    "height": 674,
+    "main": {
+      "bottom": 646,
+      "height": 602,
+      "left": 0,
+      "right": 1169,
+      "top": 44,
+      "width": 1169,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 598,
+          "height": 546,
+          "left": 12,
+          "right": 1157,
+          "top": 52,
+          "width": 1145,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 638,
+          "height": 32,
+          "left": 12,
+          "right": 1157,
+          "top": 606,
+          "width": 1145,
+          "x": 12,
+          "y": 606
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1169
+  },
+  {
+    "route": "Drill / ซ้อมอพยพ",
+    "documentHeight": 674,
+    "documentWidth": 1169,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1169,
+      "top": 0,
+      "width": 1169,
+      "x": 0,
+      "y": 0
+    },
+    "height": 674,
+    "main": {
+      "bottom": 646,
+      "height": 602,
+      "left": 0,
+      "right": 1169,
+      "top": 44,
+      "width": 1169,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 598,
+          "height": 546,
+          "left": 12,
+          "right": 1157,
+          "top": 52,
+          "width": 1145,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 638,
+          "height": 32,
+          "left": 12,
+          "right": 1157,
+          "top": 606,
+          "width": 1145,
+          "x": 12,
+          "y": 606
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1169
+  },
+  {
+    "route": "Research / งานวิจัย",
+    "documentHeight": 674,
+    "documentWidth": 1169,
+    "failures": [],
+    "header": {
+      "bottom": 44,
+      "height": 44,
+      "left": 0,
+      "right": 1169,
+      "top": 0,
+      "width": 1169,
+      "x": 0,
+      "y": 0
+    },
+    "height": 674,
+    "main": {
+      "bottom": 646,
+      "height": 602,
+      "left": 0,
+      "right": 1169,
+      "top": 44,
+      "width": 1169,
+      "x": 0,
+      "y": 44
+    },
+    "pages": [
+      "← Previous / ก่อน1 / 5Next / ถัดไป →"
+    ],
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "bottom": 598,
+          "height": 546,
+          "left": 12,
+          "right": 1157,
+          "top": 52,
+          "width": 1145,
+          "x": 12,
+          "y": 52
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "bottom": 638,
+          "height": 32,
+          "left": 12,
+          "right": 1157,
+          "top": 606,
+          "width": 1145,
+          "x": 12,
+          "y": 606
+        }
+      }
+    ],
+    "scrollY": 0,
+    "width": 1169
+  }
+]

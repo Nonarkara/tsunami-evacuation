@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
+import { cycleDialogFocus } from './dialog-focus';
+import { PagedFlow } from './PagedFlow';
+import { useEffect, useRef, useState } from 'react';
 import { NavSymbol } from './NavSymbol';
 import { manualOrder, manualTopics, manualLanguage, type ManualLanguage, type ManualPage } from './manual-content';
 
@@ -19,20 +21,16 @@ export function Manual({ open, page, onClose, onNavigate }: { open: boolean; pag
     if (!open && element.open) element.close();
   }, [open]);
 
-  function keepFocusInManual(event: KeyboardEvent<HTMLDialogElement>) {
-    if (event.key !== 'Tab') return;
-    const element = event.currentTarget;
-    const controls = Array.from(element.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], summary, [tabindex]:not([tabindex="-1"])')).filter(control => control.checkVisibility());
-    const first = controls[0], last = controls.at(-1);
-    if (!first || !last) return;
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault(); last.focus();
-    } else if ((!event.shiftKey && document.activeElement === last) || document.activeElement === element) {
-      event.preventDefault(); (event.shiftKey ? last : first).focus();
+  useEffect(()=>{
+    function keepFocusInManual(event:KeyboardEvent){
+      const element=dialog.current;
+      if(element)cycleDialogFocus(element,event);
     }
-  }
+    document.addEventListener('keydown',keepFocusInManual,true);
+    return()=>document.removeEventListener('keydown',keepFocusInManual,true);
+  },[]);
 
-  return <dialog ref={dialog} className="user-manual" lang={language} aria-labelledby="manual-title" onClose={onClose} onKeyDown={keepFocusInManual}>
+  return <dialog ref={dialog} className="user-manual" lang={language} aria-labelledby="manual-title" onClose={onClose}>
     <div className="manual-heading">
       <h2 id="manual-title">{t('How to use Soonami', 'วิธีใช้ Soonami')}</h2>
       <div className="manual-languages" role="group" aria-label="Manual language / ภาษาคู่มือ">
@@ -41,7 +39,7 @@ export function Manual({ open, page, onClose, onNavigate }: { open: boolean; pag
       </div>
       <button className="manual-close" aria-label="Close manual / ปิดคู่มือ" title={t('Close · Esc', 'ปิด · Esc')} onClick={onClose} autoFocus>×</button>
     </div>
-    <p className="manual-scope">{t('A planning and learning tool. No live warning, wave forecast or approved route guidance.', 'เครื่องมือวางแผนและเรียนรู้ ไม่มีคำเตือนแบบเวลาจริง การพยากรณ์คลื่น หรือคำแนะนำเส้นทางที่ได้รับอนุมัติ')}</p>
+    <PagedFlow label="Manual"><p className="manual-scope">{t('A planning and learning tool. No live warning, wave forecast or approved route guidance.', 'เครื่องมือวางแผนและเรียนรู้ ไม่มีคำเตือนแบบเวลาจริง การพยากรณ์คลื่น หรือคำแนะนำเส้นทางที่ได้รับอนุมัติ')}</p>
     <section aria-labelledby="manual-start-title" className="manual-start">
       <h3 id="manual-start-title">{t('Start here', 'เริ่มตรงนี้')}</h3>
       <ol>
@@ -61,5 +59,5 @@ export function Manual({ open, page, onClose, onNavigate }: { open: boolean; pag
         </details>;
       })}
     </div>
-  </dialog>;
+  </PagedFlow></dialog>;
 }
