@@ -30,3 +30,7 @@ All five routes have390/1024/1440 screenshots. Fresh `walk-1440.png` shows the c
 35 JavaScript and10 Python tests passed, including an independent rerun. Final TypeScript/Vite build and contrast check required before deployment. Native Thai/English human comprehension review, local route/refuge approval and validated hazard timing remain unverified. The1.65m view and labelled3m unknown-height massing remain exploratory. Physical crowd spillback and water-agent interaction remain unmodeled.
 
 Release receipt will follow canonical asset and browser verification.
+
+## Canonical release receipt
+
+Application commit e2c0a9b pushed to origin/main. `npm run deploy` reran all45 tests, TypeScript/Vite build and all six contrast checks successfully. Cloudflare version a0cc4b42-2b82-48f1-bad2-c2adc0c1360c serves tsunami.nonarkara.org. Canonical HTML plus referenced JS/CSS match local dist byte-for-byte (`live-bytes.json`). Live browser navigation across all five routes measured1280x720 documents inside the1280x720 viewport with no bounds failures (`live-routes.json`). Live walkthrough captured in `live-walk.png`; no captured console errors. Warning guidance was additionally exercised at1024x450: dialog988x386 inside the viewport, no document overflow, Escape closed it. Local5173 also responds200; the separate5188 test service is stopped after verification. Native human/field validation limits above remain unchanged.

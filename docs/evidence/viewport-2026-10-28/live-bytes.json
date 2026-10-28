@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/",
+    "match": true,
+    "bytes": 1341,
+    "sha256": "0aaab93882e2c593039a65431e1fb143ac8755ed02e64cd80c6e3d24d62d33de"
+  },
+  {
+    "path": "/assets/index-MY6vv-dT.js",
+    "match": true,
+    "bytes": 1657119,
+    "sha256": "7425bcf6486f3342b3166959cf3fbe215d12aaae0b162ee704fbc79d0e732c8d"
+  },
+  {
+    "path": "/assets/index-BKHI60zn.css",
+    "match": true,
+    "bytes": 187986,
+    "sha256": "70e7c49cc6ac90e3a6535c873dbed4eca9c11086159c5044d644d0e3d935296f"
+  }
+]
