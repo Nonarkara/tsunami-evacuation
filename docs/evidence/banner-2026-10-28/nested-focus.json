@@ -1,0 +1,60 @@
+{
+  "nestedFinal": [
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    },
+    {
+      "inside": true,
+      "open": 2
+    }
+  ],
+  "nestedClose": {
+    "focus": "Sources, assumptions, settings & coverage",
+    "open": 1
+  },
+  "moreClose": {
+    "focus": "Map controls / เครื่องมือแผนที่",
+    "open": 0
+  }
+}

@@ -7,8 +7,10 @@ import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
 import "./viewport.css";
+import "./banner.css";
 import { PagedFlow } from "./PagedFlow";
 import { ReadingDialog } from "./ReadingDialog";
+import { BannerDock } from "./BannerDock";
 import { Manual } from "./Manual";
 import { Drill } from "./Drill";
 import { OutcomeSummary } from "./OutcomeSummary";
@@ -64,6 +66,7 @@ function App() {
   const [selectedPlace, setSelectedPlace] = useState(2);
   const [step, setStep] = useState(4);
   const [condition, setCondition] = useState<Condition>("baseline");
+  const [bannerDock,setBannerDock]=useState<HTMLDivElement|null>(null);
   const [modelView,setModelView]=useState("terrain");
   const [manualOpen, setManualOpen] = useState(false);
   const [language, setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
@@ -198,11 +201,12 @@ function App() {
         Skip to content
       </a>
 
-      {/* ── §1 Ultra-Compact Command Masthead (Zero Spatial Hallucination) ── */}
-      <header className="soonami-masthead">
+      {/* One application banner: identity, geography, navigation and scene tools. */}
+      <header className="soonami-masthead" data-page={tab}>
         <div className="masthead-brand-group">
           <a
             className="soonami-brand"
+            aria-label="Soonami"
             href="#explore"
             onClick={(e) => {
               e.preventDefault();
@@ -230,7 +234,7 @@ function App() {
             >
               {coastalRegions.map((r, i) => (
                 <option key={r.id} value={i}>
-                  {["Khao Lak", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i]}
+                  {["Khao Lak · Phang Nga", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i]}
                 </option>
               ))}
             </select>
@@ -248,6 +252,13 @@ function App() {
           }
         />
 
+        {tab==='explore'&&<BannerDock scene={modelView==='terrain'} onDock={setBannerDock} context={<>
+          <select aria-label="Model view / มุมมอง" title="Terrain or published outcomes" value={modelView} onChange={e=>setModelView(e.target.value)}><option value="terrain">Terrain</option><option value="evidence">Outcomes</option></select>
+                <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
+                  <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
+                  <span>{selectedPlace+1}/{region.places.length}</span>
+                </label>        </>}/>}
+
         <div className="masthead-status">{language==='th'?'งานวิจัยและฝึกซ้อม · ไม่มีคำเตือนสด':'Research & practice · no live warning'}</div>
         <div className="masthead-action-group">
           <ReadingDialog title="Warning guidance / คำเตือน" triggerLabel="1784" className="emergency-pill-btn">{emergencyGuidance}</ReadingDialog>
@@ -260,7 +271,7 @@ function App() {
       <main id="main" tabIndex={-1} data-page={tab}>
         {tab === "explore" ? (
           <div className="explore-grid" data-view={modelView}>
-            <nav className="workspace-switch" aria-label="Model workspace"><button aria-pressed={modelView==='terrain'} onClick={()=>setModelView("terrain")}>Terrain / ภูมิประเทศ</button><button aria-pressed={modelView==='evidence'} onClick={()=>setModelView("evidence")}>Published outcomes / ผลวิจัย</button><span>Research rehearsal · no live warning / แบบฝึก ไม่ใช่คำเตือนสด</span></nav>
+
             {/* Section 01: 3D Aerial Topography & Water Inundation Simulator */}
             <section hidden={modelView!=="terrain"} className="geography-pane" id="geography-pane" aria-labelledby="map-pane-title">
               <div className="pane-header">
@@ -269,10 +280,7 @@ function App() {
                   <h2 id="map-pane-title">{region.id==='khao-lak'?'Khao Lak · Phang Nga':region.name}</h2>
                 </div>
 
-                <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
-                  <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
-                  <span>{selectedPlace+1}/{region.places.length}</span>
-                </label>
+
               </div>
 
               {/* Interactive 3D Aerial Leaflet Map with Wave Simulation */}
@@ -281,6 +289,7 @@ function App() {
                 region={region}
                 selected={selectedPlace}
                 onSelect={setSelectedPlace}
+                bannerDock={bannerDock}
                 consoleSlot={placeConsole}
                 onReview={()=>navigate("drill")}
               />

@@ -1,3 +1,4 @@
+import { DockControls } from './BannerDock';
 import { ReadingDialog } from './ReadingDialog';
 import { PagedFlow } from './PagedFlow';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
@@ -19,7 +20,7 @@ import { simulate, frame, elevation, waterScreen, distance, type RouteData, type
 
 const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
-export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onReview }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; onReview:()=>void }) {
+export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onReview, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; onReview:()=>void; bannerDock:HTMLElement|null }) {
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
   const host = useRef<HTMLDivElement>(null), map = useRef<maplibregl.Map | null>(null);
@@ -321,7 +322,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const guideAvailable=camera==='walk'&&!flat&&!!progress&&!!selectedSchedule;
   useEffect(()=>{if(!guideAvailable)setOperationView('operate');},[guideAvailable]);
   return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
-    <div className="terrain-toolbar">
+    <DockControls target={bannerDock}><div className="terrain-toolbar">
       {isStudy && <><div className="experiment-tabs" role="group" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} aria-label="Rehearsal" title="Rehearsal — crowd queue on the mapped network" onClick={() => { setMode('crowd'); setScreen(false); }}><CameraSymbol name="rehearsal" /></button><button aria-pressed={mode === 'water'} aria-label="Water level" title="Water level — illustrative static level on the terrain" onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}><CameraSymbol name="water" /></button></div><span className="toolbar-divider" aria-hidden="true" /></>}
       <div className="terrain-view-controls" role="group" aria-label="Camera controls">
         <button aria-pressed={!flat && dimension === '3d'} aria-label="3D terrain" title="3D terrain" onClick={() => { setFlat(false); setDimension('3d'); }}><CameraSymbol name="terrain3d" /></button>
@@ -329,7 +330,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
         {!flat && <><button disabled={!ready} aria-label="Fly-by" title="Fly-by — aerial sweep over the route or area" aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }}><CameraSymbol name="flyby" /></button><button disabled={!ready || (isStudy && !model) || (!isStudy && buildingsEnabled && !buildings && !buildingError)} aria-label="Walk-through" title="Walk-through — 1.65 m eye height on the mapped route" aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); if (!isStudy) { const p=region.places[selected], start=buildings?.walkStart; const coord:Coord=start?.coord ?? [p.lng,p.lat]; setFreeWalk({coord,bearing:start?.bearing ?? 0}); map.current?.easeTo({center:coord,zoom:16,pitch:60,duration:600}); map.current?.getCanvas().focus({preventScroll:true}); } }}><CameraSymbol name="walk" /></button><button disabled={!ready} aria-label="Overview" title="Overview — the whole exercise area" aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}><CameraSymbol name="overview" /></button><button disabled={!ready || !isStudy || !model} aria-label="Queue" title="Queue — totals waiting at network nodes" aria-pressed={!!queueFocus} onClick={inspectQueue}><CameraSymbol name="queue" /></button>{isStudy && model && <><span className="toolbar-divider" aria-hidden="true" /><button aria-label="Compare departures" title="Compare immediate and delayed departure" aria-pressed={walkCompare === 'compare'} onClick={() => setWalkCompare(walkCompare === 'off' ? 'compare' : 'off')}><CameraSymbol name="compare" /></button></>}</>}
       </div>
 
-    </div>
+    </div></DockControls>
     {flat ? <StudyMap region={region} selected={selected} onSelect={onSelect} buildings={buildings} /> : <div className="terrain-stage">
       <div ref={host} className="terrain-canvas" aria-label="3D terrain map. Drag to pan, right-drag to tilt. Click for terrain height." />
 
@@ -342,7 +343,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
       <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
     </div>
-    <div className="terrain-operations"><nav className="operation-switch" aria-label="Scene task"><button aria-pressed={operationView==='operate'} onClick={()=>setOperationView('operate')}>Controls & profile / ควบคุม</button><button aria-pressed={operationView==='guide'} disabled={!guideAvailable} onClick={()=>setOperationView('guide')}>Walkthrough / ขั้นตอน</button></nav><PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
+    <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Walkthrough</option></select></label></DockControls><PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
       {camera === 'walk' && !flat && progress && selectedSchedule && <WalkthroughCoach language={manualLanguage(location.search,navigator.language)} state={progress.state} remainingM={Math.max(0,progress.total-progress.metres)} finishSeconds={selectedSchedule.finishSeconds} remainingSeconds={selectedSchedule.remainingSeconds} queueSeconds={selectedSchedule.queueSeconds} onReview={onReview} full/>}
       </div><div className="operations-content" hidden={operationView!=='operate'}>
     {camera === 'walk' && !isStudy && !flat && <div className="ground-walk-controls" aria-label="Terrain camera controls">
@@ -419,7 +420,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       </div>
     </>}
     </div></PagedFlow></div>
-      <div className="exercise-console" id="exercise-console"><ReadingDialog title="Sources, assumptions, settings & coverage"><div className="console-sections">
+      <DockControls target={bannerDock}><div className="exercise-console" id="exercise-console"><ReadingDialog title="Sources, assumptions, settings & coverage"><div className="console-sections">
       {isStudy && model && data && <section className="console-section" id="console-method">
         <h3>Sources and assumptions</h3>
       <p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a {preparation}-second preparation delay after the exercise warning, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Walk-through follows the first synthetic walker at an approximate 1.65m eye height over the available DEM and imagery; it is not street-view photography and does not resolve kerbs, stairs or doors. Arrows follow the selected mapped exercise route, not authority-approved signs. Water rise is a user-chosen static-level demonstration, not tsunami dynamics. Imported depth frames remain research results. Moving people are point markers, not a physical-crowd simulation.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p>
@@ -443,6 +444,6 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <p>Coverage: satellite/DEM views work across the listed regions; the sourced walking-network exercise currently covers Bang Niang only. Each additional beach needs its own route, destination and hazard pack. Public-source expansion: <a href="https://www.clawpack.org/tsunamidata.html" target="_blank" rel="noreferrer">GeoClaw data guidance</a> · <a href="https://www.gebco.net/data-products/gridded-bathymetry-data" target="_blank" rel="noreferrer">GEBCO bathymetry</a> · <a href="https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis" target="_blank" rel="noreferrer">NOAA historical observations</a>. These sources are candidates for integration, not connected live feeds.</p>
       </details>
       {consoleSlot && <details className="console-section"><summary>Local context and personal plan</summary>{consoleSlot}</details>}
-        </div></ReadingDialog></div>
+        </div></ReadingDialog></div></DockControls>
   </section>;
 }

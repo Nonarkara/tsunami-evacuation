@@ -1,6 +1,8 @@
 /** Keep Tab within a modal, including browsers that otherwise focus the document body. */
 export function cycleDialogFocus(element:HTMLDialogElement,event:Pick<KeyboardEvent,'key'|'shiftKey'|'preventDefault'>) {
   if(event.key!=='Tab'||!element.open)return;
+  const activeModal=document.activeElement?.closest('dialog[open]');
+  if(activeModal&&activeModal!==element)return;
   const controls=Array.from(element.querySelectorAll<HTMLElement>('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),summary')).filter(el=>el.getClientRects().length>0);
   if(!controls.length)return;
   event.preventDefault();
