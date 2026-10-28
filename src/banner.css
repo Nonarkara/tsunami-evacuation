@@ -100,3 +100,8 @@
 @media screen {
  .reading-dialog.compact-reading[open] { inset:48px 12px auto; margin:0 auto; height:max-content; grid-template-rows:auto auto; }
 }
+@media screen and (min-width:1100px) {
+ .soonami-masthead .region-picker-wrap { width:165px; max-width:165px; }
+ .banner-context > select { width:80px; }
+ .banner-scene .operation-switch select { width:85px; }
+}

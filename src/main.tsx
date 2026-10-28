@@ -253,7 +253,7 @@ function App() {
         />
 
         {tab==='explore'&&<BannerDock scene={modelView==='terrain'} onDock={setBannerDock} context={<>
-          <select aria-label="Model view / มุมมอง" title="Terrain or published outcomes" value={modelView} onChange={e=>setModelView(e.target.value)}><option value="terrain">Terrain</option><option value="evidence">Outcomes</option></select>
+          <select aria-label="Model view / มุมมอง" title="Terrain or published outcomes" value={modelView} onChange={e=>setModelView(e.target.value)}><option value="terrain">Terrain</option><option value="evidence">Results</option></select>
                 <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
                   <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
                   <span>{selectedPlace+1}/{region.places.length}</span>
