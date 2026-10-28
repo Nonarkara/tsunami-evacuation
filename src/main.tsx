@@ -7,6 +7,7 @@ import "@fontsource/jost/700.css";
 import "./axiom-tokens.css";
 import "./style.css";
 import { Manual } from "./Manual";
+import { Drill } from "./Drill";
 import { OutcomeSummary } from "./OutcomeSummary";
 import { SourceFooter } from "./SourceFooter";
 import { manualLanguage } from "./manual-content";
@@ -29,7 +30,6 @@ import {
   walkingMinutes,
   resultFor,
   reduction,
-  validateDrill,
   type Plan,
   type Condition,
   type CoastalRegion,
@@ -72,6 +72,7 @@ function App() {
     setTab(t);
     history.replaceState(null, "", `#${t}`);
     window.scrollTo({ top: 0 });
+    requestAnimationFrame(()=>document.getElementById('main')?.focus({preventScroll:true}));
   }
 
   function handleRegionChange(idx: number) {
@@ -268,14 +269,14 @@ function App() {
         {tab === "explore" ? (
           <div className="explore-grid">
             {/* Section 01: 3D Aerial Topography & Water Inundation Simulator */}
-            <section className="geography-pane" aria-labelledby="map-pane-title">
+            <section className="geography-pane" id="geography-pane" aria-labelledby="map-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
                   <span className="pane-badge">01 / TERRAIN & CROWD REHEARSAL</span>
-                  <h2 id="map-pane-title">{region.name}</h2>
+                  <h2 id="map-pane-title">{region.id==='khao-lak'?'Khao Lak · Phang Nga':region.name}</h2>
                 </div>
 
-                <label className="area-selector">Area / พื้นที่
+                <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
                   <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
                   <span>{selectedPlace+1}/{region.places.length}</span>
                 </label>
@@ -288,6 +289,7 @@ function App() {
                 selected={selectedPlace}
                 onSelect={setSelectedPlace}
                 consoleSlot={placeConsole}
+                onReview={()=>navigate("drill")}
               />
 
             </section>
@@ -415,7 +417,7 @@ function App() {
 
         {/* Tab: Run a Drill */}
         <div hidden={tab !== "drill"}>
-          <Drill />
+          <Drill language={language} />
         </div>
 
         {/* Tab: Research Section with Diagrams */}
@@ -471,9 +473,9 @@ function Prepare() {
 
   return (
     <div className="planning-grid">
-      <section className="plan-form">
+      <section className="plan-form" id="plan-form">
         <div className="section-head-compact">
-          <h2>My Coastal Evacuation Plan</h2>
+          <h1>My evacuation plan</h1>
           <span className="meta">Private & On-Device · Actionable Protocol</span>
         </div>
         <p>
@@ -484,7 +486,7 @@ function Prepare() {
           {(
             [
               ["place", "Where are you staying?", "Hotel, home or workplace"],
-              ["destination", "Primary Vertical / High-Ground Refuge", "Authority-designated destination and access point"],
+              ["destination", "Locally confirmed destination", "Authority-designated destination and access point"],
               ["backup", "Backup Refuge Destination", "Alternative authority-designated destination"],
               ["contact", "Out-of-Area Contact", "Name and mobile number"],
             ] as const
@@ -507,13 +509,13 @@ function Prepare() {
           <textarea
             maxLength={2000}
             value={plan.route}
-            placeholder="Landmarks, pedestrian bridges, stairs, unlocked gates, and vertical refuge stairways"
+            placeholder="Confirmed signs, crossings, gates and accessible alternatives"
             onChange={(e) => field("route", e.target.value)}
           />
           <span className="print-value">{plan.route || "Not entered"}</span>
         </label>
 
-        <div className="field-grid">
+        <div className="plan-assistance-timing">
           <label>
             Assistance Needed & Action for Dependents
             <input
@@ -545,9 +547,9 @@ function Prepare() {
                   value={speed}
                   onChange={(e) => setSpeed(e.target.value)}
                 >
-                  <option value="1.0">1.0 m/s (Fast adult)</option>
-                  <option value="0.8">0.8 m/s (Brisk walk)</option>
-                  <option value="0.5">0.5 m/s (Assisting elderly/kids)</option>
+                  <option value="1.0">1.0 m/s</option>
+                  <option value="0.8">0.8 m/s</option>
+                  <option value="0.5">0.5 m/s · assistance example</option>
                 </select>
               </label>
             </div>
@@ -608,7 +610,7 @@ function Prepare() {
       </section>
 
       <aside className="plan-aside">
-        <h3>Evacuation Core Axioms</h3>
+        <h3>Four local checks</h3>
         <ul className="axioms-list">
           <li>
             <strong>1. Plan for congestion:</strong> Confirm an accessible departure plan and designated routes with local emergency managers.
@@ -623,154 +625,6 @@ function Prepare() {
             <strong>4. Help dependents first:</strong> Assign specific buddies for elderly, children, and visitors.
           </li>
         </ul>
-      </aside>
-    </div>
-  );
-}
-
-/* ── §8 Run a Drill View ───────────────────────────────────── */
-function Drill() {
-  const [log, setLog] = useState({
-    participants: 25,
-    reached: 24,
-    assisted: 2,
-    minutes: 8,
-  });
-  const [saved, setSaved] = useState<typeof log[]>(() => {
-    try {
-      const raw = localStorage.getItem("soonami-drills-v1");
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
-
-  const valid = validateDrill(log);
-
-  function saveDrill() {
-    if (!valid) return;
-    const next = [log, ...saved];
-    setSaved(next);
-    try {
-      localStorage.setItem("soonami-drills-v1", JSON.stringify(next));
-    } catch {
-      // storage unavailable
-    }
-  }
-
-  return (
-    <div className="drill-grid">
-      <section className="drill-form">
-        <div className="section-head-compact">
-          <h2>Tsunami Evacuation Drill Logger</h2>
-          <span className="meta">Rehearse Walking & Vertical Routes</span>
-        </div>
-        <p>
-          Simulate a real-time foot evacuation. Log participants, arrival times, and dependents assisted to measure community readiness.
-        </p>
-
-        <div className="drill-inputs-grid">
-          <label>
-            Total Participants
-            <input
-              type="number"
-              min="1"
-              max="5000"
-              value={log.participants}
-              onChange={(e) =>
-                setLog({ ...log, participants: Number(e.target.value) })
-              }
-            />
-          </label>
-          <label>
-            Reached Refuge Safely
-            <input
-              type="number"
-              min="0"
-              max={log.participants}
-              value={log.reached}
-              onChange={(e) =>
-                setLog({ ...log, reached: Number(e.target.value) })
-              }
-            />
-          </label>
-          <label>
-            Dependents / Assisted
-            <input
-              type="number"
-              min="0"
-              max={log.participants}
-              value={log.assisted}
-              onChange={(e) =>
-                setLog({ ...log, assisted: Number(e.target.value) })
-              }
-            />
-          </label>
-          <label>
-            Elapsed Time (Minutes)
-            <input
-              type="number"
-              min="1"
-              max="180"
-              value={log.minutes}
-              onChange={(e) =>
-                setLog({ ...log, minutes: Number(e.target.value) })
-              }
-            />
-          </label>
-        </div>
-
-        <div className="drill-actions">
-          <button
-            className="primary"
-            disabled={!valid}
-            onClick={saveDrill}
-          >
-            Record Drill Result
-          </button>
-        </div>
-
-        {saved.length > 0 && (
-          <div className="drill-history">
-            <h3>Recent Drill Rehearsals</h3>
-            <table className="drill-table">
-              <thead>
-                <tr>
-                  <th>Participants</th>
-                  <th>Reached Safely</th>
-                  <th>Assisted</th>
-                  <th>Time</th>
-                  <th>Success Rate</th>
-                </tr>
-              </thead>
-              <tbody>
-                {saved.map((d, i) => (
-                  <tr key={i}>
-                    <td>{d.participants}</td>
-                    <td>{d.reached}</td>
-                    <td>{d.assisted}</td>
-                    <td>{d.minutes} min</td>
-                    <td>
-                      <strong>
-                        {((d.reached / d.participants) * 100).toFixed(0)}%
-                      </strong>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-
-      <aside className="drill-aside">
-        <h3>Drill Standards</h3>
-        <p>
-          Agree drill timing, assistance and accessible participation with local coordinators. Use observed completion and headcount gaps to revise the plan.
-        </p>
-        <div className="target-pill">
-          <strong>Set a locally agreed drill target; reconcile every participant and assistance need.</strong>
-        </div>
       </aside>
     </div>
   );

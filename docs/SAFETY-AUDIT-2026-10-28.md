@@ -1,5 +1,7 @@
 # Independent safety and interface audit — 28 October 2026
 
+> Historical handoff record. Its clock-margin, refuge and verification claims are superseded by [the follow-up audit](HANDOFF-AUDIT-2026-10-28.md).
+
 Reviewer: MiniMax Code (`mcode`), an independent pass over the buildings release that shipped as
 `a16476d` … `3d4f447`, plus the interface redesign that followed it. This audit does not re-do the
 buildings work; it checks it against the project's own rules in `AGENTS.md`, `context.md` and

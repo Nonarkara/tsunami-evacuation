@@ -1,0 +1,18 @@
+import type { ManualLanguage } from './manual-content';
+
+export function EvacuationGuide({language,compact=false}:{language:ManualLanguage;compact?:boolean}) {
+  const t=(en:string,th:string)=>language==='th'?th:en;
+  const steps=[
+    [t('Confirm before you practise','ยืนยันก่อนซ้อม'),t('Ask local coordinators to confirm the route, destination and alternative. Check gates, crossings, stairs and access for people needing assistance. A mapped building is not an approved refuge.','ให้ผู้ประสานงานท้องถิ่นยืนยันเส้นทาง ปลายทางและทางเลือก ตรวจประตู ทางข้าม บันได และการเข้าถึงของผู้ต้องการความช่วยเหลือ อาคารบนแผนที่ไม่ใช่จุดอพยพที่รับรองแล้ว')],
+    [t('Agree the warning and assistance','ตกลงสัญญาณและการช่วยเหลือ'),t('For a drill, agree a start signal, buddies, an observer and how to stop the exercise. Record warning receipt and departure separately. Do not practise during a real warning.','สำหรับการซ้อม ให้ตกลงสัญญาณเริ่ม คู่ช่วยเหลือ ผู้สังเกตการณ์ และวิธีหยุดซ้อม บันทึกเวลารับสัญญาณกับเวลาออกเดินแยกกัน ไม่ซ้อมขณะมีคำเตือนจริง')],
+    [t('Walk and observe','เดินและสังเกต'),t('Use the locally confirmed route at a pace the group can manage. Note unclear signs, locked gates, crossings and queues. The browser does not model accessible passage or physical crowd spillback.','ใช้เส้นทางที่ยืนยันในพื้นที่ ด้วยความเร็วที่กลุ่มทำได้ จดป้ายที่ไม่ชัด ประตูล็อก ทางข้าม และคิว เบราว์เซอร์ไม่ได้จำลองการเข้าถึงจริงหรือพื้นที่คิวล้น')],
+    [t('Account for every participant','ตรวจนับทุกคน'),t('Count people at the agreed meeting point. Reconcile anyone not counted with the coordinator and record assistance. A completion percentage does not certify safety.','นับคนที่จุดนัดหมายที่ตกลงกัน ประสานผู้ควบคุมเรื่องผู้ที่ยังนับไม่ครบ และบันทึกการช่วยเหลือ สัดส่วนที่ถึงจุดนัดหมายไม่ใช่การรับรองความปลอดภัย')],
+    [t('Fix one problem and repeat','แก้ปัญหาแล้วซ้อมซ้ำ'),t('Assign an owner and review date for each blocked link, missing sign or unmet assistance need. Revise the personal plan and repeat the affected part of the drill.','กำหนดผู้รับผิดชอบและวันทบทวนสำหรับทางติดขัด ป้ายที่ขาด หรือความช่วยเหลือที่ยังไม่ครบ ปรับแผนส่วนบุคคลแล้วซ้อมส่วนที่มีปัญหาอีกครั้ง')],
+  ];
+  return <section className={`evacuation-guide ${compact?'compact':''}`} lang={language} aria-label={t('Evacuation practice walkthrough','ขั้นตอนซ้อมอพยพ')}>
+    <h3>{t('Walk the plan, then review it','เดินตามแผน แล้วทบทวน')}</h3>
+    <ol>{steps.map(([title,body])=><li key={title}><strong>{title}</strong><p>{body}</p></li>)}</ol>
+    <details><summary>{t('If warnings are real','หากเป็นคำเตือนจริง')}</summary><p>{t('Near the coast, strong or long shaking, unusual sea movement or a roar can be natural warnings. Protect yourself during shaking; once movement is safe, move promptly inland or to high ground using local evacuation directions. Do not wait for an official message after natural warnings. Stay away until authorities permit return.','ใกล้ชายฝั่ง แผ่นดินไหวแรงหรือนาน น้ำทะเลผิดปกติ หรือเสียงคำราม อาจเป็นสัญญาณธรรมชาติ ป้องกันตัวขณะสั่น เมื่อเคลื่อนที่ได้ปลอดภัยให้รีบไปทางบกหรือที่สูงตามคำแนะนำอพยพในพื้นที่ ไม่รอประกาศทางการหลังพบสัญญาณธรรมชาติ และไม่กลับจนเจ้าหน้าที่อนุญาต')}</p></details>
+    <p className="guide-sources">{t('General guidance; Thai local instructions take priority.','แนวทางทั่วไป ให้ยึดคำสั่งเจ้าหน้าที่ในพื้นที่ของไทยเป็นหลัก')} <a href="https://www.weather.gov/safety/tsunami-before" target="_blank" rel="noreferrer">NWS · {t('Prepare','เตรียมตัว')}</a> · <a href="https://www.weather.gov/safety/tsunami-during" target="_blank" rel="noreferrer">{t('Respond','เมื่อเกิดเหตุ')}</a></p>
+  </section>;
+}

@@ -47,43 +47,15 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
         </table>
       </figure>
       <p className="research-qualification">{t('Population is estimated, not a current census. “Victims” means trapped agents in cells with water deeper than 0.5 m under the source rule (§3.2.5, pp. 15–16). These are not observed deaths, individual probabilities or independently reproduced predictions.', 'จำนวนประชากรเป็นค่าประมาณ ไม่ใช่สำมะโนปัจจุบัน “ผู้ประสบภัย” หมายถึงตัวแทนที่ติดอยู่ในกริดซึ่งมีน้ำลึกเกิน 0.5 เมตร ตามเกณฑ์ของต้นฉบับ (หัวข้อ 3.2.5 หน้า 15–16) ไม่ใช่จำนวนผู้เสียชีวิตจริง ความน่าจะเป็นรายบุคคล หรือการพยากรณ์ที่ทำซ้ำโดยอิสระแล้ว')}</p>
-      <div className="research-axioms-card">
-        <h3>{t('Four Physical Axioms: Why the casualty rate falls from 21.8% to 1.2%', '4 สัจพจน์เชิงประจักษ์: เหตุใดตัวเลขความสูญเสียจึงลดลงจาก 21.8% สู่ 1.2%')}</h3>
-        <div className="research-axiom-grid">
-          <div className="axiom-box">
-            <span className="axiom-tag">01 / {t('Vehicular Gridlock', 'กับดักยานพาหนะ')}</span>
-            <strong>{t('Highway 4 becomes a trap', 'ทางหลวงหมายเลข 4 กลายเป็นคอขวดมรณะ')}</strong>
-            <p>{t(
-              'In the manuscript’s scenario, fleeing by car chokes Highway 4 into standstill gridlock within 6–8 minutes. Switching 50% to foot evacuation (PD50) clears arterial jams and cuts the modeled victim share from 21.8% to 7.0%—a 68% relative reduction, which is arithmetic on the published rates rather than a separate trial.',
-              'ในฉากทัศน์ของบทความ การพยายามหนีด้วยรถยนต์ทำให้ทางหลวงหมายเลข 4 กลายเป็นอัมพาตภายใน 6–8 นาที การเปลี่ยนให้เดินเท้า 50% (PD50) ช่วยปลดล็อกคอขวดบนถนนสายหลัก ลดสัดส่วนผู้ประสบภัยตามแบบจำลองจาก 21.8% เหลือ 7.0% (ลดลงสัมพัทธ์ 68% ซึ่งเป็นการคำนวณจากตัวเลขที่ตีพิมพ์ ไม่ใช่การทดลองแยก)'
-            )}</p>
-          </div>
-          <div className="axiom-box">
-            <span className="axiom-tag">02 / {t('Vertical Refuge', 'อาคารหลบภัยแนวดิ่ง')}</span>
-            <strong>{t('Vertical sites change the outcome', 'จุดอพยพแนวดิ่งเปลี่ยนผลลัพธ์')}</strong>
-            <p>{t(
-              'The manuscript places Khao Lak’s hills 1.5–2.5 km inland, far for a vulnerable pedestrian. Its 14 candidate reinforced concrete buildings (VS14) are evaluated in the model, not certified as refuges, and with 50% vertical preference (VE50) the modeled victim share falls to 1.3% in the cumulative package. These are source scenario results, not a local instruction.',
-              'บทความระบุว่าเนินเขาหลักอยู่ลึกเข้าไป 1.5–2.5 กม. ซึ่งไกลสำหรับผู้เดินทางเปราะบาง อาคารคอนกรีตเสริมเหล็กที่เสนอเป็นตัวแทน 14 แห่ง (VS14) ถูกประเมินในแบบจำลอง ไม่ได้รับรองเป็นจุดอพยพ และเมื่อกำหนดความนิยมอพยพขึ้นอาคาร 50% (VE50) สัดส่วนผู้ประสบภัยตามแบบจำลองลดเหลือ 1.3% ในชุดมาตรการสะสม นี่เป็นผลของฉากทัศน์ในบทความ ไม่ใช่คำสั่งใช้งานในท้องถิ่น'
-            )}</p>
-          </div>
-          <div className="axiom-box">
-            <span className="axiom-tag">03 / {t('Signage Multiplier', 'พลังทวีคูณของป้าย')}</span>
-            <strong>{t('135 signs reduce hesitation at intersections', 'ป้ายบอกทาง 135 จุด ลดความลังเลที่ทางแยก')}</strong>
-            <p>{t(
-              'Installing 135 bilingual wayfinding signs along perpendicular foot corridors reduces intersection hesitation and wrong-way movement, with modeled casualties of 1.2% (baseline) and 2.9% (delayed)—a 94.5% cumulative reduction against the 21.8% baseline.',
-              'การติดตั้งป้ายนำทาง 2 ภาษา 135 จุด ตลอดเส้นทางเดินตั้งฉากกับชายหาด ช่วยลดความสับสนและการวิ่งผิดทาง ณ ทางแยก ผู้ประสบภัยตามแบบจำลองเหลือ 1.2% (กรณีฐาน) และ 2.9% (กรณีล่าช้า) บรรลุการลดทอนความสูญเสียสะสมถึง 94.5% เมื่อเทียบกับกรณีฐาน 21.8%'
-            )}</p>
-          </div>
-          <div className="axiom-box">
-            <span className="axiom-tag">04 / {t('Warning Buffer', 'เวลาเตือนภัย')}</span>
-            <strong>{t('15 minutes delay more than doubles the modeled share', 'ความล่าช้า 15 นาที เพิ่มสัดส่วนผู้ประสบภัยกว่าเท่าตัว')}</strong>
-            <p>{t(
-              'A 15-minute delay in broadcasting the siren (30m vs 45m post-earthquake) more than doubles the modeled casualty share in the full package (1.2% → 2.9%). Early automated detection and immediate foot departure without waiting for confirmation are the levers this scenario depends on.',
-              'การแจ้งเตือนช้าไปเพียง 15 นาที (จาก 30 นาที เป็น 45 นาทีหลังแผ่นดินไหว) ทำให้สัดส่วนผู้ประสบภัยตามแบบจำลองเพิ่มขึ้นกว่าเท่าตัวเมื่อใช้มาตรการครบชุด (1.2% → 2.9%) การเตือนภัยอัตโนมัติที่รวดเร็วและการออกเดินเท้าทันทีโดยไม่รอยืนยันคือตัวแปรที่ฉากทัศน์นี้พึ่งพา'
-            )}</p>
-          </div>
-        </div>
-      </div>
+      <section className="research-observations" aria-label={t('Reported scenario observations','ข้อสังเกตจากฉากทัศน์ที่รายงาน')}>
+        <h3>{t('What the reported comparisons support','สิ่งที่การเปรียบเทียบในงานวิจัยสนับสนุน')}</h3>
+        <dl>
+          <div><dt>PD50 · 21.8% → 7.0%</dt><dd>{t('The walking-preference package changes the modeled result (§4.3). It is not a ban on assisted transport or a universal congestion clearance time.','ชุดความนิยมเดินเท้าเปลี่ยนผลจำลอง (§4.3) ไม่ใช่การห้ามการเดินทางที่ต้องมีผู้ช่วยหรือเวลาคลายจราจรที่ใช้ได้ทุกแห่ง')}</dd></div>
+          <div><dt>+ VS14 · 7.0% → 3.7%</dt><dd>{t('Fourteen additional candidate buildings are modeled (§4.5). Their structure, access and capacity still require local assessment.','จำลองอาคารที่เสนอเพิ่ม14แห่ง (§4.5) ยังต้องประเมินโครงสร้าง การเข้าถึง และความจุในพื้นที่')}</dd></div>
+          <div><dt>+ VE50 / SG135 · 1.3% / 1.2%</dt><dd>{t('These are successive cumulative packages (§4.5). The full result cannot be attributed to signage alone or treated as a proven drill effect.','เป็นชุดมาตรการสะสมต่อเนื่อง (§4.5) ไม่อาจยกผลทั้งหมดให้ป้ายเพียงอย่างเดียวหรือถือเป็นผลการซ้อมที่พิสูจน์แล้ว')}</dd></div>
+          <div><dt>{t('Full package: baseline1.2% / delayed2.9%','ชุดครบ: ฐาน1.2% / ล่าช้า2.9%')}</dt><dd>{t('Warning issuance changes30→45 minutes and mean preparation14→28 minutes. This is a joint timing comparison, not an isolated warning-delay experiment.','เวลาเตือนเปลี่ยน30→45นาที และเวลาเตรียมตัวเฉลี่ย14→28นาที เป็นการเปรียบเทียบเงื่อนไขเวลาร่วม ไม่ใช่การทดลองเฉพาะความล่าช้าของคำเตือน')}</dd></div>
+        </dl>
+      </section>
       <p>{t('Question: under the study’s assumptions, how do cumulative walking, refuge, preference and signage measures change modeled victim share among 39,041 agents?', 'คำถาม: ภายใต้สมมติฐานของงานวิจัย การเพิ่มมาตรการเดินเท้า จุดอพยพ ความนิยมเลือกอพยพขึ้นอาคาร และป้ายบอกทางแบบสะสม เปลี่ยนสัดส่วนผู้ประสบภัยตามเกณฑ์ของแบบจำลองในตัวแทน 39,041 รายอย่างไร?')}</p>
       <details className="research-definitions"><summary>{t('Read package definitions and outcome accounting','อ่านนิยามมาตรการและการจัดหมวดผลลัพธ์')}</summary>
         <dl>{[

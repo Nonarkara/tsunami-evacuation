@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { NavSymbol } from "./NavSymbol";
 
 export type ConsoleKey = "explore" | "satellite" | "prepare" | "drill" | "research";
@@ -69,16 +69,13 @@ const CONSOLE: ConsoleEntry[] = [
     items: [
       { label: "Reported scenario results", target: "research-results", hint: "21.8% → 1.2%" },
       { label: "Two models, two purposes", target: "research-methods", hint: "paper vs browser" },
-      { label: "Evidence & data ledger", target: "research-sources", hint: "sources R1–R7" },
+      { label: "Evidence & data ledger", target: "research-sources", hint: "sources R1–R8" },
       { label: "Validation agenda", target: "research-validation", hint: "proposed, not done" },
     ],
   },
 ];
 
-/**
- * The masthead console. Each glyph opens a menu with the real contents of its section,
- * so the top bar carries structure instead of five unlabelled icons.
- */
+/** Direct section navigation. Detailed instructions remain in each page and the manual. */
 export function NavConsole({
   active,
   onNavigate,
@@ -88,79 +85,34 @@ export function NavConsole({
   onNavigate: (key: ConsoleKey) => void;
   manual: ReactNode;
 }) {
-  const [open, setOpen] = useState<ConsoleKey | null>(null);
-  const navRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    function onPointer(event: MouseEvent) {
-      if (!navRef.current?.contains(event.target as Node)) setOpen(null);
-    }
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(null);
-    }
-    document.addEventListener("mousedown", onPointer);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onPointer);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [open]);
-
-  function go(key: ConsoleKey, target?: string) {
-    onNavigate(key);
-    setOpen(null);
-    if (!target) return;
-    requestAnimationFrame(() => {
-      const el = document.getElementById(target);
-      if (!el) return;
-      el.scrollIntoView({ block: "start" });
-      history.replaceState(null, "", `#${key}`);
-    });
-  }
-
-  const entry = CONSOLE.find((e) => e.key === open);
-
   return (
-    <nav className="masthead-nav" aria-label="Main navigation" ref={navRef}>
-      {CONSOLE.map((e) => (
+    <nav
+      className="masthead-nav"
+      aria-label="Main navigation"
+    >
+      {CONSOLE.map((entry) => (
         <button
-          key={e.key}
+          key={entry.key}
+          type="button"
           className="console-trigger"
-          aria-label={`${e.label} / ${e.thai}`}
-          title={`${e.label} · ${e.note}`}
-          aria-current={active === e.key ? "page" : undefined}
-          aria-expanded={open === e.key}
-          aria-haspopup="menu"
-          onClick={() => {
-            onNavigate(e.key);
-            setOpen(open === e.key ? null : e.key);
-          }}
+          aria-label={`${entry.label} / ${entry.thai}`}
+          aria-description={
+            entry.items
+              .map(item => item.label)
+              .join('; ')
+          }
+          title={`${entry.label} · ${entry.thai} · ${entry.note}`}
+          aria-controls={
+            entry.items
+              .map(item => item.target)
+              .join(' ')
+          }
+          aria-current={active === entry.key ? 'page' : undefined}
+          onClick={() => onNavigate(entry.key)}
         >
-          <NavSymbol name={e.key} />
+          <NavSymbol name={entry.key} />
         </button>
       ))}
-
-      {entry && (
-        <div className="console-menu" role="menu" aria-label={`${entry.label} menu`}>
-          <p className="console-menu-note">{entry.note}</p>
-          <ul>
-            {entry.items.map((item) => (
-              <li key={item.label}>
-                <button
-                  role="menuitem"
-                  onClick={() => go(entry.key, item.target)}
-                  title={`${item.label}${item.hint ? ` · ${item.hint}` : ""}`}
-                >
-                  <span>{item.label}</span>
-                  {item.hint && <em>{item.hint}</em>}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
       {manual}
     </nav>
   );

@@ -30,6 +30,14 @@ export function walkerProgress(person: Person, route: ExerciseRoute, seconds: nu
   const metres = chain[i] + (chain[i + 1] - chain[i]) * fraction;
   return { ...alongRoute(route, metres), state: seconds < leg.arrival ? 'preparing' as const : seconds < leg.enter ? 'queued' as const : 'moving' as const };
 }
+/** Warning-relative schedule of this synthetic walker; never a hazard deadline. */
+export function walkerSchedule(person: Person, seconds: number) {
+  return {
+    finishSeconds:person.finish,
+    remainingSeconds:Math.max(0,person.finish-Math.max(0,seconds)),
+    queueSeconds:person.legs.reduce((sum,leg)=>sum+leg.enter-leg.arrival,0),
+  };
+}
 export function nextTurn(route: ExerciseRoute, metres: number) {
   const chain = routeChainage(route);
   for (let i = 1; i < chain.length - 1; i++) {
