@@ -2,23 +2,28 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { type CoastalRegion, type Place } from "./research";
+import type { BuildingPack } from "./buildings";
 
+/**
+ * Basic 2D reference map used when 3D rendering is unavailable.
+ * It draws only mapped facts: place markers and OpenStreetMap building footprints.
+ * It never draws a hazard shape, a run-up level, a route or a refuge indication.
+ */
 export function StudyMap({
   region,
   selected,
   onSelect,
-  referenceOnly = false,
+  buildings,
 }: {
   region: CoastalRegion;
   selected: number;
   onSelect: (n: number) => void;
-  referenceOnly?: boolean;
+  buildings?: BuildingPack;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
-  const routeLayersRef = useRef<L.LayerGroup | null>(null);
-  const surgeLayersRef = useRef<L.LayerGroup | null>(null);
+  const buildingLayerRef = useRef<L.LayerGroup | null>(null);
 
   const satLayerRef = useRef<L.TileLayer | null>(null);
   const topoLayerRef = useRef<L.TileLayer | null>(null);
@@ -26,12 +31,7 @@ export function StudyMap({
   const callback = useRef(onSelect);
   callback.current = onSelect;
 
-  // View & Simulation States
   const [baseLayer, setBaseLayer] = useState<"sat" | "topo">("sat");
-  const [isTilted, setIsTilted] = useState(false);
-  const [waterLevelM, setWaterLevelM] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showRoutes, setShowRoutes] = useState(true);
   const [isFlownIn, setIsFlownIn] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -46,7 +46,7 @@ export function StudyMap({
       zoom: region.zoom,
       scrollWheelZoom: false,
       zoomControl: false,
-      attributionControl: !referenceOnly,
+      attributionControl: false,
     });
     map.current = m;
 
@@ -83,12 +83,9 @@ export function StudyMap({
     // Default to Satellite Imagery
     sat.addTo(m);
 
-    // Dedicated layer groups for routes and water surge
-    const routeGroup = L.layerGroup().addTo(m);
-    routeLayersRef.current = routeGroup;
-
-    const surgeGroup = L.layerGroup().addTo(m);
-    surgeLayersRef.current = surgeGroup;
+    // Mapped building footprints, drawn as outlines only.
+    const buildingGroup = L.layerGroup().addTo(m);
+    buildingLayerRef.current = buildingGroup;
 
     const observer = new ResizeObserver(() => m.invalidateSize());
     observer.observe(container.current);
@@ -98,6 +95,7 @@ export function StudyMap({
       observer.disconnect();
       m.remove();
       map.current = null;
+      buildingLayerRef.current = null;
     };
   }, []);
 
@@ -161,6 +159,25 @@ export function StudyMap({
     }
   }, [region]);
 
+  // Draw the OpenStreetMap building snapshot for the selected place.
+  useEffect(() => {
+    const group = buildingLayerRef.current;
+    if (!group) return;
+    group.clearLayers();
+    if (!buildings || buildings.features.length === 0) return;
+    L.geoJSON(buildings as unknown as GeoJSON.FeatureCollection, {
+      interactive: false,
+      style: {
+        color: "#12354e",
+        weight: 0.6,
+        opacity: 0.45,
+        fill: true,
+        fillColor: "#dbe4e8",
+        fillOpacity: 0.14,
+      },
+    }).addTo(group);
+  }, [buildings]);
+
   // Fly-In Camera Action to Active Place
   const flyToPlace = useCallback((p: Place, zoomLevel = 15) => {
     if (!map.current) return;
@@ -186,11 +203,6 @@ export function StudyMap({
       const isSelected = selected === i;
       const el = marker.getElement();
       if (el) el.classList.toggle("selected", isSelected);
-      if (isSelected && !referenceOnly) {
-        marker.openTooltip();
-      } else {
-        marker.closeTooltip();
-      }
     });
 
     if (activePlace && isFlownIn) {
@@ -198,64 +210,8 @@ export function StudyMap({
     }
   }, [selected, activePlace, isFlownIn, flyToPlace]);
 
-  // Render Evacuation Routes & Verified Ground Truth Landmarks
-  useEffect(() => {
-    if (!routeLayersRef.current || !activePlace) return;
-    const group = routeLayersRef.current;
-    group.clearLayers();
-
-    if (!showRoutes) return;
-
-    // No unverified road lines, refuge buffers or inundation boundaries are drawn.
-    // OSM exercise paths and terrain now live in TerrainRehearsal.
-  }, [activePlace, showRoutes, region.id]);
-
-  // Empirical Water Reach Level & Historical 2004 Run-up Scale
-  useEffect(() => {
-    if (!surgeLayersRef.current || !activePlace) return;
-    const group = surgeLayersRef.current;
-    group.clearLayers();
-
-    if (waterLevelM <= 0) return;
-
-    // Reference scale only: an elevation comparison cannot establish inundation.
-    // Deliberately draw no safe/dry marker from an unverified point height.
-  }, [waterLevelM, activePlace]);
-
-  // Automated Playback Timer for Water Reach Animation
-  useEffect(() => {
-    if (!isPlaying) return;
-    const interval = window.setInterval(() => {
-      setWaterLevelM((prev) => {
-        if (prev >= 15) {
-          setIsPlaying(false);
-          return 15;
-        }
-        return Number((prev + 0.6).toFixed(1));
-      });
-    }, 120);
-
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  function handlePlayToggle() {
-    if (isPlaying) {
-      setIsPlaying(false);
-    } else {
-      if (waterLevelM >= 15) setWaterLevelM(0);
-      setIsPlaying(true);
-    }
-  }
-
-  // Calculate Topographic Status for Selected Place
-  const exceedsGroundElev = false;
-  const dryMargin =
-    activePlace && !exceedsGroundElev
-      ? "unverified"
-      : "0.0";
-
   return (
-    <div className={`map-wrap ${isTilted ? "mode-tilted" : ""} ${referenceOnly ? "map-reference" : ""}`}>
+    <div className="map-wrap map-reference">
       {/* Interactive Leaflet Map Viewport */}
       <div
         ref={container}
@@ -270,7 +226,7 @@ export function StudyMap({
         </div>
       )}
 
-      {/* ── § Overlaid Floating Camera & Layer Controls ── */}
+      {/* ── § Layer & Camera Controls ── */}
       <div className="map-controls-overlay">
         <div className="control-button-group">
           <button
@@ -280,22 +236,6 @@ export function StudyMap({
           >
             {baseLayer === "sat" ? "Aerial" : "Topo"}
           </button>
-
-          {!referenceOnly && <button
-            className={`map-ctrl-btn ${isTilted ? "active" : ""}`}
-            onClick={() => setIsTilted(!isTilted)}
-            title="Tilt the flat reference map; this does not render terrain"
-          >
-            {isTilted ? "📐 Tilted reference" : "🧭 2D Plan"}
-          </button>}
-
-          {!referenceOnly && <button
-            className={`map-ctrl-btn ${showRoutes ? "active" : ""}`}
-            onClick={() => setShowRoutes(!showRoutes)}
-            title="Toggle Evacuation Routes and Ground-Truth Benchmarks"
-          >
-            {showRoutes ? "Place references: ON" : "Place references: OFF"}
-          </button>}
         </div>
 
         <div className="control-button-group">
@@ -309,7 +249,7 @@ export function StudyMap({
                   flyToPlace(activePlace, 15);
                 }
               }}
-              title="Fly into local topography and street-level evacuation routes"
+              title="Move the map to the selected place"
             >
               {isFlownIn ? "Region" : "Focus"}
             </button>
@@ -324,50 +264,6 @@ export function StudyMap({
           </button>
         </div>
       </div>
-
-      {/* ── § Integrated Compact Water Reach HUD ── */}
-      {!referenceOnly && <div className="map-water-hud" aria-label="Illustrative water-level reference">
-        <button
-          className={`hud-play-btn ${isPlaying ? "playing" : ""}`}
-          onClick={handlePlayToggle}
-          aria-label={isPlaying ? "Pause Simulation" : "Animate reference water level"}
-        >
-          {isPlaying ? "⏸ Pause" : "▶ Simulate"}
-        </button>
-
-        <div className="hud-slider-group">
-          <span className="hud-label">Run-up:</span>
-          <input
-            id="water-level-slider"
-            type="range"
-            min="0"
-            max="15"
-            step="0.5"
-            value={waterLevelM}
-            onChange={(e) => {
-              setIsPlaying(false);
-              setWaterLevelM(Number(e.target.value));
-            }}
-            className="hud-slider"
-            aria-label="Water reach elevation in meters"
-          />
-          <span className="hud-meter-val">+{waterLevelM.toFixed(1)}m</span>
-        </div>
-
-        <div className="hud-status-pill">
-          {waterLevelM === 0 ? (
-            <span className="chip-normal">Reference level only</span>
-          ) : !exceedsGroundElev ? (
-            <span className="chip-safe">
-              Terrain validation: {dryMargin} · no safety inference
-            </span>
-          ) : (
-            <span className="chip-submerged">
-              ⚠️ Water Reach +{waterLevelM.toFixed(1)}m MSL &gt; Elev {activePlace?.elevationM}m (2004 Run-up: 8–15m)
-            </span>
-          )}
-        </div>
-      </div>}
     </div>
   );
 }

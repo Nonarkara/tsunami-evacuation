@@ -303,7 +303,7 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   gap: 2px;
-  margin: auto;
+  margin: 0;
 }
 
 .masthead-nav button {
@@ -333,6 +333,7 @@ summary:focus-visible {
 .masthead-action-group {
   display: flex;
   align-items: center;
+  margin-left: auto;
   gap: 8px;
   flex-shrink: 0;
 }
@@ -412,8 +413,8 @@ main {
 
 .explore-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.28fr) minmax(420px, 1fr);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
+  gap: 18px;
   align-items: start;
 }
 
@@ -489,12 +490,6 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.map-wrap.mode-tilted .map {
-  transform: perspective(1000px) rotateX(28deg) translateY(-8px) scale(1.05);
-  transform-origin: center bottom;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .map {
@@ -587,100 +582,6 @@ main {
 .map-ctrl-btn.fly-btn.flown {
   background: #d97706;
   border-color: #f59e0b;
-}
-
-/* ── § Integrated Compact Water Reach HUD (Zero Hallucination) ── */
-.map-water-hud {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  height: 34px;
-  padding: 0 10px;
-  background: #0d273a;
-  color: #ffffff;
-  border-top: 1px solid #1e4562;
-  z-index: 440;
-}
-
-.hud-play-btn {
-  background: var(--accent);
-  color: var(--ink);
-  border: 1px solid var(--accent);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 2px 8px;
-  height: 24px;
-  border-radius: 2px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.hud-play-btn:hover {
-  background: var(--accent-hover);
-}
-
-.hud-play-btn.playing {
-  background: #38bdf8;
-  border-color: #38bdf8;
-  color: #0b1a26;
-}
-
-.hud-slider-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-  max-width: 320px;
-}
-
-.hud-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #94a3b8;
-  white-space: nowrap;
-}
-
-.hud-slider {
-  flex: 1;
-  height: 4px;
-  cursor: pointer;
-  accent-color: #38bdf8;
-}
-
-.hud-meter-val {
-  font-size: 13px;
-  font-weight: 700;
-  color: #38bdf8;
-  font-variant-numeric: tabular-nums;
-  min-width: 44px;
-}
-
-.hud-status-pill {
-  font-size: 11px;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.chip-normal {
-  background: rgba(255, 255, 255, 0.1);
-  color: #cbd5e1;
-  padding: 2px 6px;
-  border-radius: 2px;
-}
-
-.chip-submerged {
-  background: #dc2626;
-  color: #ffffff;
-  padding: 2px 6px;
-  border-radius: 2px;
-}
-
-.chip-safe {
-  background: #15803d;
-  color: #ffffff;
-  padding: 2px 6px;
-  border-radius: 2px;
 }
 
 /* Place markers */
@@ -878,14 +779,6 @@ main {
   color: #94a3b8;
 }
 
-/* Place Directive Card */
-.place-directive-card {
-  padding-top: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .directive-header {
   display: flex;
   justify-content: space-between;
@@ -1062,7 +955,7 @@ main {
 /* ── Balanced Split Cockpit Grid (Zero Spatial Hallucination) ── */
 .modeling-split-grid {
   display: grid;
-  grid-template-columns: minmax(280px, 340px) minmax(320px, 1fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: 12px;
   margin-top: 4px;
   align-items: start;
@@ -2299,8 +2192,7 @@ textarea {
   .toolbar,
   .skip,
   .emergency-panel,
-  .map-controls-overlay,
-  .map-water-hud {
+  .map-controls-overlay {
     display: none !important;
   }
 
@@ -2322,18 +2214,18 @@ textarea {
 }
 
 /* Decision geometry: terrain, experiment controls and counts form one task. */
-.explore-grid { display: block; }
 .geography-pane, .evidence-pane { min-width: 0; }
-.evidence-pane { margin-top: 16px; }
+@media (max-width: 1100px) {
+  .explore-grid { display: block; }
+  .evidence-pane { margin-top: 16px; }
+}
 .geography-pane .pane-header { margin-bottom: 6px; }
 .pane-header, .pane-titles, .split-col-left, .split-col-right { min-width: 0; }
-.modeling-split-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+.modeling-split-grid { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); }
 .active-package-card, .outcome-card, .result-hud { min-width: 0; }
 .place-selector-bar { margin: 6px 0; }
 .place-selector-bar button { min-height: 32px; }
-.place-directive-card { padding: 8px 0 0; }
-.place-directive-card > summary, .exercise-method > summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
-.place-directive-card[open] .directive-header { margin-top: 10px; }
+.console-section .directive-header { margin-top: 8px; }
 .terrain-rehearsal { min-width: 0; }
 .terrain-toolbar, .terrain-view-controls, .rehearsal-controls, .rehearsal-timeline, .rehearsal-readout { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
 .terrain-toolbar { justify-content: flex-start; padding-bottom: 4px; gap: 4px 18px; }
@@ -2346,7 +2238,7 @@ textarea {
 .terrain-rehearsal button[aria-pressed=true] { color: var(--companion); border-bottom-color: var(--companion); font-weight: 700; }
 .terrain-rehearsal .rehearsal-play { background: var(--accent); font-weight: 700; margin: 0; padding-inline: 12px; }
 .terrain-tier { font-size: 12px; color: var(--ink-2); }
-.terrain-stage { position: relative; height: clamp(280px, 43vh, 460px); min-height: 0; background: var(--companion); }
+.terrain-stage { position: relative; height: clamp(240px, calc(100vh - 503px), 620px); min-height: 0; background: var(--companion); }
 .terrain-canvas { position: absolute; inset: 0; }
 .terrain-canvas canvas { outline-offset: -3px; }
 .terrain-notice { position: absolute; top: 12px; left: 12px; right: 55px; max-width: 55ch; padding: 8px 12px; background: var(--panel); color: var(--ink); font-size: 14px; }
@@ -2359,24 +2251,23 @@ textarea {
 .rehearsal-readout { font-size: 13px; border-block: 1px solid var(--line); padding: 6px 0; gap: 4px 18px; }
 .rehearsal-readout strong { color: var(--companion); font-variant-numeric: tabular-nums; }
 .terrain-analysis-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 8px; }
+@media (max-width: 1100px) { .terrain-stage { height: clamp(240px, calc(100vh - 500px), 620px); } }
 .route-profile { display: grid; grid-template-columns: 1fr; font-size: 13px; min-width: 0; }
 .route-profile span { font-size: 12px; color: var(--ink-2); }
-.route-profile svg { display: block; width: 100%; height: 54px; }
+.route-profile svg { display: block; width: 100%; height: 44px; }
 .water-experiment { font-size: 13px; display: grid; gap: 4px; align-content: start; }
 .water-experiment label { display: flex; gap: 8px; align-items: center; }
 .water-experiment input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--companion); flex: none; }
 .water-experiment input[type=range] { flex: 1; width: auto; min-width: 70px; }
 .water-experiment small { font-size: 12px; line-height: 1.4; color: var(--ink-2); }
-.exercise-method { border-top: 1px solid var(--line); margin-top: 8px; font-size: 13px; }
-.exercise-method p { max-width: 78ch; margin-block: 8px; }
 .maplibregl-ctrl button { min-height: 29px; padding: 0; }
 .maplibregl-ctrl-attrib { font-size: 10px; }
 @media (max-width: 680px) {
   .geography-pane, .evidence-pane { padding: 8px; }
   .pane-header { flex-wrap: wrap; gap: 4px; }
-  .terrain-toolbar { align-items: start; }
+  .terrain-toolbar { align-items: start; gap: 6px; }
   .terrain-view-controls { display: contents; }
-  .terrain-view-controls button { padding: 3px 6px; min-height: 32px; }
+  .experiment-tabs button, .terrain-view-controls button { width: 30px; height: 30px; }
   .terrain-stage { height: 280px; }
   .terrain-tier { line-height: 1.3; }
   .rehearsal-controls { display: flex; flex-wrap: wrap; gap: 4px 12px; }
@@ -2392,7 +2283,7 @@ textarea {
 /* Beat the map library's relative-position rule: the renderer must fill its host. */
 .terrain-stage > .terrain-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .exercise-boundary { font-size: 12px; color: var(--ink-2); margin: 0 0 4px; }
-.terrain-stage { height: clamp(280px, 46vh, 460px); }
+.terrain-stage { height: clamp(240px, calc(100vh - 503px), 620px); }
 @media (max-width: 680px) { .terrain-stage { height: 260px; } }
 .terrain-rehearsal .terrain-place-label { width: 24px; height: 24px; min-height: 24px; background: transparent; border: 0; padding: 0; }
 .terrain-place-label::before { content: ''; position: absolute; width: 7px; height: 7px; left: 50%; top: 50%; transform: translate(-50%,-50%); border: 1px solid var(--panel); border-radius: 50%; background: var(--companion); }
@@ -2447,8 +2338,6 @@ textarea {
 }
 .survival-label { color: var(--ink-2); font-weight: 600; flex: 0 0 auto; }
 .survival-value { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; flex: 0 0 auto; }
-.survival-value.survival-ok { color: #14532d; }
-.survival-value.survival-risk { color: #991b1b; }
 .survival-meta { color: var(--ink-2); font-size: 11px; flex: 1 1 auto; min-width: 120px; }
 .survival-note { color: var(--ink-2); font-size: 11px; margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
 
@@ -2500,7 +2389,7 @@ textarea {
   .terrain-rehearsal { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 18px; }
   .terrain-rehearsal > .terrain-toolbar, .terrain-rehearsal > .terrain-stage,
   .terrain-rehearsal > .map-wrap, .terrain-rehearsal > .terrain-caption,
-  .terrain-rehearsal > .exercise-method, .terrain-rehearsal > .terrain-secondary.water { grid-column: 1 / -1; }
+  .terrain-rehearsal > .exercise-console, .terrain-rehearsal > .terrain-secondary.water { grid-column: 1 / -1; }
   .rehearsal-panel { grid-column: 1; display: block; }
   .terrain-secondary.crowd { grid-column: 2; }
 }
@@ -2509,14 +2398,12 @@ textarea {
   .rehearsal-panel .rehearsal-timeline { max-width: none; }
 }
 /* Guided rehearsal settings expand as reading; they do not sit on the terrain. */
-.terrain-rehearsal > .exercise-settings, .terrain-rehearsal > .area-data-status,
+.terrain-rehearsal > .exercise-console, .terrain-rehearsal > .area-data-status,
 .terrain-rehearsal > .imported-replay-controls { grid-column: 1 / -1; }
-.exercise-settings { border-top: 1px solid var(--line); margin-top: 4px; font-size: 13px; }
-.exercise-settings > summary { cursor: pointer; padding: 5px 0; font-weight: 600; }
 .scenario-settings-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-block: 6px; }
 .scenario-settings-row label { display: flex; flex-direction: row; align-items: center; gap: 5px; }
 .scenario-settings-row input[type=checkbox] { width: 18px; height: 18px; min-height: 18px; margin: 0; padding: 0; accent-color: var(--companion); }
-.exercise-settings p { max-width: 82ch; margin-block: 6px; line-height: 1.45; }
+.console-section .scenario-provenance, .console-section .building-source-note { max-width: 84ch; line-height: 1.45; }
 .scenario-import { max-width: 65ch; margin-block: 8px !important; }
 .scenario-import input { min-height: 32px; padding: 4px; font-size: 13px; }
 .area-data-status { font-size: 13px; max-width: 75ch; margin: 6px 0; }
@@ -2747,3 +2634,258 @@ main { padding-bottom:6px; }
 .catalogue-physics h2 { font-size:20px; margin:0 0 8px; }
 .catalogue-physics p { font-size:14px; }
 @media(max-width:650px) { .sensor-record { grid-template-columns:1fr; gap:6px; } .catalogue-heading h1 { font-size:22px; } }
+
+/* ── § Masthead console: every glyph opens the real contents of its section ── */
+.masthead-nav { position: relative; }
+
+.console-trigger {
+  border: 0;
+  padding: 4px 10px;
+  color: #c4d7e5;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  background: transparent;
+  cursor: pointer;
+}
+
+.console-trigger:hover,
+.console-trigger[aria-expanded="true"] {
+  background: #204966;
+  color: #ffffff;
+}
+
+.console-trigger[aria-current] {
+  background: #204966;
+  color: #ffffff;
+  box-shadow: inset 0 -2px var(--accent);
+}
+
+.console-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 320;
+  min-width: 268px;
+  padding: 10px 12px 12px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  border-top: 2px solid var(--accent);
+  border-radius: 3px;
+  box-shadow: 0 10px 26px rgba(18, 53, 78, 0.28);
+}
+
+.console-menu-note {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 7px;
+}
+
+.console-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.console-menu button {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 6px 8px;
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  color: var(--ink);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.console-menu button:hover { background: #eef1ee; }
+
+.console-menu em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+/* ── § Icon-led control bar: symbols carry the meaning, names live in the tooltip ── */
+.terrain-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 6px;
+}
+
+.experiment-tabs,
+.terrain-view-controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.experiment-tabs {
+  padding: 2px;
+  background: #e7e9e2;
+  border-radius: 3px;
+}
+
+.experiment-tabs button,
+.terrain-view-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 30px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: var(--companion);
+  cursor: pointer;
+}
+
+.experiment-tabs button:hover,
+.terrain-view-controls button:hover:not(:disabled) {
+  background: #dfe3da;
+  color: var(--ink);
+}
+
+.experiment-tabs button[aria-pressed="true"] {
+  background: var(--companion);
+  border-color: var(--companion);
+  color: #ffffff;
+}
+
+.terrain-view-controls button[aria-pressed="true"] {
+  background: #dde4e8;
+  border-color: var(--companion);
+  color: var(--ink);
+}
+
+.experiment-tabs button:disabled,
+.terrain-view-controls button:disabled {
+  color: #9aa5ab;
+  cursor: not-allowed;
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 18px;
+  margin: 0 6px;
+  background: var(--line-2);
+}
+
+/* ── § One documentation console instead of three empty bands ── */
+.exercise-console {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.exercise-console > summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  padding: 7px 2px;
+  font-weight: 600;
+  color: var(--companion);
+  list-style: none;
+}
+
+.exercise-console > summary::-webkit-details-marker { display: none; }
+.exercise-console > summary .nav-symbol { width: 16px; height: 16px; }
+
+.console-sections {
+  display: grid;
+  gap: 14px;
+  padding: 4px 2px 10px;
+}
+
+.console-section {
+  border-left: 2px solid var(--line-2);
+  padding-left: 12px;
+}
+
+.console-section h3 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: var(--companion);
+}
+
+.console-section h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.console-section p { max-width: 84ch; margin-block: 6px; line-height: 1.45; }
+
+/* ── § Area selector rides in the title band, not in a row of its own ── */
+.pane-header .area-selector {
+  align-self: center;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.pane-header .area-selector span {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+/* ── § Nothing bleeds: the pane never spills past its own column ── */
+.geography-pane,
+.evidence-pane,
+.terrain-rehearsal,
+.console-section,
+.console-menu {
+  overflow-wrap: break-word;
+}
+
+.terrain-rehearsal svg { max-width: 100%; }
+
+@media (max-width: 900px) {
+  .console-menu { left: auto; right: 0; transform: none; min-width: 240px; }
+  .pane-header { flex-wrap: wrap; }
+}
+
+/* ── § Stacked layout: the profile sits under the controls, so the hero map gives up more room ── */
+@media (max-width: 1100px) {
+  .terrain-stage { height: clamp(240px, calc(100vh - 515px), 620px); }
+}
+
+@media (max-width: 680px) {
+  .terrain-stage { height: 300px; }
+}
+
+/* ── § Identity | console | action — the masthead reads as three roles, not one strip ── */
+.masthead-brand-group {
+  padding-right: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ── § Landscape dashboard: the hero keeps the width, the controls keep one row ── */
+.explore-grid { grid-template-columns: minmax(0, 1.16fr) minmax(0, 1fr); }
+
+.rehearsal-controls { gap: 4px 9px; }
+.rehearsal-controls label { font-size: 12px; }
+.rehearsal-controls select { font-size: 12px; padding-inline: 6px; }
+.rehearsal-controls .rehearsal-play { padding-inline: 10px; }
+.rehearsal-readout { gap: 3px 14px; }
+.terrain-analysis-row { gap: 14px; }

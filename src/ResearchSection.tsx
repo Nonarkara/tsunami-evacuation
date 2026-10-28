@@ -54,32 +54,32 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
             <span className="axiom-tag">01 / {t('Vehicular Gridlock', 'กับดักยานพาหนะ')}</span>
             <strong>{t('Highway 4 becomes a trap', 'ทางหลวงหมายเลข 4 กลายเป็นคอขวดมรณะ')}</strong>
             <p>{t(
-              'Attempting to flee by car chokes Highway 4 into standstill gridlock within 6–8 minutes. Switching 50% to foot evacuation (PD50) clears arterial jams and cuts victim share from 21.8% to 7.0%—a 68% drop achieved by walking alone.',
-              'การพยายามหนีด้วยรถยนต์ทำให้ทางหลวงหมายเลข 4 กลายเป็นอัมพาตภายใน 6–8 นาที ผู้หนีภัยติดค้างในรถเมื่อคลื่นมาถึง การเปลี่ยนให้เดินเท้า 50% (PD50) ช่วยปลดล็อกคอขวดบนถนนสายหลัก ลดผู้ประสบภัยจาก 21.8% เหลือ 7.0% (ลดลงถึง 68% จากการเดินเท้าเพียงอย่างเดียว)'
+              'In the manuscript’s scenario, fleeing by car chokes Highway 4 into standstill gridlock within 6–8 minutes. Switching 50% to foot evacuation (PD50) clears arterial jams and cuts the modeled victim share from 21.8% to 7.0%—a 68% relative reduction, which is arithmetic on the published rates rather than a separate trial.',
+              'ในฉากทัศน์ของบทความ การพยายามหนีด้วยรถยนต์ทำให้ทางหลวงหมายเลข 4 กลายเป็นอัมพาตภายใน 6–8 นาที การเปลี่ยนให้เดินเท้า 50% (PD50) ช่วยปลดล็อกคอขวดบนถนนสายหลัก ลดสัดส่วนผู้ประสบภัยตามแบบจำลองจาก 21.8% เหลือ 7.0% (ลดลงสัมพัทธ์ 68% ซึ่งเป็นการคำนวณจากตัวเลขที่ตีพิมพ์ ไม่ใช่การทดลองแยก)'
             )}</p>
           </div>
           <div className="axiom-box">
             <span className="axiom-tag">02 / {t('Vertical Refuge', 'อาคารหลบภัยแนวดิ่ง')}</span>
-            <strong>{t('TVEBs within 200–400m save lives', 'อาคารหลบภัยในระยะ 200–400 ม. ชี้ขาดรอดชีวิต')}</strong>
+            <strong>{t('Vertical sites change the outcome', 'จุดอพยพแนวดิ่งเปลี่ยนผลลัพธ์')}</strong>
             <p>{t(
-              'Khao Lak’s hills sit 1.5–2.5 km inland—too far for vulnerable pedestrians to reach in time. Designating 14 certified reinforced concrete hotel buildings (VS14) and directing 50% vertically (VE50) plummets victim share to 1.3%, replacing a 30-minute flat sprint with a 3-minute stair climb.',
-              'เนินเขาของเขาหลักอยู่ลึกเข้าไป 1.5–2.5 กม. ซึ่งไกลเกินกว่ากลุ่มเปราะบางจะเดินเท้าถึงได้ทัน การกำหนดอาคารคอนกรีตเสริมเหล็กริมหาด 14 แห่ง (VS14) และนำคน 50% ขึ้นชั้น 3 ขึ้นไป (VE50) ลดผู้ประสบภัยเหลือ 1.3% เปลี่ยนการวิ่งหนี 30 นาที เป็นการขึ้นที่สูงในเวลาเพียง 3 นาที'
+              'The manuscript places Khao Lak’s hills 1.5–2.5 km inland, far for a vulnerable pedestrian. Its 14 candidate reinforced concrete buildings (VS14) are evaluated in the model, not certified as refuges, and with 50% vertical preference (VE50) the modeled victim share falls to 1.3% in the cumulative package. These are source scenario results, not a local instruction.',
+              'บทความระบุว่าเนินเขาหลักอยู่ลึกเข้าไป 1.5–2.5 กม. ซึ่งไกลสำหรับผู้เดินทางเปราะบาง อาคารคอนกรีตเสริมเหล็กที่เสนอเป็นตัวแทน 14 แห่ง (VS14) ถูกประเมินในแบบจำลอง ไม่ได้รับรองเป็นจุดอพยพ และเมื่อกำหนดความนิยมอพยพขึ้นอาคาร 50% (VE50) สัดส่วนผู้ประสบภัยตามแบบจำลองลดเหลือ 1.3% ในชุดมาตรการสะสม นี่เป็นผลของฉากทัศน์ในบทความ ไม่ใช่คำสั่งใช้งานในท้องถิ่น'
             )}</p>
           </div>
           <div className="axiom-box">
             <span className="axiom-tag">03 / {t('Signage Multiplier', 'พลังทวีคูณของป้าย')}</span>
-            <strong>{t('135 signs resolve intersection hesitation', 'ป้ายบอกทาง 135 จุด ขจัดความลังเลที่ทางแยก')}</strong>
+            <strong>{t('135 signs reduce hesitation at intersections', 'ป้ายบอกทาง 135 จุด ลดความลังเลที่ทางแยก')}</strong>
             <p>{t(
-              'Installing 135 bilingual wayfinding signs along perpendicular foot corridors eliminates intersection confusion and wrong-way fleeing, driving casualties down to 1.2% (baseline) and 2.9% (delayed)—a 94.5% cumulative reduction.',
-              'การติดตั้งป้ายนำทาง 2 ภาษา 135 จุด ตลอดเส้นทางเดินตั้งฉากกับชายหาด ช่วยขจัดความสับสน ณ ทางแยก ลดผู้ประสบภัยเหลือ 1.2% (กรณีฐาน) และ 2.9% (กรณีล่าช้า) บรรลุการลดทอนความสูญเสียสะสมถึง 94.5%'
+              'Installing 135 bilingual wayfinding signs along perpendicular foot corridors reduces intersection hesitation and wrong-way movement, with modeled casualties of 1.2% (baseline) and 2.9% (delayed)—a 94.5% cumulative reduction against the 21.8% baseline.',
+              'การติดตั้งป้ายนำทาง 2 ภาษา 135 จุด ตลอดเส้นทางเดินตั้งฉากกับชายหาด ช่วยลดความสับสนและการวิ่งผิดทาง ณ ทางแยก ผู้ประสบภัยตามแบบจำลองเหลือ 1.2% (กรณีฐาน) และ 2.9% (กรณีล่าช้า) บรรลุการลดทอนความสูญเสียสะสมถึง 94.5% เมื่อเทียบกับกรณีฐาน 21.8%'
             )}</p>
           </div>
           <div className="axiom-box">
             <span className="axiom-tag">04 / {t('Warning Buffer', 'เวลาเตือนภัย')}</span>
-            <strong>{t('15 minutes delay doubles the casualties', 'ความล่าช้า 15 นาที เพิ่มผู้ประสบภัยกว่าเท่าตัว')}</strong>
+            <strong>{t('15 minutes delay more than doubles the modeled share', 'ความล่าช้า 15 นาที เพิ่มสัดส่วนผู้ประสบภัยกว่าเท่าตัว')}</strong>
             <p>{t(
-              'A 15-minute delay in broadcasting the siren (30m vs 45m post-earthquake) more than doubles casualties in the optimal package (1.2% → 2.9%). Early automated detection and immediate foot departure without waiting for confirmation are non-negotiable.',
-              'การแจ้งเตือนช้าไปเพียง 15 นาที (จาก 30 นาที เป็น 45 นาทีหลังแผ่นดินไหว) ทำให้ยอดผู้ประสบภัยเพิ่มขึ้นกว่าเท่าตัวแม้ใช้มาตรการสูงสุด (1.2% → 2.9%) การเตือนภัยอัตโนมัติที่รวดเร็วและการออกเดินเท้าทันทีจึงเป็นเรื่องที่ประนีประนอมไม่ได้'
+              'A 15-minute delay in broadcasting the siren (30m vs 45m post-earthquake) more than doubles the modeled casualty share in the full package (1.2% → 2.9%). Early automated detection and immediate foot departure without waiting for confirmation are the levers this scenario depends on.',
+              'การแจ้งเตือนช้าไปเพียง 15 นาที (จาก 30 นาที เป็น 45 นาทีหลังแผ่นดินไหว) ทำให้สัดส่วนผู้ประสบภัยตามแบบจำลองเพิ่มขึ้นกว่าเท่าตัวเมื่อใช้มาตรการครบชุด (1.2% → 2.9%) การเตือนภัยอัตโนมัติที่รวดเร็วและการออกเดินเท้าทันทีโดยไม่รอยืนยันคือตัวแปรที่ฉากทัศน์นี้พึ่งพา'
             )}</p>
           </div>
         </div>

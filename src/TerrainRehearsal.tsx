@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as maplibregl from 'maplibre-gl';
 import type { GeoJSONSource } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -8,13 +8,14 @@ import { ReplayWaterLayer } from './ReplayWaterLayer';
 import { TimeScrubber } from './TimeScrubber';
 import { buildingAreaId, parseBuildings, cameraStep, EYE_HEIGHT_M, UNKNOWN_BUILDING_MASSING_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
+import { CameraSymbol } from './CameraSymbol';
 import type { CoastalRegion } from './research';
 import { areaPacks, alongRoute, walkerProgress, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
 import { simulate, frame, elevation, waterScreen, distance, type RouteData, type TerrainGrid, type Coord } from './crowd';
 
 const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
-export function TerrainRehearsal({ region, selected, onSelect }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void }) {
+export function TerrainRehearsal({ region, selected, onSelect, consoleSlot }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode }) {
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
   const host = useRef<HTMLDivElement>(null), map = useRef<maplibregl.Map | null>(null);
@@ -58,14 +59,14 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   }, [buildings, data]);
   useEffect(() => {
     setBuildings(undefined); setBuildingError('');
-    if (!buildingsEnabled || flat) return;
+    if (!buildingsEnabled) return;
     const abort = new AbortController(), area = buildingAreaId(region.id, selected);
     fetch(`/data/buildings-${area}.json`, { signal: abort.signal })
       .then(r => { if (!r.ok) throw new Error('Building snapshot unavailable'); return r.json(); })
       .then(value => { const pack = parseBuildings(value, area); if (!abort.signal.aborted) setBuildings(pack); })
       .catch(error => { if (error.name !== 'AbortError') setBuildingError('Buildings unavailable here. Terrain and rehearsal remain available. / ข้อมูลอาคารไม่พร้อมใช้งาน'); });
     return () => abort.abort();
-  }, [region.id, selected, buildingsEnabled, flat]);
+  }, [region.id, selected, buildingsEnabled]);
   useEffect(() => {
     if (!areaPack) return;
     const abort = new AbortController();
@@ -130,7 +131,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 15, 3.5, 17, 6, 19, 9], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
       m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['case', ['==',['get','role'],'destination'], 7, 3], 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
       m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
-      m.addLayer({ id: 'refuge-marker', type: 'circle', source: 'refuge', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 6, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 2 } });
+      m.addLayer({ id: 'refuge-marker', type: 'circle', source: 'refuge', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 7, 'circle-color': '#d5e2df', 'circle-opacity': .2, 'circle-stroke-color': '#d5e2df', 'circle-stroke-width': 2 } });
       m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 3, 15, 5.5, 17, 8, 19, 13], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
       const side = 20, pixels = new Uint8Array(side * side * 4);
       for (let y = 0; y < side; y++) for (let x = 0; x < side; x++) {
@@ -203,10 +204,11 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     const walkingTimeRemainingMin = distanceRemainingM / speed / 60;
     const arrived = progress.state === 'arrived';
     const arrivalMinutes = arrived ? Math.ceil(model.duration / 60) : null;
-    const shoreArrivalMin = 135;
+    // The benchmark is this coast's published scenario ETA from the source data, never a forecast.
+    const shoreArrivalMin = region.waveEtaMin;
     const wouldReachBeforeShore = arrivalMinutes !== null ? arrivalMinutes <= shoreArrivalMin : (walkingTimeRemainingMin + seconds / 60) <= shoreArrivalMin;
     return { distanceRemainingM, walkingTimeRemainingMin, arrived, arrivalMinutes, wouldReachBeforeShore, shoreArrivalMin };
-  }, [progress, model, speed, seconds]);
+  }, [progress, model, speed, seconds, region.waveEtaMin]);
   useEffect(() => {
     const m=map.current, source=m?.getSource('arrows') as GeoJSONSource | undefined;
     if (!source) return;
@@ -341,15 +343,15 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <div className="terrain-toolbar">
-      {isStudy && <div className="experiment-tabs" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} onClick={() => { setMode('crowd'); setScreen(false); }}>Rehearsal</button><button aria-pressed={mode === 'water'} onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}>Water level</button></div>}
-      <div className="terrain-view-controls" aria-label="Camera controls">
-        <button aria-pressed={!flat && dimension === '3d'} onClick={() => { setFlat(false); setDimension('3d'); }}>3D terrain</button>
-        <button aria-pressed={!flat && dimension === '2d'} onClick={() => { setFlat(false); setDimension('2d'); setCamera('overview'); setQueueFocus(undefined); }}>2D map</button>
-        {!flat && <><button disabled={!ready} aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }} title="Fly over the selected route or geographic area">Fly-by</button><button disabled={!ready || (isStudy && !model) || (!isStudy && buildingsEnabled && !buildings && !buildingError)} aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); if (!isStudy) { const p=region.places[selected], start=buildings?.walkStart; const coord:Coord=start?.coord ?? [p.lng,p.lat]; setFreeWalk({coord,bearing:start?.bearing ?? 0}); map.current?.easeTo({center:coord,zoom:16,pitch:60,duration:600}); map.current?.getCanvas().focus({preventScroll:true}); } }}>Walk-through</button><button disabled={!ready} aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}>Overview</button><button disabled={!ready || !isStudy || !model} aria-pressed={!!queueFocus} onClick={inspectQueue} title="Inspect queue">Queue</button>{isStudy && model && <button aria-pressed={walkCompare === 'compare'} onClick={() => setWalkCompare(walkCompare === 'off' ? 'compare' : 'off')} title="Compare immediate vs delayed departure survival">{walkCompare === 'compare' ? '✓ Compare' : 'Compare departures'}</button>}</>}
+      {isStudy && <><div className="experiment-tabs" role="group" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} aria-label="Rehearsal" title="Rehearsal — crowd queue on the mapped network" onClick={() => { setMode('crowd'); setScreen(false); }}><CameraSymbol name="rehearsal" /></button><button aria-pressed={mode === 'water'} aria-label="Water level" title="Water level — illustrative static level on the terrain" onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}><CameraSymbol name="water" /></button></div><span className="toolbar-divider" aria-hidden="true" /></>}
+      <div className="terrain-view-controls" role="group" aria-label="Camera controls">
+        <button aria-pressed={!flat && dimension === '3d'} aria-label="3D terrain" title="3D terrain" onClick={() => { setFlat(false); setDimension('3d'); }}><CameraSymbol name="terrain3d" /></button>
+        <button aria-pressed={!flat && dimension === '2d'} aria-label="2D map" title="2D map — plan view" onClick={() => { setFlat(false); setDimension('2d'); setCamera('overview'); setQueueFocus(undefined); }}><CameraSymbol name="map2d" /></button>
+        {!flat && <><button disabled={!ready} aria-label="Fly-by" title="Fly-by — aerial sweep over the route or area" aria-pressed={camera === 'route' || camera === 'coast'} onClick={() => { setDimension('3d'); view(isStudy && model ? 'route' : 'coast'); }}><CameraSymbol name="flyby" /></button><button disabled={!ready || (isStudy && !model) || (!isStudy && buildingsEnabled && !buildings && !buildingError)} aria-label="Walk-through" title="Walk-through — 1.65 m eye height on the mapped route" aria-pressed={camera === 'walk'} onClick={() => { setDimension('3d'); view('walk'); if (!isStudy) { const p=region.places[selected], start=buildings?.walkStart; const coord:Coord=start?.coord ?? [p.lng,p.lat]; setFreeWalk({coord,bearing:start?.bearing ?? 0}); map.current?.easeTo({center:coord,zoom:16,pitch:60,duration:600}); map.current?.getCanvas().focus({preventScroll:true}); } }}><CameraSymbol name="walk" /></button><button disabled={!ready} aria-label="Overview" title="Overview — the whole exercise area" aria-pressed={camera === 'overview' && !queueFocus} onClick={() => view('overview')}><CameraSymbol name="overview" /></button><button disabled={!ready || !isStudy || !model} aria-label="Queue" title="Queue — totals waiting at network nodes" aria-pressed={!!queueFocus} onClick={inspectQueue}><CameraSymbol name="queue" /></button>{isStudy && model && <><span className="toolbar-divider" aria-hidden="true" /><button aria-label="Compare departures" title="Compare immediate and delayed departure" aria-pressed={walkCompare === 'compare'} onClick={() => setWalkCompare(walkCompare === 'off' ? 'compare' : 'off')}><CameraSymbol name="compare" /></button></>}</>}
       </div>
 
     </div>
-    {flat ? <StudyMap region={region} selected={selected} onSelect={onSelect} referenceOnly /> : <div className="terrain-stage">
+    {flat ? <StudyMap region={region} selected={selected} onSelect={onSelect} buildings={buildings} /> : <div className="terrain-stage">
       <div ref={host} className="terrain-canvas" aria-label="3D terrain map. Drag to pan, right-drag to tilt. Click for terrain height." />
 
       {!ready && !failure && <p className="terrain-notice" role="status">Loading satellite imagery and terrain…</p>}
@@ -359,7 +361,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
     <div className="terrain-caption">
       <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
-      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
+      <details className="terrain-map-key"><summary>Map key</summary><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'}{!flat && refugeBuilding && ' Hollow ring: the mapped building nearest the exercise end — a footprint reference, not a refuge.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></details>
     </div>
     {camera === 'walk' && !isStudy && !flat && <div className="ground-walk-controls" aria-label="Terrain camera controls">
       <button aria-label="Turn camera left" onClick={()=>setFreeWalk(p=>p ? {...p,bearing:p.bearing-8}:p)}>↶</button>
@@ -387,7 +389,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
             setAnimateWater(true);
             setScreen(true);
           }
-        }}><option value={0}>Off</option><option value={5}>+5m</option><option value={10}>+10m (2004)</option><option value={15}>+15m (Max)</option></select></label>
+        }}><option value={0}>Off</option><option value={5}>+5 m</option><option value={10}>+10 m</option><option value={15}>+15 m</option></select></label>
         <button className="rehearsal-play" aria-label={playing ? "Pause rehearsal" : "Run crowd rehearsal"} disabled={flat || !ready} onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start'}</button>
       </div>
       <div className="rehearsal-timeline">
@@ -400,18 +402,18 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
         <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued at nodes</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
       </div>
       {camera === 'walk' && progress && (
-        <div className="survival-panel" aria-label="Walk-through survival outcome">
+        <div className="survival-panel" aria-label="Walk-through timing readout">
           <div className="survival-row"><span className="survival-label">Distance to exercise end</span><span className="survival-value">{walkSurvival?.distanceRemainingM?.toFixed(0) ?? 0} m</span><span className="survival-meta">≈ {walkSurvival?.walkingTimeRemainingMin?.toFixed(0) ?? 0} min walking at {speed} m/s</span></div>
-          <div className="survival-row"><span className="survival-label">Progress vs 135-min shore arrival*</span><span className={`survival-value ${walkSurvival?.wouldReachBeforeShore ? 'survival-ok' : 'survival-risk'}`}>{progress.state === 'arrived' ? 'Reached exercise end' : walkSurvival?.wouldReachBeforeShore ? 'On track to reach end' : 'May not reach before shore arrival'}</span><span className="survival-meta">Research scenario: wave reaches shore at ~135 minutes after earthquake</span></div>
+          <div className="survival-row"><span className="survival-label">Timing vs the {walkSurvival?.shoreArrivalMin}-minute scenario benchmark*</span><span className="survival-value">{progress.state === 'arrived' ? 'Reached exercise end' : walkSurvival?.wouldReachBeforeShore ? 'Ahead of the benchmark' : 'Behind the benchmark'}</span><span className="survival-meta">Published scenario wave ETA for this coast: {walkSurvival?.shoreArrivalMin} min. A scenario number, not a live arrival time.</span></div>
           {refugeBuilding && (
-            <div className="survival-row"><span className="survival-label">Vertical refuge option</span><span className="survival-value">Nearest building ≈ {refugeBuilding.distanceM.toFixed(0)} m</span><span className="survival-meta">Climb ~3 min vs ~30-min inland sprint (research: VE50)</span></div>
+            <div className="survival-row"><span className="survival-label">Nearest mapped building</span><span className="survival-value">≈ {refugeBuilding.distanceM.toFixed(0)} m from the exercise end</span><span className="survival-meta">A mapped OSM footprint only. Structure, height, access, capacity and refuge status are unverified, so it is not a destination recommendation.</span></div>
           )}
-          <p className="survival-note">* Research scenario benchmark, not a live forecast. Endpoint is unapproved. Buildings are not certified refuges.</p>
+          <p className="survival-note">* Research scenario benchmark, not a live forecast. The endpoint is unapproved and reaching it is not a safety outcome. Buildings are not certified refuges.</p>
         </div>
       )}
       {walkCompare === 'compare' && compareProgress && progress && (
         <div className="compare-panel" aria-label="Departure timing comparison">
-          <div className="compare-heading">Immediate vs delayed departure — who reaches safety first</div>
+          <div className="compare-heading">Immediate vs delayed departure — who reaches the exercise end first</div>
           <div className="compare-timeline">
             <div className="compare-bar">
               <div className="compare-fill immediate" style={{width: `${Math.min(100, (compareProgress.metres / compareProgress.total) * 100)}%`}}></div>
@@ -422,7 +424,7 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
               <span className="compare-label">Delayed ({Math.round(preparation / 60)} min prep) · {progress.state}</span>
             </div>
           </div>
-          <p className="compare-note">Leaving earlier moves the walker further along the route at the same moment. Delayed departure means more people still queued when the wave arrives.</p>
+          <p className="compare-note">Leaving earlier moves the walker further along the route at the same moment. Delayed departure means more people are still queued at that moment in this exercise. The endpoint is unapproved, so this compares timing only.</p>
         </div>
       )}
       </div>
@@ -441,11 +443,18 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
 
       </div>
       </div>
-      <details className="exercise-method"><summary>Sources, assumptions and what needs validation</summary><p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a {preparation}-second preparation delay after the exercise warning, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Walk-through follows the first synthetic walker at an approximate 1.65m eye height over the available DEM and imagery; it is not street-view photography and does not resolve kerbs, stairs or doors. Arrows follow the selected mapped exercise route, not authority-approved signs. Water rise is a user-chosen static-level demonstration, not tsunami dynamics. Imported depth frames remain research results. Moving people are point markers, not a physical-crowd simulation.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p></details>
     </>}
-    <details className="exercise-settings"><summary>Scenario settings, data and coverage</summary>
+      <details className="exercise-console" id="exercise-console">
+        <summary><CameraSymbol name="console" /> Sources, assumptions, settings &amp; coverage</summary>
+        <div className="console-sections">
+      {isStudy && model && data && <section className="console-section" id="console-method">
+        <h3>Sources and assumptions</h3>
+      <p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a {preparation}-second preparation delay after the exercise warning, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Walk-through follows the first synthetic walker at an approximate 1.65m eye height over the available DEM and imagery; it is not street-view photography and does not resolve kerbs, stairs or doors. Arrows follow the selected mapped exercise route, not authority-approved signs. Water rise is a user-chosen static-level demonstration, not tsunami dynamics. Imported depth frames remain research results. Moving people are point markers, not a physical-crowd simulation.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p>
+      </section>}
+      <section className="console-section" id="console-settings">
+        <h3>Scenario settings, data and coverage</h3>
       <label><input type="checkbox" checked={buildingsEnabled} disabled={flat} onChange={e=>setBuildingsEnabled(e.target.checked)} /> OSM buildings / อาคาร</label>
-      {buildingsEnabled && !flat && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} mapped footprints · {buildings.counts.heightTag} height tags · {buildings.counts.levelsEstimate} floor-count estimates · {buildings.counts.unknown.toLocaleString()} unknown heights shown as 3m massing. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">OSM source</a> · {buildings.retrievedAt.slice(0,10)}. Coverage is a local snapshot, not every building in the region. Heights are not surveyed or approved refuges. / อาคารที่ไม่มีข้อมูลความสูงใช้รูปทรงสมมติ 3 เมตร ไม่ใช่การรับรองจุดอพยพ</> : buildingError || 'Loading building snapshot… / กำลังโหลดข้อมูลอาคาร'}</p>}
+      {buildingsEnabled && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} mapped footprints · {buildings.counts.heightTag} height tags · {buildings.counts.levelsEstimate} floor-count estimates · {buildings.counts.unknown.toLocaleString()} unknown heights shown as 3m massing. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">OSM source</a> · {buildings.retrievedAt.slice(0,10)}. Coverage is a local snapshot, not every building in the region. Heights are not surveyed or approved refuges. / อาคารที่ไม่มีข้อมูลความสูงใช้รูปทรงสมมติ 3 เมตร ไม่ใช่การรับรองจุดอพยพ</> : buildingError || 'Loading building snapshot… / กำลังโหลดข้อมูลอาคาร'}</p>}
 
       <div className="scenario-settings-row">
         {model && <label>Assumed pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}
@@ -459,6 +468,9 @@ export function TerrainRehearsal({ region, selected, onSelect }: { region: Coast
       {waterSurfaceError && <p role="status">3D water surface unavailable; footprint layer remains visible. {waterSurfaceError}</p>}
       <p>Format: warning-relative seconds, EPSG:4326 cell bounds, north-to-south rows, MSL datum and depth in metres. A wave-height gauge needs its own location and crest-to-trough definition. No upload or automatic approval. <a href="/data/hazard-replay.schema.json" target="_blank" rel="noreferrer">Scenario file schema</a>.</p>
       <p>Coverage: satellite/DEM views work across the listed regions; the sourced walking-network exercise currently covers Bang Niang only. Each additional beach needs its own route, destination and hazard pack. Public-source expansion: <a href="https://www.clawpack.org/tsunamidata.html" target="_blank" rel="noreferrer">GeoClaw data guidance</a> · <a href="https://www.gebco.net/data-products/gridded-bathymetry-data" target="_blank" rel="noreferrer">GEBCO bathymetry</a> · <a href="https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis" target="_blank" rel="noreferrer">NOAA historical observations</a>. These sources are candidates for integration, not connected live feeds.</p>
-    </details>
+      </section>
+      {consoleSlot}
+        </div>
+      </details>
   </section>;
 }

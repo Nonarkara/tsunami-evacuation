@@ -87,3 +87,15 @@ Use the question-mark button in the top bar for the Thai/English manual: a quick
 ## Buildings and eye-level exploration
 
 All 17 listed places have local OSM building snapshots. Walk-through uses an approximate 1.65 m eye height over the available DEM. Missing source heights remain unknown and use explicitly labelled 3 m visual massing. These scenes do not establish safe routes or refuges. [Sources, collection commands, MiniMax integration and verification](docs/BUILDINGS-INTEGRATION.md). Development checks require Python 3 as well as Node.js.
+
+## Section console and one-screen rehearsal
+
+The five glyphs in the top bar are a console: each opens a menu with a plain statement of what its
+section is and real entries that navigate and scroll to a named target. The rehearsal toolbar is
+icon-led — experiment, camera and comparison groups are symbols with accessible names and hover
+tooltips, separated by rules. Sources, assumptions, scenario settings, coverage and the local
+personal plan now live in one documentation console instead of three empty rows, and the exercise
+pane fits one screen: the hero map takes the room the rest of the pane leaves over, and nothing
+spills past the viewport at 1440, 1280, 1024 or 390 px.
+
+[Independent safety and interface audit, 28 October 2026](docs/SAFETY-AUDIT-2026-10-28.md).

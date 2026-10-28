@@ -12,7 +12,7 @@ import { SourceFooter } from "./SourceFooter";
 import { manualLanguage } from "./manual-content";
 import { InterventionComparison } from "./InterventionComparison";
 import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
-import { NavSymbol } from "./NavSymbol";
+import { NavConsole } from "./NavConsole";
 import { ResearchSection } from "./ResearchSection";
 import "@fontsource/prompt/thai-400.css";
 import "@fontsource/prompt/thai-500.css";
@@ -79,6 +79,72 @@ function App() {
     setSelectedPlace(coastalRegions[idx].id === "khao-lak" ? 2 : 0);
   }
 
+  const placeConsole = (
+        <div className="console-section" id="console-place">
+          <h3>Local context and personal plan · {place.name}</h3>
+          <div className="directive-header">
+            <div>
+              <h4>
+                {place.name}{" "}
+                <span className="thai-name">({place.thaiName})</span>
+              </h4>
+              <p className="place-desc">{place.description}</p>
+            </div>
+            <div className="place-stats"><span className="stat-pill">Local route and refuge validation pending</span></div>
+          </div>
+
+          {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2026) */}
+          <div className="evacuation-route-waypoints">
+            <div className="waypoint-item start">
+              <span className="wp-badge">01 IMMEDIATE</span>
+              <div>
+                <strong>Plan an accessible departure</strong>
+                <small>Follow local evacuation instructions and natural warnings. Plan assistance for people who cannot evacuate on foot.</small>
+              </div>
+            </div>
+            <div className="waypoint-item walk">
+              <span className="wp-badge">02 PERPENDICULAR</span>
+              <div>
+                <strong>Walk and verify the designated route</strong>
+                <small>Confirm crossings, gates, signs and a backup with the local authority; a straight inland line is not a verified route.</small>
+              </div>
+            </div>
+            <div className="waypoint-item destination">
+              <span className="wp-badge">03 REFUGE</span>
+              <div>
+                <strong>{place.refugeStrategy}</strong>
+                <small>Use authority-designated destinations. Neither an elevation threshold nor a floor number certifies safety.</small>
+              </div>
+            </div>
+          </div>
+
+          {/* Actionable Directive & Spatial Context */}
+          <div className="action-directive">
+            <strong>⚠️ Actionable Evacuation Directive:</strong>
+            <span>{place.actionableDirective}</span>
+          </div>
+
+          {place.spatialContext && (
+            <div className="gridlock-warning-bar">
+              <strong>📍 Topographic &amp; Bottleneck Context:</strong>
+              <span>{place.spatialContext}</span>
+            </div>
+          )}
+
+          <div className="directive-footer">
+            <button
+              className="plan-shortcut-btn"
+              onClick={() => navigate("prepare")}
+            >
+              Draft personal plan for {place.name} →
+            </button>
+            <span className="meta-note">
+              Terrain and exercise are separate from the published Unity model.
+            </span>
+          </div>
+        </div>
+  );
+
   return (
     <>
       <a className="skip" href="#main">
@@ -124,31 +190,16 @@ function App() {
           </div>
         </div>
 
-        {/* Short 1-Word Navigation Tabs */}
-        <nav className="masthead-nav" aria-label="Main navigation">
-          {(
-            [
-              ["explore", "Model"],
-              ["satellite", "Satellite"],
-              ["prepare", "Plan"],
-              ["drill", "Drill"],
-              ["research", "Research / วิจัย"],
-            ] as const
-          ).map(([key, label]) => (
-            <button
-              key={key}
-              aria-label={label}
-              title={`${label} · ${{explore:"แบบจำลอง", satellite:"ดาวเทียม", prepare:"แผน", drill:"ซ้อมอพยพ", research:"งานวิจัย"}[key]}`}
-              aria-current={tab === key ? "page" : undefined}
-              onClick={() => navigate(key)}
-            >
-              <NavSymbol name={key} />
+        {/* Section console: each glyph opens the real contents of its section */}
+        <NavConsole
+          active={tab}
+          onNavigate={key => navigate(key)}
+          manual={
+            <button className="manual-trigger" aria-label="Manual / คู่มือ" title="Manual / คู่มือ" aria-haspopup="dialog" onClick={() => setManualOpen(true)}>
+              <svg className="nav-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.5 8.5a2.5 2.5 0 1 1 4.1 1.9c-1 .7-1.6 1-1.6 2.6"/><circle cx="12" cy="16.5" r=".8" fill="currentColor" stroke="none"/></svg>
             </button>
-          ))}
-          <button className="manual-trigger" aria-label="Manual / คู่มือ" title="Manual / คู่มือ" aria-haspopup="dialog" onClick={() => setManualOpen(true)}>
-            <svg className="nav-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.5 8.5a2.5 2.5 0 1 1 4.1 1.9c-1 .7-1.6 1-1.6 2.6"/><circle cx="12" cy="16.5" r=".8" fill="currentColor" stroke="none"/></svg>
-          </button>
-        </nav>
+          }
+        />
 
         <div className="masthead-action-group">
           <button
@@ -224,6 +275,10 @@ function App() {
                   <h2 id="map-pane-title">{region.name}</h2>
                 </div>
 
+                <label className="area-selector">Area / พื้นที่
+                  <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
+                  <span>{selectedPlace+1}/{region.places.length}</span>
+                </label>
               </div>
 
               {/* Interactive 3D Aerial Leaflet Map with Wave Simulation */}
@@ -232,77 +287,11 @@ function App() {
                 region={region}
                 selected={selectedPlace}
                 onSelect={setSelectedPlace}
+                consoleSlot={placeConsole}
               />
 
-              <label className="area-selector">Area / พื้นที่
-                <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
-                <span>{selectedPlace+1}/{region.places.length}</span>
-              </label>
-
-              {/* Fly-In Evacuation Route Briefing */}
-              <details className="place-directive-card"><summary>Local context and personal plan · {place.name}</summary>
-                <div className="directive-header">
-                  <div>
-                    <h3>
-                      {place.name}{" "}
-                      <span className="thai-name">({place.thaiName})</span>
-                    </h3>
-                    <p className="place-desc">{place.description}</p>
-                  </div>
-                  <div className="place-stats"><span className="stat-pill">Local route and refuge validation pending</span></div>
-                </div>
-
-                {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2026) */}
-                <div className="evacuation-route-waypoints">
-                  <div className="waypoint-item start">
-                    <span className="wp-badge">01 IMMEDIATE</span>
-                    <div>
-                      <strong>Plan an accessible departure</strong>
-                      <small>Follow local evacuation instructions and natural warnings. Plan assistance for people who cannot evacuate on foot.</small>
-                    </div>
-                  </div>
-                  <div className="waypoint-item walk">
-                    <span className="wp-badge">02 PERPENDICULAR</span>
-                    <div>
-                      <strong>Walk and verify the designated route</strong>
-                      <small>Confirm crossings, gates, signs and a backup with the local authority; a straight inland line is not a verified route.</small>
-                    </div>
-                  </div>
-                  <div className="waypoint-item destination">
-                    <span className="wp-badge">03 REFUGE</span>
-                    <div>
-                      <strong>{place.refugeStrategy}</strong>
-                      <small>Use authority-designated destinations. Neither an elevation threshold nor a floor number certifies safety.</small>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Actionable Directive & Spatial Context */}
-                <div className="action-directive">
-                  <strong>⚠️ Actionable Evacuation Directive:</strong>
-                  <span>{place.actionableDirective}</span>
-                </div>
-
-                {place.spatialContext && (
-                  <div className="gridlock-warning-bar">
-                    <strong>📍 Topographic &amp; Bottleneck Context:</strong>
-                    <span>{place.spatialContext}</span>
-                  </div>
-                )}
-
-                <div className="directive-footer">
-                  <button
-                    className="plan-shortcut-btn"
-                    onClick={() => navigate("prepare")}
-                  >
-                    Draft personal plan for {place.name} →
-                  </button>
-                  <span className="meta-note">
-                    Terrain and exercise are separate from the published Unity model.
-                  </span>
-                </div>
-              </details>
             </section>
+
 
             {/* Section 02: Published evidence and intervention details */}
             <section className="evidence-pane" aria-labelledby="model-pane-title">

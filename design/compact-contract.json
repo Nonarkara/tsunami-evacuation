@@ -640,7 +640,7 @@
     {
       "id": "390x844-expanded",
       "state": "expanded",
-      "stateSelector": ".exercise-method[open]",
+      "stateSelector": ".exercise-console[open]",
       "width": 390,
       "height": 844,
       "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
@@ -681,7 +681,7 @@
         },
         {
           "id": "method",
-          "selector": ".exercise-method[open]",
+          "selector": ".exercise-console[open]",
           "minHeight": 120,
           "maxHeight": 1200,
           "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
@@ -733,7 +733,7 @@
     {
       "id": "1024x768-expanded",
       "state": "expanded",
-      "stateSelector": ".exercise-method[open]",
+      "stateSelector": ".exercise-console[open]",
       "width": 1024,
       "height": 768,
       "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
@@ -774,7 +774,7 @@
         },
         {
           "id": "method",
-          "selector": ".exercise-method[open]",
+          "selector": ".exercise-console[open]",
           "minHeight": 120,
           "maxHeight": 1200,
           "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
@@ -826,7 +826,7 @@
     {
       "id": "1280x720-expanded",
       "state": "expanded",
-      "stateSelector": ".exercise-method[open]",
+      "stateSelector": ".exercise-console[open]",
       "width": 1280,
       "height": 720,
       "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
@@ -867,7 +867,7 @@
         },
         {
           "id": "method",
-          "selector": ".exercise-method[open]",
+          "selector": ".exercise-console[open]",
           "minHeight": 120,
           "maxHeight": 1200,
           "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."
@@ -919,7 +919,7 @@
     {
       "id": "1440x900-expanded",
       "state": "expanded",
-      "stateSelector": ".exercise-method[open]",
+      "stateSelector": ".exercise-console[open]",
       "width": 1440,
       "height": 900,
       "reason": "Inspect the terrain and adjust its active experiment without reconstructing a separated task.",
@@ -960,7 +960,7 @@
         },
         {
           "id": "method",
-          "selector": ".exercise-method[open]",
+          "selector": ".exercise-console[open]",
           "minHeight": 120,
           "maxHeight": 1200,
           "reason": "Preserve full qualifications and model assumptions without clipping the expanded source text."

@@ -153,9 +153,11 @@ export type CoastalRegion = {
   thaiName: string;
   basin: "Andaman Sea" | "Gulf of Thailand";
   riskTier: "Severe (High-Impact)" | "Critical (Dense Tourism)" | "Elevated (Archipelago)" | "Moderate (Delayed Surge)";
+  // Scenario-only figures. `waveEtaMin` is the source model's shore-arrival time for the
+  // study region and a regional planning estimate elsewhere. It is never a live countdown
+  // and never a deadline (docs/RESEARCH.md).
   waveEtaMin: number;
-  expectedRunupM: string;
-  center: [number, number];
+  expectedRunupM: string;  center: [number, number];
   zoom: number;
   places: Place[];
 };
@@ -168,7 +170,9 @@ export const coastalRegions: CoastalRegion[] = [
     thaiName: "พังงา (เขาหลัก - ตะกั่วป่า)",
     basin: "Andaman Sea",
     riskTier: "Severe (High-Impact)",
-    waveEtaMin: 125,
+    // The paper's shore arrival for this source scenario is 135 min. An earlier 125-minute
+    // universal ETA was corrected away (docs/TERRAIN-VERIFICATION.md).
+    waveEtaMin: 135,
     expectedRunupM: "8 – 15m",
     center: [8.682, 98.264],
     zoom: 12,
