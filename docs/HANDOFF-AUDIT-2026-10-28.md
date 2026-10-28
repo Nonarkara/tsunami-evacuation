@@ -28,4 +28,4 @@ No approved route/refuge pack or validated location-specific wave arrival is con
 
 ## Release receipt
 
-Pending canonical deployment verification below.
+Application commit d897152 pushed to origin/main, integrating the prior local handoff commit695b426. Cloudflare version0b7c143a-1306-4175-96db-b497b7af252a deployed to tsunami.nonarkara.org. Canonical HTML and referenced JS/CSS bytes match local dist exactly (live-bytes.json); plain Python user-agent received403, curl/browser succeeded without cache-busting URLs. Live browser verified Thai Drill and the1.65m walk-through, selected-person54:48 versus population63:35, and no captured console errors. Live screenshots:live-drill-th.png andlive-walk-th.png. Thai manual Escape closed the dialog and returned focus to its button. Only origin is configured; hosting is direct Cloudflare deployment. No separate hosting git remote exists.
