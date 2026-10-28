@@ -3,6 +3,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { type CoastalRegion, type Place } from "./research";
 import type { BuildingPack } from "./buildings";
+import { riskPoint, villageHit, villageSummary, type RiskVillageSnapshot } from "./ddpm";
 
 /**
  * Basic 2D reference map used when 3D rendering is unavailable.
@@ -14,16 +15,21 @@ export function StudyMap({
   selected,
   onSelect,
   buildings,
+  villages,
+  focus,
 }: {
   region: CoastalRegion;
   selected: number;
   onSelect: (n: number) => void;
   buildings?: BuildingPack;
+  villages?: RiskVillageSnapshot | null;
+  focus?: [number, number] | null;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
   const buildingLayerRef = useRef<L.LayerGroup | null>(null);
+  const villageLayerRef = useRef<L.LayerGroup | null>(null);
 
   const satLayerRef = useRef<L.TileLayer | null>(null);
   const topoLayerRef = useRef<L.TileLayer | null>(null);
@@ -86,6 +92,8 @@ export function StudyMap({
     // Mapped building footprints, drawn as outlines only.
     const buildingGroup = L.layerGroup().addTo(m);
     buildingLayerRef.current = buildingGroup;
+    const villageGroup = L.layerGroup().addTo(m);
+    villageLayerRef.current = villageGroup;
 
     const observer = new ResizeObserver(() => m.invalidateSize());
     observer.observe(container.current);
@@ -96,6 +104,7 @@ export function StudyMap({
       m.remove();
       map.current = null;
       buildingLayerRef.current = null;
+      villageLayerRef.current = null;
     };
   }, []);
 
@@ -177,6 +186,30 @@ export function StudyMap({
       },
     }).addTo(group);
   }, [buildings]);
+
+  useEffect(() => {
+    const group = villageLayerRef.current;
+    if (!group) return;
+    group.clearLayers();
+    if (!villages) return;
+    for (const feature of villages.features) {
+      const hit = villageHit(feature.properties);
+      const [lon, lat] = feature.geometry.coordinates;
+      if (!hit) continue;
+      L.circleMarker([lat, lon], {
+        radius: 4,
+        color: riskPoint.stroke,
+        weight: riskPoint.strokeWidth,
+        fillColor: riskPoint.fill,
+        fillOpacity: 1,
+      }).bindTooltip(villageSummary(hit), { direction: "top", className: "map-marker-tooltip" }).addTo(group);
+    }
+  }, [villages]);
+
+  useEffect(() => {
+    if (!map.current || !focus) return;
+    map.current.flyTo([focus[1], focus[0]], 14, { duration: 1 });
+  }, [focus]);
 
   // Fly-In Camera Action to Active Place
   const flyToPlace = useCallback((p: Place, zoomLevel = 15) => {
