@@ -1,0 +1,351 @@
+{
+  "guideLive": true,
+  "controls": [
+    {
+      "clear": true,
+      "name": "Soonami",
+      "rect": {
+        "bottom": 29,
+        "height": 24,
+        "left": 6,
+        "right": 100.15625,
+        "top": 5,
+        "width": 94.15625,
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "clear": true,
+      "name": "Khao Lak · Phang NgaPhuketKrabiSatun/TrangRanongGulf coast",
+      "rect": {
+        "bottom": 31,
+        "height": 28,
+        "left": 105.15625,
+        "right": 255.15625,
+        "top": 3,
+        "width": 150,
+        "x": 105.15625,
+        "y": 3
+      }
+    },
+    {
+      "clear": true,
+      "name": "Model / แบบจำลอง",
+      "rect": {
+        "bottom": 32,
+        "height": 30,
+        "left": 265.15625,
+        "right": 292.15625,
+        "top": 2,
+        "width": 27,
+        "x": 265.15625,
+        "y": 2
+      }
+    },
+    {
+      "clear": true,
+      "name": "Satellite / ดาวเทียม",
+      "rect": {
+        "bottom": 32,
+        "height": 30,
+        "left": 293.15625,
+        "right": 320.15625,
+        "top": 2,
+        "width": 27,
+        "x": 293.15625,
+        "y": 2
+      }
+    },
+    {
+      "clear": true,
+      "name": "Plan / แผน",
+      "rect": {
+        "bottom": 32,
+        "height": 30,
+        "left": 321.15625,
+        "right": 348.15625,
+        "top": 2,
+        "width": 27,
+        "x": 321.15625,
+        "y": 2
+      }
+    },
+    {
+      "clear": true,
+      "name": "Drill / ซ้อมอพยพ",
+      "rect": {
+        "bottom": 32,
+        "height": 30,
+        "left": 349.15625,
+        "right": 376.15625,
+        "top": 2,
+        "width": 27,
+        "x": 349.15625,
+        "y": 2
+      }
+    },
+    {
+      "clear": true,
+      "name": "Research / งานวิจัย",
+      "rect": {
+        "bottom": 32,
+        "height": 30,
+        "left": 377.15625,
+        "right": 404.15625,
+        "top": 2,
+        "width": 27,
+        "x": 377.15625,
+        "y": 2
+      }
+    },
+    {
+      "clear": true,
+      "name": "Manual / คู่มือ",
+      "rect": {
+        "bottom": 32,
+        "height": 30,
+        "left": 405.15625,
+        "right": 432.15625,
+        "top": 2,
+        "width": 27,
+        "x": 405.15625,
+        "y": 2
+      }
+    },
+    {
+      "clear": true,
+      "name": "Model view / มุมมอง",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 436.15625,
+        "right": 526.15625,
+        "top": 2.9921875,
+        "width": 90,
+        "x": 436.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Select coastal area",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 532.15625,
+        "right": 650.15625,
+        "top": 2.9921875,
+        "width": 118,
+        "x": 532.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Rehearsal",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 656.15625,
+        "right": 682.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 656.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Water level",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 683.15625,
+        "right": 709.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 683.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "3D terrain",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 720.15625,
+        "right": 746.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 720.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "2D map",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 747.15625,
+        "right": 773.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 747.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Fly-by",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 774.15625,
+        "right": 800.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 774.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Walk-through",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 801.15625,
+        "right": 827.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 801.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Overview",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 828.15625,
+        "right": 854.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 828.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Queue",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 855.15625,
+        "right": 881.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 855.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Compare departures",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 888.15625,
+        "right": 914.15625,
+        "top": 2.9921875,
+        "width": 26,
+        "x": 888.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Scene task / งาน",
+      "rect": {
+        "bottom": 30.9921875,
+        "height": 28,
+        "left": 920.15625,
+        "right": 1010.15625,
+        "top": 2.9921875,
+        "width": 90,
+        "x": 920.15625,
+        "y": 2.9921875
+      }
+    },
+    {
+      "clear": true,
+      "name": "Sources, assumptions, settings & coverage",
+      "rect": {
+        "bottom": 30.8984375,
+        "height": 28,
+        "left": 1016.15625,
+        "right": 1042.15625,
+        "top": 2.8984375,
+        "width": 26,
+        "x": 1016.15625,
+        "y": 2.8984375
+      }
+    },
+    {
+      "clear": true,
+      "name": "Warning guidance / คำเตือน",
+      "rect": {
+        "bottom": 31,
+        "height": 28,
+        "left": 1230.5234375,
+        "right": 1274,
+        "top": 3,
+        "width": 43.4765625,
+        "x": 1230.5234375,
+        "y": 3
+      }
+    }
+  ],
+  "doc": [
+    1280,
+    720
+  ],
+  "failures": [],
+  "header": {
+    "bottom": 36,
+    "height": 36,
+    "left": 0,
+    "right": 1280,
+    "top": 0,
+    "width": 1280,
+    "x": 0,
+    "y": 0
+  },
+  "height": 720,
+  "main": {
+    "bottom": 692,
+    "height": 656,
+    "left": 0,
+    "right": 1280,
+    "top": 36,
+    "width": 1280,
+    "x": 0,
+    "y": 36
+  },
+  "page": "explore",
+  "stage": {
+    "bottom": 650,
+    "height": 606,
+    "left": 12,
+    "right": 902,
+    "top": 44,
+    "width": 890,
+    "x": 12,
+    "y": 44
+  },
+  "width": 1280
+}

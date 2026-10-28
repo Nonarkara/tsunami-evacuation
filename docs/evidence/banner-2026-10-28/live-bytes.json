@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/",
+    "match": true,
+    "sha256": "7b653c3f629369ca5b74d8442a6c4ee9d1dbce15e79ada280816429c3d49c996",
+    "bytes": 1341
+  },
+  {
+    "path": "/assets/index-BKq8Gx_b.js",
+    "match": true,
+    "sha256": "bcc9461406af841ee44d5f2f19dbc98358f6dd0c5b4962adc93b55b5f4c5f300",
+    "bytes": 1658978
+  },
+  {
+    "path": "/assets/index-W2iBkKSe.css",
+    "match": true,
+    "sha256": "5dfed3c434c36fb255c30991bb54b8ef7c1a48631252b728707308f1a11ca572",
+    "bytes": 194878
+  }
+]
