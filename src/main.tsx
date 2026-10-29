@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
 import "@fontsource/jost/400.css";
 import "@fontsource/jost/500.css";
@@ -37,7 +37,6 @@ import {
   reduction,
   type Plan,
   type Condition,
-  type CoastalRegion,
 } from "./research";
 
 type Tab = "explore" | "prepare" | "drill" | "research" | "satellite";

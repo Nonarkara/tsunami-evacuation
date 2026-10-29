@@ -2319,28 +2319,6 @@ textarea {
 .terrain-secondary > .water-experiment { padding-block: 8px; }
 @media (max-width: 680px) { .terrain-secondary.water { grid-template-columns: minmax(0,1fr); gap: 0; } }
 
-/* Walk-through survival panel — shows how departure timing and vertical refuge affect survival */
-.survival-panel {
-  border: 1px solid var(--line-2);
-  background: var(--panel-card);
-  padding: 8px 10px;
-  margin-top: 8px;
-  font-size: 12px;
-  line-height: 1.4;
-}
-.survival-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-  margin: 4px 0;
-  flex-wrap: wrap;
-}
-.survival-label { color: var(--ink-2); font-weight: 600; flex: 0 0 auto; }
-.survival-value { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; flex: 0 0 auto; }
-.survival-meta { color: var(--ink-2); font-size: 11px; flex: 1 1 auto; min-width: 120px; }
-.survival-note { color: var(--ink-2); font-size: 11px; margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
-
 /* Departure timing comparison — immediate vs delayed */
 .compare-panel {
   border: 1px solid var(--line-2);
