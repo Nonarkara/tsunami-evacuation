@@ -111,3 +111,19 @@
  .terrain-caption .sun-indicator { margin:0; padding:0; background:none; border:0; color:var(--companion); font-size:11px; gap:3px; }
  @media(max-width:1399px) { .soonami-masthead .masthead-clock-wrap { display:none; } }
 }
+
+/* Keep the guide's playback and explanation beside the scene. */
+.guide-playback { flex:none; display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:6px; font-size:12px; }
+.guide-playback button,.guide-playback select { min-height:28px; height:28px; padding:2px 6px; font:inherit; }
+.guide-playback button { background:var(--accent); color:var(--ink); }
+.guide-playback label { display:flex; align-items:center; gap:4px; }
+@media screen {
+ html,body,#root,#main { overflow:clip; }
+ .terrain-operations .guide-playback { margin:0; }
+ .terrain-operations .guide-playback label { flex-direction:row; margin:0; font-size:12px; }
+}
+
+@media screen {
+ .operations-pages .page-turner button span { display:none; }
+ .operations-pages .page-turner > span { white-space:nowrap; }
+}

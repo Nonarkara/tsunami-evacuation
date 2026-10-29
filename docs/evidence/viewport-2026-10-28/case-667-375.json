@@ -206,7 +206,7 @@
     "route": "model",
     "surface": "explore",
     "navCurrent": "page",
-    "terrainState": "ready",
+    "terrainState": "loading",
     "heading": null,
     "visibleRegions": [
       "geography-pane",

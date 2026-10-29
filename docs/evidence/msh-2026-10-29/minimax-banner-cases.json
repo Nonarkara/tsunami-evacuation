@@ -1,0 +1,5295 @@
+[
+  {
+    "page": "explore",
+    "width": 320,
+    "height": 700,
+    "doc": [
+      320,
+      700
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 36,
+      "top": 0,
+      "right": 320,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 320,
+      "height": 640,
+      "top": 36,
+      "right": 320,
+      "bottom": 676,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 36,
+          "y": 3,
+          "width": 85,
+          "height": 28,
+          "top": 3,
+          "right": 121,
+          "bottom": 31,
+          "left": 36
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 129,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 154,
+          "bottom": 32,
+          "left": 129
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 155,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 180,
+          "bottom": 32,
+          "left": 155
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 181,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 206,
+          "bottom": 32,
+          "left": 181
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 207,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 232,
+          "bottom": 32,
+          "left": 207
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 233,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 258,
+          "bottom": 32,
+          "left": 233
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 259,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 284,
+          "bottom": 32,
+          "left": 259
+        },
+        "clear": true
+      },
+      {
+        "name": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 286,
+          "y": 3,
+          "width": 30,
+          "height": 28,
+          "top": 3,
+          "right": 316,
+          "bottom": 31,
+          "left": 286
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "width": 304,
+      "height": 290,
+      "top": 42,
+      "right": 312,
+      "bottom": 332,
+      "left": 8
+    },
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 304,
+          "height": 290,
+          "top": 42,
+          "right": 312,
+          "bottom": 332,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "x": 8,
+          "y": 335,
+          "width": 304,
+          "height": 32,
+          "top": 335,
+          "right": 312,
+          "bottom": 367,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "x": 8,
+          "y": 370,
+          "width": 304,
+          "height": 300,
+          "top": 370,
+          "right": 312,
+          "bottom": 670,
+          "left": 8
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 370,
+          "width": 304,
+          "height": 260,
+          "top": 370,
+          "right": 312,
+          "bottom": 630,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 638,
+          "width": 304,
+          "height": 32,
+          "top": 638,
+          "right": 312,
+          "bottom": 670,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "explore",
+    "navCurrent": "page",
+    "terrainState": "ready"
+  },
+  {
+    "page": "satellite",
+    "width": 320,
+    "height": 700,
+    "doc": [
+      320,
+      700
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 36,
+      "top": 0,
+      "right": 320,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 320,
+      "height": 640,
+      "top": 36,
+      "right": 320,
+      "bottom": 676,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 36,
+          "y": 3,
+          "width": 85,
+          "height": 28,
+          "top": 3,
+          "right": 121,
+          "bottom": 31,
+          "left": 36
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 161,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 186,
+          "bottom": 32,
+          "left": 161
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 187,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 212,
+          "bottom": 32,
+          "left": 187
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 213,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 238,
+          "bottom": 32,
+          "left": 213
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 239,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 264,
+          "bottom": 32,
+          "left": 239
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 265,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 290,
+          "bottom": 32,
+          "left": 265
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 291,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 316,
+          "bottom": 32,
+          "left": 291
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 304,
+          "height": 588,
+          "top": 42,
+          "right": 312,
+          "bottom": 630,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 638,
+          "width": 304,
+          "height": 32,
+          "top": 638,
+          "right": 312,
+          "bottom": 670,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "satellite",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "prepare",
+    "width": 320,
+    "height": 700,
+    "doc": [
+      320,
+      700
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 36,
+      "top": 0,
+      "right": 320,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 320,
+      "height": 640,
+      "top": 36,
+      "right": 320,
+      "bottom": 676,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 36,
+          "y": 3,
+          "width": 85,
+          "height": 28,
+          "top": 3,
+          "right": 121,
+          "bottom": 31,
+          "left": 36
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 161,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 186,
+          "bottom": 32,
+          "left": 161
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 187,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 212,
+          "bottom": 32,
+          "left": 187
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 213,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 238,
+          "bottom": 32,
+          "left": 213
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 239,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 264,
+          "bottom": 32,
+          "left": 239
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 265,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 290,
+          "bottom": 32,
+          "left": 265
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 291,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 316,
+          "bottom": 32,
+          "left": 291
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 304,
+          "height": 588,
+          "top": 42,
+          "right": 312,
+          "bottom": 630,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 638,
+          "width": 304,
+          "height": 32,
+          "top": 638,
+          "right": 312,
+          "bottom": 670,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "prepare",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "drill",
+    "width": 320,
+    "height": 700,
+    "doc": [
+      320,
+      700
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 36,
+      "top": 0,
+      "right": 320,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 320,
+      "height": 640,
+      "top": 36,
+      "right": 320,
+      "bottom": 676,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 36,
+          "y": 3,
+          "width": 85,
+          "height": 28,
+          "top": 3,
+          "right": 121,
+          "bottom": 31,
+          "left": 36
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 161,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 186,
+          "bottom": 32,
+          "left": 161
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 187,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 212,
+          "bottom": 32,
+          "left": 187
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 213,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 238,
+          "bottom": 32,
+          "left": 213
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 239,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 264,
+          "bottom": 32,
+          "left": 239
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 265,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 290,
+          "bottom": 32,
+          "left": 265
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 291,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 316,
+          "bottom": 32,
+          "left": 291
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 304,
+          "height": 588,
+          "top": 42,
+          "right": 312,
+          "bottom": 630,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 638,
+          "width": 304,
+          "height": 32,
+          "top": 638,
+          "right": 312,
+          "bottom": 670,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "drill",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "research",
+    "width": 320,
+    "height": 700,
+    "doc": [
+      320,
+      700
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 36,
+      "top": 0,
+      "right": 320,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 320,
+      "height": 640,
+      "top": 36,
+      "right": 320,
+      "bottom": 676,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 36,
+          "y": 3,
+          "width": 85,
+          "height": 28,
+          "top": 3,
+          "right": 121,
+          "bottom": 31,
+          "left": 36
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 161,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 186,
+          "bottom": 32,
+          "left": 161
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 187,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 212,
+          "bottom": 32,
+          "left": 187
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 213,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 238,
+          "bottom": 32,
+          "left": 213
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 239,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 264,
+          "bottom": 32,
+          "left": 239
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 265,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 290,
+          "bottom": 32,
+          "left": 265
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 291,
+          "y": 2,
+          "width": 25,
+          "height": 30,
+          "top": 2,
+          "right": 316,
+          "bottom": 32,
+          "left": 291
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 304,
+          "height": 588,
+          "top": 42,
+          "right": 312,
+          "bottom": 630,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 638,
+          "width": 304,
+          "height": 32,
+          "top": 638,
+          "right": 312,
+          "bottom": 670,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "research",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "explore",
+    "width": 390,
+    "height": 600,
+    "doc": [
+      390,
+      600
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 540,
+      "top": 36,
+      "right": 390,
+      "bottom": 576,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 178.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 205.578125,
+          "bottom": 32,
+          "left": 178.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 206.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 233.578125,
+          "bottom": 32,
+          "left": 206.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 234.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 261.578125,
+          "bottom": 32,
+          "left": 234.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 262.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 289.578125,
+          "bottom": 32,
+          "left": 262.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 290.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 317.578125,
+          "bottom": 32,
+          "left": 290.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 318.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 345.578125,
+          "bottom": 32,
+          "left": 318.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 354,
+          "y": 3,
+          "width": 30,
+          "height": 28,
+          "top": 3,
+          "right": 384,
+          "bottom": 31,
+          "left": 354
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "width": 374,
+      "height": 190,
+      "top": 42,
+      "right": 382,
+      "bottom": 232,
+      "left": 8
+    },
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 190,
+          "top": 42,
+          "right": 382,
+          "bottom": 232,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "x": 8,
+          "y": 235,
+          "width": 374,
+          "height": 32,
+          "top": 235,
+          "right": 382,
+          "bottom": 267,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "x": 8,
+          "y": 270,
+          "width": 374,
+          "height": 300,
+          "top": 270,
+          "right": 382,
+          "bottom": 570,
+          "left": 8
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 270,
+          "width": 374,
+          "height": 260,
+          "top": 270,
+          "right": 382,
+          "bottom": 530,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 538,
+          "width": 374,
+          "height": 32,
+          "top": 538,
+          "right": 382,
+          "bottom": 570,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "explore",
+    "navCurrent": "page",
+    "terrainState": "loading"
+  },
+  {
+    "page": "satellite",
+    "width": 390,
+    "height": 600,
+    "doc": [
+      390,
+      600
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 540,
+      "top": 36,
+      "right": 390,
+      "bottom": 576,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 488,
+          "top": 42,
+          "right": 382,
+          "bottom": 530,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 538,
+          "width": 374,
+          "height": 32,
+          "top": 538,
+          "right": 382,
+          "bottom": 570,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "satellite",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "prepare",
+    "width": 390,
+    "height": 600,
+    "doc": [
+      390,
+      600
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 540,
+      "top": 36,
+      "right": 390,
+      "bottom": 576,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 488,
+          "top": 42,
+          "right": 382,
+          "bottom": 530,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 538,
+          "width": 374,
+          "height": 32,
+          "top": 538,
+          "right": 382,
+          "bottom": 570,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "prepare",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "drill",
+    "width": 390,
+    "height": 600,
+    "doc": [
+      390,
+      600
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 540,
+      "top": 36,
+      "right": 390,
+      "bottom": 576,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 488,
+          "top": 42,
+          "right": 382,
+          "bottom": 530,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 538,
+          "width": 374,
+          "height": 32,
+          "top": 538,
+          "right": 382,
+          "bottom": 570,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "drill",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "research",
+    "width": 390,
+    "height": 600,
+    "doc": [
+      390,
+      600
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 540,
+      "top": 36,
+      "right": 390,
+      "bottom": 576,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 488,
+          "top": 42,
+          "right": 382,
+          "bottom": 530,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 538,
+          "width": 374,
+          "height": 32,
+          "top": 538,
+          "right": 382,
+          "bottom": 570,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "research",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "explore",
+    "width": 390,
+    "height": 844,
+    "doc": [
+      390,
+      844
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 784,
+      "top": 36,
+      "right": 390,
+      "bottom": 820,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 178.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 205.578125,
+          "bottom": 32,
+          "left": 178.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 206.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 233.578125,
+          "bottom": 32,
+          "left": 206.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 234.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 261.578125,
+          "bottom": 32,
+          "left": 234.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 262.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 289.578125,
+          "bottom": 32,
+          "left": 262.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 290.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 317.578125,
+          "bottom": 32,
+          "left": 290.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 318.578125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 345.578125,
+          "bottom": 32,
+          "left": 318.578125
+        },
+        "clear": true
+      },
+      {
+        "name": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 354,
+          "y": 3,
+          "width": 30,
+          "height": 28,
+          "top": 3,
+          "right": 384,
+          "bottom": 31,
+          "left": 354
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "width": 374,
+      "height": 434,
+      "top": 42,
+      "right": 382,
+      "bottom": 476,
+      "left": 8
+    },
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 434,
+          "top": 42,
+          "right": 382,
+          "bottom": 476,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "x": 8,
+          "y": 479,
+          "width": 374,
+          "height": 32,
+          "top": 479,
+          "right": 382,
+          "bottom": 511,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "x": 8,
+          "y": 514,
+          "width": 374,
+          "height": 300,
+          "top": 514,
+          "right": 382,
+          "bottom": 814,
+          "left": 8
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 514,
+          "width": 374,
+          "height": 260,
+          "top": 514,
+          "right": 382,
+          "bottom": 774,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 782,
+          "width": 374,
+          "height": 32,
+          "top": 782,
+          "right": 382,
+          "bottom": 814,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "explore",
+    "navCurrent": "page",
+    "terrainState": "loading"
+  },
+  {
+    "page": "satellite",
+    "width": 390,
+    "height": 844,
+    "doc": [
+      390,
+      844
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 784,
+      "top": 36,
+      "right": 390,
+      "bottom": 820,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 732,
+          "top": 42,
+          "right": 382,
+          "bottom": 774,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 782,
+          "width": 374,
+          "height": 32,
+          "top": 782,
+          "right": 382,
+          "bottom": 814,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "satellite",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "prepare",
+    "width": 390,
+    "height": 844,
+    "doc": [
+      390,
+      844
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 784,
+      "top": 36,
+      "right": 390,
+      "bottom": 820,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 732,
+          "top": 42,
+          "right": 382,
+          "bottom": 774,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 782,
+          "width": 374,
+          "height": 32,
+          "top": 782,
+          "right": 382,
+          "bottom": 814,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "prepare",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "drill",
+    "width": 390,
+    "height": 844,
+    "doc": [
+      390,
+      844
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 784,
+      "top": 36,
+      "right": 390,
+      "bottom": 820,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 732,
+          "top": 42,
+          "right": 382,
+          "bottom": 774,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 782,
+          "width": 374,
+          "height": 32,
+          "top": 782,
+          "right": 382,
+          "bottom": 814,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "drill",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "research",
+    "width": 390,
+    "height": 844,
+    "doc": [
+      390,
+      844
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 36,
+      "top": 0,
+      "right": 390,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 390,
+      "height": 784,
+      "top": 36,
+      "right": 390,
+      "bottom": 820,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 211,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 239,
+          "bottom": 32,
+          "left": 211
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 240,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 268,
+          "bottom": 32,
+          "left": 240
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 269,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 297,
+          "bottom": 32,
+          "left": 269
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 298,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 326,
+          "bottom": 32,
+          "left": 298
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 327,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355,
+          "bottom": 32,
+          "left": 327
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 356,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 384,
+          "bottom": 32,
+          "left": 356
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 374,
+          "height": 732,
+          "top": 42,
+          "right": 382,
+          "bottom": 774,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 782,
+          "width": 374,
+          "height": 32,
+          "top": 782,
+          "right": 382,
+          "bottom": 814,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "research",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "explore",
+    "width": 667,
+    "height": 375,
+    "doc": [
+      667,
+      375
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 667,
+      "height": 36,
+      "top": 0,
+      "right": 667,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 667,
+      "height": 315,
+      "top": 36,
+      "right": 667,
+      "bottom": 351,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 317.078125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 344.078125,
+          "bottom": 32,
+          "left": 317.078125
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 345.078125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 372.078125,
+          "bottom": 32,
+          "left": 345.078125
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 373.078125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 400.078125,
+          "bottom": 32,
+          "left": 373.078125
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 401.078125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 428.078125,
+          "bottom": 32,
+          "left": 401.078125
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 429.078125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 456.078125,
+          "bottom": 32,
+          "left": 429.078125
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 457.078125,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 484.078125,
+          "bottom": 32,
+          "left": 457.078125
+        },
+        "clear": true
+      },
+      {
+        "name": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 631,
+          "y": 3,
+          "width": 30,
+          "height": 28,
+          "top": 3,
+          "right": 661,
+          "bottom": 31,
+          "left": 631
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "width": 358,
+      "height": 270,
+      "top": 42,
+      "right": 366,
+      "bottom": 312,
+      "left": 8
+    },
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 358,
+          "height": 270,
+          "top": 42,
+          "right": 366,
+          "bottom": 312,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "x": 8,
+          "y": 315,
+          "width": 358,
+          "height": 30,
+          "top": 315,
+          "right": 366,
+          "bottom": 345,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "x": 369,
+          "y": 42,
+          "width": 290,
+          "height": 303,
+          "top": 42,
+          "right": 659,
+          "bottom": 345,
+          "left": 369
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 369,
+          "y": 42,
+          "width": 290,
+          "height": 263,
+          "top": 42,
+          "right": 659,
+          "bottom": 305,
+          "left": 369
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 369,
+          "y": 313,
+          "width": 290,
+          "height": 32,
+          "top": 313,
+          "right": 659,
+          "bottom": 345,
+          "left": 369
+        }
+      }
+    ],
+    "surface": "explore",
+    "navCurrent": "page",
+    "terrainState": "loading"
+  },
+  {
+    "page": "satellite",
+    "width": 667,
+    "height": 375,
+    "doc": [
+      667,
+      375
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 667,
+      "height": 36,
+      "top": 0,
+      "right": 667,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 667,
+      "height": 315,
+      "top": 36,
+      "right": 667,
+      "bottom": 351,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 488,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 516,
+          "bottom": 32,
+          "left": 488
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 517,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 545,
+          "bottom": 32,
+          "left": 517
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 546,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 574,
+          "bottom": 32,
+          "left": 546
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 575,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 603,
+          "bottom": 32,
+          "left": 575
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 604,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 632,
+          "bottom": 32,
+          "left": 604
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 633,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 661,
+          "bottom": 32,
+          "left": 633
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 651,
+          "height": 263,
+          "top": 42,
+          "right": 659,
+          "bottom": 305,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 313,
+          "width": 651,
+          "height": 32,
+          "top": 313,
+          "right": 659,
+          "bottom": 345,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "satellite",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "prepare",
+    "width": 667,
+    "height": 375,
+    "doc": [
+      667,
+      375
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 667,
+      "height": 36,
+      "top": 0,
+      "right": 667,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 667,
+      "height": 315,
+      "top": 36,
+      "right": 667,
+      "bottom": 351,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 488,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 516,
+          "bottom": 32,
+          "left": 488
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 517,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 545,
+          "bottom": 32,
+          "left": 517
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 546,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 574,
+          "bottom": 32,
+          "left": 546
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 575,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 603,
+          "bottom": 32,
+          "left": 575
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 604,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 632,
+          "bottom": 32,
+          "left": 604
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 633,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 661,
+          "bottom": 32,
+          "left": 633
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 651,
+          "height": 263,
+          "top": 42,
+          "right": 659,
+          "bottom": 305,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 313,
+          "width": 651,
+          "height": 32,
+          "top": 313,
+          "right": 659,
+          "bottom": 345,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "prepare",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "drill",
+    "width": 667,
+    "height": 375,
+    "doc": [
+      667,
+      375
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 667,
+      "height": 36,
+      "top": 0,
+      "right": 667,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 667,
+      "height": 315,
+      "top": 36,
+      "right": 667,
+      "bottom": 351,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 488,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 516,
+          "bottom": 32,
+          "left": 488
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 517,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 545,
+          "bottom": 32,
+          "left": 517
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 546,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 574,
+          "bottom": 32,
+          "left": 546
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 575,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 603,
+          "bottom": 32,
+          "left": 575
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 604,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 632,
+          "bottom": 32,
+          "left": 604
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 633,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 661,
+          "bottom": 32,
+          "left": 633
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 651,
+          "height": 263,
+          "top": 42,
+          "right": 659,
+          "bottom": 305,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 313,
+          "width": 651,
+          "height": 32,
+          "top": 313,
+          "right": 659,
+          "bottom": 345,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "drill",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "research",
+    "width": 667,
+    "height": 375,
+    "doc": [
+      667,
+      375
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 667,
+      "height": 36,
+      "top": 0,
+      "right": 667,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 667,
+      "height": 315,
+      "top": 36,
+      "right": 667,
+      "bottom": 351,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 488,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 516,
+          "bottom": 32,
+          "left": 488
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 517,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 545,
+          "bottom": 32,
+          "left": 517
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 546,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 574,
+          "bottom": 32,
+          "left": 546
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 575,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 603,
+          "bottom": 32,
+          "left": 575
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 604,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 632,
+          "bottom": 32,
+          "left": 604
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 633,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 661,
+          "bottom": 32,
+          "left": 633
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 651,
+          "height": 263,
+          "top": 42,
+          "right": 659,
+          "bottom": 305,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 313,
+          "width": 651,
+          "height": 32,
+          "top": 313,
+          "right": 659,
+          "bottom": 345,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "research",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "explore",
+    "width": 760,
+    "height": 768,
+    "doc": [
+      760,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 760,
+      "height": 36,
+      "top": 0,
+      "right": 760,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 760,
+      "height": 708,
+      "top": 36,
+      "right": 760,
+      "bottom": 744,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 174.140625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 201.140625,
+          "bottom": 32,
+          "left": 174.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 202.140625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 229.140625,
+          "bottom": 32,
+          "left": 202.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 230.140625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 257.140625,
+          "bottom": 32,
+          "left": 230.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 258.140625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 285.140625,
+          "bottom": 32,
+          "left": 258.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 286.140625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 313.140625,
+          "bottom": 32,
+          "left": 286.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 314.140625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 341.140625,
+          "bottom": 32,
+          "left": 314.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model view / มุมมอง",
+        "rect": {
+          "x": 345.140625,
+          "y": 3,
+          "width": 90,
+          "height": 28,
+          "top": 3,
+          "right": 435.140625,
+          "bottom": 31,
+          "left": 345.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Select coastal area",
+        "rect": {
+          "x": 441.140625,
+          "y": 3,
+          "width": 118,
+          "height": 28,
+          "top": 3,
+          "right": 559.140625,
+          "bottom": 31,
+          "left": 441.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 565.140625,
+          "y": 1,
+          "width": 30,
+          "height": 28,
+          "top": 1,
+          "right": 595.140625,
+          "bottom": 29,
+          "left": 565.140625
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "width": 744,
+      "height": 358,
+      "top": 42,
+      "right": 752,
+      "bottom": 400,
+      "left": 8
+    },
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 744,
+          "height": 358,
+          "top": 42,
+          "right": 752,
+          "bottom": 400,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "x": 8,
+          "y": 403,
+          "width": 744,
+          "height": 32,
+          "top": 403,
+          "right": 752,
+          "bottom": 435,
+          "left": 8
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "x": 8,
+          "y": 438,
+          "width": 744,
+          "height": 300,
+          "top": 438,
+          "right": 752,
+          "bottom": 738,
+          "left": 8
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 438,
+          "width": 744,
+          "height": 300,
+          "top": 438,
+          "right": 752,
+          "bottom": 738,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "explore",
+    "navCurrent": "page",
+    "terrainState": "loading"
+  },
+  {
+    "page": "satellite",
+    "width": 760,
+    "height": 768,
+    "doc": [
+      760,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 760,
+      "height": 36,
+      "top": 0,
+      "right": 760,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 760,
+      "height": 708,
+      "top": 36,
+      "right": 760,
+      "bottom": 744,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 581,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 609,
+          "bottom": 32,
+          "left": 581
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 610,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 638,
+          "bottom": 32,
+          "left": 610
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 639,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 667,
+          "bottom": 32,
+          "left": 639
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 668,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 696,
+          "bottom": 32,
+          "left": 668
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 697,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 725,
+          "bottom": 32,
+          "left": 697
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 726,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 754,
+          "bottom": 32,
+          "left": 726
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 744,
+          "height": 656,
+          "top": 42,
+          "right": 752,
+          "bottom": 698,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 706,
+          "width": 744,
+          "height": 32,
+          "top": 706,
+          "right": 752,
+          "bottom": 738,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "satellite",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "prepare",
+    "width": 760,
+    "height": 768,
+    "doc": [
+      760,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 760,
+      "height": 36,
+      "top": 0,
+      "right": 760,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 760,
+      "height": 708,
+      "top": 36,
+      "right": 760,
+      "bottom": 744,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 581,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 609,
+          "bottom": 32,
+          "left": 581
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 610,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 638,
+          "bottom": 32,
+          "left": 610
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 639,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 667,
+          "bottom": 32,
+          "left": 639
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 668,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 696,
+          "bottom": 32,
+          "left": 668
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 697,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 725,
+          "bottom": 32,
+          "left": 697
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 726,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 754,
+          "bottom": 32,
+          "left": 726
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 744,
+          "height": 656,
+          "top": 42,
+          "right": 752,
+          "bottom": 698,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 706,
+          "width": 744,
+          "height": 32,
+          "top": 706,
+          "right": 752,
+          "bottom": 738,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "prepare",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "drill",
+    "width": 760,
+    "height": 768,
+    "doc": [
+      760,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 760,
+      "height": 36,
+      "top": 0,
+      "right": 760,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 760,
+      "height": 708,
+      "top": 36,
+      "right": 760,
+      "bottom": 744,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 581,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 609,
+          "bottom": 32,
+          "left": 581
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 610,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 638,
+          "bottom": 32,
+          "left": 610
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 639,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 667,
+          "bottom": 32,
+          "left": 639
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 668,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 696,
+          "bottom": 32,
+          "left": 668
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 697,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 725,
+          "bottom": 32,
+          "left": 697
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 726,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 754,
+          "bottom": 32,
+          "left": 726
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 744,
+          "height": 656,
+          "top": 42,
+          "right": 752,
+          "bottom": 698,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 706,
+          "width": 744,
+          "height": 32,
+          "top": 706,
+          "right": 752,
+          "bottom": 738,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "drill",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "research",
+    "width": 760,
+    "height": 768,
+    "doc": [
+      760,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 760,
+      "height": 36,
+      "top": 0,
+      "right": 760,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 760,
+      "height": 708,
+      "top": 36,
+      "right": 760,
+      "bottom": 744,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 69.140625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 164.140625,
+          "bottom": 31,
+          "left": 69.140625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 581,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 609,
+          "bottom": 32,
+          "left": 581
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 610,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 638,
+          "bottom": 32,
+          "left": 610
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 639,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 667,
+          "bottom": 32,
+          "left": 639
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 668,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 696,
+          "bottom": 32,
+          "left": 668
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 697,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 725,
+          "bottom": 32,
+          "left": 697
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 726,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 754,
+          "bottom": 32,
+          "left": 726
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 744,
+          "height": 656,
+          "top": 42,
+          "right": 752,
+          "bottom": 698,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 706,
+          "width": 744,
+          "height": 32,
+          "top": 706,
+          "right": 752,
+          "bottom": 738,
+          "left": 8
+        }
+      }
+    ],
+    "surface": "research",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "explore",
+    "width": 761,
+    "height": 768,
+    "doc": [
+      761,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 761,
+      "height": 36,
+      "top": 0,
+      "right": 761,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 761,
+      "height": 704,
+      "top": 36,
+      "right": 761,
+      "bottom": 740,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 104.15625,
+          "y": 3,
+          "width": 125,
+          "height": 28,
+          "top": 3,
+          "right": 229.15625,
+          "bottom": 31,
+          "left": 104.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 239.15625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 266.15625,
+          "bottom": 32,
+          "left": 239.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 267.15625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 294.15625,
+          "bottom": 32,
+          "left": 267.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 295.15625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 322.15625,
+          "bottom": 32,
+          "left": 295.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 323.15625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 350.15625,
+          "bottom": 32,
+          "left": 323.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 351.15625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 378.15625,
+          "bottom": 32,
+          "left": 351.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 379.15625,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 406.15625,
+          "bottom": 32,
+          "left": 379.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model view / มุมมอง",
+        "rect": {
+          "x": 410.15625,
+          "y": 3,
+          "width": 90,
+          "height": 28,
+          "top": 3,
+          "right": 500.15625,
+          "bottom": 31,
+          "left": 410.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Select coastal area",
+        "rect": {
+          "x": 506.15625,
+          "y": 3,
+          "width": 118,
+          "height": 28,
+          "top": 3,
+          "right": 624.15625,
+          "bottom": 31,
+          "left": 506.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 630.15625,
+          "y": 1,
+          "width": 30,
+          "height": 28,
+          "top": 1,
+          "right": 660.15625,
+          "bottom": 29,
+          "left": 630.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Warning guidance / คำเตือน",
+        "rect": {
+          "x": 711.515625,
+          "y": 3,
+          "width": 43.484375,
+          "height": 28,
+          "top": 3,
+          "right": 755,
+          "bottom": 31,
+          "left": 711.515625
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "width": 401,
+      "height": 654,
+      "top": 44,
+      "right": 413,
+      "bottom": 698,
+      "left": 12
+    },
+    "regions": [
+      {
+        "name": "terrain-stage",
+        "rect": {
+          "x": 12,
+          "y": 44,
+          "width": 401,
+          "height": 654,
+          "top": 44,
+          "right": 413,
+          "bottom": 698,
+          "left": 12
+        }
+      },
+      {
+        "name": "terrain-caption",
+        "rect": {
+          "x": 12,
+          "y": 702,
+          "width": 401,
+          "height": 30,
+          "top": 702,
+          "right": 413,
+          "bottom": 732,
+          "left": 12
+        }
+      },
+      {
+        "name": "terrain-operations",
+        "rect": {
+          "x": 429,
+          "y": 44,
+          "width": 320,
+          "height": 688,
+          "top": 44,
+          "right": 749,
+          "bottom": 732,
+          "left": 429
+        }
+      },
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 429,
+          "y": 44,
+          "width": 320,
+          "height": 688,
+          "top": 44,
+          "right": 749,
+          "bottom": 732,
+          "left": 429
+        }
+      }
+    ],
+    "surface": "explore",
+    "navCurrent": "page",
+    "terrainState": "loading"
+  },
+  {
+    "page": "satellite",
+    "width": 761,
+    "height": 768,
+    "doc": [
+      761,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 761,
+      "height": 36,
+      "top": 0,
+      "right": 761,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 761,
+      "height": 704,
+      "top": 36,
+      "right": 761,
+      "bottom": 740,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 104.15625,
+          "y": 3,
+          "width": 125,
+          "height": 28,
+          "top": 3,
+          "right": 229.15625,
+          "bottom": 31,
+          "left": 104.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 239.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 267.15625,
+          "bottom": 32,
+          "left": 239.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 268.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 296.15625,
+          "bottom": 32,
+          "left": 268.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 297.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 325.15625,
+          "bottom": 32,
+          "left": 297.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 326.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 354.15625,
+          "bottom": 32,
+          "left": 326.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 355.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 383.15625,
+          "bottom": 32,
+          "left": 355.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 384.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 412.15625,
+          "bottom": 32,
+          "left": 384.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Warning guidance / คำเตือน",
+        "rect": {
+          "x": 711.515625,
+          "y": 3,
+          "width": 43.484375,
+          "height": 28,
+          "top": 3,
+          "right": 755,
+          "bottom": 31,
+          "left": 711.515625
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 12,
+          "y": 44,
+          "width": 737,
+          "height": 688,
+          "top": 44,
+          "right": 749,
+          "bottom": 732,
+          "left": 12
+        }
+      }
+    ],
+    "surface": "satellite",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "prepare",
+    "width": 761,
+    "height": 768,
+    "doc": [
+      761,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 761,
+      "height": 36,
+      "top": 0,
+      "right": 761,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 761,
+      "height": 704,
+      "top": 36,
+      "right": 761,
+      "bottom": 740,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 104.15625,
+          "y": 3,
+          "width": 125,
+          "height": 28,
+          "top": 3,
+          "right": 229.15625,
+          "bottom": 31,
+          "left": 104.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 239.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 267.15625,
+          "bottom": 32,
+          "left": 239.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 268.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 296.15625,
+          "bottom": 32,
+          "left": 268.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 297.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 325.15625,
+          "bottom": 32,
+          "left": 297.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 326.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 354.15625,
+          "bottom": 32,
+          "left": 326.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 355.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 383.15625,
+          "bottom": 32,
+          "left": 355.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 384.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 412.15625,
+          "bottom": 32,
+          "left": 384.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Warning guidance / คำเตือน",
+        "rect": {
+          "x": 711.515625,
+          "y": 3,
+          "width": 43.484375,
+          "height": 28,
+          "top": 3,
+          "right": 755,
+          "bottom": 31,
+          "left": 711.515625
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 12,
+          "y": 44,
+          "width": 737,
+          "height": 688,
+          "top": 44,
+          "right": 749,
+          "bottom": 732,
+          "left": 12
+        }
+      }
+    ],
+    "surface": "prepare",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "drill",
+    "width": 761,
+    "height": 768,
+    "doc": [
+      761,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 761,
+      "height": 36,
+      "top": 0,
+      "right": 761,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 761,
+      "height": 704,
+      "top": 36,
+      "right": 761,
+      "bottom": 740,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 104.15625,
+          "y": 3,
+          "width": 125,
+          "height": 28,
+          "top": 3,
+          "right": 229.15625,
+          "bottom": 31,
+          "left": 104.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 239.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 267.15625,
+          "bottom": 32,
+          "left": 239.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 268.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 296.15625,
+          "bottom": 32,
+          "left": 268.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 297.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 325.15625,
+          "bottom": 32,
+          "left": 297.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 326.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 354.15625,
+          "bottom": 32,
+          "left": 326.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 355.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 383.15625,
+          "bottom": 32,
+          "left": 355.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 384.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 412.15625,
+          "bottom": 32,
+          "left": 384.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Warning guidance / คำเตือน",
+        "rect": {
+          "x": 711.515625,
+          "y": 3,
+          "width": 43.484375,
+          "height": 28,
+          "top": 3,
+          "right": 755,
+          "bottom": 31,
+          "left": 711.515625
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 12,
+          "y": 44,
+          "width": 737,
+          "height": 688,
+          "top": 44,
+          "right": 749,
+          "bottom": 732,
+          "left": 12
+        }
+      }
+    ],
+    "surface": "drill",
+    "navCurrent": "page",
+    "terrainState": null
+  },
+  {
+    "page": "research",
+    "width": 761,
+    "height": 768,
+    "doc": [
+      761,
+      768
+    ],
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 761,
+      "height": 36,
+      "top": 0,
+      "right": 761,
+      "bottom": 36,
+      "left": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 761,
+      "height": 704,
+      "top": 36,
+      "right": 761,
+      "bottom": 740,
+      "left": 0
+    },
+    "controls": [
+      {
+        "name": "Khao Lak (Phang Nga)",
+        "rect": {
+          "x": 104.15625,
+          "y": 3,
+          "width": 125,
+          "height": 28,
+          "top": 3,
+          "right": 229.15625,
+          "bottom": 31,
+          "left": 104.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 239.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 267.15625,
+          "bottom": 32,
+          "left": 239.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Satellite / ดาวเทียม",
+        "rect": {
+          "x": 268.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 296.15625,
+          "bottom": 32,
+          "left": 268.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 297.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 325.15625,
+          "bottom": 32,
+          "left": 297.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 326.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 354.15625,
+          "bottom": 32,
+          "left": 326.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 355.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 383.15625,
+          "bottom": 32,
+          "left": 355.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 384.15625,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 412.15625,
+          "bottom": 32,
+          "left": 384.15625
+        },
+        "clear": true
+      },
+      {
+        "name": "Warning guidance / คำเตือน",
+        "rect": {
+          "x": 711.515625,
+          "y": 3,
+          "width": 43.484375,
+          "height": 28,
+          "top": 3,
+          "right": 755,
+          "bottom": 31,
+          "left": 711.515625
+        },
+        "clear": true
+      }
+    ],
+    "failures": [],
+    "stage": null,
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 12,
+          "y": 44,
+          "width": 737,
+          "height": 648,
+          "top": 44,
+          "right": 749,
+          "bottom": 692,
+          "left": 12
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 12,
+          "y": 700,
+          "width": 737,
+          "height": 32,
+          "top": 700,
+          "right": 749,
+          "bottom": 732,
+          "left": 12
+        }
+      }
+    ],
+    "surface": "research",
+    "navCurrent": "page",
+    "terrainState": null
+  }
+]

@@ -8,6 +8,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import terrainWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(terrainWorker);
 import { ReplayWaterLayer } from './ReplayWaterLayer';
+import { advancePlayback } from './playback';
 import { TimeScrubber } from './TimeScrubber';
 import { buildingAreaId, parseBuildings, cameraStep, EYE_HEIGHT_M, UNKNOWN_BUILDING_MASSING_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
@@ -46,6 +47,8 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const [freeWalk, setFreeWalk] = useState<{ coord: Coord; bearing: number }>();
   const [eyeViewReady, setEyeViewReady] = useState(false);
   const [walkCompare, setWalkCompare] = useState<'off' | 'compare'>('off');
+  const language = manualLanguage(location.search,navigator.language);
+  const t = (en:string,th:string) => language==='th' ? th : en;
   const areaPack = areaPacks[region.id];
   const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
   const terrainGridRef = useRef(grid); terrainGridRef.current = grid;
@@ -78,12 +81,29 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const compareCurrent = useMemo(() => compareModel ? frame(compareModel, started ? seconds : -1) : undefined, [compareModel, seconds, started]);
   useEffect(() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }, [count, speed, width, preparation, region.id, selected]);
   const duration = Math.max(model?.duration ?? 0, hazard?.frames.at(-1)?.seconds ?? 0, animateWater ? riseMinutes * 60 : 0);
-  const waterFrame = hazard ? replayAt(hazard, seconds) : null;
-  const shownWaterLevel = animateWater ? demonstrationLevel(seconds, peak, riseMinutes * 60) : water;
+  const [waterSeconds,setWaterSeconds] = useState(0);
+  const playbackSeconds = useRef(seconds); playbackSeconds.current=seconds;
+  useEffect(()=>{ if (!playing) setWaterSeconds(seconds); },[seconds,playing]);
+  useEffect(()=>{
+    if (!playing) return;
+    const timer=window.setInterval(()=>setWaterSeconds(playbackSeconds.current),200);
+    return ()=>clearInterval(timer);
+  },[playing]);
+  const waterFrame = hazard ? replayAt(hazard, waterSeconds) : null;
+  const shownWaterLevel = animateWater ? demonstrationLevel(waterSeconds, peak, riseMinutes * 60) : water;
   useEffect(() => {
     if (!playing || duration <= 0) return;
-    const timer = window.setInterval(() => setSeconds(t => Math.min(duration, t + rate / 5)), 200);
-    return () => clearInterval(timer);
+    let last=performance.now(), ticket=0;
+    const tick=(now:number) => {
+      const elapsed=now-last;
+      if (elapsed>=1000/30) {
+        last=now;
+        if (!document.hidden) setSeconds(value=>advancePlayback(value,elapsed,rate,duration));
+      }
+      ticket=requestAnimationFrame(tick);
+    };
+    ticket=requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(ticket);
   }, [playing, duration, rate]);
   useEffect(() => { if (duration > 0 && seconds >= duration) setPlaying(false); }, [seconds, duration]);
   useEffect(() => {
@@ -91,7 +111,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     setReady(false); setTerrainLoaded(false); setFailure(''); setWaterSurfaceError('');
     let m: maplibregl.Map;
     try {
-      m = new maplibregl.Map({ container: host.current, center: isStudy ? [98.265, 8.669] : [region.center[1], region.center[0]], zoom: isStudy ? 13.6 : region.zoom, pitch: dimension === '2d' ? 0 : 58, bearing: -65, maxPitch: 130, minZoom: 5, maxZoom: 23, renderWorldCopies: false,
+      m = new maplibregl.Map({ container: host.current, center: isStudy ? [98.265, 8.669] : [region.center[1], region.center[0]], zoom: isStudy ? 13.6 : region.zoom, pitch: dimension === '2d' ? 0 : 58, bearing: -65, maxPitch: 130, minZoom: 5, maxZoom: 23, renderWorldCopies: false, pixelRatio: Math.max(window.devicePixelRatio || 1, 2), canvasContextAttributes: {antialias:true},
         style: { version: 8, sources: {
           aerial: { type: 'raster', tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'], tileSize: 256, maxzoom: 18, attribution: 'Imagery © Esri and contributors' },
           dem: { type: 'raster-dem', tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'], encoding: 'terrarium', tileSize: 256, maxzoom: 15, attribution: '<a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Terrain © Mapzen / source credits</a>' }
@@ -154,7 +174,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     const m = map.current;
     if (!m || !ready || !m.getSource('buildings')) return;
     (m.getSource('buildings') as GeoJSONSource).setData(buildingsEnabled && buildings ? buildings : empty);
-    for (const id of ['building-outlines','building-volumes']) if (m.getLayer(id)) m.setLayoutProperty(id,'visibility',buildingsEnabled && buildings && (id === 'building-outlines' || dimension === '3d') ? 'visible' : 'none');
+    for (const id of ['building-outlines','building-footprint-outlines','building-volumes']) if (m.getLayer(id)) m.setLayoutProperty(id,'visibility',buildingsEnabled && buildings && (id !== 'building-volumes' || dimension === '3d') ? 'visible' : 'none');
   }, [ready, buildings, buildingsEnabled, dimension, flat]);
   useEffect(() => {
     const m = map.current; if (!m || !ready || !data) return;
@@ -172,12 +192,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   useEffect(() => {
     if (!ready) return;
     const source = map.current?.getSource('water') as GeoJSONSource | undefined;
-    const polygons = hazard ? replayPolygons(hazard, seconds) : grid && (screen || animateWater) ? waterScreen(grid, shownWaterLevel) : { type: 'FeatureCollection' as const, features: [] };
+    const polygons = hazard ? replayPolygons(hazard, waterSeconds) : grid && (screen || animateWater) ? waterScreen(grid, shownWaterLevel) : { type: 'FeatureCollection' as const, features: [] };
     source?.setData(polygons);
     const hasSurface = waterLayer.current?.update(polygons, hazard ? undefined : shownWaterLevel) ?? false;
     waterLayer.current?.setVisible(dimension === '3d');
     if (map.current?.getLayer('water')) map.current.setPaintProperty('water', 'fill-opacity', dimension === '3d' && !waterSurfaceError && hasSurface ? .12 : .48);
-  }, [ready, grid, shownWaterLevel, screen, isStudy, hazard, seconds, animateWater, dimension, waterSurfaceError]);
+  }, [ready, grid, shownWaterLevel, screen, isStudy, hazard, waterSeconds, animateWater, dimension, waterSurfaceError]);
   useEffect(() => {
     const m = map.current; if (!m || !ready || flat || !m.getSource('dem')) return;
     m.setTerrain(dimension === '3d' ? { source: 'dem', exaggeration: 1 } : null);
@@ -222,7 +242,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       return () => { m.off('idle',align); };
     } else {
       m.setCenterClampedToGround(true);
-      m.easeTo({ center: progress.coord, zoom: 16, pitch: 65, bearing: progress.heading, duration: playing ? 200 : 800 });
+      m.easeTo({ center: progress.coord, zoom: 16, pitch: 65, bearing: progress.heading, duration: playing ? 50 : 800 });
     }
   }, [ready, camera, seconds, route, data, model, isStudy, dimension, started, playing, terrainLoaded, grid, cameraEpoch]);
   useEffect(() => {
@@ -291,6 +311,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   }
   useEffect(() => { if (ready && data && isStudy && camera === 'overview' && !queueFocus) fitRoutes(); }, [ready, data, isStudy]);
   function view(which: typeof camera) {
+    if (which === 'walk') { setRate(1); setPlaying(false); }
     setCamera(which); setCameraEpoch(epoch=>epoch+1);
     setQueueFocus(undefined);
     map.current?.setCenterClampedToGround(true);
@@ -327,7 +348,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   const guideAvailable=camera==='walk'&&!flat&&!!progress&&!!selectedSchedule;
   useEffect(()=>{if(!guideAvailable)setOperationView('operate');},[guideAvailable]);
-  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
+  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-exercise-seconds={seconds.toFixed(3)} data-water-seconds={waterSeconds.toFixed(3)} data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <DockControls target={bannerDock}><div className="terrain-toolbar">
       {isStudy && <><div className="experiment-tabs" role="group" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} aria-label="Rehearsal" title="Rehearsal — crowd queue on the mapped network" onClick={() => { setMode('crowd'); setScreen(false); }}><CameraSymbol name="rehearsal" /></button><button aria-pressed={mode === 'water'} aria-label="Water level" title="Water level — illustrative static level on the terrain" onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}><CameraSymbol name="water" /></button></div><span className="toolbar-divider" aria-hidden="true" /></>}
       <div className="terrain-view-controls" role="group" aria-label="Camera controls">
@@ -348,9 +369,14 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
       {camera === 'walk' && <SunIndicator language={manualLanguage(location.search,navigator.language)} latitude={region.places[selected]?.lat ?? region.center[0]} longitude={region.places[selected]?.lng ?? region.center[1]} />}
-      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
+      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Playback: choose Walk-through for a paused 1× eye-level view, then Start or Play route in Guide. Hidden tabs and rendering stalls pause advancement rather than jumping ahead. Use 5× to review faster; 30×/120× compress exercise time. Rendering requests at least 2 pixels per CSS pixel (device limits may cap it); imagery detail and coarse DEM remain source-limited, not street-level photography. Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
     </div>
-    <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Guide</option></select></label></DockControls><PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
+    <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Guide</option></select></label></DockControls>      {guideAvailable && operationView==='guide' && <div className="guide-playback" aria-label={t('Guide playback','การเล่นแบบฝึก')}>
+        <button disabled={!ready} onClick={startExercise}>{playing?t('Pause','หยุดชั่วคราว'):t('Play route','เล่นเส้นทาง')}</button>
+        <span>{t('Elapsed','ผ่านไป')} {minutes(seconds)}</span>
+        <label>{t('Speed','ความเร็ว')} <select aria-label="Guide speed / ความเร็วในคู่มือ" value={rate} onChange={e=>setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
+      </div>}
+<PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
       {camera === 'walk' && !flat && progress && selectedSchedule && <WalkthroughCoach language={manualLanguage(location.search,navigator.language)} state={progress.state} remainingM={Math.max(0,progress.total-progress.metres)} finishSeconds={selectedSchedule.finishSeconds} remainingSeconds={selectedSchedule.remainingSeconds} queueSeconds={selectedSchedule.queueSeconds} onReview={onReview} full/>}
       </div><div className="operations-content" hidden={operationView!=='operate'}>
     {camera === 'walk' && !isStudy && !flat && <div className="ground-walk-controls" aria-label="Terrain camera controls">
@@ -380,14 +406,14 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
             setScreen(true);
           }
         }}><option value={0}>Off</option><option value={5}>+5 m</option><option value={10}>+10 m</option><option value={15}>+15 m</option><option value={20}>+20 m</option></select></label>
-        <button className="rehearsal-play" aria-label={playing ? "Pause rehearsal" : "Run crowd rehearsal"} disabled={flat || !ready} onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start'}</button>
+        <button className="rehearsal-play" aria-label={playing ? t('Pause rehearsal','หยุดชั่วคราวแบบฝึก') : started ? t('Resume rehearsal','เล่นต่อแบบฝึก') : t('Start rehearsal','เริ่มแบบฝึก')} disabled={flat || !ready} onClick={startExercise}>{playing ? t('Pause','หยุดชั่วคราว') : started ? t('Resume','เล่นต่อ') : t('Start','เริ่ม')}</button>
       </div>
       <div className="rehearsal-timeline">
         <button onClick={() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }}>Reset</button>
-        <label className="timeline-label"><span>{started ? 'Warning +' : 'Ready · '}{minutes(seconds)}</span><TimeScrubber label="Exercise time" duration={duration} value={seconds} onChange={value => { setSeconds(value); setStarted(true); setPlaying(false); }} /></label>
-        <label>Rate<select aria-label="Playback" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
+        <label className="timeline-label"><span>{started ? t('Elapsed +','ผ่านไป +') : t('Ready · ','พร้อม · ')}{minutes(seconds)}</span><TimeScrubber label="Exercise time" duration={duration} value={seconds} onChange={value => { setSeconds(value); setStarted(true); setPlaying(false); }} /></label>
+        <label>{t('Speed','ความเร็ว')}<select aria-label="Playback speed / ความเร็ว" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
-      <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : 'Evacuation rehearsal') : 'Ready to start warning'} · {hazard ? (waterFrame ? 'unverified replay; agents unaffected' : 'no replay frame; agents unaffected') : animateWater ? `Illustrative level +${shownWaterLevel.toFixed(1)}m MSL · agents unaffected` : 'no wave prediction'} · endpoint unapproved</p>
+      <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : t('Route rehearsal','ฝึกเส้นทาง')) : t('Choose a view, then Start','เลือกมุมมอง แล้วกดเริ่ม')} · {hazard ? (waterFrame ? 'unverified replay; agents unaffected' : 'no replay frame; agents unaffected') : animateWater ? `Illustrative level +${shownWaterLevel.toFixed(1)}m MSL · agents unaffected` : 'no wave prediction'} · endpoint unapproved</p>
       <div className="rehearsal-readout" aria-label="Crowd counts">
         <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued at nodes</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
       </div>

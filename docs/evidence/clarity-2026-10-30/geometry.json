@@ -1,0 +1,605 @@
+[
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        664,
+        654
+      ],
+      "pixels": [
+        1328,
+        1308
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      1024,
+      768
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 692,
+      "right": 1012,
+      "top": 44,
+      "width": 320,
+      "x": 692,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 688,
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 676,
+      "top": 44,
+      "width": 664,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      1024,
+      768
+    ],
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        374,
+        434
+      ],
+      "pixels": [
+        748,
+        868
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      390,
+      844
+    ],
+    "guideBar": {
+      "bottom": 542,
+      "height": 28,
+      "left": 8,
+      "right": 382,
+      "top": 514,
+      "width": 374,
+      "x": 8,
+      "y": 514
+    },
+    "header": 36,
+    "operationHeight": 300,
+    "scene": {
+      "bottom": 476,
+      "height": 434,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "viewport": [
+      390,
+      844
+    ],
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        1050,
+        786
+      ],
+      "pixels": [
+        2100,
+        1572
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      1440,
+      900
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 1078,
+      "right": 1428,
+      "top": 44,
+      "width": 350,
+      "x": 1078,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 820,
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 1062,
+      "top": 44,
+      "width": 1050,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      1440,
+      900
+    ],
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        304,
+        290
+      ],
+      "pixels": [
+        608,
+        580
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      320,
+      700
+    ],
+    "guideBar": {
+      "bottom": 398,
+      "height": 28,
+      "left": 8,
+      "right": 312,
+      "top": 370,
+      "width": 304,
+      "x": 8,
+      "y": 370
+    },
+    "header": 36,
+    "operationHeight": 300,
+    "scene": {
+      "bottom": 332,
+      "height": 290,
+      "left": 8,
+      "right": 312,
+      "top": 42,
+      "width": 304,
+      "x": 8,
+      "y": 42
+    },
+    "viewport": [
+      320,
+      700
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        304,
+        290
+      ],
+      "pixels": [
+        608,
+        580
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      390,
+      600
+    ],
+    "guideBar": {
+      "bottom": 298,
+      "height": 28,
+      "left": 8,
+      "right": 382,
+      "top": 270,
+      "width": 374,
+      "x": 8,
+      "y": 270
+    },
+    "header": 36,
+    "operationHeight": 300,
+    "scene": {
+      "bottom": 232,
+      "height": 190,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "viewport": [
+      390,
+      600
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        358,
+        270
+      ],
+      "pixels": [
+        716,
+        540
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      667,
+      375
+    ],
+    "guideBar": {
+      "bottom": 70,
+      "height": 28,
+      "left": 369,
+      "right": 659,
+      "top": 42,
+      "width": 290,
+      "x": 369,
+      "y": 42
+    },
+    "header": 36,
+    "operationHeight": 303,
+    "scene": {
+      "bottom": 312,
+      "height": 270,
+      "left": 8,
+      "right": 366,
+      "top": 42,
+      "width": 358,
+      "x": 8,
+      "y": 42
+    },
+    "viewport": [
+      667,
+      375
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        358,
+        270
+      ],
+      "pixels": [
+        716,
+        540
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      760,
+      768
+    ],
+    "guideBar": {
+      "bottom": 466,
+      "height": 28,
+      "left": 8,
+      "right": 752,
+      "top": 438,
+      "width": 744,
+      "x": 8,
+      "y": 438
+    },
+    "header": 36,
+    "operationHeight": 300,
+    "scene": {
+      "bottom": 400,
+      "height": 358,
+      "left": 8,
+      "right": 752,
+      "top": 42,
+      "width": 744,
+      "x": 8,
+      "y": 42
+    },
+    "viewport": [
+      760,
+      768
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        744,
+        358
+      ],
+      "pixels": [
+        1488,
+        716
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      761,
+      768
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 429,
+      "right": 749,
+      "top": 44,
+      "width": 320,
+      "x": 429,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 688,
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 413,
+      "top": 44,
+      "width": 401,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      761,
+      768
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        739,
+        654
+      ],
+      "pixels": [
+        1478,
+        1308
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      1099,
+      768
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 767,
+      "right": 1087,
+      "top": 44,
+      "width": 320,
+      "x": 767,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 688,
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 751,
+      "top": 44,
+      "width": 739,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      1099,
+      768
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        740,
+        654
+      ],
+      "pixels": [
+        1480,
+        1308
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      1100,
+      768
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 768,
+      "right": 1088,
+      "top": 44,
+      "width": 320,
+      "x": 768,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 688,
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 752,
+      "top": 44,
+      "width": 740,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      1100,
+      768
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        779,
+        560
+      ],
+      "pixels": [
+        1558,
+        1120
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      1169,
+      674
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 807,
+      "right": 1157,
+      "top": 44,
+      "width": 350,
+      "x": 807,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 594,
+    "scene": {
+      "bottom": 604,
+      "height": 560,
+      "left": 12,
+      "right": 791,
+      "top": 44,
+      "width": 779,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      1169,
+      674
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        779,
+        560
+      ],
+      "pixels": [
+        1558,
+        1120
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      1280,
+      720
+    ],
+    "guideBar": {
+      "bottom": 72,
+      "height": 28,
+      "left": 918,
+      "right": 1268,
+      "top": 44,
+      "width": 350,
+      "x": 918,
+      "y": 44
+    },
+    "header": 36,
+    "operationHeight": 640,
+    "scene": {
+      "bottom": 650,
+      "height": 606,
+      "left": 12,
+      "right": 902,
+      "top": 44,
+      "width": 890,
+      "x": 12,
+      "y": 44
+    },
+    "viewport": [
+      1280,
+      720
+    ],
+    "headerTop": 0,
+    "scrollY": 0,
+    "state": "guide"
+  },
+  {
+    "camera": "walk",
+    "canvas": {
+      "css": [
+        374,
+        434
+      ],
+      "pixels": [
+        748,
+        868
+      ]
+    },
+    "controlsOutside": [],
+    "document": [
+      390,
+      844
+    ],
+    "guideBar": {
+      "bottom": 542,
+      "height": 28,
+      "left": 8,
+      "right": 382,
+      "top": 514,
+      "width": 374,
+      "x": 8,
+      "y": 514
+    },
+    "header": 36,
+    "operationHeight": 300,
+    "scene": {
+      "bottom": 476,
+      "height": 434,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "viewport": [
+      390,
+      844
+    ],
+    "state": "Thai-guide-paused"
+  }
+]
