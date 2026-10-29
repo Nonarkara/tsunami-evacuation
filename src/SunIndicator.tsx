@@ -1,49 +1,38 @@
 import { useEffect, useState } from 'react';
 import type { ManualLanguage } from './manual-content';
+import { cardinalDirection, solarPosition } from './orientation';
 
-/** Approximate sun azimuth (degrees, clockwise from north) for Khao Lak (~8.7°N).
- * Simple solar model: sunrise ~06:15 east, solar noon ~12:15 south, sunset ~18:15 west.
- * Good enough for wayfinding: "run toward the sun = east in the morning". */
-function sunAzimuth(now: Date): number {
-  const h = now.getHours() + now.getMinutes() / 60 + now.getSeconds() / 3600;
-  // Shift so 06:15 ≈ 90° (east), 12:15 ≈ 180° (south), 18:15 ≈ 270° (west)
-  let az = (h - 6.25) * 30 + 90;
-  // Clamp to the daylight arc; outside hours point the glyph down (sun not up).
-  if (h < 5.5 || h > 18.75) return -1;
-  return ((az % 360) + 360) % 360;
-}
-
-function directionLabel(az: number): string {
-  if (az < 0) return '—';
-  const dirs = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-  const i = Math.round(((az % 360) / 22.5) + 0.5) % 16;
-  return dirs[(i + 16) % 16];
-}
-
-export function SunIndicator({ language }: { language: ManualLanguage }) {
-  const [az, setAz] = useState(sunAzimuth(new Date()));
+/** Approximate sky context at the selected place, with north at the top of the glyph.
+ * Not a camera-relative arrow, device compass, or evacuation instruction. */
+export function SunIndicator({ language, latitude, longitude }: {
+  language: ManualLanguage; latitude: number; longitude: number;
+}) {
+  const [now, setNow] = useState(() => new Date());
   useEffect(() => {
-    const t = setInterval(() => setAz(sunAzimuth(new Date())), 30000);
-    return () => clearInterval(t);
+    const timer = setInterval(() => setNow(new Date()), 30000);
+    return () => clearInterval(timer);
   }, []);
-  const t = (en: string, th: string) => language === 'th' ? th : en;
-  const up = az >= 0;
-  const dir = directionLabel(az);
+  const { azimuth, altitude } = solarPosition(now, latitude, longitude);
+  const up = altitude > 0;
+  const dir = cardinalDirection(azimuth);
+  const thai = language === 'th';
+  const dirs: Record<string, string> = {
+    N: 'เหนือ', NE: 'ตะวันออกเฉียงเหนือ', E: 'ตะวันออก', SE: 'ตะวันออกเฉียงใต้',
+    S: 'ใต้', SW: 'ตะวันตกเฉียงใต้', W: 'ตะวันตก', NW: 'ตะวันตกเฉียงเหนือ',
+  };
+  const label = up
+    ? thai ? `ดวงอาทิตย์โดยประมาณ: ${dirs[dir]} ${Math.round(azimuth)}°` : `Approximate sun: ${dir} ${Math.round(azimuth)}°`
+    : thai ? 'ดวงอาทิตย์ใต้ขอบฟ้า' : 'Sun below horizon';
+  const note = thai ? 'เหนืออยู่ด้านบน · เวลาอุปกรณ์ · ไม่ใช่เข็มทิศหรือทิศทางอพยพ' : 'North up · device time · not a compass or evacuation bearing';
   return (
-    <div className="sun-indicator" role="region" aria-label={t('Sun direction for wayfinding', 'ทิศดวงอาทิตย์นำทาง')}>
+    <span className="sun-indicator" role="img" aria-label={`${label}. ${note}`} title={`${label} · ${note}`}>
       <svg className="sun-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <circle cx="12" cy="12" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.4" />
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
-          <path
-            key={a}
-            d={`M12 ${a < 90 || a > 270 ? 10.2 : a === 90 ? 7.8 : 16.2} L12 ${a < 90 || a > 270 ? 7.8 : a === 90 ? 10.2 : 13.8}`}
-            stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"
-          />
-        ))}
-        <path d={`M${12 + Math.sin((az * Math.PI) / 180) * 6.5} ${12 - Math.cos((az * Math.PI) / 180) * 6.5} L12 12`} stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <text x="12" y="5" textAnchor="middle" fontSize="5" fill="currentColor">N</text>
+        <circle cx="12" cy="13" r="6" fill="none" stroke="currentColor" strokeWidth="1" />
+        {up && <path d="M12 17 L12 8 M9 11 L12 8 L15 11" transform={`rotate(${azimuth} 12 13)`} fill="none" stroke="currentColor" strokeWidth="1.5" />}
+        {!up && <path d="M8 13h8" stroke="currentColor" />}
       </svg>
-      <span className="sun-dir">{up ? dir : '—'}</span>
-      <span className="sun-note">{up ? t('Sun is in the ' + dir, 'ดวงอาทิตย์อยู่ทางทิศ' + dir) : t('Sun below horizon', 'ดวงอาทิตย์ใต้ขอบฟ้า')}</span>
-    </div>
+      <span className="sun-dir">{up ? thai ? `อาทิตย์ ≈ ${dir}` : `Sun ≈ ${dir}` : thai ? 'ใต้ขอบฟ้า' : 'Below horizon'}</span>
+    </span>
   );
 }

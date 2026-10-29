@@ -33,7 +33,7 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     let vs: WebGLShader | undefined, fs: WebGLShader | undefined, p: WebGLProgram | null = null;
     try {
       vs = shader(gl.VERTEX_SHADER, `${is2 ? '#version 300 es\nin' : 'attribute'} vec3 a_position;\nuniform mat4 u_matrix;void main(){gl_Position=u_matrix*vec4(a_position,1.0);}`);
-      fs = shader(gl.FRAGMENT_SHADER, `${is2 ? '#version 300 es\n' : ''}precision highp float;uniform vec4 u_color;uniform float u_time;${is2 ? 'out vec4 fragmentColor;' : ''}void main(){float shimmer=0.12+0.06*sin(u_time*1.8+gl_FragCoord.x*0.04+gl_FragCoord.y*0.03);${is2 ? 'fragmentColor' : 'gl_FragColor'}=u_color*vec4(vec3(shimmer),1.0);}`);
+      fs = shader(gl.FRAGMENT_SHADER, `${is2 ? '#version 300 es\n' : ''}precision highp float;uniform vec4 u_color;uniform float u_time;${is2 ? 'out vec4 fragmentColor;' : ''}void main(){float shimmer=0.94+0.06*sin(u_time*1.8+gl_FragCoord.x*0.04+gl_FragCoord.y*0.03);${is2 ? 'fragmentColor' : 'gl_FragColor'}=u_color*vec4(vec3(shimmer),1.0);}`);
       p = gl.createProgram(); if (!p) throw new Error('Water program allocation failed');
       gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
       if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error('Water program could not link');
@@ -69,11 +69,13 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     gl.useProgram(this.program); gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
     if (this.dirty) { gl.bufferData(gl.ARRAY_BUFFER, this.vertices, gl.DYNAMIC_DRAW); this.dirty = false; }
     gl.enableVertexAttribArray(this.attribute); gl.vertexAttribPointer(this.attribute, 3, gl.FLOAT, false, 0, 0);
-    const secs = (performance.now() - this.t0) / 1000;
+    const animate = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const secs = animate ? (performance.now() - this.t0) / 1000 : 0;
     gl.uniformMatrix4fv(this.matrix!, false, m); gl.uniform4f(this.color!, .08, .42, .63, .52); gl.uniform1f(this.time!, secs);
     gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL); gl.depthMask(false); gl.disable(gl.CULL_FACE);
     gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     gl.drawArrays(gl.TRIANGLES, 0, this.vertices.length / 3);
+    if (animate) this.map?.triggerRepaint();
   }
   onRemove(_map: LibreMap, gl: GL) { if (this.buffer) gl.deleteBuffer(this.buffer); if (this.program) gl.deleteProgram(this.program); this.map = undefined; }
 }

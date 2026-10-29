@@ -1,0 +1,410 @@
+[
+  {
+    "controls": [
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": null,
+        "right": 270.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Model / แบบจำลอง",
+        "right": 307.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Satellite / ดาวเทียม",
+        "right": 335.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Plan / แผน",
+        "right": 363.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Drill / ซ้อมอพยพ",
+        "right": 391.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Research / งานวิจัย",
+        "right": 419.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Manual / คู่มือ",
+        "right": 447.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Model view / มุมมอง",
+        "right": 531.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Select coastal area",
+        "right": 655.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Rehearsal",
+        "right": 687.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Water level",
+        "right": 714.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "3D terrain",
+        "right": 751.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "2D map",
+        "right": 778.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Fly-by",
+        "right": 805.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Walk-through",
+        "right": 832.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Overview",
+        "right": 859.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Queue",
+        "right": 886.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Compare departures",
+        "right": 919.15625
+      },
+      {
+        "bottom": 30.9921875,
+        "clear": true,
+        "name": "Scene task / งาน",
+        "right": 1010.15625
+      },
+      {
+        "bottom": 30.8984375,
+        "clear": true,
+        "name": "Sources, assumptions, settings & coverage",
+        "right": 1042.15625
+      },
+      {
+        "bottom": 25,
+        "clear": true,
+        "name": "Bangkok device time / เวลาอุปกรณ์ในกรุงเทพฯ",
+        "right": 1386.5234375
+      },
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": "Warning guidance / คำเตือน",
+        "right": 1434
+      }
+    ],
+    "doc": [
+      1440,
+      900
+    ],
+    "h": 900,
+    "header": 36,
+    "page": "explore",
+    "w": 1440
+  },
+  {
+    "controls": [
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": null,
+        "right": 270.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Model / แบบจำลอง",
+        "right": 357.09375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Satellite / ดาวเทียม",
+        "right": 446.59375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Plan / แผน",
+        "right": 511.8203125
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Drill / ซ้อมอพยพ",
+        "right": 576.4609375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Research / งานวิจัย",
+        "right": 671.2421875
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Manual / คู่มือ",
+        "right": 708.2421875
+      },
+      {
+        "bottom": 25,
+        "clear": true,
+        "name": "Bangkok device time / เวลาอุปกรณ์ในกรุงเทพฯ",
+        "right": 1171.1640625
+      },
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": "Warning guidance / คำเตือน",
+        "right": 1434
+      }
+    ],
+    "doc": [
+      1440,
+      900
+    ],
+    "h": 900,
+    "header": 36,
+    "page": "satellite",
+    "w": 1440
+  },
+  {
+    "controls": [
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": null,
+        "right": 270.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Model / แบบจำลอง",
+        "right": 357.09375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Satellite / ดาวเทียม",
+        "right": 444.5625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Plan / แผน",
+        "right": 510.6875
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Drill / ซ้อมอพยพ",
+        "right": 575.328125
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Research / งานวิจัย",
+        "right": 670.109375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Manual / คู่มือ",
+        "right": 707.109375
+      },
+      {
+        "bottom": 25,
+        "clear": true,
+        "name": "Bangkok device time / เวลาอุปกรณ์ในกรุงเทพฯ",
+        "right": 1170.6015625
+      },
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": "Warning guidance / คำเตือน",
+        "right": 1434
+      }
+    ],
+    "doc": [
+      1440,
+      900
+    ],
+    "h": 900,
+    "header": 36,
+    "page": "prepare",
+    "w": 1440
+  },
+  {
+    "controls": [
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": null,
+        "right": 270.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Model / แบบจำลอง",
+        "right": 357.09375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Satellite / ดาวเทียม",
+        "right": 444.5625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Plan / แผน",
+        "right": 509.7890625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Drill / ซ้อมอพยพ",
+        "right": 575.296875
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Research / งานวิจัย",
+        "right": 670.078125
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Manual / คู่มือ",
+        "right": 707.078125
+      },
+      {
+        "bottom": 25,
+        "clear": true,
+        "name": "Bangkok device time / เวลาอุปกรณ์ในกรุงเทพฯ",
+        "right": 1170.5859375
+      },
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": "Warning guidance / คำเตือน",
+        "right": 1434
+      }
+    ],
+    "doc": [
+      1440,
+      900
+    ],
+    "h": 900,
+    "header": 36,
+    "page": "drill",
+    "w": 1440
+  },
+  {
+    "controls": [
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": null,
+        "right": 270.15625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Model / แบบจำลอง",
+        "right": 357.09375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Satellite / ดาวเทียม",
+        "right": 444.5625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Plan / แผน",
+        "right": 509.7890625
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Drill / ซ้อมอพยพ",
+        "right": 574.4296875
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Research / งานวิจัย",
+        "right": 670.9609375
+      },
+      {
+        "bottom": 32,
+        "clear": true,
+        "name": "Manual / คู่มือ",
+        "right": 707.9609375
+      },
+      {
+        "bottom": 25,
+        "clear": true,
+        "name": "Bangkok device time / เวลาอุปกรณ์ในกรุงเทพฯ",
+        "right": 1171.0234375
+      },
+      {
+        "bottom": 31,
+        "clear": true,
+        "name": "Warning guidance / คำเตือน",
+        "right": 1434
+      }
+    ],
+    "doc": [
+      1440,
+      900
+    ],
+    "h": 900,
+    "header": 36,
+    "page": "research",
+    "w": 1440
+  }
+]

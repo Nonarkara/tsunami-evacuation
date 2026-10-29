@@ -105,3 +105,9 @@
  .banner-context > select { width:80px; }
  .banner-scene .operation-switch select { width:85px; }
 }
+/* Device time is secondary; preserve the one-banner task controls. */
+@media screen {
+ .soonami-masthead .masthead-clock-wrap { margin:0; padding:0; background:none; border:0; font:500 11px/1 var(--font-sans); flex:none; font-variant-numeric:tabular-nums; }
+ .terrain-caption .sun-indicator { margin:0; padding:0; background:none; border:0; color:var(--companion); font-size:11px; gap:3px; }
+ @media(max-width:1399px) { .soonami-masthead .masthead-clock-wrap { display:none; } }
+}

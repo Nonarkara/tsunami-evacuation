@@ -1,0 +1,17 @@
+# Nemotron release audit — 29 October 2026
+
+Scope: audit acd4f2f while preserving its walkthrough, solid massing, water demonstration and one-banner workspace. Source inspection found local-time getters masquerading as Bangkok time, a fixed daily solar arc with a biased direction bin, and ground-level footprint lines described as roof edges. A matching build does not establish these semantics.
+
+Plan: use explicit Bangkok formatting (device clock, no atomic synchronization claim); calculate approximate solar position from date and selected coordinates using SunCalc 2.1.1, clearly earth-referenced rather than a device compass or evacuation bearing. Keep solar context with the walkthrough rather than duplicating it in the crowded masthead. Retain footprint outlines with accurate naming. Keep the illustrative water blue, allow its shimmer to render while visible, and respect reduced motion. Verify relevant unit cases, fresh phone/tablet/desktop rendered geometry, independent review, production bytes and deployment.
+
+Method reference: https://github.com/mourner/suncalc (v2 uses degrees clockwise from north). These calculations do not model terrain occlusion, cloud cover, route direction, warning time or tsunami dynamics.
+
+## Verification and independent review
+
+38 TypeScript tests and10 Python tests pass, including explicit Bangkok midnight rollover, centered cardinal bins, tropical June north/December south noon and nighttime below-horizon checks. The same orientation tests pass with `TZ=America/New_York`; the inherited local getters would yield20:00 rather than07:00 for the UTC-midnight fixture. The inherited south-at-every-noon arc fails the June fixture. Six contrast roles pass (5.94–15.44:1).
+
+Fresh Cua browser observations: seven walkthrough widths320/390/1024/1100/1399/1400/1440, banner36px, scene starts42–44px, no document overflow or header controls outside the viewport. Five desktop workspaces have unobstructed button/select/time centers. Clock is secondary and visible from1400px; smaller banners prioritize operating controls. Solar context appears only with the walkthrough. Thai nighttime caption and More tools checked at390x844. Advancing the water demonstration to exercise end retained its illustrative/agents-unaffected qualification without browser errors; that elevated endpoint does not visually demonstrate inundation. No claim of validated hydrodynamics is made.
+
+Evidence: `docs/evidence/nemotron-audit-2026-10-29/`. Geometry records are independent of screenshot captures: geometry1024 was900px high, refreshed screenshot1024 is768px high. Screenshots390 and1440 are844/900px high respectively. Initial resize captures were stale and replaced after observing settled compositor state. Independent reviewer re-read the corrected captures and closed the layout finding; no source or visual blockers remain. Daytime solar arithmetic is tested; daytime browser rendering and reduced-motion browser rendering remain unobserved. North marker plus approximate label/full bilingual title describe an earth-referenced solar bearing, not a heading relative to the camera or an evacuation instruction.
+
+Audit boundary: footprint lines remain ground-level outlines, not elevated roof edges. Solid extrusions still provide roof planes. Device time is not externally synchronized atomic time. Source geometry and3m unknown-height massing qualifications remain unchanged.

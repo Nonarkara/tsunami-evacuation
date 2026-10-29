@@ -1,0 +1,282 @@
+[
+  {
+    "caption": {
+      "bottom": 567,
+      "height": 32,
+      "left": 8,
+      "right": 312,
+      "top": 535,
+      "width": 304,
+      "x": 8,
+      "y": 535
+    },
+    "document": [
+      320,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "outside": [],
+    "scene": {
+      "bottom": 532,
+      "height": 490,
+      "left": 8,
+      "right": 312,
+      "top": 42,
+      "width": 304,
+      "x": 8,
+      "y": 42
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 320
+  },
+  {
+    "caption": {
+      "bottom": 511,
+      "height": 32,
+      "left": 8,
+      "right": 382,
+      "top": 479,
+      "width": 374,
+      "x": 8,
+      "y": 479
+    },
+    "document": [
+      390,
+      844
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "height": 844,
+    "outside": [],
+    "scene": {
+      "bottom": 476,
+      "height": 434,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 390
+  },
+  {
+    "caption": {
+      "bottom": 864,
+      "height": 30,
+      "left": 12,
+      "right": 676,
+      "top": 834,
+      "width": 664,
+      "x": 12,
+      "y": 834
+    },
+    "document": [
+      1024,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1024,
+      "top": 0,
+      "width": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "outside": [],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 676,
+      "top": 44,
+      "width": 664,
+      "x": 12,
+      "y": 44
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 1024
+  },
+  {
+    "caption": {
+      "bottom": 864,
+      "height": 30,
+      "left": 12,
+      "right": 752,
+      "top": 834,
+      "width": 740,
+      "x": 12,
+      "y": 834
+    },
+    "document": [
+      1100,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1100,
+      "top": 0,
+      "width": 1100,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "outside": [],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 752,
+      "top": 44,
+      "width": 740,
+      "x": 12,
+      "y": 44
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 1100
+  },
+  {
+    "caption": {
+      "bottom": 864,
+      "height": 30,
+      "left": 12,
+      "right": 1021,
+      "top": 834,
+      "width": 1009,
+      "x": 12,
+      "y": 834
+    },
+    "document": [
+      1399,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1399,
+      "top": 0,
+      "width": 1399,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "outside": [],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 1021,
+      "top": 44,
+      "width": 1009,
+      "x": 12,
+      "y": 44
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 1399
+  },
+  {
+    "caption": {
+      "bottom": 864,
+      "height": 30,
+      "left": 12,
+      "right": 1022,
+      "top": 834,
+      "width": 1010,
+      "x": 12,
+      "y": 834
+    },
+    "document": [
+      1400,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1400,
+      "top": 0,
+      "width": 1400,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "outside": [],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 1022,
+      "top": 44,
+      "width": 1010,
+      "x": 12,
+      "y": 44
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 1400
+  },
+  {
+    "caption": {
+      "bottom": 864,
+      "height": 30,
+      "left": 12,
+      "right": 1062,
+      "top": 834,
+      "width": 1050,
+      "x": 12,
+      "y": 834
+    },
+    "document": [
+      1440,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "height": 900,
+    "outside": [],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 1062,
+      "top": 44,
+      "width": 1050,
+      "x": 12,
+      "y": 44
+    },
+    "sun": "Sun below horizon. North up · device time · not a compass or evacuation bearing",
+    "width": 1440
+  }
+]

@@ -354,7 +354,7 @@ summary:focus-visible {
   background: var(--accent-hover);
 }
 
-/* Atomic clock + sun direction on the masthead */
+/* Device clock and approximate solar context */
 .masthead-clock-wrap {
   margin-left: 14px;
   padding: 2px 8px;
@@ -390,14 +390,6 @@ summary:focus-visible {
 }
 .sun-dir {
   font-variant-numeric: tabular-nums;
-}
-.sun-note {
-  font-size: 10px;
-  opacity: 0.85;
-  display: none;
-}
-@media (min-width: 760px) {
-  .sun-note { display: inline; }
 }
 
 /* Sun indicator inside terrain caption: compact, no note text */
