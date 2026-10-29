@@ -1,0 +1,43 @@
+{
+  "document": [
+    1280,
+    720
+  ],
+  "guideBar": {
+    "bottom": 72,
+    "height": 28,
+    "left": 918,
+    "right": 1268,
+    "top": 44,
+    "width": 350,
+    "x": 918,
+    "y": 44
+  },
+  "header": {
+    "bottom": 36,
+    "height": 36,
+    "left": 0,
+    "right": 1280,
+    "top": 0,
+    "width": 1280,
+    "x": 0,
+    "y": 0
+  },
+  "pausedLabel": "Play route",
+  "scene": {
+    "bottom": 650,
+    "height": 606,
+    "left": 12,
+    "right": 902,
+    "top": 44,
+    "width": 890,
+    "x": 12,
+    "y": 44
+  },
+  "scrollY": 0,
+  "time": "6.159",
+  "viewport": [
+    1280,
+    720
+  ]
+}
