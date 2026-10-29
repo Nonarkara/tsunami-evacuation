@@ -1,7 +1,8 @@
 import { MercatorCoordinate, type CustomLayerInterface, type CustomRenderMethodInput, type Map as LibreMap } from 'maplibre-gl';
 
 type GL = WebGLRenderingContext | WebGL2RenderingContext;
-/** An actual horizontal/cell-average water surface. No procedural wave forecast or made-up dynamics. */
+/** An actual horizontal/cell-average water surface. No procedural wave forecast or made-up dynamics.
+ * The subtle surface shimmer is purely illustrative texture, not wave motion. */
 export class ReplayWaterLayer implements CustomLayerInterface {
   id = 'replay-water-surface';
   type = 'custom' as const;
@@ -17,6 +18,8 @@ export class ReplayWaterLayer implements CustomLayerInterface {
   private attribute = -1;
   private matrix?: WebGLUniformLocation | null;
   private color?: WebGLUniformLocation | null;
+  private time?: WebGLUniformLocation | null;
+  private t0 = performance.now();
   constructor(private onFailure: (message: string) => void) {}
   onAdd(map: LibreMap, gl: GL) {
     this.map = map;
@@ -30,13 +33,13 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     let vs: WebGLShader | undefined, fs: WebGLShader | undefined, p: WebGLProgram | null = null;
     try {
       vs = shader(gl.VERTEX_SHADER, `${is2 ? '#version 300 es\nin' : 'attribute'} vec3 a_position;\nuniform mat4 u_matrix;void main(){gl_Position=u_matrix*vec4(a_position,1.0);}`);
-      fs = shader(gl.FRAGMENT_SHADER, `${is2 ? '#version 300 es\n' : ''}precision highp float;uniform vec4 u_color;${is2 ? 'out vec4 fragmentColor;' : ''}void main(){${is2 ? 'fragmentColor' : 'gl_FragColor'}=u_color;}`);
+      fs = shader(gl.FRAGMENT_SHADER, `${is2 ? '#version 300 es\n' : ''}precision highp float;uniform vec4 u_color;uniform float u_time;${is2 ? 'out vec4 fragmentColor;' : ''}void main(){float shimmer=0.12+0.06*sin(u_time*1.8+gl_FragCoord.x*0.04+gl_FragCoord.y*0.03);${is2 ? 'fragmentColor' : 'gl_FragColor'}=u_color*vec4(vec3(shimmer),1.0);}`);
       p = gl.createProgram(); if (!p) throw new Error('Water program allocation failed');
       gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p);
       if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error('Water program could not link');
       this.program = p; this.buffer = gl.createBuffer() ?? undefined;
       if (!this.buffer) throw new Error('Water mesh allocation failed');
-      this.attribute = gl.getAttribLocation(p, 'a_position'); this.matrix = gl.getUniformLocation(p, 'u_matrix'); this.color = gl.getUniformLocation(p, 'u_color');
+      this.attribute = gl.getAttribLocation(p, 'a_position'); this.matrix = gl.getUniformLocation(p, 'u_matrix'); this.color = gl.getUniformLocation(p, 'u_color'); this.time = gl.getUniformLocation(p, 'u_time');
     } catch (error) { if (p) gl.deleteProgram(p); this.program = undefined; this.onFailure(error instanceof Error ? error.message : '3D water unavailable'); }
     finally { if (vs) gl.deleteShader(vs); if (fs) gl.deleteShader(fs); }
   }
@@ -49,7 +52,6 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     const vertices: number[] = [];
     for (const f of valid) {
       const ring = f.geometry.coordinates[0], height = demonstrationM ?? Number(f.properties?.surfaceM);
-      // Runtime-generated replay cells and terrain-screening runs are rectangular quads.
       for (const i of [0, 1, 2, 0, 2, 3]) {
         const p = MercatorCoordinate.fromLngLat([ring[i][0], ring[i][1]], height);
         vertices.push((p.x - this.origin.x) / this.units, (p.y - this.origin.y) / this.units, p.z / this.units);
@@ -60,7 +62,6 @@ export class ReplayWaterLayer implements CustomLayerInterface {
   render(gl: GL, args: CustomRenderMethodInput) {
     if (!this.visible || !this.program || !this.buffer || !this.vertices.length) return;
     const base = args.defaultProjectionData.mainMatrix, m = new Float32Array(16);
-    // Multiply translation/scale in JS double precision before uploading a local-metre matrix.
     for (let r = 0; r < 4; r++) {
       m[r] = base[r] * this.units; m[4 + r] = base[4 + r] * this.units; m[8 + r] = base[8 + r] * this.units;
       m[12 + r] = base[r] * this.origin.x + base[4 + r] * this.origin.y + base[12 + r];
@@ -68,7 +69,8 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     gl.useProgram(this.program); gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
     if (this.dirty) { gl.bufferData(gl.ARRAY_BUFFER, this.vertices, gl.DYNAMIC_DRAW); this.dirty = false; }
     gl.enableVertexAttribArray(this.attribute); gl.vertexAttribPointer(this.attribute, 3, gl.FLOAT, false, 0, 0);
-    gl.uniformMatrix4fv(this.matrix!, false, m); gl.uniform4f(this.color!, .08, .42, .63, .64);
+    const secs = (performance.now() - this.t0) / 1000;
+    gl.uniformMatrix4fv(this.matrix!, false, m); gl.uniform4f(this.color!, .08, .42, .63, .52); gl.uniform1f(this.time!, secs);
     gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL); gl.depthMask(false); gl.disable(gl.CULL_FACE);
     gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     gl.drawArrays(gl.TRIANGLES, 0, this.vertices.length / 3);

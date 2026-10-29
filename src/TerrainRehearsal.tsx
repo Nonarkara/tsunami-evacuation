@@ -14,6 +14,7 @@ import { StudyMap } from './Map';
 import { CameraSymbol } from './CameraSymbol';
 import { WalkthroughCoach } from './WalkthroughCoach';
 import { manualLanguage } from './manual-content';
+import { SunIndicator } from './SunIndicator';
 import type { CoastalRegion } from './research';
 import { areaPacks, alongRoute, walkerProgress, walkerSchedule, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
 import { simulate, frame, elevation, waterScreen, distance, type RouteData, type TerrainGrid, type Coord } from './crowd';
@@ -118,6 +119,9 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       // Massing is solid, not glass: at eye height a translucent box reads as a floating slab
       // rather than a building. The vertical gradient separates the roof plane from the facade.
       m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#8d9189','#e3e9e4'], 'fill-extrusion-opacity':1, 'fill-extrusion-vertical-gradient':true } });
+      // Roof edge lines: a thin amber trace of the footprint makes buildings read as built forms
+      // rather than extruded slabs, especially in the 1.65 m eye-level walk-through.
+      m.addLayer({ id:'building-roofs', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#f59e0b', 'line-width':.5, 'line-opacity':.55 } });
       m.addLayer({ id: 'water', type: 'fill', source: 'water', paint: { 'fill-color': '#3b99ca', 'fill-opacity': .48 } });
       const surface = new ReplayWaterLayer(setWaterSurfaceError); m.addLayer(surface); waterLayer.current = surface;
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
@@ -343,6 +347,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     <div className="terrain-caption">
       <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
+      {camera === 'walk' && <SunIndicator language={manualLanguage(location.search,navigator.language)} />}
       <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
     </div>
     <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Guide</option></select></label></DockControls><PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>

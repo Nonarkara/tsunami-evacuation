@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "@fontsource/jost/400.css";
 import "@fontsource/jost/500.css";
@@ -15,6 +15,7 @@ import { Manual } from "./Manual";
 import { Drill } from "./Drill";
 import { OutcomeSummary } from "./OutcomeSummary";
 import { SourceFooter } from "./SourceFooter";
+import { SunIndicator } from "./SunIndicator";
 import { manualLanguage } from "./manual-content";
 import { InterventionComparison } from "./InterventionComparison";
 import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
@@ -50,6 +51,19 @@ function download(name: string, text: string) {
   a.download = name;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/** Atomic wall clock shown on the command masthead. Asia/Bangkok (UTC+7). */
+function Clock() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mm = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  return <time className="masthead-clock" dateTime={now.toISOString()} aria-label="Bangkok time">{hh}:{mm}:{ss}</time>;
 }
 
 function App() {
@@ -259,6 +273,8 @@ function App() {
                 </label>        </>}/>}
 
         <div className="masthead-status">{language==='th'?'งานวิจัยและฝึกซ้อม · ไม่มีคำเตือนสด':'Research & practice · no live warning'}</div>
+        <div className="masthead-clock-wrap"><Clock /></div>
+        <SunIndicator language={language} />
         <div className="masthead-action-group">
           <ReadingDialog title="Warning guidance / คำเตือน" triggerLabel="1784" className="emergency-pill-btn">{emergencyGuidance}</ReadingDialog>
         </div>

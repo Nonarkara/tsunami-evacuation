@@ -1,0 +1,24 @@
+{
+  "origin": "https://tsunami.nonarkara.org",
+  "capturedAt": "2026-10-29T11:51:06+00:00",
+  "viewportCases": 8,
+  "viewportRecords": 40,
+  "bannerRows": 60,
+  "bytes": [
+    {
+      "path": "/",
+      "bytes": 1341,
+      "sha256": "52463f7a8bb744168d6e5b84532f4c5a1dad2c01ffa8acff0af0aac23cff6241"
+    },
+    {
+      "path": "/assets/index-CkLqhA7l.js",
+      "bytes": 1659014,
+      "sha256": "ecc8946ad4c4b75a829ec478b2f0f275dc344f2a42bab115a836a6461eb3efaa"
+    },
+    {
+      "path": "/assets/index-D7L3g3sU.css",
+      "bytes": 192993,
+      "sha256": "997e4ba17e3bd18d1790c9f04a51f2d9943866551b55291b111849523908b700"
+    }
+  ]
+}
