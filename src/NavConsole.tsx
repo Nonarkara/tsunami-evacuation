@@ -69,7 +69,7 @@ const CONSOLE: ConsoleEntry[] = [
     items: [
       { label: "Reported scenario results", target: "research-results", hint: "21.8% → 1.2%" },
       { label: "Two models, two purposes", target: "research-methods", hint: "paper vs browser" },
-      { label: "Evidence & data ledger", target: "research-sources", hint: "sources R1–R8" },
+      { label: "Evidence & data ledger", target: "research-sources", hint: "sources R1–R10" },
       { label: "Validation agenda", target: "research-validation", hint: "proposed, not done" },
     ],
   },

@@ -1,0 +1,3983 @@
+{
+  "type": "FeatureCollection",
+  "schemaVersion": 1,
+  "id": "ddpm-phang-nga-risk-villages-2026-10-28",
+  "source": "DDPM_RISK_TSUNAMI_Merge MapServer layer 57",
+  "sourceUrl": "https://gis-portal.disaster.go.th/arcgis/rest/services/DDPM_RISK_TSUNAMI_Merge/MapServer/57",
+  "query": "pname='พังงา'",
+  "queryUrl": "https://gis-portal.disaster.go.th/arcgis/rest/services/DDPM_RISK_TSUNAMI_Merge/MapServer/57/query?where=pname%3D%27%E0%B8%9E%E0%B8%B1%E0%B8%87%E0%B8%87%E0%B8%B2%27&outFields=%2A&returnGeometry=true&outSR=4326&f=geojson",
+  "tier": "authority-listed",
+  "owner": "กรมป้องกันและบรรเทาสาธารณภัย (Department of Disaster Prevention and Mitigation, DDPM)",
+  "reviewedAt": "2026-10-28",
+  "retrievedAt": "2026-10-28T20:22:18+07:00",
+  "validUntil": "2027-04-28",
+  "validUntilNote": "Repository re-review date for this snapshot. Not an official DDPM expiry.",
+  "featureCount": 106,
+  "crs": "EPSG:4326",
+  "serviceResponseSha256": "5623d610d2e71135a1bdde256d1ea185d61a3eb152e7df219837c707e4fdbfe7",
+  "geometryBounds": [
+    97.61805558000003,
+    7.926099015000034,
+    98.64902198000004,
+    9.427777812000045
+  ],
+  "licenseNote": "No license text was published on the MapServer layer metadata retrieved with this snapshot.",
+  "heightField": {
+    "name": "Height",
+    "meaning": "undocumented",
+    "display": "omitted",
+    "note": "Retained raw from the service. Do not read it as inundation depth, runup, a vertical datum, or a safety clearance."
+  },
+  "riskField": {
+    "name": "Risk",
+    "serviceLabels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "note": "The layer renderer labels these integers only as the digits 1–4. No legend text was published. Do not translate a code into depth, probability, or a safety class."
+  },
+  "countFields": {
+    "names": [
+      "People_M",
+      "People_F",
+      "People_All",
+      "House"
+    ],
+    "note": "Some values are null. No census date is stated on the layer. Not shown on the map and not a current population."
+  },
+  "projectedFields": {
+    "names": [
+      "X",
+      "Y"
+    ],
+    "note": "Source numbers in an undocumented projected system. Map position uses the service point in EPSG:4326, which matches X_Long and Y_Lat. X and Y are not longitude or latitude."
+  },
+  "featureServerNote": "https://gis-portal.disaster.go.th/arcgis/rest/services/DDPM_RISK_TSUNAMI_Merge/FeatureServer/57 advertised Query,Create,Update,Delete,Uploads,Editing when checked on 2026-10-28. This snapshot was read from MapServer only and the application does not query either service at runtime.",
+  "limits": "Authority-listed village points for Phang Nga. Not an inundation extent, evacuation route, refuge, coverage area, or live warning.",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 500,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58367498000007,
+          8.441215015000068
+        ]
+      },
+      "properties": {
+        "OBJECTID": 500,
+        "OID_": 1226,
+        "Order_": 1226,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8201,
+        "aname": "เมืองพังงา",
+        "tcode": 82010400,
+        "tname": "บางเตย",
+        "mcode": 82010404,
+        "Village": "บ้านบางเสียด",
+        "Height": 0.48,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 590,
+        "People_F": 610,
+        "People_All": 1200,
+        "House": 395,
+        "X": 454171.6104,
+        "Y": 933099.8246,
+        "Y_Lat": 8.44121501,
+        "X_Long": 98.58367498,
+        "GlobalID": "{FBB9A635-C2AC-46D1-A7CC-B1DE0DB4F91C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 501,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58829798000005,
+          8.38635901400005
+        ]
+      },
+      "properties": {
+        "OBJECTID": 501,
+        "OID_": 1227,
+        "Order_": 1227,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8201,
+        "aname": "เมืองพังงา",
+        "tcode": 82010400,
+        "tname": "บางเตย",
+        "mcode": 82010406,
+        "Village": "บ้านกลาง",
+        "Height": 0.44,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 380,
+        "People_F": 406,
+        "People_All": 786,
+        "House": 241,
+        "X": 454674.1348,
+        "Y": 927034.5939,
+        "Y_Lat": 8.38635901,
+        "X_Long": 98.58829798,
+        "GlobalID": "{17F00D3B-48C0-451E-AE64-3B7D20831E10}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 502,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.56613098000008,
+          8.371768014000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 502,
+        "OID_": 1228,
+        "Order_": 1228,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8201,
+        "aname": "เมืองพังงา",
+        "tcode": 82010400,
+        "tname": "บางเตย",
+        "mcode": 82010408,
+        "Village": "บ้านบางพัฒน์",
+        "Height": 0.51,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 164,
+        "People_F": 148,
+        "People_All": 312,
+        "House": 105,
+        "X": 452231.8603,
+        "Y": 925424.088,
+        "Y_Lat": 8.37176801,
+        "X_Long": 98.56613098,
+        "GlobalID": "{B7956B3E-4AEA-4BBD-A0F0-2AD9E87A0436}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 503,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.51347598000007,
+          8.396745015000022
+        ]
+      },
+      "properties": {
+        "OBJECTID": 503,
+        "OID_": 1223,
+        "Order_": 1223,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8201,
+        "aname": "เมืองพังงา",
+        "tcode": 82010800,
+        "tname": "เกาะปันหยี",
+        "mcode": 82010801,
+        "Village": "บ้านท่าด่าน",
+        "Height": 0.52,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 340,
+        "People_F": 321,
+        "People_All": 661,
+        "House": 262,
+        "X": 446437.9387,
+        "Y": 928192.2621,
+        "Y_Lat": 8.39674502,
+        "X_Long": 98.51347598,
+        "GlobalID": "{C74E6EA9-8005-4E3C-AD0E-BF37BC3EA616}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 504,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.53341598000009,
+          8.343300015000068
+        ]
+      },
+      "properties": {
+        "OBJECTID": 504,
+        "OID_": 1224,
+        "Order_": 1224,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8201,
+        "aname": "เมืองพังงา",
+        "tcode": 82010800,
+        "tname": "เกาะปันหยี",
+        "mcode": 82010803,
+        "Village": "บ้านเกาะไม้ไผ่",
+        "Height": 0.18,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 345,
+        "People_F": 344,
+        "People_All": 689,
+        "House": 256,
+        "X": 448626.2026,
+        "Y": 922280.8714,
+        "Y_Lat": 8.34330002,
+        "X_Long": 98.53341598,
+        "GlobalID": "{41DDC19E-81F6-4D71-85FD-6D8C7568CED9}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 505,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58449498000004,
+          8.289096015000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 505,
+        "OID_": 1225,
+        "Order_": 1225,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8201,
+        "aname": "เมืองพังงา",
+        "tcode": 82010800,
+        "tname": "เกาะปันหยี",
+        "mcode": 82010804,
+        "Village": "บ้านเกาะหมากน้อย",
+        "Height": 0.54,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 705,
+        "People_F": 708,
+        "People_All": 1413,
+        "House": 366,
+        "X": 454244.1328,
+        "Y": 916282.0079,
+        "Y_Lat": 8.28909602,
+        "X_Long": 98.58449498,
+        "GlobalID": "{60C29904-DD9D-40A0-B4F2-334103A4C8BD}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 506,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.59244598000004,
+          8.12153601500006
+        ]
+      },
+      "properties": {
+        "OBJECTID": 506,
+        "OID_": 1123,
+        "Order_": 1123,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020101,
+        "Village": "บ้านท่าค่าย",
+        "Height": 0.61,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 558,
+        "People_F": 554,
+        "People_All": 1112,
+        "House": 663,
+        "X": 455100.9135,
+        "Y": 897756.4452,
+        "Y_Lat": 8.12153602,
+        "X_Long": 98.59244598,
+        "GlobalID": "{B13669BB-310E-4BB3-9EE4-D78893ACD08F}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 507,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.59437498000005,
+          8.117200015000037
+        ]
+      },
+      "properties": {
+        "OBJECTID": 507,
+        "OID_": 1124,
+        "Order_": 1124,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020102,
+        "Village": "บ้านใหญ่",
+        "Height": 0.6,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 249,
+        "People_F": 264,
+        "People_All": 513,
+        "House": 276,
+        "X": 455312.9502,
+        "Y": 897276.8662,
+        "Y_Lat": 8.11720001,
+        "X_Long": 98.59437498,
+        "GlobalID": "{4B37C810-C35B-4596-8C3E-6664951D1D2C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 508,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.60041398000004,
+          8.132980015000044
+        ]
+      },
+      "properties": {
+        "OBJECTID": 508,
+        "OID_": 1125,
+        "Order_": 1125,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020103,
+        "Village": "บ้านน้ำจืด",
+        "Height": 0.64,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 421,
+        "People_F": 398,
+        "People_All": 819,
+        "House": 296,
+        "X": 455979.9871,
+        "Y": 899020.7612,
+        "Y_Lat": 8.13298001,
+        "X_Long": 98.60041398,
+        "GlobalID": "{A7C33B59-638C-45B9-83AE-4A566AD59307}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 509,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.62465598000006,
+          8.136566015000028
+        ]
+      },
+      "properties": {
+        "OBJECTID": 509,
+        "OID_": 1126,
+        "Order_": 1126,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020104,
+        "Village": "บ้านท่าเขา",
+        "Height": 0.67,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 284,
+        "People_F": 263,
+        "People_All": 547,
+        "House": 277,
+        "X": 458650.9895,
+        "Y": 899414.6548,
+        "Y_Lat": 8.13656601,
+        "X_Long": 98.62465598,
+        "GlobalID": "{97087342-22D0-4D6B-A13F-79EFB939EF77}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 510,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.60316098000004,
+          8.103368016000047
+        ]
+      },
+      "properties": {
+        "OBJECTID": 510,
+        "OID_": 1127,
+        "Order_": 1127,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020105,
+        "Village": "บ้านริมทะเล",
+        "Height": 0.48,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 555,
+        "People_F": 508,
+        "People_All": 1063,
+        "House": 661,
+        "X": 456279.4104,
+        "Y": 895746.7165,
+        "Y_Lat": 8.10336802,
+        "X_Long": 98.60316098,
+        "GlobalID": "{43A5125E-000B-4511-B5C5-A1A55075D0EF}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 511,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.57983098000005,
+          8.107983015000059
+        ]
+      },
+      "properties": {
+        "OBJECTID": 511,
+        "OID_": 1128,
+        "Order_": 1128,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020106,
+        "Village": "บ้านแหลมยาง",
+        "Height": 0.57,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 407,
+        "People_F": 418,
+        "People_All": 825,
+        "House": 336,
+        "X": 453709.5795,
+        "Y": 896259.511,
+        "Y_Lat": 8.10798302,
+        "X_Long": 98.57983098,
+        "GlobalID": "{E0FC565F-7199-4608-AA0D-94D7873134DE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 512,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.61479298000006,
+          8.165668015000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 512,
+        "OID_": 1129,
+        "Order_": 1129,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020100,
+        "tname": "เกาะยาวน้อย",
+        "mcode": 82020107,
+        "Village": "บ้านอันเปา",
+        "Height": 0.82,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 223,
+        "People_F": 226,
+        "People_All": 449,
+        "House": 193,
+        "X": 457567.5036,
+        "Y": 902633.0406,
+        "Y_Lat": 8.16566801,
+        "X_Long": 98.61479298,
+        "GlobalID": "{6B938ADF-9802-46C7-A58F-4F15B1FAE6F6}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 513,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.52751598000003,
+          8.087940015000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 513,
+        "OID_": 1130,
+        "Order_": 1130,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020200,
+        "tname": "เกาะยาวใหญ่",
+        "mcode": 82020201,
+        "Village": "บ้านคลองเหีย",
+        "Height": 1.44,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 271,
+        "People_F": 272,
+        "People_All": 543,
+        "House": 209,
+        "X": 447943.2929,
+        "Y": 894049.9755,
+        "Y_Lat": 8.08794001,
+        "X_Long": 98.52751598,
+        "GlobalID": "{96C669AE-41FB-4D5B-8436-744DCCDF38FC}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 514,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58039998000004,
+          8.072654015000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 514,
+        "OID_": 1131,
+        "Order_": 1131,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020200,
+        "tname": "เกาะยาวใหญ่",
+        "mcode": 82020202,
+        "Village": "บ้านช่องหลาด",
+        "Height": 2.57,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 609,
+        "People_F": 594,
+        "People_All": 1203,
+        "House": 438,
+        "X": 453768.2423,
+        "Y": 892353.6522,
+        "Y_Lat": 8.07265401,
+        "X_Long": 98.58039998,
+        "GlobalID": "{411C1496-2BCD-4B18-B726-03D791738921}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 515,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.55262298000008,
+          8.05607201500004
+        ]
+      },
+      "properties": {
+        "OBJECTID": 515,
+        "OID_": 1132,
+        "Order_": 1132,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020200,
+        "tname": "เกาะยาวใหญ่",
+        "mcode": 82020203,
+        "Village": "บ้านย่าหมี",
+        "Height": 1.95,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 211,
+        "People_F": 206,
+        "People_All": 417,
+        "House": 132,
+        "X": 450705.691,
+        "Y": 890523.6784,
+        "Y_Lat": 8.05607201,
+        "X_Long": 98.55262298,
+        "GlobalID": "{230C9661-E5E8-45D6-B5B8-981D1075F28B}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 516,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.60344198000007,
+          8.046401015000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 516,
+        "OID_": 1133,
+        "Order_": 1133,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020200,
+        "tname": "เกาะยาวใหญ่",
+        "mcode": 82020204,
+        "Village": "บ้านคลองบอน",
+        "Height": 2.75,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 326,
+        "People_F": 343,
+        "People_All": 669,
+        "House": 260,
+        "X": 456304.2462,
+        "Y": 889448.7275,
+        "Y_Lat": 8.04640102,
+        "X_Long": 98.60344198,
+        "GlobalID": "{7943E767-E99B-459B-8AB6-F6F39DF60B85}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 517,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58777778000007,
+          7.998055616000045
+        ]
+      },
+      "properties": {
+        "OBJECTID": 517,
+        "OID_": 1136,
+        "Order_": 1136,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020301,
+        "Village": "บ้านโล๊ะโป๊ะ",
+        "Height": 1,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 444,
+        "People_F": 439,
+        "People_All": 883,
+        "House": 296,
+        "X": 454572.8516,
+        "Y": 884105.6344,
+        "Y_Lat": 7.99805562,
+        "X_Long": 98.58777778,
+        "GlobalID": "{A7DE53B1-52C6-41EA-ACBF-EA1EA6F19489}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 518,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.59306098000008,
+          7.9519220150000365
+        ]
+      },
+      "properties": {
+        "OBJECTID": 518,
+        "OID_": 1137,
+        "Order_": 1137,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020302,
+        "Village": "บ้านพรุใน",
+        "Height": 3.48,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 798,
+        "People_F": 754,
+        "People_All": 1552,
+        "House": 598,
+        "X": 455150.0473,
+        "Y": 879004.796,
+        "Y_Lat": 7.95192202,
+        "X_Long": 98.59306098,
+        "GlobalID": "{3B14D3DE-B4C0-4212-B564-05E6C039BBAE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 519,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58495998000006,
+          7.938748015000044
+        ]
+      },
+      "properties": {
+        "OBJECTID": 519,
+        "OID_": 1138,
+        "Order_": 1138,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020303,
+        "Village": "บ้านอ่าวกะพ้อ (โล๊ะป่าไล้)",
+        "Height": 2.99,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 685,
+        "People_F": 727,
+        "People_All": 1412,
+        "House": 510,
+        "X": 454255.7388,
+        "Y": 877549.2428,
+        "Y_Lat": 7.93874801,
+        "X_Long": 98.58495998,
+        "GlobalID": "{B7517B8C-1D3A-4CC6-8145-CDCDB60567A5}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 520,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.57887698000008,
+          7.973522015000071
+        ]
+      },
+      "properties": {
+        "OBJECTID": 520,
+        "OID_": 1139,
+        "Order_": 1139,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020304,
+        "Village": "บ้านท่าเรือ",
+        "Height": 2.4,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 424,
+        "People_F": 428,
+        "People_All": 852,
+        "House": 286,
+        "X": 453589.1914,
+        "Y": 881394.3304,
+        "Y_Lat": 7.97352202,
+        "X_Long": 98.57887698,
+        "GlobalID": "{0A3EA0DC-65CE-4EC7-BE01-CF65452BC8EF}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 521,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.59027098000007,
+          7.926099015000034
+        ]
+      },
+      "properties": {
+        "OBJECTID": 521,
+        "OID_": 1140,
+        "Order_": 1140,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020305,
+        "Village": "บ้านคลองดินเหนียว",
+        "Height": 2.45,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 272,
+        "People_F": 256,
+        "People_All": 528,
+        "House": 128,
+        "X": 454839.7283,
+        "Y": 876150.2643,
+        "Y_Lat": 7.92609902,
+        "X_Long": 98.59027098,
+        "GlobalID": "{8D7024E8-9839-4B64-9098-5F5D31F4F2AE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 522,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.58761198000008,
+          7.934144016000062
+        ]
+      },
+      "properties": {
+        "OBJECTID": 522,
+        "OID_": 1141,
+        "Order_": 1141,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020306,
+        "Village": "บ้านออก",
+        "Height": 3.09,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 367,
+        "People_F": 386,
+        "People_All": 753,
+        "House": 289,
+        "X": 454547.532,
+        "Y": 877039.9608,
+        "Y_Lat": 7.93414402,
+        "X_Long": 98.58761198,
+        "GlobalID": "{BD1FAF59-4DC8-4F1F-B59F-60FDD669E13F}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 523,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.57108798000007,
+          7.983475015000067
+        ]
+      },
+      "properties": {
+        "OBJECTID": 523,
+        "OID_": 1142,
+        "Order_": 1142,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": 82020307,
+        "Village": "บ้านโล๊ะปาเหรด",
+        "Height": 2.11,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 198,
+        "People_F": 170,
+        "People_All": 368,
+        "House": 183,
+        "X": 452731.9151,
+        "Y": 882495.562,
+        "Y_Lat": 7.98347501,
+        "X_Long": 98.57108798,
+        "GlobalID": "{D3122AC1-1782-4BDC-928B-AC016AD6F5FE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 524,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.44373498000004,
+          8.357988014000057
+        ]
+      },
+      "properties": {
+        "OBJECTID": 524,
+        "OID_": 1156,
+        "Order_": 1156,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040200,
+        "tname": "กระโสม",
+        "mcode": 82040205,
+        "Village": "บ้านเขาเปาะ",
+        "Height": 0.18,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 686,
+        "People_F": 643,
+        "People_All": 1329,
+        "House": 439,
+        "X": 438753.7824,
+        "Y": 923917.5445,
+        "Y_Lat": 8.35798801,
+        "X_Long": 98.44373498,
+        "GlobalID": "{50E8C908-63B3-4D26-9AC0-20621B5A0EE8}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 525,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.42028798000007,
+          8.323755015000074
+        ]
+      },
+      "properties": {
+        "OBJECTID": 525,
+        "OID_": 1157,
+        "Order_": 1157,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040300,
+        "tname": "กะไหล",
+        "mcode": 82040302,
+        "Village": "บ้านควน",
+        "Height": 0.13,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 354,
+        "People_F": 345,
+        "People_All": 699,
+        "House": 286,
+        "X": 436166.5687,
+        "Y": 920136.5032,
+        "Y_Lat": 8.32375501,
+        "X_Long": 98.42028798,
+        "GlobalID": "{6284EBC5-7391-4CF1-B2A6-D2B425067783}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 526,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.43403698000009,
+          8.317778015000044
+        ]
+      },
+      "properties": {
+        "OBJECTID": 526,
+        "OID_": 1158,
+        "Order_": 1158,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040300,
+        "tname": "กะไหล",
+        "mcode": 82040308,
+        "Village": "บ้านสามช่องใต้",
+        "Height": 0.12,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 240,
+        "People_F": 230,
+        "People_All": 470,
+        "House": 113,
+        "X": 437679.6063,
+        "Y": 919473.5037,
+        "Y_Lat": 8.31777802,
+        "X_Long": 98.43403698,
+        "GlobalID": "{2193B6FE-F86D-40E5-B7DC-8B32DA13574A}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 527,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.42033098000007,
+          8.302480015000071
+        ]
+      },
+      "properties": {
+        "OBJECTID": 527,
+        "OID_": 1159,
+        "Order_": 1159,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040300,
+        "tname": "กะไหล",
+        "mcode": 82040309,
+        "Village": "บ้านสามช่องเหนือ",
+        "Height": 0.1,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 448,
+        "People_F": 428,
+        "People_All": 876,
+        "House": 266,
+        "X": 436167.863,
+        "Y": 917784.3597,
+        "Y_Lat": 8.30248002,
+        "X_Long": 98.42033098,
+        "GlobalID": "{7141BD7C-B903-43EB-86A9-D2274C233D57}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 528,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.39706198000005,
+          8.296936015000028
+        ]
+      },
+      "properties": {
+        "OBJECTID": 528,
+        "OID_": 1160,
+        "Order_": 1160,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040300,
+        "tname": "กะไหล",
+        "mcode": 82040310,
+        "Village": "บ้านป่ายาง",
+        "Height": 0.1,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 327,
+        "People_F": 333,
+        "People_All": 660,
+        "House": 203,
+        "X": 433604.5008,
+        "Y": 917175.2389,
+        "Y_Lat": 8.29693601,
+        "X_Long": 98.39706198,
+        "GlobalID": "{E265A6DB-B962-4833-AEC8-BF5B09AB54FF}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 529,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.48541498000009,
+          8.335061014000075
+        ]
+      },
+      "properties": {
+        "OBJECTID": 529,
+        "OID_": 1161,
+        "Order_": 1161,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040300,
+        "tname": "กะไหล",
+        "mcode": 82040311,
+        "Village": "บ้านเกาะกลาง",
+        "Height": 0.12,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 219,
+        "People_F": 220,
+        "People_All": 439,
+        "House": 138,
+        "X": 443339.6774,
+        "Y": 921376.5533,
+        "Y_Lat": 8.33506101,
+        "X_Long": 98.48541498,
+        "GlobalID": "{337C48A3-74C1-406B-999C-A61797C3859B}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 530,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.34269298000004,
+          8.18860001400003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 530,
+        "OID_": 1175,
+        "Order_": 1175,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040500,
+        "tname": "หล่อยูง",
+        "mcode": 82040506,
+        "Village": "บ้านแหลมหิน",
+        "Height": 2.82,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 399,
+        "People_F": 407,
+        "People_All": 806,
+        "House": 267,
+        "X": 427597.4459,
+        "Y": 905207.1253,
+        "Y_Lat": 8.18860001,
+        "X_Long": 98.34269298,
+        "GlobalID": "{BA733F88-CF65-4D7C-B1AF-51C5DA723241}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 531,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.37622098000008,
+          8.152027014000055
+        ]
+      },
+      "properties": {
+        "OBJECTID": 531,
+        "OID_": 1176,
+        "Order_": 1176,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040500,
+        "tname": "หล่อยูง",
+        "mcode": 82040507,
+        "Village": "บ้านบางจัน",
+        "Height": 0.39,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 347,
+        "People_F": 317,
+        "People_All": 664,
+        "House": 186,
+        "X": 431284.4529,
+        "Y": 901157.7774,
+        "Y_Lat": 8.15202701,
+        "X_Long": 98.37622098,
+        "GlobalID": "{D10A23A9-6C88-4DFE-B2D7-21744CA43BDC}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 532,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.36969298000008,
+          8.168918015000031
+        ]
+      },
+      "properties": {
+        "OBJECTID": 532,
+        "OID_": 1177,
+        "Order_": 1177,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040500,
+        "tname": "หล่อยูง",
+        "mcode": 82040509,
+        "Village": "บ้านบากัน",
+        "Height": 0.41,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 234,
+        "People_F": 257,
+        "People_All": 491,
+        "House": 186,
+        "X": 430568.2162,
+        "Y": 903026.3434,
+        "Y_Lat": 8.16891801,
+        "X_Long": 98.36969298,
+        "GlobalID": "{7C287214-0886-4314-9C02-7ECAD48EFD6A}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 533,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.27841998000008,
+          8.277410014000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 533,
+        "OID_": 1169,
+        "Order_": 1169,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040600,
+        "tname": "โคกกลอย",
+        "mcode": 82040605,
+        "Village": "บ้านหานบัว",
+        "Height": 5.75,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 513,
+        "People_F": 482,
+        "People_All": 995,
+        "House": 620,
+        "X": 420535.1202,
+        "Y": 915038.2071,
+        "Y_Lat": 8.27741001,
+        "X_Long": 98.27841998,
+        "GlobalID": "{C9810EE3-BF22-4465-89FE-9F025CF430BB}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 534,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28464398000006,
+          8.281488014000047
+        ]
+      },
+      "properties": {
+        "OBJECTID": 534,
+        "OID_": 1170,
+        "Order_": 1170,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040600,
+        "tname": "โคกกลอย",
+        "mcode": 82040606,
+        "Village": "บ้านนาใต้",
+        "Height": 6.11,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 406,
+        "People_F": 411,
+        "People_All": 817,
+        "House": 457,
+        "X": 421221.391,
+        "Y": 915487.8389,
+        "Y_Lat": 8.28148801,
+        "X_Long": 98.28464398,
+        "GlobalID": "{BB818382-3A48-4843-919F-AD5D16BAFD18}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 535,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.29959998000004,
+          8.206140015000074
+        ]
+      },
+      "properties": {
+        "OBJECTID": 535,
+        "OID_": 1171,
+        "Order_": 1171,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040600,
+        "tname": "โคกกลอย",
+        "mcode": 82040607,
+        "Village": "บ้านท่านุ่น",
+        "Height": 5.53,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 649,
+        "People_F": 626,
+        "People_All": 1275,
+        "House": 552,
+        "X": 422853.8987,
+        "Y": 907154.3693,
+        "Y_Lat": 8.20614002,
+        "X_Long": 98.29959998,
+        "GlobalID": "{83CDC96E-2C63-4B9F-8C3D-E2F0A8699643}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 536,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.29373398000007,
+          8.249375014000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 536,
+        "OID_": 1172,
+        "Order_": 1172,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040600,
+        "tname": "โคกกลอย",
+        "mcode": 82040608,
+        "Village": "บ้านต้นแซะ",
+        "Height": 5.79,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 390,
+        "People_F": 359,
+        "People_All": 749,
+        "House": 361,
+        "X": 422216.1849,
+        "Y": 911935.6015,
+        "Y_Lat": 8.24937501,
+        "X_Long": 98.29373398,
+        "GlobalID": "{3BECF005-D24D-425F-B64A-F48EDC61A4A0}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 537,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.32538798000007,
+          8.209374014000048
+        ]
+      },
+      "properties": {
+        "OBJECTID": 537,
+        "OID_": 1173,
+        "Order_": 1173,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040600,
+        "tname": "โคกกลอย",
+        "mcode": 82040611,
+        "Village": "บ้านท่าปากแหว่ง",
+        "Height": 3.36,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 369,
+        "People_F": 356,
+        "People_All": 725,
+        "House": 330,
+        "X": 425695.0681,
+        "Y": 907507.0552,
+        "Y_Lat": 8.20937401,
+        "X_Long": 98.32538798,
+        "GlobalID": "{BFF20C6B-78D7-4EB3-B137-F0B6FE4695D3}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 538,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28869898000005,
+          8.234949014000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 538,
+        "OID_": 1174,
+        "Order_": 1174,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040600,
+        "tname": "โคกกลอย",
+        "mcode": 82040614,
+        "Village": "บ้านเขาปิหลาย",
+        "Height": 5.45,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 375,
+        "People_F": 393,
+        "People_All": 768,
+        "House": 319,
+        "X": 421658.7947,
+        "Y": 910341.6317,
+        "Y_Lat": 8.23494901,
+        "X_Long": 98.28869898,
+        "GlobalID": "{D7500D80-C90E-4E39-A398-4895AE447B7A}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 539,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.43757698000007,
+          8.181583015000058
+        ]
+      },
+      "properties": {
+        "OBJECTID": 539,
+        "OID_": 1162,
+        "Order_": 1162,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040701,
+        "Village": "บ้านคลองเคียน",
+        "Height": 1.06,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 514,
+        "People_F": 475,
+        "People_All": 989,
+        "House": 301,
+        "X": 438048.2127,
+        "Y": 904415.4957,
+        "Y_Lat": 8.18158301,
+        "X_Long": 98.43757698,
+        "GlobalID": "{52E03542-A68E-4E62-A6B0-33763FFB1ED6}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 540,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.43685198000009,
+          8.143966015000046
+        ]
+      },
+      "properties": {
+        "OBJECTID": 540,
+        "OID_": 1163,
+        "Order_": 1163,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040702,
+        "Village": "บ้านหินร่ม",
+        "Height": 1.03,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 626,
+        "People_F": 629,
+        "People_All": 1255,
+        "House": 338,
+        "X": 437962.5462,
+        "Y": 900256.7627,
+        "Y_Lat": 8.14396602,
+        "X_Long": 98.43685198,
+        "GlobalID": "{FBF0C2BF-9734-422F-AFE5-9091F0E0BFF0}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 541,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.39866098000005,
+          8.154243015000077
+        ]
+      },
+      "properties": {
+        "OBJECTID": 541,
+        "OID_": 1164,
+        "Order_": 1164,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040703,
+        "Village": "บ้านเจ้าขรัว",
+        "Height": 0.4,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 244,
+        "People_F": 228,
+        "People_All": 472,
+        "House": 132,
+        "X": 433756.8991,
+        "Y": 901399.0266,
+        "Y_Lat": 8.15424302,
+        "X_Long": 98.39866098,
+        "GlobalID": "{CC5E93D8-0B59-445B-B3F7-20E8EE55BCDA}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 542,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.42410398000004,
+          8.172626014000059
+        ]
+      },
+      "properties": {
+        "OBJECTID": 542,
+        "OID_": 1165,
+        "Order_": 1165,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040704,
+        "Village": "บ้านย่านสะบ้า",
+        "Height": 1.25,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 265,
+        "People_F": 237,
+        "People_All": 502,
+        "House": 170,
+        "X": 436562.6769,
+        "Y": 903427.3267,
+        "Y_Lat": 8.17262601,
+        "X_Long": 98.42410398,
+        "GlobalID": "{ADCA608D-D8CB-49B0-BF48-85D8D31526F6}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 543,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.42687098000005,
+          8.198520015000042
+        ]
+      },
+      "properties": {
+        "OBJECTID": 543,
+        "OID_": 1166,
+        "Order_": 1166,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040706,
+        "Village": "บ้านคลองใส",
+        "Height": 1.63,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 254,
+        "People_F": 228,
+        "People_All": 482,
+        "House": 127,
+        "X": 436871.5606,
+        "Y": 906289.6783,
+        "Y_Lat": 8.19852001,
+        "X_Long": 98.42687098,
+        "GlobalID": "{08DCBE9E-A51F-4ABE-BE63-D1E66FB4D96E}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 544,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.44020998000008,
+          8.210224014000062
+        ]
+      },
+      "properties": {
+        "OBJECTID": 544,
+        "OID_": 1167,
+        "Order_": 1167,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040707,
+        "Village": "บ้านหาดทรายเปลือกหอย",
+        "Height": 0.94,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 186,
+        "People_F": 147,
+        "People_All": 333,
+        "House": 99,
+        "X": 438342.6612,
+        "Y": 907581.5746,
+        "Y_Lat": 8.21022401,
+        "X_Long": 98.44020998,
+        "GlobalID": "{369BAE91-ADDA-4CCB-99F8-98669F18BBFF}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 545,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.44837198000005,
+          8.219509014000039
+        ]
+      },
+      "properties": {
+        "OBJECTID": 545,
+        "OID_": 1168,
+        "Order_": 1168,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8204,
+        "aname": "ตะกั่วทุ่ง",
+        "tcode": 82040700,
+        "tname": "คลองเคียน",
+        "mcode": 82040708,
+        "Village": "บ้านอ่าวมะขาม",
+        "Height": 0.83,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 342,
+        "People_F": 329,
+        "People_All": 671,
+        "House": 207,
+        "X": 439243.0932,
+        "Y": 908606.8572,
+        "Y_Lat": 8.21950901,
+        "X_Long": 98.44837198,
+        "GlobalID": "{A7500EBF-6DAE-460C-A705-017B08DA557D}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 546,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.40441198000008,
+          8.902245013000027
+        ]
+      },
+      "properties": {
+        "OBJECTID": 546,
+        "OID_": 1194,
+        "Order_": 1194,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050200,
+        "tname": "บางนายสี",
+        "mcode": 82050204,
+        "Village": "บ้านบางใหญ่",
+        "Height": 0.15,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 897,
+        "People_F": 869,
+        "People_All": 1766,
+        "House": 531,
+        "X": 434517.9359,
+        "Y": 984097.356,
+        "Y_Lat": 8.90224501,
+        "X_Long": 98.40441198,
+        "GlobalID": "{40E27049-22E4-4330-A6DE-D0E2441CB041}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 547,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.39927098000004,
+          8.951049014000034
+        ]
+      },
+      "properties": {
+        "OBJECTID": 547,
+        "OID_": 1195,
+        "Order_": 1195,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050200,
+        "tname": "บางนายสี",
+        "mcode": 82050205,
+        "Village": "บ้านบางนายสังข์",
+        "Height": 0.21,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 289,
+        "People_F": 277,
+        "People_All": 566,
+        "House": 214,
+        "X": 433961.4667,
+        "Y": 989494.1663,
+        "Y_Lat": 8.95104901,
+        "X_Long": 98.39927098,
+        "GlobalID": "{CB5FB772-89F9-42A6-A53D-3D1B72EECA6C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 548,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.27179998000008,
+          8.860499013000037
+        ]
+      },
+      "properties": {
+        "OBJECTID": 548,
+        "OID_": 1196,
+        "Order_": 1196,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": 82050402,
+        "Village": "บ้านน้ำเค็ม",
+        "Height": 15.8,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 1757,
+        "People_F": 1684,
+        "People_All": 3441,
+        "House": 2326,
+        "X": 419928.1373,
+        "Y": 979507.7738,
+        "Y_Lat": 8.86049901,
+        "X_Long": 98.27179998,
+        "GlobalID": "{89E5A8C2-F1FA-4DB4-8CA0-773DFB6D3822}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 549,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26778898000003,
+          8.82404701300004
+        ]
+      },
+      "properties": {
+        "OBJECTID": 549,
+        "OID_": 1197,
+        "Order_": 1197,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": 82050403,
+        "Village": "บ้านบางหม้อ",
+        "Height": 6.4,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 441,
+        "People_F": 462,
+        "People_All": 903,
+        "House": 504,
+        "X": 419479.1528,
+        "Y": 975478.3266,
+        "Y_Lat": 8.82404701,
+        "X_Long": 98.26778898,
+        "GlobalID": "{A4430377-F8B7-4370-9662-EC99EAFB848C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 550,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28507498000005,
+          8.821358014000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 550,
+        "OID_": 1198,
+        "Order_": 1198,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": 82050406,
+        "Village": "บ้านบางหลุด",
+        "Height": 5.2,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 494,
+        "People_F": 471,
+        "People_All": 965,
+        "House": 502,
+        "X": 421379.6115,
+        "Y": 975177.336,
+        "Y_Lat": 8.82135801,
+        "X_Long": 98.28507498,
+        "GlobalID": "{257A0C24-E215-4256-9327-80D0743A1784}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 551,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26377998000004,
+          8.801635013000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 551,
+        "OID_": 1199,
+        "Order_": 1199,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": 82050407,
+        "Village": "บ้านบางสักเหนือ",
+        "Height": 13.1,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 480,
+        "People_F": 481,
+        "People_All": 961,
+        "House": 511,
+        "X": 419033.3835,
+        "Y": 973001.2137,
+        "Y_Lat": 8.80163501,
+        "X_Long": 98.26377998,
+        "GlobalID": "{D239BDE7-6C9A-4926-B8EF-F780582D65F6}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 552,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26627798000004,
+          8.769856014000027
+        ]
+      },
+      "properties": {
+        "OBJECTID": 552,
+        "OID_": 1200,
+        "Order_": 1200,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": 82050408,
+        "Village": "บ้านบางสักใต้",
+        "Height": 11,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 182,
+        "People_F": 181,
+        "People_All": 363,
+        "House": 305,
+        "X": 419301.2453,
+        "Y": 969487.0406,
+        "Y_Lat": 8.76985601,
+        "X_Long": 98.26627798,
+        "GlobalID": "{93356115-B7CF-4C27-8866-F2BD43B99CEE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 553,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25752998000007,
+          8.746724014000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 553,
+        "OID_": 1184,
+        "Order_": 1184,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": 82050701,
+        "Village": "บ้านปากวีป",
+        "Height": 10,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 426,
+        "People_F": 402,
+        "People_All": 828,
+        "House": 599,
+        "X": 418333.9943,
+        "Y": 966931.348,
+        "Y_Lat": 8.74672401,
+        "X_Long": 98.25752998,
+        "GlobalID": "{BE966404-B41C-4A87-AA8F-6C04C6B9848F}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 554,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25097798000007,
+          8.728552013000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 554,
+        "OID_": 1185,
+        "Order_": 1185,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": 82050702,
+        "Village": "บ้านบางขยะ",
+        "Height": 10,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 427,
+        "People_F": 416,
+        "People_All": 843,
+        "House": 918,
+        "X": 417609.2951,
+        "Y": 964923.5921,
+        "Y_Lat": 8.72855201,
+        "X_Long": 98.25097798,
+        "GlobalID": "{D21D3EBA-833E-4675-B571-6CA7A48622AF}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 555,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24931698000006,
+          8.701173013000073
+        ]
+      },
+      "properties": {
+        "OBJECTID": 555,
+        "OID_": 1186,
+        "Order_": 1186,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": 82050703,
+        "Village": "บ้านคึกคัก",
+        "Height": 9,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 661,
+        "People_F": 669,
+        "People_All": 1330,
+        "House": 1283,
+        "X": 417420.5691,
+        "Y": 961896.8056,
+        "Y_Lat": 8.70117301,
+        "X_Long": 98.24931698,
+        "GlobalID": "{0BAAAE0A-1F61-4C04-B220-10F9E3331A78}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 556,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25122398000008,
+          8.673841014000061
+        ]
+      },
+      "properties": {
+        "OBJECTID": 556,
+        "OID_": 1188,
+        "Order_": 1188,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": 82050705,
+        "Village": "บ้านบางเนียง หมู่ 5",
+        "Height": 11,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 525,
+        "People_F": 515,
+        "People_All": 1040,
+        "House": 1642,
+        "X": 417624.396,
+        "Y": 958874.4429,
+        "Y_Lat": 8.67384101,
+        "X_Long": 98.25122398,
+        "GlobalID": "{8E3AD0E5-8C3C-47AE-AA60-547CD89C86D7}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 557,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25853798000009,
+          8.668644013000062
+        ]
+      },
+      "properties": {
+        "OBJECTID": 557,
+        "OID_": 1189,
+        "Order_": 1189,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": 82050706,
+        "Village": "บ้านบางเนียง หมู่ 6",
+        "Height": 11,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 233,
+        "People_F": 251,
+        "People_All": 484,
+        "House": 750,
+        "X": 418427.9583,
+        "Y": 958298.2626,
+        "Y_Lat": 8.66864401,
+        "X_Long": 98.25853798,
+        "GlobalID": "{03821EC4-41A5-4838-B9EB-C888D40AD615}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 558,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24853298000005,
+          8.642094013000076
+        ]
+      },
+      "properties": {
+        "OBJECTID": 558,
+        "OID_": 1190,
+        "Order_": 1190,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": 82050707,
+        "Village": "บ้านบางหลาโอน",
+        "Height": 11,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 205,
+        "People_F": 221,
+        "People_All": 426,
+        "House": 838,
+        "X": 417321.4023,
+        "Y": 955364.9413,
+        "Y_Lat": 8.64209401,
+        "X_Long": 98.24853298,
+        "GlobalID": "{40A92B33-37B6-4B05-BD25-620B0FD941B0}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 559,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.30127898000006,
+          8.99916801300003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 559,
+        "OID_": 1178,
+        "Order_": 1178,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050800,
+        "tname": "เกาะคอเขา",
+        "mcode": 82050801,
+        "Village": "บ้านเมืองใหม่",
+        "Height": 9,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 96,
+        "People_F": 88,
+        "People_All": 184,
+        "House": 135,
+        "X": 423198.7887,
+        "Y": 994833.4486,
+        "Y_Lat": 8.99916801,
+        "X_Long": 98.30127898,
+        "GlobalID": "{5F548C51-6818-4E26-BDA0-3E22F366BD71}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 560,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26220098000005,
+          8.979486013000042
+        ]
+      },
+      "properties": {
+        "OBJECTID": 560,
+        "OID_": 1179,
+        "Order_": 1179,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050800,
+        "tname": "เกาะคอเขา",
+        "mcode": 82050802,
+        "Village": "บ้านนอกนา",
+        "Height": 12.6,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 171,
+        "People_F": 153,
+        "People_All": 324,
+        "House": 164,
+        "X": 418898.8581,
+        "Y": 992665.7135,
+        "Y_Lat": 8.97948601,
+        "X_Long": 98.26220098,
+        "GlobalID": "{8475CAF8-7751-4EA1-9418-BFB17B231F00}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 561,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.27077898000005,
+          8.883997013000055
+        ]
+      },
+      "properties": {
+        "OBJECTID": 561,
+        "OID_": 1180,
+        "Order_": 1180,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050800,
+        "tname": "เกาะคอเขา",
+        "mcode": 82050803,
+        "Village": "บ้านปากเกาะ",
+        "Height": 6.4,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 101,
+        "People_F": 94,
+        "People_All": 195,
+        "House": 237,
+        "X": 419820.9639,
+        "Y": 982106.051,
+        "Y_Lat": 8.88399701,
+        "X_Long": 98.27077898,
+        "GlobalID": "{506B5F30-B747-4390-97DD-49C38E3F9E2D}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 562,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25996798000006,
+          8.917068013000062
+        ]
+      },
+      "properties": {
+        "OBJECTID": 562,
+        "OID_": 1181,
+        "Order_": 1181,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050800,
+        "tname": "เกาะคอเขา",
+        "mcode": 82050804,
+        "Village": "บ้านทุ่งตึก",
+        "Height": 7,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 78,
+        "People_F": 86,
+        "People_All": 164,
+        "House": 190,
+        "X": 418639.5214,
+        "Y": 985764.9153,
+        "Y_Lat": 8.91706801,
+        "X_Long": 98.25996798,
+        "GlobalID": "{91AED05B-EF77-437A-BDF9-DC6C7D712D4D}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 563,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28509098000006,
+          8.973857013000043
+        ]
+      },
+      "properties": {
+        "OBJECTID": 563,
+        "OID_": 1182,
+        "Order_": 1182,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050800,
+        "tname": "เกาะคอเขา",
+        "mcode": 82050805,
+        "Village": "บ้านบางเนียง หมู่ 5",
+        "Height": 6,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 48,
+        "People_F": 41,
+        "People_All": 89,
+        "House": 56,
+        "X": 421413.9128,
+        "Y": 992038.3622,
+        "Y_Lat": 8.97385701,
+        "X_Long": 98.28509098,
+        "GlobalID": "{22E67EA9-DED4-4B51-8BAA-807C4ED6B2A3}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 564,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.39714098000007,
+          9.29030901300007
+        ]
+      },
+      "properties": {
+        "OBJECTID": 564,
+        "OID_": 1149,
+        "Order_": 1149,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060100,
+        "tname": "คุระ",
+        "mcode": 82060104,
+        "Village": "บ้านเตรียม",
+        "Height": 2.05,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 653,
+        "People_F": 648,
+        "People_All": 1301,
+        "House": 449,
+        "X": 433789.87,
+        "Y": 1027004.422,
+        "Y_Lat": 9.29030901,
+        "X_Long": 98.39714098,
+        "GlobalID": "{39597713-70D6-49BC-8713-5463DCAD0738}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 565,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.34665998000008,
+          9.241935013000045
+        ]
+      },
+      "properties": {
+        "OBJECTID": 565,
+        "OID_": 1150,
+        "Order_": 1150,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060100,
+        "tname": "คุระ",
+        "mcode": 82060105,
+        "Village": "บ้านทุ่งนางดำ",
+        "Height": 1.01,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 112,
+        "People_F": 86,
+        "People_All": 198,
+        "House": 131,
+        "X": 428235.6576,
+        "Y": 1021665.73,
+        "Y_Lat": 9.24193501,
+        "X_Long": 98.34665998,
+        "GlobalID": "{4F8138C6-BD39-448B-9946-E90625180521}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 566,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.40393998000008,
+          9.328111013000068
+        ]
+      },
+      "properties": {
+        "OBJECTID": 566,
+        "OID_": 1151,
+        "Order_": 1151,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060100,
+        "tname": "คุระ",
+        "mcode": 82060106,
+        "Village": "บ้านห้วยทรัพย์",
+        "Height": 2.58,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 617,
+        "People_F": 619,
+        "People_All": 1236,
+        "House": 366,
+        "X": 434543.6428,
+        "Y": 1031182.731,
+        "Y_Lat": 9.32811101,
+        "X_Long": 98.40393998,
+        "GlobalID": "{3D667CED-E474-45FE-9C32-2F9F987201F6}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 567,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.38750198000008,
+          9.20644001200003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 567,
+        "OID_": 1152,
+        "Order_": 1152,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060100,
+        "tname": "คุระ",
+        "mcode": 82060110,
+        "Village": "บ้านบางหละ",
+        "Height": 0.82,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 745,
+        "People_F": 671,
+        "People_All": 1416,
+        "House": 381,
+        "X": 432715.2784,
+        "Y": 1017733.28,
+        "Y_Lat": 9.20644001,
+        "X_Long": 98.38750198,
+        "GlobalID": "{AEE4C052-07E9-4C55-A996-D89BAB889199}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 568,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.39758898000008,
+          9.312473013000044
+        ]
+      },
+      "properties": {
+        "OBJECTID": 568,
+        "OID_": 1153,
+        "Order_": 1153,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060100,
+        "tname": "คุระ",
+        "mcode": 82060112,
+        "Village": "บ้านสวนใหม่",
+        "Height": 2.72,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 418,
+        "People_F": 446,
+        "People_All": 864,
+        "House": 266,
+        "X": 433843.2388,
+        "Y": 1029454.898,
+        "Y_Lat": 9.31247301,
+        "X_Long": 98.39758898,
+        "GlobalID": "{9A43E63D-EA8C-4F0A-85A8-041174F07804}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 569,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.41276398000008,
+          8.976923013000032
+        ]
+      },
+      "properties": {
+        "OBJECTID": 569,
+        "OID_": 1154,
+        "Order_": 1154,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060200,
+        "tname": "บางวัน",
+        "mcode": 82060201,
+        "Village": "บ้านบางวัน",
+        "Height": 0.52,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 421,
+        "People_F": 408,
+        "People_All": 829,
+        "House": 363,
+        "X": 435449.3799,
+        "Y": 992352.4692,
+        "Y_Lat": 8.97692301,
+        "X_Long": 98.41276398,
+        "GlobalID": "{325CBD81-9B0B-480E-BBB5-329DC94B5C2C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 570,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.32261398000009,
+          9.043476013000031
+        ]
+      },
+      "properties": {
+        "OBJECTID": 570,
+        "OID_": 1155,
+        "Order_": 1155,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060200,
+        "tname": "บางวัน",
+        "mcode": 82060204,
+        "Village": "บ้านทุ่งละออง",
+        "Height": 0.83,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 370,
+        "People_F": 346,
+        "People_All": 716,
+        "House": 389,
+        "X": 425553.053,
+        "Y": 999727.9455,
+        "Y_Lat": 9.04347601,
+        "X_Long": 98.32261398,
+        "GlobalID": "{FE85DAC7-B944-4BB8-90E2-DEFFA0217E12}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 571,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25324098000004,
+          9.034703013000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 571,
+        "OID_": 1143,
+        "Order_": 1143,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060300,
+        "tname": "เกาะพระทอง",
+        "mcode": 82060301,
+        "Village": "บ้านทุ่งดาบ",
+        "Height": 19.6,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 108,
+        "People_F": 71,
+        "People_All": 179,
+        "House": 121,
+        "X": 417926.3523,
+        "Y": 998772.8417,
+        "Y_Lat": 9.03470301,
+        "X_Long": 98.25324098,
+        "GlobalID": "{BD5D2D42-6DD3-43EE-893E-D4ABC0159AC3}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 572,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.29460498000003,
+          9.114330013000028
+        ]
+      },
+      "properties": {
+        "OBJECTID": 572,
+        "OID_": 1144,
+        "Order_": 1144,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060300,
+        "tname": "เกาะพระทอง",
+        "mcode": 82060302,
+        "Village": "บ้านท่าแป๊ะโย้ย",
+        "Height": 0.68,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 172,
+        "People_F": 127,
+        "People_All": 299,
+        "House": 202,
+        "X": 422489.8459,
+        "Y": 1007567.807,
+        "Y_Lat": 9.11433001,
+        "X_Long": 98.29460498,
+        "GlobalID": "{1CB6F14E-CE0E-4B40-B4FB-7795AF08DFF3}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 573,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.30963998000004,
+          9.241502013000058
+        ]
+      },
+      "properties": {
+        "OBJECTID": 573,
+        "OID_": 1145,
+        "Order_": 1145,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060300,
+        "tname": "เกาะพระทอง",
+        "mcode": 82060303,
+        "Village": "บ้านเกาะระ",
+        "Height": 8.6,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 55,
+        "People_F": 44,
+        "People_All": 99,
+        "House": 55,
+        "X": 424169.0218,
+        "Y": 1021625.513,
+        "Y_Lat": 9.24150201,
+        "X_Long": 98.30963998,
+        "GlobalID": "{4C51F3FB-D1FB-4596-A3C3-9C79EF35FDDC}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 574,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26644698000007,
+          9.16298701200003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 574,
+        "OID_": 1146,
+        "Order_": 1146,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060300,
+        "tname": "เกาะพระทอง",
+        "mcode": 82060304,
+        "Village": "บ้านปากจก",
+        "Height": 6.6,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 191,
+        "People_F": 230,
+        "People_All": 421,
+        "House": 297,
+        "X": 419406.5725,
+        "Y": 1012953.807,
+        "Y_Lat": 9.16298701,
+        "X_Long": 98.26644698,
+        "GlobalID": "{04D3D53C-4E8A-402C-BC40-EAF9278FFF11}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 575,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.63922398000005,
+          8.406060015000037
+        ]
+      },
+      "properties": {
+        "OBJECTID": 575,
+        "OID_": 1205,
+        "Order_": 1205,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8207,
+        "aname": "ทับปุด",
+        "tcode": 82070200,
+        "tname": "มะรุ่ย",
+        "mcode": 82070201,
+        "Village": "บ้านโคกใคร",
+        "Height": 0.33,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 664,
+        "People_F": 590,
+        "People_All": 1254,
+        "House": 331,
+        "X": 460282.8538,
+        "Y": 929207.1418,
+        "Y_Lat": 8.40606001,
+        "X_Long": 98.63922398,
+        "GlobalID": "{7524D274-590B-4C64-9A84-CFABFBD27F7A}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 576,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.64902198000004,
+          8.437546015000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 576,
+        "OID_": 1206,
+        "Order_": 1206,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8207,
+        "aname": "ทับปุด",
+        "tcode": 82070200,
+        "tname": "มะรุ่ย",
+        "mcode": 82070202,
+        "Village": "บ้านบ่อแสนไทรงาม",
+        "Height": 0.43,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 264,
+        "People_F": 241,
+        "People_All": 505,
+        "House": 174,
+        "X": 461364.6333,
+        "Y": 932687.1241,
+        "Y_Lat": 8.43754602,
+        "X_Long": 98.64902198,
+        "GlobalID": "{23668737-4D03-4CC8-993F-1CB4D1C4A5F5}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 577,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.64377598000004,
+          8.420625014000052
+        ]
+      },
+      "properties": {
+        "OBJECTID": 577,
+        "OID_": 1207,
+        "Order_": 1207,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8207,
+        "aname": "ทับปุด",
+        "tcode": 82070200,
+        "tname": "มะรุ่ย",
+        "mcode": 82070203,
+        "Village": "บ้านท่าสนุก",
+        "Height": 0.4,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 653,
+        "People_F": 595,
+        "People_All": 1248,
+        "House": 347,
+        "X": 460785.4459,
+        "Y": 930816.9296,
+        "Y_Lat": 8.42062501,
+        "X_Long": 98.64377598,
+        "GlobalID": "{49FC75C7-25B9-45FF-8DAC-973B5F9A1820}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 578,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25902098000006,
+          8.379922014000044
+        ]
+      },
+      "properties": {
+        "OBJECTID": 578,
+        "OID_": 1209,
+        "Order_": 1209,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080100,
+        "tname": "ท้ายเหมือง",
+        "mcode": 82080103,
+        "Village": "บ้านพอแดง",
+        "Height": 5.81,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 376,
+        "People_F": 394,
+        "People_All": 770,
+        "House": 333,
+        "X": 418419.9013,
+        "Y": 926376.0909,
+        "Y_Lat": 8.37992201,
+        "X_Long": 98.25902098,
+        "GlobalID": "{ECD31C82-3346-47CE-B357-28909D5D0C94}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 579,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24732279000006,
+          8.396670094000058
+        ]
+      },
+      "properties": {
+        "OBJECTID": 579,
+        "OID_": 1213,
+        "Order_": 1213,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080100,
+        "tname": "ท้ายเหมือง",
+        "mcode": 82080104,
+        "Village": "หาดท้ายเหมือง",
+        "Height": 9.43,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 559,
+        "People_F": 623,
+        "People_All": 1182,
+        "House": 804,
+        "X": 417135.4348,
+        "Y": 928230.2535,
+        "Y_Lat": 8.39667009,
+        "X_Long": 98.24732279,
+        "GlobalID": "{5C1339A4-0C7C-4C46-8EF0-A1A3687155F5}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 580,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25454598000005,
+          8.42264401400007
+        ]
+      },
+      "properties": {
+        "OBJECTID": 580,
+        "OID_": 1210,
+        "Order_": 1210,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080100,
+        "tname": "ท้ายเหมือง",
+        "mcode": 82080105,
+        "Village": "บ้านท่าซอ",
+        "Height": 7.28,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 562,
+        "People_F": 601,
+        "People_All": 1163,
+        "House": 560,
+        "X": 417936.1668,
+        "Y": 931100.4847,
+        "Y_Lat": 8.42264401,
+        "X_Long": 98.25454598,
+        "GlobalID": "{27FC1B17-46C1-4424-978C-023CAC2D2BF9}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 581,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26540998000007,
+          8.482558013000073
+        ]
+      },
+      "properties": {
+        "OBJECTID": 581,
+        "OID_": 1211,
+        "Order_": 1211,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080100,
+        "tname": "ท้ายเหมือง",
+        "mcode": 82080108,
+        "Village": "บ้านลำปี",
+        "Height": 4.66,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 427,
+        "People_F": 457,
+        "People_All": 884,
+        "House": 242,
+        "X": 419144.6861,
+        "Y": 937722.4805,
+        "Y_Lat": 8.48255801,
+        "X_Long": 98.26540998,
+        "GlobalID": "{38E65F68-A6FD-4DAF-B704-B1B2EFA2BCEE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 582,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25434298000005,
+          8.400349014000028
+        ]
+      },
+      "properties": {
+        "OBJECTID": 582,
+        "OID_": 1212,
+        "Order_": 1212,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080100,
+        "tname": "ท้ายเหมือง",
+        "mcode": 82080109,
+        "Village": "บ้านทับยาง",
+        "Height": 5.81,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 505,
+        "People_F": 513,
+        "People_All": 1018,
+        "House": 715,
+        "X": 417909.1252,
+        "Y": 928635.5292,
+        "Y_Lat": 8.40034901,
+        "X_Long": 98.25434298,
+        "GlobalID": "{023AB23D-CF86-41D9-A167-071EC161E7DF}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 583,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26559198000007,
+          8.361117014000058
+        ]
+      },
+      "properties": {
+        "OBJECTID": 583,
+        "OID_": 1215,
+        "Order_": 1215,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080200,
+        "tname": "นาเตย",
+        "mcode": 82080206,
+        "Village": "บ้านท่าแตง",
+        "Height": 5.11,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 196,
+        "People_F": 185,
+        "People_All": 381,
+        "House": 159,
+        "X": 419139.512,
+        "Y": 924295.6088,
+        "Y_Lat": 8.36111701,
+        "X_Long": 98.26559198,
+        "GlobalID": "{9BFCEBE0-82F7-438F-939E-248A4A89EE17}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 584,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28878798000005,
+          8.328604014000064
+        ]
+      },
+      "properties": {
+        "OBJECTID": 584,
+        "OID_": 1216,
+        "Order_": 1216,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080200,
+        "tname": "นาเตย",
+        "mcode": 82080207,
+        "Village": "บ้านในไร่",
+        "Height": 5.3,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 1111,
+        "People_F": 1045,
+        "People_All": 2156,
+        "House": 775,
+        "X": 421687.1123,
+        "Y": 920696.2326,
+        "Y_Lat": 8.32860401,
+        "X_Long": 98.28878798,
+        "GlobalID": "{F41F2D87-2A9C-453C-8E18-758BC15F9CED}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 585,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28664898000005,
+          8.513007014000038
+        ]
+      },
+      "properties": {
+        "OBJECTID": 585,
+        "OID_": 1214,
+        "Order_": 1214,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080400,
+        "tname": "ทุ่งมะพร้าว",
+        "mcode": 82080407,
+        "Village": "บ้านขนิม",
+        "Height": 4.35,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 461,
+        "People_F": 450,
+        "People_All": 911,
+        "House": 333,
+        "X": 421488.7458,
+        "Y": 941084.6415,
+        "Y_Lat": 8.51300701,
+        "X_Long": 98.28664898,
+        "GlobalID": "{CC1982A4-31EC-42DC-B222-D9DD0F9FB5C6}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 586,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25622198000008,
+          8.596378013000049
+        ]
+      },
+      "properties": {
+        "OBJECTID": 586,
+        "OID_": 1217,
+        "Order_": 1217,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080600,
+        "tname": "ลำแก่น",
+        "mcode": 82080601,
+        "Village": "บ้านลำรู",
+        "Height": 4.51,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 1135,
+        "People_F": 1203,
+        "People_All": 2338,
+        "House": 1929,
+        "X": 418157.5804,
+        "Y": 950308.7415,
+        "Y_Lat": 8.59637801,
+        "X_Long": 98.25622198,
+        "GlobalID": "{3CAD14A8-AA7F-4A24-B118-EDD1499DD80D}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 587,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24104698000008,
+          8.615239013000064
+        ]
+      },
+      "properties": {
+        "OBJECTID": 587,
+        "OID_": 1218,
+        "Order_": 1218,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080600,
+        "tname": "ลำแก่น",
+        "mcode": 82080602,
+        "Village": "บ้านเขาหลัก",
+        "Height": 4.28,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 193,
+        "People_F": 199,
+        "People_All": 392,
+        "House": 465,
+        "X": 416491.8235,
+        "Y": 952397.3669,
+        "Y_Lat": 8.61523901,
+        "X_Long": 98.24104698,
+        "GlobalID": "{5AC5476F-01A3-4C6C-8F5A-57CF353ACDF0}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 588,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.22709398000006,
+          8.568278014000043
+        ]
+      },
+      "properties": {
+        "OBJECTID": 588,
+        "OID_": 1219,
+        "Order_": 1219,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080600,
+        "tname": "ลำแก่น",
+        "mcode": 82080605,
+        "Village": "บ้านทับละมุ",
+        "Height": 5.27,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": 1982,
+        "People_F": 983,
+        "People_All": 2965,
+        "House": 2114,
+        "X": 414946.0111,
+        "Y": 947208.2223,
+        "Y_Lat": 8.56827801,
+        "X_Long": 98.22709398,
+        "GlobalID": "{2E4C9B7D-D45A-4ED5-B51D-13EDCFEB633D}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1282,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.57444438000005,
+          7.9330556150000575
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1282,
+        "OID_": 1134,
+        "Order_": 1134,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": null,
+        "Village": "ท่าเรือเกาะยาว",
+        "Height": 2.13,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 453096.0804,
+        "Y": 876921.0986,
+        "Y_Lat": 7.93305561,
+        "X_Long": 98.57444438,
+        "GlobalID": "{1CD7B0CE-1FCC-4AE6-9951-32E4CB4F9075}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1283,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.56944438000005,
+          7.980277815000022
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1283,
+        "OID_": 1135,
+        "Order_": 1135,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8202,
+        "aname": "เกาะยาว",
+        "tcode": 82020300,
+        "tname": "พรุใน",
+        "mcode": null,
+        "Village": "บ้านคลองเหีย",
+        "Height": 1,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 452550.4106,
+        "Y": 882142.2859,
+        "Y_Lat": 7.98027781,
+        "X_Long": 98.56944438,
+        "GlobalID": "{B1B91755-ED81-4B0A-96ED-3A87CA250F2F}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1284,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.26749998000008,
+          8.839166713000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1284,
+        "OID_": 1201,
+        "Order_": 1201,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": null,
+        "Village": "บางม่วง",
+        "Height": 7.13,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 419450.6514,
+        "Y": 977150.0968,
+        "Y_Lat": 8.83916671,
+        "X_Long": 98.26749998,
+        "GlobalID": "{2B603105-7A84-4A0D-9B5D-F1C76625156C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1285,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24888888000004,
+          8.80777781300003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1285,
+        "OID_": 1202,
+        "Order_": 1202,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050400,
+        "tname": "บางม่วง",
+        "mcode": null,
+        "Village": "หาดบางสัก",
+        "Height": 6.82,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 417396.992,
+        "Y": 973683.6462,
+        "Y_Lat": 8.80777781,
+        "X_Long": 98.24888888,
+        "GlobalID": "{C60CB7A4-A425-47FD-A056-A1C7E1BB99AE}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1286,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28727098000007,
+          8.711400013000059
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1286,
+        "OID_": 1187,
+        "Order_": 1187,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": null,
+        "Village": "บ้านทุ่งขมิ้น",
+        "Height": 4,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 421598.0681,
+        "Y": 963019.4734,
+        "Y_Lat": 8.71140001,
+        "X_Long": 98.28727098,
+        "GlobalID": "{869966F5-AD4F-4EA4-872F-506DD9A2DE2C}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1287,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24105547000005,
+          8.694181058000026
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1287,
+        "OID_": 1191,
+        "Order_": 1191,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": null,
+        "Village": "ชุมชนบ้านคึกคัก",
+        "Height": 9,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 416510.1557,
+        "Y": 961125.5533,
+        "Y_Lat": 8.69418106,
+        "X_Long": 98.24105547,
+        "GlobalID": "{493592B8-FF80-442B-B2DE-4B13A40474E8}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1288,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24428944000005,
+          8.669639588000052
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1288,
+        "OID_": 1192,
+        "Order_": 1192,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": null,
+        "Village": "บ้านบางเนียง",
+        "Height": 14.23,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 416860.5356,
+        "Y": 958411.425,
+        "Y_Lat": 8.66963959,
+        "X_Long": 98.24428944,
+        "GlobalID": "{9FAD0F3E-5966-4253-AD59-16BC6B8F7524}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1289,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.22404148000004,
+          8.731867783000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1289,
+        "OID_": 1193,
+        "Order_": 1193,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050700,
+        "tname": "คึกคัก",
+        "mcode": null,
+        "Village": "แหลมปะการัง",
+        "Height": 5.45,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 414646.9241,
+        "Y": 965296.1859,
+        "Y_Lat": 8.73186778,
+        "X_Long": 98.22404148,
+        "GlobalID": "{A145A4C7-8733-4489-8307-F665CEC9E2A0}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1290,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.24875863000005,
+          8.914758289000076
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1290,
+        "OID_": 1183,
+        "Order_": 1183,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": 82050800,
+        "tname": "เกาะคอเขา",
+        "mcode": null,
+        "Village": "เมืองโบราณทุ่งเตา",
+        "Height": 7.79,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 417406.5584,
+        "Y": 985512.025,
+        "Y_Lat": 8.91475829,
+        "X_Long": 98.24875863,
+        "GlobalID": "{837F6117-6DB0-438C-8011-173BA6673165}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1291,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.84583328000008,
+          9.427777812000045
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1291,
+        "OID_": 1147,
+        "Order_": 1147,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060300,
+        "tname": "เกาะพระทอง",
+        "mcode": null,
+        "Village": "หมู่เกาะสุรินทร์",
+        "Height": 15.59,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 373285.316,
+        "Y": 1042355.736,
+        "Y_Lat": 9.42777781,
+        "X_Long": 97.84583328,
+        "GlobalID": "{3BD4BDC0-083C-410C-A222-951D83B62A24}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1292,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.25441646000007,
+          9.077283974000068
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1292,
+        "OID_": 1148,
+        "Order_": 1148,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8206,
+        "aname": "คุระบุรี",
+        "tcode": 82060300,
+        "tname": "เกาะพระทอง",
+        "mcode": null,
+        "Village": "เกาะพระทอง",
+        "Height": 14.34,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 418065.1955,
+        "Y": 1003480.606,
+        "Y_Lat": 9.07728397,
+        "X_Long": 98.25441646,
+        "GlobalID": "{D0205256-1764-44A0-ACB8-611200D7B063}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1293,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.60086298000004,
+          8.450737015000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1293,
+        "OID_": 1204,
+        "Order_": 1204,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8207,
+        "aname": "ทับปุด",
+        "tcode": 82070300,
+        "tname": "บ่อแสน",
+        "mcode": null,
+        "Village": "บ้านควน",
+        "Height": 0.42,
+        "Risk": 1,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 456064.7451,
+        "Y": 934150.5678,
+        "Y_Lat": 8.45073701,
+        "X_Long": 98.60086298,
+        "GlobalID": "{07BFDD6E-D288-4761-80CC-B576F2033AE0}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1294,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.28131549000005,
+          8.228477863000023
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1294,
+        "OID_": 1208,
+        "Order_": 1208,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080100,
+        "tname": "ท้ายเหมือง",
+        "mcode": null,
+        "Village": "หาดเขาปีหลาย",
+        "Height": 6.57,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 420844.2671,
+        "Y": 909627.6271,
+        "Y_Lat": 8.22847786,
+        "X_Long": 98.28131549,
+        "GlobalID": "{5D614CE0-E3A7-431C-9D07-A50D8730D663}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1295,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.61805558000003,
+          8.566388912000036
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1295,
+        "OID_": 1220,
+        "Order_": 1220,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080600,
+        "tname": "ลำแก่น",
+        "mcode": null,
+        "Village": "เกาะปายู",
+        "Height": 4.45,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 347914.2381,
+        "Y": 947187.1391,
+        "Y_Lat": 8.56638891,
+        "X_Long": 97.61805558,
+        "GlobalID": "{41C1CD30-1262-4D2A-96D2-8E8AF2980098}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1296,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.63194438000005,
+          8.646944412000039
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1296,
+        "OID_": 1221,
+        "Order_": 1221,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080600,
+        "tname": "ลำแก่น",
+        "mcode": null,
+        "Village": "เกาะสิมิลัน",
+        "Height": 4.49,
+        "Risk": 2,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 349474.8466,
+        "Y": 956089.9208,
+        "Y_Lat": 8.64694441,
+        "X_Long": 97.63194438,
+        "GlobalID": "{198B10E0-B33E-47EA-B124-A8359568C73A}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1297,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          97.63333328000004,
+          8.49166671300003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1297,
+        "OID_": 1222,
+        "Order_": 1222,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8208,
+        "aname": "ท้ายเหมือง",
+        "tcode": 82080600,
+        "tname": "ลำแก่น",
+        "mcode": null,
+        "Village": "เกาะหูยง",
+        "Height": 6.04,
+        "Risk": 3,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 349566.6507,
+        "Y": 938917.9946,
+        "Y_Lat": 8.49166671,
+        "X_Long": 97.63333328,
+        "GlobalID": "{DDF34F1F-44CE-43F2-8C36-541CE8F1321E}"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1298,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          98.23613426000009,
+          8.583431522000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1298,
+        "OID_": 1203,
+        "Order_": 1203,
+        "PV": "PN",
+        "pcode": 82,
+        "pname": "พังงา",
+        "acode": 8205,
+        "aname": "ตะกั่วป่า",
+        "tcode": null,
+        "tname": "ลำแก่น",
+        "mcode": null,
+        "Village": "แหลมปอ",
+        "Height": 11.99,
+        "Risk": 4,
+        "side": "ฝั่งอันดามัน",
+        "People_M": null,
+        "People_F": null,
+        "People_All": null,
+        "House": null,
+        "X": 415944.2312,
+        "Y": 948881.6696,
+        "Y_Lat": 8.58343152,
+        "X_Long": 98.23613426,
+        "GlobalID": "{FDD141A8-324B-42F3-A6B3-82A02A70BAC2}"
+      }
+    }
+  ]
+}

@@ -232,7 +232,7 @@
  .user-manual .flow-content { column-count:1; }
  .user-manual .manual-topics { display:contents; }
  .user-manual details { break-inside:avoid; }
- .terrain-caption .reading-trigger { font-size:11px; padding:0; }
+ .terrain-caption .reading-trigger { font-size:11px; padding:0; min-height:0; line-height:14px; }
  @media(max-width:760px) {
   .terrain-rehearsal,.terrain-rehearsal[data-camera=walk]:not([data-state=flat]),.terrain-rehearsal:not([data-camera=walk]) { grid-template-rows:32px minmax(70px,1fr) 32px minmax(0,240px); }
   #main .terrain-rehearsal > .terrain-operations { height:100%; }

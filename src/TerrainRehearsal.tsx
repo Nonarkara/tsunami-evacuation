@@ -11,6 +11,8 @@ import { ReplayWaterLayer } from './ReplayWaterLayer';
 import { TimeScrubber } from './TimeScrubber';
 import { buildingAreaId, parseBuildings, cameraStep, EYE_HEIGHT_M, UNKNOWN_BUILDING_MASSING_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
+import { DdpmMaps } from './DdpmMaps';
+import { DDPM_MAP_CREDIT, DDPM_VILLAGE_SNAPSHOT, parseRiskVillages, riskPoint, villageHit, villageSummary, type RiskVillageSnapshot, type VillageHit } from './ddpm';
 import { CameraSymbol } from './CameraSymbol';
 import { WalkthroughCoach } from './WalkthroughCoach';
 import { manualLanguage } from './manual-content';
@@ -44,6 +46,11 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const [buildingError, setBuildingError] = useState('');
   const [freeWalk, setFreeWalk] = useState<{ coord: Coord; bearing: number }>();
   const [eyeViewReady, setEyeViewReady] = useState(false);
+  const [riskVillages, setRiskVillages] = useState<RiskVillageSnapshot | null>(null);
+  const [riskError, setRiskError] = useState('');
+  const [showRiskVillages, setShowRiskVillages] = useState(true);
+  const [villagePick, setVillagePick] = useState<VillageHit | null>(null);
+  const [listedFocus, setListedFocus] = useState<[number, number] | null>(null);
   const [walkCompare, setWalkCompare] = useState<'off' | 'compare'>('off');
   const areaPack = areaPacks[region.id];
   const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
@@ -59,6 +66,16 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       .catch(error => { if (error.name !== 'AbortError') setBuildingError('Buildings unavailable here. Terrain and rehearsal remain available. / ข้อมูลอาคารไม่พร้อมใช้งาน'); });
     return () => abort.abort();
   }, [region.id, selected, buildingsEnabled]);
+  useEffect(() => {
+    setVillagePick(null); setListedFocus(null); setRiskVillages(null); setRiskError('');
+    if (region.id !== 'khao-lak') return;
+    const abort = new AbortController();
+    fetch(DDPM_VILLAGE_SNAPSHOT, { signal: abort.signal })
+      .then(response => { if (!response.ok) throw new Error('snapshot'); return response.json(); })
+      .then(value => { if (!abort.signal.aborted) setRiskVillages(parseRiskVillages(value)); })
+      .catch(error => { if (error.name !== 'AbortError') setRiskError('DDPM village snapshot unavailable. / ไม่มีภาพข้อมูลหมู่บ้าน'); });
+    return () => abort.abort();
+  }, [region.id]);
   useEffect(() => {
     if (!areaPack) return;
     const abort = new AbortController();
@@ -113,7 +130,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     m.on('sourcedata', e => { if (e.sourceId === 'dem' && e.isSourceLoaded) setTerrainLoaded(true); });
     m.on('load', () => {
       didLoad = true; window.clearTimeout(loadTimeout); setFailure('');
-      for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings']) m.addSource(id, { type: 'geojson', data: empty });
+      for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings', 'ddpm-villages']) m.addSource(id, { type: 'geojson', data: empty });
       m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#d5e2df', 'line-width':.7, 'line-opacity':.65 } });
       // Massing is solid, not glass: at eye height a translucent box reads as a floating slab
       // rather than a building. The vertical gradient separates the roof plane from the facade.
@@ -134,11 +151,16 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       }
       m.addImage('route-chevron', { width: side, height: side, data: pixels });
       m.addLayer({ id: 'direction-arrows', type: 'symbol', source: 'arrows', layout: { 'icon-image': 'route-chevron', 'icon-size': .8, 'icon-rotate': ['get','heading'], 'icon-rotation-alignment': 'map', 'icon-pitch-alignment': 'map', 'icon-keep-upright': false, 'icon-allow-overlap': false } });
+      m.addLayer({ id: 'ddpm-villages', type: 'circle', source: 'ddpm-villages', paint: { 'circle-pitch-scale': 'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 2.5, 13, 4, 17, 6], 'circle-color': riskPoint.fill, 'circle-stroke-color': riskPoint.stroke, 'circle-stroke-width': riskPoint.strokeWidth } });
       setReady(true);
     });
     m.on('click', e => {
       const group = m.getLayer('waiting-groups') ? m.queryRenderedFeatures(e.point, { layers: ['waiting-groups'] })[0] : undefined;
-      if (group?.properties) { setQueueFocus({ edge: String(group.properties.edge), status: String(group.properties.status) }); setPoint(undefined); return; }
+      if (group?.properties) { setQueueFocus({ edge: String(group.properties.edge), status: String(group.properties.status) }); setPoint(undefined); setVillagePick(null); return; }
+      const listed = m.getLayer('ddpm-villages') ? m.queryRenderedFeatures(e.point, { layers: ['ddpm-villages'] })[0] : undefined;
+      const listedHit = listed ? villageHit(listed.properties) : null;
+      if (listedHit) { setVillagePick(listedHit); setQueueFocus(undefined); setPoint(undefined); return; }
+      setVillagePick(null);
       setQueueFocus(undefined);
       setPoint({ coord: [e.lngLat.lng, e.lngLat.lat], elevation: m.queryTerrainElevation(e.lngLat) ?? (terrainGridRef.current ? elevation(terrainGridRef.current, [e.lngLat.lng,e.lngLat.lat]) : null) });
     });
@@ -152,6 +174,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     (m.getSource('buildings') as GeoJSONSource).setData(buildingsEnabled && buildings ? buildings : empty);
     for (const id of ['building-outlines','building-volumes']) if (m.getLayer(id)) m.setLayoutProperty(id,'visibility',buildingsEnabled && buildings && (id === 'building-outlines' || dimension === '3d') ? 'visible' : 'none');
   }, [ready, buildings, buildingsEnabled, dimension, flat]);
+  useEffect(() => {
+    const m = map.current;
+    if (!m || !ready || !m.getSource('ddpm-villages')) return;
+    const show = showRiskVillages && region.id === 'khao-lak' && riskVillages;
+    (m.getSource('ddpm-villages') as GeoJSONSource).setData(show ? { type: 'FeatureCollection', features: riskVillages.features } : empty);
+  }, [ready, showRiskVillages, riskVillages, region.id, flat]);
   useEffect(() => {
     const m = map.current; if (!m || !ready || !data) return;
     (m.getSource('routes') as GeoJSONSource | undefined)?.setData(isStudy ? { type: 'FeatureCollection', features: data.routes.map((r, i) => ({ type: 'Feature', properties: { route: i }, geometry: { type: 'LineString', coordinates: r.coordinates } })) } : empty);
@@ -312,6 +340,14 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       setHazard(value); setAnimateWater(false); setScreen(true); setSeconds(0); setStarted(false); setPlaying(false); setImportError('');
     } catch (error) { setImportError(error instanceof Error ? error.message : 'Scenario could not be read.'); }
   }
+  function showListedPoint(feature: GeoJSON.Feature<GeoJSON.Point>) {
+    const hit = villageHit(feature.properties);
+    const coord = feature.geometry.coordinates as Coord;
+    setVillagePick(hit); setPoint(undefined); setQueueFocus(undefined); setListedFocus(coord);
+    if (flat || !map.current) return;
+    map.current.setCenterClampedToGround(true);
+    map.current.flyTo({ center: coord, zoom: Math.max(map.current.getZoom(), 14), pitch: dimension === '2d' ? 0 : 50, bearing: 0, duration: 1000 });
+  }
   function startExercise() {
     if (seconds >= duration) setSeconds(0);
     setStarted(true); setPlaying(v => !v);
@@ -323,7 +359,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   const guideAvailable=camera==='walk'&&!flat&&!!progress&&!!selectedSchedule;
   useEffect(()=>{if(!guideAvailable)setOperationView('operate');},[guideAvailable]);
-  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
+  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-ddpm-villages={region.id === 'khao-lak' && showRiskVillages && riskVillages ? riskVillages.featureCount : 0} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <DockControls target={bannerDock}><div className="terrain-toolbar">
       {isStudy && <><div className="experiment-tabs" role="group" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} aria-label="Rehearsal" title="Rehearsal — crowd queue on the mapped network" onClick={() => { setMode('crowd'); setScreen(false); }}><CameraSymbol name="rehearsal" /></button><button aria-pressed={mode === 'water'} aria-label="Water level" title="Water level — illustrative static level on the terrain" onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}><CameraSymbol name="water" /></button></div><span className="toolbar-divider" aria-hidden="true" /></>}
       <div className="terrain-view-controls" role="group" aria-label="Camera controls">
@@ -333,7 +369,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       </div>
 
     </div></DockControls>
-    {flat ? <StudyMap region={region} selected={selected} onSelect={onSelect} buildings={buildings} /> : <div className="terrain-stage">
+    {flat ? <StudyMap region={region} selected={selected} onSelect={onSelect} buildings={buildings} villages={region.id === 'khao-lak' && showRiskVillages ? riskVillages : null} focus={listedFocus} /> : <div className="terrain-stage">
       <div ref={host} className="terrain-canvas" aria-label="3D terrain map. Drag to pan, right-drag to tilt. Click for terrain height." />
 
       {!ready && !failure && <p className="terrain-notice" role="status">Loading satellite imagery and terrain…</p>}
@@ -341,9 +377,10 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
 
     </div>}
     <div className="terrain-caption">
-      <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
-      <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
-      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
+      <span>{villagePick ? `${villageSummary(villagePick)} · authority-listed point` : queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
+      <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a>{region.id === 'khao-lak' && <> · <a href="https://tsunami.disaster.go.th/" target="_blank" rel="noreferrer">DDPM</a></>}</span>
+      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. {region.id === 'khao-lak' && showRiskVillages && riskVillages ? `Paper rings: ${riskVillages.featureCount} DDPM authority-listed tsunami-risk villages in Phang Nga, snapshot ${riskVillages.reviewedAt}. The same ring is used for every source Risk code. Height is omitted.` : ''} Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.{region.id === 'khao-lak' ? ` ${DDPM_MAP_CREDIT.en}` : ''}</p></ReadingDialog>
+      {region.id === 'khao-lak' && <DdpmMaps snapshot={riskVillages} shown={showRiskVillages} onShown={setShowRiskVillages} error={riskError} onShowPoint={showListedPoint} />}
     </div>
     <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Guide</option></select></label></DockControls><PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
       {camera === 'walk' && !flat && progress && selectedSchedule && <WalkthroughCoach language={manualLanguage(location.search,navigator.language)} state={progress.state} remainingM={Math.max(0,progress.total-progress.metres)} finishSeconds={selectedSchedule.finishSeconds} remainingSeconds={selectedSchedule.remainingSeconds} queueSeconds={selectedSchedule.queueSeconds} onReview={onReview} full/>}
@@ -431,6 +468,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
         <summary>Scenario settings, data and coverage</summary>
       <label><input type="checkbox" checked={buildingsEnabled} disabled={flat} onChange={e=>setBuildingsEnabled(e.target.checked)} /> OSM buildings / อาคาร</label>
       {buildingsEnabled && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} mapped footprints · {buildings.counts.heightTag} height tags · {buildings.counts.levelsEstimate} floor-count estimates · {buildings.counts.unknown.toLocaleString()} unknown heights shown as 3m massing. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">OSM source</a> · {buildings.retrievedAt.slice(0,10)}. Coverage is a local snapshot, not every building in the region. Heights are not surveyed or approved refuges. / อาคารที่ไม่มีข้อมูลความสูงใช้รูปทรงสมมติ 3 เมตร ไม่ใช่การรับรองจุดอพยพ</> : buildingError || 'Loading building snapshot… / กำลังโหลดข้อมูลอาคาร'}</p>}
+      {region.id === 'khao-lak' && <p className="building-source-note" lang="th">{DDPM_MAP_CREDIT.th} {riskVillages ? <>จุดวงแหวน {riskVillages.featureCount} จุดเป็นบัญชีหมู่บ้านเสี่ยงสึนามิของพังงา วันที่ตรวจ {riskVillages.reviewedAt} ระดับ authority-listed ไม่ได้ดึงจากบริการสด และไม่ได้แสดงค่า Height</> : riskError || 'กำลังโหลดภาพข้อมูลหมู่บ้าน'}</p>}
 
       <div className="scenario-settings-row">
         {model && <label>Assumed pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}

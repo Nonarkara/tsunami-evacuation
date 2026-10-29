@@ -96,6 +96,9 @@
 @media screen and (max-width:360px) {
  #root > .soonami-masthead { gap:2px; padding-inline:4px; }
  #root .soonami-masthead .masthead-nav button { width:25px; min-width:25px; padding:2px; }
+ #main .terrain-rehearsal > .terrain-caption { overflow:hidden; }
+ #main .terrain-caption .ddpm-maps-trigger { font-size:0; }
+ #main .terrain-caption .ddpm-maps-trigger::after { content:"Maps"; font-size:10px; line-height:14px; }
 }
 @media screen {
  .reading-dialog.compact-reading[open] { inset:48px 12px auto; margin:0 auto; height:max-content; grid-template-rows:auto auto; }
