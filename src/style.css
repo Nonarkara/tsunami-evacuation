@@ -2317,7 +2317,7 @@ textarea {
 .queue-chart-sub { font-size: 11px; color: var(--ink-2); }
 .queue-chart-plot { display: flex; align-items: flex-end; gap: 2px; height: 96px; padding-top: 12px; }
 .queue-column { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
-.queue-bar { display: block; width: 100%; background: var(--accent); border-radius: 1px 1px 0 0; min-height: 2px; }
+.queue-bar { display: block; width: 100%; background: var(--accent); border-radius: 0; min-height: 2px; }
 .queue-tick { font-size: 10px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .queue-chainage { font-size: 9px; color: var(--ink-2); white-space: nowrap; }
 .rehearsal-readout .runner-count::before { content: ''; display: inline-block; width: 9px; height: 9px; border: 2px solid var(--companion); border-radius: 50%; background: var(--panel); margin-right: 4px; }
