@@ -1,0 +1,22 @@
+{
+  "source": "44e243d",
+  "version": "a4468617-55ef-4405-a7f6-1ab745e73aa9",
+  "url": "https://tsunami.nonarkara.org",
+  "assets": [
+    {
+      "path": "/",
+      "sha256": "c95be728a77442431923b76aeaf9947bb4001b16bba76bec081d01d93b1843bb",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/index-BK1uLRYL.js",
+      "sha256": "1f62835c875d71cf23a6f4ea75af86ae42e9e806bd1e2c81dc4b5de7310becb8",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/index-DUulDvPE.css",
+      "sha256": "bf62338bb2a439b72226eb1b8b78dd0dbe49f81ac2866bcfa2a31973016ecefe",
+      "matchesLocalBuild": true
+    }
+  ]
+}

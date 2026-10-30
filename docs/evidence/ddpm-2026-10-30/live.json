@@ -1,0 +1,25 @@
+{
+  "document": [
+    1280,
+    720
+  ],
+  "header": {
+    "bottom": 36,
+    "height": 36,
+    "left": 0,
+    "right": 1280,
+    "top": 0,
+    "width": 1280,
+    "x": 0,
+    "y": 0
+  },
+  "provinceRows": 22,
+  "readingPages": "1",
+  "rowsInView": 22,
+  "scrollY": 0,
+  "sourceLink": "https://catalog.disaster.go.th/dataset/920e3932-203b-4568-9acb-ac7978a78b20/resource/033cdf9d-2357-4683-9ce6-ae3b378bc9f1/download/ddpm_risk_tsunami.csv",
+  "viewport": [
+    1280,
+    720
+  ]
+}
