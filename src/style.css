@@ -2975,3 +2975,35 @@ main { padding-bottom:6px; }
  .terrain-stage { height:300px; }
  .terrain-rehearsal[data-camera=walk] .terrain-stage { height:260px; }
 }
+
+/* DDPM is a source inspection within Research, not a second map workspace. */
+.ddpm-panel { display:block; max-width:none; margin:0; padding:0; font-size:13px; line-height:1.45; }
+.ddpm-panel p { margin:5px 0; }
+.ddpm-panel section { break-inside:auto; margin:12px 0; padding:0; border:0; background:none; }
+.ddpm-panel h2 { font-size:20px; margin:4px 0; }
+.ddpm-panel h3 { font-size:16px; text-transform:none; margin:8px 0 4px; }
+.ddpm-panel li { margin:4px 0; }
+.ddpm-back,.ddpm-research-link { font-size:13px; padding:3px 6px; min-height:28px; width:max-content; max-width:100%; }
+.ddpm-facts { font-size:16px; }
+.ddpm-code { display:inline-block; margin-right:10px; }
+.ddpm-panel .provenance-list,.ddpm-dates { margin:6px 0; }
+.ddpm-panel .provenance-list > div,.ddpm-dates > div { display:grid; grid-template-columns:minmax(110px,1fr) minmax(0,2fr); gap:6px; padding:3px 0; }
+.ddpm-panel dd,.ddpm-panel dt { margin:0; font-size:13px; overflow-wrap:anywhere; }
+.ddpm-panel .provenance-head { font-size:12px; display:flex; justify-content:space-between; gap:8px; }
+.ddpm-hash code { font-size:11px; overflow-wrap:anywhere; }
+.ddpm-panel table { width:100%; border-collapse:collapse; font-size:13px; }
+.ddpm-panel th,.ddpm-panel td { padding:3px 6px; text-align:left; border-bottom:1px solid var(--line); }
+.ddpm-panel tr { break-inside:avoid; }
+.ddpm-panel caption { text-align:left; font-size:12px; }
+
+.ddpm-panel p,.ddpm-panel ul { max-width:65ch; }
+.ddpm-provinces { break-before:column; }
+
+.ddpm-panel h3 { border:0; padding:0; }
+
+.ddpm-panel h2 { border:0; padding:0; }
+.ddpm-source { break-before:column; }
+.ddpm-panel th,.ddpm-panel td { padding-block:1px; }
+@media screen and (min-width:1024px) {
+ .ddpm-pages .flow-content { column-count:3; }
+}

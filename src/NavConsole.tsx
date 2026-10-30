@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { NavSymbol } from "./NavSymbol";
 
-export type ConsoleKey = "explore" | "satellite" | "prepare" | "drill" | "research";
+export type ConsoleKey = "explore" | "satellite" | "prepare" | "drill" | "research" | "ddpm";
 
 type ConsoleItem = {
   label: string;
@@ -73,6 +73,17 @@ const CONSOLE: ConsoleEntry[] = [
       { label: "Validation agenda", target: "research-validation", hint: "proposed, not done" },
     ],
   },
+  {
+    key: "ddpm",
+    label: "DDPM risk evidence",
+    thai: "ข้อมูลเสี่ยงสึนามิ DDPM",
+    note: "Village-level risk data — provenance-first, not operational",
+    items: [
+      { label: "Source & provenance", target: "ddpm-source", hint: "DDPM dataset, CC-BY" },
+      { label: "Record fields", target: "ddpm-fields", hint: "Height, Risk, population" },
+      { label: "Limitations", target: "ddpm-limitations", hint: "What this is not" },
+    ],
+  },
 ];
 
 /** Direct section navigation. Detailed instructions remain in each page and the manual. */
@@ -90,7 +101,7 @@ export function NavConsole({
       className="masthead-nav"
       aria-label="Main navigation"
     >
-      {CONSOLE.map((entry) => (
+      {CONSOLE.filter(entry=>entry.key!=='ddpm').map((entry) => (
         <button
           key={entry.key}
           type="button"
@@ -107,7 +118,7 @@ export function NavConsole({
               .map(item => item.target)
               .join(' ')
           }
-          aria-current={active === entry.key ? 'page' : undefined}
+          aria-current={(active === entry.key || active==='ddpm' && entry.key==='research') ? 'page' : undefined}
           onClick={() => onNavigate(entry.key)}
         >
           <NavSymbol name={entry.key} /><span className="nav-caption">{entry.label}</span>

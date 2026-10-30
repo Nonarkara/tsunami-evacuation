@@ -1,4 +1,4 @@
-export type ManualPage = 'explore' | 'satellite' | 'prepare' | 'drill' | 'research';
+export type ManualPage = 'explore' | 'satellite' | 'prepare' | 'drill' | 'research' | 'ddpm';
 export type ManualLanguage = 'en' | 'th';
 const both = (en: string, th: string) => ({ en, th });
 
@@ -44,9 +44,18 @@ export const manualTopics = {
     steps: [both('Read this section as a catalogue of possible instruments and integrations. It does not show current buoy, tide-gauge, satellite inundation or warning observations.', 'ส่วนนี้เป็นรายการเครื่องมือและการเชื่อมต่อที่อาจใช้ได้ ไม่ได้แสดงข้อมูลทุ่น สถานีระดับน้ำ ขอบเขตน้ำท่วมจากดาวเทียม หรือคำเตือนปัจจุบัน')],
     note: both('A missing or disconnected feed is a data gap, not an all-clear. Follow official warnings independently of this website.', 'ข้อมูลที่ขาดหรือยังไม่ได้เชื่อมต่อคือช่องว่างของข้อมูล ไม่ใช่สัญญาณว่าปลอดภัย ให้ติดตามคำเตือนของทางการแยกจากเว็บไซต์นี้'),
   },
+  ddpm: {
+    name: both('DDPM tsunami-risk evidence · ข้อมูลเสี่ยงสึนามิ DDPM', 'ข้อมูลเสี่ยงสึนามิ DDPM · หลักฐาน'),
+    steps: [
+      both('Each row is one village-level record from the DDPM tsunami-risk dataset with source-supplied coordinates of unverified method and accuracy. Treat as historical risk evidence only — not an inundation zone, evacuation route, or shelter designation.', 'แต่ละแถวเป็นข้อมูลระดับหมู่บ้านจากชุดข้อมูลเสี่ยงสึนามิของ DDPM พิกัดจากต้นทางที่ยังไม่ยืนยันวิธีหรือความแม่นยำ ถือเป็นหลักฐานความเสี่ยงย้อนหลังเท่านั้น ไม่ใช่เขตน้ำท่วม เส้นทางอพยพ หรือที่หลบภัย'),
+      both('The Height field meaning is undocumented by source — do not interpret as flood depth. Full-file Risk codes are 1–4; their interpretation is not verified here. Catalog-stated data update: 30 January 2024; currency unknown.', 'ความหมายของฟิลด์ Height ยังไม่มีเอกสารระบุจากต้นฉบับ — อย่าตีความเป็นความลึกน้ำท่วม รหัส Risk ในไฟล์ทั้งหมดมีค่า 1–4 แต่ยังไม่ยืนยันความหมาย ข้อมูลปรับปรุงล่าสุด 30 มกราคม 2567; ความทันสมัยไม่ทราบ'),
+      both('The full CSV contains 1,416 rows across 22 provinces, including Phang Nga and Phuket. This is an inspection summary, not a mapped layer.', 'CSV ทั้งไฟล์มี 1,416 แถว ครอบคลุม 22 จังหวัด รวมพังงาและภูเก็ต แสดงผลสรุปการตรวจ ไม่ใช่ชั้นแผนที่'),
+    ],
+    note: both('Source: DDPM Disaster Information System via catalog.disaster.go.th. License label: Creative Commons Attributions; version unstated. Catalog-stated data update: 30 January 2024. Coordinates are source-supplied; placement method, CRS and positional accuracy are unverified.', 'แหล่งที่มา: ระบบข้อมูลสาธารณภัย กรมป้องกันและบรรเทาสาธารณภัย ผ่าน catalog.disaster.go.th อนุญาต: การแสดงที่มาแบบครีเอทีฟคอมมอนส์ ปรับปรุงล่าสุด 30 มกราคม 2567 พิกัดมาจากต้นทาง ยังไม่ยืนยันวิธีวางจุด ระบบพิกัด หรือความแม่นยำ'),
+  },
 } satisfies Record<ManualPage, { name: ReturnType<typeof both>; steps: ReturnType<typeof both>[]; note: ReturnType<typeof both> }>;
 
-export const manualOrder: ManualPage[] = ['explore','prepare','drill','research','satellite'];
+export const manualOrder: ManualPage[] = ['explore','prepare','drill','research','satellite','ddpm'];
 
 export function manualLanguage(search: string, browserLanguage: string): ManualLanguage {
   const value = new URLSearchParams(search).get('lang');

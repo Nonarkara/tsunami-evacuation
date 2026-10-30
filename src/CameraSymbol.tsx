@@ -12,7 +12,8 @@ export type CameraSymbolName =
   | "sources"
   | "plan"
   | "drill"
-  | "satellite";
+  | "satellite"
+  | "ddpm";
 
 /**
  * Icon set for the rehearsal console. Every control carries an icon so the bar reads as a
@@ -114,6 +115,12 @@ export function CameraSymbol({ name }: { name: CameraSymbolName }) {
         <>
           <path d="m9 7 8 8-3 3-8-8Z" />
           <path d="m3 5 3-3 4 4-3 3ZM15 17l3-3 4 4-3 3ZM14 4a7 7 0 0 1 6 6M14 8a3 3 0 0 1 2 2" />
+        </>
+      )}
+      {name === "ddpm" && (
+        <>
+          <path d="M12 2L4 22h8z" />
+          <circle cx="12" cy="9" r="1.5" />
         </>
       )}
     </svg>

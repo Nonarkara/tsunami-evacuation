@@ -21,6 +21,7 @@ import { InterventionComparison } from "./InterventionComparison";
 import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
 import { NavConsole } from "./NavConsole";
 import { ResearchSection } from "./ResearchSection";
+import { DdpmRiskPanel } from "./DdpmRiskPanel";
 import "@fontsource/prompt/thai-400.css";
 import "@fontsource/prompt/thai-500.css";
 import "@fontsource/prompt/thai-600.css";
@@ -40,7 +41,7 @@ import {
   type Condition,
 } from "./research";
 
-type Tab = "explore" | "prepare" | "drill" | "research" | "satellite";
+type Tab = "explore" | "prepare" | "drill" | "research" | "satellite" | "ddpm";
 
 function download(name: string, text: string) {
   const url = URL.createObjectURL(
@@ -66,8 +67,8 @@ function Clock() {
 function App() {
   const [tab, setTab] = useState<Tab>(() => {
     const hash = location.hash.slice(1);
-    const t = hash.startsWith("research-") || hash.startsWith("source-R") ? "research" : hash;
-    return ["explore", "prepare", "drill", "research", "satellite"].includes(t)
+    const t = hash.startsWith("ddpm-") ? "ddpm" : hash.startsWith("research-") || hash.startsWith("source-R") ? "research" : hash;
+    return ["explore", "prepare", "drill", "research", "satellite", "ddpm"].includes(t)
       ? (t as Tab)
       : "explore";
   });
@@ -435,7 +436,12 @@ function App() {
 
         {/* Tab: Research Section with Diagrams */}
         <div hidden={tab !== "research"}>
-          <PagedFlow label="Research"><ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} /></PagedFlow>
+          <PagedFlow label="Research"><button className="ddpm-research-link" onClick={()=>navigate("ddpm")}>{language==='th'?'ตรวจข้อมูลต้นทาง ปภ. · CSV':'DDPM source audit · CSV'} →</button><ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} /></PagedFlow>
+        </div>
+
+        {/* Tab: DDPM tsunami-risk evidence (provenance-first demonstrator) */}
+        <div hidden={tab !== "ddpm"}>
+          <PagedFlow label="DDPM tsunami-risk evidence" className="ddpm-pages"><DdpmRiskPanel language={language} onResearch={()=>navigate("research")} /></PagedFlow>
         </div>
       </main>
 

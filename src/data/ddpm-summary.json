@@ -1,0 +1,173 @@
+{
+  "retrievedAt": "2026-10-30T06:44:12.743605+00:00",
+  "datasetUrl": "https://catalog.disaster.go.th/dataset/risk_tsunami",
+  "csvUrl": "https://catalog.disaster.go.th/dataset/920e3932-203b-4568-9acb-ac7978a78b20/resource/033cdf9d-2357-4683-9ce6-ae3b378bc9f1/download/ddpm_risk_tsunami.csv",
+  "csvSha256": "382656389fad630a83ce590ba98b15afa4402e2a42281bc691e990c3e2f3899a",
+  "metadataSha256": "f805b9f32024d403b0db2c1dee1e8dfa6c94153a79ed3fb8c934c36448037f62",
+  "licenseLabel": "Creative Commons Attributions",
+  "licenseUrl": null,
+  "statedDataUpdated": "2024-01-30",
+  "resourceModified": "2024-11-14T04:56:59.535759",
+  "catalogModified": "2024-11-18T06:22:14.115495",
+  "rows": 1416,
+  "provinces": [
+    {
+      "pcode": 11,
+      "nameTh": "สมุทรปราการ",
+      "rows": 13
+    },
+    {
+      "pcode": 20,
+      "nameTh": "ชลบุรี",
+      "rows": 41
+    },
+    {
+      "pcode": 21,
+      "nameTh": "ระยอง",
+      "rows": 32
+    },
+    {
+      "pcode": 22,
+      "nameTh": "จันทบุรี",
+      "rows": 45
+    },
+    {
+      "pcode": 23,
+      "nameTh": "ตราด",
+      "rows": 88
+    },
+    {
+      "pcode": 24,
+      "nameTh": "ฉะเชิงเทรา",
+      "rows": 8
+    },
+    {
+      "pcode": 74,
+      "nameTh": "สมุทรสาคร",
+      "rows": 11
+    },
+    {
+      "pcode": 75,
+      "nameTh": "สมุทรสงคราม",
+      "rows": 22
+    },
+    {
+      "pcode": 76,
+      "nameTh": "เพชรบุรี",
+      "rows": 45
+    },
+    {
+      "pcode": 77,
+      "nameTh": "ประจวบคีรีขันธ์",
+      "rows": 80
+    },
+    {
+      "pcode": 80,
+      "nameTh": "นครศรีธรรมราช",
+      "rows": 114
+    },
+    {
+      "pcode": 81,
+      "nameTh": "กระบี่",
+      "rows": 113
+    },
+    {
+      "pcode": 82,
+      "nameTh": "พังงา",
+      "rows": 106
+    },
+    {
+      "pcode": 83,
+      "nameTh": "ภูเก็ต",
+      "rows": 69
+    },
+    {
+      "pcode": 84,
+      "nameTh": "สุราษฎร์ธานี",
+      "rows": 53
+    },
+    {
+      "pcode": 85,
+      "nameTh": "ระนอง",
+      "rows": 45
+    },
+    {
+      "pcode": 86,
+      "nameTh": "ชุมพร",
+      "rows": 97
+    },
+    {
+      "pcode": 90,
+      "nameTh": "สงขลา",
+      "rows": 144
+    },
+    {
+      "pcode": 91,
+      "nameTh": "สตูล",
+      "rows": 74
+    },
+    {
+      "pcode": 92,
+      "nameTh": "ตรัง",
+      "rows": 102
+    },
+    {
+      "pcode": 94,
+      "nameTh": "ปัตตานี",
+      "rows": 72
+    },
+    {
+      "pcode": 96,
+      "nameTh": "นราธิวาส",
+      "rows": 42
+    }
+  ],
+  "riskCodes": {
+    "1": 1232,
+    "2": 98,
+    "3": 73,
+    "4": 13
+  },
+  "heightRaw": {
+    "min": 0.0,
+    "max": 19.6,
+    "unit": null,
+    "meaning": null
+  },
+  "coordinates": {
+    "populated": 1416,
+    "inRange": 1416,
+    "uniquePairs": 1414,
+    "methodVerified": false
+  },
+  "missing": {
+    "OID_": 0,
+    "OID1": 1416,
+    "Order_": 1,
+    "PV": 0,
+    "pcode": 0,
+    "pname": 0,
+    "acode": 0,
+    "aname": 0,
+    "tcode": 11,
+    "tname": 0,
+    "mcode": 248,
+    "Village": 0,
+    "Height": 0,
+    "Risk": 0,
+    "side": 0,
+    "People_M": 257,
+    "People_F": 257,
+    "People_All": 257,
+    "House": 257,
+    "X": 0,
+    "Y": 0,
+    "Y_Lat": 0,
+    "X_Long": 0,
+    "GlobalID": 1416
+  },
+  "sideLabels": {
+    "ฝั่งอ่าวไทย": 907,
+    "ฝั่งอันดามัน": 509
+  }
+}
