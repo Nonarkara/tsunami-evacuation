@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { NavSymbol } from "./NavSymbol";
 
-export type ConsoleKey = "explore" | "satellite" | "prepare" | "drill" | "research";
+export type ConsoleKey = "explore" | "satellite" | "prepare" | "drill" | "research" | "dhaka";
 
 type ConsoleItem = {
   label: string;
@@ -71,6 +71,18 @@ const CONSOLE: ConsoleEntry[] = [
       { label: "Two models, two purposes", target: "research-methods", hint: "paper vs browser" },
       { label: "Evidence & data ledger", target: "research-sources", hint: "sources R1–R8" },
       { label: "Validation agenda", target: "research-validation", hint: "proposed, not done" },
+    ],
+  },
+  {
+    key: "dhaka",
+    label: "Dhaka",
+    thai: "ঢাকা",
+    note: "Flood planning demonstrator — provenance-first, not operational",
+    items: [
+      { label: "Study boundary", target: "dhaka-boundary", hint: "DNCC / DSCC / both" },
+      { label: "Flood scenario types", target: "dhaka-scenarios", hint: "river / rainfall / compound" },
+      { label: "FFWC station observation", target: "dhaka-ffwc", hint: "river station, unverified contract" },
+      { label: "DDM shelter register", target: "dhaka-shelters", hint: "official inventory, unlocated" },
     ],
   },
 ];
