@@ -12,7 +12,6 @@ import { PagedFlow } from "./PagedFlow";
 import { ReadingDialog } from "./ReadingDialog";
 import { BannerDock } from "./BannerDock";
 import { Manual } from "./Manual";
-import { DhakaPanel } from "./DhakaPanel";
 import { Drill } from "./Drill";
 import { OutcomeSummary } from "./OutcomeSummary";
 import { SourceFooter } from "./SourceFooter";
@@ -41,7 +40,7 @@ import {
   type Condition,
 } from "./research";
 
-type Tab = "explore" | "prepare" | "drill" | "research" | "satellite" | "dhaka";
+type Tab = "explore" | "prepare" | "drill" | "research" | "satellite";
 
 function download(name: string, text: string) {
   const url = URL.createObjectURL(
@@ -277,9 +276,7 @@ function App() {
         </div>
       </header>
 
-        {tab !== "dhaka" && (
-          <Manual open={manualOpen} page={tab} onClose={() => setManualOpen(false)} onNavigate={page => { setManualOpen(false); navigate(page); requestAnimationFrame(() => document.getElementById("main")?.focus({ preventScroll: true })); }} />
-        )}
+      <Manual open={manualOpen} page={tab} onClose={() => setManualOpen(false)} onNavigate={page => { setManualOpen(false); navigate(page); requestAnimationFrame(() => document.getElementById("main")?.focus({ preventScroll: true })); }} />
 
       {/* ── §2 Main Operational Content ──────────────────────── */}
       <main id="main" tabIndex={-1} data-page={tab}>
@@ -439,11 +436,6 @@ function App() {
         {/* Tab: Research Section with Diagrams */}
         <div hidden={tab !== "research"}>
           <PagedFlow label="Research"><ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} /></PagedFlow>
-        </div>
-
-        {/* Tab: Dhaka flood planning (provenance-first demonstrator) */}
-        <div hidden={tab !== "dhaka"}>
-          <PagedFlow label="Dhaka flood planning"><DhakaPanel language={language} /></PagedFlow>
         </div>
       </main>
 

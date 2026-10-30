@@ -12,8 +12,7 @@ export type CameraSymbolName =
   | "sources"
   | "plan"
   | "drill"
-  | "satellite"
-  | "dhaka";
+  | "satellite";
 
 /**
  * Icon set for the rehearsal console. Every control carries an icon so the bar reads as a
