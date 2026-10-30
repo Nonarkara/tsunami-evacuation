@@ -19,9 +19,14 @@ import { SunIndicator } from './SunIndicator';
 import type { CoastalRegion } from './research';
 import { areaPacks, alongRoute, walkerProgress, walkerSchedule, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
 import { simulate, frame, elevation, waterScreen, distance, type RouteData, type TerrainGrid, type Coord } from './crowd';
+import { paceLines, segmentWaits, speedForSeconds } from './escape-timing';
 
 const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+/** Run pace used by the mixed-pace exercise. An assumed walking model, not advice. */
+const RUN_PACE = 3;
+/** Walking paces the reader can compare, in metres per second. */
+const WALK_PACES = [0.8, 1.4, 2.4];
 export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onReview, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; onReview:()=>void; bannerDock:HTMLElement|null }) {
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
@@ -34,6 +39,8 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const [animateWater, setAnimateWater] = useState(false), [peak, setPeak] = useState(10), [riseMinutes, setRiseMinutes] = useState(10);
   const [flat, setFlat] = useState(false), [terrainLoaded, setTerrainLoaded] = useState(false);
   const [count, setCount] = useState(1500), [speed, setSpeed] = useState(1.4), [width, setWidth] = useState(2);
+  const [runShare, setRunShare] = useState(0), [targetMinutes, setTargetMinutes] = useState(30);
+  const runCount = Math.round(count * runShare);
   const [seconds, setSeconds] = useState(0), [playing, setPlaying] = useState(false), [rate, setRate] = useState(30);
   const [camera, setCamera] = useState<'overview' | 'coast' | 'route' | 'walk'>('overview');
   const [cameraEpoch, setCameraEpoch] = useState(0);
@@ -75,11 +82,11 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       .catch(e => { if (e.name !== 'AbortError') setImportError('Some area datasets are unavailable. Terrain reference remains available.'); });
     return () => abort.abort();
   }, [areaPack]);
-  const model = useMemo(() => data && isStudy ? simulate(data, count, speed, width, preparation) : undefined, [data, count, speed, width, preparation, isStudy]);
+  const model = useMemo(() => data && isStudy ? simulate(data, count, speed, width, preparation, { count: runCount, speed: RUN_PACE }) : undefined, [data, count, speed, width, preparation, runCount, isStudy]);
   const compareModel = useMemo(() => data && isStudy && walkCompare === 'compare' ? simulate(data, count, speed, width, 0) : undefined, [data, count, speed, width, walkCompare, isStudy]);
   const current = useMemo(() => model ? frame(model, started ? seconds : -1) : undefined, [model, seconds, started]);
   const compareCurrent = useMemo(() => compareModel ? frame(compareModel, started ? seconds : -1) : undefined, [compareModel, seconds, started]);
-  useEffect(() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }, [count, speed, width, preparation, region.id, selected]);
+  useEffect(() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }, [count, speed, width, preparation, runShare, region.id, selected]);
   const duration = Math.max(model?.duration ?? 0, hazard?.frames.at(-1)?.seconds ?? 0, animateWater ? riseMinutes * 60 : 0);
   const [waterSeconds,setWaterSeconds] = useState(0);
   const playbackSeconds = useRef(seconds); playbackSeconds.current=seconds;
@@ -146,7 +153,10 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       const surface = new ReplayWaterLayer(setWaterSurfaceError); m.addLayer(surface); waterLayer.current = surface;
       m.addLayer({ id: 'route-casing', type: 'line', source: 'routes', paint: { 'line-color': '#12354e', 'line-width': 8 } });
       m.addLayer({ id: 'routes', type: 'line', source: 'routes', paint: { 'line-color': ['match', ['get', 'route'], 0, '#fafaf7', 1, '#f59e0b', '#b9ddf0'], 'line-width': 3 } });
-      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['==', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 15, 3.5, 17, 6, 19, 9], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
+      m.addLayer({ id: 'people', type: 'circle', source: 'people', filter: ['all', ['==', ['get', 'status'], 'walking'], ['!=', ['get', 'run'], true]], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.5, 15, 3.5, 17, 6, 19, 9], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', 'pending', '#9ba39a', '#fafaf7'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1 } });
+      // Runners are drawn as hollow rings: a shape difference, never a colour that
+      // would read as safer or safer-looking.
+      m.addLayer({ id: 'runners', type: 'circle', source: 'people', filter: ['all', ['==', ['get', 'status'], 'walking'], ['==', ['get', 'run'], true]], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 2.5, 15, 5, 17, 8, 19, 11], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 2 } });
       m.addLayer({ id: 'ends', type: 'circle', source: 'ends', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['case', ['==',['get','role'],'destination'], 7, 3], 'circle-color': '#12354e', 'circle-stroke-color': '#fafaf7', 'circle-stroke-width': 1.5 } });
       m.addLayer({ id: 'pinch', type: 'circle', source: 'pinch', paint: { 'circle-pitch-scale':'viewport', 'circle-radius': 5, 'circle-color': '#f59e0b', 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
       m.addLayer({ id: 'waiting-groups', type: 'circle', source: 'people', filter: ['!=', ['get', 'status'], 'walking'], paint: { 'circle-pitch-scale':'viewport', 'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 3, 15, 5.5, 17, 8, 19, 13], 'circle-color': ['match', ['get', 'status'], 'queued', '#f59e0b', '#9ba39a'], 'circle-stroke-color': '#12354e', 'circle-stroke-width': 1.5 } });
@@ -210,6 +220,9 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const selectedWalker = model?.people.find(p => p.route === route);
   const progress = selectedWalker && data ? walkerProgress(selectedWalker, data.routes[route], started ? seconds : -1) : undefined;
   const selectedSchedule = selectedWalker ? walkerSchedule(selectedWalker, seconds) : undefined;
+  // A runner on the same route, used only to show what a run pace changes.
+  const runnerTwin = model?.people.find(p => p.route === route && p.run);
+  const runnerProgress = runnerTwin && data ? walkerProgress(runnerTwin, data.routes[route], started ? seconds : -1) : undefined;
   const selectedCompareWalker = compareModel?.people.find(p => p.route === route);
   const compareProgress = selectedCompareWalker && data ? walkerProgress(selectedCompareWalker, data.routes[route], started ? seconds : -1) : undefined;
 
@@ -344,6 +357,8 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
   const nextDirection = data && progress ? nextTurn(data.routes[route], progress.metres) : null;
   const queueCount = current?.features.find(f => f.properties?.edge === queueFocus?.edge && f.properties?.status === queueFocus?.status)?.properties?.count ?? 0;
   const active = data?.routes[route];
+  const paceLadder = useMemo(() => active && model ? paceLines(active, model, WALK_PACES, RUN_PACE, runCount) : [], [active, model, runCount]);
+  const waits = useMemo(() => active && model ? segmentWaits(route, active, model) : [], [active, model, route]);
   const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p) ?? 0) : [], [active, grid]);
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   const guideAvailable=camera==='walk'&&!flat&&!!progress&&!!selectedSchedule;
@@ -369,7 +384,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
       {camera === 'walk' && <SunIndicator language={manualLanguage(location.search,navigator.language)} latitude={region.places[selected]?.lat ?? region.center[0]} longitude={region.places[selected]?.lng ?? region.center[1]} />}
-      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Playback: choose Walk-through for a paused 1× eye-level view, then Start or Play route in Guide. Hidden tabs and rendering stalls pause advancement rather than jumping ahead. Use 5× to review faster; 30×/120× compress exercise time. Rendering requests at least 2 pixels per CSS pixel (device limits may cap it); imagery detail and coarse DEM remain source-limited, not street-level photography. Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
+      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Hollow rings: agents moving at the run pace. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Playback: choose Walk-through for a paused 1× eye-level view, then Start or Play route in Guide. Hidden tabs and rendering stalls pause advancement rather than jumping ahead. Use 5× to review faster; 30×/120× compress exercise time. Rendering requests at least 2 pixels per CSS pixel (device limits may cap it); imagery detail and coarse DEM remain source-limited, not street-level photography. Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
     </div>
     <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Guide</option></select></label></DockControls>      {guideAvailable && operationView==='guide' && <div className="guide-playback" aria-label={t('Guide playback','การเล่นแบบฝึก')}>
         <button disabled={!ready} onClick={startExercise}>{playing?t('Pause','หยุดชั่วคราว'):t('Play route','เล่นเส้นทาง')}</button>
@@ -377,7 +392,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
         <label>{t('Speed','ความเร็ว')} <select aria-label="Guide speed / ความเร็วในคู่มือ" value={rate} onChange={e=>setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>}
 <PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
-      {camera === 'walk' && !flat && progress && selectedSchedule && <WalkthroughCoach language={manualLanguage(location.search,navigator.language)} state={progress.state} remainingM={Math.max(0,progress.total-progress.metres)} finishSeconds={selectedSchedule.finishSeconds} remainingSeconds={selectedSchedule.remainingSeconds} queueSeconds={selectedSchedule.queueSeconds} onReview={onReview} full/>}
+      {camera === 'walk' && !flat && progress && selectedSchedule && <WalkthroughCoach language={manualLanguage(location.search,navigator.language)} state={progress.state} remainingM={Math.max(0,progress.total-progress.metres)} finishSeconds={selectedSchedule.finishSeconds} remainingSeconds={selectedSchedule.remainingSeconds} queueSeconds={selectedSchedule.queueSeconds} pace={selectedWalker?.speed ?? 0} runner={runnerTwin && runnerProgress ? { pace: runnerTwin.speed, remainingM: Math.max(0, runnerProgress.total - runnerProgress.metres), finishSeconds: runnerTwin.finish } : undefined} onReview={onReview} full/>}
       </div><div className="operations-content" hidden={operationView!=='operate'}>
     {camera === 'walk' && !isStudy && !flat && <div className="ground-walk-controls" aria-label="Terrain camera controls">
       <button aria-label="Turn camera left" onClick={()=>setFreeWalk(p=>p ? {...p,bearing:p.bearing-8}:p)}>↶</button>
@@ -391,21 +406,28 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     {isStudy && model && data && <>
       <div className="rehearsal-panel" hidden={mode !== 'crowd'}>
       <div className="rehearsal-controls" id="rehearsal-controls">
-        <label>People<select aria-label="People" value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
-        <label>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
-        <label>Delay<select aria-label="Preparation delay" value={preparation} onChange={e => setPreparation(Number(e.target.value))}><option value={0}>0 s</option><option value={60}>1 min</option><option value={300}>5 min</option></select></label>
-        <label>Route<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
-        <label>Water demo<select aria-label="Illustrative water level" disabled={!!hazard || flat} value={animateWater ? peak : 0} onChange={e => {
-          const val = Number(e.target.value);
-          if (val === 0) {
-            setAnimateWater(false);
-            setScreen(false);
-          } else {
-            setPeak(val);
-            setAnimateWater(true);
-            setScreen(true);
-          }
-        }}><option value={0}>Off</option><option value={5}>+5 m</option><option value={10}>+10 m</option><option value={15}>+15 m</option><option value={20}>+20 m</option></select></label>
+        <div className="control-group"><span className="control-group-label">{t('Group','กลุ่ม')}</span>
+          <label>People<select aria-label="People" value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
+          <label title={t('Share of the group moving at a run pace. An assumed exercise parameter, not advice.','สัดส่วนผู้เดินด้วยจังหวะวิ่ง เป็นค่าตั้งสมมติของแบบฝึก ไม่ใช่คำแนะนำ')}>Runners<select aria-label="Share of the group moving at a run pace" value={runShare} onChange={e => setRunShare(Number(e.target.value))}><option value={0}>{t('None','ไม่มี')}</option><option value={0.1}>10%</option><option value={0.25}>25%</option><option value={0.5}>50%</option></select></label>
+        </div>
+        <div className="control-group"><span className="control-group-label">{t('Movement','การเคลื่อนที่')}</span>
+          <label title={t('Walking pace of the group. An assumed exercise parameter.','จังหวะเดินของกลุ่ม เป็นค่าตั้งสมมติของแบบฝึก')}>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
+          <label>Delay<select aria-label="Preparation delay" value={preparation} onChange={e => setPreparation(Number(e.target.value))}><option value={0}>0 s</option><option value={60}>1 min</option><option value={300}>5 min</option></select></label>
+        </div>
+        <div className="control-group"><span className="control-group-label">{t('Scenario','สถานการณ์')}</span>
+          <label>Route<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
+          <label>Water demo<select aria-label="Illustrative water level" disabled={!!hazard || flat} value={animateWater ? peak : 0} onChange={e => {
+            const val = Number(e.target.value);
+            if (val === 0) {
+              setAnimateWater(false);
+              setScreen(false);
+            } else {
+              setPeak(val);
+              setAnimateWater(true);
+              setScreen(true);
+            }
+          }}><option value={0}>Off</option><option value={5}>+5 m</option><option value={10}>+10 m</option><option value={15}>+15 m</option><option value={20}>+20 m</option></select></label>
+        </div>
         <button className="rehearsal-play" aria-label={playing ? t('Pause rehearsal','หยุดชั่วคราวแบบฝึก') : started ? t('Resume rehearsal','เล่นต่อแบบฝึก') : t('Start rehearsal','เริ่มแบบฝึก')} disabled={flat || !ready} onClick={startExercise}>{playing ? t('Pause','หยุดชั่วคราว') : started ? t('Resume','เล่นต่อ') : t('Start','เริ่ม')}</button>
       </div>
       <div className="rehearsal-timeline">
@@ -416,7 +438,29 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : t('Route rehearsal','ฝึกเส้นทาง')) : t('Choose a view, then Start','เลือกมุมมอง แล้วกดเริ่ม')} · {hazard ? (waterFrame ? 'unverified replay; agents unaffected' : 'no replay frame; agents unaffected') : animateWater ? `Illustrative level +${shownWaterLevel.toFixed(1)}m MSL · agents unaffected` : 'no wave prediction'} · endpoint unapproved</p>
       <div className="rehearsal-readout" aria-label="Crowd counts">
         <span><strong>{current?.walking.toLocaleString()}</strong> walking</span><span><strong>{current?.queued.toLocaleString()}</strong> queued at nodes</span><span><strong>{current?.arrived.toLocaleString()}</strong> at endpoint</span><span><strong>{current?.pending.toLocaleString()}</strong> awaiting release</span><span>Last arrival <strong>{minutes(model.duration)}</strong> · max link wait <strong>{minutes(model.maxQueueWait)}</strong></span>
+        {runCount > 0 && <span className="runner-count"><strong>{current?.running.toLocaleString()}</strong> running of {runCount.toLocaleString()} runners</span>}
       </div>
+      {active && model && (
+        <div className="escape-timing" aria-label="Modelled time to the exercise end">
+          <div className="escape-timing-head">
+            <strong>{t('Time to the exercise end','เวลาถึงปลายทางแบบฝึก')}</strong>
+            <label className="target-time">{t('Target','เป้าหมาย')}<select aria-label="Target time to the exercise end" value={targetMinutes} onChange={e => setTargetMinutes(Number(e.target.value))}><option value={20}>20 min</option><option value={30}>30 min</option><option value={45}>45 min</option><option value={60}>60 min</option></select></label>
+          </div>
+          <dl className="escape-paces">
+            {paceLadder.map(line => (
+              <div key={line.pace} className={line.run ? 'run' : undefined}>
+                <dt>{line.label}{line.run ? ` · ${runCount.toLocaleString()} of ${count.toLocaleString()}` : ''}</dt>
+                <dd>{minutes(line.seconds)}<small>free flow</small></dd>
+              </div>
+            ))}
+            <div className="needed">
+              <dt>{t(`Pace for ${targetMinutes} min`,`จังหวะเพื่อ ${targetMinutes} นาที`)}</dt>
+              <dd>{speedForSeconds(active, targetMinutes * 60).toFixed(1)} m/s<small>{t('without queueing','เมื่อไม่มีคิว')}</small></dd>
+            </div>
+          </dl>
+          <p className="field-note">{t('Modelled on the mapped route. The endpoint is unapproved; these are exercise times, not wave-arrival margins and not advice.','คำนวณจากเส้นทางที่แมปไว้ ปลายทางยังไม่ได้รับการรับรอง เวลาเหล่านี้เป็นเวลาแบบฝึก ไม่ใช่เวลาคงเหลือก่อนคลื่นมาถึง และไม่ใช่คำแนะนำ')}</p>
+        </div>
+      )}
       {walkCompare === 'compare' && compareProgress && progress && (
         <div className="compare-panel" aria-label="Departure timing comparison">
           <div className="compare-heading">Exercise comparison · same route, different preparation delays</div>
@@ -445,9 +489,23 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
         <div className="route-profile"><strong>{areaPack?.label}: {active?.name} · {((model.distance[route] ?? 0) / 1000).toFixed(2)} km</strong><span>{progress ? `${(Math.max(0, progress.total - progress.metres) / 1000).toFixed(2)} km to exercise end · ${progress.state}` : 'Approximate DEM profile'} · endpoint unapproved</span>
           <div className="profile-chart"><div className="profile-y-scale" aria-hidden="true"><span>{Math.round(Math.max(20,...profile))} m</span><span>{Math.round(Math.max(20,...profile)/2)} m</span><span>0 m</span></div><svg viewBox="0 0 480 54" preserveAspectRatio="none" role="img" aria-label={`Terrain elevation profile, ${Math.round(Math.min(...profile))} to ${Math.round(Math.max(...profile))} metres. Not a safety classification.`}><path vectorEffect="non-scaling-stroke" d="M0 6H480M0 28H480M0 50H480" fill="none" stroke="#b9c2bd" strokeWidth=".6"/><polyline vectorEffect="non-scaling-stroke" fill="none" stroke="#12354e" strokeWidth="2" points={profile.map((v, i) => `${(chainage[i] ?? 0) / Math.max(1, chainage.at(-1) ?? 1) * 480},${50 - Math.max(0, v) / Math.max(20, ...profile) * 44}`).join(' ')} /></svg><div className="profile-x-scale" aria-hidden="true"><span>0 km</span><span>{((chainage.at(-1)??0)/2000).toFixed(2)}</span><span>{((chainage.at(-1)??0)/1000).toFixed(2)} km</span></div></div>
           <p className="route-cue">{!started ? 'Start runs a rehearsal. Real warnings require prompt action following local guidance.' : progress?.state === 'preparing' ? `Preparation interval: ${Math.max(0, preparation - seconds).toFixed(0)} s remaining in this exercise.` : progress?.state === 'queued' ? 'First walker is queued at a network node; the physical crowd is not simulated.' : progress?.state === 'arrived' ? 'First walker reached the exercise end; other agents may still be en route.' : nextDirection ? `Selected exercise route: in ${nextDirection.distanceM} m, bear ${nextDirection.direction}.` : 'Continue along the selected exercise route to its unapproved endpoint.'}</p>
-          <p className="route-cue">At {speed} m/s: {Math.ceil((model.distance[route] ?? 0) / speed / 60)} min walking + {Math.round(preparation / 60)} min exercise delay, before queues.</p>
           <div className="profile-scale"><span>Start ≈ {Math.round(profile[0] ?? 0)} m</span><span>DEM range ≈ {Math.round(Math.min(...profile))}–{Math.round(Math.max(...profile))} m</span><span>End ≈ {Math.round(profile.at(-1) ?? 0)} m</span></div>
         </div>
+        {waits.length > 0 && (
+          <div className="queue-chart">
+            <strong>{t('Where the queue forms','คิวเกิดที่ไหน')}</strong>
+            <span className="queue-chart-sub">{t('Longest modelled wait per segment of the selected route','เวลารอสูงสุดที่จำลองไว้ในแต่ละช่วงของเส้นทางที่เลือก')}</span>
+            <div className="queue-chart-plot" role="img" aria-label={`Modelled wait per route segment. Longest wait ${Math.round(Math.max(...waits.map(w => w.waitSeconds)))} seconds at ${Math.round(Math.max(...waits.map(w => w.waitSeconds)) / 60)} minutes.`}>
+              {waits.map(wait => (
+                <div className="queue-column" key={wait.edge}>
+                  <span className="queue-bar" style={{ height: `${Math.max(2, wait.waitSeconds / Math.max(1, ...waits.map(w => w.waitSeconds)) * 100)}%` }} />
+                  <span className="queue-tick">{Math.round(wait.waitSeconds)}s</span>
+                  <span className="queue-chainage">{(wait.chainageM / 1000).toFixed(1)} km</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
       </div>
       </div>

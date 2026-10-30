@@ -79,3 +79,34 @@ test('moving points remain exactly on their modeled road segment', () => {
     assert.deepEqual(p.geometry.coordinates, [leg.from[0] + (leg.to[0] - leg.from[0]) * t, leg.from[1] + (leg.to[1] - leg.from[1]) * t]);
   }
 });
+test('runners are a counted, spread subset that moves faster and breaks no conservation', () => {
+  const model = simulate(routes, 400, 1.4, 2, 0, { count: 100, speed: 3 });
+  assert.equal(model.runCount, 100);
+  assert.equal(model.people.filter(p => p.run).length, 100);
+  assert.equal(model.people.filter(p => p.speed === 3).length, 100);
+  assert.equal(model.people.filter(p => !p.run && p.speed === 1.4).length, 300);
+  // Runners are spread through the release order, not bunched at the end.
+  const firstHalf = model.people.slice(0, 200).filter(p => p.run).length;
+  assert.ok(firstHalf > 30 && firstHalf < 70, `runners bunched: ${firstHalf} in the first half`);
+  // A runner covers the same leg in less time than a walker released at the same moment.
+  const runner = model.people.find(p => p.run)!;
+  const walker = model.people.find(p => !p.run && p.legs[0].arrival === runner.legs[0].arrival)!;
+  assert.ok(runner.legs[0].exit - runner.legs[0].enter < walker.legs[0].exit - walker.legs[0].enter);
+  for (const t of [0, 50, 500, 2000, model.duration]) {
+    const f = frame(model, t);
+    assert.equal(f.arrived + f.queued + f.walking + f.pending, 400);
+    assert.equal(f.features.reduce((sum, feature) => sum + Number(feature.properties?.count), 0), 400 - f.arrived);
+  }
+});
+test('a run pace slower than the walking pace is refused rather than silently applied', () => {
+  assert.throws(() => simulate(routes, 100, 1.4, 2, 0, { count: 10, speed: 1.0 }), /Run pace must be faster/);
+  assert.equal(simulate(routes, 100, 1.4, 2, 0, { count: 0, speed: 3 }).runCount, 0);
+});
+test('the frame marks which moving agents are running', () => {
+  const model = simulate(routes, 120, 1.4, 2, 0, { count: 60, speed: 3 });
+  const f = frame(model, 400);
+  const moving = f.features.filter(p => p.properties?.status === 'walking');
+  assert.ok(moving.length > 0);
+  assert.equal(moving.filter(p => p.properties?.run === true).length, f.running);
+  assert.equal(moving.filter(p => p.properties?.run !== true).length, f.walking - f.running);
+});

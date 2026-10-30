@@ -1,0 +1,2144 @@
+{
+  "origin": "https://tsunami.nonarkara.org",
+  "viewports": {
+    "390x844/explore": {
+      "width": 390,
+      "height": 844,
+      "doc": {
+        "w": 390,
+        "h": 844
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 24,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 820,
+            "bottom": 844,
+            "height": 24,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [
+        {
+          "name": "explore-grid",
+          "rect": {
+            "x": 8,
+            "y": 42,
+            "w": 374,
+            "h": 772
+          }
+        },
+        {
+          "name": "geography-pane",
+          "rect": {
+            "x": 8,
+            "y": 42,
+            "w": 374,
+            "h": 772
+          }
+        },
+        {
+          "name": "terrain-rehearsal",
+          "rect": {
+            "x": 8,
+            "y": 42,
+            "w": 374,
+            "h": 772
+          }
+        },
+        {
+          "name": "terrain-stage",
+          "rect": {
+            "x": 8,
+            "y": 42,
+            "w": 374,
+            "h": 434
+          }
+        },
+        {
+          "name": "terrain-caption",
+          "rect": {
+            "x": 8,
+            "y": 479,
+            "w": 374,
+            "h": 32
+          }
+        },
+        {
+          "name": "terrain-operations",
+          "rect": {
+            "x": 8,
+            "y": 514,
+            "w": 374,
+            "h": 300
+          }
+        },
+        {
+          "name": "rehearsal-controls",
+          "rect": {
+            "x": 8,
+            "y": 514,
+            "w": 374,
+            "h": 66
+          }
+        },
+        {
+          "name": "rehearsal-timeline",
+          "rect": {
+            "x": 8,
+            "y": 580,
+            "w": 374,
+            "h": 40
+          }
+        }
+      ],
+      "blocks": [
+        {
+          "name": "paged-flow operations-pages",
+          "top": 514,
+          "bottom": 814,
+          "height": 300,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 2,
+          "textLength": 693
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 640
+        },
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 640
+        },
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 660
+        },
+        {
+          "tag": "strong",
+          "text": "1,500",
+          "size": 13,
+          "weight": "600",
+          "y": 660
+        },
+        {
+          "tag": "strong",
+          "text": "63:35",
+          "size": 13,
+          "weight": "600",
+          "y": 680
+        },
+        {
+          "tag": "strong",
+          "text": "4:34",
+          "size": 13,
+          "weight": "600",
+          "y": 680
+        }
+      ],
+      "task": {
+        "mapVisible": true,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": {
+          "w": 374,
+          "h": 434
+        }
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "explore"
+    },
+    "390x844/satellite": {
+      "width": 390,
+      "height": 844,
+      "doc": {
+        "w": 390,
+        "h": 844
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 24,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 820,
+            "bottom": 844,
+            "height": 24,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 42,
+          "bottom": 814,
+          "height": 772,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 1820
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h1",
+          "text": "Sources & sensors",
+          "size": 24,
+          "weight": "600",
+          "y": 42
+        },
+        {
+          "tag": "h2",
+          "text": "DART pressure-buoy reference",
+          "size": 20,
+          "weight": "600",
+          "y": 152
+        },
+        {
+          "tag": "h2",
+          "text": "Ko Taphao Noi tide-gauge candidate",
+          "size": 20,
+          "weight": "600",
+          "y": 324
+        },
+        {
+          "tag": "h2",
+          "text": "Sentinel-1 SAR imagery",
+          "size": 20,
+          "weight": "600",
+          "y": 474
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "satellite"
+    },
+    "390x844/prepare": {
+      "width": 390,
+      "height": 844,
+      "doc": {
+        "w": 390,
+        "h": 844
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 24,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 820,
+            "bottom": 844,
+            "height": 24,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 42,
+          "bottom": 814,
+          "height": 772,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 1369
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h1",
+          "text": "My evacuation plan",
+          "size": 26,
+          "weight": "600",
+          "y": 42
+        },
+        {
+          "tag": "strong",
+          "text": "~21 minutes",
+          "size": 13,
+          "weight": "600",
+          "y": 703
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "prepare"
+    },
+    "390x844/drill": {
+      "width": 390,
+      "height": 844,
+      "doc": {
+        "w": 390,
+        "h": 844
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 24,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "task-heading",
+            "top": 42,
+            "bottom": 143,
+            "height": 101,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 820,
+            "bottom": 844,
+            "height": 24,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 42,
+          "bottom": 814,
+          "height": 772,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 2194
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "span",
+          "text": "Practice / record / improve",
+          "size": 13,
+          "weight": "600",
+          "y": 42
+        },
+        {
+          "tag": "h1",
+          "text": "Review an evacuation drill",
+          "size": 24,
+          "weight": "600",
+          "y": 64
+        },
+        {
+          "tag": "h2",
+          "text": "1 / Record observed counts",
+          "size": 20,
+          "weight": "600",
+          "y": 153
+        },
+        {
+          "tag": "strong",
+          "text": "—",
+          "size": 28,
+          "weight": "600",
+          "y": 446
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "drill"
+    },
+    "390x844/research": {
+      "width": 390,
+      "height": 844,
+      "doc": {
+        "w": 390,
+        "h": 844
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 24,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "research-heading",
+            "top": 42,
+            "bottom": 124,
+            "height": 82,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 820,
+            "bottom": 844,
+            "height": 24,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 42,
+          "bottom": 814,
+          "height": 772,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 11587
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "span",
+          "text": "Research / Khao Lak",
+          "size": 11,
+          "weight": "600",
+          "y": 47
+        },
+        {
+          "tag": "h1",
+          "text": "Evidence, methods & limits",
+          "size": 24,
+          "weight": "600",
+          "y": 78
+        },
+        {
+          "tag": "h2",
+          "text": "01 / Reported scenario results",
+          "size": 20,
+          "weight": "600",
+          "y": 237
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [
+        {
+          "name": "section",
+          "left": 8,
+          "right": 780
+        }
+      ],
+      "overflow": false,
+      "tab": "research"
+    },
+    "1024x768/explore": {
+      "width": 1024,
+      "height": 768,
+      "doc": {
+        "w": 1024,
+        "h": 768
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "banner-dock",
+            "top": 1,
+            "bottom": 33,
+            "height": 32,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 740,
+            "bottom": 768,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 8
+      },
+      "regions": [
+        {
+          "name": "explore-grid",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1000,
+            "h": 688
+          }
+        },
+        {
+          "name": "geography-pane",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1000,
+            "h": 688
+          }
+        },
+        {
+          "name": "terrain-rehearsal",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1000,
+            "h": 688
+          }
+        },
+        {
+          "name": "terrain-stage",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 664,
+            "h": 654
+          }
+        },
+        {
+          "name": "terrain-caption",
+          "rect": {
+            "x": 12,
+            "y": 702,
+            "w": 664,
+            "h": 30
+          }
+        },
+        {
+          "name": "terrain-operations",
+          "rect": {
+            "x": 692,
+            "y": 44,
+            "w": 320,
+            "h": 688
+          }
+        },
+        {
+          "name": "route-profile",
+          "rect": {
+            "x": 692,
+            "y": 321,
+            "w": 320,
+            "h": 411
+          }
+        },
+        {
+          "name": "terrain-analysis-row",
+          "rect": {
+            "x": 692,
+            "y": 313,
+            "w": 320,
+            "h": 419
+          }
+        },
+        {
+          "name": "rehearsal-controls",
+          "rect": {
+            "x": 692,
+            "y": 44,
+            "w": 320,
+            "h": 106
+          }
+        },
+        {
+          "name": "rehearsal-timeline",
+          "rect": {
+            "x": 692,
+            "y": 150,
+            "w": 320,
+            "h": 36
+          }
+        }
+      ],
+      "blocks": [
+        {
+          "name": "paged-flow operations-pages",
+          "top": 44,
+          "bottom": 732,
+          "height": 688,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 2,
+          "textLength": 693
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 16,
+          "weight": "600",
+          "y": 227
+        },
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 16,
+          "weight": "600",
+          "y": 227
+        },
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 16,
+          "weight": "600",
+          "y": 254
+        },
+        {
+          "tag": "strong",
+          "text": "1,500",
+          "size": 16,
+          "weight": "600",
+          "y": 254
+        },
+        {
+          "tag": "strong",
+          "text": "63:35",
+          "size": 16,
+          "weight": "600",
+          "y": 281
+        },
+        {
+          "tag": "strong",
+          "text": "4:34",
+          "size": 16,
+          "weight": "600",
+          "y": 281
+        },
+        {
+          "tag": "strong",
+          "text": "Bang Niang exercise: Central approach · ",
+          "size": 14,
+          "weight": "600",
+          "y": 321
+        }
+      ],
+      "task": {
+        "mapVisible": true,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": {
+          "w": 664,
+          "h": 654
+        }
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "explore"
+    },
+    "1024x768/satellite": {
+      "width": 1024,
+      "height": 768,
+      "doc": {
+        "w": 1024,
+        "h": 768
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 740,
+            "bottom": 768,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 8
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 732,
+          "height": 688,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 1820
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h1",
+          "text": "Sources & sensors",
+          "size": 26,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h2",
+          "text": "Copernicus DEM candidate",
+          "size": 20,
+          "weight": "600",
+          "y": 55
+        },
+        {
+          "tag": "h2",
+          "text": "DART pressure-buoy reference",
+          "size": 20,
+          "weight": "600",
+          "y": 156
+        },
+        {
+          "tag": "h2",
+          "text": "What these sources can tell us",
+          "size": 20,
+          "weight": "600",
+          "y": 207
+        },
+        {
+          "tag": "h2",
+          "text": "Ko Taphao Noi tide-gauge candidate",
+          "size": 20,
+          "weight": "600",
+          "y": 307
+        },
+        {
+          "tag": "h2",
+          "text": "Sentinel-1 SAR imagery",
+          "size": 20,
+          "weight": "600",
+          "y": 458
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "satellite"
+    },
+    "1024x768/prepare": {
+      "width": 1024,
+      "height": 768,
+      "doc": {
+        "w": 1024,
+        "h": 768
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 740,
+            "bottom": 768,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 8
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 732,
+          "height": 688,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 1369
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h1",
+          "text": "My evacuation plan",
+          "size": 26,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h3",
+          "text": "Four local checks",
+          "size": 19,
+          "weight": "600",
+          "y": 365
+        },
+        {
+          "tag": "strong",
+          "text": "1. Plan for congestion:",
+          "size": 14,
+          "weight": "600",
+          "y": 402
+        },
+        {
+          "tag": "strong",
+          "text": "2. Confirm refuge access:",
+          "size": 14,
+          "weight": "600",
+          "y": 444
+        },
+        {
+          "tag": "strong",
+          "text": "3. Rehearse and review:",
+          "size": 14,
+          "weight": "600",
+          "y": 486
+        },
+        {
+          "tag": "strong",
+          "text": "4. Help dependents first:",
+          "size": 14,
+          "weight": "600",
+          "y": 528
+        },
+        {
+          "tag": "strong",
+          "text": "~21 minutes",
+          "size": 13,
+          "weight": "600",
+          "y": 705
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "prepare"
+    },
+    "1024x768/drill": {
+      "width": 1024,
+      "height": 768,
+      "doc": {
+        "w": 1024,
+        "h": 768
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "task-heading",
+            "top": 44,
+            "bottom": 147,
+            "height": 103,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 740,
+            "bottom": 768,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 8
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 732,
+          "height": 688,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 2194
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "span",
+          "text": "Practice / record / improve",
+          "size": 13,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h3",
+          "text": "Walk the plan, then review it",
+          "size": 17,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h1",
+          "text": "Review an evacuation drill",
+          "size": 26,
+          "weight": "600",
+          "y": 66
+        },
+        {
+          "tag": "strong",
+          "text": "Confirm before you practise",
+          "size": 14,
+          "weight": "600",
+          "y": 74
+        },
+        {
+          "tag": "h2",
+          "text": "1 / Record observed counts",
+          "size": 20,
+          "weight": "600",
+          "y": 157
+        },
+        {
+          "tag": "strong",
+          "text": "Agree the warning and assistance",
+          "size": 14,
+          "weight": "600",
+          "y": 172
+        },
+        {
+          "tag": "strong",
+          "text": "Walk and observe",
+          "size": 14,
+          "weight": "600",
+          "y": 270
+        },
+        {
+          "tag": "strong",
+          "text": "Account for every participant",
+          "size": 14,
+          "weight": "600",
+          "y": 368
+        },
+        {
+          "tag": "strong",
+          "text": "—",
+          "size": 28,
+          "weight": "600",
+          "y": 450
+        },
+        {
+          "tag": "strong",
+          "text": "Fix one problem and repeat",
+          "size": 14,
+          "weight": "600",
+          "y": 466
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "drill"
+    },
+    "1024x768/research": {
+      "width": 1024,
+      "height": 768,
+      "doc": {
+        "w": 1024,
+        "h": 768
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "research-heading",
+            "top": 44,
+            "bottom": 116,
+            "height": 72,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 740,
+            "bottom": 768,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 8
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 732,
+          "height": 688,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 11587
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "span",
+          "text": "Research / Khao Lak",
+          "size": 13,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h1",
+          "text": "Evidence, methods & limits",
+          "size": 26,
+          "weight": "600",
+          "y": 68
+        },
+        {
+          "tag": "h3",
+          "text": "What the reported comparisons support",
+          "size": 17,
+          "weight": "600",
+          "y": 128
+        },
+        {
+          "tag": "dt",
+          "text": "PD50 · 21.8% → 7.0%",
+          "size": 13,
+          "weight": "600",
+          "y": 159
+        },
+        {
+          "tag": "dd",
+          "text": "The walking-preference package changes t",
+          "size": 14,
+          "weight": "400",
+          "y": 179
+        },
+        {
+          "tag": "h2",
+          "text": "01 / Reported scenario results",
+          "size": 20,
+          "weight": "600",
+          "y": 229
+        },
+        {
+          "tag": "dt",
+          "text": "+ VS14 · 7.0% → 3.7%",
+          "size": 13,
+          "weight": "600",
+          "y": 234
+        },
+        {
+          "tag": "dd",
+          "text": "Fourteen additional candidate buildings ",
+          "size": 14,
+          "weight": "400",
+          "y": 255
+        },
+        {
+          "tag": "dt",
+          "text": "+ VE50 / SG135 · 1.3% / 1.2%",
+          "size": 13,
+          "weight": "600",
+          "y": 310
+        },
+        {
+          "tag": "dd",
+          "text": "These are successive cumulative packages",
+          "size": 14,
+          "weight": "400",
+          "y": 331
+        },
+        {
+          "tag": "dt",
+          "text": "Full package: baseline1.2% / delayed2.9%",
+          "size": 13,
+          "weight": "600",
+          "y": 386
+        },
+        {
+          "tag": "dd",
+          "text": "Warning issuance changes30→45 minutes an",
+          "size": 14,
+          "weight": "400",
+          "y": 406
+        },
+        {
+          "tag": "dt",
+          "text": "PD50",
+          "size": 14,
+          "weight": "600",
+          "y": 617
+        },
+        {
+          "tag": "dd",
+          "text": "50% pedestrian preference; not everyone ",
+          "size": 14,
+          "weight": "400",
+          "y": 617
+        },
+        {
+          "tag": "dt",
+          "text": "VS14",
+          "size": 14,
+          "weight": "600",
+          "y": 673
+        },
+        {
+          "tag": "dd",
+          "text": "14 additional candidate buildings, beyon",
+          "size": 14,
+          "weight": "400",
+          "y": 673
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "research"
+    },
+    "1440x900/explore": {
+      "width": 1440,
+      "height": 900,
+      "doc": {
+        "w": 1440,
+        "h": 900
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "banner-dock",
+            "top": 3,
+            "bottom": 31,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 872,
+            "bottom": 900,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [
+        {
+          "name": "explore-grid",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1416,
+            "h": 820
+          }
+        },
+        {
+          "name": "geography-pane",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1416,
+            "h": 820
+          }
+        },
+        {
+          "name": "terrain-rehearsal",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1416,
+            "h": 820
+          }
+        },
+        {
+          "name": "terrain-stage",
+          "rect": {
+            "x": 12,
+            "y": 44,
+            "w": 1050,
+            "h": 786
+          }
+        },
+        {
+          "name": "terrain-caption",
+          "rect": {
+            "x": 12,
+            "y": 834,
+            "w": 1050,
+            "h": 30
+          }
+        },
+        {
+          "name": "terrain-operations",
+          "rect": {
+            "x": 1078,
+            "y": 44,
+            "w": 350,
+            "h": 820
+          }
+        },
+        {
+          "name": "route-profile",
+          "rect": {
+            "x": 1078,
+            "y": 321,
+            "w": 350,
+            "h": 543
+          }
+        },
+        {
+          "name": "terrain-analysis-row",
+          "rect": {
+            "x": 1078,
+            "y": 313,
+            "w": 350,
+            "h": 551
+          }
+        },
+        {
+          "name": "rehearsal-controls",
+          "rect": {
+            "x": 1078,
+            "y": 44,
+            "w": 350,
+            "h": 106
+          }
+        },
+        {
+          "name": "rehearsal-timeline",
+          "rect": {
+            "x": 1078,
+            "y": 150,
+            "w": 350,
+            "h": 36
+          }
+        }
+      ],
+      "blocks": [
+        {
+          "name": "paged-flow operations-pages",
+          "top": 44,
+          "bottom": 864,
+          "height": 820,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 2,
+          "textLength": 693
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 16,
+          "weight": "600",
+          "y": 227
+        },
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 16,
+          "weight": "600",
+          "y": 227
+        },
+        {
+          "tag": "strong",
+          "text": "0",
+          "size": 16,
+          "weight": "600",
+          "y": 254
+        },
+        {
+          "tag": "strong",
+          "text": "1,500",
+          "size": 16,
+          "weight": "600",
+          "y": 254
+        },
+        {
+          "tag": "strong",
+          "text": "63:35",
+          "size": 16,
+          "weight": "600",
+          "y": 281
+        },
+        {
+          "tag": "strong",
+          "text": "4:34",
+          "size": 16,
+          "weight": "600",
+          "y": 281
+        },
+        {
+          "tag": "strong",
+          "text": "Bang Niang exercise: Central approach · ",
+          "size": 14,
+          "weight": "600",
+          "y": 321
+        }
+      ],
+      "task": {
+        "mapVisible": true,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": {
+          "w": 1050,
+          "h": 786
+        }
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "explore"
+    },
+    "1440x900/satellite": {
+      "width": 1440,
+      "height": 900,
+      "doc": {
+        "w": 1440,
+        "h": 900
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 872,
+            "bottom": 900,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 864,
+          "height": 820,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 1820
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h1",
+          "text": "Sources & sensors",
+          "size": 26,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h2",
+          "text": "DART pressure-buoy reference",
+          "size": 20,
+          "weight": "600",
+          "y": 156
+        },
+        {
+          "tag": "h2",
+          "text": "Ko Taphao Noi tide-gauge candidate",
+          "size": 20,
+          "weight": "600",
+          "y": 307
+        },
+        {
+          "tag": "h2",
+          "text": "Sentinel-1 SAR imagery",
+          "size": 20,
+          "weight": "600",
+          "y": 437
+        },
+        {
+          "tag": "h2",
+          "text": "Copernicus DEM candidate",
+          "size": 20,
+          "weight": "600",
+          "y": 588
+        },
+        {
+          "tag": "h2",
+          "text": "What these sources can tell us",
+          "size": 20,
+          "weight": "600",
+          "y": 718
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "satellite"
+    },
+    "1440x900/prepare": {
+      "width": 1440,
+      "height": 900,
+      "doc": {
+        "w": 1440,
+        "h": 900
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 872,
+            "bottom": 900,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 864,
+          "height": 820,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 1369
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h1",
+          "text": "My evacuation plan",
+          "size": 26,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h3",
+          "text": "Four local checks",
+          "size": 19,
+          "weight": "600",
+          "y": 365
+        },
+        {
+          "tag": "strong",
+          "text": "1. Plan for congestion:",
+          "size": 14,
+          "weight": "600",
+          "y": 402
+        },
+        {
+          "tag": "strong",
+          "text": "2. Confirm refuge access:",
+          "size": 14,
+          "weight": "600",
+          "y": 444
+        },
+        {
+          "tag": "strong",
+          "text": "3. Rehearse and review:",
+          "size": 14,
+          "weight": "600",
+          "y": 465
+        },
+        {
+          "tag": "strong",
+          "text": "4. Help dependents first:",
+          "size": 14,
+          "weight": "600",
+          "y": 486
+        },
+        {
+          "tag": "strong",
+          "text": "~21 minutes",
+          "size": 13,
+          "weight": "600",
+          "y": 682
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "prepare"
+    },
+    "1440x900/drill": {
+      "width": 1440,
+      "height": 900,
+      "doc": {
+        "w": 1440,
+        "h": 900
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "task-heading",
+            "top": 44,
+            "bottom": 147,
+            "height": 103,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 872,
+            "bottom": 900,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 864,
+          "height": 820,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 2194
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "span",
+          "text": "Practice / record / improve",
+          "size": 13,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "strong",
+          "text": "Agree the warning and assistance",
+          "size": 14,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "h1",
+          "text": "Review an evacuation drill",
+          "size": 26,
+          "weight": "600",
+          "y": 66
+        },
+        {
+          "tag": "strong",
+          "text": "Walk and observe",
+          "size": 14,
+          "weight": "600",
+          "y": 121
+        },
+        {
+          "tag": "h2",
+          "text": "1 / Record observed counts",
+          "size": 20,
+          "weight": "600",
+          "y": 157
+        },
+        {
+          "tag": "strong",
+          "text": "Account for every participant",
+          "size": 14,
+          "weight": "600",
+          "y": 219
+        },
+        {
+          "tag": "strong",
+          "text": "Fix one problem and repeat",
+          "size": 14,
+          "weight": "600",
+          "y": 296
+        },
+        {
+          "tag": "strong",
+          "text": "—",
+          "size": 28,
+          "weight": "600",
+          "y": 450
+        },
+        {
+          "tag": "h3",
+          "text": "Walk the plan, then review it",
+          "size": 17,
+          "weight": "600",
+          "y": 682
+        },
+        {
+          "tag": "strong",
+          "text": "Confirm before you practise",
+          "size": 14,
+          "weight": "600",
+          "y": 711
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "drill"
+    },
+    "1440x900/research": {
+      "width": 1440,
+      "height": 900,
+      "doc": {
+        "w": 1440,
+        "h": 900
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "research-heading",
+            "top": 44,
+            "bottom": 116,
+            "height": 72,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 872,
+            "bottom": 900,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 864,
+          "height": 820,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 11587
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "span",
+          "text": "Research / Khao Lak",
+          "size": 13,
+          "weight": "600",
+          "y": 44
+        },
+        {
+          "tag": "dt",
+          "text": "+ VS14 · 7.0% → 3.7%",
+          "size": 13,
+          "weight": "600",
+          "y": 49
+        },
+        {
+          "tag": "h1",
+          "text": "Evidence, methods & limits",
+          "size": 26,
+          "weight": "600",
+          "y": 68
+        },
+        {
+          "tag": "dd",
+          "text": "Fourteen additional candidate buildings ",
+          "size": 14,
+          "weight": "400",
+          "y": 69
+        },
+        {
+          "tag": "dt",
+          "text": "+ VE50 / SG135 · 1.3% / 1.2%",
+          "size": 13,
+          "weight": "600",
+          "y": 125
+        },
+        {
+          "tag": "dd",
+          "text": "These are successive cumulative packages",
+          "size": 14,
+          "weight": "400",
+          "y": 145
+        },
+        {
+          "tag": "dt",
+          "text": "Full package: baseline1.2% / delayed2.9%",
+          "size": 13,
+          "weight": "600",
+          "y": 201
+        },
+        {
+          "tag": "h2",
+          "text": "01 / Reported scenario results",
+          "size": 20,
+          "weight": "600",
+          "y": 208
+        },
+        {
+          "tag": "dd",
+          "text": "Warning issuance changes30→45 minutes an",
+          "size": 14,
+          "weight": "400",
+          "y": 221
+        },
+        {
+          "tag": "h2",
+          "text": "02 / Two models, different purposes",
+          "size": 20,
+          "weight": "600",
+          "y": 386
+        },
+        {
+          "tag": "dt",
+          "text": "PD50",
+          "size": 14,
+          "weight": "600",
+          "y": 388
+        },
+        {
+          "tag": "dd",
+          "text": "50% pedestrian preference; not everyone ",
+          "size": 14,
+          "weight": "400",
+          "y": 388
+        },
+        {
+          "tag": "dt",
+          "text": "VS14",
+          "size": 14,
+          "weight": "600",
+          "y": 422
+        },
+        {
+          "tag": "dd",
+          "text": "14 additional candidate buildings, beyon",
+          "size": 14,
+          "weight": "400",
+          "y": 422
+        },
+        {
+          "tag": "h3",
+          "text": "Published Unity ABMS [R1]",
+          "size": 17,
+          "weight": "600",
+          "y": 424
+        },
+        {
+          "tag": "h3",
+          "text": "Browser point-queue rehearsal",
+          "size": 17,
+          "weight": "600",
+          "y": 424
+        },
+        {
+          "tag": "dt",
+          "text": "VE50",
+          "size": 14,
+          "weight": "600",
+          "y": 478
+        },
+        {
+          "tag": "dd",
+          "text": "50% vertical-evacuation preference. This",
+          "size": 14,
+          "weight": "400",
+          "y": 478
+        },
+        {
+          "tag": "dt",
+          "text": "SG135",
+          "size": 14,
+          "weight": "600",
+          "y": 533
+        },
+        {
+          "tag": "dd",
+          "text": "135 signs in total, up from 64; not 135 ",
+          "size": 14,
+          "weight": "400",
+          "y": 533
+        },
+        {
+          "tag": "h3",
+          "text": "How Soonami Builds on the Research",
+          "size": 17,
+          "weight": "700",
+          "y": 617
+        },
+        {
+          "tag": "h3",
+          "text": "What the reported comparisons support",
+          "size": 17,
+          "weight": "600",
+          "y": 658
+        },
+        {
+          "tag": "dt",
+          "text": "PD50 · 21.8% → 7.0%",
+          "size": 13,
+          "weight": "600",
+          "y": 689
+        },
+        {
+          "tag": "dd",
+          "text": "The walking-preference package changes t",
+          "size": 14,
+          "weight": "400",
+          "y": 709
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [
+        {
+          "name": "section",
+          "left": 732,
+          "right": 2148
+        },
+        {
+          "name": "research-timing",
+          "left": 732,
+          "right": 2102
+        }
+      ],
+      "overflow": false,
+      "tab": "research"
+    }
+  }
+}

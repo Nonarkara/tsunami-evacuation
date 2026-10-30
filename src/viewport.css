@@ -61,7 +61,9 @@
  .terrain-operations .rehearsal-readout strong { font-size:16px; }
  .terrain-operations .exercise-boundary { margin:0; font-size:12px; line-height:1.4; }
  .terrain-operations .terrain-secondary { min-height:0; flex:1; display:flex; flex-direction:column; }
- .terrain-operations .terrain-analysis-row { display:flex; min-height:0; height:100%; }
+ /* The task column is one narrow column: the profile and the queue chart stack
+    in it rather than sharing a row too narrow to read. */
+ .terrain-operations .terrain-analysis-row { display:flex; flex-direction:column; gap:8px; min-height:0; height:100%; }
  .terrain-operations .route-profile { display:flex; flex-direction:column; min-height:0; width:100%; padding:0; }
  .terrain-operations .route-profile > strong { font-size:14px; }
  .terrain-operations .route-profile > span { font-size:12px; }
@@ -353,6 +355,18 @@
 }
 @media screen {
  .operations-pages[data-pages="1"] .terrain-secondary,.operations-pages[data-pages="1"] .terrain-analysis-row,.operations-pages[data-pages="1"] .route-profile { height:auto; }
+}
+@media screen {
+ /* The task column sizes to its content. An elevation chart that stretches to
+    fill the leftover height reads as a large result while showing an empty
+    plot, so it gets a data-sized box and the queue chart, whose bar heights
+    carry a value, takes the flexible space instead. */
+ .operations-pages[data-pages="1"] .terrain-secondary { flex:1 1 auto; }
+ .operations-pages[data-pages="1"] .terrain-analysis-row { display:flex; flex-direction:column; flex:1 1 auto; min-height:0; }
+ .operations-pages[data-pages="1"] .route-profile { flex:0 0 auto; }
+ .operations-pages[data-pages="1"] .profile-chart { flex:0 0 auto; height:150px; min-height:90px; }
+ .operations-pages[data-pages="1"] .queue-chart { flex:1 1 auto; min-height:0; }
+ .operations-pages[data-pages="1"] .queue-chart-plot { flex:1 1 auto; min-height:96px; }
 }
 @media screen {
  .operations-pages[data-pages="1"] .rehearsal-controls,.operations-pages[data-pages="1"] .rehearsal-timeline,.operations-pages[data-pages="1"] .exercise-boundary,.operations-pages[data-pages="1"] .rehearsal-readout,.operations-pages[data-pages="1"] .compare-panel { flex:0 0 auto; }
