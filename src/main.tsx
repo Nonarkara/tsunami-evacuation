@@ -81,6 +81,7 @@ function App() {
   const [modelView,setModelView]=useState("terrain");
   const [manualOpen, setManualOpen] = useState(false);
   const [language, setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
+  const t = (en: string, th: string) => language === 'th' ? th : en;
 
   const region = coastalRegions[regionIdx];
   const place = region.places[selectedPlace];
@@ -114,37 +115,37 @@ function App() {
           {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2026) */}
           <div className="evacuation-route-waypoints">
             <div className="waypoint-item start">
-              <span className="wp-badge">01 IMMEDIATE</span>
+              <span className="wp-badge">01</span>
               <div>
-                <strong>Plan an accessible departure</strong>
-                <small>Follow local evacuation instructions and natural warnings. Plan assistance for people who cannot evacuate on foot.</small>
+                <strong>{t('Plan an accessible departure','วางแผนการออกเดินทางที่ทุกคนใช้ได้')}</strong>
+                <small>{t('Follow local evacuation instructions and natural warnings. Plan assistance for people who cannot walk.','ปฏิบัติตามคำแนะนำและสัญญาณจากทางการ วางแผนช่วยคนที่เดินไม่ไหว')}</small>
               </div>
             </div>
             <div className="waypoint-item walk">
-              <span className="wp-badge">02 PERPENDICULAR</span>
+              <span className="wp-badge">02</span>
               <div>
-                <strong>Walk and verify the designated route</strong>
-                <small>Confirm crossings, gates, signs and a backup with the local authority; a straight inland line is not a verified route.</small>
+                <strong>{t('Walk and verify the route','เดินและตรวจสอบเส้นทาง')}</strong>
+                <small>{t('Confirm crossings, gates, signs and a backup with the local authority.','ยืนยันทางข้าม ประตู ป้าย และทางสำรองกับทางการท้องถิ่น')}</small>
               </div>
             </div>
             <div className="waypoint-item destination">
-              <span className="wp-badge">03 REFUGE</span>
+              <span className="wp-badge">03</span>
               <div>
-                <strong>{place.refugeStrategy}</strong>
-                <small>Use authority-designated destinations. Neither an elevation threshold nor a floor number certifies safety.</small>
+                <strong>{t('Refuge','ที่หลบภัย')}</strong>
+                <small>{place.refugeStrategy}</small>
               </div>
             </div>
           </div>
 
           {/* Actionable Directive & Spatial Context */}
           <div className="action-directive">
-            <strong>⚠️ Actionable Evacuation Directive:</strong>
+            <strong>{t('Actionable directive','คำแนะนำที่ปฏิบัติได้')}</strong>
             <span>{place.actionableDirective}</span>
           </div>
 
           {place.spatialContext && (
             <div className="gridlock-warning-bar">
-              <strong>📍 Topographic &amp; Bottleneck Context:</strong>
+              <strong>{t('Topographic & Bottleneck Context','บริบทภูมิประเทศและคอขวด')}</strong>
               <span>{place.spatialContext}</span>
             </div>
           )}
@@ -169,20 +170,18 @@ function App() {
           aria-label="Tsunami safety guidance"
         >
           <div>
-            <h2>Follow designated evacuation routes to high ground or inland.</h2>
+            <h2>{t('Follow official routes to high ground or inland.','อพยพไปที่สูงหรือพื้นที่ด้านในตามเส้นทางทางการ')}</h2>
             <p>
-              Natural signs: violent ground shaking, sudden sea recession, or a roaring ocean sound. Move immediately when you can do so safely. Follow official guidance and arrange assistance. Do not wait for website updates.
-            </p>
+              {t('Natural signs: strong shaking, sea recession, roaring ocean. Move immediately when safe. Follow official guidance and assist others.','สัญญาณจากธรรมชาติ: แผ่นดินไหวรุนแรง น้ำทะเลลดระดับ หรือเสียงคำรามจากทะเล อพยพทันทีเมื่อปลอดภัย ปฏิบัติตามคำแนะนำจากทางการและช่วยเหลือผู้อื่น')}</p>
             <p lang="th">
-              หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพไปยังพื้นที่สูงหรือพื้นที่ด้านในตามเส้นทางที่ทางการกำหนด และช่วยเหลือผู้ที่ต้องการความช่วยเหลือ
-            </p>
+              {t('หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพไปยังพื้นที่สูงหรือพื้นที่ด้านในตามเส้นทางที่ทางการกำหนด และช่วยเหลือผู้ที่ต้องการความช่วยเหลือ','หากรู้สึกถึงแผ่นดินไหวรุนแรง น้ำทะเลลดระดับอย่างรวดเร็ว หรือได้ยินเสียงคำรามจากทะเล ให้อพยพไปยังพื้นที่สูงหรือพื้นที่ด้านในตามเส้นทางที่ทางการกำหนด และช่วยเหลือผู้ที่ต้องการความช่วยเหลือ')}</p>
           </div>
           <div>
             <p>
-              Hotline: <strong>DDPM Thailand · 1784</strong> (24/7)
+              <strong>{t('Hotline: DDPM Thailand · 1784 (24/7)','สายด่วน: DDPM ไทย · 1784 (24 ชม.)')}</strong>
             </p>
             <a href="tel:1784" className="call-btn">
-              Call DDPM 1784 Now
+              {t('Call DDPM 1784 Now','โทร 1784 ตอนนี้')}
             </a>
             <div className="emergency-links">
               <a
@@ -190,7 +189,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                TMD Warnings ↗
+                {t('TMD Warnings','คำเตือน TMD')} ↗
               </a>{" "}
               ·{" "}
               <a
@@ -198,7 +197,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                DDPM Portal ↗
+                {t('DDPM Portal','ประตูสู่ DDPM')} ↗
               </a>
             </div>
 
