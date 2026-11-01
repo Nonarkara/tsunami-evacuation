@@ -76,24 +76,24 @@ export function ShelterReadinessPanel({ readiness, language='en' }: { readiness:
   const t=(en:string,th:string)=>language==='th'?th:en;
   return (
     <section className="shelter-readiness-panel" aria-label="Shelter operational readiness">
-      <h3>Operational readiness · ความพร้อมในการดำเนินการ</h3>
+      <h3>{t('Operational readiness','ความพร้อมในการดำเนินการ')}</h3>
       <dl className="readiness-list">
         <div>
-          <dt>Operational status</dt>
+          <dt>{t('Operational status','สถานะการดำเนินงาน')}</dt>
           <dd>{readiness.operationalStatus}</dd>
         </div>
         <div>
-          <dt>Accessible entry</dt>
+          <dt>{t('Accessible entry','ทางเข้าที่ใช้ได้')}</dt>
           <dd>{readiness.accessibleEntry}</dd>
         </div>
         <div>
-          <dt>Usable refuge elevation</dt>
+          <dt>{t('Usable refuge elevation','ระดับความสูงที่หลบภัยได้')}</dt>
           <dd>
-            {readiness.usableRefugeElevationM === null ? "not assessed" : `${readiness.usableRefugeElevationM} m`}
+            {readiness.usableRefugeElevationM === null ? t('not assessed','ยังไม่ประเมิน') : `${readiness.usableRefugeElevationM} m`}
           </dd>
         </div>
         <div>
-          <dt>Owner / operator permission</dt>
+          <dt>{t('Owner / operator permission','สิทธิ์เจ้าของ / ผู้ดำเนินการ')}</dt>
           <dd>{readiness.ownerOperatorPermission}</dd>
         </div>
       </dl>

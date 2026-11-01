@@ -283,7 +283,7 @@ summary:focus-visible {
   padding: 2px 6px;
   height: 26px;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .region-select:hover {
@@ -338,7 +338,7 @@ summary:focus-visible {
   font-weight: 700;
   padding: 2px 8px;
   height: 26px;
-  border-radius: 2px;
+  border-radius: 0;
   white-space: nowrap;
 }
 
@@ -352,7 +352,7 @@ summary:focus-visible {
   padding: 2px 8px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
+  border-radius: 0;
   font: 600 12px/1 var(--font-mono);
   color: #ffffff;
   white-space: nowrap;
@@ -368,7 +368,7 @@ summary:focus-visible {
   padding: 2px 8px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 2px;
+  border-radius: 0;
   color: #fbbf24;
   font-size: 11px;
   font-weight: 600;
@@ -424,7 +424,7 @@ summary:focus-visible {
   padding: 6px 12px;
   text-decoration: none;
   margin-top: 6px;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .emergency-links {
@@ -510,7 +510,7 @@ main {
   font-weight: 600;
   background: #e2e5dc;
   padding: 2px 6px;
-  border-radius: 2px;
+  border-radius: 0;
   color: var(--ink);
 }
 
@@ -593,7 +593,7 @@ main {
   font-weight: 600;
   padding: 4px 8px;
   backdrop-filter: blur(4px);
-  border-radius: 2px;
+  border-radius: 0;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: background 0.15s ease, border-color 0.15s ease;
@@ -651,7 +651,7 @@ main {
   background: var(--ink) !important;
   color: var(--paper) !important;
   border: 0 !important;
-  border-radius: 2px !important;
+  border-radius: 0 !important;
   font-size: 12px !important;
   padding: 4px 8px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
@@ -677,7 +677,7 @@ main {
 /* Evacuation Route Tooltips & SVG Layer Styling */
 .route-tooltip {
   font-size: 12px !important;
-  border-radius: 2px !important;
+  border-radius: 0 !important;
   padding: 4px 8px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
 }
@@ -719,7 +719,7 @@ main {
   background: #f59e0b;
   color: #1e1b4b;
   border: 2px solid #ffffff;
-  border-radius: 4px;
+  border-radius: 0;
   font-weight: 800;
   font-size: 11px;
   letter-spacing: 0.04em;
@@ -801,7 +801,7 @@ main {
   color: var(--ink-2);
   background: #e4e7dd;
   padding: 1px 4px;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .place-selector-bar button[aria-pressed="true"] {
@@ -854,7 +854,7 @@ main {
   font-size: 12px;
   background: #e7ebd4;
   padding: 3px 6px;
-  border-radius: 2px;
+  border-radius: 0;
   color: #1a331a;
 }
 
@@ -1473,7 +1473,7 @@ main {
 .legend-swatch {
   width: 10px;
   height: 10px;
-  border-radius: 2px;
+  border-radius: 0;
   margin-top: 3px;
   flex-shrink: 0;
 }
@@ -1563,7 +1563,7 @@ main {
   font-size: 11px;
   font-weight: 700;
   padding: 2px 6px;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .sensor-status-badge.online {
@@ -1706,7 +1706,7 @@ main {
   background: var(--companion);
   color: #ffffff;
   padding: 2px 5px;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .diagram-header strong {
@@ -2703,7 +2703,7 @@ main { padding-bottom:6px; }
 .experiment-tabs {
   padding: 2px;
   background: #e7e9e2;
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 .experiment-tabs button,
@@ -2716,7 +2716,7 @@ main { padding-bottom:6px; }
   padding: 0;
   background: transparent;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 0;
   color: var(--companion);
   cursor: pointer;
 }

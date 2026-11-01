@@ -343,12 +343,12 @@ function App() {
                           <small>%</small>
                         </span>
                         <div className="hud-labels">
-                          <strong>Modeled victim share</strong>
+                          <strong>{t('Modeled victim share','สัดส่วนผู้ประสบภัยจำลอง')}</strong>
                           <span>
                             {Math.round(
                               (resultFor(step, condition) / 100) * POPULATION,
                             ).toLocaleString("en-US")}{" "}
-                            of {POPULATION.toLocaleString("en-US")} agents
+                            {t('of','จาก')} {POPULATION.toLocaleString("en-US")} {t('agents','ตัวแทน')}
                           </span>
                         </div>
                       </div>
@@ -394,15 +394,15 @@ function App() {
 
                     <dl className="pkg-metrics-grid">
                       <div>
-                        <dt>Vertical Refuges</dt>
-                        <dd>{scenarios[step].sites} sites</dd>
+                        <dt>{t('Vertical Refuges','ที่หลบภัยแนวดิ่ง')}</dt>
+                        <dd>{scenarios[step].sites} {t('sites','จุด')}</dd>
                       </div>
                       <div>
-                        <dt>Signs</dt>
-                        <dd>{scenarios[step].signs} signs</dd>
+                        <dt>{t('Signs','ป้าย')}</dt>
+                        <dd>{scenarios[step].signs} {t('signs','ป้าย')}</dd>
                       </div>
                       <div>
-                        <dt>Vertical Pref.</dt>
+                        <dt>{t('Vertical Pref.','ความนิยมขึ้นสูง')}</dt>
                         <dd>{scenarios[step].vertical}% agents</dd>
                       </div>
                     </dl>
@@ -425,7 +425,7 @@ function App() {
 
         {/* Tab: My Plan */}
         <div hidden={tab !== "prepare"}>
-          <PagedFlow label="Personal plan"><Prepare /></PagedFlow>
+          <PagedFlow label="Personal plan"><Prepare language={language} /></PagedFlow>
         </div>
 
         {/* Tab: Run a Drill */}
@@ -452,7 +452,8 @@ function App() {
 /* ── §5 Satellite & Meteorological Intel View ──────────────── */
 /* ── §6 Research Section with Dynamic Synthesis & Diagrams ─── */
 /* ── §7 My Plan View ───────────────────────────────────────── */
-function Prepare() {
+function Prepare({language}:{language:string}) {
+  const t = (en: string, th: string) => language === 'th' ? th : en;
   const [plan, setPlan] = useState<Plan>(structuredClone(blankPlan)),
     [message, setMessage] = useState(""),
     [distance, setDistance] = useState("1000"),
@@ -493,8 +494,8 @@ function Prepare() {
     <div className="planning-grid">
       <section className="plan-form" id="plan-form">
         <div className="section-head-compact">
-          <h1>My evacuation plan</h1>
-          <span className="meta">Private & On-Device · Actionable Protocol</span>
+          <h1>{t('My evacuation plan','แผนอพยพของฉัน')}</h1>
+          <span className="meta">{t('Private & On-Device · Actionable Protocol','ส่วนตัวบนอุปกรณ์นี้ · คำแนะนำที่ปฏิบัติได้')}</span>
         </div>
         <p>
           Confirm destinations, routes and assisted transport needs with local authorities before an emergency.
@@ -606,7 +607,7 @@ function Prepare() {
           <button className="primary" onClick={save}>
             Save to browser
           </button>
-          <button onClick={load}>Load saved plan</button>
+          <button onClick={load}>{t('Load saved plan','โหลดแผนที่บันทึกไว้')}</button>
           <button
             onClick={() =>
               download(
@@ -617,7 +618,7 @@ function Prepare() {
           >
             Export JSON
           </button>
-          <button onClick={() => window.print()}>Print plan</button>
+          <button onClick={() => window.print()}>{t('Print plan','พิมพ์แผน')}</button>
         </div>
 
         {message && (
@@ -628,19 +629,19 @@ function Prepare() {
       </section>
 
       <aside className="plan-aside">
-        <h3>Four local checks</h3>
+        <h3>{t('Four local checks','สิ่งที่ต้องยืนยันในพื้นที่ 4 ข้อ')}</h3>
         <ul className="axioms-list">
           <li>
-            <strong>1. Plan for congestion:</strong> Confirm an accessible departure plan and designated routes with local emergency managers.
+            <strong>{t('1. Plan for congestion:','1. วางแผนรับความแออัด:')}</strong> {t('Confirm an accessible departure plan and designated routes with local emergency managers.','ยืนยันแผนการออกเดินทางและเส้นทางที่กำหนดกับผู้จัดการฉุกเฉินในพื้นที่')}
           </li>
           <li>
-            <strong>2. Confirm refuge access:</strong> Confirm an authority-designated vertical refuge and access before a drill.
+            <strong>{t('2. Confirm refuge access:','2. ยืนยันการเข้าถึงที่หลบภัย:')}</strong> {t('Confirm an authority-designated vertical refuge and access before a drill.','ยืนยันอาคารสูงที่ใช้หลบภัยและการเข้าถึงก่อนซ้อม')}
           </li>
           <li>
-            <strong>3. Rehearse and review:</strong> Rehearse staircases and exit gates before a real event.
+            <strong>{t('3. Rehearse and review:','3. ซ้อมและทบทวน:')}</strong> {t('Rehearse staircases and exit gates before a real event.','ซ้อมขึ้นบันไดและออกประตูก่อนเหตุการณ์จริง')}
           </li>
           <li>
-            <strong>4. Help dependents first:</strong> Assign specific buddies for elderly, children, and visitors.
+            <strong>{t('4. Help dependents first:','4. ช่วยผู้ต้องพึ่งพิงก่อน:')}</strong> {t('Assign specific buddies for elderly, children, and visitors.','มอบหมายผู้ช่วยเฉพาะคนสำหรับผู้สูงอายุ เด็ก และนักท่องเที่ยว')}
           </li>
         </ul>
       </aside>
