@@ -407,16 +407,16 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <div className="rehearsal-panel" hidden={mode !== 'crowd'}>
       <div className="rehearsal-controls" id="rehearsal-controls">
         <div className="control-group"><span className="control-group-label">{t('Group','กลุ่ม')}</span>
-          <label>People<select aria-label="People" value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
+          <label>{t('People','ผู้คน')}<select aria-label={t('People','ผู้คน')} value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
           <label title={t('Share of the group moving at a run pace. An assumed exercise parameter, not advice.','สัดส่วนผู้เดินด้วยจังหวะวิ่ง เป็นค่าตั้งสมมติของแบบฝึก ไม่ใช่คำแนะนำ')}>Runners<select aria-label="Share of the group moving at a run pace" value={runShare} onChange={e => setRunShare(Number(e.target.value))}><option value={0}>{t('None','ไม่มี')}</option><option value={0.1}>10%</option><option value={0.25}>25%</option><option value={0.5}>50%</option></select></label>
         </div>
         <div className="control-group"><span className="control-group-label">{t('Movement','การเคลื่อนที่')}</span>
           <label title={t('Walking pace of the group. An assumed exercise parameter.','จังหวะเดินของกลุ่ม เป็นค่าตั้งสมมติของแบบฝึก')}>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
-          <label>Delay<select aria-label="Preparation delay" value={preparation} onChange={e => setPreparation(Number(e.target.value))}><option value={0}>0 s</option><option value={60}>1 min</option><option value={300}>5 min</option></select></label>
+          <label>{t('Delay','เวลาเตรียม')}<select aria-label={t('Preparation delay','เวลาเตรียม')} value={preparation} onChange={e => setPreparation(Number(e.target.value))}><option value={0}>0 s</option><option value={60}>1 min</option><option value={300}>5 min</option></select></label>
         </div>
         <div className="control-group"><span className="control-group-label">{t('Scenario','สถานการณ์')}</span>
-          <label>Route<select aria-label="Camera approach" value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
-          <label>Water demo<select aria-label="Illustrative water level" disabled={!!hazard || flat} value={animateWater ? peak : 0} onChange={e => {
+          <label>{t('Route','เส้นทาง')}<select aria-label={t('Route','เส้นทาง')} value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
+          <label>{t('Water demo','ทดลองน้ำ')}<select aria-label={t('Illustrative water level','ระดับน้ำเพื่อการสาธิต')} disabled={!!hazard || flat} value={animateWater ? peak : 0} onChange={e => {
             const val = Number(e.target.value);
             if (val === 0) {
               setAnimateWater(false);
@@ -426,12 +426,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
               setAnimateWater(true);
               setScreen(true);
             }
-          }}><option value={0}>Off</option><option value={5}>+5 m</option><option value={10}>+10 m</option><option value={15}>+15 m</option><option value={20}>+20 m</option></select></label>
+          }}><option value={0}>{t('Off','ปิด')}</option><option value={5}>+5 m</option><option value={10}>+10 m</option><option value={15}>+15 m</option><option value={20}>+20 m</option></select></label>
         </div>
         <button className="rehearsal-play" aria-label={playing ? t('Pause rehearsal','หยุดชั่วคราวแบบฝึก') : started ? t('Resume rehearsal','เล่นต่อแบบฝึก') : t('Start rehearsal','เริ่มแบบฝึก')} disabled={flat || !ready} onClick={startExercise}>{playing ? t('Pause','หยุดชั่วคราว') : started ? t('Resume','เล่นต่อ') : t('Start','เริ่ม')}</button>
       </div>
       <div className="rehearsal-timeline">
-        <button onClick={() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }}>Reset</button>
+        <button onClick={() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }}>{t('Reset','รีเซ็ต')}</button>
         <label className="timeline-label"><span>{started ? t('Elapsed +','ผ่านไป +') : t('Ready · ','พร้อม · ')}{minutes(seconds)}</span><TimeScrubber label="Exercise time" duration={duration} value={seconds} onChange={value => { setSeconds(value); setStarted(true); setPlaying(false); }} /></label>
         <label>{t('Speed','ความเร็ว')}<select aria-label="Playback speed / ความเร็ว" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
@@ -524,7 +524,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <div className="scenario-settings-row">
         {model && <label>Assumed pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}
         {grid && <><label><input type="checkbox" checked={animateWater} disabled={!!hazard || flat} onChange={e => { setAnimateWater(e.target.checked); setMode('crowd'); setScreen(e.target.checked); }} /> Animate illustrative water rise</label><label>Screen peak<select aria-label="Demonstration peak level" value={peak} onChange={e => setPeak(Number(e.target.value))}><option value={5}>+5 m MSL</option><option value={10}>+10 m MSL</option><option value={15}>+15 m MSL</option><option value={20}>+20 m MSL</option></select></label><label>Rise duration<select aria-label="Demonstration rise duration" value={riseMinutes} onChange={e => setRiseMinutes(Number(e.target.value))}><option value={5}>5 exercise min</option><option value={10}>10 exercise min</option><option value={20}>20 exercise min</option></select></label></>}
-        <button disabled={!ready || flat} onClick={() => { setDimension('3d'); view('coast'); }}>Scenic coast view</button><button onClick={() => { setFlat(true); setPlaying(false); setQueueFocus(undefined); }}>Basic map fallback</button>
+        <button disabled={!ready || flat} onClick={() => { setDimension('3d'); view('coast'); }}>{t('Scenic coast view','วิวชายฝั่ง')}</button><button onClick={() => { setFlat(true); setPlaying(false); setQueueFocus(undefined); }}>{t('Basic map fallback','แผนที่พื้นฐาน')}</button>
       </div>
       <p className="scenario-provenance">{hazard ? <>Imported research replay: <a href={hazard.sourceUrl} target="_blank" rel="noreferrer">{hazard.title}</a> · {hazard.model} · {hazard.verticalDatum} · approval not independently verified. {waterFrame?.waveHeightM == null ? 'Wave height at a gauge is not supplied for this time.' : `Model wave height at ${hazard.waveGauge?.name}: ${waterFrame.waveHeightM.toFixed(2)} m (crest-to-trough).`}</> : <>Wave prediction and approved destinations are not connected. {animateWater ? `The animated +${shownWaterLevel.toFixed(1)} m level is a user-chosen terrain demonstration, not a predicted wave height or arrival time.` : 'The water slider screens terrain; it does not predict tsunami wave height.'}</>}</p>
       <label className="scenario-import">Load research inundation frames (JSON, on this device only)<input aria-label="Load research inundation scenario" type="file" accept="application/json,.json" onChange={e => { void importScenario(e.target.files?.[0]); e.target.value = ''; }} /></label>

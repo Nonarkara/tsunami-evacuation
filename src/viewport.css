@@ -223,12 +223,12 @@
  #main .geography-pane { height:100%; }
  .reading-trigger { background:transparent; border:0; padding:3px 6px; font:inherit; cursor:pointer; color:var(--companion); }
  .exercise-console .reading-trigger { min-height:28px; font-size:12px; background:var(--panel); }
- .reading-dialog { width:min(1100px,calc(100vw - 32px)); height:min(740px,calc(100dvh - 64px)); max-height:calc(100dvh - 32px); padding:16px; border:1px solid var(--line-2); background:var(--panel); color:var(--ink); overflow:hidden; }
+ .reading-dialog { width:min(900px,calc(100vw - 24px)); max-height:calc(100dvh - 48px); padding:12px 16px; border:1px solid var(--line-2); background:var(--panel); color:var(--ink); overflow:auto; max-width:100%; }
  .reading-dialog[open] { display:grid; grid-template-rows:auto minmax(0,1fr); gap:12px; }
  .reading-dialog::backdrop { background:#12354e80; }
  .reading-dialog > header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
- .reading-dialog > header h2 { font-size:21px; margin:0; }
- .reading-dialog > header button { font-size:25px; width:32px; height:32px; padding:0; background:transparent; border:0; }
+ .reading-dialog > header h2 { font-size:17px; margin:0; }
+ .reading-dialog > header button { font-size:20px; width:28px; height:28px; padding:0; background:transparent; border:0; }
  .reading-dialog .console-sections { display:contents; }
  .user-manual[open] { display:grid; grid-template-rows:auto minmax(0,1fr); height:calc(100dvh - 64px); max-height:740px; overflow:hidden; }
  .user-manual .flow-content { column-count:1; }
