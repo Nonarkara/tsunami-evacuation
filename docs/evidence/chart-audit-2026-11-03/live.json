@@ -1,0 +1,186 @@
+{
+  "desktopStartPause": {
+    "document": [
+      1280,
+      720
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 650,
+      "height": 606,
+      "left": 12,
+      "right": 838.6640625,
+      "top": 44,
+      "width": 826.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 1065.328125,
+        "right": 1162.6640625,
+        "top": 292.1953125,
+        "width": 97.3359375,
+        "x": 1065.328125,
+        "y": 292.1953125
+      }
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=th#explore",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "desktopResults": {
+    "document": [
+      1280,
+      720
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Published outcomes",
+        "pages": "1"
+      }
+    ],
+    "scene": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": null,
+    "url": "https://tsunami.nonarkara.org/?lang=th#explore",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "phoneDelayedResults": {
+    "document": [
+      390,
+      844
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Published outcomes",
+        "pages": "1"
+      }
+    ],
+    "scene": {
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": null,
+    "url": "https://tsunami.nonarkara.org/?lang=th#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "desktopModel": {
+    "document": [
+      1440,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1440,
+      "top": 0,
+      "width": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "1"
+      }
+    ],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 1198.65625,
+        "right": 1309.3203125,
+        "top": 292.1953125,
+        "width": 110.6640625,
+        "x": 1198.65625,
+        "y": 292.1953125
+      }
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=th#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

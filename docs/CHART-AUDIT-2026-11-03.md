@@ -37,3 +37,13 @@ Research tables do not split across columns; qualifications sit immediately besi
 Physical-device rendering and native Thai community review remain unverified. Research and detailed rehearsals still use explicit pagination. Coarse terrain and imagery do not become higher-resolution source data through charts. No new wave prediction, validated evacuation route or refuge approval was introduced.
 
 Release receipt follows after canonical deployment.
+
+## Canonical release
+
+Application commit: `110d76b`. Cloudflare Worker version: `bd29200d-44ac-49f1-843e-5745a8906d47`. Published with `npm run deploy` after70tests, strict build and six contrast gates passed.
+
+Canonical HTML and referenced `/assets/index-Bd12eg7g.js` and `/assets/index-DdXB-ncK.css` match `dist` byte-for-byte. See `live-bytes.json` for hashes. Python's default HTTP client received403; ordinary curl and the actual browser succeeded with normal TLS validation.
+
+Live browser proof: Start/Pause at1280×720; Thai delayed Results1page at390×844; Model1page at1440×900; banner36px and no document scrolling in each. Responsive resize also restored the96px phone Results chart after the240px desktop chart. See `live.json`, `live-results-th-390.png` and `live-model-th-1440.png`. Earlier `diagnostic-before-results-unboxing-th-390.png` intentionally records the rejected isolated outcome page; final phone Results captures show its correction.
+
+Independent final review accepted all findings and the final phone Results consolidation. Physical phone and native Thai community review remain unverified.
