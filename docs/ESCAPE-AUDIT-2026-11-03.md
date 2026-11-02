@@ -58,3 +58,13 @@ No location-specific wave forecast, approved evacuation GIS or certified refuge 
 The Obsidian bridge returned Transport closed for get_context/read_note. Kit canon was read from its known Markdown paths without editing it. Repository documentation is the durable fallback; shared-memory capture is retried after release. No separate scratch system was created.
 
 Canonical release receipt follows after deployment.
+
+## Live resize correction
+
+The first canonical check exposed an existing camera defect: the native eye-camera cache keyed only the two terrain heights. A changed canvas height changes the native camera zoom needed to maintain the same1.65m eye position, but resize could reuse the old pose. Both route-following and free-walk cameras now include actual canvas CSS dimensions, align on resize and idle, ignore zero-sized hidden views, and clear the cache when terrain is unavailable so recovery cannot leave Play stuck. Native ground+1.65m inputs and complete jumpTo options remain intact.
+
+`eye-resize.json` records phone canvas374×390/native zoom20.786395 and resized desktop933×786/zoom21.797450; fresh desktop was21.796593 (small native tile/LOD variation). These are renderer measurements, not claims of surveyed terrain accuracy. `eye-restore-freewalk.json` confirms restoration after hiding the scene and both phone/desktop free walking. Independent camera-specific review accepted the fix and recovery path.
+
+Direct lesson initialization is now scoped to a place with a connected route pack. `lesson-coverage-entry.json` records a Phuket selection retaining overview and the explicit data gap, with no synthetic route lesson. A regional scene can still be explored manually at eye level.
+
+Application5570e22 was the initial feature release (Worker3514c82c-2e73-46b1-a32e-5f2cc112eead); the responsive camera correction is included in the final release receipt below.

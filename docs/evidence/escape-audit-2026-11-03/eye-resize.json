@@ -1,0 +1,41 @@
+{
+  "eyePhone": {
+    "alignedViewport": "374x390",
+    "canvas": [
+      374,
+      390
+    ],
+    "caption": "1.65m eye · coarse DEM · unknown=3m · exercise only© Esri & contributors · Mapzen · OSMNอาทิตย์ ≈ EMap key",
+    "nativeZoom": "20.786395",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "eyeResized": {
+    "alignedViewport": "933x786",
+    "canvas": [
+      933,
+      786
+    ],
+    "caption": "1.65m eye · coarse DEM · unknown=3m · exercise only© Esri & contributors · Mapzen · OSMNอาทิตย์ ≈ EMap key",
+    "nativeZoom": "21.797450",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  "eyeFresh": {
+    "alignedViewport": "933x786",
+    "canvas": [
+      933,
+      786
+    ],
+    "caption": "1.65m eye · coarse DEM · unknown=3m · exercise only© Esri & contributors · Mapzen · OSMNอาทิตย์ ≈ EMap key",
+    "nativeZoom": "21.796593",
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}

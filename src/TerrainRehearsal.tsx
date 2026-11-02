@@ -31,7 +31,9 @@ const RUN_PACE = 3;
 /** Walking paces the reader can compare, in metres per second. */
 const WALK_PACES = [0.8, 1.4, 2.4];
 export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, finding, onReview, onPlan, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; finding?: ReactNode; onReview:()=>void; onPlan:()=>void; bannerDock:HTMLElement|null }) {
-  const initialLesson = new URLSearchParams(location.search).get('lesson') === 'escape';
+  const areaPack = areaPacks[region.id];
+  const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
+  const initialLesson = isStudy && new URLSearchParams(location.search).get('lesson') === 'escape';
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
   const host = useRef<HTMLDivElement>(null), map = useRef<maplibregl.Map | null>(null);
@@ -63,8 +65,6 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const [walkCompare, setWalkCompare] = useState<'off' | 'compare'>('off');
   const language = manualLanguage(location.search,navigator.language);
   const t = (en:string,th:string) => language==='th' ? th : en;
-  const areaPack = areaPacks[region.id];
-  const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
   const terrainGridRef = useRef(grid); terrainGridRef.current = grid;
   const lastSelection = useRef(`${region.id}:${selected}`);
   useEffect(() => {
@@ -260,16 +260,19 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       setEyeViewReady(false);
       let lastGround: string | undefined;
       const align = () => {
+        if(!m.getCanvas().clientWidth || !m.getCanvas().clientHeight) return;
         const ground=m.queryTerrainElevation(progress.coord), targetGround=m.queryTerrainElevation(ahead.coord);
-        if (ground === null || targetGround === null) return;
-        const key=`${ground.toFixed(3)}:${targetGround.toFixed(3)}`;
+        if (ground === null || targetGround === null) {lastGround=undefined;setEyeViewReady(false);return;}
+        const key=`${ground.toFixed(3)}:${targetGround.toFixed(3)}:${m.getCanvas().clientWidth}:${m.getCanvas().clientHeight}`;
         if (key===lastGround) return;
         lastGround=key; m.setCenterClampedToGround(false);
         const options=m.calculateCameraOptionsFromTo(new maplibregl.LngLat(...progress.coord),ground+EYE_HEIGHT_M,new maplibregl.LngLat(...ahead.coord),targetGround+EYE_HEIGHT_M);
-        m.jumpTo(options); setEyeViewReady(true);
+        m.jumpTo(options);
+        if(host.current){host.current.dataset.eyeViewport=`${m.getCanvas().clientWidth}x${m.getCanvas().clientHeight}`;host.current.dataset.eyeZoom=m.getZoom().toFixed(6);}
+        setEyeViewReady(true);
       };
-      m.on('idle',align); align();
-      return () => { m.off('idle',align); };
+      m.on('idle',align); m.on('resize',align); align();
+      return () => { m.off('idle',align); m.off('resize',align); };
     } else {
       m.setCenterClampedToGround(true);
       m.easeTo({ center: progress.coord, zoom: 16, pitch: 65, bearing: progress.heading, duration: playing ? 50 : 800 });
@@ -281,16 +284,18 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     setEyeViewReady(false);
     let lastGround: string | undefined;
     const align = () => {
+      if(!m.getCanvas().clientWidth || !m.getCanvas().clientHeight) return;
       const ahead = cameraStep(freeWalk.coord, freeWalk.bearing, 25);
       const ground = m.queryTerrainElevation(freeWalk.coord), target = m.queryTerrainElevation(ahead);
-      if (ground === null || target === null) return;
-      const key=`${ground.toFixed(3)}:${target.toFixed(3)}`;
+      if (ground === null || target === null) {lastGround=undefined;setEyeViewReady(false);return;}
+      const key=`${ground.toFixed(3)}:${target.toFixed(3)}:${m.getCanvas().clientWidth}:${m.getCanvas().clientHeight}`;
       if (key===lastGround) return;
       lastGround=key; m.setCenterClampedToGround(false);
       m.jumpTo(m.calculateCameraOptionsFromTo(new maplibregl.LngLat(...freeWalk.coord),ground + EYE_HEIGHT_M,new maplibregl.LngLat(...ahead),target + EYE_HEIGHT_M));
+      if(host.current){host.current.dataset.eyeViewport=`${m.getCanvas().clientWidth}x${m.getCanvas().clientHeight}`;host.current.dataset.eyeZoom=m.getZoom().toFixed(6);}
       setEyeViewReady(true);
     };
-    m.on('idle',align); align();
+    m.on('idle',align); m.on('resize',align); align();
     const canvas = m.getCanvas();
     const key = (event: KeyboardEvent) => {
       const move = ['w','s','a','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.key);
@@ -304,7 +309,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       });
     };
     canvas.addEventListener('keydown',key,true);
-    return () => { m.off('idle',align); canvas.removeEventListener('keydown',key,true); };
+    return () => { m.off('idle',align); m.off('resize',align); canvas.removeEventListener('keydown',key,true); };
   }, [ready, isStudy, camera, freeWalk, dimension, cameraEpoch]);
   useEffect(() => {
     const m=map.current;
