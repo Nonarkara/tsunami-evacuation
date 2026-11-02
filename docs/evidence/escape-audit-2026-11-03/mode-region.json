@@ -1,0 +1,49 @@
+{
+  "map2dReceipt": {
+    "clock": "+0:00",
+    "cue": "In 71 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 259.140625,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1018.7578125,
+      "top": 229.140625,
+      "width": 57.4296875,
+      "x": 961.328125,
+      "y": 229.140625
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  "regionReceipt": {
+    "camera": "overview",
+    "escapeGuide": false,
+    "imported": "none",
+    "playingSeconds": "0.000",
+    "status": "No verified local route or destination, wave prediction or live warning feed is connected here. Terrain and buildings are reference only.",
+    "warning": "At the coast: if you notice ANY ONE…Strong / long shakeStrange sea / roarOfficial warning→Move inland / higherProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.Children: go with a trusted adult.NWS ↗Local instructions first"
+  }
+}

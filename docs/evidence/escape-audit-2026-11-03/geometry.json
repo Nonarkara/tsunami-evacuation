@@ -1,0 +1,242 @@
+[
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      390,
+      844
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 432,
+      "height": 390,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 520,
+      "height": 30,
+      "left": 8,
+      "right": 60.0234375,
+      "top": 490,
+      "width": 52.0234375,
+      "x": 8,
+      "y": 490
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1024,
+      768
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "2",
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 676,
+      "top": 44,
+      "width": 664,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 692,
+      "right": 744.0234375,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 692,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1013.3515625,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 961.328125,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "In 71 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "cueInView": true,
+    "document": [
+      390,
+      844
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 432,
+      "height": 390,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 520,
+      "height": 30,
+      "left": 8,
+      "right": 65.4296875,
+      "top": 490,
+      "width": 57.4296875,
+      "x": 8,
+      "y": 490
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "In 71 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "cueInView": true,
+    "document": [
+      1024,
+      768
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "2",
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 676,
+      "top": 44,
+      "width": 664,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 692,
+      "right": 749.4296875,
+      "top": 44,
+      "width": 57.4296875,
+      "x": 692,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "In 71 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "cueInView": true,
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1018.7578125,
+      "top": 44,
+      "width": 57.4296875,
+      "x": 961.328125,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  }
+]

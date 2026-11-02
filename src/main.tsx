@@ -312,6 +312,7 @@ function App() {
                   <small>{t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · ฉากทัศน์เขาหลัก ไม่ใช่การพยากรณ์')}</small>
                 </div> : undefined}
                 onReview={()=>navigate("drill")}
+                onPlan={()=>navigate("prepare")}
               />
 
             </section>

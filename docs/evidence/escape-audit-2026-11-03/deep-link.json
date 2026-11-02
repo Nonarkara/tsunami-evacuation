@@ -1,0 +1,40 @@
+{
+  "clock": "+0:00",
+  "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+  "cueInView": true,
+  "document": [
+    390,
+    844
+  ],
+  "header": 36,
+  "imported": "none",
+  "pages": "3",
+  "scene": {
+    "bottom": 432,
+    "height": 390,
+    "left": 8,
+    "right": 382,
+    "top": 42,
+    "width": 374,
+    "x": 8,
+    "y": 42
+  },
+  "scrollY": 0,
+  "start": {
+    "bottom": 520,
+    "height": 30,
+    "left": 8,
+    "right": 60.0234375,
+    "top": 490,
+    "width": 52.0234375,
+    "x": 8,
+    "y": 490
+  },
+  "startInView": true,
+  "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+  "viewport": [
+    390,
+    844
+  ],
+  "waterSource": "illustration"
+}

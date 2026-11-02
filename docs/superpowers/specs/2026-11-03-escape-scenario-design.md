@@ -1,3 +1,5 @@
+> Audit correction: the race/overtaken objective, inferred height gap, claimed2004referencelevel and safety-colour outcomes below are superseded by [Escape audit](../../ESCAPE-AUDIT-2026-11-03.md). Water is an independent illustration; no flood/arrival/survival comparison is validated. The original approval/status wording is retained as historical third-party reporting.
+
 # Escape Scenario — cel-shaded walkthrough with water-vs-crowd tension
 
 **Date**: 2026-11-03

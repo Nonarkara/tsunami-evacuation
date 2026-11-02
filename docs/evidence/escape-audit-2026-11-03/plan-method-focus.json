@@ -1,0 +1,13 @@
+{
+  "planReceipt": {
+    "heading": "My evacuation plan",
+    "scrollY": 0,
+    "url": "http://127.0.0.1:5173/?lang=en#prepare"
+  },
+  "methodReceipt": "What this exercise can show\n×\n\nArrows follow an OSM practice path, not an approved evacuation route. Buildings with unknown heights use labelled 3 m massing. The coarse DEM and chosen water surface have no verified common vertical datum here; their difference is not a flood depth or safety margin.\n\nSeparate research context: in the unreviewed Khao Lak preprint, the PD50 walking-preference package changes modeled victim share from 21.8% to 7.0% among 39,041 synthetic agents under baseline timing (§4.3). This browser exercise does not compute those outcomes. SSRN 7270357 ↗\n\nStay away from the coast until local officials permit return. The first wave may not be the largest.",
+  "focusReceipt": {
+    "dialogs": 0,
+    "label": "What this exercise can show",
+    "scrollY": 0
+  }
+}

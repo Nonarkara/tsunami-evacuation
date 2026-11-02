@@ -21,6 +21,8 @@ import { areaPacks, alongRoute, walkerProgress, walkerSchedule, nextTurn, routeA
 import { simulate, frame, elevation, waterScreen, distance, type RouteData, type TerrainGrid, type Coord } from './crowd';
 import { paceLines, segmentWaits, speedForSeconds } from './escape-timing';
 import { PaceRuler, ProfileQueue, StackBar } from './charts';
+import { EscapeGuide, EscapeMethod, EscapePlayback, type EscapeGuideProps } from './EscapeGuide';
+import { WarningLesson } from './WarningLesson';
 
 const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -28,7 +30,8 @@ const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60
 const RUN_PACE = 3;
 /** Walking paces the reader can compare, in metres per second. */
 const WALK_PACES = [0.8, 1.4, 2.4];
-export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, finding, onReview, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; finding?: ReactNode; onReview:()=>void; bannerDock:HTMLElement|null }) {
+export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, finding, onReview, onPlan, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; finding?: ReactNode; onReview:()=>void; onPlan:()=>void; bannerDock:HTMLElement|null }) {
+  const initialLesson = new URLSearchParams(location.search).get('lesson') === 'escape';
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
   const host = useRef<HTMLDivElement>(null), map = useRef<maplibregl.Map | null>(null);
@@ -37,17 +40,20 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const [dimension, setDimension] = useState<'2d' | '3d'>('3d');
   const [started, setStarted] = useState(false), [preparation, setPreparation] = useState(0);
   const [hazard, setHazard] = useState<HazardReplay>(), [importError, setImportError] = useState('');
-  const [animateWater, setAnimateWater] = useState(false), [peak, setPeak] = useState(10), [riseMinutes, setRiseMinutes] = useState(10);
+  const [animateWater, setAnimateWater] = useState(initialLesson), [peak, setPeak] = useState(10), [riseMinutes, setRiseMinutes] = useState(10);
   const [flat, setFlat] = useState(false), [terrainLoaded, setTerrainLoaded] = useState(false);
   const [count, setCount] = useState(1500), [speed, setSpeed] = useState(1.4), [width, setWidth] = useState(2);
   const [runShare, setRunShare] = useState(0), [targetMinutes, setTargetMinutes] = useState(30);
   const runCount = Math.round(count * runShare);
-  const [seconds, setSeconds] = useState(0), [playing, setPlaying] = useState(false), [rate, setRate] = useState(30);
-  const [camera, setCamera] = useState<'overview' | 'coast' | 'route' | 'walk'>('overview');
+  const [seconds, setSeconds] = useState(0), [playing, setPlaying] = useState(false), [rate, setRate] = useState(initialLesson?1:30);
+  const [camera, setCamera] = useState<'overview' | 'coast' | 'route' | 'walk'>(initialLesson?'walk':'overview');
   const [cameraEpoch, setCameraEpoch] = useState(0);
   const [operationView,setOperationView]=useState('operate');
-  const [mode, setMode] = useState<'crowd' | 'water' | 'escape'>('crowd');
-  const [route, setRoute] = useState(1), [water, setWater] = useState(0), [screen, setScreen] = useState(false);
+  const [mode, setMode] = useState<'crowd' | 'water' | 'escape'>(initialLesson?'escape':'crowd');
+  const [schematic,setSchematic] = useState(true);
+  // Keep imported data intact; this learning mode always shows the chosen illustration.
+  const activeHazard = mode === 'escape' ? undefined : hazard;
+  const [route, setRoute] = useState(1), [water, setWater] = useState(0), [screen, setScreen] = useState(initialLesson);
   const [queueFocus, setQueueFocus] = useState<{ edge: string; status: string }>();
   const [point, setPoint] = useState<{ coord: Coord; elevation: number | null }>();
   const [buildingsEnabled, setBuildingsEnabled] = useState(true), [buildings, setBuildings] = useState<BuildingPack>();
@@ -88,7 +94,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const current = useMemo(() => model ? frame(model, started ? seconds : -1) : undefined, [model, seconds, started]);
   const compareCurrent = useMemo(() => compareModel ? frame(compareModel, started ? seconds : -1) : undefined, [compareModel, seconds, started]);
   useEffect(() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }, [count, speed, width, preparation, runShare, region.id, selected]);
-  const duration = Math.max(model?.duration ?? 0, hazard?.frames.at(-1)?.seconds ?? 0, animateWater ? riseMinutes * 60 : 0);
+  const duration = Math.max(model?.duration ?? 0, activeHazard?.frames.at(-1)?.seconds ?? 0, animateWater ? riseMinutes * 60 : 0);
   const [waterSeconds,setWaterSeconds] = useState(0);
   const playbackSeconds = useRef(seconds); playbackSeconds.current=seconds;
   useEffect(()=>{ if (!playing || mode === 'escape') setWaterSeconds(seconds); },[seconds,playing,mode]);
@@ -97,7 +103,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     const timer=window.setInterval(()=>setWaterSeconds(playbackSeconds.current),200);
     return ()=>clearInterval(timer);
   },[playing]);
-  const waterFrame = hazard ? replayAt(hazard, mode === 'escape' ? seconds : waterSeconds) : null;
+  const waterFrame = activeHazard ? replayAt(activeHazard, waterSeconds) : null;
   const shownWaterLevel = animateWater ? demonstrationLevel(mode === 'escape' ? seconds : waterSeconds, peak, riseMinutes * 60) : water;
   useEffect(() => {
     if (!playing || duration <= 0) return;
@@ -200,12 +206,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   useEffect(() => {
     if (!ready) return;
     const m = map.current; if (!m) return;
-    const celShade = mode === 'escape';
+    const celShade = mode === 'escape' && schematic;
     if (m.getLayer('aerial')) m.setLayoutProperty('aerial', 'visibility', celShade ? 'none' : 'visible');
-    if (m.getLayer('bg')) m.setLayoutProperty('bg', 'visibility', celShade ? 'visible' : 'none');
+    if (m.getLayer('bg')) m.setLayoutProperty('bg', 'visibility', 'visible');
     if (m.getLayer('building-outlines')) m.setPaintProperty('building-outlines', 'line-opacity', celShade ? 1 : .65);
     if (m.getLayer('building-footprint-outlines')) m.setPaintProperty('building-footprint-outlines', 'line-opacity', celShade ? .9 : .55);
-  }, [ready, mode]);
+  }, [ready, mode, schematic]);
 
   useEffect(() => {
     if (ready && current) (map.current?.getSource('people') as GeoJSONSource)?.setData(isStudy && (mode === 'crowd' || mode === 'escape') ? { type: 'FeatureCollection', features: current.features } : empty);
@@ -213,12 +219,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   useEffect(() => {
     if (!ready) return;
     const source = map.current?.getSource('water') as GeoJSONSource | undefined;
-    const polygons = hazard ? replayPolygons(hazard, waterSeconds) : grid && (screen || animateWater) ? waterScreen(grid, shownWaterLevel) : { type: 'FeatureCollection' as const, features: [] };
+    const polygons = activeHazard ? replayPolygons(activeHazard, waterSeconds) : grid && (screen || animateWater) ? waterScreen(grid, shownWaterLevel) : { type: 'FeatureCollection' as const, features: [] };
     source?.setData(polygons);
-    const hasSurface = waterLayer.current?.update(polygons, hazard ? undefined : shownWaterLevel) ?? false;
+    const hasSurface = waterLayer.current?.update(polygons, activeHazard ? undefined : shownWaterLevel) ?? false;
     waterLayer.current?.setVisible(dimension === '3d');
     if (map.current?.getLayer('water')) map.current.setPaintProperty('water', 'fill-opacity', dimension === '3d' && !waterSurfaceError && hasSurface ? .12 : .48);
-  }, [ready, grid, shownWaterLevel, screen, isStudy, hazard, waterSeconds, animateWater, dimension, waterSurfaceError]);
+  }, [ready, grid, shownWaterLevel, screen, isStudy, activeHazard, waterSeconds, animateWater, dimension, waterSurfaceError]);
   useEffect(() => {
     const m = map.current; if (!m || !ready || flat || !m.getSource('dem')) return;
     m.setTerrain(dimension === '3d' ? { source: 'dem', exaggeration: 1 } : null);
@@ -368,6 +374,9 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const nextDirection = data && progress ? nextTurn(data.routes[route], progress.metres) : null;
   const queueCount = current?.features.find(f => f.properties?.edge === queueFocus?.edge && f.properties?.status === queueFocus?.status)?.properties?.count ?? 0;
   const active = data?.routes[route];
+  const routeNamesTh:Record<string,string>={'North approach':'เส้นทางเหนือ','Central approach':'เส้นทางกลาง','South approach':'เส้นทางใต้'};
+  const routeName = active ? t(active.name,routeNamesTh[active.name]??active.name) : t('Practice route','เส้นทางฝึก');
+  const progressLabel = progress ? {preparing:t('preparing','เตรียมในแบบฝึก'),moving:t('moving','กำลังเดิน'),queued:t('queued','รอคิว'),arrived:t('arrived','ถึงปลายทาง')}[progress.state] : '';
   const paceLadder = useMemo(() => active && model ? paceLines(active, model, WALK_PACES, RUN_PACE, runCount) : [], [active, model, runCount]);
   const waits = useMemo(() => active && model ? segmentWaits(route, active, model) : [], [active, model, route]);
   const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p)) : [], [active, grid]);
@@ -376,13 +385,22 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const heightRange = knownHeights.length ? `${Math.round(Math.min(...knownHeights))}–${Math.round(Math.max(...knownHeights))} m` : t('unavailable','ไม่มีข้อมูล');
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   const guideAvailable=camera==='walk'&&!flat&&!!progress&&!!selectedSchedule;
-  const walkerGroundElev = profile.length > 0 ? profile[Math.min(profile.length - 1, progress?.index ?? 0)] ?? 0 : 0;
-  const waterReached = mode === 'escape' && animateWater && started && shownWaterLevel >= walkerGroundElev;
-  const escaped = progress?.state === 'arrived';
+  const walkerGroundElev = grid && progress ? elevation(grid,progress.coord) : null;
+  useEffect(()=>{if(!isStudy){setMode('crowd');setAnimateWater(false);setScreen(false);}},[isStudy]);
+  const escapeProps:EscapeGuideProps|undefined = model && selectedSchedule && progress ? {
+    language, started, playing, ready:ready&&!flat&&(dimension==='2d'||eyeViewReady), state:progress.state,
+    remainingM:Math.max(0,progress.total-progress.metres), totalM:progress.total,
+    seconds, duration, rate, pace:selectedWalker?.speed ?? speed, schematic, onStyle:()=>setSchematic(v=>!v),
+    finishSeconds:selectedSchedule.finishSeconds, queueSeconds:selectedSchedule.queueSeconds,
+    groundElevation:walkerGroundElev, waterLevel:shownWaterLevel, peak, nextTurn:nextDirection,
+    onPlay:startExercise, onReset:()=>{setSeconds(0);setStarted(false);setPlaying(false);setQueueFocus(undefined);},
+    onSeek:value=>{setSeconds(value);setStarted(true);setPlaying(false);}, onRate:setRate, onPlan, onReview,
+    method:<ReadingDialog language={language} title={t('What this exercise can show','แบบฝึกนี้บอกอะไรได้')}><EscapeMethod language={language}/></ReadingDialog>,
+  } : undefined;
   useEffect(()=>{if(!guideAvailable)setOperationView('operate');},[guideAvailable]);
-  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-exercise-seconds={seconds.toFixed(3)} data-water-seconds={waterSeconds.toFixed(3)} data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
+  return <section className="terrain-rehearsal" aria-label="Terrain and crowd rehearsal" data-exercise-seconds={seconds.toFixed(3)} data-water-seconds={waterSeconds.toFixed(3)} data-experiment={mode} data-water-source={activeHazard ? 'imported-replay' : 'illustration'} data-imported-replay={hazard ? 'retained' : 'none'} data-presentation="network-node-totals" data-camera={camera} data-buildings={buildingsEnabled && buildings ? 'shown' : 'off'} data-building-area={buildings?.area ?? ''} data-state={flat ? 'flat' : ready ? 'ready' : 'loading'}>
     <DockControls target={bannerDock}><div className="terrain-toolbar">
-      {isStudy && <><div className="experiment-tabs" role="group" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} aria-label="Rehearsal" title="Rehearsal — crowd queue on the mapped network" onClick={() => { setMode('crowd'); setScreen(false); }}><CameraSymbol name="rehearsal" /></button><button aria-pressed={mode === 'water'} aria-label="Water level" title="Water level — illustrative static level on the terrain" onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}><CameraSymbol name="water" /></button><button aria-pressed={mode === 'escape'} aria-label="Escape" title="Escape — walk the route as water rises" onClick={() => { setMode('escape'); setAnimateWater(true); setScreen(true); setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); setDimension('3d'); view('walk'); }}><CameraSymbol name="escape" /></button></div><span className="toolbar-divider" aria-hidden="true" /></>}
+      {isStudy && <><div className="experiment-tabs" role="group" aria-label="Active experiment"><button aria-pressed={mode === 'crowd'} aria-label="Rehearsal" title="Rehearsal — crowd queue on the mapped network" onClick={() => { setMode('crowd'); setAnimateWater(false); setScreen(false); setPlaying(false); }}><CameraSymbol name="rehearsal" /></button><button aria-pressed={mode === 'water'} aria-label="Water level" title="Water level — illustrative static level on the terrain" onClick={() => { setMode('water'); setAnimateWater(false); setQueueFocus(undefined); setScreen(true); setPlaying(false); }}><CameraSymbol name="water" /></button><button aria-pressed={mode === 'escape'} aria-label="Escape / ฝึกอพยพ" title="Escape practice — arrows are not approved evacuation directions / ฝึกตามลูกศร ไม่ใช่เส้นทางรับรอง" disabled={!ready || !model || !data || flat} onClick={() => { setMode('escape'); setOperationView('operate'); setAnimateWater(true); setScreen(true); setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); setDimension('3d'); view('walk'); }}><CameraSymbol name="escape" /></button></div><span className="toolbar-divider" aria-hidden="true" /></>}
       <div className="terrain-view-controls" role="group" aria-label="Camera controls">
         <button aria-pressed={!flat && dimension === '3d'} aria-label="3D terrain" title="3D terrain" onClick={() => { setFlat(false); setDimension('3d'); }}><CameraSymbol name="terrain3d" /></button>
         <button aria-pressed={!flat && dimension === '2d'} aria-label="2D map" title="2D map — plan view" onClick={() => { setFlat(false); setDimension('2d'); setCamera('overview'); setQueueFocus(undefined); }}><CameraSymbol name="map2d" /></button>
@@ -408,6 +426,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
         <span>{t('Elapsed','ผ่านไป')} {minutes(seconds)}</span>
         <label>{t('Speed','ความเร็ว')} <select aria-label="Guide speed / ความเร็วในคู่มือ" value={rate} onChange={e=>setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>}
+{mode === 'escape' && operationView === 'operate' && escapeProps && <EscapePlayback {...escapeProps}/>}
 <PagedFlow label="Rehearsal controls and guide" className="operations-pages"><div className="operations-content" hidden={operationView!=='guide'}>
       {camera === 'walk' && !flat && progress && selectedSchedule && <WalkthroughCoach language={manualLanguage(location.search,navigator.language)} state={progress.state} remainingM={Math.max(0,progress.total-progress.metres)} finishSeconds={selectedSchedule.finishSeconds} remainingSeconds={selectedSchedule.remainingSeconds} queueSeconds={selectedSchedule.queueSeconds} pace={selectedWalker?.speed ?? 0} runner={runnerTwin && runnerProgress ? { pace: runnerTwin.speed, remainingM: Math.max(0, runnerProgress.total - runnerProgress.metres), finishSeconds: runnerTwin.finish } : undefined} onReview={onReview} full/>}
       </div><div className="operations-content" hidden={operationView!=='operate'}>
@@ -418,7 +437,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       <button aria-label="Turn camera right" onClick={()=>setFreeWalk(p=>p ? {...p,bearing:p.bearing+8}:p)}>↷</button>
       <span>{eyeViewReady ? '1.65m camera' : 'Loading ground height'} · no route guidance / ไม่ใช่เส้นทางอพยพ</span>
     </div>}
-    {!isStudy && <p className="area-data-status">Terrain views available. No local route/destination pack is connected for this selected place. {hazard ? 'Research inundation frames are loaded.' : 'Wave predictions are not connected.'}</p>}
+    {!isStudy && <><WarningLesson language={language}/><p className="area-data-status">{t('No verified local route or destination, wave prediction or live warning feed is connected here. Terrain and buildings are reference only.','ยังไม่มีเส้นทาง ปลายทาง การพยากรณ์คลื่น หรือคำเตือนสดที่ยืนยันแล้วเชื่อมต่อที่นี่ ภูมิประเทศและอาคารเป็นข้อมูลอ้างอิงเท่านั้น')}</p><button onClick={onPlan}>{t('Confirm a local plan','ยืนยันแผนในพื้นที่')} →</button></>}
     {!model && (hazard || animateWater) && <div className="imported-replay-controls"><button onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start warning'}</button><label>Warning +{minutes(seconds)}<TimeScrubber label="Imported scenario time" duration={duration} value={seconds} onChange={value => { setStarted(true); setSeconds(value); setPlaying(false); }} /></label><span>{waterFrame ? 'Imported research frame' : 'No model frame at this time'}</span></div>}
     {isStudy && model && data && <>
       <div className="rehearsal-panel" hidden={mode !== 'crowd'}>
@@ -498,43 +517,19 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
         </div>
       )}
       </div>
-      {mode === 'escape' && (
-        <div className="escape-hud" aria-label="Escape scenario">
-          <div className="escape-objective">{t('Reach the endpoint before the water reaches you','ไปถึงปลายทางก่อนน้ำมาถึงตัวคุณ')}</div>
-          <button className="rehearsal-play escape-play" aria-label={playing ? t('Pause','หยุดชั่วคราว') : started ? t('Resume','เล่นต่อ') : t('Start the warning','เริ่มสัญญาณ')} disabled={flat || !ready} onClick={startExercise}>{playing ? t('Pause','หยุด') : started ? t('Resume','เล่นต่อ') : t('Start','เริ่ม')}</button>
-          <div className="escape-status">
-            <div className="escape-stat"><span className="escape-label">{t('You','คุณ')}</span><span className="escape-value">{progress ? `${Math.round(progress.total - progress.metres)} m ${t('to go','เหลือ')}` : t('Ready','พร้อม')}</span><span className="escape-sub">{progress?.state === 'preparing' ? t('Preparing…','กำลังเตรียม…') : progress?.state === 'queued' ? t('Queued at a bottleneck','รอที่คอขวด') : progress?.state === 'arrived' ? t('Arrived','ถึงแล้ว') : t('Walking','กำลังเดิน')}</span></div>
-            <div className="escape-stat"><span className="escape-label">{t('Water','น้ำ')}</span><span className="escape-value">+{shownWaterLevel.toFixed(1)} m</span><span className="escape-sub">{t('MSL · illustrative','ระดับน้ำทะเล · เพื่อการสาธิต')}</span></div>
-            <div className={`escape-stat ${waterReached ? 'escape-danger' : ''}`}><span className="escape-label">{t('Ground','พื้น')}</span><span className="escape-value">{Math.round(walkerGroundElev)} m</span><span className="escape-sub">{waterReached ? t('Water has reached you','น้ำมาถึงตัวคุณแล้ว') : `${Math.max(0, Math.round(walkerGroundElev - shownWaterLevel))} m ${t('above water','เหนือน้ำ')}`}</span></div>
-            <div className="escape-stat"><span className="escape-label">{t('Clock','เวลา')}</span><span className="escape-value">{minutes(seconds)}</span><span className="escape-sub">{t('since warning','หลังสัญญาณเตือน')}</span></div>
-          </div>
-          {(escaped || waterReached) && (
-            <div className={`escape-outcome ${escaped ? 'escape-arrived' : 'escape-overtaken'}`} role="status">
-              <strong>{escaped ? t('You reached the endpoint','คุณไปถึงปลายทางแล้ว') : t('Water overtook the route','น้ำไหลมาถึงเส้นทางแล้ว')}</strong>
-              <p>
-                {escaped
-                  ? t(`Arrived at ${minutes(seconds)} after the warning. Queue wait at the pinch point: ${minutes(model.maxQueueWait)}. In the published model, walking preference cuts victim share from 21.8% to 7.0% (§4.3).`,`มาถึงที่ ${minutes(seconds)} หลังสัญญาณ การรอคิวที่คอขวด: ${minutes(model.maxQueueWait)} ในแบบจำลอง การเดินเท้าลดผู้ประสบภัยจาก 21.8% เหลือ 7.0% (§4.3).`)
-                  : t(`Water reached ${shownWaterLevel.toFixed(1)} m MSL at ${minutes(seconds)}. This endpoint is unapproved; the model does not establish a safe evacuation time.`,`น้ำสูง ${shownWaterLevel.toFixed(1)} m ณ ${minutes(seconds)} ปลายทางนี้ยังไม่ได้รับการรับรอง แบบจำลองไม่ได้ระบุเวลาอพยพที่ปลอดภัย.`)
-                }
-              </p>
-              <button onClick={() => { setSeconds(0); setStarted(false); setPlaying(false); setWalkCompare('off'); }}>{t('Run again','ซ้ำอีกครั้ง')}</button>
-            </div>
-          )}
-          <p className="field-note">{t('Illustrative water level, not a wave forecast. Endpoint unapproved. Exercise only.','ระดับน้ำเพื่อการสาธิต ไม่ใช่การพยากรณ์คลื่น ปลายทางยังไม่รับรอง ฝึกฝนเท่านั้น')}</p>
-        </div>
-      )}
+      {mode === 'escape' && escapeProps && <EscapeGuide {...escapeProps}/>}
       <div className={`terrain-secondary ${mode}`}>
       {mode === 'water' &&         <div className="water-experiment"><div className="water-control-row"><label><input type="checkbox" checked={screen} onChange={e => setScreen(e.target.checked)} /> Screen terrain</label>
           <label>{hazard ? 'Model depths' : `+${water} m`}<input aria-label="Static experimental water level" type="range" min={0} max={20} step={1} value={water} disabled={!screen || flat || !!hazard} onChange={e => setWater(Number(e.target.value))} /></label></div>
           <small>{hazard ? `${hazard.title} · ${hazard.model} · ${waterFrame ? 'interpolated model frame' : 'no frame at this time'}. ` : 'Blue = connected low terrain at a chosen static level, not tsunami physics. '}Imported frames and terrain screening do not alter agents or certify safety. Unshaded land is not classified safe.</small>
         </div>}
       <div className="terrain-analysis-row">
-        <div className="route-profile"><strong>{areaPack?.label}: {active?.name} · {((model.distance[route] ?? 0) / 1000).toFixed(2)} km</strong><span>{progress ? `${(Math.max(0, progress.total - progress.metres) / 1000).toFixed(2)} km to exercise end · ${progress.state}` : 'Approximate DEM profile'} · endpoint unapproved</span>
+        <div className="route-profile"><strong>{t(areaPack?.label??region.places[selected].name,region.places[selected].thaiName)}: {routeName} · {((model.distance[route] ?? 0) / 1000).toFixed(2)} km</strong><span>{progress ? `${(Math.max(0, progress.total - progress.metres) / 1000).toFixed(2)} km ${t('to practice end','ถึงปลายทางฝึก')} · ${progressLabel}` : t('Approximate DEM profile','ระดับภูมิประเทศแบบหยาบ')} · {t('endpoint unapproved','ปลายทางยังไม่รับรอง')}</span>
           <ProfileQueue chainage={chainage} profile={profile} waits={waits} position={started && progress ? progress.metres : undefined}
             profileLabel={t('DEM m · gaps = missing','DEM ม. · เว้นข้อมูลที่ขาด')}
             queueLabel={t('Max segment wait','รอคิวสูงสุดต่อช่วง')} queueMaxLabel={t('max wait','รอนานสุด')}
             ariaLabel={t(`Terrain elevation profile ${heightRange}, gaps are missing data. Modelled queue wait per segment on the same distance axis; longest ${waits.length ? Math.floor(Math.max(...waits.map(w => w.waitSeconds))) : 0} s. Not a safety classification.`,`ระดับภูมิประเทศ ${heightRange} ช่องว่างคือไม่มีข้อมูล เวลารอคิวจำลองต่อช่วงทางบนแกนระยะทางเดียวกัน ไม่ใช่การจัดระดับความปลอดภัย`)} />
-          <p className="route-cue">{!started ? 'Start runs a rehearsal. Real warnings require prompt action following local guidance.' : progress?.state === 'preparing' ? `Preparation interval: ${Math.max(0, preparation - seconds).toFixed(0)} s remaining in this exercise.` : progress?.state === 'queued' ? 'First walker is queued at a network node; the physical crowd is not simulated.' : progress?.state === 'arrived' ? 'First walker reached the exercise end; other agents may still be en route.' : nextDirection ? `Selected exercise route: in ${nextDirection.distanceM} m, bear ${nextDirection.direction}.` : 'Continue along the selected exercise route to its unapproved endpoint.'}</p>
+          <p className="route-cue">{!started ? t('Practice only. Real warnings require prompt action following local guidance.','ฝึกเท่านั้น หากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่') : progress?.state === 'preparing' ? t(`Model delay: ${Math.max(0,preparation-seconds).toFixed(0)} s remaining.`,`เวลารอจำลอง เหลือ ${Math.max(0,preparation-seconds).toFixed(0)} วินาที`) : progress?.state === 'queued' ? t('Selected walker is queued at a model node; physical crowd space is not simulated.','ตัวแทนที่เลือกรอคิวที่จุดจำลอง ไม่ได้จำลองพื้นที่ฝูงชนจริง') : progress?.state === 'arrived' ? t('Selected walker finished; other agents may still be en route.','ตัวแทนที่เลือกถึงปลายทางฝึก ตัวแทนอื่นอาจยังเดินอยู่') : nextDirection ? t(`Practice path: in ${nextDirection.distanceM} m, turn ${nextDirection.direction}.`,`เส้นทางฝึก: อีก ${nextDirection.distanceM} ม. เลี้ยว${nextDirection.direction==='left'?'ซ้าย':'ขวา'}`) : t('Follow the practice path; endpoint unapproved.','ตามเส้นทางฝึก ปลายทางยังไม่รับรอง')}</p>
           <div className="profile-scale"><span>{t('Start','ต้นทาง')} {heightText(profile[0])}</span><span>{t('DEM range','ช่วง DEM')} ≈ {heightRange}</span><span>{t('End','ปลายทาง')} {heightText(profile.at(-1))}</span></div>
         </div>
 
@@ -557,7 +552,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
         {grid && <><label><input type="checkbox" checked={animateWater} disabled={!!hazard || flat} onChange={e => { setAnimateWater(e.target.checked); setMode('crowd'); setScreen(e.target.checked); }} /> Animate illustrative water rise</label><label>Screen peak<select aria-label="Demonstration peak level" value={peak} onChange={e => setPeak(Number(e.target.value))}><option value={5}>+5 m MSL</option><option value={10}>+10 m MSL</option><option value={15}>+15 m MSL</option><option value={20}>+20 m MSL</option></select></label><label>Rise duration<select aria-label="Demonstration rise duration" value={riseMinutes} onChange={e => setRiseMinutes(Number(e.target.value))}><option value={5}>5 exercise min</option><option value={10}>10 exercise min</option><option value={20}>20 exercise min</option></select></label></>}
         <button disabled={!ready || flat} onClick={() => { setDimension('3d'); view('coast'); }}>{t('Scenic coast view','วิวชายฝั่ง')}</button><button onClick={() => { setFlat(true); setPlaying(false); setQueueFocus(undefined); }}>{t('Basic map fallback','แผนที่พื้นฐาน')}</button>
       </div>
-      <p className="scenario-provenance">{hazard ? <>Imported research replay: <a href={hazard.sourceUrl} target="_blank" rel="noreferrer">{hazard.title}</a> · {hazard.model} · {hazard.verticalDatum} · approval not independently verified. {waterFrame?.waveHeightM == null ? 'Wave height at a gauge is not supplied for this time.' : `Model wave height at ${hazard.waveGauge?.name}: ${waterFrame.waveHeightM.toFixed(2)} m (crest-to-trough).`}</> : <>Wave prediction and approved destinations are not connected. {animateWater ? `The animated +${shownWaterLevel.toFixed(1)} m level is a user-chosen terrain demonstration, not a predicted wave height or arrival time.` : 'The water slider screens terrain; it does not predict tsunami wave height.'}</>}</p>
+      <p className="scenario-provenance">{hazard && mode === 'escape' ? <>{t('Imported replay retained, but not displayed in Escape. Switch to Water level to inspect it. Escape uses the chosen illustrative surface only.','เก็บไฟล์เล่นซ้ำที่นำเข้าไว้ แต่ไม่แสดงในแบบฝึกอพยพ เลือกระดับน้ำเพื่อดูไฟล์นั้น แบบฝึกอพยพใช้ผิวน้ำสาธิตที่ตั้งขึ้นเท่านั้น')}</> : hazard ? <>Imported research replay: <a href={hazard.sourceUrl} target="_blank" rel="noreferrer">{hazard.title}</a> · {hazard.model} · {hazard.verticalDatum} · approval not independently verified. {waterFrame?.waveHeightM == null ? 'Wave height at a gauge is not supplied for this time.' : `Model wave height at ${hazard.waveGauge?.name}: ${waterFrame.waveHeightM.toFixed(2)} m (crest-to-trough).`}</> : <>Wave prediction and approved destinations are not connected. {animateWater ? `The animated +${shownWaterLevel.toFixed(1)} m level is a user-chosen terrain demonstration, not a predicted wave height or arrival time.` : 'The water slider screens terrain; it does not predict tsunami wave height.'}</>}</p>
       <label className="scenario-import">Load research inundation frames (JSON, on this device only)<input aria-label="Load research inundation scenario" type="file" accept="application/json,.json" onChange={e => { void importScenario(e.target.files?.[0]); e.target.value = ''; }} /></label>
       {hazard && <button onClick={() => { setHazard(undefined); setPlaying(false); }}>Remove imported scenario</button>}
       {importError && <p role="alert">{importError}</p>}

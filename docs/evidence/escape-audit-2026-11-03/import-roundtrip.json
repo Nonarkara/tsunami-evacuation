@@ -1,0 +1,108 @@
+{
+  "fixture": "Local synthetic UI fixture only, not tsunami evidence; file is not committed or uploaded.",
+  "importInEscape": {
+    "clock": "+0:00",
+    "cue": "In 71 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "retained",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 259.140625,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1018.7578125,
+      "top": 229.140625,
+      "width": 57.4296875,
+      "x": 961.328125,
+      "y": 229.140625
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  "importInWater": {
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "retained",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "startInView": false,
+    "url": "http://127.0.0.1:5173/?lang=en#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "imported-replay"
+  },
+  "importBackEscape": {
+    "clock": "+0:00",
+    "cue": "In 71 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "retained",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 259.140625,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1018.7578125,
+      "top": 229.140625,
+      "width": 57.4296875,
+      "x": 961.328125,
+      "y": 229.140625
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  }
+}

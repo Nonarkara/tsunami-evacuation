@@ -1,0 +1,44 @@
+[
+  {
+    "doc": [
+      390,
+      844
+    ],
+    "mode": "crowd",
+    "pages": "3",
+    "scrollY": 0,
+    "startInView": true,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "doc": [
+      1024,
+      768
+    ],
+    "mode": "crowd",
+    "pages": "2",
+    "scrollY": 0,
+    "startInView": true,
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "doc": [
+      1440,
+      900
+    ],
+    "mode": "crowd",
+    "pages": "1",
+    "scrollY": 0,
+    "startInView": true,
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+]

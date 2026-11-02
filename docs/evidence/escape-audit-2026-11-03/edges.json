@@ -1,0 +1,402 @@
+[
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      320,
+      700
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "4",
+    "scene": {
+      "bottom": 288,
+      "height": 246,
+      "left": 8,
+      "right": 312,
+      "top": 42,
+      "width": 304,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 376,
+      "height": 30,
+      "left": 8,
+      "right": 60.0234375,
+      "top": 346,
+      "width": 52.0234375,
+      "x": 8,
+      "y": 346
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      320,
+      700
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      390,
+      600
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 188,
+      "height": 146,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 276,
+      "height": 30,
+      "left": 8,
+      "right": 60.0234375,
+      "top": 246,
+      "width": 52.0234375,
+      "x": 8,
+      "y": 246
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      600
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      667,
+      375
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "5",
+    "scene": {
+      "bottom": 312,
+      "height": 270,
+      "left": 8,
+      "right": 366,
+      "top": 42,
+      "width": 358,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 72,
+      "height": 30,
+      "left": 369,
+      "right": 421.0234375,
+      "top": 42,
+      "width": 52.0234375,
+      "x": 369,
+      "y": 42
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      667,
+      375
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1169,
+      674
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 604,
+      "height": 560,
+      "left": 12,
+      "right": 764.6640625,
+      "top": 44,
+      "width": 752.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 780.6640625,
+      "right": 832.6875,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 780.6640625,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1169,
+      674
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1280,
+      720
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 650,
+      "height": 606,
+      "left": 12,
+      "right": 838.6640625,
+      "top": 44,
+      "width": 826.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 854.6640625,
+      "right": 906.6875,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 854.6640625,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1280,
+      720
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      759,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 504,
+      "height": 462,
+      "left": 8,
+      "right": 751,
+      "top": 42,
+      "width": 743,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 576,
+      "height": 30,
+      "left": 8,
+      "right": 60.0234375,
+      "top": 546,
+      "width": 52.0234375,
+      "x": 8,
+      "y": 546
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      759,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      760,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 504,
+      "height": 462,
+      "left": 8,
+      "right": 752,
+      "top": 42,
+      "width": 744,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 576,
+      "height": 30,
+      "left": 8,
+      "right": 60.0234375,
+      "top": 546,
+      "width": 52.0234375,
+      "x": 8,
+      "y": 546
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      760,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      761,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 413,
+      "top": 44,
+      "width": 401,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 429,
+      "right": 481.0234375,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 429,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      761,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1099,
+      768
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "2",
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 751,
+      "top": 44,
+      "width": 739,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 767,
+      "right": 819.0234375,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 767,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1099,
+      768
+    ],
+    "waterSource": "illustration"
+  },
+  {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1100,
+      768
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 718.6640625,
+      "top": 44,
+      "width": 706.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 734.6640625,
+      "right": 786.6875,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 734.6640625,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1100,
+      768
+    ],
+    "waterSource": "illustration"
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "playReceipt": {
+    "clock": "+1:13",
+    "cue": "In 3491 m, turn leftPractice route · destination NOT verifiedConfirm plan ↗",
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 259.140625,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1037.5546875,
+      "top": 229.140625,
+      "width": 76.2265625,
+      "x": 961.328125,
+      "y": 229.140625
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  "queueReceipt": {
+    "clock": "+44:34",
+    "cue": "Waiting at a model nodePractice route · destination NOT verifiedConfirm plan ↗",
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 259.140625,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1037.5546875,
+      "top": 229.140625,
+      "width": 76.2265625,
+      "x": 961.328125,
+      "y": 229.140625
+    },
+    "startInView": true,
+    "url": "http://127.0.0.1:5173/?lang=en#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  "arrivedReceipt": {
+    "clock": "+63:35",
+    "review": "Finished at +54:48 · this walker’s total queue wait 1:03Endpoint unapproved. Count everyone at a locally confirmed meeting point in a real drill.Record a drill →",
+    "source": "illustration",
+    "water": "+10.0 m demo level≈94 m coarse DEM"
+  }
+}
