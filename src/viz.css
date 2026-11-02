@@ -1,0 +1,163 @@
+/* ── Chart kit + MSH visual pass (2026-11-02). Loaded last; type uses the four size tokens. ── */
+:root { --fs-micro: 11px; --fs-body: 13px; --fs-title: 17px; --fs-num: 24px; --series-b: #7d97ab; }
+
+.viz { min-width: 0; width: 100%; }
+.viz svg { display: block; overflow: visible; }
+.viz text { font-size: var(--fs-micro); fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.viz-grid { stroke: var(--line); stroke-width: 1; }
+.viz-axis { stroke: var(--line-2); stroke-width: 1; }
+.viz-legend { display: flex; gap: 4px 12px; flex-wrap: wrap; align-items: center; font-size: var(--fs-micro); color: var(--ink-2); line-height: 16px; }
+.viz-legend .viz-unit { margin-left: auto; }
+.viz-legend span::before { content: ''; display: inline-block; width: 14px; vertical-align: middle; margin-right: 4px; }
+.viz-legend .viz-unit::before { display: none; }
+.key-a::before { border-top: 2px solid var(--companion); }
+.key-b::before { border-top: 2px dashed var(--series-b); }
+.key-profile::before { border-top: 2px solid var(--companion); }
+.key-queue::before { height: 8px; background: var(--segment-victims); }
+
+/* StepDown */
+.stepdown .series-a { fill: none; stroke: var(--companion); stroke-width: 2; }
+.stepdown .series-b { fill: none; stroke: var(--series-b); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.stepdown .dot-a { fill: var(--companion); }
+.stepdown .dot-b { fill: var(--panel); stroke: var(--series-b); stroke-width: 1.5; }
+.stepdown .val-a, .stepdown .val-b { fill: var(--ink); font-weight: 600; }
+.stepdown .viz-select { fill: var(--active-bg); }
+.stepdown-axis { display: grid; border-top: 1px solid var(--line-2); }
+.stepdown-axis > * { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 3px 2px; min-height: 32px; background: none; border: 0; border-bottom: 2px solid transparent; font: inherit; color: var(--ink); cursor: default; }
+.stepdown-axis button { cursor: pointer; }
+.stepdown-axis button:hover { background: var(--active-bg); }
+.stepdown-axis button[aria-pressed=true] { border-bottom-color: var(--accent); }
+.stepdown-axis b { font-size: var(--fs-micro); font-weight: 600; white-space: nowrap; line-height: 14px; }
+.stepdown-axis small { font-size: var(--fs-micro); color: var(--ink-2); line-height: 14px; }
+
+/* DotGrid */
+.dotgrid { display: flex; gap: 14px; align-items: center; margin: 0; }
+.dotgrid svg { flex: none; }
+.dotgrid figcaption { display: grid; gap: 4px; min-width: 0; }
+.dotgrid dl { margin: 0; display: grid; gap: 2px; }
+.dotgrid dl > div { display: flex; justify-content: space-between; gap: 10px; font-size: var(--fs-body); }
+.dotgrid dt { display: flex; align-items: center; gap: 6px; color: var(--ink-2); }
+.dotgrid dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.dotgrid dt i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.dotgrid small { font-size: var(--fs-micro); color: var(--ink-2); }
+.dot-reached { fill: var(--segment-reached); background: var(--segment-reached); }
+.dot-outside { fill: var(--segment-outside); background: var(--segment-outside); }
+.dot-victims { fill: var(--segment-victims); background: var(--segment-victims); }
+.dot-unclassified { fill: none; stroke: var(--line-2); stroke-width: 1; background: none; box-shadow: inset 0 0 0 1px var(--line-2); }
+
+/* StackBar */
+.stackbar { display: grid; gap: 4px; }
+.stack-track { display: flex; height: 10px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.stack-track span { display: block; height: 100%; transition: width .15s linear; }
+.stack-legend { display: flex; flex-wrap: wrap; gap: 2px 12px; margin: 0; }
+.stack-legend > div { display: flex; align-items: baseline; gap: 4px; font-size: var(--fs-micro); }
+.stack-legend dt { display: flex; align-items: center; gap: 4px; color: var(--ink-2); }
+.stack-legend dt i { display: inline-block; width: 8px; height: 8px; }
+.stack-legend dd { margin: 0; order: -1; font-size: var(--fs-body); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink); }
+.seg-pending { background: var(--line-2); }
+.seg-walking { background: var(--companion); }
+.seg-queued { background: var(--segment-victims); }
+.seg-arrived { background: var(--series-b); }
+.seg-counted { background: var(--companion); }
+.seg-missing { background: var(--segment-victims); }
+.seg-code1 { background: var(--companion); }
+.seg-code2 { background: var(--series-b); }
+.seg-code3 { background: var(--line-2); }
+.seg-code4 { background: var(--segment-victims); }
+@media (prefers-reduced-motion: reduce) { .stack-track span { transition: none; } }
+
+/* PaceRuler */
+.paceruler .viz-target line { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 3; }
+.paceruler .viz-target text { fill: var(--ink); font-weight: 600; }
+.paceruler [class^=mark-] line { stroke: var(--line-2); stroke-width: 1; }
+.paceruler [class^=mark-] circle { fill: var(--panel); stroke: var(--companion); stroke-width: 1.5; }
+.paceruler .mark-own circle { fill: var(--companion); }
+.paceruler .mark-own text { fill: var(--ink); font-weight: 600; }
+.paceruler .mark-run circle { stroke: var(--segment-victims); }
+
+/* ProfileQueue */
+.profilequeue .profile-area { fill: var(--active-bg); }
+.profilequeue .profile-line { fill: none; stroke: var(--companion); stroke-width: 1.5; }
+.profilequeue .queue-rect { fill: var(--segment-victims); }
+.profilequeue .viz-playhead { stroke: var(--accent); stroke-width: 2; }
+
+/* Model panel: finding first, then a compact control grid */
+.panel-finding { display: grid; gap: 2px; padding: 0 0 6px; border-bottom: 1px solid var(--line); break-inside: avoid; }
+.finding-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.finding-head strong { font-size: var(--fs-body); }
+.panel-finding > small { font-size: var(--fs-micro); color: var(--ink-2); }
+.link-button { background: none; border: 0; padding: 4px 0; font: inherit; font-size: var(--fs-body); color: var(--companion); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+#main .terrain-operations .rehearsal-controls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px 8px; align-items: end; padding: 6px 0; }
+#main .terrain-operations .rehearsal-controls .control-group { display: contents; }
+#main .terrain-operations .rehearsal-controls .control-group-label { display: none; }
+#main .terrain-operations .rehearsal-controls label { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-end; gap: 1px; font-size: var(--fs-micro); color: var(--ink-2); min-width: 0; }
+#main .terrain-operations .rehearsal-controls select { width: 100%; max-width: none; min-width: 0; font-size: var(--fs-body); color: var(--ink); }
+#main .terrain-operations .rehearsal-controls .rehearsal-play { margin: 0; min-width: 0; width: 100%; align-self: end; }
+#main .terrain-operations .rehearsal-readout { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 6px 0; font-size: var(--fs-micro); color: var(--ink-2); }
+#main .terrain-operations .rehearsal-readout > span strong { font-size: var(--fs-body); color: var(--ink); }
+#main .escape-timing { gap: 2px; }
+#main .escape-timing .field-note { font-size: var(--fs-micro); margin: 0; }
+#main .terrain-operations .profilequeue { margin: 4px 0; }
+
+/* Drill: protocol as one ordered stepper above the record */
+.drill-task-grid { display: flex; flex-direction: column; gap: 12px; }
+.drill-task-grid > .drill-guide { order: -1; }
+.drill-guide .evacuation-guide ol { counter-reset: step; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.drill-guide .evacuation-guide li { counter-increment: step; border-top: 2px solid var(--companion); padding-top: 4px; }
+.drill-guide .evacuation-guide li strong::before { content: counter(step) ' · '; color: var(--ink-2); }
+.drill-guide .evacuation-guide li p { margin: 2px 0 0; font-size: var(--fs-micro); line-height: 1.4; }
+@media (min-width: 900px) { .drill-guide .evacuation-guide ol { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.drill-form .stackbar { margin: 6px 0 2px; }
+
+/* DDPM ranked bars */
+.ddpm-bar-cell { display: flex; align-items: center; gap: 6px; min-width: 120px; }
+.ddpm-bar { display: block; height: 8px; background: var(--companion); flex: none; max-width: calc(100% - 34px); }
+.ddpm-bar-cell span:last-child { font-variant-numeric: tabular-nums; }
+.ddpm-fields .stackbar { margin: 4px 0 8px; }
+
+/* Research: sensors as status rows; DDPM link inline */
+.research-index .link-button { margin-left: auto; }
+.sensor-rows h3 { font-size: var(--fs-body); margin: 12px 0 4px; }
+.sensor-rows ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.sensor-rows li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 0 6px; align-items: baseline; font-size: var(--fs-body); }
+.sensor-rows li > span[lang] { font-size: var(--fs-micro); color: var(--ink-2); }
+.sensor-rows li p { grid-column: 2 / -1; margin: 0; font-size: var(--fs-micro); color: var(--ink-2); }
+.status-off { color: var(--ink-2); }
+.sensor-note { font-size: var(--fs-micro); color: var(--ink-2); }
+.research-results-figure .stepdown { margin: 4px 0 8px; }
+
+/* Prepare */
+.check-count { font-weight: 600; color: var(--companion); margin-left: 6px; font-variant-numeric: tabular-nums; }
+.calc-block .paceruler { margin-top: 4px; }
+
+/* Loading notice: a corner status, not a banner over the map */
+#main .terrain-notice { right: auto; padding: 4px 8px; font-size: var(--fs-micro); }
+
+/* Capture-driven fixes (2026-11-02) */
+#main .terrain-operations .rehearsal-timeline { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+#main .terrain-operations .rehearsal-timeline .timeline-label { display: flex; flex-direction: row; align-items: center; gap: 8px; min-width: 0; white-space: nowrap; }
+#main .terrain-operations .rehearsal-timeline .time-scrubber { flex: 1; min-width: 0; }
+#main .terrain-operations .rehearsal-timeline .time-scrubber input { width: 100%; }
+#main .rehearsal-readout span:not(.runner-count)::before { content: none; }
+#main .escape-timing-head .target-time { flex-direction: row; align-items: center; gap: 4px; }
+#main .terrain-operations .profilequeue svg { position: static; height: auto; min-height: 0; max-height: none; flex: none; width: auto; }
+.hud-reduction-badge { background: var(--active-bg); border-left-color: var(--companion); }
+.reduction-pct, .reduction-sub { color: var(--ink); }
+@media (min-width: 1024px) {
+  .evidence-pane .flow-content { column-count: 1; }
+  .evidence-pane .modeling-split-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 24px; align-items: start; }
+  .evidence-pane .split-col-left, .evidence-pane .split-col-right { display: flex; flex-direction: column; gap: 12px; }
+}
+/* Phone: Results pane was unbounded, so content ran under the footer with no pager. 86px = banner + main padding + footer. */
+@media (max-width: 759px) { #main .explore-grid > .evidence-pane { height: calc(100dvh - 86px); min-height: 0; overflow: hidden; } }
+
+/* Independent audit (REVISE) fixes */
+.key-queue::before { background: var(--ink); }
+.profilequeue .queue-rect { fill: var(--ink); }
+.seg-queued, .seg-missing, .seg-code4 { background: var(--ink); }
+.paceruler .mark-run circle { stroke: var(--ink); }
+.hud-truth-note strong { color: var(--ink); }
+.drill-guide .evacuation-guide li p { font-size: var(--fs-body); line-height: 1.45; }
+@media (max-width: 759px) { .panel-finding > small { display: none; } }
+@media (min-width: 1024px) { .evidence-pane .dotgrid svg { width: 150px; height: 150px; } }
+@media (max-width: 760px) { #main .terrain-rehearsal > .terrain-caption { line-height: 14px; padding: 2px 0; } }

@@ -20,6 +20,7 @@ import type { CoastalRegion } from './research';
 import { areaPacks, alongRoute, walkerProgress, walkerSchedule, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
 import { simulate, frame, elevation, waterScreen, distance, type RouteData, type TerrainGrid, type Coord } from './crowd';
 import { paceLines, segmentWaits, speedForSeconds } from './escape-timing';
+import { PaceRuler, ProfileQueue, StackBar } from './charts';
 
 const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -27,7 +28,7 @@ const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60
 const RUN_PACE = 3;
 /** Walking paces the reader can compare, in metres per second. */
 const WALK_PACES = [0.8, 1.4, 2.4];
-export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onReview, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; onReview:()=>void; bannerDock:HTMLElement|null }) {
+export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, finding, onReview, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; finding?: ReactNode; onReview:()=>void; bannerDock:HTMLElement|null }) {
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
   const host = useRef<HTMLDivElement>(null), map = useRef<maplibregl.Map | null>(null);
@@ -405,18 +406,19 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
     {!model && (hazard || animateWater) && <div className="imported-replay-controls"><button onClick={startExercise}>{playing ? 'Pause' : started ? 'Run' : 'Start warning'}</button><label>Warning +{minutes(seconds)}<TimeScrubber label="Imported scenario time" duration={duration} value={seconds} onChange={value => { setStarted(true); setSeconds(value); setPlaying(false); }} /></label><span>{waterFrame ? 'Imported research frame' : 'No model frame at this time'}</span></div>}
     {isStudy && model && data && <>
       <div className="rehearsal-panel" hidden={mode !== 'crowd'}>
+      {finding}
       <div className="rehearsal-controls" id="rehearsal-controls">
         <div className="control-group"><span className="control-group-label">{t('Group','กลุ่ม')}</span>
           <label>{t('People','ผู้คน')}<select aria-label={t('People','ผู้คน')} value={count} onChange={e => setCount(Number(e.target.value))}><option value={500}>500</option><option value={1500}>1,500</option><option value={5000}>5,000</option></select></label>
-          <label title={t('Share of the group moving at a run pace. An assumed exercise parameter, not advice.','สัดส่วนผู้เดินด้วยจังหวะวิ่ง เป็นค่าตั้งสมมติของแบบฝึก ไม่ใช่คำแนะนำ')}>Runners<select aria-label="Share of the group moving at a run pace" value={runShare} onChange={e => setRunShare(Number(e.target.value))}><option value={0}>{t('None','ไม่มี')}</option><option value={0.1}>10%</option><option value={0.25}>25%</option><option value={0.5}>50%</option></select></label>
+          <label title={t('Share of the group moving at a run pace. An assumed exercise parameter, not advice.','สัดส่วนผู้เดินด้วยจังหวะวิ่ง เป็นค่าตั้งสมมติของแบบฝึก ไม่ใช่คำแนะนำ')}>{t('Runners','ผู้วิ่ง')}<select aria-label="Share of the group moving at a run pace" value={runShare} onChange={e => setRunShare(Number(e.target.value))}><option value={0}>{t('None','ไม่มี')}</option><option value={0.1}>10%</option><option value={0.25}>25%</option><option value={0.5}>50%</option></select></label>
         </div>
         <div className="control-group"><span className="control-group-label">{t('Movement','การเคลื่อนที่')}</span>
-          <label title={t('Walking pace of the group. An assumed exercise parameter.','จังหวะเดินของกลุ่ม เป็นค่าตั้งสมมติของแบบฝึก')}>Pace<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
+          <label title={t('Walking pace of the group. An assumed exercise parameter.','จังหวะเดินของกลุ่ม เป็นค่าตั้งสมมติของแบบฝึก')}>{t('Pace','จังหวะ')}<select aria-label="Walking pace" value={speed} onChange={e => setSpeed(Number(e.target.value))}><option value={0.8}>0.8 m/s</option><option value={1.4}>1.4 m/s</option><option value={2.4}>2.4 m/s</option></select></label>
           <label>{t('Delay','เวลาเตรียม')}<select aria-label={t('Preparation delay','เวลาเตรียม')} value={preparation} onChange={e => setPreparation(Number(e.target.value))}><option value={0}>0 s</option><option value={60}>1 min</option><option value={300}>5 min</option></select></label>
         </div>
         <div className="control-group"><span className="control-group-label">{t('Scenario','สถานการณ์')}</span>
           <label>{t('Route','เส้นทาง')}<select aria-label={t('Route','เส้นทาง')} value={route} onChange={e => setRoute(Number(e.target.value))}>{data.routes.map((r, i) => <option value={i} key={r.name}>{r.name.replace(" approach", "")}</option>)}</select></label>
-          <label>{t('Water demo','ทดลองน้ำ')}<select aria-label={t('Illustrative water level','ระดับน้ำเพื่อการสาธิต')} disabled={!!hazard || flat} value={animateWater ? peak : 0} onChange={e => {
+          <label title={t('Illustrative water level','ระดับน้ำเพื่อการสาธิต')}>{t('Water','น้ำ')}<select aria-label={t('Illustrative water level','ระดับน้ำเพื่อการสาธิต')} disabled={!!hazard || flat} value={animateWater ? peak : 0} onChange={e => {
             const val = Number(e.target.value);
             if (val === 0) {
               setAnimateWater(false);
@@ -433,11 +435,17 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
       <div className="rehearsal-timeline">
         <button onClick={() => { setSeconds(0); setStarted(false); setPlaying(false); setQueueFocus(undefined); }}>{t('Reset','รีเซ็ต')}</button>
         <label className="timeline-label"><span>{started ? t('Elapsed +','ผ่านไป +') : t('Ready · ','พร้อม · ')}{minutes(seconds)}</span><TimeScrubber label="Exercise time" duration={duration} value={seconds} onChange={value => { setSeconds(value); setStarted(true); setPlaying(false); }} /></label>
-        <label>{t('Speed','ความเร็ว')}<select aria-label="Playback speed / ความเร็ว" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
+        <label title={t('Playback speed','ความเร็วการเล่น')}><span className="sr-only">{t('Speed','ความเร็ว')}</span><select aria-label="Playback speed / ความเร็ว" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>1×</option><option value={5}>5×</option><option value={30}>30×</option><option value={120}>120×</option></select></label>
       </div>
       <p className="exercise-boundary" aria-live="polite">{started ? (progress?.state === 'preparing' ? 'Preparing' : progress?.state === 'queued' ? 'Queued at model node' : progress?.state === 'arrived' ? 'Exercise endpoint reached' : t('Route rehearsal','ฝึกเส้นทาง')) : t('Choose a view, then Start','เลือกมุมมอง แล้วกดเริ่ม')} · {hazard ? (waterFrame ? 'unverified replay; agents unaffected' : 'no replay frame; agents unaffected') : animateWater ? `Illustrative level +${shownWaterLevel.toFixed(1)}m MSL · agents unaffected` : 'no wave prediction'} · endpoint unapproved</p>
       <div className="rehearsal-readout" aria-label="Crowd counts">
-        <span><strong>{current?.walking.toLocaleString()}</strong> {t('walking','กำลังเดิน')}</span><span><strong>{current?.queued.toLocaleString()}</strong> {t('queued at nodes','รอที่จุดต่าง ๆ')}</span><span><strong>{current?.arrived.toLocaleString()}</strong> {t('at endpoint','ถึงปลายทาง')}</span><span><strong>{current?.pending.toLocaleString()}</strong> {t('awaiting release','รอออกเดิน')}</span><span>{t('Last arrival','มาถึงล่าสุด')} <strong>{minutes(model.duration)}</strong> · {t('max link wait','รอนานสุด')} <strong>{minutes(model.maxQueueWait)}</strong></span>
+        <StackBar total={count} label={t('Crowd state','สถานะกลุ่มคน')} parts={[
+          { kind: 'pending', label: t('awaiting','รอออกเดิน'), value: current?.pending ?? count },
+          { kind: 'walking', label: t('walking','กำลังเดิน'), value: current?.walking ?? 0 },
+          { kind: 'queued', label: t('queued','รอที่จุด'), value: current?.queued ?? 0 },
+          { kind: 'arrived', label: t('at end','ถึงปลายทาง'), value: current?.arrived ?? 0 },
+        ]} />
+        <span>{t('Last arrival','มาถึงล่าสุด')} <strong>{minutes(model.duration)}</strong> · {t('max link wait','รอนานสุด')} <strong>{minutes(model.maxQueueWait)}</strong></span>
         {runCount > 0 && <span className="runner-count"><strong>{current?.running.toLocaleString()}</strong> running of {runCount.toLocaleString()} runners</span>}
       </div>
       {active && model && (
@@ -446,19 +454,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
             <strong>{t('Time to the exercise end','เวลาถึงปลายทางแบบฝึก')}</strong>
             <label className="target-time">{t('Target','เป้าหมาย')}<select aria-label="Target time to the exercise end" value={targetMinutes} onChange={e => setTargetMinutes(Number(e.target.value))}><option value={20}>20 min</option><option value={30}>30 min</option><option value={45}>45 min</option><option value={60}>60 min</option></select></label>
           </div>
-          <dl className="escape-paces">
-            {paceLadder.map(line => (
-              <div key={line.pace} className={line.run ? 'run' : undefined}>
-                <dt>{line.label}{line.run ? ` · ${runCount.toLocaleString()} of ${count.toLocaleString()}` : ''}</dt>
-                <dd>{minutes(line.seconds)}<small>free flow</small></dd>
-              </div>
-            ))}
-            <div className="needed">
-              <dt>{t(`Pace for ${targetMinutes} min`,`จังหวะเพื่อ ${targetMinutes} นาที`)}</dt>
-              <dd>{speedForSeconds(active, targetMinutes * 60).toFixed(1)} m/s<small>{t('without queueing','เมื่อไม่มีคิว')}</small></dd>
-            </div>
-          </dl>
-          <p className="field-note">{t('Modelled on the mapped route. The endpoint is unapproved; these are exercise times, not wave-arrival margins and not advice.','คำนวณจากเส้นทางที่แมปไว้ ปลายทางยังไม่ได้รับการรับรอง เวลาเหล่านี้เป็นเวลาแบบฝึก ไม่ใช่เวลาคงเหลือก่อนคลื่นมาถึง และไม่ใช่คำแนะนำ')}</p>
+          <PaceRuler
+            marks={paceLadder.map(line => ({ label: `${line.run ? '▸' : ''}${line.pace}→${Math.round(line.seconds / 60)}′`, minutes: line.seconds / 60, kind: line.run ? 'run' : line.pace === speed ? 'own' : 'walk' }))}
+            target={targetMinutes}
+            targetLabel={t(`${targetMinutes} min needs ${speedForSeconds(active, targetMinutes * 60).toFixed(1)} m/s`,`${targetMinutes} นาที ต้อง ${speedForSeconds(active, targetMinutes * 60).toFixed(1)} ม./วิ`)}
+            ariaLabel={t(`Free-flow time to the exercise end: ${paceLadder.map(l => `${l.label} ${minutes(l.seconds)}`).join(', ')}. ${targetMinutes} minutes needs ${speedForSeconds(active, targetMinutes * 60).toFixed(1)} m/s without queueing.`,`เวลาถึงปลายทางเมื่อไม่มีคิว: ${paceLadder.map(l => `${l.pace} ม./วิ ${minutes(l.seconds)}`).join(', ')}`)} />
+          <p className="field-note">{t('Free flow, no queueing. Endpoint unapproved; exercise times, not wave-arrival margins or advice.','ไม่มีคิว ปลายทางยังไม่ได้รับการรับรอง เป็นเวลาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมาถึงหรือคำแนะนำ')}</p>
         </div>
       )}
       {walkCompare === 'compare' && compareProgress && progress && (
@@ -487,25 +488,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, onRe
         </div>}
       <div className="terrain-analysis-row">
         <div className="route-profile"><strong>{areaPack?.label}: {active?.name} · {((model.distance[route] ?? 0) / 1000).toFixed(2)} km</strong><span>{progress ? `${(Math.max(0, progress.total - progress.metres) / 1000).toFixed(2)} km to exercise end · ${progress.state}` : 'Approximate DEM profile'} · endpoint unapproved</span>
-          <div className="profile-chart"><div className="profile-y-scale" aria-hidden="true"><span>{Math.round(Math.max(20,...profile))} m</span><span>{Math.round(Math.max(20,...profile)/2)} m</span><span>0 m</span></div><svg viewBox="0 0 480 54" preserveAspectRatio="none" role="img" aria-label={`Terrain elevation profile, ${Math.round(Math.min(...profile))} to ${Math.round(Math.max(...profile))} metres. Not a safety classification.`}><path vectorEffect="non-scaling-stroke" d="M0 6H480M0 28H480M0 50H480" fill="none" stroke="#b9c2bd" strokeWidth=".6"/><polyline vectorEffect="non-scaling-stroke" fill="none" stroke="#12354e" strokeWidth="2" points={profile.map((v, i) => `${(chainage[i] ?? 0) / Math.max(1, chainage.at(-1) ?? 1) * 480},${50 - Math.max(0, v) / Math.max(20, ...profile) * 44}`).join(' ')} /></svg><div className="profile-x-scale" aria-hidden="true"><span>0 km</span><span>{((chainage.at(-1)??0)/2000).toFixed(2)}</span><span>{((chainage.at(-1)??0)/1000).toFixed(2)} km</span></div></div>
+          <ProfileQueue chainage={chainage} profile={profile} waits={waits} position={started && progress ? progress.metres : undefined}
+            queueLabel={t('longest queue wait per segment','เวลารอคิวสูงสุดต่อช่วง')} queueMaxLabel={t('max wait','รอนานสุด')}
+            ariaLabel={`Terrain elevation profile ${Math.round(Math.min(...profile))}–${Math.round(Math.max(...profile))} m, with modelled queue wait per segment on the same distance axis; longest ${waits.length ? Math.round(Math.max(...waits.map(w => w.waitSeconds))) : 0} s. Not a safety classification.`} />
           <p className="route-cue">{!started ? 'Start runs a rehearsal. Real warnings require prompt action following local guidance.' : progress?.state === 'preparing' ? `Preparation interval: ${Math.max(0, preparation - seconds).toFixed(0)} s remaining in this exercise.` : progress?.state === 'queued' ? 'First walker is queued at a network node; the physical crowd is not simulated.' : progress?.state === 'arrived' ? 'First walker reached the exercise end; other agents may still be en route.' : nextDirection ? `Selected exercise route: in ${nextDirection.distanceM} m, bear ${nextDirection.direction}.` : 'Continue along the selected exercise route to its unapproved endpoint.'}</p>
           <div className="profile-scale"><span>Start ≈ {Math.round(profile[0] ?? 0)} m</span><span>DEM range ≈ {Math.round(Math.min(...profile))}–{Math.round(Math.max(...profile))} m</span><span>End ≈ {Math.round(profile.at(-1) ?? 0)} m</span></div>
         </div>
-        {waits.length > 0 && (
-          <div className="queue-chart">
-            <strong>{t('Where the queue forms','คิวเกิดที่ไหน')}</strong>
-            <span className="queue-chart-sub">{t('Longest modelled wait per segment of the selected route','เวลารอสูงสุดที่จำลองไว้ในแต่ละช่วงของเส้นทางที่เลือก')}</span>
-            <div className="queue-chart-plot" role="img" aria-label={`Modelled wait per route segment. Longest wait ${Math.round(Math.max(...waits.map(w => w.waitSeconds)))} seconds at ${Math.round(Math.max(...waits.map(w => w.waitSeconds)) / 60)} minutes.`}>
-              {waits.map(wait => (
-                <div className="queue-column" key={wait.edge}>
-                  <span className="queue-bar" style={{ height: `${Math.max(2, wait.waitSeconds / Math.max(1, ...waits.map(w => w.waitSeconds)) * 100)}%` }} />
-                  <span className="queue-tick">{Math.round(wait.waitSeconds)}s</span>
-                  <span className="queue-chainage">{(wait.chainageM / 1000).toFixed(1)} km</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
       </div>
       </div>

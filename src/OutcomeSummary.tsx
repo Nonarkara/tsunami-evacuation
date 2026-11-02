@@ -1,5 +1,6 @@
 import { outcomes, POPULATION, type Condition } from './research';
 import { manualLanguage } from './manual-content';
+import { DotGrid } from './charts';
 
 export function OutcomeSummary({ step, condition }: { step: number; condition: Condition }) {
   const o = outcomes(step, condition);
@@ -14,8 +15,6 @@ export function OutcomeSummary({ step, condition }: { step: number; condition: C
     {value:o.affected,label:t('Modeled victims','ผู้ประสบภัยจำลอง'),kind:'victims'},
   ];
   return <section className="outcome-summary" lang={language} aria-label={t('Modeled outcome accounting','การจัดหมวดผลแบบจำลอง')}>
-    <div className="outcome-heading"><span>{t('Modeled outcome','ผลแบบจำลอง')} · {POPULATION.toLocaleString('en-US')} {t('agents','ตัวแทน')}</span><span>0–100%</span></div>
-    <div className="outcome-strip" role="img" aria-label={parts.map(p=>`${p.label}: ${p.value.toFixed(1)}%`).join('; ')}>{parts.map(p=><span key={p.kind} className={p.kind} style={{width:`${p.value}%`}}/>)}</div>
-    <dl className={`outcome-records ${o.reached===null?'partial':''}`}>{parts.map(p=><div key={p.kind}><dt>{p.label}</dt><dd>{p.value.toFixed(1)}%</dd></div>)}</dl>
+    <DotGrid parts={parts} caption={<>{t('1 dot = 1% of','1 จุด = 1% ของ')} {POPULATION.toLocaleString('en-US')} {t('modeled agents','ตัวแทนจำลอง')}{o.reached===null?t(' · arrival split not reported for this package',' · ไม่ได้รายงานการแยกผลสำหรับมาตรการนี้'):''}</>} />
   </section>;
 }

@@ -8,6 +8,7 @@ import "./axiom-tokens.css";
 import "./style.css";
 import "./viewport.css";
 import "./banner.css";
+import "./viz.css";
 import { PagedFlow } from "./PagedFlow";
 import { ReadingDialog } from "./ReadingDialog";
 import { BannerDock } from "./BannerDock";
@@ -18,7 +19,6 @@ import { SourceFooter } from "./SourceFooter";
 import { formatBangkokTime } from "./orientation";
 import { manualLanguage } from "./manual-content";
 import { InterventionComparison } from "./InterventionComparison";
-import { SatelliteCatalogue as SatelliteIntel } from "./SatelliteCatalogue";
 import { NavConsole } from "./NavConsole";
 import { ResearchSection } from "./ResearchSection";
 import { DdpmRiskPanel } from "./DdpmRiskPanel";
@@ -27,6 +27,7 @@ import "@fontsource/prompt/thai-500.css";
 import "@fontsource/prompt/thai-600.css";
 import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
+import { PaceRuler } from "./charts";
 import {
   POPULATION,
   scenarios,
@@ -41,7 +42,7 @@ import {
   type Condition,
 } from "./research";
 
-type Tab = "explore" | "prepare" | "drill" | "research" | "satellite" | "ddpm";
+type Tab = "explore" | "prepare" | "drill" | "research" | "ddpm";
 
 function download(name: string, text: string) {
   const url = URL.createObjectURL(
@@ -67,8 +68,8 @@ function Clock() {
 function App() {
   const [tab, setTab] = useState<Tab>(() => {
     const hash = location.hash.slice(1);
-    const t = hash.startsWith("ddpm-") ? "ddpm" : hash.startsWith("research-") || hash.startsWith("source-R") ? "research" : hash;
-    return ["explore", "prepare", "drill", "research", "satellite", "ddpm"].includes(t)
+    const t = hash.startsWith("ddpm-") ? "ddpm" : hash.startsWith("research-") || hash.startsWith("source-R") || hash === "satellite" ? "research" : hash;
+    return ["explore", "prepare", "drill", "research", "ddpm"].includes(t)
       ? (t as Tab)
       : "explore";
   });
@@ -86,9 +87,11 @@ function App() {
   const region = coastalRegions[regionIdx];
   const place = region.places[selectedPlace];
 
-  function navigate(t: Tab) {
+  function navigate(to: Tab | "satellite") {
+    // Sensor catalogue now lives in Research › Sources.
+    const t: Tab = to === "satellite" ? "research" : to;
     setTab(t);
-    history.replaceState(null, "", `#${t}`);
+    history.replaceState(null, "", to === "satellite" ? "#research-sources" : `#${t}`);
     window.scrollTo({ top: 0 });
     requestAnimationFrame(()=>document.getElementById('main')?.focus({preventScroll:true}));
   }
@@ -302,6 +305,11 @@ function App() {
                 onSelect={setSelectedPlace}
                 bannerDock={bannerDock}
                 consoleSlot={placeConsole}
+                finding={region.id==='khao-lak' ? <div className="panel-finding">
+                  <div className="finding-head" title={t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · สถานการณ์จำลองเขาหลัก ไม่ใช่การพยากรณ์')}><strong>{t('Preprint · modeled victims, % of 39,041','งานวิจัย · ผู้ประสบภัยจำลอง % จาก 39,041')}</strong><button className="link-button" onClick={()=>setModelView('evidence')}>{t('Results','ผลลัพธ์')} →</button></div>
+                  <InterventionComparison condition={condition} step={step} height={matchMedia('(max-width: 759px)').matches ? 44 : 64} onSelect={i=>{setStep(i);setModelView('evidence');}} />
+                  <small>{t('Preprint · 39,041 agents · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · 39,041 ตัวแทน · สถานการณ์จำลอง ไม่ใช่การพยากรณ์')}</small>
+                </div> : undefined}
                 onReview={()=>navigate("drill")}
               />
 
@@ -367,7 +375,7 @@ function App() {
                     </div>
                   </div>
 
-                  <InterventionComparison step={step} condition={condition} onSelect={setStep} />
+                  <InterventionComparison step={step} condition={condition} onSelect={setStep} height={matchMedia('(min-width: 1024px)').matches ? 240 : 96} />
                 </div>
 
                 {/* Selected package and reported outcome accounting */}
@@ -418,11 +426,6 @@ function App() {
           </div>
         ) : null}
 
-        {/* Tab: Satellite & Meteorological Intel */}
-        <div hidden={tab !== "satellite"}>
-          <PagedFlow label="Sources & sensors"><SatelliteIntel /></PagedFlow>
-        </div>
-
         {/* Tab: My Plan */}
         <div hidden={tab !== "prepare"}>
           <PagedFlow label="Personal plan"><Prepare language={language} /></PagedFlow>
@@ -435,7 +438,7 @@ function App() {
 
         {/* Tab: Research Section with Diagrams */}
         <div hidden={tab !== "research"}>
-          <PagedFlow label="Research"><button className="ddpm-research-link" onClick={()=>navigate("ddpm")}>{language==='th'?'ตรวจข้อมูลต้นทาง ปภ. · CSV':'DDPM source audit · CSV'} →</button><ResearchSection onExplore={() => navigate("explore")} onLanguageChange={setLanguage} /></PagedFlow>
+          <PagedFlow label="Research"><ResearchSection onDdpm={()=>navigate("ddpm")} onExplore={() => navigate("explore")} onLanguageChange={setLanguage} /></PagedFlow>
         </div>
 
         {/* Tab: DDPM tsunami-risk evidence (provenance-first demonstrator) */}
@@ -581,11 +584,14 @@ function Prepare({language}:{language:string}) {
                 <span className="error">Enter valid positive numbers</span>
               )}
             </div>
+            {minutes !== null && <PaceRuler
+              ariaLabel={`Walking time for ${distance} m: ${[0.5, 0.8, 1.0].map(v => `${v} m/s ${Math.round(Number(distance) / v / 60)} min`).join(', ')}`}
+              marks={[0.5, 0.8, 1.0].map(v => ({ label: `${v} m/s · ${Math.round(Number(distance) / v / 60)}′`, minutes: Number(distance) / v / 60, kind: Number(speed) === v ? 'own' : 'walk' }))} />}
           </div>
         </div>
 
         <fieldset className="checklist-block">
-          <legend>Preparation & Readiness Checklist</legend>
+          <legend>{t("Readiness checklist","รายการเตรียมพร้อม")} <span className="check-count">{plan.checked.filter(Boolean).length}/{checklist.length} ✓</span></legend>
           {checklist.map((item, i) => (
             <label key={item} className="checkbox-label">
               <input

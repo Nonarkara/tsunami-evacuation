@@ -20,10 +20,14 @@ export function PagedFlow({children,label='Reading pages',className=''}:{childre
   useLayoutEffect(()=>{
     const box=host.current,body=content.current;if(!box||!body)return;
     const observer=new ResizeObserver(measure);observer.observe(box);
-    const mutation=new MutationObserver(()=>requestAnimationFrame(measure));
-    mutation.observe(body,{subtree:true,childList:true,attributes:true,attributeFilter:['open','hidden']});
+    // Charts size themselves after layout; watch them so a late height change re-counts pages.
+    const watchCharts=()=>body.querySelectorAll('.viz').forEach(el=>observer.observe(el));watchCharts();
+    const mutation=new MutationObserver(()=>{watchCharts();requestAnimationFrame(measure);});
+    mutation.observe(body,{subtree:true,childList:true,attributes:true,attributeFilter:['open','hidden','height','width']});
     document.fonts.ready.then(measure);measure();
-    return()=>{observer.disconnect();mutation.disconnect();};
+    // ponytail: late layout (map/terrain load) can move columns without any observable resize; two cheap re-counts cover it.
+    const late=[1500,5000].map(ms=>setTimeout(measure,ms));
+    return()=>{observer.disconnect();mutation.disconnect();late.forEach(clearTimeout);};
   },[measure]);
   useLayoutEffect(measure,[children,measure]);
   function reveal(target:Element){

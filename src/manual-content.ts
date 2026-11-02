@@ -40,7 +40,7 @@ export const manualTopics = {
     note: both('The source is an unreviewed preprint about Khao Lak. Its modeled victim rates are not observed deaths, individual risk or results recomputed by this browser.', 'ต้นฉบับเป็นบทความเกี่ยวกับเขาหลักที่ยังไม่ผ่านการประเมินโดยผู้ทรงคุณวุฒิ สัดส่วนผู้ประสบภัยตามเกณฑ์แบบจำลองไม่ใช่จำนวนผู้เสียชีวิตจริง ความเสี่ยงรายบุคคล หรือผลที่เบราว์เซอร์นี้คำนวณซ้ำ'),
   },
   satellite: {
-    name: both('Satellite · understand available sources', 'ดาวเทียม · ทำความเข้าใจแหล่งข้อมูล'),
+    name: both('Sensors · in Research › Sources', 'เซนเซอร์ · อยู่ในงานวิจัย › แหล่งข้อมูล'),
     steps: [both('Read this section as a catalogue of possible instruments and integrations. It does not show current buoy, tide-gauge, satellite inundation or warning observations.', 'ส่วนนี้เป็นรายการเครื่องมือและการเชื่อมต่อที่อาจใช้ได้ ไม่ได้แสดงข้อมูลทุ่น สถานีระดับน้ำ ขอบเขตน้ำท่วมจากดาวเทียม หรือคำเตือนปัจจุบัน')],
     note: both('A missing or disconnected feed is a data gap, not an all-clear. Follow official warnings independently of this website.', 'ข้อมูลที่ขาดหรือยังไม่ได้เชื่อมต่อคือช่องว่างของข้อมูล ไม่ใช่สัญญาณว่าปลอดภัย ให้ติดตามคำเตือนของทางการแยกจากเว็บไซต์นี้'),
   },

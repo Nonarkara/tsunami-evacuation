@@ -7,6 +7,16 @@ const thai: Record<string, [string,string]> = {
   'sentinel-1':['ภาพเรดาร์ SAR จาก Sentinel-1','ภาพที่อาจใช้ทำแผนที่น้ำท่วมหลังได้รับและตรวจสอบข้อมูล เวลาเก็บภาพ การประมวลผล และสภาพพื้นที่เป็นข้อจำกัด ไม่รับรองภาพรายวันหรือขอบเขตน้ำท่วมปัจจุบัน'],
   'dem-elevation':['ข้อมูลความสูง Copernicus DEM ที่เสนอ','ข้อมูลภูมิประเทศที่เสนอ ระบบนี้ใช้ Mapzen อยู่ในปัจจุบัน ยังไม่ได้นำ DEM ชุดนี้มาใช้ ระดับความสูงเพียงอย่างเดียวไม่ยืนยันเส้นทางปลอดภัยหรือความเหมาะสมของจุดอพยพ'],
 };
+/** Four candidate instruments as compact status rows; none is connected, so none shows a reading. */
+export function SensorRows({ language }: { language: 'en' | 'th' }) {
+  const t=(en:string,th:string)=>language==='th'?th:en;
+  return <div className="sensor-rows" id="research-sensors">
+    <h3>{t('Sensors & imagery · not connected','เซนเซอร์และภาพ · ยังไม่เชื่อมต่อ')}</h3>
+    <ul>{satelliteToolkits.map(s=><li key={s.id}><span className="status-off" aria-label={t('Not connected','ยังไม่เชื่อมต่อ')} title={t('Not connected','ยังไม่เชื่อมต่อ')}>○</span><a href={s.sourceUrl} target="_blank" rel="noreferrer">{language==='th'?thai[s.id][0]:s.name}</a><span lang="en">{s.agency}</span><p>{language==='th'?thai[s.id][1]:s.significance}</p></li>)}</ul>
+    <p className="sensor-note">{t('A disconnected feed is a data gap, not an all-clear. Follow official warnings.','ข้อมูลที่ยังไม่เชื่อมต่อคือช่องว่าง ไม่ใช่สัญญาณปลอดภัย โปรดติดตามคำเตือนทางการ')}</p>
+  </div>;
+}
+
 export function SatelliteCatalogue() {
   const [language,setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
   const t=(en:string,th:string)=>language==='th'?th:en;

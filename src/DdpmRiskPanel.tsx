@@ -1,6 +1,7 @@
 import { ddpmDatasetEvidence, ddpmInspection as data, provinceNamesEn } from './ddpm';
 import { ProvenancePanel } from './ProvenancePanel';
 import type { ManualLanguage } from './manual-content';
+import { StackBar } from './charts';
 
 /** A dated inspection of the entire source CSV. No mapped/operational layer is implied. */
 export function DdpmRiskPanel({ language, onResearch }: { language: ManualLanguage; onResearch:()=>void }) {
@@ -21,7 +22,8 @@ export function DdpmRiskPanel({ language, onResearch }: { language: ManualLangua
     <section className="ddpm-fields" id="ddpm-fields">
       <h3>{t('What the full file contains','ข้อมูลที่พบในไฟล์ทั้งหมด')}</h3>
       <p>{t('Height (raw)','Height: ช่วงค่าดิบ')} <strong>{data.heightRaw.min}–{data.heightRaw.max}</strong> · {t('unit/meaning unverified','ยังไม่ยืนยันหน่วยและความหมาย')}</p>
-      <p>{t('Risk code → rows','รหัส Risk → จำนวนแถว')}: {Object.entries(data.riskCodes).map(([code,count])=><span key={code} className="ddpm-code">{code} → <strong>{count.toLocaleString()}</strong></span>)}</p>
+      <p>{t('Risk code → rows','รหัส Risk → จำนวนแถว')}</p>
+      <StackBar total={data.rows} label={t('Rows by risk code','จำนวนแถวตามรหัส Risk')} parts={Object.entries(data.riskCodes).map(([code,count])=>({kind:`code${code}`,label:`${t('code','รหัส')} ${code}`,value:count}))} />
       <p>{t('Codes are labels, not verified severity or probability.', 'แสดงรหัสตามต้นฉบับ โดยไม่กำหนดระดับความรุนแรง โอกาสเกิด หรือความปลอดภัย')}</p>
     </section>
 
@@ -47,10 +49,10 @@ export function DdpmRiskPanel({ language, onResearch }: { language: ManualLangua
 
     <section className="ddpm-provinces" id="ddpm-coverage">
       <h3>{t('Province coverage · record counts','พื้นที่ครอบคลุม · จำนวนระเบียน')}</h3>
-      <p>{t('Grouped by numeric pcode. PV abbreviations are reused across provinces and are not unique identifiers.', 'จัดกลุ่มตาม pcode ตัวเลข อักษรย่อ PV ซ้ำข้ามจังหวัด จึงใช้เป็นรหัสเฉพาะไม่ได้')}</p>
+      <p>{t('Grouped by numeric pcode, ranked by rows. PV abbreviations are reused across provinces and are not unique identifiers.', 'จัดกลุ่มตาม pcode ตัวเลข อักษรย่อ PV ซ้ำข้ามจังหวัด จึงใช้เป็นรหัสเฉพาะไม่ได้')}</p>
       <table><caption>{t('Province names translated from the Thai source','คงชื่อจังหวัดตามต้นฉบับภาษาไทย')}</caption>
-        <thead><tr><th scope="col">pcode</th><th scope="col">{t('Province','จังหวัด')}</th><th scope="col">{t('Rows','แถว')}</th></tr></thead>
-        <tbody>{data.provinces.map(p=><tr key={p.pcode}><td>{p.pcode}</td><th scope="row" lang={language} title={p.nameTh}>{language==='th'?p.nameTh:provinceNamesEn[p.pcode]??p.nameTh}</th><td>{p.rows}</td></tr>)}</tbody>
+        <thead><tr><th scope="col">{t('Province','จังหวัด')}</th><th scope="col">{t('Rows','แถว')}</th><th scope="col">pcode</th></tr></thead>
+        <tbody>{[...data.provinces].sort((a,b)=>b.rows-a.rows).map(p=><tr key={p.pcode}><th scope="row" lang={language} title={p.nameTh}>{language==='th'?p.nameTh:provinceNamesEn[p.pcode]??p.nameTh}</th><td className="ddpm-bar-cell"><span className="ddpm-bar" style={{width:`${p.rows/Math.max(...data.provinces.map(q=>q.rows))*100}%`}} aria-hidden="true"/><span>{p.rows}</span></td><td>{p.pcode}</td></tr>)}</tbody>
       </table>
     </section>
 

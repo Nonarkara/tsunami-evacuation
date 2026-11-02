@@ -31,17 +31,6 @@ const CONSOLE: ConsoleEntry[] = [
     ],
   },
   {
-    key: "satellite",
-    label: "Satellite",
-    thai: "ดาวเทียม",
-    note: "Instrument catalogue — nothing is connected live",
-    items: [
-      { label: "Buoys & tide gauges", target: "catalogue-physics", hint: "candidates" },
-      { label: "SAR & flood extent", target: "catalogue-physics", hint: "candidates" },
-      { label: "Elevation sources", target: "catalogue-physics", hint: "Mapzen Terrarium" },
-    ],
-  },
-  {
     key: "prepare",
     label: "Plan",
     thai: "แผน",

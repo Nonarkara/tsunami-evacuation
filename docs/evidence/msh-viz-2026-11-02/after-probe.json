@@ -1,0 +1,658 @@
+{
+ "explore-320": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 1,
+   "13px": 7,
+   "24px": 1,
+   "10px": 1,
+   "11px": 20
+  },
+  "pagers": [
+   "4"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": [
+   370,
+   543
+  ]
+ },
+ "evidence-320": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 3,
+   "13px": 9,
+   "24px": 2,
+   "11px": 16
+  },
+  "pagers": [
+   "2"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "prepare-320": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 2,
+   "13px": 9,
+   "24px": 1
+  },
+  "pagers": [
+   "3"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "drill-320": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 1,
+   "13px": 11,
+   "24px": 3
+  },
+  "pagers": [
+   "3"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "research-320": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 1,
+   "13px": 22,
+   "11px": 13,
+   "24px": 2
+  },
+  "pagers": [
+   "12"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "ddpm-320": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 3,
+   "13px": 19,
+   "24px": 1
+  },
+  "pagers": [
+   "5"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "explore-390": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 1,
+   "13px": 7,
+   "24px": 1,
+   "10px": 1,
+   "11px": 20
+  },
+  "pagers": [
+   "4"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": [
+   514,
+   687
+  ]
+ },
+ "evidence-390": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [
+   "Key Finding: | The cumulative package w"
+  ],
+  "sizes": {
+   "17px": 4,
+   "13px": 12,
+   "24px": 2,
+   "11px": 24
+  },
+  "pagers": [
+   "2"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "prepare-390": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 2,
+   "13px": 10,
+   "24px": 1
+  },
+  "pagers": [
+   "2"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "drill-390": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 2,
+   "13px": 14,
+   "24px": 3,
+   "11px": 1
+  },
+  "pagers": [
+   "2"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "research-390": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [
+   "Research / Khao Lak | Population is estimated,",
+   "Evidence, methods & limi | Population is estimated,",
+   "\u0e44\u0e17\u0e22 | Population is estimated,",
+   "English | Population is estimated,",
+   "One unreviewed Khao Lak  | Population is estimated,",
+   "Results | Population is estimated,",
+   "Methods | Population is estimated,",
+   "Sources | Population is estimated,",
+   "Validation | Population is estimated,",
+   "Reproduce & cite | Population is estimated,",
+   "DDPM CSV audit \u2192 | Population is estimated,",
+   "01 / Reported scenario r | Population is estimated,"
+  ],
+  "sizes": {
+   "17px": 1,
+   "13px": 35,
+   "11px": 13,
+   "24px": 2
+  },
+  "pagers": [
+   "9"
+  ],
+  "clipped": [
+   "Population is estimated,",
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "ddpm-390": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 3,
+   "13px": 20,
+   "24px": 1
+  },
+  "pagers": [
+   "3"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "explore-1024": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 2,
+   "13px": 23,
+   "24px": 1,
+   "10px": 1,
+   "11px": 24
+  },
+  "pagers": [
+   "2"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": [
+   292,
+   324
+  ],
+  "stack": [
+   410,
+   442
+  ],
+  "finding": [
+   44,
+   217
+  ]
+ },
+ "evidence-1024": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [
+   "Key Finding: | The cumulative package w"
+  ],
+  "sizes": {
+   "17px": 5,
+   "13px": 16,
+   "11px": 25,
+   "24px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "prepare-1024": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 9,
+   "13px": 18,
+   "24px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "drill-1024": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 3,
+   "13px": 21,
+   "24px": 3,
+   "11px": 5
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "research-1024": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [
+   "Population is estimated, | Environment + synthetic ",
+   "What the reported compar | Environment + synthetic ",
+   "PD50 \u00b7 21.8% \u2192 7.0% | Environment + synthetic ",
+   "The walking-preference p | Environment + synthetic ",
+   "+ VS14 \u00b7 7.0% \u2192 3.7% | Environment + synthetic ",
+   "Fourteen additional cand | Environment + synthetic ",
+   "+ VE50 / SG135 \u00b7 1.3% /  | Environment + synthetic ",
+   "These are successive cum | Environment + synthetic ",
+   "Full package: baseline1. | Environment + synthetic ",
+   "Warning issuance changes | Environment + synthetic ",
+   "Question: under the stud | Environment + synthetic ",
+   "Read package definitions | Environment + synthetic "
+  ],
+  "sizes": {
+   "17px": 4,
+   "13px": 50,
+   "24px": 3,
+   "11px": 12
+  },
+  "pagers": [
+   "4"
+  ],
+  "clipped": [
+   "Environment + synthetic ",
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "ddpm-1024": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 6,
+   "13px": 110,
+   "24px": 1,
+   "11px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "explore-1440": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 2,
+   "13px": 29,
+   "0px": 1,
+   "11px": 25,
+   "10px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": [
+   292,
+   324
+  ],
+  "stack": [
+   410,
+   442
+  ],
+  "finding": [
+   44,
+   217
+  ]
+ },
+ "evidence-1440": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [
+   "Key Finding: | The cumulative package w"
+  ],
+  "sizes": {
+   "17px": 5,
+   "13px": 16,
+   "11px": 26,
+   "24px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "prepare-1440": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 9,
+   "13px": 23,
+   "11px": 1,
+   "24px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "drill-1440": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 3,
+   "13px": 26,
+   "11px": 6,
+   "24px": 3
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "research-1440": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 5,
+   "13px": 56,
+   "11px": 13,
+   "24px": 3
+  },
+  "pagers": [
+   "4"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ },
+ "ddpm-1440": {
+  "docScroll": 0,
+  "header": [
+   0,
+   36
+  ],
+  "overlaps": [],
+  "sizes": {
+   "17px": 6,
+   "13px": 115,
+   "11px": 2,
+   "24px": 1
+  },
+  "pagers": [
+   "1"
+  ],
+  "clipped": [
+   "Study & credits",
+   "SSRN 7270357 \u2197",
+   "Research \u2192"
+  ],
+  "start": null,
+  "stack": null,
+  "finding": null
+ }
+}

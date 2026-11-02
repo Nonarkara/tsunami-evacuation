@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { scenarios, POPULATION } from './research';
+import { SensorRows } from './SatelliteCatalogue';
+import { StepDown } from './charts';
+import { reduction } from './research';
 import { bi, bibtex, evidenceCsv, glossary, packageNames, paperCitation, reviewedOn, sourceRows, type ResearchLanguage } from './research-ledger';
 
-export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: () => void; onLanguageChange: (language: ResearchLanguage) => void }) {
+export function ResearchSection({ onExplore, onDdpm, onLanguageChange }: { onExplore: () => void; onDdpm: () => void; onLanguageChange: (language: ResearchLanguage) => void }) {
   const [language, setLanguage] = useState<ResearchLanguage>(() => {
     const requested = new URLSearchParams(location.search).get('lang');
     return requested === 'th' || requested === 'en' ? requested : navigator.language.startsWith('th') ? 'th' : 'en';
@@ -35,15 +38,18 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
     <p className="research-scope">{t('One unreviewed Khao Lak preprint and our browser methods. No live forecast or approved routes.', 'ผลจากบทความเขาหลักที่ยังไม่ผ่านการประเมิน และวิธีของแบบฝึกในเบราว์เซอร์ ไม่ใช่การพยากรณ์แบบเวลาจริงหรือเส้นทางที่ได้รับอนุมัติ')}</p>
     <nav className="research-index" aria-label={t('Research sections','หัวข้องานวิจัย')}>{[
       ['results',t('Results','ผลการศึกษา')],['methods',t('Methods','วิธีวิจัย')],['sources',t('Sources','แหล่งข้อมูล')],['validation',t('Validation','แผนตรวจสอบ')],['reproduce',t('Reproduce & cite','ทำซ้ำและอ้างอิง')],
-    ].map(([id,label])=><a key={id} href={`#research-${id}`}>{label}</a>)}</nav>
+    ].map(([id,label])=><a key={id} href={`#research-${id}`}>{label}</a>)}<button className="link-button" onClick={onDdpm}>{t('DDPM CSV audit','ตรวจ CSV ปภ.')} →</button></nav>
 
     <section id="research-results" aria-labelledby="results-title">
       <div className="research-section-head"><h2 id="results-title">{t('01 / Reported scenario results','01 / ผลลัพธ์ของฉากทัศน์ที่รายงาน')}</h2><a href="#source-R1" onClick={e=>{ e.preventDefault(); setFilter("all"); requestAnimationFrame(()=>{ document.getElementById("source-R1")?.focus({preventScroll:true}); history.replaceState(null,"","#source-R1"); }); }}>{t('Source [R1] · §4.1–4.5','แหล่ง [R1] · หัวข้อ 4.1–4.5')}</a></div>
 
       <figure className="research-results-figure">
-        <figcaption>{t('Modeled victim share (%) · cumulative packages · bars 0–25%','ผู้ประสบภัยตามเกณฑ์แบบจำลอง (%) · มาตรการสะสม · กราฟ 0–25%')}</figcaption>
+        <figcaption>{t('Modeled victim share (%) · cumulative packages','ผู้ประสบภัยตามเกณฑ์แบบจำลอง (%) · มาตรการสะสม')}</figcaption>
+        <StepDown height={84} aLabel={t('Baseline (30′ warning)','ฐาน (เตือน 30′)')} bLabel={t('Delayed (45′ warning)','ล่าช้า (เตือน 45′)')}
+          ariaLabel={t(`Modeled victim share: ${scenarios.map(s=>`${s.short} ${s.affected}% baseline, ${s.delayed}% delayed`).join('; ')}`,`ผู้ประสบภัยจำลอง: ${scenarios.map((s,i)=>`${packageNames[i].th} ${s.affected}% / ${s.delayed}%`).join('; ')}`)}
+          steps={scenarios.map((s,i)=>({ name:t(['Base','PD50','+VS14','+VE50','+SG135'][i],['ฐาน','PD50','+VS14','+VE50','+SG135'][i]), title:packageNames[i][language], a:s.affected, b:s.delayed, note:i===0?undefined:`−${reduction(i,'baseline').toFixed(0)}%` }))} />
         <table className="research-results-table"><thead><tr><th scope="col">{t('Package','ชุดมาตรการ')}</th><th scope="col">{t('Baseline','ฐาน')}</th><th scope="col">{t('Delayed','ล่าช้า')}</th></tr></thead>
-          <tbody>{scenarios.map((s,i)=><tr key={s.id}><th scope="row">{packageNames[i][language]}</th>{(['baseline','delayed'] as const).map(c=><td key={c} className={`research-value ${c}`}>{(c==='baseline'?s.affected:s.delayed).toFixed(1)}%<span className="research-bar-track" aria-hidden="true"><span style={{width:`${(c==='baseline'?s.affected:s.delayed)/25*100}%`}} /></span></td>)}</tr>)}</tbody>
+          <tbody>{scenarios.map((s,i)=><tr key={s.id}><th scope="row">{packageNames[i][language]}</th>{(['baseline','delayed'] as const).map(c=><td key={c} className={`research-value ${c}`}>{(c==='baseline'?s.affected:s.delayed).toFixed(1)}%</td>)}</tr>)}</tbody>
         </table>
       </figure>
       <p className="research-qualification">{t('Population is estimated, not a current census. “Victims” means trapped agents in cells with water deeper than 0.5 m under the source rule (§3.2.5, pp. 15–16). These are not observed deaths, individual probabilities or independently reproduced predictions.', 'จำนวนประชากรเป็นค่าประมาณ ไม่ใช่สำมะโนปัจจุบัน “ผู้ประสบภัย” หมายถึงตัวแทนที่ติดอยู่ในกริดซึ่งมีน้ำลึกเกิน 0.5 เมตร ตามเกณฑ์ของต้นฉบับ (หัวข้อ 3.2.5 หน้า 15–16) ไม่ใช่จำนวนผู้เสียชีวิตจริง ความน่าจะเป็นรายบุคคล หรือการพยากรณ์ที่ทำซ้ำโดยอิสระแล้ว')}</p>
@@ -53,7 +59,7 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
           <div><dt>PD50 · 21.8% → 7.0%</dt><dd>{t('The walking-preference package changes the modeled result (§4.3). It is not a ban on assisted transport or a universal congestion clearance time.','ชุดความนิยมเดินเท้าเปลี่ยนผลจำลอง (§4.3) ไม่ใช่การห้ามการเดินทางที่ต้องมีผู้ช่วยหรือเวลาคลายจราจรที่ใช้ได้ทุกแห่ง')}</dd></div>
           <div><dt>+ VS14 · 7.0% → 3.7%</dt><dd>{t('Fourteen additional candidate buildings are modeled (§4.5). Their structure, access and capacity still require local assessment.','จำลองอาคารที่เสนอเพิ่ม14แห่ง (§4.5) ยังต้องประเมินโครงสร้าง การเข้าถึง และความจุในพื้นที่')}</dd></div>
           <div><dt>+ VE50 / SG135 · 1.3% / 1.2%</dt><dd>{t('These are successive cumulative packages (§4.5). The full result cannot be attributed to signage alone or treated as a proven drill effect.','เป็นชุดมาตรการสะสมต่อเนื่อง (§4.5) ไม่อาจยกผลทั้งหมดให้ป้ายเพียงอย่างเดียวหรือถือเป็นผลการซ้อมที่พิสูจน์แล้ว')}</dd></div>
-          <div><dt>{t('Full package: baseline1.2% / delayed2.9%','ชุดครบ: ฐาน1.2% / ล่าช้า2.9%')}</dt><dd>{t('Warning issuance changes30→45 minutes and mean preparation14→28 minutes. This is a joint timing comparison, not an isolated warning-delay experiment.','เวลาเตือนเปลี่ยน30→45นาที และเวลาเตรียมตัวเฉลี่ย14→28นาที เป็นการเปรียบเทียบเงื่อนไขเวลาร่วม ไม่ใช่การทดลองเฉพาะความล่าช้าของคำเตือน')}</dd></div>
+          <div><dt>{t('Full package: baseline 1.2% / delayed 2.9%','ชุดครบ: ฐาน1.2% / ล่าช้า2.9%')}</dt><dd>{t('Warning issuance changes 30→45 minutes and mean preparation 14→28 minutes. This is a joint timing comparison, not an isolated warning-delay experiment.','เวลาเตือนเปลี่ยน30→45นาที และเวลาเตรียมตัวเฉลี่ย14→28นาที เป็นการเปรียบเทียบเงื่อนไขเวลาร่วม ไม่ใช่การทดลองเฉพาะความล่าช้าของคำเตือน')}</dd></div>
         </dl>
       </section>
       <p>{t('Question: under the study’s assumptions, how do cumulative walking, refuge, preference and signage measures change modeled victim share among 39,041 agents?', 'คำถาม: ภายใต้สมมติฐานของงานวิจัย การเพิ่มมาตรการเดินเท้า จุดอพยพ ความนิยมเลือกอพยพขึ้นอาคาร และป้ายบอกทางแบบสะสม เปลี่ยนสัดส่วนผู้ประสบภัยตามเกณฑ์ของแบบจำลองในตัวแทน 39,041 รายอย่างไร?')}</p>
@@ -91,6 +97,7 @@ export function ResearchSection({ onExplore, onLanguageChange }: { onExplore: ()
       <p>{t('Source records checked 27 October 2026. A reference date is not the acquisition date of every underlying measurement. No listed source provides a connected live warning in this system.', 'ตรวจระเบียนแหล่งข้อมูลเมื่อ 27 ตุลาคม 2026 วันที่ตรวจเอกสารไม่ใช่วันที่เก็บข้อมูลทุกชุดที่อยู่เบื้องหลัง และไม่มีแหล่งใดในรายการที่เชื่อมเป็นคำเตือนสดในระบบนี้')}</p>
       <ol className="research-ledger">{sourceRows.filter(s=>filter==='all'||s.kind===filter).map(s=><li key={s.id} id={`source-${s.id}`} tabIndex={-1}><div><a href={s.url} target="_blank" rel="noreferrer">[{s.id}] {s.name[language]}</a><span>{s.locator[language]}</span></div><div><strong>{s.status[language]}</strong><p>{s.use[language]}</p>{s.id==='R3'&&<a href="https://www.esri.com/en-us/legal/terms/data-attributions" target="_blank" rel="noreferrer">{t('Esri imagery attribution','ที่มาภาพ Esri')}</a>}</div></li>)}</ol>
       {filter!=='all'&&<p>{t('Showing a filtered ledger. Choose All sources to resolve every reference ID.','กำลังแสดงรายการที่กรอง เลือกทุกแหล่งเพื่อดูรหัสอ้างอิงทั้งหมด')}</p>}
+      <SensorRows language={language} />
     </section>
 
     <section id="research-validation" aria-labelledby="validation-title"><h2 id="validation-title">{t('04 / Validation agenda · proposed, not completed','04 / แผนตรวจสอบ · ข้อเสนอที่ยังไม่เสร็จสิ้น')}</h2>
