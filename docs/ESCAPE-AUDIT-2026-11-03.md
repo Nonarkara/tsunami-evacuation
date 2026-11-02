@@ -68,3 +68,11 @@ The first canonical check exposed an existing camera defect: the native eye-came
 Direct lesson initialization is now scoped to a place with a connected route pack. `lesson-coverage-entry.json` records a Phuket selection retaining overview and the explicit data gap, with no synthetic route lesson. A regional scene can still be explored manually at eye level.
 
 Application5570e22 was the initial feature release (Worker3514c82c-2e73-46b1-a32e-5f2cc112eead); the responsive camera correction is included in the final release receipt below.
+
+## Final canonical receipt
+
+Final application: `7867067` (feature5570e22 plus camera correction). Worker version: `2f6d0c00-2f7c-47c2-8457-fab597cfa528`. `npm run deploy` passed74tests, strict build and six text contrast gates. Canonical HTML and `/assets/index-DwbE3CXv.js` and `/assets/index-Db-vGGJX.css` match local production bytes exactly; hashes are in `live-bytes.json`.
+
+The final deployed Thai direct lesson was exercised at390×844: Start/Pause/Reset, first-view turn cue, later-page playback controls and no document scrolling. At1440×900 the full ready task fits1reading page, with imagery toggling and native eye re-alignment verified. `live.json` records phone canvas374×390/zoom20.786395 and resized desktop933×786/zoom21.797450, with actual matching alignment dimensions. Final screenshots: `live-th-390.png`, `live-th-1440.png`.
+
+All independent findings, including terrain-recovery cache invalidation and enabled Pause during loading, are closed. The Obsidian write_note and capture_coding_session retries also returned Transport closed. No vault note/session is claimed to exist; this audit and context.md contain the verified fallback handoff.

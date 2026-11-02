@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/",
+    "bytes": 1341,
+    "sha256": "21927dcd1b28daaa0fcb4c6f16e1ff0e5f1936441a6a41ef9e64f6bc95916a7b",
+    "matches": true
+  },
+  {
+    "path": "/assets/index-DwbE3CXv.js",
+    "bytes": 1727483,
+    "sha256": "340f59e2f816128b797345743b9db84dbfe3bb51fa6e1089a6a1d6b38dd2bbc0",
+    "matches": true
+  },
+  {
+    "path": "/assets/index-Db-vGGJX.css",
+    "bytes": 213774,
+    "sha256": "1c95e90f29fc71a97f7b4359aaae91aa798997565971d17130751260859c8fde",
+    "matches": true
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "finalPhone": {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      390,
+      844
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "3",
+    "scene": {
+      "bottom": 432,
+      "height": 390,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 520,
+      "height": 30,
+      "left": 8,
+      "right": 60.0234375,
+      "top": 490,
+      "width": 52.0234375,
+      "x": 8,
+      "y": 490
+    },
+    "startInView": true,
+    "url": "https://tsunami.nonarkara.org/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "waterSource": "illustration"
+  },
+  "finalLaterControls": true,
+  "finalDesktop": {
+    "clock": "+0:00",
+    "cue": "อีก 71 ม. เลี้ยวซ้ายเส้นทางฝึก · ยังไม่ยืนยันปลายทางยืนยันแผน ↗",
+    "cueInView": true,
+    "document": [
+      1440,
+      900
+    ],
+    "header": 36,
+    "imported": "none",
+    "pages": "1",
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 945.328125,
+      "top": 44,
+      "width": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "start": {
+      "bottom": 74,
+      "height": 30,
+      "left": 961.328125,
+      "right": 1013.3515625,
+      "top": 44,
+      "width": 52.0234375,
+      "x": 961.328125,
+      "y": 44
+    },
+    "startInView": true,
+    "url": "https://tsunami.nonarkara.org/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "waterSource": "illustration"
+  },
+  "finalPhoneEye": {
+    "alignedViewport": "374x390",
+    "canvas": [
+      374,
+      390
+    ],
+    "caption": "1.65m eye · coarse DEM · unknown=3m · exercise only© Esri & contributors · Mapzen · OSMNอาทิตย์ ≈ EMap key",
+    "nativeZoom": "20.786395",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "finalDesktopEye": {
+    "alignedViewport": "933x786",
+    "canvas": [
+      933,
+      786
+    ],
+    "caption": "1.65m eye · coarse DEM · unknown=3m · exercise only© Esri & contributors · Mapzen · OSMNอาทิตย์ ≈ EMap key",
+    "nativeZoom": "21.797450",
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+}
