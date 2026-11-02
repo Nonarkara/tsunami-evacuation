@@ -2759,3 +2759,52 @@ main { padding-bottom:6px; }
 @media screen and (min-width:1024px) {
  .ddpm-pages .flow-content { column-count:3; }
 }
+
+/* ── § Escape scenario HUD — cel-shaded walkthrough with water-vs-crowd tension ── */
+.escape-hud {
+  border: 1px solid var(--line-2);
+  background: var(--panel-card);
+  padding: 8px 10px;
+  margin-top: 8px;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+.escape-objective {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--companion);
+  line-height: 1.3;
+}
+.escape-play { justify-self: start; min-width: 72px; }
+.escape-status {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px 10px;
+}
+.escape-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 4px 6px;
+  border-left: 2px solid var(--line);
+}
+.escape-label { font-size: 11px; color: var(--ink-2); font-weight: 500; }
+.escape-value { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.1; }
+.escape-sub { font-size: 10px; color: var(--ink-2); }
+.escape-danger { border-left-color: var(--danger-crimson); }
+.escape-danger .escape-value { color: var(--danger-crimson); }
+.escape-outcome {
+  padding: 8px 10px;
+  border-left: 3px solid var(--companion);
+  background: var(--active-bg);
+}
+.escape-outcome strong { font-size: 14px; display: block; margin-bottom: 4px; }
+.escape-outcome p { font-size: 12px; line-height: 1.5; max-width: 70ch; margin: 0 0 6px; }
+.escape-outcome button { min-height: 28px; padding: 3px 8px; font-size: 12px; }
+.escape-arrived { border-left-color: var(--status-online); }
+.escape-overtaken { border-left-color: var(--danger-crimson); background: #fef2f2; }
+@media(max-width:680px) {
+  .escape-status { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .escape-value { font-size: 15px; }
+}
