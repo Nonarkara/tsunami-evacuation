@@ -52,7 +52,7 @@ export function DdpmRiskPanel({ language, onResearch }: { language: ManualLangua
       <p>{t('Grouped by numeric pcode, ranked by rows. PV abbreviations are reused across provinces and are not unique identifiers.', 'จัดกลุ่มตาม pcode ตัวเลข อักษรย่อ PV ซ้ำข้ามจังหวัด จึงใช้เป็นรหัสเฉพาะไม่ได้')}</p>
       <table><caption>{t('Province names translated from the Thai source','คงชื่อจังหวัดตามต้นฉบับภาษาไทย')}</caption>
         <thead><tr><th scope="col">{t('Province','จังหวัด')}</th><th scope="col">{t('Rows','แถว')}</th><th scope="col">pcode</th></tr></thead>
-        <tbody>{[...data.provinces].sort((a,b)=>b.rows-a.rows).map(p=><tr key={p.pcode}><th scope="row" lang={language} title={p.nameTh}>{language==='th'?p.nameTh:provinceNamesEn[p.pcode]??p.nameTh}</th><td className="ddpm-bar-cell"><span className="ddpm-bar" style={{width:`${p.rows/Math.max(...data.provinces.map(q=>q.rows))*100}%`}} aria-hidden="true"/><span>{p.rows}</span></td><td>{p.pcode}</td></tr>)}</tbody>
+        <tbody>{[...data.provinces].sort((a,b)=>b.rows-a.rows).map(p=><tr key={p.pcode}><th scope="row" lang={language} title={p.nameTh}>{language==='th'?p.nameTh:provinceNamesEn[p.pcode]??p.nameTh}</th><td className="ddpm-bar-cell"><span className="ddpm-bar-track" aria-hidden="true"><span className="ddpm-bar" style={{width:`${p.rows/Math.max(...data.provinces.map(q=>q.rows))*100}%`}} /></span><span>{p.rows}</span></td><td>{p.pcode}</td></tr>)}</tbody>
       </table>
     </section>
 

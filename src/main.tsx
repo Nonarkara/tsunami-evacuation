@@ -28,6 +28,7 @@ import "@fontsource/prompt/thai-600.css";
 import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
 import { PaceRuler } from "./charts";
+import { packageNames, scenarioThai, checklistThai } from "./research-ledger";
 import {
   POPULATION,
   scenarios,
@@ -306,9 +307,9 @@ function App() {
                 bannerDock={bannerDock}
                 consoleSlot={placeConsole}
                 finding={region.id==='khao-lak' ? <div className="panel-finding">
-                  <div className="finding-head" title={t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · สถานการณ์จำลองเขาหลัก ไม่ใช่การพยากรณ์')}><strong>{t('Preprint · modeled victims, % of 39,041','งานวิจัย · ผู้ประสบภัยจำลอง % จาก 39,041')}</strong><button className="link-button" onClick={()=>setModelView('evidence')}>{t('Results','ผลลัพธ์')} →</button></div>
-                  <InterventionComparison condition={condition} step={step} height={matchMedia('(max-width: 759px)').matches ? 44 : 64} onSelect={i=>{setStep(i);setModelView('evidence');}} />
-                  <small>{t('Preprint · 39,041 agents · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · 39,041 ตัวแทน · สถานการณ์จำลอง ไม่ใช่การพยากรณ์')}</small>
+                  <div className="finding-head" title={t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · สถานการณ์จำลองเขาหลัก ไม่ใช่การพยากรณ์')}><strong>{t('Modeled victims % / 39,041','ผู้ประสบภัยจำลอง % / 39,041')}</strong><button className="link-button" onClick={()=>setModelView('evidence')}>{t('Results','ผลลัพธ์')} →</button></div>
+                  <InterventionComparison condition={condition} step={step} height={matchMedia('(max-width: 760px)').matches ? 44 : 64} onSelect={i=>{setStep(i);setModelView('evidence');}} />
+                  <small>{t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · ฉากทัศน์เขาหลัก ไม่ใช่การพยากรณ์')}</small>
                 </div> : undefined}
                 onReview={()=>navigate("drill")}
               />
@@ -320,21 +321,21 @@ function App() {
             <section hidden={modelView!=="evidence"} className="evidence-pane" aria-labelledby="model-pane-title"><PagedFlow label="Published outcomes">
               <div className="pane-header">
                 <div className="pane-titles">
-                  <span className="pane-badge">02 / MODELING & MITIGATION</span>
-                  <h2 id="model-pane-title">Published Khao Lak model</h2><span className="terrain-tier">Preprint · historical scenarios · 39,041 modeled agents · applies to Khao Lak</span>
+                  <span className="pane-badge">{t('02 / MODELING & MITIGATION','02 / แบบจำลองและการลดผลกระทบ')}</span>
+                  <h2 id="model-pane-title">{t('Published Khao Lak model','แบบจำลองเขาหลักที่รายงาน')}</h2><span className="terrain-tier">{t('Preprint · historical scenarios · 39,041 modeled agents · applies to Khao Lak','งานก่อนตีพิมพ์ · ฉากทัศน์ในงานวิจัย · 39,041 ตัวแทนจำลอง · เฉพาะเขาหลัก')}</span>
                 </div>
                 <div className="condition-toggle-group">
                   <button
                     aria-pressed={condition === "baseline"}
                     onClick={() => setCondition("baseline")}
                   >
-                    30-min warning (Baseline)
+                    {t('Warn 30 min · prep 14 min','เตือน 30 นาที · เตรียม 14 นาที')}
                   </button>
                   <button
                     aria-pressed={condition === "delayed"}
                     onClick={() => setCondition("delayed")}
                   >
-                    45-min warning (Delayed)
+                    {t('Warn 45 min · prep 28 min','เตือน 45 นาที · เตรียม 28 นาที')}
                   </button>
                 </div>
               </div>
@@ -353,7 +354,7 @@ function App() {
                         <div className="hud-labels">
                           <strong>{t('Modeled victim share','สัดส่วนผู้ประสบภัยจำลอง')}</strong>
                           <span>
-                            {Math.round(
+                            ≈ {Math.round(
                               (resultFor(step, condition) / 100) * POPULATION,
                             ).toLocaleString("en-US")}{" "}
                             {t('of','จาก')} {POPULATION.toLocaleString("en-US")} {t('agents','ตัวแทน')}
@@ -365,11 +366,11 @@ function App() {
                           <span className="reduction-pct">
                             −{reduction(step, condition).toFixed(0)}%
                           </span>
-                          <span className="reduction-sub">Modeled reduction</span>
+                          <span className="reduction-sub">{t('Relative reduction vs baseline','ลดสัมพัทธ์เทียบกรณีฐาน')}</span>
                         </div>
                       ) : (
                         <div className="hud-baseline-badge">
-                          <span>Baseline Gridlock</span>
+                          <span>{t('Baseline gridlock','จราจรติดขัดกรณีฐาน')}</span>
                         </div>
                       )}
                     </div>
@@ -383,20 +384,18 @@ function App() {
                   {/* Active Package Inspector Card */}
                   <div className="active-package-card">
                     <div className="active-pkg-header">
-                      <span className="active-pkg-tag">ACTIVE INTERVENTION</span>
-                      <h3>{scenarios[step].label}</h3>
+                      <h3>{language === "th" ? packageNames[step].th : scenarios[step].label}</h3>
                     </div>
 
                     <div className="hud-truth-note">
-                      <strong>Key Finding: </strong>
-                      <span>{scenarios[step].drNonFinding}</span>
+                      <strong>{t("Finding: ","ข้อค้นพบ: ")}</strong>
+                      <span>{language === "th" ? scenarioThai[step].finding : scenarios[step].drNonFinding}</span>
                     </div>
 
                     <div className="actionable-banner">
-                      <span className="action-tag">ACTIONABLE PROTOCOL</span>
                       <p>
-                        <strong>For Mayors & Operators: </strong>
-                        {scenarios[step].action}
+                        <strong>{t("For local coordinators: ","สำหรับผู้ประสานงานในพื้นที่: ")}</strong>
+                        {language === "th" ? scenarioThai[step].action : scenarios[step].action}
                       </p>
                     </div>
 
@@ -411,7 +410,7 @@ function App() {
                       </div>
                       <div>
                         <dt>{t('Vertical Pref.','ความนิยมขึ้นสูง')}</dt>
-                        <dd>{scenarios[step].vertical}% agents</dd>
+                        <dd>{scenarios[step].vertical}% {t("agents","ตัวแทน")}</dd>
                       </div>
                     </dl>
                   </div>
@@ -465,15 +464,15 @@ function Prepare({language}:{language:string}) {
 
   function field(key: keyof Omit<Plan, "checked">, value: string) {
     setPlan((p) => ({ ...p, [key]: value }));
-    setMessage("Unsaved changes.");
+    setMessage(t("Unsaved changes.","ยังไม่ได้บันทึกการเปลี่ยนแปลง"));
   }
 
   function save() {
     try {
       localStorage.setItem("soonami-plan-v1", JSON.stringify(plan));
-      setMessage("Saved on this device. Use Load saved plan when you return.");
+      setMessage(t("Saved on this device. Use Load saved plan when you return.","บันทึกในอุปกรณ์นี้แล้ว เมื่อกลับมาให้เลือกโหลดแผนที่บันทึกไว้"));
     } catch {
-      setMessage("Device storage unavailable. Download or print your plan instead.");
+      setMessage(t("Device storage unavailable. Download or print your plan instead.","พื้นที่จัดเก็บไม่พร้อม ให้ดาวน์โหลดหรือพิมพ์แผนแทน"));
     }
   }
 
@@ -481,15 +480,15 @@ function Prepare({language}:{language:string}) {
     try {
       const raw = localStorage.getItem("soonami-plan-v1");
       if (!raw) {
-        setMessage("No saved plan on this device.");
+        setMessage(t("No saved plan on this device.","ไม่มีแผนที่บันทึกในอุปกรณ์นี้"));
         return;
       }
       const data: unknown = JSON.parse(raw);
       if (!validatePlan(data)) throw Error();
       setPlan(data);
-      setMessage("Saved plan loaded.");
+      setMessage(t("Saved plan loaded.","โหลดแผนที่บันทึกแล้ว"));
     } catch {
-      setMessage("Could not load a valid plan. Current entries have been kept.");
+      setMessage(t("Could not load a valid plan. Current entries have been kept.","โหลดแผนที่ถูกต้องไม่ได้ ระบบเก็บข้อมูลที่กรอกอยู่ไว้"));
     }
   }
 
@@ -501,16 +500,16 @@ function Prepare({language}:{language:string}) {
           <span className="meta">{t('Private & On-Device · Actionable Protocol','ส่วนตัวบนอุปกรณ์นี้ · คำแนะนำที่ปฏิบัติได้')}</span>
         </div>
         <p>
-          Confirm destinations, routes and assisted transport needs with local authorities before an emergency.
+          {t('Confirm destinations, routes and assisted transport needs with local authorities before an emergency.','ยืนยันปลายทาง เส้นทาง และการเดินทางสำหรับผู้ต้องการความช่วยเหลือกับหน่วยงานท้องถิ่นก่อนเกิดเหตุ')}
         </p>
 
         <div className="field-grid">
           {(
             [
-              ["place", "Where are you staying?", "Hotel, home or workplace"],
-              ["destination", "Locally confirmed destination", "Authority-designated destination and access point"],
-              ["backup", "Backup Refuge Destination", "Alternative authority-designated destination"],
-              ["contact", "Out-of-Area Contact", "Name and mobile number"],
+              ["place", t("Where are you staying?","พักอยู่ที่ไหน?"), t("Hotel, home or workplace","โรงแรม บ้าน หรือที่ทำงาน")],
+              ["destination", t("Locally confirmed destination","ปลายทางที่ยืนยันในพื้นที่แล้ว"), t("Authority-designated destination and access point","ปลายทางและทางเข้าที่หน่วยงานกำหนด")],
+              ["backup", t("Backup Refuge Destination","จุดอพยพสำรอง"), t("Alternative authority-designated destination","ปลายทางสำรองที่หน่วยงานกำหนด")],
+              ["contact", t("Out-of-Area Contact","ผู้ติดต่อนอกพื้นที่"), t("Name and mobile number","ชื่อและหมายเลขโทรศัพท์")],
             ] as const
           ).map(([key, label, placeholder]) => (
             <label key={key}>
@@ -521,39 +520,39 @@ function Prepare({language}:{language:string}) {
                 placeholder={placeholder}
                 onChange={(e) => field(key, e.target.value)}
               />
-              <span className="print-value">{plan[key] || "Not entered"}</span>
+              <span className="print-value">{plan[key] || t("Not entered","ยังไม่ได้กรอก")}</span>
             </label>
           ))}
         </div>
 
         <label>
-          Walking Route & Landmark Notes
+          {t("Walking Route & Landmark Notes","เส้นทางเดินและจุดสังเกต")}
           <textarea
             maxLength={2000}
             value={plan.route}
-            placeholder="Confirmed signs, crossings, gates and accessible alternatives"
+            placeholder={t("Confirmed signs, crossings, gates and accessible alternatives","ป้าย ทางข้าม ประตู และทางเลือกที่เข้าถึงได้ซึ่งยืนยันแล้ว")}
             onChange={(e) => field("route", e.target.value)}
           />
-          <span className="print-value">{plan.route || "Not entered"}</span>
+          <span className="print-value">{plan.route || t("Not entered","ยังไม่ได้กรอก")}</span>
         </label>
 
         <div className="plan-assistance-timing">
           <label>
-            Assistance Needed & Action for Dependents
+            {t("Assistance Needed & Action for Dependents","ความช่วยเหลือที่ต้องการและแผนสำหรับผู้ต้องพึ่งพิง")}
             <input
               maxLength={2000}
               value={plan.assistance}
-              placeholder="E.g., mobility aid, baby carrier, elderly parent assistance"
+              placeholder={t("E.g., mobility aid, baby carrier, elderly parent assistance","เช่น อุปกรณ์ช่วยเดิน เป้อุ้มเด็ก การช่วยผู้สูงอายุ")}
               onChange={(e) => field("assistance", e.target.value)}
             />
-            <span className="print-value">{plan.assistance || "Not entered"}</span>
+            <span className="print-value">{plan.assistance || t("Not entered","ยังไม่ได้กรอก")}</span>
           </label>
 
           <div className="calc-block">
-            <span className="label">Walking Time Estimate</span>
+            <span className="label">{t("Walking Time Estimate","ประมาณเวลาเดิน")}</span>
             <div className="calc-inputs">
               <label>
-                Meters
+                {t("Meters","ระยะทาง (เมตร)")}
                 <input
                   type="number"
                   min="50"
@@ -564,29 +563,30 @@ function Prepare({language}:{language:string}) {
                 />
               </label>
               <label>
-                Speed
+                {t("Speed","ความเร็ว")}
                 <select
                   value={speed}
                   onChange={(e) => setSpeed(e.target.value)}
                 >
                   <option value="1.0">1.0 m/s</option>
                   <option value="0.8">0.8 m/s</option>
-                  <option value="0.5">0.5 m/s · assistance example</option>
+                  <option value="0.5">{t("0.5 m/s · assistance example","0.5 ม./วิ · ตัวอย่างกรณีมีผู้ช่วย")}</option>
                 </select>
               </label>
             </div>
             <div className="calc-result" aria-live="polite">
               {minutes !== null ? (
                 <span>
-                  Estimated time: <strong>~{minutes} minutes</strong> on foot
+                  {t("Estimated walking time:","ประมาณเวลาเดิน:")} <strong>~{minutes} {t("minutes","นาที")}</strong>
                 </span>
               ) : (
-                <span className="error">Enter valid positive numbers</span>
+                <span className="error">{t("Enter valid positive numbers","กรอกค่าตัวเลขบวกที่ถูกต้อง")}</span>
               )}
             </div>
             {minutes !== null && <PaceRuler
-              ariaLabel={`Walking time for ${distance} m: ${[0.5, 0.8, 1.0].map(v => `${v} m/s ${Math.round(Number(distance) / v / 60)} min`).join(', ')}`}
-              marks={[0.5, 0.8, 1.0].map(v => ({ label: `${v} m/s · ${Math.round(Number(distance) / v / 60)}′`, minutes: Number(distance) / v / 60, kind: Number(speed) === v ? 'own' : 'walk' }))} />}
+              unitLabel={t('Pace m/s → minutes (rounded up)','จังหวะ ม./วิ → นาที (ปัดขึ้น)')}
+              ariaLabel={t(`Walking time for ${distance} m: ${[0.5, 0.8, 1.0].map(v => `${v} m/s ${walkingMinutes(Number(distance), v)} min`).join(', ')}`,`เวลาเดินสำหรับระยะ ${distance} เมตร: ${[0.5,0.8,1.0].map(v=>`${v} ม./วิ ${walkingMinutes(Number(distance),v)} นาที`).join(', ')}`)}
+              marks={[0.5, 0.8, 1.0].map(v => ({ label: `${v} → ${walkingMinutes(Number(distance), v)}′`, minutes: walkingMinutes(Number(distance), v)!, kind: Number(speed) === v ? 'own' : 'walk' }))} />}
           </div>
         </div>
 
@@ -601,17 +601,17 @@ function Prepare({language}:{language:string}) {
                   const copy = [...plan.checked];
                   copy[i] = e.target.checked;
                   setPlan((p) => ({ ...p, checked: copy }));
-                  setMessage("Unsaved changes.");
+                  setMessage(t("Unsaved changes.","ยังไม่ได้บันทึกการเปลี่ยนแปลง"));
                 }}
               />
-              <span>{item}</span>
+              <span>{language === "th" ? checklistThai[i] : item}</span>
             </label>
           ))}
         </fieldset>
 
         <div className="plan-actions">
           <button className="primary" onClick={save}>
-            Save to browser
+            {t("Save to browser","บันทึกในเบราว์เซอร์")}
           </button>
           <button onClick={load}>{t('Load saved plan','โหลดแผนที่บันทึกไว้')}</button>
           <button
@@ -622,7 +622,7 @@ function Prepare({language}:{language:string}) {
               )
             }
           >
-            Export JSON
+            {t("Export JSON","ส่งออก JSON")}
           </button>
           <button onClick={() => window.print()}>{t('Print plan','พิมพ์แผน')}</button>
         </div>

@@ -15,6 +15,6 @@ export function OutcomeSummary({ step, condition }: { step: number; condition: C
     {value:o.affected,label:t('Modeled victims','ผู้ประสบภัยจำลอง'),kind:'victims'},
   ];
   return <section className="outcome-summary" lang={language} aria-label={t('Modeled outcome accounting','การจัดหมวดผลแบบจำลอง')}>
-    <DotGrid parts={parts} caption={<>{t('1 dot = 1% of','1 จุด = 1% ของ')} {POPULATION.toLocaleString('en-US')} {t('modeled agents','ตัวแทนจำลอง')}{o.reached===null?t(' · arrival split not reported for this package',' · ไม่ได้รายงานการแยกผลสำหรับมาตรการนี้'):''}</>} />
+    <DotGrid parts={parts} caption={<>{t('Each dot ≈1%; rounded. Exact shares above.','จุดละ ≈1% โดยปัดเศษ ค่าจริงแสดงด้านบน')} {POPULATION.toLocaleString('en-US')} {t('modeled agents','ตัวแทนจำลอง')}{o.reached===null?t(' · arrival split not reported for this package',' · ไม่ได้รายงานการแยกผลสำหรับมาตรการนี้'):''}</>} />
   </section>;
 }

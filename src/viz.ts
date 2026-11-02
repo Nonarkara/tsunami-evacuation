@@ -19,6 +19,32 @@ export function stackShares(values: number[]): number[] {
   return sum > 0 ? values.map(v => (Math.max(0, v) / sum) * 100) : values.map(() => 0);
 }
 
+/** Refuse to normalize a mismatched headcount into an apparently complete group. */
+export function reconciledShares(values: number[], total: number): number[] | null {
+  if (!Number.isFinite(total) || total < 0 || values.some(v => !Number.isFinite(v) || v < 0)) return null;
+  if (Math.abs(values.reduce((a, b) => a + b, 0) - total) > 1e-6) return null;
+  return total ? values.map(v => v / total * 100) : values.map(() => 0);
+}
+
+export function waitClock(seconds: number): string {
+  const whole = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, '0')}`;
+}
+
+/** Missing DEM samples break the line; signed source heights remain signed. */
+export function profileRuns(chainage: number[], heights: (number | null)[]): { distance: number; height: number }[][] {
+  const runs: { distance: number; height: number }[][] = [];
+  let run: { distance: number; height: number }[] = [];
+  heights.forEach((height, i) => {
+    if (height === null || !Number.isFinite(height) || !Number.isFinite(chainage[i])) {
+      if (run.length) runs.push(run);
+      run = [];
+    } else run.push({ distance: chainage[i], height });
+  });
+  if (run.length) runs.push(run);
+  return runs;
+}
+
 /** A "nice" axis ceiling: 1, 2, 2.5 or 5 × 10^n at or above `v`. */
 export function niceCeil(v: number): number {
   if (!(v > 0)) return 1;

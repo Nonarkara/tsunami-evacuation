@@ -45,14 +45,14 @@ export function ResearchSection({ onExplore, onDdpm, onLanguageChange }: { onExp
 
       <figure className="research-results-figure">
         <figcaption>{t('Modeled victim share (%) · cumulative packages','ผู้ประสบภัยตามเกณฑ์แบบจำลอง (%) · มาตรการสะสม')}</figcaption>
-        <StepDown height={84} aLabel={t('Baseline (30′ warning)','ฐาน (เตือน 30′)')} bLabel={t('Delayed (45′ warning)','ล่าช้า (เตือน 45′)')}
+        <StepDown height={84} aLabel={t('Warn 30′ · prep 14′','เตือน 30′ · เตรียม 14′')} bLabel={t('Warn 45′ · prep 28′','เตือน 45′ · เตรียม 28′')}
           ariaLabel={t(`Modeled victim share: ${scenarios.map(s=>`${s.short} ${s.affected}% baseline, ${s.delayed}% delayed`).join('; ')}`,`ผู้ประสบภัยจำลอง: ${scenarios.map((s,i)=>`${packageNames[i].th} ${s.affected}% / ${s.delayed}%`).join('; ')}`)}
           steps={scenarios.map((s,i)=>({ name:t(['Base','PD50','+VS14','+VE50','+SG135'][i],['ฐาน','PD50','+VS14','+VE50','+SG135'][i]), title:packageNames[i][language], a:s.affected, b:s.delayed, note:i===0?undefined:`−${reduction(i,'baseline').toFixed(0)}%` }))} />
+        <p className="research-qualification">{t('Population is estimated, not a current census. “Victims” means trapped agents in cells with water deeper than 0.5 m under the source rule (§3.2.5, pp. 15–16). These are not observed deaths, individual probabilities or independently reproduced predictions.', 'จำนวนประชากรเป็นค่าประมาณ ไม่ใช่สำมะโนปัจจุบัน “ผู้ประสบภัย” หมายถึงตัวแทนที่ติดอยู่ในกริดซึ่งมีน้ำลึกเกิน 0.5 เมตร ตามเกณฑ์ของต้นฉบับ (หัวข้อ 3.2.5 หน้า 15–16) ไม่ใช่จำนวนผู้เสียชีวิตจริง ความน่าจะเป็นรายบุคคล หรือการพยากรณ์ที่ทำซ้ำโดยอิสระแล้ว')}</p>
         <table className="research-results-table"><thead><tr><th scope="col">{t('Package','ชุดมาตรการ')}</th><th scope="col">{t('Baseline','ฐาน')}</th><th scope="col">{t('Delayed','ล่าช้า')}</th></tr></thead>
           <tbody>{scenarios.map((s,i)=><tr key={s.id}><th scope="row">{packageNames[i][language]}</th>{(['baseline','delayed'] as const).map(c=><td key={c} className={`research-value ${c}`}>{(c==='baseline'?s.affected:s.delayed).toFixed(1)}%</td>)}</tr>)}</tbody>
         </table>
       </figure>
-      <p className="research-qualification">{t('Population is estimated, not a current census. “Victims” means trapped agents in cells with water deeper than 0.5 m under the source rule (§3.2.5, pp. 15–16). These are not observed deaths, individual probabilities or independently reproduced predictions.', 'จำนวนประชากรเป็นค่าประมาณ ไม่ใช่สำมะโนปัจจุบัน “ผู้ประสบภัย” หมายถึงตัวแทนที่ติดอยู่ในกริดซึ่งมีน้ำลึกเกิน 0.5 เมตร ตามเกณฑ์ของต้นฉบับ (หัวข้อ 3.2.5 หน้า 15–16) ไม่ใช่จำนวนผู้เสียชีวิตจริง ความน่าจะเป็นรายบุคคล หรือการพยากรณ์ที่ทำซ้ำโดยอิสระแล้ว')}</p>
       <section className="research-observations" aria-label={t('Reported scenario observations','ข้อสังเกตจากฉากทัศน์ที่รายงาน')}>
         <h3>{t('What the reported comparisons support','สิ่งที่การเปรียบเทียบในงานวิจัยสนับสนุน')}</h3>
         <dl>

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { evidenceCsv, bibtex, paperCitation, sourceRows, packageNames } from './research-ledger';
-import { CITATION } from './research';
+import { evidenceCsv, bibtex, paperCitation, sourceRows, packageNames, scenarioThai, checklistThai } from './research-ledger';
+import { CITATION, scenarios, checklist } from './research';
 
 test('exported evidence retains both conditions, denominator, provenance and Thai names',()=>{
   const csv=evidenceCsv();
@@ -23,4 +23,14 @@ test('every evidence record has unique ID, two language fields and explicit inte
   assert.deepEqual(sourceRows.filter(s=>s.kind==='candidate').map(s=>s.id),['R4','R5','R6']);
   for(const source of sourceRows){assert.equal(new URL(source.url).protocol,'https:');for(const field of [source.name,source.locator,source.status,source.use]){assert.ok(field.en.length>5);assert.ok(field.th.length>5);}}
   assert.equal(packageNames.length,5);
+});
+test('Thai scenario interpretations and checklist preserve the indexed English records',()=>{
+  assert.equal(scenarioThai.length, scenarios.length);
+  assert.equal(checklistThai.length, checklist.length);
+  for(const item of scenarioThai) {
+    assert.match(item.finding, /[ก-๙]/);
+    assert.match(item.action, /[ก-๙]/);
+  }
+  assert.match(scenarioThai[0].finding, /21\.8%.*22\.6%.*39,041/);
+  assert.match(scenarioThai[4].finding, /135.*1\.2%.*2\.9%/);
 });

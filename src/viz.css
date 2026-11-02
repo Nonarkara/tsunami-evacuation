@@ -111,8 +111,9 @@
 
 /* DDPM ranked bars */
 .ddpm-bar-cell { display: flex; align-items: center; gap: 6px; min-width: 120px; }
-.ddpm-bar { display: block; height: 8px; background: var(--companion); flex: none; max-width: calc(100% - 34px); }
-.ddpm-bar-cell span:last-child { font-variant-numeric: tabular-nums; }
+.ddpm-bar-track { flex: 1; min-width: 0; }
+.ddpm-bar { display: block; height: 8px; background: var(--companion); }
+.ddpm-bar-cell > span:last-child { width: 3ch; text-align: right; font-variant-numeric: tabular-nums; }
 .ddpm-fields .stackbar { margin: 4px 0 8px; }
 
 /* Research: sensors as status rows; DDPM link inline */
@@ -125,6 +126,22 @@
 .status-off { color: var(--ink-2); }
 .sensor-note { font-size: var(--fs-micro); color: var(--ink-2); }
 .research-results-figure .stepdown { margin: 4px 0 8px; }
+.flow-content .research-results-table, .flow-content .research-timing table { break-inside: avoid; }
+.flow-content .research-dossier p { orphans: 3; widows: 3; }
+.pace-target { font-size: var(--fs-micro); font-weight: 600; line-height: 16px; overflow-wrap: anywhere; }
+.flow-content .calc-block, .flow-content .paceruler { break-inside: avoid; }
+.evidence-pane .active-package-card { border: 0; padding: 0; background: none; }
+.evidence-pane .active-pkg-header { padding: 0; margin-bottom: 4px; }
+.evidence-pane .actionable-banner { border: 0; padding: 0; margin: 4px 0; background: none; }
+@media (min-width: 1100px) {
+  #main .terrain-rehearsal,
+  #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
+  #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-columns: minmax(0, 2fr) minmax(350px, 1fr); }
+}
+@media (min-width: 360px) {
+  .flow-content .plan-form .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; break-inside: avoid; }
+  .flow-content .plan-form .field-grid label { margin: 0; }
+}
 
 /* Prepare */
 .check-count { font-weight: 600; color: var(--companion); margin-left: 6px; font-variant-numeric: tabular-nums; }
@@ -158,6 +175,13 @@
 .paceruler .mark-run circle { stroke: var(--ink); }
 .hud-truth-note strong { color: var(--ink); }
 .drill-guide .evacuation-guide li p { font-size: var(--fs-body); line-height: 1.45; }
-@media (max-width: 759px) { .panel-finding > small { display: none; } }
 @media (min-width: 1024px) { .evidence-pane .dotgrid svg { width: 150px; height: 150px; } }
 @media (max-width: 760px) { #main .terrain-rehearsal > .terrain-caption { line-height: 14px; padding: 2px 0; } }
+/* The finding's visible qualification and Start form one decision group. */
+@media (max-width: 760px) and (orientation: portrait) {
+  #main .terrain-rehearsal,
+  #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
+  #main .terrain-rehearsal:not([data-camera=walk]) {
+    grid-template-rows: minmax(70px, 1fr) auto minmax(0, min(324px, calc(100dvh - 260px)));
+  }
+}

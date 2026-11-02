@@ -360,7 +360,10 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const active = data?.routes[route];
   const paceLadder = useMemo(() => active && model ? paceLines(active, model, WALK_PACES, RUN_PACE, runCount) : [], [active, model, runCount]);
   const waits = useMemo(() => active && model ? segmentWaits(route, active, model) : [], [active, model, route]);
-  const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p) ?? 0) : [], [active, grid]);
+  const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p)) : [], [active, grid]);
+  const knownHeights = profile.filter((h): h is number => h !== null && Number.isFinite(h));
+  const heightText = (h: number | null | undefined) => h == null ? t('unknown','ไม่ทราบ') : `≈ ${Math.round(h)} m`;
+  const heightRange = knownHeights.length ? `${Math.round(Math.min(...knownHeights))}–${Math.round(Math.max(...knownHeights))} m` : t('unavailable','ไม่มีข้อมูล');
   const chainage = useMemo(() => { let sum = 0; return active?.coordinates.map((p, i) => { if (i) sum += distance(active.coordinates[i - 1], p); return sum; }) ?? []; }, [active]);
   const guideAvailable=camera==='walk'&&!flat&&!!progress&&!!selectedSchedule;
   useEffect(()=>{if(!guideAvailable)setOperationView('operate');},[guideAvailable]);
@@ -455,6 +458,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
             <label className="target-time">{t('Target','เป้าหมาย')}<select aria-label="Target time to the exercise end" value={targetMinutes} onChange={e => setTargetMinutes(Number(e.target.value))}><option value={20}>20 min</option><option value={30}>30 min</option><option value={45}>45 min</option><option value={60}>60 min</option></select></label>
           </div>
           <PaceRuler
+            unitLabel={t('Pace m/s → free-flow minutes','จังหวะ ม./วิ → เวลาเมื่อไม่มีคิว (นาที)')}
             marks={paceLadder.map(line => ({ label: `${line.run ? '▸' : ''}${line.pace}→${Math.round(line.seconds / 60)}′`, minutes: line.seconds / 60, kind: line.run ? 'run' : line.pace === speed ? 'own' : 'walk' }))}
             target={targetMinutes}
             targetLabel={t(`${targetMinutes} min needs ${speedForSeconds(active, targetMinutes * 60).toFixed(1)} m/s`,`${targetMinutes} นาที ต้อง ${speedForSeconds(active, targetMinutes * 60).toFixed(1)} ม./วิ`)}
@@ -489,10 +493,11 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       <div className="terrain-analysis-row">
         <div className="route-profile"><strong>{areaPack?.label}: {active?.name} · {((model.distance[route] ?? 0) / 1000).toFixed(2)} km</strong><span>{progress ? `${(Math.max(0, progress.total - progress.metres) / 1000).toFixed(2)} km to exercise end · ${progress.state}` : 'Approximate DEM profile'} · endpoint unapproved</span>
           <ProfileQueue chainage={chainage} profile={profile} waits={waits} position={started && progress ? progress.metres : undefined}
-            queueLabel={t('longest queue wait per segment','เวลารอคิวสูงสุดต่อช่วง')} queueMaxLabel={t('max wait','รอนานสุด')}
-            ariaLabel={`Terrain elevation profile ${Math.round(Math.min(...profile))}–${Math.round(Math.max(...profile))} m, with modelled queue wait per segment on the same distance axis; longest ${waits.length ? Math.round(Math.max(...waits.map(w => w.waitSeconds))) : 0} s. Not a safety classification.`} />
+            profileLabel={t('DEM m · gaps = missing','DEM ม. · เว้นข้อมูลที่ขาด')}
+            queueLabel={t('Max segment wait','รอคิวสูงสุดต่อช่วง')} queueMaxLabel={t('max wait','รอนานสุด')}
+            ariaLabel={t(`Terrain elevation profile ${heightRange}, gaps are missing data. Modelled queue wait per segment on the same distance axis; longest ${waits.length ? Math.floor(Math.max(...waits.map(w => w.waitSeconds))) : 0} s. Not a safety classification.`,`ระดับภูมิประเทศ ${heightRange} ช่องว่างคือไม่มีข้อมูล เวลารอคิวจำลองต่อช่วงทางบนแกนระยะทางเดียวกัน ไม่ใช่การจัดระดับความปลอดภัย`)} />
           <p className="route-cue">{!started ? 'Start runs a rehearsal. Real warnings require prompt action following local guidance.' : progress?.state === 'preparing' ? `Preparation interval: ${Math.max(0, preparation - seconds).toFixed(0)} s remaining in this exercise.` : progress?.state === 'queued' ? 'First walker is queued at a network node; the physical crowd is not simulated.' : progress?.state === 'arrived' ? 'First walker reached the exercise end; other agents may still be en route.' : nextDirection ? `Selected exercise route: in ${nextDirection.distanceM} m, bear ${nextDirection.direction}.` : 'Continue along the selected exercise route to its unapproved endpoint.'}</p>
-          <div className="profile-scale"><span>Start ≈ {Math.round(profile[0] ?? 0)} m</span><span>DEM range ≈ {Math.round(Math.min(...profile))}–{Math.round(Math.max(...profile))} m</span><span>End ≈ {Math.round(profile.at(-1) ?? 0)} m</span></div>
+          <div className="profile-scale"><span>{t('Start','ต้นทาง')} {heightText(profile[0])}</span><span>{t('DEM range','ช่วง DEM')} ≈ {heightRange}</span><span>{t('End','ปลายทาง')} {heightText(profile.at(-1))}</span></div>
         </div>
 
       </div>

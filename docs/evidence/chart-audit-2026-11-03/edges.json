@@ -1,0 +1,522 @@
+[
+  {
+    "document": [
+      320,
+      700
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 320,
+      "top": 0,
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "4"
+      }
+    ],
+    "scene": {
+      "bottom": 288,
+      "height": 246,
+      "left": 8,
+      "right": 312,
+      "top": 42,
+      "width": 304,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 606.1953125,
+        "height": 32,
+        "left": 164,
+        "right": 234,
+        "top": 574.1953125,
+        "width": 70,
+        "x": 164,
+        "y": 574.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      320,
+      700
+    ]
+  },
+  {
+    "document": [
+      390,
+      600
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 390,
+      "top": 0,
+      "width": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 188,
+      "height": 146,
+      "left": 8,
+      "right": 382,
+      "top": 42,
+      "width": 374,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 506.1953125,
+        "height": 32,
+        "left": 199,
+        "right": 286.5,
+        "top": 474.1953125,
+        "width": 87.5,
+        "x": 199,
+        "y": 474.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      390,
+      600
+    ]
+  },
+  {
+    "document": [
+      667,
+      375
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 667,
+      "top": 0,
+      "width": 667,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "5"
+      }
+    ],
+    "scene": {
+      "bottom": 312,
+      "height": 270,
+      "left": 8,
+      "right": 366,
+      "top": 42,
+      "width": 358,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": false,
+      "rect": {
+        "bottom": 148.796875,
+        "height": 32,
+        "left": 832,
+        "right": 898.5,
+        "top": 116.796875,
+        "width": 66.5,
+        "x": 832,
+        "y": 116.796875
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      667,
+      375
+    ]
+  },
+  {
+    "document": [
+      1169,
+      674
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1169,
+      "top": 0,
+      "width": 1169,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 604,
+      "height": 560,
+      "left": 12,
+      "right": 764.6640625,
+      "top": 44,
+      "width": 752.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 972.828125,
+        "right": 1060.9140625,
+        "top": 292.1953125,
+        "width": 88.0859375,
+        "x": 972.828125,
+        "y": 292.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      1169,
+      674
+    ]
+  },
+  {
+    "document": [
+      1280,
+      720
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1280,
+      "top": 0,
+      "width": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 650,
+      "height": 606,
+      "left": 12,
+      "right": 838.6640625,
+      "top": 44,
+      "width": 826.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 1065.328125,
+        "right": 1162.6640625,
+        "top": 292.1953125,
+        "width": 97.3359375,
+        "x": 1065.328125,
+        "y": 292.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  {
+    "document": [
+      759,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 759,
+      "top": 0,
+      "width": 759,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 504,
+      "height": 462,
+      "left": 8,
+      "right": 751,
+      "top": 42,
+      "width": 743,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 806.1953125,
+        "height": 32,
+        "left": 383.5,
+        "right": 563.25,
+        "top": 774.1953125,
+        "width": 179.75,
+        "x": 383.5,
+        "y": 774.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      759,
+      900
+    ]
+  },
+  {
+    "document": [
+      760,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 760,
+      "top": 0,
+      "width": 760,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 504,
+      "height": 462,
+      "left": 8,
+      "right": 752,
+      "top": 42,
+      "width": 744,
+      "x": 8,
+      "y": 42
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 806.1953125,
+        "height": 32,
+        "left": 384,
+        "right": 564,
+        "top": 774.1953125,
+        "width": 180,
+        "x": 384,
+        "y": 774.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      760,
+      900
+    ]
+  },
+  {
+    "document": [
+      761,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 761,
+      "top": 0,
+      "width": 761,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "2"
+      }
+    ],
+    "scene": {
+      "bottom": 830,
+      "height": 786,
+      "left": 12,
+      "right": 413,
+      "top": 44,
+      "width": 401,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 593,
+        "right": 667,
+        "top": 292.1953125,
+        "width": 74,
+        "x": 593,
+        "y": 292.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      761,
+      900
+    ]
+  },
+  {
+    "document": [
+      1099,
+      768
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1099,
+      "top": 0,
+      "width": 1099,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "2"
+      }
+    ],
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 751,
+      "top": 44,
+      "width": 739,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 931,
+        "right": 1005,
+        "top": 292.1953125,
+        "width": 74,
+        "x": 931,
+        "y": 292.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      1099,
+      768
+    ]
+  },
+  {
+    "document": [
+      1100,
+      768
+    ],
+    "header": {
+      "bottom": 36,
+      "height": 36,
+      "left": 0,
+      "right": 1100,
+      "top": 0,
+      "width": 1100,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "scene": {
+      "bottom": 698,
+      "height": 654,
+      "left": 12,
+      "right": 718.6640625,
+      "top": 44,
+      "width": 706.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "scrollY": 0,
+    "splitParagraphs": 0,
+    "start": {
+      "inFirstScreen": true,
+      "rect": {
+        "bottom": 324.1953125,
+        "height": 32,
+        "left": 915.328125,
+        "right": 997.6640625,
+        "top": 292.1953125,
+        "width": 82.3359375,
+        "x": 915.328125,
+        "y": 292.1953125
+      }
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      1100,
+      768
+    ]
+  }
+]
