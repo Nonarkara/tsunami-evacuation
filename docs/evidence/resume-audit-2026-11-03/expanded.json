@@ -1,0 +1,229 @@
+[
+  {
+    "checkboxes": [
+      {
+        "height": 18,
+        "width": 18
+      },
+      {
+        "height": 18,
+        "width": 18
+      }
+    ],
+    "dialogs": [
+      {
+        "lang": "",
+        "pages": "1",
+        "rect": {
+          "h": 212,
+          "w": 366,
+          "x": 12,
+          "y": 48
+        },
+        "scroll": [
+          364,
+          210,
+          364,
+          210
+        ],
+        "title": "Map controls / เครื่องมือแผนที่"
+      },
+      {
+        "lang": "th",
+        "pages": "3",
+        "rect": {
+          "h": 720,
+          "w": 366,
+          "x": 12,
+          "y": 62
+        },
+        "scroll": [
+          364,
+          718,
+          364,
+          718
+        ],
+        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+      }
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "checkboxes": [
+      {
+        "height": 18,
+        "width": 18
+      },
+      {
+        "height": 18,
+        "width": 18
+      }
+    ],
+    "dialogs": [
+      {
+        "lang": "",
+        "pages": "1",
+        "rect": {
+          "h": 123,
+          "w": 650,
+          "x": 187,
+          "y": 48
+        },
+        "scroll": [
+          648,
+          121,
+          648,
+          121
+        ],
+        "title": "Map controls / เครื่องมือแผนที่"
+      },
+      {
+        "lang": "th",
+        "pages": "2",
+        "rect": {
+          "h": 720,
+          "w": 660,
+          "x": 182,
+          "y": 24
+        },
+        "scroll": [
+          658,
+          718,
+          658,
+          718
+        ],
+        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+      }
+    ],
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "checkboxes": [
+      {
+        "height": 18,
+        "width": 18
+      },
+      {
+        "height": 18,
+        "width": 18
+      }
+    ],
+    "dialogs": [
+      {
+        "lang": "th",
+        "pages": "2",
+        "rect": {
+          "h": 720,
+          "w": 660,
+          "x": 390,
+          "y": 90
+        },
+        "scroll": [
+          658,
+          718,
+          658,
+          718
+        ],
+        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+      }
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "checkboxes": [
+      {
+        "height": 18,
+        "width": 18
+      },
+      {
+        "height": 18,
+        "width": 18
+      }
+    ],
+    "dialogs": [
+      {
+        "lang": "",
+        "pages": "1",
+        "rect": {
+          "h": 170,
+          "w": 643,
+          "x": 12,
+          "y": 48
+        },
+        "scroll": [
+          641,
+          168,
+          641,
+          168
+        ],
+        "title": "Map controls / เครื่องมือแผนที่"
+      },
+      {
+        "lang": "th",
+        "pages": "6",
+        "rect": {
+          "h": 327,
+          "w": 643,
+          "x": 12,
+          "y": 24
+        },
+        "scroll": [
+          641,
+          325,
+          641,
+          325
+        ],
+        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+      }
+    ],
+    "document": [
+      667,
+      375
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "viewport": [
+      667,
+      375
+    ]
+  }
+]

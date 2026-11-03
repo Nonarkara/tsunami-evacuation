@@ -1,0 +1,244 @@
+[
+  {
+    "dialog": {
+      "clientH": 650,
+      "clientW": 294,
+      "h": 652,
+      "pages": "2",
+      "scrollH": 650,
+      "scrollW": 294,
+      "w": 296,
+      "x": 12,
+      "y": 24
+    },
+    "document": [
+      320,
+      700
+    ],
+    "header": 36,
+    "viewport": [
+      320,
+      700
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 550,
+      "clientW": 364,
+      "h": 552,
+      "pages": "2",
+      "scrollH": 550,
+      "scrollW": 364,
+      "w": 366,
+      "x": 12,
+      "y": 24
+    },
+    "document": [
+      390,
+      600
+    ],
+    "header": 36,
+    "viewport": [
+      390,
+      600
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 650,
+      "clientW": 574,
+      "h": 652,
+      "pages": "2",
+      "scrollH": 650,
+      "scrollW": 574,
+      "w": 576,
+      "x": 12,
+      "y": 24
+    },
+    "document": [
+      600,
+      700
+    ],
+    "header": 36,
+    "viewport": [
+      600,
+      700
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 650,
+      "clientW": 575,
+      "h": 652,
+      "pages": "2",
+      "scrollH": 650,
+      "scrollW": 575,
+      "w": 577,
+      "x": 12,
+      "y": 24
+    },
+    "document": [
+      601,
+      700
+    ],
+    "header": 36,
+    "viewport": [
+      601,
+      700
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 718,
+      "clientW": 658,
+      "h": 720,
+      "pages": "2",
+      "scrollH": 718,
+      "scrollW": 658,
+      "w": 660,
+      "x": 49.5,
+      "y": 90
+    },
+    "document": [
+      759,
+      900
+    ],
+    "header": 36,
+    "viewport": [
+      759,
+      900
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 718,
+      "clientW": 658,
+      "h": 720,
+      "pages": "2",
+      "scrollH": 718,
+      "scrollW": 658,
+      "w": 660,
+      "x": 50,
+      "y": 90
+    },
+    "document": [
+      760,
+      900
+    ],
+    "header": 36,
+    "viewport": [
+      760,
+      900
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 718,
+      "clientW": 658,
+      "h": 720,
+      "pages": "2",
+      "scrollH": 718,
+      "scrollW": 658,
+      "w": 660,
+      "x": 50.5,
+      "y": 90
+    },
+    "document": [
+      761,
+      900
+    ],
+    "header": 36,
+    "viewport": [
+      761,
+      900
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 718,
+      "clientW": 658,
+      "h": 720,
+      "pages": "2",
+      "scrollH": 718,
+      "scrollW": 658,
+      "w": 660,
+      "x": 219.5,
+      "y": 24
+    },
+    "document": [
+      1099,
+      768
+    ],
+    "header": 36,
+    "viewport": [
+      1099,
+      768
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 718,
+      "clientW": 658,
+      "h": 720,
+      "pages": "2",
+      "scrollH": 718,
+      "scrollW": 658,
+      "w": 660,
+      "x": 220,
+      "y": 24
+    },
+    "document": [
+      1100,
+      768
+    ],
+    "header": 36,
+    "viewport": [
+      1100,
+      768
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 624,
+      "clientW": 658,
+      "h": 626,
+      "pages": "2",
+      "scrollH": 624,
+      "scrollW": 658,
+      "w": 660,
+      "x": 254.5,
+      "y": 24
+    },
+    "document": [
+      1169,
+      674
+    ],
+    "header": 36,
+    "viewport": [
+      1169,
+      674
+    ]
+  },
+  {
+    "dialog": {
+      "clientH": 670,
+      "clientW": 658,
+      "h": 672,
+      "pages": "2",
+      "scrollH": 670,
+      "scrollW": 658,
+      "w": 660,
+      "x": 310,
+      "y": 24
+    },
+    "document": [
+      1280,
+      720
+    ],
+    "header": 36,
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+]

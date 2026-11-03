@@ -1,0 +1,1350 @@
+[
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 289,
+          "w": 374
+        }
+      }
+    ],
+    "stage": {
+      "h": 390,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "escape-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 289,
+          "w": 374
+        }
+      }
+    ],
+    "stage": {
+      "h": 390,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "escape-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 648,
+          "w": 320
+        }
+      }
+    ],
+    "stage": {
+      "h": 654,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "escape-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 648,
+          "w": 320
+        }
+      }
+    ],
+    "stage": {
+      "h": 654,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "escape-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 780,
+          "w": 467
+        }
+      }
+    ],
+    "stage": {
+      "h": 786,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "escape-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 780,
+          "w": 467
+        }
+      }
+    ],
+    "stage": {
+      "h": 786,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "escape-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "9",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#research",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "research-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#ddpm",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "ddpm-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, Jost, sans-serif",
+      "Jost, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "9",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#research",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "research-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#ddpm",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "ddpm-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "5",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#research",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "research-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#ddpm",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "ddpm-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, Jost, sans-serif",
+      "Jost, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "5",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#research",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "research-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#ddpm",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "ddpm-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "4",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#research",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "research-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#ddpm",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "ddpm-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, Jost, sans-serif",
+      "Jost, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "4",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#research",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "research-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#ddpm",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "ddpm-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#prepare",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "prepare-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#drill",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "drill-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#prepare",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "prepare-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 772,
+          "w": 374
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#drill",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "drill-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#prepare",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "prepare-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#drill",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "drill-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#prepare",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "prepare-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 688,
+          "w": 1000
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#drill",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "drill-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#prepare",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "prepare-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=en#drill",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "drill-en"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#prepare",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "prepare-th"
+  },
+  {
+    "dialog": null,
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 820,
+          "w": 1416
+        }
+      }
+    ],
+    "stage": null,
+    "url": "http://127.0.0.1:5173/?lang=th#drill",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "drill-th"
+  },
+  {
+    "dialog": {
+      "h": 212,
+      "w": 366,
+      "x": 12,
+      "y": 48
+    },
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "\"Helvetica Neue\", Arial, Helvetica, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 289,
+          "w": 374
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 146,
+          "w": 340
+        }
+      },
+      {
+        "pages": "2",
+        "rect": {
+          "h": 647,
+          "w": 340
+        }
+      }
+    ],
+    "stage": {
+      "h": 390,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "method-en"
+  },
+  {
+    "dialog": {
+      "h": 212,
+      "w": 366,
+      "x": 12,
+      "y": 48
+    },
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "\"Helvetica Neue\", Arial, Helvetica, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 289,
+          "w": 374
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 146,
+          "w": 340
+        }
+      },
+      {
+        "pages": "2",
+        "rect": {
+          "h": 647,
+          "w": 340
+        }
+      }
+    ],
+    "stage": {
+      "h": 390,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "case": "method-th"
+  },
+  {
+    "dialog": {
+      "h": 123,
+      "w": 650,
+      "x": 187,
+      "y": 48
+    },
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "\"Helvetica Neue\", Arial, Helvetica, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 648,
+          "w": 320
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 57,
+          "w": 616
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 658,
+          "w": 626
+        }
+      }
+    ],
+    "stage": {
+      "h": 654,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "method-en"
+  },
+  {
+    "dialog": {
+      "h": 123,
+      "w": 650,
+      "x": 187,
+      "y": 48
+    },
+    "document": [
+      1024,
+      768
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "\"Helvetica Neue\", Arial, Helvetica, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "h": 648,
+          "w": 320
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 57,
+          "w": 616
+        }
+      },
+      {
+        "pages": "2",
+        "rect": {
+          "h": 658,
+          "w": 626
+        }
+      }
+    ],
+    "stage": {
+      "h": 654,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "case": "method-th"
+  },
+  {
+    "dialog": {
+      "h": 720,
+      "w": 660,
+      "x": 390,
+      "y": 90
+    },
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "\"Helvetica Neue\", Arial, Helvetica, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 780,
+          "w": 467
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 658,
+          "w": 626
+        }
+      }
+    ],
+    "stage": {
+      "h": 786,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "method-en"
+  },
+  {
+    "dialog": {
+      "h": 720,
+      "w": 660,
+      "x": 390,
+      "y": 90
+    },
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "\"Helvetica Neue\", Arial, Helvetica, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 780,
+          "w": 467
+        }
+      },
+      {
+        "pages": "2",
+        "rect": {
+          "h": 658,
+          "w": 626
+        }
+      }
+    ],
+    "stage": {
+      "h": 786,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "case": "method-th"
+  }
+]

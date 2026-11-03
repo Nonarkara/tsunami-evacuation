@@ -55,8 +55,9 @@ export function EscapeMethod({language}:{language:ManualLanguage}) {
 export function EscapePlayback(p:EscapeGuideProps) {
   const t=(en:string,th:string)=>p.language==='th'?th:en;
   const replay=p.started&&p.state==='arrived'&&!p.playing;
+  const loading=!p.ready&&!p.playing&&!p.started;
   return <div className="escape-playback" lang={p.language}>
-      <button className="primary" disabled={!p.ready&&!p.playing} onClick={replay?()=>{p.onReset();p.onPlay();}:p.onPlay} aria-label={p.playing?t('Pause escape practice','หยุดแบบฝึกอพยพชั่วคราว'):replay?t('Replay escape practice','เล่นแบบฝึกอพยพใหม่'):t('Play escape practice','เล่นแบบฝึกอพยพ')}><span aria-hidden="true">{p.playing?'Ⅱ':replay?'↺':'▶'}</span> {p.playing?t('Pause','หยุด'):replay?t('Replay','เล่นใหม่'):p.started?t('Resume','เล่นต่อ'):t('Start','เริ่ม')}</button>
+      <button className="primary" disabled={!p.ready&&!p.playing} onClick={replay?()=>{p.onReset();p.onPlay();}:p.onPlay} aria-label={loading?t('Loading terrain, practice not ready yet','กำลังโหลดภูมิประเทศ ยังเริ่มแบบฝึกไม่ได้'):p.playing?t('Pause escape practice','หยุดแบบฝึกอพยพชั่วคราว'):replay?t('Replay escape practice','เล่นแบบฝึกอพยพใหม่'):t('Play escape practice','เล่นแบบฝึกอพยพ')}><span aria-hidden="true">{loading?'…':p.playing?'Ⅱ':replay?'↺':'▶'}</span> {loading?t('Loading','กำลังโหลด'):p.playing?t('Pause','หยุด'):replay?t('Replay','เล่นใหม่'):p.started?t('Resume','เล่นต่อ'):t('Start','เริ่ม')}</button>
       <button onClick={p.onReset} aria-label={t('Reset escape practice','เริ่มแบบฝึกอพยพใหม่')} title={t('Reset','เริ่มใหม่')}>↺</button>
       <button onClick={p.onStyle} aria-pressed={!p.schematic} aria-label={p.schematic?t('Show imagery context','แสดงบริบทภาพถ่าย'):t('Show simplified terrain','แสดงภูมิประเทศแบบเรียบ')} title={p.schematic?t('Imagery context','บริบทภาพถ่าย'):t('Simplified terrain','ภูมิประเทศแบบเรียบ')}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3Zm1 14 5-6 4 4 3-3 5 6"/><circle cx="15" cy="8" r="2"/></svg></button>
       <span className="escape-clock">+{waitClock(p.seconds)}</span>

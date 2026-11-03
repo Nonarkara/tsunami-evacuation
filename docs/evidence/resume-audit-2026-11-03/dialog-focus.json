@@ -1,0 +1,80 @@
+[
+  {
+    "case": "method-en",
+    "viewport": [
+      390,
+      844
+    ],
+    "focus": "Sources, assumptions, settings & coverage",
+    "openDialogs": 1,
+    "scroll": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "method-th",
+    "viewport": [
+      390,
+      844
+    ],
+    "focus": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม",
+    "openDialogs": 1,
+    "scroll": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "method-en",
+    "viewport": [
+      1024,
+      768
+    ],
+    "focus": "Sources, assumptions, settings & coverage",
+    "openDialogs": 1,
+    "scroll": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "method-th",
+    "viewport": [
+      1024,
+      768
+    ],
+    "focus": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม",
+    "openDialogs": 1,
+    "scroll": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "method-en",
+    "viewport": [
+      1440,
+      900
+    ],
+    "focus": "Sources, assumptions, settings & coverage",
+    "openDialogs": 0,
+    "scroll": [
+      0,
+      0
+    ]
+  },
+  {
+    "case": "method-th",
+    "viewport": [
+      1440,
+      900
+    ],
+    "focus": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม",
+    "openDialogs": 0,
+    "scroll": [
+      0,
+      0
+    ]
+  }
+]

@@ -1,5 +1,6 @@
 import { DockControls } from './BannerDock';
 import { ReadingDialog } from './ReadingDialog';
+import { ExerciseMethod } from './ExerciseMethod';
 import { PagedFlow } from './PagedFlow';
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as maplibregl from 'maplibre-gl';
@@ -129,7 +130,12 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
         style: { version: 8, sources: {
           aerial: { type: 'raster', tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'], tileSize: 256, maxzoom: 18, attribution: 'Imagery © Esri and contributors' },
           dem: { type: 'raster-dem', tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'], encoding: 'terrarium', tileSize: 256, maxzoom: 15, attribution: '<a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Terrain © Mapzen / source credits</a>' }
-        }, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#d6d0c4' } }, { id: 'aerial', type: 'raster', source: 'aerial' }], terrain: dimension === '3d' ? { source: 'dem', exaggeration: 1 } : undefined },
+        }, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#d6d0c4' } }, { id: 'aerial', type: 'raster', source: 'aerial' }],
+          // Daylight haze instead of a dark void above the horizon. Distant massing fades
+          // into the horizon, which reads as depth; flat colour keeps the cel look.
+          sky: { 'sky-color': '#dfe6e4', 'horizon-color': '#f1f2ec', 'fog-color': '#f1f2ec', 'fog-ground-blend': .55, 'horizon-fog-blend': .7 },
+          light: { anchor: 'viewport', color: '#fffaf0', intensity: .42, position: [1.25, 195, 38] },
+          terrain: dimension === '3d' ? { source: 'dem', exaggeration: 1 } : undefined },
         attributionControl: false
       });
     } catch { setFailure('3D rendering is unavailable on this device. Open the 2D map below.'); return; }
@@ -149,10 +155,13 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     m.on('load', () => {
       didLoad = true; window.clearTimeout(loadTimeout); setFailure('');
       for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings']) m.addSource(id, { type: 'geojson', data: empty });
-      m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#d5e2df', 'line-width':.7, 'line-opacity':.65 } });
+      // Relief shading from the same DEM tiles: without it the cel ground is a blank sheet,
+      // so a street, a beach ridge and a hill read as one flat colour.
+      m.addLayer({ id:'relief', type:'hillshade', source:'dem', paint:{ 'hillshade-exaggeration':.45, 'hillshade-shadow-color':'#8f948a', 'hillshade-highlight-color':'#fbf9f2', 'hillshade-accent-color':'#c6c6b6' } }, 'aerial');
+      m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#4c5347', 'line-width':.8, 'line-opacity':.65 } });
       // Massing is solid, not glass: at eye height a translucent box reads as a floating slab
-      // rather than a building. The vertical gradient separates the roof plane from the facade.
-      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#8d9189','#e3e9e4'], 'fill-extrusion-opacity':1, 'fill-extrusion-vertical-gradient':true } });
+      // rather than a building. Warm tones separate massing from ground without a second accent.
+      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#b0a99a','#e9e4d8'], 'fill-extrusion-opacity':1, 'fill-extrusion-vertical-gradient':true } });
       // Ground-level footprint outlines; the solid extrusion supplies the roof plane.
       // These lines are not elevated roof edges or certified building geometry.
       m.addLayer({ id:'building-footprint-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#f59e0b', 'line-width':.5, 'line-opacity':.55 } });
@@ -211,7 +220,21 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     if (m.getLayer('bg')) m.setLayoutProperty('bg', 'visibility', 'visible');
     if (m.getLayer('building-outlines')) m.setPaintProperty('building-outlines', 'line-opacity', celShade ? 1 : .65);
     if (m.getLayer('building-footprint-outlines')) m.setPaintProperty('building-footprint-outlines', 'line-opacity', celShade ? .9 : .55);
-  }, [ready, mode, schematic]);
+    // In the escape rehearsal only the practice line should read as the way ahead; the other
+    // two mapped approaches drop to a hairline so two pale lines cannot be mistaken for it.
+    if (m.getLayer('routes')) {
+      m.setPaintProperty('routes', 'line-color', mode === 'escape'
+        ? ['case', ['==', ['get', 'route'], route], '#f59e0b', '#b8b2a4']
+        : ['match', ['get', 'route'], 0, '#fafaf7', 1, '#f59e0b', '#b9ddf0']);
+      m.setPaintProperty('routes', 'line-width', mode === 'escape'
+        ? ['case', ['==', ['get', 'route'], route], 4.5, 1.5] : 3);
+    }
+    if (m.getLayer('route-casing')) {
+      m.setPaintProperty('route-casing', 'line-color', mode === 'escape' ? '#2b2b22' : '#12354e');
+      m.setPaintProperty('route-casing', 'line-width', mode === 'escape'
+        ? ['case', ['==', ['get', 'route'], route], 9, 3] : 8);
+    }
+  }, [ready, mode, schematic, route]);
 
   useEffect(() => {
     if (ready && current) (map.current?.getSource('people') as GeoJSONSource)?.setData(isStudy && (mode === 'crowd' || mode === 'escape') ? { type: 'FeatureCollection', features: current.features } : empty);
@@ -542,30 +565,30 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       </div>
     </>}
     </div></PagedFlow></div>
-      <DockControls target={bannerDock}><div className="exercise-console" id="exercise-console"><ReadingDialog title="Sources, assumptions, settings & coverage"><div className="console-sections">
+      <DockControls target={bannerDock}><div className="exercise-console" id="exercise-console"><ReadingDialog language={language} title={t('Sources, assumptions, settings & coverage','แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม')}><div className="console-sections">
       {isStudy && model && data && <section className="console-section" id="console-method">
         <h3>{t('Sources and assumptions','แหล่งข้อมูลและสมมติฐาน')}</h3>
-      <p>Road geometry: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors / ODbL</a>, snapshot {data.accessed}. Three shortest mapped walking paths converge on a selected inland network endpoint. Access, crossings, obstructions and destination suitability have not been surveyed. No route is recommended for emergency use.</p><p>Each white point represents one moving synthetic person; an amber or gray point aggregates people waiting at the same model node. A deterministic FIFO point-queue model uses {speed} m/s, a {preparation}-second preparation delay after the exercise warning, a 0.15-second release interval per approach, 6 m assumed width elsewhere, {width} m at the amber-point link and an assumed flow of 1.2 people/m/s. Queues are totals at exact network nodes. Their physical shape, density and spillback are not modeled; no offsets or decorative crowd rings are drawn. There is no collision, storage spillback, slope penalty, mobility mix, injury or water interaction. Running is an experiment, not advice. This is separate from the paper’s 39,041-agent Unity model.</p><p>Walk-through follows the first synthetic walker at an approximate 1.65m eye height over the available DEM and imagery; it is not street-view photography and does not resolve kerbs, stairs or doors. Arrows follow the selected mapped exercise route, not authority-approved signs. Water rise is a user-chosen static-level demonstration, not tsunami dynamics. Imported depth frames remain research results. Moving people are point markers, not a physical-crowd simulation.</p><p>Terrain: <a href="https://registry.opendata.aws/terrain-tiles/">Mapzen Terrain Tiles on AWS</a>, 1× relief; local screening uses a sampled z12 Terrarium grid accessed {grid?.accessed}. Heights are approximate. Actual inundation replay and approved evacuation guidance require a georeferenced scenario flood grid, surveyed routes and authority-approved refuges from the research team.</p>
+      <ExerciseMethod language={language} speed={speed} preparation={preparation} width={width} accessed={data.accessed} terrainAccessed={grid?.accessed}/>
       </section>}
       <details className="console-section" id="console-settings">
-        <summary>Scenario settings, data and coverage</summary>
-      <label><input type="checkbox" checked={buildingsEnabled} disabled={flat} onChange={e=>setBuildingsEnabled(e.target.checked)} /> OSM buildings / อาคาร</label>
-      {buildingsEnabled && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} mapped footprints · {buildings.counts.heightTag} height tags · {buildings.counts.levelsEstimate} floor-count estimates · {buildings.counts.unknown.toLocaleString()} unknown heights shown as 3m massing. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">OSM source</a> · {buildings.retrievedAt.slice(0,10)}. Coverage is a local snapshot, not every building in the region. Heights are not surveyed or approved refuges. / อาคารที่ไม่มีข้อมูลความสูงใช้รูปทรงสมมติ 3 เมตร ไม่ใช่การรับรองจุดอพยพ</> : buildingError || 'Loading building snapshot… / กำลังโหลดข้อมูลอาคาร'}</p>}
+        <summary>{t('Scenario settings, data and coverage','การตั้งค่าฉากทัศน์ ข้อมูล และพื้นที่ครอบคลุม')}</summary>
+      <label><input type="checkbox" checked={buildingsEnabled} disabled={flat} onChange={e=>setBuildingsEnabled(e.target.checked)} /> {t('OSM buildings','อาคาร OSM')}</label>
+      {buildingsEnabled && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} {t('mapped footprints','รูปอาคารในแผนที่')} · {buildings.counts.heightTag} {t('height tags','ระบุความสูง')} · {buildings.counts.levelsEstimate} {t('floor-count estimates','ประมาณจากจำนวนชั้น')} · {buildings.counts.unknown.toLocaleString()} {t('unknown heights shown as 3m massing','ไม่ทราบความสูง แสดงรูปทรงสมมติ 3 เมตร')}. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">{t('OSM source','แหล่ง OSM')}</a> · {buildings.retrievedAt.slice(0,10)}. {t('Coverage is a local snapshot, not every building in the region. Heights are not surveyed; buildings are not approved refuges.','ครอบคลุมเฉพาะภาพข้อมูลพื้นที่ ณ วันที่เก็บ ไม่ใช่อาคารทุกหลังในภูมิภาค ยังไม่สำรวจความสูง และไม่ใช่อาคารอพยพที่ได้รับอนุมัติ')}</> : buildingError || t('Loading building snapshot…','กำลังโหลดข้อมูลอาคาร…')}</p>}
 
       <div className="scenario-settings-row">
-        {model && <label>Assumed pinch width<select aria-label="Assumed pinch width" value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}
-        {grid && <><label><input type="checkbox" checked={animateWater} disabled={!!hazard || flat} onChange={e => { setAnimateWater(e.target.checked); setMode('crowd'); setScreen(e.target.checked); }} /> Animate illustrative water rise</label><label>Screen peak<select aria-label="Demonstration peak level" value={peak} onChange={e => setPeak(Number(e.target.value))}><option value={5}>+5 m MSL</option><option value={10}>+10 m MSL</option><option value={15}>+15 m MSL</option><option value={20}>+20 m MSL</option></select></label><label>Rise duration<select aria-label="Demonstration rise duration" value={riseMinutes} onChange={e => setRiseMinutes(Number(e.target.value))}><option value={5}>5 exercise min</option><option value={10}>10 exercise min</option><option value={20}>20 exercise min</option></select></label></>}
+        {model && <label>{t('Assumed pinch width','ความกว้างคอขวดสมมติ')}<select aria-label={t('Assumed pinch width','ความกว้างคอขวดสมมติ')} value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}
+        {grid && <><label><input type="checkbox" checked={animateWater} disabled={!!hazard || flat} onChange={e => { setAnimateWater(e.target.checked); setMode('crowd'); setScreen(e.target.checked); }} /> {t('Animate illustrative water rise','แสดงน้ำสาธิตเพิ่มระดับ')}</label><label>{t('Screen peak','ระดับสาธิตสูงสุด')}<select aria-label={t('Demonstration peak level','ระดับน้ำสาธิตสูงสุด')} value={peak} onChange={e => setPeak(Number(e.target.value))}><option value={5}>+5 m MSL</option><option value={10}>+10 m MSL</option><option value={15}>+15 m MSL</option><option value={20}>+20 m MSL</option></select></label><label>{t('Rise duration','ระยะเวลาเพิ่มระดับ')}<select aria-label={t('Demonstration rise duration','ระยะเวลาเพิ่มระดับน้ำสาธิต')} value={riseMinutes} onChange={e => setRiseMinutes(Number(e.target.value))}><option value={5}>5 {t('exercise min','นาทีแบบฝึก')}</option><option value={10}>10 {t('exercise min','นาทีแบบฝึก')}</option><option value={20}>20 {t('exercise min','นาทีแบบฝึก')}</option></select></label></>}
         <button disabled={!ready || flat} onClick={() => { setDimension('3d'); view('coast'); }}>{t('Scenic coast view','วิวชายฝั่ง')}</button><button onClick={() => { setFlat(true); setPlaying(false); setQueueFocus(undefined); }}>{t('Basic map fallback','แผนที่พื้นฐาน')}</button>
       </div>
-      <p className="scenario-provenance">{hazard && mode === 'escape' ? <>{t('Imported replay retained, but not displayed in Escape. Switch to Water level to inspect it. Escape uses the chosen illustrative surface only.','เก็บไฟล์เล่นซ้ำที่นำเข้าไว้ แต่ไม่แสดงในแบบฝึกอพยพ เลือกระดับน้ำเพื่อดูไฟล์นั้น แบบฝึกอพยพใช้ผิวน้ำสาธิตที่ตั้งขึ้นเท่านั้น')}</> : hazard ? <>Imported research replay: <a href={hazard.sourceUrl} target="_blank" rel="noreferrer">{hazard.title}</a> · {hazard.model} · {hazard.verticalDatum} · approval not independently verified. {waterFrame?.waveHeightM == null ? 'Wave height at a gauge is not supplied for this time.' : `Model wave height at ${hazard.waveGauge?.name}: ${waterFrame.waveHeightM.toFixed(2)} m (crest-to-trough).`}</> : <>Wave prediction and approved destinations are not connected. {animateWater ? `The animated +${shownWaterLevel.toFixed(1)} m level is a user-chosen terrain demonstration, not a predicted wave height or arrival time.` : 'The water slider screens terrain; it does not predict tsunami wave height.'}</>}</p>
-      <label className="scenario-import">Load research inundation frames (JSON, on this device only)<input aria-label="Load research inundation scenario" type="file" accept="application/json,.json" onChange={e => { void importScenario(e.target.files?.[0]); e.target.value = ''; }} /></label>
-      {hazard && <button onClick={() => { setHazard(undefined); setPlaying(false); }}>Remove imported scenario</button>}
+      <p className="scenario-provenance">{hazard && mode === 'escape' ? <>{t('Imported replay retained, but not displayed in Escape. Switch to Water level to inspect it. Escape uses the chosen illustrative surface only.','เก็บไฟล์เล่นซ้ำที่นำเข้าไว้ แต่ไม่แสดงในแบบฝึกอพยพ เลือกระดับน้ำเพื่อดูไฟล์นั้น แบบฝึกอพยพใช้ผิวน้ำสาธิตที่ตั้งขึ้นเท่านั้น')}</> : hazard ? <>{t('Imported research replay:','ผลวิจัยเล่นซ้ำที่นำเข้า:')} <a href={hazard.sourceUrl} target="_blank" rel="noreferrer">{hazard.title}</a> · {hazard.model} · {hazard.verticalDatum} · {t('approval not independently verified.','ยังไม่ได้ตรวจสอบการอนุมัติโดยอิสระ')} {waterFrame?.waveHeightM == null ? t('Wave height at a gauge is not supplied for this time.','ไม่มีข้อมูลความสูงคลื่นจากสถานีวัดในเวลานี้') : t(`Model wave height at ${hazard.waveGauge?.name}: ${waterFrame.waveHeightM.toFixed(2)} m (crest-to-trough).`,`ความสูงคลื่นจำลองที่ ${hazard.waveGauge?.name}: ${waterFrame.waveHeightM.toFixed(2)} เมตร (ยอดถึงท้องคลื่น)`)}</> : <>{t('Wave prediction and approved destinations are not connected.','ยังไม่เชื่อมต่อการพยากรณ์คลื่นและปลายทางที่ได้รับอนุมัติ')} {animateWater ? t(`The animated +${shownWaterLevel.toFixed(1)} m level is a user-chosen terrain demonstration, not a predicted wave height or arrival time.`,`ระดับเคลื่อนไหว +${shownWaterLevel.toFixed(1)} เมตรเป็นการสาธิตเทียบภูมิประเทศที่ผู้ใช้ตั้ง ไม่ใช่ความสูงคลื่นหรือเวลาถึงที่พยากรณ์`) : t('The water slider screens terrain; it does not predict tsunami wave height.','แถบระดับน้ำใช้เทียบภูมิประเทศ ไม่ได้พยากรณ์ความสูงคลื่นสึนามิ')}</>}</p>
+      <label className="scenario-import">{t('Load research inundation frames (JSON, on this device only)','เปิดเฟรมน้ำท่วมวิจัย (JSON เฉพาะอุปกรณ์นี้)')}<input aria-label={t('Load research inundation scenario','เปิดฉากทัศน์น้ำท่วมวิจัย')} type="file" accept="application/json,.json" onChange={e => { void importScenario(e.target.files?.[0]); e.target.value = ''; }} /></label>
+      {hazard && <button onClick={() => { setHazard(undefined); setPlaying(false); }}>{t('Remove imported scenario','นำฉากทัศน์ที่นำเข้าออก')}</button>}
       {importError && <p role="alert">{importError}</p>}
-      {waterSurfaceError && <p role="status">3D water surface unavailable; footprint layer remains visible. {waterSurfaceError}</p>}
-      <p>Format: warning-relative seconds, EPSG:4326 cell bounds, north-to-south rows, MSL datum and depth in metres. A wave-height gauge needs its own location and crest-to-trough definition. No upload or automatic approval. <a href="/data/hazard-replay.schema.json" target="_blank" rel="noreferrer">Scenario file schema</a>.</p>
-      <p>Coverage: satellite/DEM views work across the listed regions; the sourced walking-network exercise currently covers Bang Niang only. Each additional beach needs its own route, destination and hazard pack. Public-source expansion: <a href="https://www.clawpack.org/tsunamidata.html" target="_blank" rel="noreferrer">GeoClaw data guidance</a> · <a href="https://www.gebco.net/data-products/gridded-bathymetry-data" target="_blank" rel="noreferrer">GEBCO bathymetry</a> · <a href="https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis" target="_blank" rel="noreferrer">NOAA historical observations</a>. These sources are candidates for integration, not connected live feeds.</p>
+      {waterSurfaceError && <p role="status">{t('3D water surface unavailable; footprint layer remains visible.','แสดงผิวน้ำสามมิติไม่ได้ ยังแสดงชั้นขอบเขตน้ำ')} {waterSurfaceError}</p>}
+      <p>{t('Format: warning-relative seconds, EPSG:4326 cell bounds, north-to-south rows, MSL datum and depth in metres. A wave-height gauge needs its own location and crest-to-trough definition. No upload or automatic approval.','รูปแบบ: วินาทีจากคำเตือน ขอบเขตเซลล์ EPSG:4326 แถวจากเหนือไปใต้ อ้างอิง MSL และความลึกเป็นเมตร สถานีความสูงคลื่นต้องมีตำแหน่งและนิยามยอดถึงท้องคลื่นของตนเอง ไม่มีการอัปโหลดหรืออนุมัติอัตโนมัติ')} <a href="/data/hazard-replay.schema.json" target="_blank" rel="noreferrer">{t('Scenario file schema','ข้อกำหนดไฟล์ฉากทัศน์')}</a>.</p>
+      <p>{t('Coverage: satellite/DEM views work across the listed regions; the sourced walking-network exercise currently covers Bang Niang only. Each additional beach needs its own route, destination and hazard pack. Public-source candidates:','พื้นที่ครอบคลุม: มีภาพถ่ายและ DEM สำหรับภูมิภาคในรายการ แบบฝึกโครงข่ายเดินที่มีแหล่งอ้างอิงครอบคลุมบางเนียงเท่านั้น ชายหาดอื่นต้องมีชุดเส้นทาง ปลายทาง และภัยของตนเอง แหล่งสาธารณะที่อาจนำมาใช้:')} <a href="https://www.clawpack.org/tsunamidata.html" target="_blank" rel="noreferrer">GeoClaw</a> · <a href="https://www.gebco.net/data-products/gridded-bathymetry-data" target="_blank" rel="noreferrer">GEBCO</a> · <a href="https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis" target="_blank" rel="noreferrer">NOAA</a>. {t('Not connected live feeds.','ยังไม่ใช่ฟีดสดที่เชื่อมต่อแล้ว')}</p>
       </details>
-      {consoleSlot && <details className="console-section"><summary>Local context and personal plan</summary>{consoleSlot}</details>}
+      {consoleSlot && <details className="console-section"><summary>{t('Local context and personal plan','ข้อมูลพื้นที่และแผนส่วนบุคคล')}</summary>{consoleSlot}</details>}
         </div></ReadingDialog></div></DockControls>
   </section>;
 }

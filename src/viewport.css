@@ -371,3 +371,12 @@
 @media screen {
  .operations-pages[data-pages="1"] .rehearsal-controls,.operations-pages[data-pages="1"] .rehearsal-timeline,.operations-pages[data-pages="1"] .exercise-boundary,.operations-pages[data-pages="1"] .rehearsal-readout,.operations-pages[data-pages="1"] .compare-panel { flex:0 0 auto; }
 }
+
+@media screen {
+ /* Method prose earns one readable column, not a box with a vacant half. */
+ .reading-dialog:has(.console-sections) { width:min(660px,calc(100vw - 24px)); height:min(720px,calc(100dvh - 48px)); gap:8px; }
+ .reading-dialog:has(.console-sections) .flow-content { column-count:1; }
+ .reading-dialog .console-section h4 { margin:8px 0 3px; }
+ .reading-dialog .console-section p { max-width:65ch; }
+ .reading-dialog .exercise-console { display:block; }
+}
