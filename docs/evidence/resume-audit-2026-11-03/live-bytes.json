@@ -1,0 +1,17 @@
+{
+  "host": "https://tsunami.nonarkara.org",
+  "htmlMatches": true,
+  "worker": "8309efda-e59e-4a8f-9859-5ea638682e51",
+  "assets": [
+    {
+      "asset": "/assets/index-Nh6bqPhD.js",
+      "bytes": 1737573,
+      "sha256": "b7cfd4744cf0a8f387e06873b991c57a0f731a5543f73ea249e9ef9384c9b83a"
+    },
+    {
+      "asset": "/assets/index-BBp04roY.css",
+      "bytes": 215019,
+      "sha256": "23c9e3a119e33f2e77dd62e338e8d19b76ba206ab9d2a52905ebd48bcf7331e6"
+    }
+  ]
+}

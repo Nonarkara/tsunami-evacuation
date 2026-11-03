@@ -33,3 +33,11 @@ Reviewer: /root/resume_independent_review. PASS for this change after closing Th
 ## Limits
 
 Existing Research/DDPM page fragmentation still leaves some whitespace; this is not a universal MSH clearance. No physical phone, child-comprehension, native community-language or surveyed evacuation safety validation was performed. Water stays illustrative; endpoints unapproved; imagery/DEM/building completeness remain source limited. Browser viewport overrides do not establish physical-device performance. The inherited Python helper was reviewed as an optional capture utility, not used as fresh evidence.
+
+## Released and verified
+
+Application commit15e7a9a pushed to origin/main. `npm run deploy` passed63TypeScript +11Python tests, strict production build and all six contrast roles (5.94–15.44:1). Worker version8309efda-e59e-4a8f-9859-5ea638682e51 serves https://tsunami.nonarkara.org/.
+
+Canonical HTML equals dist/index.html. Both production assets matched local build bytes exactly (SHA-256 in live-bytes.json): index-Nh6bqPhD.js and index-BBp04roY.css. Connected browser exercised deployed Thai phone Start/Pause/Reset, short-landscape nested method access and Escape/focus, and English desktop method reading/close. New live captures and live.json are in the evidence directory. Temporary viewport overrides were reset; live tab retained for the owner. No app-source changes followed the release; this final commit records proof only.
+
+Shared memory is available again: the verified portal-access lesson and column-width decision were saved in Scars/Debug-Logs/2026-11-03-portaled-map-controls-need-responsive-access-checks.md. This record does not endorse the stale handoff commit or its five-province DDPM excerpt.

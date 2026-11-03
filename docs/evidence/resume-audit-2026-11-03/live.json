@@ -1,0 +1,147 @@
+[
+  {
+    "case": "phone-play-pause-reset",
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "3",
+        "rect": {
+          "h": 289,
+          "w": 374
+        }
+      }
+    ],
+    "stage": {
+      "h": 390,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "short-landscape-method-access",
+    "dialog": {
+      "h": 170,
+      "w": 643,
+      "x": 12,
+      "y": 48
+    },
+    "document": [
+      667,
+      375
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 667,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "5",
+        "rect": {
+          "h": 268,
+          "w": 290
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 104,
+          "w": 617
+        }
+      },
+      {
+        "pages": "4",
+        "rect": {
+          "h": 265,
+          "w": 617
+        }
+      }
+    ],
+    "stage": {
+      "h": 270,
+      "w": 358,
+      "x": 8,
+      "y": 42
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=th&lesson=escape#explore",
+    "viewport": [
+      667,
+      375
+    ]
+  },
+  {
+    "case": "desktop-english-method",
+    "dialog": {
+      "h": 720,
+      "w": 660,
+      "x": 390,
+      "y": 90
+    },
+    "document": [
+      1440,
+      900
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "header": {
+      "h": 36,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "pages": [
+      {
+        "pages": "1",
+        "rect": {
+          "h": 780,
+          "w": 467
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "h": 658,
+          "w": 626
+        }
+      }
+    ],
+    "stage": {
+      "h": 786,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+]
