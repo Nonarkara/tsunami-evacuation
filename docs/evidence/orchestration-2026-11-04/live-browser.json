@@ -1,0 +1,221 @@
+{
+  "liveStarted": {
+    "camera": "walk",
+    "seconds": "0.812"
+  },
+  "livePause": "10.670",
+  "livePauseAfter": "10.670",
+  "livePhone": {
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 432
+    },
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 429,
+      "h": 387,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "start": {
+      "bottom": 520,
+      "h": 30,
+      "right": 77.9609375,
+      "w": 69.9609375,
+      "x": 8,
+      "y": 490
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 713.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 671.3984375
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "liveDdpm": {
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 432
+    },
+    "dialogs": [
+      {
+        "h": 720,
+        "pages": "1",
+        "scroll": [
+          364,
+          718,
+          364,
+          718
+        ],
+        "title": "แผนที่อพยพ ปภ.",
+        "w": 366,
+        "x": 12,
+        "y": 62
+      }
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 429,
+      "h": 387,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      },
+      {
+        "label": "แผนที่อพยพ ปภ.",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 520,
+      "h": 30,
+      "right": 77.9609375,
+      "w": 69.9609375,
+      "x": 8,
+      "y": 490
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 713.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 671.3984375
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "liveLocate": {
+    "camera": "overview",
+    "caption": "บ้านบางเนียง · DDPM 1288 · บัญชีข้อมูลเท่านั้นคำอธิบายแผนที่แผนที่ ปภ.© Esri & contributors · Mapzen · OSM",
+    "dialogs": 0,
+    "focus": "แผนที่อพยพ ปภ.",
+    "sourceRecords": "106"
+  },
+  "liveLarge": {
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "16.25px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 864,
+      "h": 30,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 834
+    },
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": {
+      "bottom": 830,
+      "h": 786,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 75.625,
+      "h": 30.75,
+      "right": 1028.609375,
+      "w": 67.28125,
+      "x": 961.328125,
+      "y": 44.875
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "large",
+    "turn": {
+      "bottom": 309.375,
+      "h": 51.875,
+      "right": 1427.9921875,
+      "w": 466.6640625,
+      "x": 961.328125,
+      "y": 257.5
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=en&text=large&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  "errors": []
+}

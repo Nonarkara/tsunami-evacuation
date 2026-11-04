@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-11-04T15:18:46.308Z",
+  "version": "f8caf944-d0f2-44b2-b19a-4025eae70dbd",
+  "commit": "cba3c71",
+  "receipts": [
+    {
+      "path": "/",
+      "status": 200,
+      "match": true,
+      "sha256": "1bb71550a0f090204e4a717414fb296e81f87dfc7e1ee1be9de4968f9bd4de00"
+    },
+    {
+      "path": "/assets/index-CfKJvUMe.js",
+      "status": 200,
+      "match": true,
+      "sha256": "a5c19f238dcfe3640ba028e733ae8fa46c09fe86e18ea27407e987fe1f49bccb"
+    },
+    {
+      "path": "/assets/index-CIZjDy-I.css",
+      "status": 200,
+      "match": true,
+      "sha256": "004de1de3c97b5bca0ab94495cd8e9451226468608fc33c75c2b756e8203907e"
+    },
+    {
+      "path": "/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson",
+      "status": 200,
+      "match": true,
+      "sha256": "c8007d092db9cd0ac1aa5ba806c4a88d6934e95bb2ec27cd8a9a59c48644a247"
+    }
+  ]
+}
