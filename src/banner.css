@@ -127,3 +127,7 @@
  .operations-pages .page-turner button span { display:none; }
  .operations-pages .page-turner > span { white-space:nowrap; }
 }
+/* Source identity and adjacent credits must earn their actual height in short landscape. */
+@media screen and (min-width:600px) and (max-width:760px) and (max-height:500px) {
+ #main .terrain-rehearsal,#main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),#main .terrain-rehearsal:not([data-camera=walk]) { grid-template-rows:minmax(0,1fr) auto; }
+}

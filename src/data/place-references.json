@@ -1,0 +1,189 @@
+{
+  "khao-lak-0": {
+    "coord": [
+      98.2259189,
+      8.7272884
+    ],
+    "node": "node/255523846",
+    "way": "way/23595013",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.214,8.715,98.238,8.739",
+    "retrievedAt": "2026-10-27T18:25:45.145282+00:00",
+    "rawSha256": "9036755e37cf473c0d305ca5364126efe93ab09f5ff8ffa0acf45007319f770f"
+  },
+  "khao-lak-1": {
+    "coord": [
+      98.2539592,
+      8.6939357
+    ],
+    "node": "node/8880564904",
+    "way": "way/959816329",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.241,8.682,98.265,8.706",
+    "retrievedAt": "2026-10-27T18:25:48.760605+00:00",
+    "rawSha256": "b5eb202d39144d9f8bbf78a03fc2be5a179e6f5deb47124a3149519288746bdc"
+  },
+  "khao-lak-2": {
+    "coord": [
+      98.2529673,
+      8.666894
+    ],
+    "node": "node/11707600483",
+    "way": "way/965605719",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.24,8.658,98.29,8.684",
+    "retrievedAt": "2026-10-27T18:25:49.771911+00:00",
+    "rawSha256": "11b15a8a256ea25f4c3743b656d2ab4b1032acdcd4c2a56a9ff8b2e6453dba9e"
+  },
+  "khao-lak-3": {
+    "coord": [
+      98.2531498,
+      8.6477655
+    ],
+    "node": "node/447216106",
+    "way": "way/38048101",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.241,8.635,98.265,8.659",
+    "retrievedAt": "2026-10-27T18:25:55.133565+00:00",
+    "rawSha256": "9b5a3639c6f78fde18a145cfc5895cbe403a5a94771aef03fc1179fae77ffb8e"
+  },
+  "phuket-0": {
+    "coord": [
+      98.2970895,
+      7.8960756
+    ],
+    "node": "node/4709942552",
+    "way": "way/65199919",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.285,7.884,98.309,7.908",
+    "retrievedAt": "2026-10-27T18:25:58.187047+00:00",
+    "rawSha256": "9828ea9a2b613ee40d50e1b47a7098e84258b6b5009a94faa1d14a8c63cae2dc"
+  },
+  "phuket-1": {
+    "coord": [
+      98.2980379,
+      7.8349059
+    ],
+    "node": "node/8873939888",
+    "way": "way/959018540",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.286,7.823,98.31,7.847",
+    "retrievedAt": "2026-10-27T18:26:02.869306+00:00",
+    "rawSha256": "2fc5ac9974c74d5886b4b2b094184b20ecdd6aed9cef0c9b54502b39dd3c18aa"
+  },
+  "phuket-2": {
+    "coord": [
+      98.2828095,
+      7.953987
+    ],
+    "node": "node/362357961",
+    "way": "way/32258600",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.271,7.942,98.295,7.966",
+    "retrievedAt": "2026-10-27T18:26:04.765019+00:00",
+    "rawSha256": "ccc6e7adda4e83848c201b5f85033a2d7f65845430abea2d7801e85279a5a7ee"
+  },
+  "phuket-3": {
+    "coord": [
+      98.2950577,
+      8.0023161
+    ],
+    "node": "node/11297946934",
+    "way": "way/1219315055",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.283,7.991,98.307,8.015",
+    "retrievedAt": "2026-10-27T18:26:08.105819+00:00",
+    "rawSha256": "996285ae89a64f19c6eb953bdf3317e11ee8bf22b3a5700a9e1394cb5735bc7b"
+  },
+  "krabi-0": {
+    "coord": [
+      98.7730551,
+      7.7390401
+    ],
+    "node": "node/12484569107",
+    "way": "way/47863043",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.761,7.727,98.785,7.751",
+    "retrievedAt": "2026-10-27T18:26:10.577995+00:00",
+    "rawSha256": "0fd3bdd339705710c962574bc873af10ccd5471c00e01a9678f1c58ec5775f8b"
+  },
+  "krabi-1": {
+    "coord": [
+      98.8240573,
+      8.031248
+    ],
+    "node": "node/8935825723",
+    "way": "way/965921695",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.812,8.019,98.836,8.043",
+    "retrievedAt": "2026-10-27T18:26:14.527354+00:00",
+    "rawSha256": "bf7458a8355ba201e53589fc68c49c5f891c1d39b65c6323b75a6fbffcf0de26"
+  },
+  "krabi-2": {
+    "coord": [
+      98.8387374,
+      8.0120938
+    ],
+    "node": "node/13970099532",
+    "way": "way/1532948923",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.827,8.0,98.851,8.024",
+    "retrievedAt": "2026-10-27T18:26:15.140716+00:00",
+    "rawSha256": "82f4f197b097061ccacb0e0356eb4f22079b650230543caed375f765e2be06f5"
+  },
+  "satun-trang-0": {
+    "coord": [
+      99.3028003,
+      6.4880166
+    ],
+    "node": "node/2544290411",
+    "way": "way/247559592",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=99.291,6.476,99.315,6.5",
+    "retrievedAt": "2026-10-27T18:26:19.138362+00:00",
+    "rawSha256": "11e30a03c98700aa8c8f378517a976dcd4dcc159f9c702b7d82fbd018ed17b16"
+  },
+  "satun-trang-1": {
+    "coord": [
+      99.7314318,
+      6.8521028
+    ],
+    "node": "node/4949302170",
+    "way": "way/504823100",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=99.721,6.84,99.745,6.864",
+    "retrievedAt": "2026-10-27T18:26:18.756327+00:00",
+    "rawSha256": "614b937696528530874584d4d1e865f431165d18a613be965cbefb79e408128a"
+  },
+  "ranong-0": {
+    "coord": [
+      98.405235,
+      9.7372097
+    ],
+    "node": "node/4314418898",
+    "way": "way/432372095",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.394,9.726,98.418,9.75",
+    "retrievedAt": "2026-10-27T18:26:22.502912+00:00",
+    "rawSha256": "f66b65d896b03048c06394b590ea40f6aac0a54b6cfa7f2c86fbc4cc018a2415"
+  },
+  "ranong-1": {
+    "coord": [
+      98.4889363,
+      9.6036826
+    ],
+    "node": "node/585164925",
+    "way": "way/109635733",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=98.478,9.593,98.502,9.617",
+    "retrievedAt": "2026-10-27T18:26:23.860930+00:00",
+    "rawSha256": "1c9f33e2f59274ceb209818a101dbb7e970dfeb4eb43b5e9ad6e5b1ddcfdb45f"
+  },
+  "gulf-thailand-0": {
+    "coord": [
+      99.96004,
+      12.5676918
+    ],
+    "node": "node/8510133899",
+    "way": "way/477654837",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=99.948,12.556,99.972,12.58",
+    "retrievedAt": "2026-10-27T18:26:31.868325+00:00",
+    "rawSha256": "af884ab72295f4e15bd828dbd75615dbbd45e6d5909a95b388268565b65e445f"
+  },
+  "gulf-thailand-1": {
+    "coord": [
+      100.0599897,
+      9.5299111
+    ],
+    "node": "node/5167663293",
+    "way": "way/24083314",
+    "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=100.048,9.518,100.072,9.542",
+    "retrievedAt": "2026-10-27T18:26:30.345873+00:00",
+    "rawSha256": "30020f5e2b4f37c746a168bbf330b320ffa4a51d59277899000a6cda1b245353"
+  }
+}

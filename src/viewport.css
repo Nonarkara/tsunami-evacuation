@@ -379,4 +379,7 @@
  .reading-dialog .console-section h4 { margin:8px 0 3px; }
  .reading-dialog .console-section p { max-width:65ch; }
  .reading-dialog .exercise-console { display:block; }
+ .reading-dialog:has(.ddpm-maps-content) { width:min(660px,calc(100vw - 24px)); height:min(560px,calc(100dvh - 48px)); }
+ .reading-dialog:has(.ddpm-maps-content) .flow-content { column-count:1; }
+ .reading-dialog:has(.ddpm-point-source[open]) { height:min(720px,calc(100dvh - 48px)); }
 }

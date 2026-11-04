@@ -1,0 +1,89 @@
+[
+  {
+    "case": "results-hidden-clock",
+    "before": "59.448",
+    "after": "59.448",
+    "stable": true
+  },
+  {
+    "case": "manual-zoom",
+    "before": {
+      "button": "▶ Resume",
+      "camera": "overview",
+      "seconds": "240.057"
+    },
+    "after": {
+      "button": "▶ Resume",
+      "camera": "overview",
+      "seconds": "240.057"
+    },
+    "stable": true
+  },
+  {
+    "case": "source-locate",
+    "camera": "overview",
+    "caption": "บ้านบางเนียง · คึกคัก · ตะกั่วป่า · DDPM id 1288 · source Risk 4 · inventory only© Esri & contributors · Mapzen · OSMMap keyDDPM maps",
+    "dialogs": 0,
+    "focus": "DDPM evacuation maps",
+    "sourceRecords": "106"
+  },
+  {
+    "case": "explicit-coast-request-and-modal-settings",
+    "before": {
+      "camera": "coast",
+      "clock": "0.000"
+    },
+    "held": {
+      "camera": "coast",
+      "clock": "0.000"
+    }
+  },
+  {
+    "case": "outline-hidden-task-filter",
+    "inventory": [
+      "Sections / หัวข้อ",
+      "กลับไปแผ่นแผนที่ ปภ. · 106",
+      "บัญชีหมู่บ้านพังงา"
+    ],
+    "sheets": [
+      "Sections / หัวข้อ",
+      "PG_6",
+      "PG_7",
+      "PG_10",
+      "บัญชีหมู่บ้านพังงา · 106",
+      "บัญชีหมู่บ้านพังงา"
+    ]
+  },
+  {
+    "case": "manual-reading-text-control",
+    "font": "16.25px",
+    "query": "?lang=th&lesson=escape&text=large",
+    "text": "large"
+  },
+  {
+    "case": "coast-actual-camera-model-edit",
+    "pendingCenter": "98.2533495,8.6712997",
+    "beforeEdit": "98.2627060,8.6733070",
+    "afterEdit": "98.2627060,8.6733070",
+    "stable": true
+  },
+  {
+    "case": "coast-modal-close-does-not-restart",
+    "beforeEdit": "98.2627060,8.6733070",
+    "afterReturn": "98.2627060,8.6733070",
+    "stable": true
+  },
+  {
+    "case": "actual-browser-tab-visibility",
+    "before": {
+      "hidden": false,
+      "seconds": "3.492"
+    },
+    "after": {
+      "hidden": false,
+      "seconds": "4.084"
+    },
+    "verifiedHidden": false,
+    "stable": false
+  }
+]

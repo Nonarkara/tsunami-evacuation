@@ -86,7 +86,7 @@ Use the question-mark button in the top bar for the Thai/English manual: a quick
 
 ## Buildings and eye-level exploration
 
-All 17 listed places have local OSM building snapshots. Walk-through uses an approximate 1.65 m eye height over the available DEM. Missing source heights remain unknown and use explicitly labelled 3 m visual massing. These scenes do not establish safe routes or refuges. [Sources, collection commands, MiniMax integration and verification](docs/BUILDINGS-INTEGRATION.md). Development checks require Python 3 as well as Node.js.
+All 17 listed places have local OSM building snapshots. Walk-through uses an approximate 1.65 m eye height over the available DEM. Only explicit source height tags produce volumes; unknown heights and historical floor-derived estimates remain flat under the 4 November 2026 policy. Footprints do not establish entrances, walkability or refuge suitability. [Sources, collection commands and historical integration receipt](docs/BUILDINGS-INTEGRATION.md). Development checks require Python 3 as well as Node.js.
 
 ## Section console and one-screen rehearsal
 
@@ -99,3 +99,5 @@ pane fits one screen: the hero map takes the room the rest of the pane leaves ov
 spills past the viewport at 1440, 1280, 1024 or 390 px.
 
 [Independent safety and interface audit, 28 October 2026](docs/SAFETY-AUDIT-2026-10-28.md).
+
+Place labels use sourced OSM street nodes near each named area, with node/way IDs and snapshot receipts in `src/data/place-references.json`. They are context anchors, not beach centres, entrances or evacuation destinations. Legacy area coordinates are retained only for broad camera framing. Eye-level reference mode requires a mapped source start; missing source starts do not fall back to guessed pins.

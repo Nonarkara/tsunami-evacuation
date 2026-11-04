@@ -1,5 +1,16 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 
+/** Off-page columns still have layout rectangles; hidden tasks and closed topics do not. */
+function flowHeadings(body:HTMLElement) {
+  return Array.from(body.querySelectorAll<HTMLElement>('h2,h3,summary')).filter(element=>{
+    if(element.closest('[hidden]'))return false;
+    for(let details=element.parentElement?.closest('details');details;details=details.parentElement?.closest('details')){
+      if(!details.open&&element!==details.querySelector(':scope > summary'))return false;
+    }
+    return Array.from(element.getClientRects()).some(rect=>rect.width>0&&rect.height>0);
+  });
+}
+
 /** Fixed-height reading pages. Content fragments into columns; controls turn pages, never shrink text. */
 export function PagedFlow({children,label='Reading pages',className=''}:{children:ReactNode;label?:string;className?:string}) {
   const host=useRef<HTMLDivElement>(null), content=useRef<HTMLDivElement>(null);
@@ -7,7 +18,7 @@ export function PagedFlow({children,label='Reading pages',className=''}:{childre
   const [page,setPage]=useState(0),[total,setTotal]=useState(1),[stride,setStride]=useState(1);
   const measure=useCallback(()=>{
     const box=host.current, body=content.current;if(!box||!body||box.clientWidth===0)return;
-    const titles=Array.from(body.querySelectorAll('h2,h3,summary')).map(el=>el.textContent?.trim()??'');
+    const titles=flowHeadings(body).map(el=>el.textContent?.trim()??'');
     setOutline(old=>JSON.stringify(old)===JSON.stringify(titles)?old:titles);
     const step=box.clientWidth+24;
     // Measure natural column flow independently of the optional single-page chart stretch.
@@ -51,7 +62,7 @@ export function PagedFlow({children,label='Reading pages',className=''}:{childre
     <nav className="page-turner" aria-label={`${label} navigation`}>
       <button disabled={page===0} onClick={()=>setPage(p=>p-1)} aria-label="Previous page / หน้าก่อน">← <span>Previous / ก่อน</span></button>
       {outline.length>1&&<select className="page-jump" aria-label={`${label}: jump to section`} value="" onChange={e=>{
-        const target=content.current?.querySelectorAll('h2,h3,summary')[Number(e.target.value)];
+        const target=content.current?flowHeadings(content.current)[Number(e.target.value)]:undefined;
         if(target){reveal(target);target.setAttribute('tabindex','-1');(target as HTMLElement).focus({preventScroll:true});}
       }}><option value="">Sections / หัวข้อ</option>{outline.map((title,i)=><option key={i} value={i}>{title}</option>)}</select>}
       <span aria-live="polite">{page+1} / {total}</span>

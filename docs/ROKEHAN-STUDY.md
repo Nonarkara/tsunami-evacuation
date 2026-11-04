@@ -27,16 +27,16 @@ That gives relief and route context but **no street-level detail** — no paveme
 
 ## How to use it — URL parameters
 
-The scene is driven by the hash. Example (Shibuya Crossing):
+The scene is driven by the hash. Example (sourced Bang Niang OSM camera node11707600483):
 
 ```
 https://tools.oyasumi-gamedev.com/rokehan/
-#ll=35.659500%2C139.700500&s=100&tod=late&far=4&n=Shibuya+Crossing%2C+Tokyo
+#ll=8.666894%2C98.2529673&s=100&tod=day&far=4&n=Bang+Niang
 ```
 
 | Param | Meaning | Values |
 |-------|---------|--------|
-| `ll` | lat,lng (URL-encoded comma) | `8.669%2C98.265` for Bang Niang |
+| `ll` | lat,lng (URL-encoded comma) | `8.666894%2C98.2529673` from OSM node11707600483 |
 | `s` | scene size | 100 / 200 / 300 / 400 / 600 / 800 m, 1 km |
 | `tod` | time of day | 昼 / 夕方 / 夜 / 深夜 (day (`day`), dusk (`dusk`), night (`night`), late night (`late`)) |
 | `far` | distant view range | none / 1km / 2km / 4km |
@@ -46,11 +46,11 @@ Additional UI controls (not all exposed in the URL): lens 24 mm, line/contour we
 
 ## How to point it at Khao Lak
 
-Bang Niang area ≈ `8.669, 98.265`; inland exercise endpoint ≈ `8.6726929, 98.2839914`. A ready link:
+The selected pack records OSM camera node [11707600483](https://www.openstreetmap.org/node/11707600483), longitude98.2529673/latitude8.666894. This is a mapped street/path camera reference, not a surveyed entrance or approved evacuation destination. A source-linked illustration:
 
 ```
 https://tools.oyasumi-gamedev.com/rokehan/
-#ll=8.669%2C98.265&s=100&tod=late&far=4&n=Bang+Niang%2C+Khao+Lak
+#ll=8.666894%2C98.2529673&s=100&tod=day&far=4&n=Bang+Niang
 ```
 
 Open in a new tab. The user can then switch to eye height and walk the scene. Export options on the tool: PNG (2400/3600/4800 px), SVG line art, GLB / FBX / OBJ 3D models (with or without distant view).
@@ -107,7 +107,7 @@ Apply line-art + screentone shading to our existing MapLibre terrain via custom 
 
 ## Recommended next step
 
-1. Add a "Detailed street view (manga)" link/button in `src/TerrainRehearsal.tsx` pointing at Rokehan with the selected place's `ll`, `s=100`, `tod=late`, `far=4`.
+1. Add a "Detailed street view (manga)" link/button in `src/TerrainRehearsal.tsx` pointing at Rokehan with the selected place's `ll`, `s=100`, `tod=day`, `far=4`.
 2. Open in a new tab (`target="_blank" rel="noopener"`).
 3. Add the OSM/elevation/OpenMapTiles credit line adjacent to the link or in the terrain caption.
 4. Verify at 390/1024/1440 that the button is intrinsic-sized and doesn't overflow the 36 px masthead / 42–44 px map start.

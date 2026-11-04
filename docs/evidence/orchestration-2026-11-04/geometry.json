@@ -1,0 +1,872 @@
+[
+  {
+    "case": "escape-en",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 432
+    },
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 429,
+      "h": 387,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "start": {
+      "bottom": 520,
+      "h": 30,
+      "right": 65.4296875,
+      "w": 57.4296875,
+      "x": 8,
+      "y": 490
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 713.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 671.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "ddpm-sheets-en",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 432
+    },
+    "dialogs": [
+      {
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          364,
+          558,
+          364,
+          558
+        ],
+        "title": "DDPM evacuation maps",
+        "w": 366,
+        "x": 12,
+        "y": 142
+      }
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 429,
+      "h": 387,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      },
+      {
+        "label": "DDPM evacuation maps",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 520,
+      "h": 30,
+      "right": 65.4296875,
+      "w": 57.4296875,
+      "x": 8,
+      "y": 490
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 713.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 671.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "escape-th",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 432
+    },
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 429,
+      "h": 387,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "start": {
+      "bottom": 520,
+      "h": 30,
+      "right": 60.0234375,
+      "w": 52.0234375,
+      "x": 8,
+      "y": 490
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 713.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 671.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "ddpm-sheets-th",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 432
+    },
+    "dialogs": [
+      {
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          364,
+          558,
+          364,
+          558
+        ],
+        "title": "แผนที่อพยพ ปภ.",
+        "w": 366,
+        "x": 12,
+        "y": 142
+      }
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 429,
+      "h": 387,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      },
+      {
+        "label": "แผนที่อพยพ ปภ.",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 520,
+      "h": 30,
+      "right": 60.0234375,
+      "w": 52.0234375,
+      "x": 8,
+      "y": 490
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 713.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 671.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "escape-en",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 732,
+      "h": 30,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 702
+    },
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": {
+      "bottom": 698,
+      "h": 654,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "2"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 749.4296875,
+      "w": 57.4296875,
+      "x": 692,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 288.2890625,
+      "h": 57.890625,
+      "right": 1012,
+      "w": 320,
+      "x": 692,
+      "y": 230.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "ddpm-sheets-en",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 732,
+      "h": 30,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 702
+    },
+    "dialogs": [
+      {
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          658,
+          558,
+          658,
+          558
+        ],
+        "title": "DDPM evacuation maps",
+        "w": 660,
+        "x": 182,
+        "y": 104
+      }
+    ],
+    "document": [
+      1024,
+      768
+    ],
+    "map": {
+      "bottom": 698,
+      "h": 654,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "2"
+      },
+      {
+        "label": "DDPM evacuation maps",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 749.4296875,
+      "w": 57.4296875,
+      "x": 692,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 288.2890625,
+      "h": 57.890625,
+      "right": 1012,
+      "w": 320,
+      "x": 692,
+      "y": 230.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "escape-th",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 732,
+      "h": 30,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 702
+    },
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": {
+      "bottom": 698,
+      "h": 654,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "2"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 744.0234375,
+      "w": 52.0234375,
+      "x": 692,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 272.890625,
+      "h": 42.4921875,
+      "right": 1012,
+      "w": 320,
+      "x": 692,
+      "y": 230.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "ddpm-sheets-th",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 732,
+      "h": 30,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 702
+    },
+    "dialogs": [
+      {
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          658,
+          558,
+          658,
+          558
+        ],
+        "title": "แผนที่อพยพ ปภ.",
+        "w": 660,
+        "x": 182,
+        "y": 104
+      }
+    ],
+    "document": [
+      1024,
+      768
+    ],
+    "map": {
+      "bottom": 698,
+      "h": 654,
+      "right": 676,
+      "w": 664,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "2"
+      },
+      {
+        "label": "แผนที่อพยพ ปภ.",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 744.0234375,
+      "w": 52.0234375,
+      "x": 692,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 272.890625,
+      "h": 42.4921875,
+      "right": 1012,
+      "w": 320,
+      "x": 692,
+      "y": 230.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "escape-en",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 864,
+      "h": 30,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 834
+    },
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": {
+      "bottom": 830,
+      "h": 786,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 1018.7578125,
+      "w": 57.4296875,
+      "x": 961.328125,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 259.140625,
+      "h": 42.4921875,
+      "right": 1427.9921875,
+      "w": 466.6640625,
+      "x": 961.328125,
+      "y": 216.6484375
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "ddpm-sheets-en",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 864,
+      "h": 30,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 834
+    },
+    "dialogs": [
+      {
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          658,
+          558,
+          658,
+          558
+        ],
+        "title": "DDPM evacuation maps",
+        "w": 660,
+        "x": 390,
+        "y": 170
+      }
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "map": {
+      "bottom": 830,
+      "h": 786,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "1"
+      },
+      {
+        "label": "DDPM evacuation maps",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 1018.7578125,
+      "w": 57.4296875,
+      "x": 961.328125,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 259.140625,
+      "h": 42.4921875,
+      "right": 1427.9921875,
+      "w": 466.6640625,
+      "x": 961.328125,
+      "y": 216.6484375
+    },
+    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "escape-th",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 864,
+      "h": 30,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 834
+    },
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": {
+      "bottom": 830,
+      "h": 786,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 1013.3515625,
+      "w": 52.0234375,
+      "x": 961.328125,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 239.640625,
+      "h": 42.4921875,
+      "right": 1427.9921875,
+      "w": 466.6640625,
+      "x": 961.328125,
+      "y": 197.1484375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "ddpm-sheets-th",
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 864,
+      "h": 30,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 834
+    },
+    "dialogs": [
+      {
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          658,
+          558,
+          658,
+          558
+        ],
+        "title": "แผนที่อพยพ ปภ.",
+        "w": 660,
+        "x": 390,
+        "y": 170
+      }
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "map": {
+      "bottom": 830,
+      "h": 786,
+      "right": 945.328125,
+      "w": 933.328125,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "1"
+      },
+      {
+        "label": "แผนที่อพยพ ปภ.",
+        "pages": "1"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 1013.3515625,
+      "w": 52.0234375,
+      "x": 961.328125,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 239.640625,
+      "h": 42.4921875,
+      "right": 1427.9921875,
+      "w": 466.6640625,
+      "x": 961.328125,
+      "y": 197.1484375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+]

@@ -592,10 +592,10 @@ main {
   font-size: var(--fs-micro);
   font-weight: 600;
   padding: 4px 8px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: none;
   border-radius: 0;
   cursor: pointer;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -636,7 +636,7 @@ main {
   border-radius: 50%;
   font-weight: 700;
   font-size: var(--fs-body);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
@@ -644,7 +644,7 @@ main {
   background: var(--accent);
   border-color: var(--ink);
   transform: scale(1.18);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4);
+  box-shadow: none;
 }
 
 .map-marker-tooltip {
@@ -654,7 +654,7 @@ main {
   border-radius: 0 !important;
   font-size: var(--fs-body) !important;
   padding: 4px 8px !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: none !important;
 }
 
 .map-marker-tooltip small {
@@ -679,7 +679,7 @@ main {
   font-size: var(--fs-body) !important;
   border-radius: 0 !important;
   padding: 4px 8px !important;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: none !important;
 }
 
 .route-tooltip.safe-tip {
@@ -724,7 +724,7 @@ main {
   font-size: var(--fs-micro);
   letter-spacing: 0.04em;
   padding: 1px 4px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
 }
 
 .highway4-corridor {
@@ -810,8 +810,8 @@ main {
 }
 
 .place-selector-bar button[aria-pressed="true"] .place-elev-tag {
-  background: #334155;
-  color: #94a3b8;
+  background: var(--line);
+  color: var(--ink);
 }
 
 .directive-header {
@@ -2761,7 +2761,7 @@ main { padding-bottom:6px; }
 }
 
 /* Escape practice: warning → action, then a calibrated rehearsal. */
-.escape-guide { display:grid; gap:4px; min-width:0; padding:0; font-size:var(--fs-body); }
+.escape-guide { display:grid; grid-template-columns:minmax(0,1fr); gap:4px; min-width:0; padding:0; font-size:var(--fs-body); }
 .warning-lesson { break-inside:avoid; margin:0; font-size:var(--fs-body); }
 .warning-lesson .warning-condition { margin:0 0 4px; font-size:var(--fs-micro); font-weight:600; }
 .warning-chain { display:flex; align-items:center; justify-content:space-between; gap:6px; }
@@ -2819,3 +2819,31 @@ main { padding-bottom:6px; }
 .scenario-settings-row label { flex:0 0 auto; flex-wrap:wrap; max-width:100%; }
 .scenario-settings-row select { width:auto; min-width:96px; max-width:180px; }
 @media(max-width:600px) { .method-parameters { grid-template-columns:1fr; } }
+
+/* Source sheets and optional inventory retain intrinsic controls in the reading dialog. */
+.ddpm-sheet { break-inside:avoid; margin:8px 0; }
+.ddpm-sheet h3,.ddpm-sheet p { margin:4px 0; }
+.ddpm-links { display:flex; flex-wrap:wrap; gap:6px 14px; }
+.ddpm-map-toggle { display:flex; flex-direction:row; align-items:center; gap:6px; width:fit-content; min-height:30px; }
+.ddpm-map-toggle input[type=checkbox] { width:18px; height:18px; min-height:18px; min-width:18px; margin:0; padding:0; flex:none; accent-color:var(--companion); }
+.ddpm-village-search { width:fit-content; max-width:100%; }
+.ddpm-village-search input { width:240px; max-width:100%; min-height:30px; }
+.ddpm-village-choice { display:flex; align-items:end; gap:8px; break-inside:avoid; }
+.ddpm-village-choice label { flex:1; min-width:0; }
+.ddpm-village-choice select { width:100%; max-width:100%; min-height:30px; }
+.ddpm-village-choice button { flex:none; min-height:30px; padding:3px 8px; }
+.ddpm-maps-content .provenance-panel { font-size:var(--fs-body); }
+.ddpm-maps-content .provenance-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 10px; }
+.ddpm-maps-content .provenance-list { margin:6px 0; }
+.ddpm-maps-content .provenance-list > div:not([hidden]) { display:grid; grid-template-columns:90px minmax(0,1fr); gap:6px; padding:3px 0; }
+.ddpm-maps-content .provenance-list dt,.ddpm-maps-content .provenance-list dd { margin:0; overflow-wrap:anywhere; }
+html[data-text-size=large] #main,html[data-text-size=large] dialog { --fs-micro:13.75px; --fs-body:16.25px; --fs-title:21.25px; --fs-num:30px; }
+.manual-text-size { display:flex; align-items:center; gap:8px; margin:4px 0; }
+.manual-text-size button { min-height:30px; padding:3px 8px; font:inherit; }
+.caption-top,.caption-bottom { display:contents; }
+@media(max-width:760px) {
+ .terrain-caption .caption-top { display:flex; align-items:center; gap:6px; width:100%; }
+ .caption-top > span:first-child { flex:1; min-width:0; }
+ .caption-top > button { flex:none; }
+ .terrain-caption .caption-bottom { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; width:100%; }
+}

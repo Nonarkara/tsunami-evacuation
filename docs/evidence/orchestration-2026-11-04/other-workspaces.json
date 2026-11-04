@@ -1,0 +1,668 @@
+[
+  {
+    "case": "prepare-standard",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Personal plan",
+        "pages": "2"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#prepare",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "prepare-large",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Personal plan",
+        "pages": "2"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#prepare",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "drill-standard",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Drill record and walkthrough",
+        "pages": "2"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#drill",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "drill-large",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Drill record and walkthrough",
+        "pages": "3"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#drill",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "research-standard",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Research",
+        "pages": "9"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#research",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "research-large",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Research",
+        "pages": "13"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#research",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "prepare-standard",
+    "expectedViewport": [
+      1024,
+      768
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Personal plan",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#prepare",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "prepare-large",
+    "expectedViewport": [
+      1024,
+      768
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Personal plan",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#prepare",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "drill-standard",
+    "expectedViewport": [
+      1024,
+      768
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Drill record and walkthrough",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#drill",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "drill-large",
+    "expectedViewport": [
+      1024,
+      768
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Drill record and walkthrough",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#drill",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "research-standard",
+    "expectedViewport": [
+      1024,
+      768
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Research",
+        "pages": "5"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#research",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "research-large",
+    "expectedViewport": [
+      1024,
+      768
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1024,
+      "w": 1024,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1024,
+      768
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Research",
+        "pages": "7"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#research",
+    "viewport": [
+      1024,
+      768
+    ]
+  },
+  {
+    "case": "prepare-standard",
+    "expectedViewport": [
+      1440,
+      900
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Personal plan",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#prepare",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "prepare-large",
+    "expectedViewport": [
+      1440,
+      900
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Personal plan",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#prepare",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "drill-standard",
+    "expectedViewport": [
+      1440,
+      900
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Drill record and walkthrough",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#drill",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "drill-large",
+    "expectedViewport": [
+      1440,
+      900
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Drill record and walkthrough",
+        "pages": "1"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#drill",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "research-standard",
+    "expectedViewport": [
+      1440,
+      900
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Research",
+        "pages": "4"
+      }
+    ],
+    "start": null,
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th#research",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  {
+    "case": "research-large",
+    "expectedViewport": [
+      1440,
+      900
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "caption": null,
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "map": null,
+    "readingPages": [
+      {
+        "label": "Research",
+        "pages": "5"
+      }
+    ],
+    "start": null,
+    "textSize": "large",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&text=large#research",
+    "viewport": [
+      1440,
+      900
+    ]
+  }
+]

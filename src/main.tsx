@@ -84,6 +84,7 @@ function App() {
   const [modelView,setModelView]=useState("terrain");
   const [manualOpen, setManualOpen] = useState(false);
   const [language, setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
+  useEffect(()=>{document.documentElement.lang=language;},[language]);
   const t = (en: string, th: string) => language === 'th' ? th : en;
 
   const region = coastalRegions[regionIdx];
@@ -106,7 +107,6 @@ function App() {
 
   const placeConsole = (
         <div className="console-section" id="console-place">
-          <h3>{t('Local context and personal plan','ข้อมูลพื้นที่และแผนส่วนบุคคล')}</h3>
           <div className="directive-header">
             <div>
               <h4>
@@ -244,13 +244,13 @@ function App() {
             <select
               id="region-select"
               className="region-select"
-              title={region.shortName}
+              title={t(region.shortName,region.thaiName)}
               value={regionIdx}
               onChange={(e) => handleRegionChange(Number(e.target.value))}
             >
               {coastalRegions.map((r, i) => (
                 <option key={r.id} value={i}>
-                  {["Khao Lak · Phang Nga", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i]}
+                  {t(["Khao Lak · Phang Nga", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i],["เขาหลัก · พังงา","ภูเก็ต","กระบี่","สตูล/ตรัง","ระนอง","อ่าวไทย"][i])}
                 </option>
               ))}
             </select>
@@ -271,7 +271,7 @@ function App() {
         {tab==='explore'&&<BannerDock scene={modelView==='terrain'} onDock={setBannerDock} context={<>
           <select aria-label="Model view / มุมมอง" title="Terrain or published outcomes" value={modelView} onChange={e=>setModelView(e.target.value)}><option value="terrain">Terrain</option><option value="evidence">Results</option></select>
                 <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
-                  <select aria-label="Select coastal area" value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {p.name}</option>)}</select>
+                  <select aria-label={t('Select coastal area','เลือกพื้นที่ชายฝั่ง')} value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {t(p.name,p.thaiName)}</option>)}</select>
                   <span>{selectedPlace+1}/{region.places.length}</span>
                 </label>        </>}/>}
 
@@ -294,7 +294,7 @@ function App() {
               <div className="pane-header">
                 <div className="pane-titles">
                   <span className="pane-badge">01 / TERRAIN & CROWD REHEARSAL</span>
-                  <h2 id="map-pane-title">{region.id==='khao-lak'?'Khao Lak · Phang Nga':region.name}</h2>
+                  <h2 id="map-pane-title">{t(region.id==='khao-lak'?'Khao Lak · Phang Nga':region.name,region.thaiName)}</h2>
                 </div>
 
 

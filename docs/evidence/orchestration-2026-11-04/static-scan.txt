@@ -1,0 +1,223 @@
+non-slop scan .  ·  84 files  ·  style: (none)
+
+src/axiom-tokens.css
+  P2        eyebrow-caps         L204  3 eyebrow labels
+            Tracked all-caps eyebrow labels used as template chrome (≥3)
+            fix: Drop the label or make it carry real information in sentence case.
+
+src/style.css
+  P1        shadow-everything    L1  11 shadows
+            Fake depth: ≥8 drop shadows in one file (house limit is 3 per screen)
+            fix: Separate with space and hairlines; keep shadows for things that really float (menus, dialogs).
+  P2        accent-border-card   L688  border-left: 3px solid
+            Coloured left-border 'accent' cards (≥2)
+            fix: Drop the stripe; if it encodes a state, say the state in words too.
+
+scripts/check-banner-evidence.mjs
+  REVIEW    agentless-passive    L14  Previous stacked-band failure was not established.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/Map.tsx
+  REVIEW    agentless-passive    L260  No offline basemap is installed.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/ddpm-maps.test.ts
+  REVIEW    agentless-passive    L51  a depth field or a moved coordinate is rejected
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/ddpm-maps.ts
+  REVIEW    agentless-passive    L95  Projected X was stored where a longitude belongs
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/ddpm.ts
+  REVIEW    agentless-passive    L119  Height units and meaning are not verified; Risk codes are not interpreted as severity or probability.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/manual-content.ts
+  REVIEW    agentless-passive    L25  Plans are not uploaded.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+  REVIEW    agentless-passive    L53  Full-file Risk codes are 1–4; their interpretation is not verified here.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/place-copy.ts
+  REVIEW    agentless-passive    L14  Its paths and endpoint have not been approved for evacuation.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/research-ledger.ts
+  REVIEW    agentless-passive    L18  Height is stored raw and omitted: its meaning is undocumented.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+src/viz.test.ts
+  REVIEW    agentless-passive    L34  a false full-population stack is rejected rather than renormalized
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+tools/decision-geometry/index.mjs
+  REVIEW    agentless-passive    L12  A version:1 contract with named cases is required.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+  REVIEW    agentless-passive    L46  id}: a measurable budget is required.
+            Passive with no actor (the outcome is stated, the cause is not)
+            do not rewrite. Do not rewrite this automatically. Quote the sentence, ask who did it, and if the reader needs to know, name them. The passive is a camera angle: it is only a question when the cause is missing. When the actor is the reader ('your request was sent') the sentence stays.
+
+index.html
+  P2        lang-th              L7  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/BannerDock.tsx
+  P2        lang-th              L30  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/DdpmMaps.tsx
+  P2        lang-th              L23  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/DdpmRiskPanel.tsx
+  P2        lang-th              L10  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/Drill.tsx
+  P2        lang-th              L28  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/EscapeGuide.tsx
+  P2        lang-th              L22  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/EvacuationGuide.tsx
+  P2        lang-th              L6  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/ExerciseMethod.tsx
+  P2        lang-th              L7  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/InterventionComparison.tsx
+  P2        lang-th              L10  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/NavConsole.tsx
+  P2        lang-th              L25  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/OutcomeSummary.tsx
+  P2        lang-th              L10  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/PagedFlow.tsx
+  P2        lang-th              L57  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/ProvenancePanel.tsx
+  P2        lang-th              L12  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/ReadingDialog.tsx
+  P2        lang-th              L18  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/SourceFooter.tsx
+  P2        lang-th              L8  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/SunIndicator.tsx
+  P2        lang-th              L20  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/TerrainRehearsal.tsx
+  P2        lang-th              L87  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/TimeScrubber.tsx
+  P2        lang-th              L5  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/WalkthroughCoach.tsx
+  P2        lang-th              L9  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/WarningLesson.tsx
+  P2        lang-th              L6  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+src/charts.tsx
+  P2        lang-th              L73  Thai without lang
+            Thai text with no lang="th" anywhere in the file
+            fix: Mark Thai blocks lang="th" so the Thai face (non-looped: Prompt, Kanit) and line-breaking apply.
+
+docs/evidence/escape-capture-2026-11-03/1440-schematic.png
+  P2        heavy-image            616 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/escape-capture-2026-11-03/after-start-1440.png
+  P2        heavy-image            1158 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/escape-capture-2026-11-03/rehearsal-1440.png
+  P2        heavy-image            1361 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/msh-2026-10-29/explore-1024.png
+  P2        heavy-image            858 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/msh-2026-10-29/explore-1440.png
+  P2        heavy-image            1447 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/msh-current/explore-1024.png
+  P2        heavy-image            873 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/msh-current/explore-1440.png
+  P2        heavy-image            1472 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/msh-viz-2026-11-02/after-explore-1440.png
+  P2        heavy-image            1284 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+docs/evidence/msh-viz-2026-11-02/before-explore-1440.png
+  P2        heavy-image            1294 KB
+            Image over 500 KB shipped as-is
+            fix: Resize to the largest displayed size and serve AVIF/WebP; set width/height.
+
+Verdict: REVIEW  points 6 (distinct rules: P0 0 · P1 1 · P2 4)  ·  allowed 0  ·  review 12 (sentences to read; not scored, not rewritten)
+SLOP = ≥8 points, a P0 stacked with another P0/P1, or P0/P1 hits in ≥3 categories. REVIEW = 3–7. A screen, not a judge: render it and get a second reviewer.

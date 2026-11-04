@@ -1,0 +1,203 @@
+[
+  {
+    "case": "edge-escape-th",
+    "expectedViewport": [
+      320,
+      700
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 320,
+      "w": 320,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 343,
+      "h": 55,
+      "right": 312,
+      "w": 304,
+      "x": 8,
+      "y": 288
+    },
+    "dialogs": [],
+    "document": [
+      320,
+      700
+    ],
+    "map": {
+      "bottom": 285,
+      "h": 243,
+      "right": 312,
+      "w": 304,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "4"
+      }
+    ],
+    "start": {
+      "bottom": 376,
+      "h": 30,
+      "right": 60.0234375,
+      "w": 52.0234375,
+      "x": 8,
+      "y": 346
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 569.890625,
+      "h": 42.4921875,
+      "right": 312,
+      "w": 304,
+      "x": 8,
+      "y": 527.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      320,
+      700
+    ]
+  },
+  {
+    "case": "edge-escape-th",
+    "expectedViewport": [
+      390,
+      600
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 243,
+      "h": 55,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 188
+    },
+    "dialogs": [],
+    "document": [
+      390,
+      600
+    ],
+    "map": {
+      "bottom": 185,
+      "h": 143,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "start": {
+      "bottom": 276,
+      "h": 30,
+      "right": 60.0234375,
+      "w": 52.0234375,
+      "x": 8,
+      "y": 246
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 469.890625,
+      "h": 42.4921875,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 427.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      600
+    ]
+  },
+  {
+    "case": "edge-escape-th",
+    "expectedViewport": [
+      1280,
+      720
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1280,
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": "13px",
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 684,
+      "h": 30,
+      "right": 838.6640625,
+      "w": 826.6640625,
+      "x": 12,
+      "y": 654
+    },
+    "dialogs": [],
+    "document": [
+      1280,
+      720
+    ],
+    "map": {
+      "bottom": 650,
+      "h": 606,
+      "right": 838.6640625,
+      "w": 826.6640625,
+      "x": 12,
+      "y": 44
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "start": {
+      "bottom": 74,
+      "h": 30,
+      "right": 906.6875,
+      "w": 52.0234375,
+      "x": 854.6640625,
+      "y": 44
+    },
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": {
+      "bottom": 272.890625,
+      "h": 42.4921875,
+      "right": 1268,
+      "w": 413.3359375,
+      "x": 854.6640625,
+      "y": 230.3984375
+    },
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1280,
+      720
+    ]
+  }
+]

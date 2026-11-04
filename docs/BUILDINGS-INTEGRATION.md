@@ -1,5 +1,7 @@
 # Building context and MiniMax integration
 
+Current-policy note, 4 November 2026: this dated receipt describes the earlier visual-massing release. The owner's new geographic rule supersedes its 3 m fallback and floor-derived volume rendering. Current volumes use explicit source height tags only; other footprints remain flat. Raw snapshot metadata and this historical receipt are preserved. See [current reconciliation](ORCHESTRATION-2026-11-04.md) and [STYLE.md](../STYLE.md).
+
 2026-10-28 · Agent: codex
 
 MiniMax left an untracked building generator, raw OSM response and Khao Lak output. No separate branch or pending tracked commit existed to merge: main matched origin/main at `5ae05d2`. This release integrates the handoff directly. Original files remain in ignored `.cache/`; they are not fabricated as a branch merge.

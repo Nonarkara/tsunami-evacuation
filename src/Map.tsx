@@ -3,6 +3,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { type CoastalRegion, type Place } from "./research";
 import type { BuildingPack } from "./buildings";
+import { riskPoint, villageHit, villageSummary, type RiskVillageSnapshot } from "./ddpm-maps";
+import { placeReference } from './place-references';
 
 /**
  * Basic 2D reference map used when 3D rendering is unavailable.
@@ -14,16 +16,21 @@ export function StudyMap({
   selected,
   onSelect,
   buildings,
+  villages,
+  focus,
 }: {
   region: CoastalRegion;
   selected: number;
   onSelect: (n: number) => void;
   buildings?: BuildingPack;
+  villages?: RiskVillageSnapshot | null;
+  focus?: [number, number] | null;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
-  const markersRef = useRef<L.Marker[]>([]);
+  const markersRef = useRef<{index:number;marker:L.Marker}[]>([]);
   const buildingLayerRef = useRef<L.LayerGroup | null>(null);
+  const villageLayerRef = useRef<L.LayerGroup | null>(null);
 
   const satLayerRef = useRef<L.TileLayer | null>(null);
   const topoLayerRef = useRef<L.TileLayer | null>(null);
@@ -86,6 +93,8 @@ export function StudyMap({
     // Mapped building footprints, drawn as outlines only.
     const buildingGroup = L.layerGroup().addTo(m);
     buildingLayerRef.current = buildingGroup;
+    const villageGroup = L.layerGroup().addTo(m);
+    villageLayerRef.current = villageGroup;
 
     const observer = new ResizeObserver(() => m.invalidateSize());
     observer.observe(container.current);
@@ -96,6 +105,7 @@ export function StudyMap({
       m.remove();
       map.current = null;
       buildingLayerRef.current = null;
+      villageLayerRef.current = null;
     };
   }, []);
 
@@ -118,14 +128,15 @@ export function StudyMap({
     const m = map.current;
 
     // Clear old markers
-    markersRef.current.forEach((marker) => marker.remove());
+    markersRef.current.forEach(({marker}) => marker.remove());
     markersRef.current = [];
 
     // Add new markers for region
-    markersRef.current = region.places.map((p, i) => {
-      const marker = L.marker([p.lat, p.lng], {
+    markersRef.current = region.places.flatMap((p, i) => {
+      const reference=placeReference(region.id,i);if(!reference)return [];
+      const marker = L.marker([reference.coord[1],reference.coord[0]], {
         keyboard: true,
-        title: `${i + 1}. ${p.name} (${p.thaiName})`,
+        title: `${i + 1}. ${p.name} (${p.thaiName}) · OSM ${reference.node}`,
         icon: L.divIcon({
           className: `place-marker ${selected === i ? "selected" : ""}`,
           html: `<span>${i + 1}</span>`,
@@ -136,7 +147,7 @@ export function StudyMap({
         .bindTooltip(
           `<div class="marker-tip">
             <strong>${i + 1}. ${p.name}</strong> <small>(${p.thaiName})</small><br/>
-            <span>Geographic place marker · refuge verification pending</span>
+            <span>Mapped street-node context · ${reference.node} · not a beach centre, entrance or refuge</span>
           </div>`,
           {
             direction: "top",
@@ -148,7 +159,7 @@ export function StudyMap({
         .on("click", () => {
           callback.current(i);
         });
-      return marker;
+      return [{index:i,marker}];
     });
 
     if (region.places.length > 0 && !isFlownIn) {
@@ -178,12 +189,39 @@ export function StudyMap({
     }).addTo(group);
   }, [buildings]);
 
+  useEffect(() => {
+    const group = villageLayerRef.current;
+    if (!group) return;
+    group.clearLayers();
+    if (!villages) return;
+    for (const feature of villages.features) {
+      const hit = villageHit(feature.properties);
+      const [lon, lat] = feature.geometry.coordinates;
+      if (!hit) continue;
+      const label=document.createElement('span');label.textContent=villageSummary(hit);
+      L.circleMarker([lat, lon], {
+        radius: 4,
+        color: riskPoint.stroke,
+        weight: riskPoint.strokeWidth,
+        fillColor: riskPoint.fill,
+        fillOpacity: 1,
+      }).bindTooltip(label, { direction: "top", className: "map-marker-tooltip" }).addTo(group);
+    }
+  }, [villages]);
+
+  useEffect(() => {
+    if (!map.current || !focus) return;
+    map.current.stop();
+    map.current.setView([focus[1], focus[0]], 14, { animate:false });
+  }, [focus]);
+
   // Fly-In Camera Action to Active Place
   const flyToPlace = useCallback((p: Place, zoomLevel = 15) => {
     if (!map.current) return;
     setIsFlownIn(true);
     map.current.flyTo([p.lat, p.lng], zoomLevel, {
-      duration: 1.4,
+      duration: .25,
+      animate: !matchMedia('(prefers-reduced-motion: reduce)').matches,
       easeLinearity: 0.25,
     });
   }, []);
@@ -199,8 +237,8 @@ export function StudyMap({
 
   // Synchronize Active Marker Selection
   useEffect(() => {
-    markersRef.current.forEach((marker, i) => {
-      const isSelected = selected === i;
+    markersRef.current.forEach(({marker,index}) => {
+      const isSelected = selected === index;
       const el = marker.getElement();
       if (el) el.classList.toggle("selected", isSelected);
     });

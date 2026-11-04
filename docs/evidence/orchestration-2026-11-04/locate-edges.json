@@ -1,0 +1,139 @@
+[
+  {
+    "case": "locate-th",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 487,
+      "h": 52,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 435
+    },
+    "dialogs": [],
+    "document": [
+      390,
+      844
+    ],
+    "map": {
+      "bottom": 432,
+      "h": 390,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "3"
+      }
+    ],
+    "start": null,
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "captionChildrenFit": true,
+    "captionText": "บ้านบางเนียง · DDPM 1288 · บัญชีข้อมูลเท่านั้นคำอธิบายแผนที่แผนที่ ปภ.© Esri & contributors · Mapzen · OSM",
+    "focus": "แผนที่อพยพ ปภ."
+  },
+  {
+    "case": "area-change-clears-pick",
+    "expectedViewport": [
+      390,
+      844
+    ],
+    "captionText": "DDPM · 106 · บัญชี ไม่ใช่จุดอพยพคำอธิบายแผนที่แผนที่ ปภ.© Esri & contributors · Mapzen · OSM",
+    "center": "98.2530000,8.6940000",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "case": "locate-th",
+    "expectedViewport": [
+      667,
+      375
+    ],
+    "banner": {
+      "bottom": 36,
+      "h": 36,
+      "right": 667,
+      "w": 667,
+      "x": 0,
+      "y": 0
+    },
+    "bodySize": null,
+    "buildingPolicy": "explicit-height-tags-only",
+    "caption": {
+      "bottom": 345,
+      "h": 52,
+      "right": 366,
+      "w": 358,
+      "x": 8,
+      "y": 293
+    },
+    "dialogs": [],
+    "document": [
+      667,
+      375
+    ],
+    "map": {
+      "bottom": 290,
+      "h": 248,
+      "right": 366,
+      "w": 358,
+      "x": 8,
+      "y": 42
+    },
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "5"
+      }
+    ],
+    "start": null,
+    "taggedHeightRecords": "0",
+    "textSize": "standard",
+    "turn": null,
+    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
+    "viewport": [
+      667,
+      375
+    ],
+    "captionChildrenFit": true,
+    "captionText": "บ้านบางเนียง · DDPM 1288 · บัญชีข้อมูลเท่านั้นคำอธิบายแผนที่แผนที่ ปภ.© Esri & contributors · Mapzen · OSM",
+    "focus": "แผนที่อพยพ ปภ."
+  },
+  {
+    "case": "area-change-clears-pick",
+    "expectedViewport": [
+      667,
+      375
+    ],
+    "captionText": "DDPM · 106 · บัญชี ไม่ใช่จุดอพยพคำอธิบายแผนที่แผนที่ ปภ.© Esri & contributors · Mapzen · OSM",
+    "viewport": [
+      667,
+      375
+    ]
+  }
+]

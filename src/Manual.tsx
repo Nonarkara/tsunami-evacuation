@@ -7,8 +7,15 @@ import { manualOrder, manualTopics, manualLanguage, type ManualLanguage, type Ma
 export function Manual({ open, page, onClose, onNavigate }: { open: boolean; page: ManualPage; onClose: () => void; onNavigate: (page: ManualPage) => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [language, setLanguage] = useState<ManualLanguage>(() => manualLanguage(location.search, navigator.language));
+  const [largeText,setLargeText]=useState(()=>new URLSearchParams(location.search).get('text')==='large');
   const previousSearch = useRef(location.search);
   const t = (en: string, th: string) => language === 'th' ? th : en;
+  useEffect(()=>{document.documentElement.dataset.textSize=largeText?'large':'standard';},[largeText]);
+  function changeTextSize(){
+    const next=!largeText,url=new URL(location.href);setLargeText(next);
+    if(next)url.searchParams.set('text','large');else url.searchParams.delete('text');
+    history.replaceState(null,'',url);
+  }
   useEffect(() => {
     const element = dialog.current;
     if (!element) return;
@@ -40,6 +47,7 @@ export function Manual({ open, page, onClose, onNavigate }: { open: boolean; pag
       <button className="manual-close" aria-label="Close manual / ปิดคู่มือ" title={t('Close · Esc', 'ปิด · Esc')} onClick={onClose} autoFocus>×</button>
     </div>
     <PagedFlow label="Manual"><p className="manual-scope">{t('A planning and learning tool. No live warning, wave forecast or approved route guidance.', 'เครื่องมือวางแผนและเรียนรู้ ไม่มีคำเตือนแบบเวลาจริง การพยากรณ์คลื่น หรือคำแนะนำเส้นทางที่ได้รับอนุมัติ')}</p>
+    <p className="manual-text-size"><button type="button" aria-pressed={largeText} onClick={changeTextSize}>{largeText?'A−':'A+'} {t('Larger reading text','ข้อความอ่านขนาดใหญ่')}</button> <span>{largeText?'125%':'100%'}</span></p>
     <section aria-labelledby="manual-start-title" className="manual-start">
       <h3 id="manual-start-title">{t('Start here', 'เริ่มตรงนี้')}</h3>
       <ol>
