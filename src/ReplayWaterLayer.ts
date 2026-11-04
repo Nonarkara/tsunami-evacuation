@@ -20,6 +20,8 @@ export class ReplayWaterLayer implements CustomLayerInterface {
   private color?: WebGLUniformLocation | null;
   private time?: WebGLUniformLocation | null;
   private t0 = performance.now();
+  private animationElapsed = 0;
+  private animating = false;
   constructor(private onFailure: (message: string) => void) {}
   onAdd(map: LibreMap, gl: GL) {
     this.map = map;
@@ -44,6 +46,13 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     finally { if (vs) gl.deleteShader(vs); if (fs) gl.deleteShader(fs); }
   }
   setVisible(visible: boolean) { this.visible = visible; this.map?.triggerRepaint(); }
+  /** Decorative texture moves only while an explicitly started, visible exercise runs. */
+  setAnimating(animating:boolean) {
+    if(this.animating===animating)return;
+    const now=performance.now();
+    if(this.animating)this.animationElapsed+=(now-this.t0)/1000;
+    this.t0=now;this.animating=animating;this.map?.triggerRepaint();
+  }
   update(data: GeoJSON.FeatureCollection<GeoJSON.Polygon>, demonstrationM?: number) {
     const valid = data.features.filter(f => Number.isFinite(demonstrationM ?? f.properties?.surfaceM));
     if (!valid.length) { this.vertices = new Float32Array(); this.dirty = true; this.map?.triggerRepaint(); return false; }
@@ -69,8 +78,8 @@ export class ReplayWaterLayer implements CustomLayerInterface {
     gl.useProgram(this.program); gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
     if (this.dirty) { gl.bufferData(gl.ARRAY_BUFFER, this.vertices, gl.DYNAMIC_DRAW); this.dirty = false; }
     gl.enableVertexAttribArray(this.attribute); gl.vertexAttribPointer(this.attribute, 3, gl.FLOAT, false, 0, 0);
-    const animate = !matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const secs = animate ? (performance.now() - this.t0) / 1000 : 0;
+    const animate = this.animating && !document.hidden && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const secs = this.animationElapsed + (animate ? (performance.now() - this.t0) / 1000 : 0);
     gl.uniformMatrix4fv(this.matrix!, false, m); gl.uniform4f(this.color!, .08, .42, .63, .52); gl.uniform1f(this.time!, secs);
     gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL); gl.depthMask(false); gl.disable(gl.CULL_FACE);
     gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);

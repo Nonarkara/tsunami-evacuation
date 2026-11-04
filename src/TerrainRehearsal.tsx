@@ -11,7 +11,7 @@ maplibregl.setWorkerUrl(terrainWorker);
 import { ReplayWaterLayer } from './ReplayWaterLayer';
 import { advancePlayback } from './playback';
 import { TimeScrubber } from './TimeScrubber';
-import { buildingAreaId, parseBuildings, cameraStep, EYE_HEIGHT_M, UNKNOWN_BUILDING_MASSING_M, type BuildingPack } from './buildings';
+import { buildingAreaId, parseBuildings, buildingDisplay, cameraStep, EYE_HEIGHT_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
 import { CameraSymbol } from './CameraSymbol';
 import { WalkthroughCoach } from './WalkthroughCoach';
@@ -24,6 +24,7 @@ import { paceLines, segmentWaits, speedForSeconds } from './escape-timing';
 import { PaceRuler, ProfileQueue, StackBar } from './charts';
 import { EscapeGuide, EscapeMethod, EscapePlayback, type EscapeGuideProps } from './EscapeGuide';
 import { WarningLesson } from './WarningLesson';
+import { rokehanReference } from './scene-reference';
 
 const empty: GeoJSON.FeatureCollection = { type: 'FeatureCollection', features: [] };
 const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -31,7 +32,7 @@ const minutes = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60
 const RUN_PACE = 3;
 /** Walking paces the reader can compare, in metres per second. */
 const WALK_PACES = [0.8, 1.4, 2.4];
-export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, finding, onReview, onPlan, bannerDock }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; finding?: ReactNode; onReview:()=>void; onPlan:()=>void; bannerDock:HTMLElement|null }) {
+export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, finding, onReview, onPlan, bannerDock, active:sceneActive }: { region: CoastalRegion; selected: number; onSelect: (n: number) => void; consoleSlot?: ReactNode; finding?: ReactNode; onReview:()=>void; onPlan:()=>void; bannerDock:HTMLElement|null; active:boolean }) {
   const areaPack = areaPacks[region.id];
   const isStudy = !!areaPack?.routesUrl && (areaPack.placeIndex === undefined || areaPack.placeIndex === selected);
   const initialLesson = isStudy && new URLSearchParams(location.search).get('lesson') === 'escape';
@@ -63,11 +64,41 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const [buildingError, setBuildingError] = useState('');
   const [freeWalk, setFreeWalk] = useState<{ coord: Coord; bearing: number }>();
   const [eyeViewReady, setEyeViewReady] = useState(false);
+  const [pageVisible,setPageVisible] = useState(!document.hidden);
+  const [modalOpen,setModalOpen] = useState(false);
+  const manualCamera = useRef(false);
+  const playbackAllowed=sceneActive&&pageVisible&&!modalOpen;
+  const cameraSuspended=useRef(!playbackAllowed); cameraSuspended.current=!playbackAllowed;
   const [walkCompare, setWalkCompare] = useState<'off' | 'compare'>('off');
   const language = manualLanguage(location.search,navigator.language);
   const t = (en:string,th:string) => language==='th' ? th : en;
   const terrainGridRef = useRef(grid); terrainGridRef.current = grid;
   const lastSelection = useRef(`${region.id}:${selected}`);
+  useEffect(()=>{
+    const visibility=()=>{
+      setPageVisible(!document.hidden);
+      if(document.hidden){setPlaying(false);map.current?.stop();}
+    };
+    document.addEventListener('visibilitychange',visibility);
+    return()=>document.removeEventListener('visibilitychange',visibility);
+  },[]);
+  useEffect(()=>{
+    // Reading a native dialog is a task change; closing it never resumes playback.
+    const sync=()=>{
+      const open=!!document.querySelector('dialog[open]');setModalOpen(open);
+      if(open){setPlaying(false);map.current?.stop();}
+    };
+    const observer=new MutationObserver(sync);
+    observer.observe(document.body,{subtree:true,attributes:true,attributeFilter:['open']});
+    sync();return()=>observer.disconnect();
+  },[]);
+  useEffect(()=>{
+    if(!sceneActive){setPlaying(false);map.current?.stop();}
+  },[sceneActive]);
+  useEffect(()=>{
+    // Scene/camera task switches pause the exercise, retaining its current clock.
+    setPlaying(false);map.current?.stop();
+  },[operationView,dimension]);
   useEffect(() => {
     setBuildings(undefined); setBuildingError('');
     if (!buildingsEnabled) return;
@@ -107,7 +138,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const waterFrame = activeHazard ? replayAt(activeHazard, waterSeconds) : null;
   const shownWaterLevel = animateWater ? demonstrationLevel(mode === 'escape' ? seconds : waterSeconds, peak, riseMinutes * 60) : water;
   useEffect(() => {
-    if (!playing || duration <= 0) return;
+    if (!playing || !playbackAllowed || duration <= 0) return;
     let last=performance.now(), ticket=0;
     const tick=(now:number) => {
       const elapsed=now-last;
@@ -119,7 +150,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     };
     ticket=requestAnimationFrame(tick);
     return () => cancelAnimationFrame(ticket);
-  }, [playing, duration, rate]);
+  }, [playing, playbackAllowed, duration, rate]);
   useEffect(() => { if (duration > 0 && seconds >= duration) setPlaying(false); }, [seconds, duration]);
   useEffect(() => {
     if (flat || !host.current) return;
@@ -161,7 +192,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       m.addLayer({ id:'building-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#4c5347', 'line-width':.8, 'line-opacity':.65 } });
       // Massing is solid, not glass: at eye height a translucent box reads as a floating slab
       // rather than a building. Warm tones separate massing from ground without a second accent.
-      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['coalesce',['get','height'],UNKNOWN_BUILDING_MASSING_M], 'fill-extrusion-base':0, 'fill-extrusion-color':['case',['==',['get','heightSource'],'unknown'],'#b0a99a','#e9e4d8'], 'fill-extrusion-opacity':1, 'fill-extrusion-vertical-gradient':true } });
+      m.addLayer({ id:'building-volumes', type:'fill-extrusion', source:'buildings', minzoom:15, paint:{ 'fill-extrusion-height':['get','renderHeight'], 'fill-extrusion-base':0, 'fill-extrusion-color':'#e9e4d8', 'fill-extrusion-opacity':1, 'fill-extrusion-vertical-gradient':true } });
       // Ground-level footprint outlines; the solid extrusion supplies the roof plane.
       // These lines are not elevated roof edges or certified building geometry.
       m.addLayer({ id:'building-footprint-outlines', type:'line', source:'buildings', minzoom:15, paint:{ 'line-color':'#f59e0b', 'line-width':.5, 'line-opacity':.55 } });
@@ -199,7 +230,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   useEffect(() => {
     const m = map.current;
     if (!m || !ready || !m.getSource('buildings')) return;
-    (m.getSource('buildings') as GeoJSONSource).setData(buildingsEnabled && buildings ? buildings : empty);
+    (m.getSource('buildings') as GeoJSONSource).setData(buildingsEnabled && buildings ? buildingDisplay(buildings) : empty);
     for (const id of ['building-outlines','building-footprint-outlines','building-volumes']) if (m.getLayer(id)) m.setLayoutProperty(id,'visibility',buildingsEnabled && buildings && (id !== 'building-volumes' || dimension === '3d') ? 'visible' : 'none');
   }, [ready, buildings, buildingsEnabled, dimension, flat]);
   useEffect(() => {
@@ -245,9 +276,13 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     const polygons = activeHazard ? replayPolygons(activeHazard, waterSeconds) : grid && (screen || animateWater) ? waterScreen(grid, shownWaterLevel) : { type: 'FeatureCollection' as const, features: [] };
     source?.setData(polygons);
     const hasSurface = waterLayer.current?.update(polygons, activeHazard ? undefined : shownWaterLevel) ?? false;
-    waterLayer.current?.setVisible(dimension === '3d');
+    waterLayer.current?.setVisible(dimension === '3d' && sceneActive);
     if (map.current?.getLayer('water')) map.current.setPaintProperty('water', 'fill-opacity', dimension === '3d' && !waterSurfaceError && hasSurface ? .12 : .48);
-  }, [ready, grid, shownWaterLevel, screen, isStudy, activeHazard, waterSeconds, animateWater, dimension, waterSurfaceError]);
+  }, [ready, grid, shownWaterLevel, screen, isStudy, activeHazard, waterSeconds, animateWater, dimension, waterSurfaceError,sceneActive]);
+  useEffect(()=>{
+    waterLayer.current?.setAnimating(playing&&playbackAllowed);
+    return()=>waterLayer.current?.setAnimating(false);
+  },[playing,playbackAllowed,ready]);
   useEffect(() => {
     const m = map.current; if (!m || !ready || flat || !m.getSource('dem')) return;
     m.setTerrain(dimension === '3d' ? { source: 'dem', exaggeration: 1 } : null);
@@ -276,13 +311,14 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   },[ready,data,route,isStudy,camera,progress?.metres,dimension]);
   useEffect(() => {
     const m = map.current;
-    if (!m || !ready || !data || !isStudy || !progress || dimension !== '3d' || !['route','walk'].includes(camera)) return;
+    if (!m || !ready || !sceneActive || !data || !isStudy || !progress || dimension !== '3d' || !['route','walk'].includes(camera) || manualCamera.current || cameraSuspended.current) return;
     const path = data.routes[route];
     const ahead = progress.metres >= progress.total ? {coord:cameraStep(progress.coord,progress.heading,25)} : alongRoute(path, Math.min(progress.total, progress.metres + (camera === 'walk' ? 25 : 100)));
     if (camera === 'walk') {
       setEyeViewReady(false);
       let lastGround: string | undefined;
       const align = () => {
+        if(manualCamera.current || cameraSuspended.current) return;
         if(!m.getCanvas().clientWidth || !m.getCanvas().clientHeight) return;
         const ground=m.queryTerrainElevation(progress.coord), targetGround=m.queryTerrainElevation(ahead.coord);
         if (ground === null || targetGround === null) {lastGround=undefined;setEyeViewReady(false);return;}
@@ -300,13 +336,14 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       m.setCenterClampedToGround(true);
       m.easeTo({ center: progress.coord, zoom: 16, pitch: 65, bearing: progress.heading, duration: playing ? 50 : 800 });
     }
-  }, [ready, camera, seconds, route, data, model, isStudy, dimension, started, playing, terrainLoaded, grid, cameraEpoch]);
+  }, [ready, camera, seconds, route, data, model, isStudy, dimension, started, playing, terrainLoaded, grid, cameraEpoch,sceneActive,playbackAllowed]);
   useEffect(() => {
     const m = map.current;
-    if (!m || !ready || isStudy || camera !== 'walk' || !freeWalk || dimension !== '3d') return;
+    if (!m || !ready || !sceneActive || isStudy || camera !== 'walk' || !freeWalk || dimension !== '3d' || manualCamera.current || cameraSuspended.current) return;
     setEyeViewReady(false);
     let lastGround: string | undefined;
     const align = () => {
+      if(manualCamera.current || cameraSuspended.current) return;
       if(!m.getCanvas().clientWidth || !m.getCanvas().clientHeight) return;
       const ahead = cameraStep(freeWalk.coord, freeWalk.bearing, 25);
       const ground = m.queryTerrainElevation(freeWalk.coord), target = m.queryTerrainElevation(ahead);
@@ -333,16 +370,21 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     };
     canvas.addEventListener('keydown',key,true);
     return () => { m.off('idle',align); m.off('resize',align); canvas.removeEventListener('keydown',key,true); };
-  }, [ready, isStudy, camera, freeWalk, dimension, cameraEpoch]);
+  }, [ready, isStudy, camera, freeWalk, dimension, cameraEpoch,sceneActive,playbackAllowed]);
   useEffect(() => {
     const m=map.current;
-    if (!m || !ready || camera !== 'walk') return;
+    if (!m || !ready) return;
     const leaveEyeView = (event: maplibregl.MapLibreEvent) => {
-      if (event.originalEvent) { setCamera('overview'); m.setCenterClampedToGround(true); }
+      if (event.originalEvent) {
+        manualCamera.current=true;setPlaying(false);setCamera('overview');
+        // MapLibre already interrupted the old transition for this gesture. Do not
+        // stop here: that would also cancel the zoom/rotation the user just asked for.
+        m.setCenterClampedToGround(true);
+      }
     };
     m.on('movestart',leaveEyeView);
     return () => { m.off('movestart',leaveEyeView); };
-  }, [ready,camera]);
+  }, [ready]);
   useEffect(() => {
     const m = map.current; if (!m || !ready) return;
     const markers = region.places.map((place, i) => {
@@ -369,7 +411,9 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   }
   useEffect(() => { if (ready && data && isStudy && camera === 'overview' && !queueFocus) fitRoutes(); }, [ready, data, isStudy]);
   function view(which: typeof camera) {
-    if (which === 'walk') { setRate(1); setPlaying(false); }
+    manualCamera.current=false;
+    setPlaying(false);map.current?.stop();
+    if (which === 'walk') setRate(1);
     setCamera(which); setCameraEpoch(epoch=>epoch+1);
     setQueueFocus(undefined);
     map.current?.setCenterClampedToGround(true);
@@ -383,6 +427,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   function inspectQueue() {
     const p = model?.people[0].legs.find(l => l.edge === model.bottleneck)?.from;
     if (!p || !model) return;
+    setPlaying(false);map.current?.stop();
     setCamera('overview'); setQueueFocus({ edge: model.bottleneck, status: 'queued' });
     map.current?.setCenterClampedToGround(true);
     map.current?.flyTo({ center: p, zoom: 17, pitch: dimension === '2d' ? 0 : 60, bearing: dimension === '2d' ? 0 : 70, duration: 1500 });
@@ -396,6 +441,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     } catch (error) { setImportError(error instanceof Error ? error.message : 'Scenario could not be read.'); }
   }
   function startExercise() {
+    if(!playbackAllowed)return;
     if (seconds >= duration) setSeconds(0);
     setStarted(true); setPlaying(v => !v);
   }
@@ -444,10 +490,10 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
 
     </div>}
     <div className="terrain-caption">
-      <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? 'queued' : 'awaiting release'} at model node · footprint not modeled` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? 'height unavailable' : `DEM ≈ ${Math.round(point.elevation)} m, not a safety test`}` : `${camera === 'walk' && !flat ? '' : `${region.places[selected]?.name} · `}${flat ? 'basic 2D reference' : dimension === '2d' ? '2D replay' : camera === 'walk' ? `${eyeViewReady ? '1.65m eye' : 'Ground view loading'} · coarse DEM${buildingsEnabled && buildings ? ' · unknown=3m' : ''}` : buildingsEnabled && buildings ? 'OSM massing: 3m if unknown' : terrainLoaded ? '1× relief' : 'terrain loading'} · exercise only`}</span>
+      <span>{queueFocus ? `${queueCount.toLocaleString()} ${queueFocus.status === 'queued' ? t('queued','รอคิว') : t('awaiting release','รอปล่อยตัว')} · ${t('model node, no crowd footprint','จุดโครงข่าย ไม่จำลองพื้นที่ฝูงชน')}` : point ? `${point.coord[1].toFixed(5)}, ${point.coord[0].toFixed(5)} · ${point.elevation === null ? t('height unavailable','ไม่มีข้อมูลความสูง') : `DEM ≈ ${Math.round(point.elevation)} m · ${t('not a safety test','ไม่ยืนยันความปลอดภัย')}`}` : `${camera === 'walk' && !flat ? '' : `${t(region.places[selected]?.name,region.places[selected]?.thaiName ?? region.places[selected]?.name)} · `}${flat ? t('basic 2D reference','แผนที่อ้างอิง 2D') : dimension === '2d' ? t('2D replay','เล่นซ้ำ 2D') : camera === 'walk' ? `${eyeViewReady ? t('1.65m eye','สายตา 1.65m') : t('Ground view loading','กำลังโหลดมุมมองพื้น')} · DEM${buildingsEnabled && buildings ? ` · ${t('unknown heights flat','ไม่ทราบความสูง: แบน')}` : ''}` : buildingsEnabled && buildings ? `${buildings.counts.heightTag} ${t('tagged heights; others flat','ระบุความสูง ส่วนอื่นแบน')}` : terrainLoaded ? t('1× relief','ความสูง 1 เท่า') : t('terrain loading','กำลังโหลดภูมิประเทศ')} · ${t('practice only','ฝึกเท่านั้น')}`}</span>
       <span className="terrain-credits">© <a href="https://www.esri.com/">Esri &amp; contributors</a> · <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen</a> · <a href="https://www.openstreetmap.org/copyright">OSM</a></span>
       {camera === 'walk' && <SunIndicator language={manualLanguage(location.search,navigator.language)} latitude={region.places[selected]?.lat ?? region.center[0]} longitude={region.places[selected]?.lng ?? region.center[1]} />}
-      <ReadingDialog className="terrain-map-key" title="Map key"><p>{isStudy && !flat ? 'Lines: three mapped walking approaches. Amber point: assumed pinch point. White points: moving agents. Hollow rings: agents moving at the run pace. Amber and gray points: queue and release totals at network nodes, not physical crowd footprints.' : 'Geographic reference; no crowd or route layers in this view.'}{!flat && ' Click terrain for approximate DEM height; no height establishes safety.'} Playback: choose Walk-through for a paused 1× eye-level view, then Start or Play route in Guide. Hidden tabs and rendering stalls pause advancement rather than jumping ahead. Use 5× to review faster; 30×/120× compress exercise time. Rendering requests at least 2 pixels per CSS pixel (device limits may cap it); imagery detail and coarse DEM remain source-limited, not street-level photography. Buildings use OSM footprints; height tags are not surveyed here, floor counts assume 3m per storey, and missing heights use labelled 3m massing. No building is a certified refuge. Imagery © Esri and contributors; terrain © Mapzen and credited elevation sources; roads © OpenStreetMap contributors.</p></ReadingDialog>
+      <ReadingDialog language={language} className="terrain-map-key" title={t('Map key','คำอธิบายแผนที่')}><p>{isStudy && !flat ? t('Lines: mapped practice approaches. Amber point: assumed pinch point. White points move; hollow rings use the model run pace. Amber/gray counts wait at exact model nodes, not physical crowd footprints.','เส้น: ทางฝึกตามแผนที่ จุดอำพัน: คอขวดสมมติ จุดขาวเคลื่อนที่ วงโปร่งใช้ความเร็ววิ่งของแบบจำลอง จำนวนอำพัน/เทารอที่จุดโครงข่าย ไม่ใช่พื้นที่ฝูงชนจริง') : t('Geographic reference; no crowd or route layers here.','อ้างอิงภูมิศาสตร์ ไม่มีชั้นฝูงชนหรือเส้นทางในมุมมองนี้')} {t('Click terrain for approximate DEM height; no height establishes safety.','คลิกภูมิประเทศดู DEM โดยประมาณ ความสูงไม่ยืนยันความปลอดภัย')}</p><p>{t('Walk-through opens paused at1×. Start explicitly;5×/30×/120× compress exercise time. Manual input, changing task or leaving the page pauses playback. Rendering stalls do not jump the clock ahead. Images and coarse DEM remain source-limited; requesting2pixels per CSS pixel does not create street detail.','มุมมองเดินเริ่มหยุดที่1× กดเริ่มเอง ความเร็ว5×/30×/120×ย่อเวลาแบบฝึก การควบคุมด้วยตนเอง เปลี่ยนงาน หรือออกจากหน้าจะหยุดเล่น การสะดุดไม่กระโดดเวลา ภาพและ DEM หยาบจำกัดตามต้นทาง การขอ2พิกเซลต่อพิกเซล CSS ไม่ได้เพิ่มรายละเอียดถนน')}</p><p>{t('Buildings retain OSM footprints. Only explicit source heights extrude; missing heights and floor-derived estimates remain flat. No entrance, walkability or refuge suitability is established. Imagery: Esri/contributors; terrain: Mapzen/credited elevation sources; paths: OSM contributors.','เก็บรูปอาคาร OSM ไว้ อาคารสามมิติใช้เฉพาะความสูงที่ต้นทางระบุ ส่วนที่ไม่ทราบหรือประมาณจากชั้นแสดงแบน ไม่ยืนยันทางเข้า การเดินผ่าน หรือความเหมาะสมเป็นที่อพยพ ภาพ: Esri/ผู้ร่วมสร้าง ภูมิประเทศ: Mapzen/แหล่งความสูงที่อ้างอิง ทาง: ผู้ร่วมสร้าง OSM')}</p></ReadingDialog>
     </div>
     <div className="terrain-operations"><DockControls target={bannerDock}><label className="operation-switch"><span className="sr-only">Scene task / งาน</span><select aria-label="Scene task / งาน" value={operationView} onChange={e=>setOperationView(e.target.value)}><option value="operate">Controls</option><option value="guide" disabled={!guideAvailable}>Guide</option></select></label></DockControls>      {guideAvailable && operationView==='guide' && <div className="guide-playback" aria-label={t('Guide playback','การเล่นแบบฝึก')}>
         <button disabled={!ready} onClick={startExercise}>{playing?t('Pause','หยุดชั่วคราว'):t('Play route','เล่นเส้นทาง')}</button>
@@ -573,7 +619,8 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       <details className="console-section" id="console-settings">
         <summary>{t('Scenario settings, data and coverage','การตั้งค่าฉากทัศน์ ข้อมูล และพื้นที่ครอบคลุม')}</summary>
       <label><input type="checkbox" checked={buildingsEnabled} disabled={flat} onChange={e=>setBuildingsEnabled(e.target.checked)} /> {t('OSM buildings','อาคาร OSM')}</label>
-      {buildingsEnabled && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} {t('mapped footprints','รูปอาคารในแผนที่')} · {buildings.counts.heightTag} {t('height tags','ระบุความสูง')} · {buildings.counts.levelsEstimate} {t('floor-count estimates','ประมาณจากจำนวนชั้น')} · {buildings.counts.unknown.toLocaleString()} {t('unknown heights shown as 3m massing','ไม่ทราบความสูง แสดงรูปทรงสมมติ 3 เมตร')}. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">{t('OSM source','แหล่ง OSM')}</a> · {buildings.retrievedAt.slice(0,10)}. {t('Coverage is a local snapshot, not every building in the region. Heights are not surveyed; buildings are not approved refuges.','ครอบคลุมเฉพาะภาพข้อมูลพื้นที่ ณ วันที่เก็บ ไม่ใช่อาคารทุกหลังในภูมิภาค ยังไม่สำรวจความสูง และไม่ใช่อาคารอพยพที่ได้รับอนุมัติ')}</> : buildingError || t('Loading building snapshot…','กำลังโหลดข้อมูลอาคาร…')}</p>}
+      {buildingsEnabled && <p className="building-source-note">{buildings ? <>{buildings.counts.total.toLocaleString()} {t('mapped footprints','รูปอาคารในแผนที่')} · {buildings.counts.heightTag} {t('explicit height tags extruded','ระบุความสูง แสดงสามมิติ')} · {buildings.counts.levelsEstimate + buildings.counts.unknown} {t('unknown or floor-estimated heights: flat','ไม่ทราบหรือประมาณจากชั้น: แบน')}. <a href={buildings.sourceUrl} target="_blank" rel="noreferrer">{t('OSM source','แหล่ง OSM')}</a> · {buildings.retrievedAt.slice(0,10)}. {t('Local snapshot, not every building. Source heights are not surveyed here. Footprints do not establish entrances, walkability or approved refuges.','ข้อมูลเฉพาะพื้นที่ ไม่ใช่อาคารทุกหลัง ยังไม่ได้สำรวจยืนยันความสูงต้นทาง รูปอาคารไม่ยืนยันทางเข้า การเดินผ่าน หรือจุดอพยพที่อนุมัติ')}</> : buildingError || t('Loading building snapshot…','กำลังโหลดข้อมูลอาคาร…')}</p>}
+      {buildings && rokehanReference(buildings, region.places[selected].name) && <p className="building-source-note"><a href={rokehanReference(buildings,region.places[selected].name)!} target="_blank" rel="noopener noreferrer">{t('Rokehan illustration', '\u0e20\u0e32\u0e1e\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07 Rokehan')} ↗</a> · {t('External tool estimates heights and scene details. Not a survey, street photograph or verified evacuation path. Opens at the sourced OSM camera node:', '\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e20\u0e32\u0e22\u0e19\u0e2d\u0e01\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e39\u0e07\u0e41\u0e25\u0e30\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14 \u0e44\u0e21\u0e48\u0e43\u0e0a\u0e48\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e23\u0e27\u0e08 \u0e20\u0e32\u0e1e\u0e16\u0e48\u0e32\u0e22\u0e16\u0e19\u0e19 \u0e2b\u0e23\u0e37\u0e2d\u0e40\u0e2a\u0e49\u0e19\u0e17\u0e32\u0e07\u0e2d\u0e1e\u0e22\u0e1e\u0e17\u0e35\u0e48\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19 \u0e40\u0e1b\u0e34\u0e14\u0e17\u0e35\u0e48\u0e08\u0e38\u0e14\u0e01\u0e25\u0e49\u0e2d\u0e07 OSM:')} <a href={`https://www.openstreetmap.org/${buildings.walkStart!.node}`} target="_blank" rel="noreferrer">{buildings.walkStart!.node}</a>.</p>}
 
       <div className="scenario-settings-row">
         {model && <label>{t('Assumed pinch width','ความกว้างคอขวดสมมติ')}<select aria-label={t('Assumed pinch width','ความกว้างคอขวดสมมติ')} value={width} onChange={e => setWidth(Number(e.target.value))}><option value={1}>1 m</option><option value={2}>2 m</option><option value={6}>6 m</option></select></label>}

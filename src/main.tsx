@@ -18,6 +18,7 @@ import { OutcomeSummary } from "./OutcomeSummary";
 import { SourceFooter } from "./SourceFooter";
 import { formatBangkokTime } from "./orientation";
 import { manualLanguage } from "./manual-content";
+import { localPlaceCopy } from "./place-copy";
 import { InterventionComparison } from "./InterventionComparison";
 import { NavConsole } from "./NavConsole";
 import { ResearchSection } from "./ResearchSection";
@@ -87,6 +88,7 @@ function App() {
 
   const region = coastalRegions[regionIdx];
   const place = region.places[selectedPlace];
+  const placeText=localPlaceCopy(place,language);
 
   function navigate(to: Tab | "satellite") {
     // Sensor catalogue now lives in Research › Sources.
@@ -104,16 +106,16 @@ function App() {
 
   const placeConsole = (
         <div className="console-section" id="console-place">
-          <h3>Local context and personal plan · {place.name}</h3>
+          <h3>{t('Local context and personal plan','ข้อมูลพื้นที่และแผนส่วนบุคคล')}</h3>
           <div className="directive-header">
             <div>
               <h4>
-                {place.name}{" "}
-                <span className="thai-name">({place.thaiName})</span>
+                {t(place.name,place.thaiName)}{" "}
+                <span className="thai-name">({t(place.thaiName,place.name)})</span>
               </h4>
-              <p className="place-desc">{place.description}</p>
+              <p className="place-desc">{placeText.description}</p>
             </div>
-            <div className="place-stats"><span className="stat-pill">Local route and refuge validation pending</span></div>
+            <div className="place-stats"><span className="stat-pill">{t('Local route and refuge validation pending','ยังไม่ยืนยันเส้นทางและจุดอพยพในพื้นที่')}</span></div>
           </div>
 
           {/* 3 Empirical Evacuation Axioms from Research (Trumikaborworn et al., 2026) */}
@@ -136,7 +138,7 @@ function App() {
               <span className="wp-badge">03</span>
               <div>
                 <strong>{t('Refuge','ที่หลบภัย')}</strong>
-                <small>{place.refugeStrategy}</small>
+                <small>{placeText.refugeStrategy}</small>
               </div>
             </div>
           </div>
@@ -144,13 +146,13 @@ function App() {
           {/* Actionable Directive & Spatial Context */}
           <div className="action-directive">
             <strong>{t('Actionable directive','คำแนะนำที่ปฏิบัติได้')}</strong>
-            <span>{place.actionableDirective}</span>
+            <span>{placeText.actionableDirective}</span>
           </div>
 
           {place.spatialContext && (
             <div className="gridlock-warning-bar">
               <strong>{t('Topographic & Bottleneck Context','บริบทภูมิประเทศและคอขวด')}</strong>
-              <span>{place.spatialContext}</span>
+              <span>{placeText.spatialContext}</span>
             </div>
           )}
 
@@ -159,10 +161,10 @@ function App() {
               className="plan-shortcut-btn"
               onClick={() => navigate("prepare")}
             >
-              Draft personal plan for {place.name} →
+              {t(`Draft personal plan for ${place.name}`,`จัดทำแผนส่วนบุคคลสำหรับ${place.thaiName}`)} →
             </button>
             <span className="meta-note">
-              Terrain and exercise are separate from the published Unity model.
+              {t('Terrain and exercise are separate from the published Unity model.','ภูมิประเทศและแบบฝึกนี้แยกจากแบบจำลอง Unity ในบทความ')}
             </span>
           </div>
         </div>
@@ -301,6 +303,7 @@ function App() {
               {/* Interactive 3D Aerial Leaflet Map with Wave Simulation */}
               <TerrainRehearsal
                 key={region.id}
+                active={modelView==='terrain'&&!manualOpen}
                 region={region}
                 selected={selectedPlace}
                 onSelect={setSelectedPlace}

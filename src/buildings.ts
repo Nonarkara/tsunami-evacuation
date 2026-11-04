@@ -1,7 +1,6 @@
 import type { Coord } from './crowd';
 
 export const EYE_HEIGHT_M = 1.65;
-export const UNKNOWN_BUILDING_MASSING_M = 3;
 export type BuildingProperties = { height: number | null; heightSource: 'heightTag' | 'levelsEstimate' | 'unknown'; levels: number | null; building: string; osm: string };
 export type BuildingPack = GeoJSON.FeatureCollection<GeoJSON.Polygon, BuildingProperties> & {
   schemaVersion: 1; area: string; sourceUrl: string; retrievedAt: string; rawSha256: string;
@@ -9,6 +8,13 @@ export type BuildingPack = GeoJSON.FeatureCollection<GeoJSON.Polygon, BuildingPr
   counts: { heightTag: number; levelsEstimate: number; unknown: number; total: number };
   walkStart: { coord: Coord; bearing: number; node: string; way: string; note: string } | null;
 };
+/** Display policy: explicit source heights only. Historical floor estimates stay raw, never extruded. */
+export function buildingRenderHeight(properties: BuildingProperties): number {
+  return properties.heightSource === 'heightTag' && typeof properties.height === 'number' && Number.isFinite(properties.height) && properties.height >= .5 && properties.height <= 400 ? properties.height : 0;
+}
+export function buildingDisplay(pack: BuildingPack): GeoJSON.FeatureCollection<GeoJSON.Polygon, BuildingProperties & {renderHeight:number}> {
+  return {type:'FeatureCollection',features:pack.features.map(feature=>({...feature,properties:{...feature.properties,renderHeight:buildingRenderHeight(feature.properties)}}))};
+}
 const record = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
 const finite = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v);
 export function buildingAreaId(region: string, selected: number) { return `${region}-${selected}`; }

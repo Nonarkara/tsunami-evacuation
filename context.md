@@ -17,3 +17,5 @@ Commands: npm install; npm test; npm run build; npm run dev.
 Canonical deployment: Cloudflare Worker Static Assets at https://tsunami.nonarkara.org/; see docs/DEPLOYMENT.md. Sites remains the explicitly dated initial public snapshot. Use npm run deploy for canonical releases.
 
 Escape learning view (3November2026): see docs/ESCAPE-AUDIT-2026-11-03.md for the current scientific and visual contract. Illustration-only water never classifies the walker as overtaken/safe; imported replay remains separate. Preserve persistent Pause, sourced warning→action cues and selected-walker finish/own waits. Direct learning entry uses ?lesson=escape, paused1×. The earlier escape-scenario spec’s race, height-gap and2004reference-level assumptions are superseded.
+
+Current geographic contract (4November2026): only explicit OSM height tags extrude. Unknown and floor-derived source estimates remain flat; older3m visual-massing permission is superseded. See STYLE.md and docs/ORCHESTRATION-2026-11-04.md.
