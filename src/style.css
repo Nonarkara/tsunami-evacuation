@@ -2169,6 +2169,7 @@ textarea {
 /* Map text belongs beside the terrain, never over its operating area. */
 .terrain-caption { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 12px; padding-block: 4px; color: var(--ink-2); font-size: var(--fs-body); }
 .terrain-credits { margin-left: auto; white-space: nowrap; }
+.scene-link { white-space: nowrap; }
 .terrain-map-key { margin: 0; }
 .terrain-map-key summary { cursor: pointer; }
 .terrain-map-key[open] { flex-basis: 100%; order: 3; }

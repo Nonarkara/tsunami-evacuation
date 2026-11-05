@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-04
+updated: 2026-11-05
 drafted_by: codex/gpt-6
 reviewed: false
 ---
@@ -118,3 +118,62 @@ Apply line-art + screentone shading to our existing MapLibre terrain via custom 
 The live tool explicitly guesses missing building heights from use/area and can re-roll them. Our sourced OSM node11707600483 at8.666894,98.2529673 loaded as BangNiang with11buildings, all11guessed heights. This confirms illustration capability, not a surveyed street scene. Daylight is `tod=day`; the earlier `late` example means late night, not late afternoon. Search text behavior is described as local by the current tool; do not promise Nominatim forwarding. No Rokehan content is embedded or exported in Soonami. The external action lives beside source limitations in the on-demand settings dialog, preserving the map and banner. Its coordinates come from the selected pack’s existing OSM camera node, not the approximate example centre.
 
 Source inspected4November2026: https://tools.oyasumi-gamedev.com/rokehan/ (building-height explanation, export/ODbL terms, terrain sources). three.js is MIT; that does not establish an MIT licence for the entire Rokehan application or its exports. External imagery/geometry does not certify an entrance, access, refuge or evacuation route.
+
+## 5 November 2026 — the tool cannot be framed; the integration is a state-matched permalink
+
+**The embed mode does not work from this site, and that is the tool's own policy, not a bug here.**
+The tool ships an embed mode (`?embed=1&render=1`), but it only activates inside a frame
+(`RK_EMBED` requires `window.parent !== window`), and the served page refuses framing from
+anywhere else. Response header, read 5 November 2026:
+
+```
+content-security-policy: default-src 'self'; …; frame-ancestors 'self' https://oyasumi-gamedev.com
+```
+
+Chrome enforces it. A parent page on another origin, serving the embed URL, recorded:
+
+```
+error: Framing 'https://tools.oyasumi-gamedev.com/' violates the following Content Security
+Policy directive: "frame-ancestors 'self' https://oyasumi-gamedev.com". The request has been blocked.
+```
+
+The frame URL became `chrome-error://chromewebdata/`. So an in-page Rokehan frame would be a
+dead panel on this domain. Nothing here proxies, mirrors or rewrites the tool's headers —
+the framing rule is the author's deliberate choice and it stays intact.
+
+**What the permalink actually accepts**, read from the tool's own source rather than guessed:
+`ll` is latitude,longitude at six decimals; `s` is the near-area radius **in metres**;
+`far` is the surroundings distance **in kilometres** (`far` × 1000 on read, `OPT.far/1000` on
+write); `tod` is one of `day`, `dusk`, `night`, `late`; `n` is the place label. `?lang=th`
+selects the tool's Thai interface, which the tool already ships. `tod=day` is dropped from the
+hash on load because it is the default.
+
+**What is now built** (`src/scene-reference.ts`, `src/TerrainRehearsal.tsx`, ledger R11):
+
+- The action sits in the terrain caption, where the place is being read, not buried in a
+  collapsed disclosure: "Rokehan scene ↗" / "ฉาก Rokehan ↗".
+- It carries the app's own state: the sourced OSM camera node, the sun at that place mapped
+  onto the tool's four bands, and the camera in use (`walk` → 100 m / 1 km, `route` → 300 m /
+  2 km, `overview` → 600 m / 4 km — all of them the tool's own menu values).
+- The Thai interface of the tool is requested when the app reads Thai.
+- The map key states what it is and is not, and carries the camera node as a source link.
+
+**Receipt, browser, 5 November 2026.** The generated permalink
+`…/#ll=8.666894%2C98.252967&s=600&tod=late&far=4&n=Bang+Niang` opened the tool on **Bang
+Niang** — the tool's status bar read "near area 600m, surroundings 4km", its time-of-day
+control read **Late night**, its camera control read **Overview (whole area)**, and the scene
+reported "176 buildings (169 guessed heights) · 41 roads · 677 trees · elevation 6 m". The
+drawings are the tool's estimates: 169 of 176 building heights are guessed, which is the
+reason it stays labelled an illustration.
+
+**Layout cost, measured not eyeballed.** The caption band is unchanged at every width —
+52 px at 390×844, 30 px at 1024×768 and 30 px at 1440×900, before and after — with zero
+horizontal and vertical document overflow and no console errors. At 1024 the attribution line
+moves to the row below, inside the band that already had room for it; the link itself stays
+grouped with the other caption actions.
+
+**What is left open.** A true in-page embed needs one line changed by the tool's author:
+`frame-ancestors 'self' https://oyasumi-gamedev.com https://tsunami.nonarkara.org`. Until
+then the action opens a new tab, and this document records why. The tool's own terms still
+apply: free to use with attribution, exported files may not be redistributed or sold as-is,
+and no Rokehan output is embedded or exported in Soonami.

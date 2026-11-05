@@ -70,56 +70,47 @@
             "x": 8,
             "y": 42,
             "w": 374,
-            "h": 434
+            "h": 390
           }
         },
         {
           "name": "terrain-caption",
           "rect": {
             "x": 8,
-            "y": 479,
+            "y": 435,
             "w": 374,
-            "h": 32
+            "h": 52
           }
         },
         {
           "name": "terrain-operations",
           "rect": {
             "x": 8,
-            "y": 514,
+            "y": 490,
             "w": 374,
-            "h": 300
+            "h": 324
           }
         },
         {
           "name": "rehearsal-controls",
           "rect": {
             "x": 8,
-            "y": 514,
+            "y": 643,
             "w": 374,
-            "h": 66
-          }
-        },
-        {
-          "name": "rehearsal-timeline",
-          "rect": {
-            "x": 8,
-            "y": 580,
-            "w": 374,
-            "h": 40
+            "h": 113
           }
         }
       ],
       "blocks": [
         {
           "name": "paged-flow operations-pages",
-          "top": 514,
+          "top": 490,
           "bottom": 814,
-          "height": 300,
+          "height": 324,
           "marginTop": 0,
           "marginBottom": 0,
           "children": 2,
-          "textLength": 693
+          "textLength": 1250
         }
       ],
       "gaps": [],
@@ -128,45 +119,10 @@
       "hierarchy": [
         {
           "tag": "strong",
-          "text": "0",
+          "text": "Modeled victims % / 39,041",
           "size": 13,
           "weight": "600",
-          "y": 640
-        },
-        {
-          "tag": "strong",
-          "text": "0",
-          "size": 13,
-          "weight": "600",
-          "y": 640
-        },
-        {
-          "tag": "strong",
-          "text": "0",
-          "size": 13,
-          "weight": "600",
-          "y": 660
-        },
-        {
-          "tag": "strong",
-          "text": "1,500",
-          "size": 13,
-          "weight": "600",
-          "y": 660
-        },
-        {
-          "tag": "strong",
-          "text": "63:35",
-          "size": 13,
-          "weight": "600",
-          "y": 680
-        },
-        {
-          "tag": "strong",
-          "text": "4:34",
-          "size": 13,
-          "weight": "600",
-          "y": 680
+          "y": 497
         }
       ],
       "task": {
@@ -175,103 +131,12 @@
         "actionName": "Previous page / หน้าก่อน",
         "canvasSize": {
           "w": 374,
-          "h": 434
+          "h": 390
         }
       },
       "failures": [],
       "overflow": false,
       "tab": "explore"
-    },
-    "390x844/satellite": {
-      "width": 390,
-      "height": 844,
-      "doc": {
-        "w": 390,
-        "h": 844
-      },
-      "scrollY": 0,
-      "chrome": {
-        "top": 36,
-        "bottom": 24,
-        "bands": [
-          {
-            "name": "soonami-masthead",
-            "top": 0,
-            "bottom": 36,
-            "height": 36,
-            "position": "static",
-            "sticky": false,
-            "atTop": true,
-            "atBottom": false
-          },
-          {
-            "name": "soonami-footer source-footer",
-            "top": 820,
-            "bottom": 844,
-            "height": 24,
-            "position": "static",
-            "sticky": false,
-            "atTop": false,
-            "atBottom": true
-          }
-        ],
-        "costPercent": 7
-      },
-      "regions": [],
-      "blocks": [
-        {
-          "name": "div",
-          "top": 42,
-          "bottom": 814,
-          "height": 772,
-          "marginTop": 0,
-          "marginBottom": 0,
-          "children": 1,
-          "textLength": 1820
-        }
-      ],
-      "gaps": [],
-      "stretched": [],
-      "inflated": [],
-      "hierarchy": [
-        {
-          "tag": "h1",
-          "text": "Sources & sensors",
-          "size": 24,
-          "weight": "600",
-          "y": 42
-        },
-        {
-          "tag": "h2",
-          "text": "DART pressure-buoy reference",
-          "size": 20,
-          "weight": "600",
-          "y": 152
-        },
-        {
-          "tag": "h2",
-          "text": "Ko Taphao Noi tide-gauge candidate",
-          "size": 20,
-          "weight": "600",
-          "y": 324
-        },
-        {
-          "tag": "h2",
-          "text": "Sentinel-1 SAR imagery",
-          "size": 20,
-          "weight": "600",
-          "y": 474
-        }
-      ],
-      "task": {
-        "mapVisible": false,
-        "actionVisible": false,
-        "actionName": "Previous page / หน้าก่อน",
-        "canvasSize": null
-      },
-      "failures": [],
-      "overflow": false,
-      "tab": "satellite"
     },
     "390x844/prepare": {
       "width": 390,
@@ -318,7 +183,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 1369
+          "textLength": 1427
         }
       ],
       "gaps": [],
@@ -328,7 +193,7 @@
         {
           "tag": "h1",
           "text": "My evacuation plan",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 42
         },
@@ -337,7 +202,7 @@
           "text": "~21 minutes",
           "size": 13,
           "weight": "600",
-          "y": 703
+          "y": 549
         }
       ],
       "task": {
@@ -375,8 +240,8 @@
           {
             "name": "task-heading",
             "top": 42,
-            "bottom": 143,
-            "height": 101,
+            "bottom": 140,
+            "height": 98,
             "position": "static",
             "sticky": false,
             "atTop": false,
@@ -429,16 +294,16 @@
         {
           "tag": "h2",
           "text": "1 / Record observed counts",
-          "size": 20,
+          "size": 24,
           "weight": "600",
-          "y": 153
+          "y": 150
         },
         {
           "tag": "strong",
           "text": "—",
-          "size": 28,
+          "size": 24,
           "weight": "600",
-          "y": 446
+          "y": 440
         }
       ],
       "task": {
@@ -506,7 +371,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 11587
+          "textLength": 13681
         }
       ],
       "gaps": [],
@@ -530,9 +395,9 @@
         {
           "tag": "h2",
           "text": "01 / Reported scenario results",
-          "size": 20,
+          "size": 24,
           "weight": "600",
-          "y": 237
+          "y": 265
         }
       ],
       "task": {
@@ -545,11 +410,200 @@
         {
           "name": "section",
           "left": 8,
+          "right": 1178
+        },
+        {
+          "name": "research-results-figure",
+          "left": 8,
           "right": 780
         }
       ],
       "overflow": false,
       "tab": "research"
+    },
+    "390x844/ddpm": {
+      "width": 390,
+      "height": 844,
+      "doc": {
+        "w": 390,
+        "h": 844
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 24,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "ddpm-head",
+            "top": 42,
+            "bottom": 164,
+            "height": 122,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 820,
+            "bottom": 844,
+            "height": 24,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 42,
+          "bottom": 814,
+          "height": 772,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 2284
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h2",
+          "text": "DDPM · full CSV inspection",
+          "size": 24,
+          "weight": "600",
+          "y": 80
+        },
+        {
+          "tag": "strong",
+          "text": "1,416 rows",
+          "size": 13,
+          "weight": "600",
+          "y": 115
+        },
+        {
+          "tag": "strong",
+          "text": "22 provinces",
+          "size": 13,
+          "weight": "600",
+          "y": 115
+        },
+        {
+          "tag": "h3",
+          "text": "What the full file contains",
+          "size": 17,
+          "weight": "600",
+          "y": 176
+        },
+        {
+          "tag": "strong",
+          "text": "0–19.6",
+          "size": 13,
+          "weight": "600",
+          "y": 201
+        },
+        {
+          "tag": "dt",
+          "text": "code 1",
+          "size": 13,
+          "weight": "400",
+          "y": 274
+        },
+        {
+          "tag": "dt",
+          "text": "code 2",
+          "size": 13,
+          "weight": "400",
+          "y": 274
+        },
+        {
+          "tag": "dt",
+          "text": "code 3",
+          "size": 13,
+          "weight": "400",
+          "y": 274
+        },
+        {
+          "tag": "dt",
+          "text": "code 4",
+          "size": 13,
+          "weight": "400",
+          "y": 274
+        },
+        {
+          "tag": "dd",
+          "text": "1,232",
+          "size": 13,
+          "weight": "600",
+          "y": 275
+        },
+        {
+          "tag": "dd",
+          "text": "98",
+          "size": 13,
+          "weight": "600",
+          "y": 275
+        },
+        {
+          "tag": "dd",
+          "text": "73",
+          "size": 13,
+          "weight": "600",
+          "y": 275
+        },
+        {
+          "tag": "dd",
+          "text": "13",
+          "size": 13,
+          "weight": "600",
+          "y": 275
+        },
+        {
+          "tag": "h3",
+          "text": "How to interpret it",
+          "size": 17,
+          "weight": "600",
+          "y": 333
+        },
+        {
+          "tag": "strong",
+          "text": "Not used for inundation, routing, refuge",
+          "size": 13,
+          "weight": "600",
+          "y": 503
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [
+        {
+          "name": "ddpm-panel",
+          "left": 8,
+          "right": 1178
+        }
+      ],
+      "overflow": false,
+      "tab": "ddpm"
     },
     "1024x768/explore": {
       "width": 1024,
@@ -580,7 +634,7 @@
             "height": 32,
             "position": "static",
             "sticky": false,
-            "atTop": true,
+            "atTop": false,
             "atBottom": false
           },
           {
@@ -655,34 +709,34 @@
           "name": "route-profile",
           "rect": {
             "x": 692,
-            "y": 321,
-            "w": 320,
-            "h": 411
+            "y": 44,
+            "w": 664,
+            "h": 648
           }
         },
         {
           "name": "terrain-analysis-row",
           "rect": {
             "x": 692,
-            "y": 313,
-            "w": 320,
-            "h": 419
+            "y": 44,
+            "w": 664,
+            "h": 648
           }
         },
         {
           "name": "rehearsal-controls",
           "rect": {
             "x": 692,
-            "y": 44,
+            "y": 217,
             "w": 320,
-            "h": 106
+            "h": 113
           }
         },
         {
           "name": "rehearsal-timeline",
           "rect": {
             "x": 692,
-            "y": 150,
+            "y": 330,
             "w": 320,
             "h": 36
           }
@@ -697,7 +751,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 2,
-          "textLength": 693
+          "textLength": 1250
         }
       ],
       "gaps": [],
@@ -706,52 +760,94 @@
       "hierarchy": [
         {
           "tag": "strong",
-          "text": "0",
-          "size": 16,
+          "text": "Modeled victims % / 39,041",
+          "size": 13,
           "weight": "600",
-          "y": 227
+          "y": 51
         },
         {
-          "tag": "strong",
-          "text": "0",
-          "size": 16,
-          "weight": "600",
-          "y": 227
-        },
-        {
-          "tag": "strong",
-          "text": "0",
-          "size": 16,
-          "weight": "600",
-          "y": 254
-        },
-        {
-          "tag": "strong",
+          "tag": "dd",
           "text": "1,500",
-          "size": 16,
+          "size": 13,
           "weight": "600",
-          "y": 254
+          "y": 424
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 424
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 424
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 424
+        },
+        {
+          "tag": "dt",
+          "text": "awaiting",
+          "size": 11,
+          "weight": "400",
+          "y": 425
+        },
+        {
+          "tag": "dt",
+          "text": "walking",
+          "size": 11,
+          "weight": "400",
+          "y": 425
+        },
+        {
+          "tag": "dt",
+          "text": "queued",
+          "size": 11,
+          "weight": "400",
+          "y": 425
+        },
+        {
+          "tag": "dt",
+          "text": "at end",
+          "size": 11,
+          "weight": "400",
+          "y": 425
         },
         {
           "tag": "strong",
           "text": "63:35",
-          "size": 16,
+          "size": 13,
           "weight": "600",
-          "y": 281
+          "y": 445
         },
         {
           "tag": "strong",
           "text": "4:34",
-          "size": 16,
+          "size": 13,
           "weight": "600",
-          "y": 281
+          "y": 445
+        },
+        {
+          "tag": "strong",
+          "text": "Time to the exercise end",
+          "size": 13,
+          "weight": "600",
+          "y": 484
         },
         {
           "tag": "strong",
           "text": "Bang Niang exercise: Central approach · ",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 321
+          "y": 644
         }
       ],
       "task": {
@@ -763,114 +859,25 @@
           "h": 654
         }
       },
-      "failures": [],
+      "failures": [
+        {
+          "name": "terrain-secondary crowd",
+          "left": 692,
+          "right": 1356
+        },
+        {
+          "name": "terrain-analysis-row",
+          "left": 692,
+          "right": 1356
+        },
+        {
+          "name": "route-profile",
+          "left": 692,
+          "right": 1356
+        }
+      ],
       "overflow": false,
       "tab": "explore"
-    },
-    "1024x768/satellite": {
-      "width": 1024,
-      "height": 768,
-      "doc": {
-        "w": 1024,
-        "h": 768
-      },
-      "scrollY": 0,
-      "chrome": {
-        "top": 36,
-        "bottom": 28,
-        "bands": [
-          {
-            "name": "soonami-masthead",
-            "top": 0,
-            "bottom": 36,
-            "height": 36,
-            "position": "static",
-            "sticky": false,
-            "atTop": true,
-            "atBottom": false
-          },
-          {
-            "name": "soonami-footer source-footer",
-            "top": 740,
-            "bottom": 768,
-            "height": 28,
-            "position": "static",
-            "sticky": false,
-            "atTop": false,
-            "atBottom": true
-          }
-        ],
-        "costPercent": 8
-      },
-      "regions": [],
-      "blocks": [
-        {
-          "name": "div",
-          "top": 44,
-          "bottom": 732,
-          "height": 688,
-          "marginTop": 0,
-          "marginBottom": 0,
-          "children": 1,
-          "textLength": 1820
-        }
-      ],
-      "gaps": [],
-      "stretched": [],
-      "inflated": [],
-      "hierarchy": [
-        {
-          "tag": "h1",
-          "text": "Sources & sensors",
-          "size": 26,
-          "weight": "600",
-          "y": 44
-        },
-        {
-          "tag": "h2",
-          "text": "Copernicus DEM candidate",
-          "size": 20,
-          "weight": "600",
-          "y": 55
-        },
-        {
-          "tag": "h2",
-          "text": "DART pressure-buoy reference",
-          "size": 20,
-          "weight": "600",
-          "y": 156
-        },
-        {
-          "tag": "h2",
-          "text": "What these sources can tell us",
-          "size": 20,
-          "weight": "600",
-          "y": 207
-        },
-        {
-          "tag": "h2",
-          "text": "Ko Taphao Noi tide-gauge candidate",
-          "size": 20,
-          "weight": "600",
-          "y": 307
-        },
-        {
-          "tag": "h2",
-          "text": "Sentinel-1 SAR imagery",
-          "size": 20,
-          "weight": "600",
-          "y": 458
-        }
-      ],
-      "task": {
-        "mapVisible": false,
-        "actionVisible": false,
-        "actionName": "Previous page / หน้าก่อน",
-        "canvasSize": null
-      },
-      "failures": [],
-      "overflow": false,
-      "tab": "satellite"
     },
     "1024x768/prepare": {
       "width": 1024,
@@ -917,7 +924,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 1369
+          "textLength": 1427
         }
       ],
       "gaps": [],
@@ -927,51 +934,51 @@
         {
           "tag": "h1",
           "text": "My evacuation plan",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 44
         },
         {
           "tag": "h3",
           "text": "Four local checks",
-          "size": 19,
+          "size": 17,
           "weight": "600",
-          "y": 365
+          "y": 405
         },
         {
           "tag": "strong",
           "text": "1. Plan for congestion:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 402
+          "y": 442
         },
         {
           "tag": "strong",
           "text": "2. Confirm refuge access:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 444
+          "y": 481
         },
         {
           "tag": "strong",
           "text": "3. Rehearse and review:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 486
+          "y": 520
         },
         {
           "tag": "strong",
           "text": "4. Help dependents first:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 528
+          "y": 539
         },
         {
           "tag": "strong",
           "text": "~21 minutes",
           "size": 13,
           "weight": "600",
-          "y": 705
+          "y": 551
         }
       ],
       "task": {
@@ -1009,8 +1016,8 @@
           {
             "name": "task-heading",
             "top": 44,
-            "bottom": 147,
-            "height": 103,
+            "bottom": 142,
+            "height": 98,
             "position": "static",
             "sticky": false,
             "atTop": false,
@@ -1063,58 +1070,58 @@
         {
           "tag": "h1",
           "text": "Review an evacuation drill",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 66
         },
         {
           "tag": "strong",
           "text": "Confirm before you practise",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 74
-        },
-        {
-          "tag": "h2",
-          "text": "1 / Record observed counts",
-          "size": 20,
-          "weight": "600",
-          "y": 157
+          "y": 80
         },
         {
           "tag": "strong",
           "text": "Agree the warning and assistance",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 172
+          "y": 80
         },
         {
           "tag": "strong",
           "text": "Walk and observe",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 270
+          "y": 80
         },
         {
           "tag": "strong",
           "text": "Account for every participant",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 368
-        },
-        {
-          "tag": "strong",
-          "text": "—",
-          "size": 28,
-          "weight": "600",
-          "y": 450
+          "y": 80
         },
         {
           "tag": "strong",
           "text": "Fix one problem and repeat",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 466
+          "y": 80
+        },
+        {
+          "tag": "h2",
+          "text": "1 / Record observed counts",
+          "size": 24,
+          "weight": "600",
+          "y": 152
+        },
+        {
+          "tag": "strong",
+          "text": "—",
+          "size": 24,
+          "weight": "600",
+          "y": 442
         }
       ],
       "task": {
@@ -1152,8 +1159,8 @@
           {
             "name": "research-heading",
             "top": 44,
-            "bottom": 116,
-            "height": 72,
+            "bottom": 114,
+            "height": 70,
             "position": "static",
             "sticky": false,
             "atTop": false,
@@ -1182,7 +1189,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 11587
+          "textLength": 13680
         }
       ],
       "gaps": [],
@@ -1199,107 +1206,361 @@
         {
           "tag": "h1",
           "text": "Evidence, methods & limits",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 68
+        },
+        {
+          "tag": "h2",
+          "text": "01 / Reported scenario results",
+          "size": 24,
+          "weight": "600",
+          "y": 230
         },
         {
           "tag": "h3",
           "text": "What the reported comparisons support",
           "size": 17,
           "weight": "600",
-          "y": 128
+          "y": 295
         },
         {
           "tag": "dt",
           "text": "PD50 · 21.8% → 7.0%",
           "size": 13,
           "weight": "600",
-          "y": 159
+          "y": 325
         },
         {
           "tag": "dd",
           "text": "The walking-preference package changes t",
-          "size": 14,
+          "size": 13,
           "weight": "400",
-          "y": 179
-        },
-        {
-          "tag": "h2",
-          "text": "01 / Reported scenario results",
-          "size": 20,
-          "weight": "600",
-          "y": 229
+          "y": 346
         },
         {
           "tag": "dt",
           "text": "+ VS14 · 7.0% → 3.7%",
           "size": 13,
           "weight": "600",
-          "y": 234
+          "y": 398
         },
         {
           "tag": "dd",
           "text": "Fourteen additional candidate buildings ",
-          "size": 14,
+          "size": 13,
           "weight": "400",
-          "y": 255
+          "y": 418
         },
         {
           "tag": "dt",
           "text": "+ VE50 / SG135 · 1.3% / 1.2%",
           "size": 13,
           "weight": "600",
-          "y": 310
+          "y": 471
         },
         {
           "tag": "dd",
           "text": "These are successive cumulative packages",
-          "size": 14,
+          "size": 13,
           "weight": "400",
-          "y": 331
+          "y": 491
         },
         {
           "tag": "dt",
-          "text": "Full package: baseline1.2% / delayed2.9%",
+          "text": "Full package: baseline 1.2% / delayed 2.",
           "size": 13,
           "weight": "600",
-          "y": 386
+          "y": 544
         },
         {
           "tag": "dd",
-          "text": "Warning issuance changes30→45 minutes an",
-          "size": 14,
+          "text": "Warning issuance changes 30→45 minutes a",
+          "size": 13,
           "weight": "400",
-          "y": 406
+          "y": 564
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [
+        {
+          "name": "section",
+          "left": 12,
+          "right": 1524
+        }
+      ],
+      "overflow": false,
+      "tab": "research"
+    },
+    "1024x768/ddpm": {
+      "width": 1024,
+      "height": 768,
+      "doc": {
+        "w": 1024,
+        "h": 768
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "ddpm-head",
+            "top": 44,
+            "bottom": 205,
+            "height": 161,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 740,
+            "bottom": 768,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 8
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 732,
+          "height": 688,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 2284
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h3",
+          "text": "Source and inspection receipt",
+          "size": 17,
+          "weight": "600",
+          "y": 56
+        },
+        {
+          "tag": "h3",
+          "text": "Province coverage · record counts",
+          "size": 17,
+          "weight": "600",
+          "y": 56
+        },
+        {
+          "tag": "h2",
+          "text": "DDPM · full CSV inspection",
+          "size": 24,
+          "weight": "600",
+          "y": 82
+        },
+        {
+          "tag": "strong",
+          "text": "1,416 rows",
+          "size": 13,
+          "weight": "600",
+          "y": 117
+        },
+        {
+          "tag": "strong",
+          "text": "22 provinces",
+          "size": 13,
+          "weight": "600",
+          "y": 117
         },
         {
           "tag": "dt",
-          "text": "PD50",
-          "size": 14,
-          "weight": "600",
-          "y": 617
+          "text": "Source",
+          "size": 13,
+          "weight": "400",
+          "y": 141
         },
         {
           "tag": "dd",
-          "text": "50% pedestrian preference; not everyone ",
-          "size": 14,
+          "text": "DDPM · กรมป้องกันและบรรเทาสาธารณภัย",
+          "size": 13,
           "weight": "400",
-          "y": 617
+          "y": 141
         },
         {
           "tag": "dt",
-          "text": "VS14",
-          "size": 14,
-          "weight": "600",
-          "y": 673
+          "text": "Retrieved",
+          "size": 13,
+          "weight": "400",
+          "y": 185
         },
         {
           "tag": "dd",
-          "text": "14 additional candidate buildings, beyon",
-          "size": 14,
+          "text": "2026-10-30 06:44:12 UTC",
+          "size": 13,
           "weight": "400",
-          "y": 673
+          "y": 185
+        },
+        {
+          "tag": "dt",
+          "text": "Licence",
+          "size": 13,
+          "weight": "400",
+          "y": 209
+        },
+        {
+          "tag": "dd",
+          "text": "Creative Commons Attributions (version u",
+          "size": 13,
+          "weight": "400",
+          "y": 209
+        },
+        {
+          "tag": "h3",
+          "text": "What the full file contains",
+          "size": 17,
+          "weight": "600",
+          "y": 217
+        },
+        {
+          "tag": "strong",
+          "text": "0–19.6",
+          "size": 13,
+          "weight": "600",
+          "y": 242
+        },
+        {
+          "tag": "dt",
+          "text": "Stated data update",
+          "size": 13,
+          "weight": "400",
+          "y": 310
+        },
+        {
+          "tag": "dd",
+          "text": "2024-01-30",
+          "size": 13,
+          "weight": "400",
+          "y": 310
+        },
+        {
+          "tag": "dt",
+          "text": "code 1",
+          "size": 13,
+          "weight": "400",
+          "y": 315
+        },
+        {
+          "tag": "dt",
+          "text": "code 2",
+          "size": 13,
+          "weight": "400",
+          "y": 315
+        },
+        {
+          "tag": "dt",
+          "text": "code 3",
+          "size": 13,
+          "weight": "400",
+          "y": 315
+        },
+        {
+          "tag": "dd",
+          "text": "1,232",
+          "size": 13,
+          "weight": "600",
+          "y": 316
+        },
+        {
+          "tag": "dd",
+          "text": "98",
+          "size": 13,
+          "weight": "600",
+          "y": 316
+        },
+        {
+          "tag": "dd",
+          "text": "73",
+          "size": 13,
+          "weight": "600",
+          "y": 316
+        },
+        {
+          "tag": "dt",
+          "text": "CSV resource modified",
+          "size": 13,
+          "weight": "400",
+          "y": 335
+        },
+        {
+          "tag": "dd",
+          "text": "2024-11-14",
+          "size": 13,
+          "weight": "400",
+          "y": 335
+        },
+        {
+          "tag": "dt",
+          "text": "code 4",
+          "size": 13,
+          "weight": "400",
+          "y": 336
+        },
+        {
+          "tag": "dd",
+          "text": "13",
+          "size": 13,
+          "weight": "600",
+          "y": 337
+        },
+        {
+          "tag": "dt",
+          "text": "Catalog metadata modified",
+          "size": 13,
+          "weight": "400",
+          "y": 379
+        },
+        {
+          "tag": "dd",
+          "text": "2024-11-18",
+          "size": 13,
+          "weight": "400",
+          "y": 379
+        },
+        {
+          "tag": "h3",
+          "text": "How to interpret it",
+          "size": 17,
+          "weight": "600",
+          "y": 395
+        },
+        {
+          "tag": "strong",
+          "text": "Not used for inundation, routing, refuge",
+          "size": 13,
+          "weight": "600",
+          "y": 605
         }
       ],
       "task": {
@@ -1310,7 +1571,7 @@
       },
       "failures": [],
       "overflow": false,
-      "tab": "research"
+      "tab": "ddpm"
     },
     "1440x900/explore": {
       "width": 1440,
@@ -1336,12 +1597,12 @@
           },
           {
             "name": "banner-dock",
-            "top": 3,
-            "bottom": 31,
-            "height": 28,
+            "top": 1,
+            "bottom": 33,
+            "height": 32,
             "position": "static",
             "sticky": false,
-            "atTop": false,
+            "atTop": true,
             "atBottom": false
           },
           {
@@ -1390,7 +1651,7 @@
           "rect": {
             "x": 12,
             "y": 44,
-            "w": 1050,
+            "w": 933,
             "h": 786
           }
         },
@@ -1399,52 +1660,52 @@
           "rect": {
             "x": 12,
             "y": 834,
-            "w": 1050,
+            "w": 933,
             "h": 30
           }
         },
         {
           "name": "terrain-operations",
           "rect": {
-            "x": 1078,
+            "x": 961,
             "y": 44,
-            "w": 350,
+            "w": 467,
             "h": 820
           }
         },
         {
           "name": "route-profile",
           "rect": {
-            "x": 1078,
-            "y": 321,
-            "w": 350,
-            "h": 543
+            "x": 961,
+            "y": 610,
+            "w": 467,
+            "h": 211
           }
         },
         {
           "name": "terrain-analysis-row",
           "rect": {
-            "x": 1078,
-            "y": 313,
-            "w": 350,
-            "h": 551
+            "x": 961,
+            "y": 602,
+            "w": 467,
+            "h": 262
           }
         },
         {
           "name": "rehearsal-controls",
           "rect": {
-            "x": 1078,
-            "y": 44,
-            "w": 350,
-            "h": 106
+            "x": 961,
+            "y": 217,
+            "w": 467,
+            "h": 113
           }
         },
         {
           "name": "rehearsal-timeline",
           "rect": {
-            "x": 1078,
-            "y": 150,
-            "w": 350,
+            "x": 961,
+            "y": 330,
+            "w": 467,
             "h": 36
           }
         }
@@ -1458,7 +1719,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 2,
-          "textLength": 693
+          "textLength": 1250
         }
       ],
       "gaps": [],
@@ -1467,52 +1728,94 @@
       "hierarchy": [
         {
           "tag": "strong",
-          "text": "0",
-          "size": 16,
+          "text": "Modeled victims % / 39,041",
+          "size": 13,
           "weight": "600",
-          "y": 227
+          "y": 51
         },
         {
-          "tag": "strong",
-          "text": "0",
-          "size": 16,
-          "weight": "600",
-          "y": 227
-        },
-        {
-          "tag": "strong",
-          "text": "0",
-          "size": 16,
-          "weight": "600",
-          "y": 254
-        },
-        {
-          "tag": "strong",
+          "tag": "dd",
           "text": "1,500",
-          "size": 16,
+          "size": 13,
           "weight": "600",
-          "y": 254
+          "y": 405
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 405
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 405
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 405
+        },
+        {
+          "tag": "dt",
+          "text": "awaiting",
+          "size": 11,
+          "weight": "400",
+          "y": 407
+        },
+        {
+          "tag": "dt",
+          "text": "walking",
+          "size": 11,
+          "weight": "400",
+          "y": 407
+        },
+        {
+          "tag": "dt",
+          "text": "queued",
+          "size": 11,
+          "weight": "400",
+          "y": 407
+        },
+        {
+          "tag": "dt",
+          "text": "at end",
+          "size": 11,
+          "weight": "400",
+          "y": 407
         },
         {
           "tag": "strong",
           "text": "63:35",
-          "size": 16,
+          "size": 13,
           "weight": "600",
-          "y": 281
+          "y": 427
         },
         {
           "tag": "strong",
           "text": "4:34",
-          "size": 16,
+          "size": 13,
           "weight": "600",
-          "y": 281
+          "y": 427
+        },
+        {
+          "tag": "strong",
+          "text": "Time to the exercise end",
+          "size": 13,
+          "weight": "600",
+          "y": 466
         },
         {
           "tag": "strong",
           "text": "Bang Niang exercise: Central approach · ",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 321
+          "y": 610
         }
       ],
       "task": {
@@ -1520,118 +1823,13 @@
         "actionVisible": false,
         "actionName": "Previous page / หน้าก่อน",
         "canvasSize": {
-          "w": 1050,
+          "w": 933,
           "h": 786
         }
       },
       "failures": [],
       "overflow": false,
       "tab": "explore"
-    },
-    "1440x900/satellite": {
-      "width": 1440,
-      "height": 900,
-      "doc": {
-        "w": 1440,
-        "h": 900
-      },
-      "scrollY": 0,
-      "chrome": {
-        "top": 36,
-        "bottom": 28,
-        "bands": [
-          {
-            "name": "soonami-masthead",
-            "top": 0,
-            "bottom": 36,
-            "height": 36,
-            "position": "static",
-            "sticky": false,
-            "atTop": true,
-            "atBottom": false
-          },
-          {
-            "name": "soonami-footer source-footer",
-            "top": 872,
-            "bottom": 900,
-            "height": 28,
-            "position": "static",
-            "sticky": false,
-            "atTop": false,
-            "atBottom": true
-          }
-        ],
-        "costPercent": 7
-      },
-      "regions": [],
-      "blocks": [
-        {
-          "name": "div",
-          "top": 44,
-          "bottom": 864,
-          "height": 820,
-          "marginTop": 0,
-          "marginBottom": 0,
-          "children": 1,
-          "textLength": 1820
-        }
-      ],
-      "gaps": [],
-      "stretched": [],
-      "inflated": [],
-      "hierarchy": [
-        {
-          "tag": "h1",
-          "text": "Sources & sensors",
-          "size": 26,
-          "weight": "600",
-          "y": 44
-        },
-        {
-          "tag": "h2",
-          "text": "DART pressure-buoy reference",
-          "size": 20,
-          "weight": "600",
-          "y": 156
-        },
-        {
-          "tag": "h2",
-          "text": "Ko Taphao Noi tide-gauge candidate",
-          "size": 20,
-          "weight": "600",
-          "y": 307
-        },
-        {
-          "tag": "h2",
-          "text": "Sentinel-1 SAR imagery",
-          "size": 20,
-          "weight": "600",
-          "y": 437
-        },
-        {
-          "tag": "h2",
-          "text": "Copernicus DEM candidate",
-          "size": 20,
-          "weight": "600",
-          "y": 588
-        },
-        {
-          "tag": "h2",
-          "text": "What these sources can tell us",
-          "size": 20,
-          "weight": "600",
-          "y": 718
-        }
-      ],
-      "task": {
-        "mapVisible": false,
-        "actionVisible": false,
-        "actionName": "Previous page / หน้าก่อน",
-        "canvasSize": null
-      },
-      "failures": [],
-      "overflow": false,
-      "tab": "satellite"
     },
     "1440x900/prepare": {
       "width": 1440,
@@ -1678,7 +1876,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 1369
+          "textLength": 1427
         }
       ],
       "gaps": [],
@@ -1688,51 +1886,51 @@
         {
           "tag": "h1",
           "text": "My evacuation plan",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 44
         },
         {
           "tag": "h3",
           "text": "Four local checks",
-          "size": 19,
+          "size": 17,
           "weight": "600",
-          "y": 365
+          "y": 370
         },
         {
           "tag": "strong",
           "text": "1. Plan for congestion:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 402
+          "y": 407
         },
         {
           "tag": "strong",
           "text": "2. Confirm refuge access:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 444
+          "y": 426
         },
         {
           "tag": "strong",
           "text": "3. Rehearse and review:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 465
+          "y": 446
         },
         {
           "tag": "strong",
           "text": "4. Help dependents first:",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 486
+          "y": 465
         },
         {
           "tag": "strong",
           "text": "~21 minutes",
           "size": 13,
           "weight": "600",
-          "y": 682
+          "y": 528
         }
       ],
       "task": {
@@ -1770,8 +1968,8 @@
           {
             "name": "task-heading",
             "top": 44,
-            "bottom": 147,
-            "height": 103,
+            "bottom": 142,
+            "height": 98,
             "position": "static",
             "sticky": false,
             "atTop": false,
@@ -1815,67 +2013,67 @@
           "y": 44
         },
         {
-          "tag": "strong",
-          "text": "Agree the warning and assistance",
-          "size": 14,
+          "tag": "h3",
+          "text": "Walk the plan, then review it",
+          "size": 17,
           "weight": "600",
           "y": 44
         },
         {
           "tag": "h1",
           "text": "Review an evacuation drill",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 66
         },
         {
           "tag": "strong",
-          "text": "Walk and observe",
-          "size": 14,
+          "text": "Confirm before you practise",
+          "size": 13,
           "weight": "600",
-          "y": 121
+          "y": 80
         },
         {
-          "tag": "h2",
-          "text": "1 / Record observed counts",
-          "size": 20,
+          "tag": "strong",
+          "text": "Agree the warning and assistance",
+          "size": 13,
           "weight": "600",
-          "y": 157
+          "y": 80
+        },
+        {
+          "tag": "strong",
+          "text": "Walk and observe",
+          "size": 13,
+          "weight": "600",
+          "y": 80
         },
         {
           "tag": "strong",
           "text": "Account for every participant",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 219
+          "y": 80
         },
         {
           "tag": "strong",
           "text": "Fix one problem and repeat",
-          "size": 14,
+          "size": 13,
           "weight": "600",
-          "y": 296
+          "y": 80
+        },
+        {
+          "tag": "h2",
+          "text": "1 / Record observed counts",
+          "size": 24,
+          "weight": "600",
+          "y": 152
         },
         {
           "tag": "strong",
           "text": "—",
-          "size": 28,
+          "size": 24,
           "weight": "600",
-          "y": 450
-        },
-        {
-          "tag": "h3",
-          "text": "Walk the plan, then review it",
-          "size": 17,
-          "weight": "600",
-          "y": 682
-        },
-        {
-          "tag": "strong",
-          "text": "Confirm before you practise",
-          "size": 14,
-          "weight": "600",
-          "y": 711
+          "y": 442
         }
       ],
       "task": {
@@ -1913,8 +2111,8 @@
           {
             "name": "research-heading",
             "top": 44,
-            "bottom": 116,
-            "height": 72,
+            "bottom": 114,
+            "height": 70,
             "position": "static",
             "sticky": false,
             "atTop": false,
@@ -1943,7 +2141,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 11587
+          "textLength": 13680
         }
       ],
       "gaps": [],
@@ -1958,165 +2156,158 @@
           "y": 44
         },
         {
-          "tag": "dt",
-          "text": "+ VS14 · 7.0% → 3.7%",
-          "size": 13,
-          "weight": "600",
-          "y": 49
-        },
-        {
           "tag": "h1",
           "text": "Evidence, methods & limits",
-          "size": 26,
+          "size": 24,
           "weight": "600",
           "y": 68
-        },
-        {
-          "tag": "dd",
-          "text": "Fourteen additional candidate buildings ",
-          "size": 14,
-          "weight": "400",
-          "y": 69
-        },
-        {
-          "tag": "dt",
-          "text": "+ VE50 / SG135 · 1.3% / 1.2%",
-          "size": 13,
-          "weight": "600",
-          "y": 125
-        },
-        {
-          "tag": "dd",
-          "text": "These are successive cumulative packages",
-          "size": 14,
-          "weight": "400",
-          "y": 145
-        },
-        {
-          "tag": "dt",
-          "text": "Full package: baseline1.2% / delayed2.9%",
-          "size": 13,
-          "weight": "600",
-          "y": 201
-        },
-        {
-          "tag": "h2",
-          "text": "01 / Reported scenario results",
-          "size": 20,
-          "weight": "600",
-          "y": 208
-        },
-        {
-          "tag": "dd",
-          "text": "Warning issuance changes30→45 minutes an",
-          "size": 14,
-          "weight": "400",
-          "y": 221
-        },
-        {
-          "tag": "h2",
-          "text": "02 / Two models, different purposes",
-          "size": 20,
-          "weight": "600",
-          "y": 386
-        },
-        {
-          "tag": "dt",
-          "text": "PD50",
-          "size": 14,
-          "weight": "600",
-          "y": 388
-        },
-        {
-          "tag": "dd",
-          "text": "50% pedestrian preference; not everyone ",
-          "size": 14,
-          "weight": "400",
-          "y": 388
-        },
-        {
-          "tag": "dt",
-          "text": "VS14",
-          "size": 14,
-          "weight": "600",
-          "y": 422
-        },
-        {
-          "tag": "dd",
-          "text": "14 additional candidate buildings, beyon",
-          "size": 14,
-          "weight": "400",
-          "y": 422
-        },
-        {
-          "tag": "h3",
-          "text": "Published Unity ABMS [R1]",
-          "size": 17,
-          "weight": "600",
-          "y": 424
-        },
-        {
-          "tag": "h3",
-          "text": "Browser point-queue rehearsal",
-          "size": 17,
-          "weight": "600",
-          "y": 424
-        },
-        {
-          "tag": "dt",
-          "text": "VE50",
-          "size": 14,
-          "weight": "600",
-          "y": 478
-        },
-        {
-          "tag": "dd",
-          "text": "50% vertical-evacuation preference. This",
-          "size": 14,
-          "weight": "400",
-          "y": 478
-        },
-        {
-          "tag": "dt",
-          "text": "SG135",
-          "size": 14,
-          "weight": "600",
-          "y": 533
-        },
-        {
-          "tag": "dd",
-          "text": "135 signs in total, up from 64; not 135 ",
-          "size": 14,
-          "weight": "400",
-          "y": 533
-        },
-        {
-          "tag": "h3",
-          "text": "How Soonami Builds on the Research",
-          "size": 17,
-          "weight": "700",
-          "y": 617
         },
         {
           "tag": "h3",
           "text": "What the reported comparisons support",
           "size": 17,
           "weight": "600",
-          "y": 658
+          "y": 76
         },
         {
           "tag": "dt",
           "text": "PD50 · 21.8% → 7.0%",
           "size": 13,
           "weight": "600",
-          "y": 689
+          "y": 107
         },
         {
           "tag": "dd",
           "text": "The walking-preference package changes t",
-          "size": 14,
+          "size": 13,
           "weight": "400",
-          "y": 709
+          "y": 127
+        },
+        {
+          "tag": "dt",
+          "text": "+ VS14 · 7.0% → 3.7%",
+          "size": 13,
+          "weight": "600",
+          "y": 179
+        },
+        {
+          "tag": "dd",
+          "text": "Fourteen additional candidate buildings ",
+          "size": 13,
+          "weight": "400",
+          "y": 199
+        },
+        {
+          "tag": "h2",
+          "text": "01 / Reported scenario results",
+          "size": 24,
+          "weight": "600",
+          "y": 211
+        },
+        {
+          "tag": "dt",
+          "text": "+ VE50 / SG135 · 1.3% / 1.2%",
+          "size": 13,
+          "weight": "600",
+          "y": 252
+        },
+        {
+          "tag": "dd",
+          "text": "These are successive cumulative packages",
+          "size": 13,
+          "weight": "400",
+          "y": 272
+        },
+        {
+          "tag": "dt",
+          "text": "Full package: baseline 1.2% / delayed 2.",
+          "size": 13,
+          "weight": "600",
+          "y": 325
+        },
+        {
+          "tag": "dd",
+          "text": "Warning issuance changes 30→45 minutes a",
+          "size": 13,
+          "weight": "400",
+          "y": 345
+        },
+        {
+          "tag": "h2",
+          "text": "02 / Two models, different purposes",
+          "size": 24,
+          "weight": "600",
+          "y": 503
+        },
+        {
+          "tag": "dt",
+          "text": "PD50",
+          "size": 13,
+          "weight": "600",
+          "y": 504
+        },
+        {
+          "tag": "dd",
+          "text": "50% pedestrian preference; not everyone ",
+          "size": 13,
+          "weight": "400",
+          "y": 504
+        },
+        {
+          "tag": "dt",
+          "text": "VS14",
+          "size": 13,
+          "weight": "600",
+          "y": 536
+        },
+        {
+          "tag": "dd",
+          "text": "14 additional candidate buildings, beyon",
+          "size": 13,
+          "weight": "400",
+          "y": 536
+        },
+        {
+          "tag": "h3",
+          "text": "Published Unity ABMS [R1]",
+          "size": 17,
+          "weight": "600",
+          "y": 547
+        },
+        {
+          "tag": "dt",
+          "text": "VE50",
+          "size": 13,
+          "weight": "600",
+          "y": 588
+        },
+        {
+          "tag": "dd",
+          "text": "50% vertical-evacuation preference. This",
+          "size": 13,
+          "weight": "400",
+          "y": 588
+        },
+        {
+          "tag": "dt",
+          "text": "SG135",
+          "size": 13,
+          "weight": "600",
+          "y": 620
+        },
+        {
+          "tag": "dd",
+          "text": "135 signs in total, up from 64; not 135 ",
+          "size": 13,
+          "weight": "400",
+          "y": 620
+        },
+        {
+          "tag": "h3",
+          "text": "Browser point-queue rehearsal",
+          "size": 17,
+          "weight": "600",
+          "y": 676
         }
       ],
       "task": {
@@ -2130,15 +2321,286 @@
           "name": "section",
           "left": 732,
           "right": 2148
-        },
-        {
-          "name": "research-timing",
-          "left": 732,
-          "right": 2102
         }
       ],
       "overflow": false,
       "tab": "research"
+    },
+    "1440x900/ddpm": {
+      "width": 1440,
+      "height": 900,
+      "doc": {
+        "w": 1440,
+        "h": 900
+      },
+      "scrollY": 0,
+      "chrome": {
+        "top": 36,
+        "bottom": 28,
+        "bands": [
+          {
+            "name": "soonami-masthead",
+            "top": 0,
+            "bottom": 36,
+            "height": 36,
+            "position": "static",
+            "sticky": false,
+            "atTop": true,
+            "atBottom": false
+          },
+          {
+            "name": "ddpm-head",
+            "top": 44,
+            "bottom": 166,
+            "height": 122,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": false
+          },
+          {
+            "name": "soonami-footer source-footer",
+            "top": 872,
+            "bottom": 900,
+            "height": 28,
+            "position": "static",
+            "sticky": false,
+            "atTop": false,
+            "atBottom": true
+          }
+        ],
+        "costPercent": 7
+      },
+      "regions": [],
+      "blocks": [
+        {
+          "name": "div",
+          "top": 44,
+          "bottom": 864,
+          "height": 820,
+          "marginTop": 0,
+          "marginBottom": 0,
+          "children": 1,
+          "textLength": 2284
+        }
+      ],
+      "gaps": [],
+      "stretched": [],
+      "inflated": [],
+      "hierarchy": [
+        {
+          "tag": "h3",
+          "text": "Source and inspection receipt",
+          "size": 17,
+          "weight": "600",
+          "y": 56
+        },
+        {
+          "tag": "h3",
+          "text": "Province coverage · record counts",
+          "size": 17,
+          "weight": "600",
+          "y": 56
+        },
+        {
+          "tag": "h2",
+          "text": "DDPM · full CSV inspection",
+          "size": 24,
+          "weight": "600",
+          "y": 82
+        },
+        {
+          "tag": "strong",
+          "text": "1,416 rows",
+          "size": 13,
+          "weight": "600",
+          "y": 117
+        },
+        {
+          "tag": "strong",
+          "text": "22 provinces",
+          "size": 13,
+          "weight": "600",
+          "y": 117
+        },
+        {
+          "tag": "dt",
+          "text": "Source",
+          "size": 13,
+          "weight": "400",
+          "y": 141
+        },
+        {
+          "tag": "dd",
+          "text": "DDPM · กรมป้องกันและบรรเทาสาธารณภัย",
+          "size": 13,
+          "weight": "400",
+          "y": 141
+        },
+        {
+          "tag": "dt",
+          "text": "Retrieved",
+          "size": 13,
+          "weight": "400",
+          "y": 166
+        },
+        {
+          "tag": "dd",
+          "text": "2026-10-30 06:44:12 UTC",
+          "size": 13,
+          "weight": "400",
+          "y": 166
+        },
+        {
+          "tag": "h3",
+          "text": "What the full file contains",
+          "size": 17,
+          "weight": "600",
+          "y": 178
+        },
+        {
+          "tag": "dt",
+          "text": "Licence",
+          "size": 13,
+          "weight": "400",
+          "y": 191
+        },
+        {
+          "tag": "dd",
+          "text": "Creative Commons Attributions (version u",
+          "size": 13,
+          "weight": "400",
+          "y": 191
+        },
+        {
+          "tag": "strong",
+          "text": "0–19.6",
+          "size": 13,
+          "weight": "600",
+          "y": 203
+        },
+        {
+          "tag": "dt",
+          "text": "Stated data update",
+          "size": 13,
+          "weight": "400",
+          "y": 253
+        },
+        {
+          "tag": "dd",
+          "text": "2024-01-30",
+          "size": 13,
+          "weight": "400",
+          "y": 253
+        },
+        {
+          "tag": "dt",
+          "text": "code 1",
+          "size": 13,
+          "weight": "400",
+          "y": 276
+        },
+        {
+          "tag": "dt",
+          "text": "code 2",
+          "size": 13,
+          "weight": "400",
+          "y": 276
+        },
+        {
+          "tag": "dt",
+          "text": "code 3",
+          "size": 13,
+          "weight": "400",
+          "y": 276
+        },
+        {
+          "tag": "dt",
+          "text": "code 4",
+          "size": 13,
+          "weight": "400",
+          "y": 276
+        },
+        {
+          "tag": "dd",
+          "text": "1,232",
+          "size": 13,
+          "weight": "600",
+          "y": 277
+        },
+        {
+          "tag": "dd",
+          "text": "98",
+          "size": 13,
+          "weight": "600",
+          "y": 277
+        },
+        {
+          "tag": "dd",
+          "text": "73",
+          "size": 13,
+          "weight": "600",
+          "y": 277
+        },
+        {
+          "tag": "dd",
+          "text": "13",
+          "size": 13,
+          "weight": "600",
+          "y": 277
+        },
+        {
+          "tag": "dt",
+          "text": "CSV resource modified",
+          "size": 13,
+          "weight": "400",
+          "y": 278
+        },
+        {
+          "tag": "dd",
+          "text": "2024-11-14",
+          "size": 13,
+          "weight": "400",
+          "y": 278
+        },
+        {
+          "tag": "dt",
+          "text": "Catalog metadata modified",
+          "size": 13,
+          "weight": "400",
+          "y": 303
+        },
+        {
+          "tag": "dd",
+          "text": "2024-11-18",
+          "size": 13,
+          "weight": "400",
+          "y": 303
+        },
+        {
+          "tag": "h3",
+          "text": "How to interpret it",
+          "size": 17,
+          "weight": "600",
+          "y": 335
+        },
+        {
+          "tag": "strong",
+          "text": "Not used for inundation, routing, refuge",
+          "size": 13,
+          "weight": "600",
+          "y": 505
+        }
+      ],
+      "task": {
+        "mapVisible": false,
+        "actionVisible": false,
+        "actionName": "Previous page / หน้าก่อน",
+        "canvasSize": null
+      },
+      "failures": [],
+      "overflow": false,
+      "tab": "ddpm"
     }
   }
 }

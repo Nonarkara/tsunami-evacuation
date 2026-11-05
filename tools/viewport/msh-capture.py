@@ -24,7 +24,7 @@ OUT = ROOT / "docs" / "evidence" / "msh-current"
 # The law's first-screen widths, plus the intermediate 1024 px width.
 VIEWPORTS = [(390, 844), (1024, 768), (1440, 900)]
 PAGES = ["explore", "prepare", "drill", "research", "ddpm"]
-NAV = {"explore":"Model / แบบจำลอง", "prepare":"Plan / แผน", "drill":"Drill / ซ้อมอพยพ", "research":"Research / งานวิจัย", "ddpm":"DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM"}
+NAV = {"explore":"Model", "prepare":"Plan", "drill":"Drill", "research":"Research", "ddpm":"DDPM"}
 
 LAUNCH_ARGS = ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"]
 
@@ -48,9 +48,17 @@ def main() -> int:
             )
             page = context.new_page()
             for tab in PAGES:
-                page.goto(f"{origin}/#{tab}", wait_until="domcontentloaded", timeout=120000)
+                # The query parameter makes every URL distinct: changing only the hash
+                # of a loaded page is a same-document navigation, and the application
+                # reads the hash on boot only.
+                page.goto(f"{origin}/?msh={tab}#{tab}", wait_until="domcontentloaded", timeout=120000)
                 page.wait_for_selector("header.soonami-masthead", timeout=90000)
-                page.get_by_role("button", name=NAV[tab], exact=True).click()
+                # Press the masthead control too, the way a visitor reaches the surface.
+                # The DDPM evidence page lives under Research and has no control of its
+                # own, so it is reached by the hash alone.
+                control = page.locator(f'.soonami-masthead button[aria-label^="{NAV[tab]}"]')
+                if control.count():
+                    control.first.click()
                 assert page.locator("header.soonami-masthead").get_attribute("data-page") == tab, "Wrong workspace reached"
                 page.wait_for_timeout(2500)
                 if tab == "explore":
