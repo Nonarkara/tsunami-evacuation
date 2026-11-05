@@ -1,0 +1,43 @@
+{
+  "verifiedAt": "2026-11-05T07:30:38.118Z",
+  "commit": "9d53bd2",
+  "version": "dc370795-c261-435d-9ceb-643cb2671f65",
+  "receipts": [
+    {
+      "path": "/",
+      "status": 200,
+      "match": true,
+      "sha256": "17cf86d47619af9a4cb6e213e29991adbf7fda683a0de1d08705e82513b40a46"
+    },
+    {
+      "path": "/assets/index-D22cXYjY.js",
+      "status": 200,
+      "match": true,
+      "sha256": "d0f6f8b45359d71afdc0da5ff60b917ca5f7f0efa4920f7d2915949487c9467b"
+    },
+    {
+      "path": "/assets/index-B6CNoAuu.css",
+      "status": 200,
+      "match": true,
+      "sha256": "fbcd672324075c891e0c24c725057f27e19dcbd0cc6b18e805ea6b1a66ebad5d"
+    },
+    {
+      "path": "/assets/model-BcQTry-n.js",
+      "status": 200,
+      "match": true,
+      "sha256": "900027a122f31c284eae93db3aa065d13fd3e8e17890f5744c22ed26be12de7d"
+    },
+    {
+      "path": "/model/bang-niang.bin.gz",
+      "status": 200,
+      "match": true,
+      "sha256": "59242588942f92ab61a6534de7b31fcaa6a3c139cc36c50a5a61a5bbf5a78343"
+    },
+    {
+      "path": "/data/roofs-khao-lak-2.json",
+      "status": 200,
+      "match": true,
+      "sha256": "bd7045ce5f2eb8fbfc7dd59ff6d676ea865dd8756edb4a00f2c5e2f71843a38e"
+    }
+  ]
+}
