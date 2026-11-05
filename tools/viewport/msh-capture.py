@@ -23,8 +23,8 @@ OUT = ROOT / "docs" / "evidence" / "msh-current"
 
 # The law's first-screen widths, plus the intermediate 1024 px width.
 VIEWPORTS = [(390, 844), (1024, 768), (1440, 900)]
-PAGES = ["explore", "satellite", "prepare", "drill", "research"]
-NAV = {"explore":"Model / แบบจำลอง", "satellite":"Satellite / ดาวเทียม", "prepare":"Plan / แผน", "drill":"Drill / ซ้อมอพยพ", "research":"Research / งานวิจัย"}
+PAGES = ["explore", "prepare", "drill", "research", "ddpm"]
+NAV = {"explore":"Model / แบบจำลอง", "prepare":"Plan / แผน", "drill":"Drill / ซ้อมอพยพ", "research":"Research / งานวิจัย", "ddpm":"DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM"}
 
 LAUNCH_ARGS = ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"]
 

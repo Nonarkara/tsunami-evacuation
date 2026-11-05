@@ -40,12 +40,12 @@ MEASURE = (ROOT / "tools" / "viewport" / "measure.mjs").read_text(encoding="utf-
 # route -> (tab, nav label prefix)
 ROUTES = {
     "model": ("explore", "Model"),
-    "satellite": ("satellite", "Satellite"),
     "plan": ("prepare", "Plan"),
     "drill": ("drill", "Drill"),
     "research": ("research", "Research"),
+    "ddpm": ("ddpm", "DDPM"),
 }
-BANNER_PAGES = ["explore", "satellite", "prepare", "drill", "research"]
+BANNER_PAGES = ["explore", "prepare", "drill", "research", "ddpm"]
 
 # Gate viewports: the eight named in the fixed-screen instruction.
 VIEWPORT_SIZES = [

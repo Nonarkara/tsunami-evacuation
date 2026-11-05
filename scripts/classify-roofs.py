@@ -55,6 +55,8 @@ CLASSIFIER_ID = 'mcode-tools:connector__matrix__describe_images'
 
 MARGIN_PX = 6          # native z19 pixels of context around the footprint
 MIN_SPAN_PX = 12.0     # a footprint narrower than this cannot support a roof reading
+# The vision connector answers empty for large image batches; 8 is a size it serves.
+VISION_BATCH = 8
 CELL = 256             # rendered crop cell size in pixels
 LABEL_H = 24           # label bar height in a montage sheet
 SHEET_COLS = 5
@@ -410,23 +412,49 @@ def upload_images(paths, workers: int = 6):
         return list(pool.map(upload_image, paths))
 
 
+def describe_chunk(chunk):
+    """One vision call for a small batch. Large batches come back empty, so a
+    failed call is retried in halves and, at the smallest size, reported as an
+    unanswered image rather than as a judgement."""
+    if len(chunk) == 1:
+        try:
+            args_file = Path('/tmp/roof-describe-args.json')
+            args_file.write_text(json.dumps({
+                'image_info': [{'url': url, 'prompt': prompt} for url, prompt in chunk]
+            }))
+            payload = json.loads(run_cli(['mcode-tools', 'connector', 'call',
+                                          'connector__matrix__describe_images', '--args-file', str(args_file)]))
+            results = payload.get('results') or []
+            if len(results) != 1:
+                return ['']
+            result = results[0]
+            return [result.get('description', '') if result.get('success') else '']
+        except Exception:
+            return ['']
+    try:
+        args_file = Path('/tmp/roof-describe-args.json')
+        args_file.write_text(json.dumps({
+            'image_info': [{'url': url, 'prompt': prompt} for url, prompt in chunk]
+        }))
+        payload = json.loads(run_cli(['mcode-tools', 'connector', 'call',
+                                      'connector__matrix__describe_images', '--args-file', str(args_file)]))
+        results = payload.get('results') or []
+        if len(results) != len(chunk):
+            raise RuntimeError(f'describe_images returned {len(results)} results for {len(chunk)} images')
+        out = []
+        for result in results:
+            out.append(result.get('description', '') if result.get('success') else '')
+        return out
+    except Exception:
+        middle = len(chunk) // 2
+        return describe_chunk(chunk[:middle]) + describe_chunk(chunk[middle:])
+
+
 def describe_many(items):
     """items: list of (url, prompt). Returns one description string per item, in order."""
-    args_file = Path('/tmp/roof-describe-args.json')
-    args_file.write_text(json.dumps({
-        'image_info': [{'url': url, 'prompt': prompt} for url, prompt in items]
-    }))
-    payload = json.loads(run_cli(['mcode-tools', 'connector', 'call',
-                                  'connector__matrix__describe_images', '--args-file', str(args_file)]))
-    results = payload.get('results') or []
-    if len(results) != len(items):
-        raise RuntimeError(f'describe_images returned {len(results)} results for {len(items)} images')
     out = []
-    for item, result in zip(items, results):
-        if not result.get('success'):
-            out.append('')
-            continue
-        out.append(result.get('description', ''))
+    for start in range(0, len(items), VISION_BATCH):
+        out.extend(describe_chunk(items[start:start + VISION_BATCH]))
     return out
 
 
@@ -590,6 +618,61 @@ def load_pack(area: str):
     return path, json.loads(path.read_text())
 
 
+def metres_between(a, b) -> float:
+    """Equirectangular distance in metres; the areas are a few kilometres across."""
+    lat0 = math.radians((a[1] + b[1]) / 2)
+    dx = (b[0] - a[0]) * 111320 * math.cos(lat0)
+    dy = (b[1] - a[1]) * 110574
+    return math.hypot(dx, dy)
+
+
+def footprint_area(feature) -> float:
+    """Planar area of the footprint ring in square metres, from the lon/lat ring."""
+    ring = feature['geometry']['coordinates'][0][:-1]
+    if len(ring) < 3:
+        return 0.0
+    lat0 = math.radians(sum(p[1] for p in ring) / len(ring))
+    points = [(p[0] * 111320 * math.cos(lat0), p[1] * 110574) for p in ring]
+    total = 0.0
+    for i in range(len(points)):
+        x1, y1 = points[i]
+        x2, y2 = points[(i + 1) % len(points)]
+        total += x1 * y2 - x2 * y1
+    return abs(total) / 2
+
+
+def route_points():
+    """The mapped exercise route, used to pick the buildings a visitor can see."""
+    path = DATA_DIR / 'rehearsal-routes.json'
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text())
+    points = []
+    for route in data.get('routes', []):
+        points.extend(route.get('coordinates', []))
+    return points
+
+
+def near_route(features, metres: float):
+    """Buildings within `metres` of the route, largest footprint first.
+
+    Roof detail is read at street level, so the buildings that fill the
+    walk-through view are the ones worth classifying; the rest stay null.
+    """
+    corridor = route_points()
+    if not corridor:
+        return list(features)
+    kept = []
+    for feature in features:
+        ring = feature['geometry']['coordinates'][0]
+        centre = (sum(p[0] for p in ring[:-1]) / len(ring[:-1]),
+                  sum(p[1] for p in ring[:-1]) / len(ring[:-1]))
+        if min(metres_between(centre, point) for point in corridor) <= metres:
+            kept.append(feature)
+    kept.sort(key=footprint_area, reverse=True)
+    return kept
+
+
 def area_geometry_hash(feature) -> str:
     blob = json.dumps(feature['geometry'], ensure_ascii=False, separators=(',', ':'))
     return hashlib.sha256(blob.encode('utf-8')).hexdigest()
@@ -602,6 +685,7 @@ def main():
     parser.add_argument('--no-vision', action='store_true', help='build crops and sheets only')
     parser.add_argument('--reassemble', action='store_true', help='rebuild packs from cached labels only')
     parser.add_argument('--limit', type=int, default=0, help='cap buildings per area (debug)')
+    parser.add_argument('--near-route', type=float, default=0, help='only buildings within this many metres of the exercise route')
     parser.add_argument('--work-dir', type=Path, default=Path('/tmp/tsunami-roof-work'))
     parser.add_argument('--tile-cache', type=Path, default=Path('/tmp/tsunami-roof-tiles'))
     parser.add_argument('--sleep', type=float, default=1.0, help='seconds between vision calls')
@@ -632,6 +716,10 @@ def run_area(area: str, args):
 
     pack_path, pack = load_pack(area)
     features = pack['features']
+    if args.near_route:
+        before = len(features)
+        features = near_route(features, args.near_route)
+        log(f'[{area}] {len(features)} of {before} buildings within {args.near_route:.0f} m of the route')
     if args.limit:
         features = features[:args.limit]
 
