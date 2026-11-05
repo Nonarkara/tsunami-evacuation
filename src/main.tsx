@@ -28,6 +28,7 @@ import "@fontsource/prompt/thai-500.css";
 import "@fontsource/prompt/thai-600.css";
 import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
+import { MangaModel } from "./MangaModel";
 import { PaceRuler } from "./charts";
 import { packageNames, scenarioThai, checklistThai } from "./research-ledger";
 import {
@@ -101,6 +102,7 @@ function App() {
   }
 
   function handleRegionChange(idx: number) {
+    setModelView('terrain');
     setRegionIdx(idx);
     setSelectedPlace(coastalRegions[idx].id === "khao-lak" ? 2 : 0);
   }
@@ -269,9 +271,9 @@ function App() {
         />
 
         {tab==='explore'&&<BannerDock scene={modelView==='terrain'} onDock={setBannerDock} context={<>
-          <select aria-label="Model view / มุมมอง" title="Terrain or published outcomes" value={modelView} onChange={e=>setModelView(e.target.value)}><option value="terrain">Terrain</option><option value="evidence">Results</option></select>
+          <select aria-label="Model view / มุมมอง" title="Terrain, published outcomes or manga streets" value={modelView} onChange={e=>{const view=e.target.value;if(view==='manga'){setRegionIdx(0);setSelectedPlace(2);}setModelView(view);}}><option value="terrain">{t('Terrain','ภูมิประเทศ')}</option><option value="evidence">{t('Results','ผลลัพธ์')}</option><option value="manga">{t('Manga streets','ถนนสไตล์มังงะ')}</option></select>
                 <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
-                  <select aria-label={t('Select coastal area','เลือกพื้นที่ชายฝั่ง')} value={selectedPlace} onChange={e=>setSelectedPlace(Number(e.target.value))}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {t(p.name,p.thaiName)}</option>)}</select>
+                  <select aria-label={t('Select coastal area','เลือกพื้นที่ชายฝั่ง')} value={selectedPlace} onChange={e=>{setSelectedPlace(Number(e.target.value));if(modelView==='manga')setModelView('terrain');}}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {t(p.name,p.thaiName)}</option>)}</select>
                   <span>{selectedPlace+1}/{region.places.length}</span>
                 </label>        </>}/>}
 
@@ -318,6 +320,25 @@ function App() {
                 onPlan={()=>navigate("prepare")}
               />
 
+            </section>
+
+            {/* Section 01b: Manga street model — the owner's miaoshen engine over the Bang Niang bake */}
+            <section hidden={modelView!=="manga"} className="geography-pane manga-pane" aria-labelledby="manga-pane-title">
+              <div className="pane-header">
+                <div className="pane-titles">
+                  <span className="pane-badge">{t('03 / MANGA STREET MODEL','03 / แบบจำลองถนนสไตล์มังงะ')}</span>
+                  <h2 id="manga-pane-title">{t('Bang Niang street model','แบบจำลองถนนบางเนียง')}</h2>
+                  <span className="terrain-tier">{t('Illustrative manga reading · buildings without source heights stay flat ink outlines · flat ground, sea not drawn · not for navigation','ภาพประกอบสไตล์มังงะ · อาคารที่ไม่มีความสูงจากแหล่งข้อมูลวาดเป็นเส้นขอบแบน · พื้นราบ ไม่วาดทะเล · ไม่ใช้สำหรับนำทาง')}</span>
+                </div>
+              </div>
+              {modelView==='manga' && <MangaModel language={language} />}
+              <div className="manga-caption"><span>{t('Bang Niang · flat illustration · not for navigation','บางเนียง · ภาพประกอบพื้นราบ · ไม่ใช้นำทาง')}</span>
+              <ReadingDialog compact language={language} className="manga-note" title={t('Sources and limits','แหล่งข้อมูลและข้อจำกัด')}>
+                <p>{t('Only mapped centreline coordinates are sourced. Display widths are schematic. Light is artistic; free camera movement is not proof of access or a route.','พิกัดเส้นกลางมาจากแผนที่ ความกว้างที่แสดงเป็นสัญลักษณ์ ไม่แสดงทางเดินเท้าและทะเล แสงเป็นภาพประกอบ การเลื่อนกล้องไม่ยืนยันการเข้าถึงหรือเส้นทางเดิน')}</p>
+
+                <p>{t('Drawn from the same published OpenStreetMap snapshots as the rest of this app: 1,196 building footprints from the 27 October 2026 snapshot, plus streets, waterways, water bodies and parks from the same snapshot. Height truth applies: none of these buildings carries an explicit source height, so every one is drawn as a flat ink outline — the town reads as a line-drawn plan from above and from eye level. One gable-roof reading from Esri imagery (4 November 2026) is recorded in the roof pack. The ground is flat; sea and pedestrian paths are not drawn. Road and waterway widths are schematic, not measured. Light is artistic, not a real sun direction. Free camera movement does not establish traversability. Rendered with three.js (MIT). This model is an illustration, not a survey: do not navigate by it, and it shows no refuge, route safety or water depth.','วาดจากชุดข้อมูล OpenStreetMap ที่เผยแพร่แล้วชุดเดียวกับทั้งแอป: อาคาร 1,196 แปลนจากสแนปช็อต 27 ตุลาคม 2026 พร้อมถนน ทางน้ำ แหล่งน้ำ และสวนจากสแนปช็อตเดียวกัน กฎความจริงของความสูงมีผล: อาคารเหล่านี้ไม่มีความสูงที่ระบุชัดจากแหล่งข้อมูลเลย ทุกหลังจึงวาดเป็นเส้นขอบแบน — เมืองอ่านเป็นแผนผังลายเส้นทั้งจากมุมสูงและระดับสายตา การอ่านหลังคาจากภาพถ่ายดาวเทียม Esri (4 พฤศจิกายน 2026) มี 1 หลังบันทึกไว้ในชุดข้อมูลหลังคา พื้นราบและไม่วาดทะเล แสดงผลด้วย three.js (MIT) แบบจำลองนี้เป็นภาพประกอบ ไม่ใช่งานสำรวจ อย่าใช้นำทาง และไม่แสดงที่หลบภัย ความปลอดภัยของเส้นทาง หรือความลึกของน้ำ')}</p>
+              </ReadingDialog>
+              <p className="terrain-credits manga-credits">© <a href="https://www.openstreetmap.org/copyright">OSM</a> · <a href="https://www.esri.com/">Esri</a> · <a href="https://threejs.org/">three.js</a></p></div>
             </section>
 
 

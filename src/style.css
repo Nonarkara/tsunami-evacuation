@@ -2847,3 +2847,80 @@ html[data-text-size=large] #main,html[data-text-size=large] dialog { --fs-micro:
  .caption-top > button { flex:none; }
  .terrain-caption .caption-bottom { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; width:100%; }
 }
+
+/* ── Manga street model (Bang Niang bake, miaoshen engine) ──────────── */
+.manga-wrap { display: flex; flex-direction: column; min-width: 0; }
+.manga-stage {
+  position: relative;
+  min-height: 0;
+  background: #f4ecda; /* the model's day paper; WebGL paints over it */
+}
+.manga-stage > canvas { position: absolute; inset: 0; width: 100%; height: 100%; outline-offset: -3px; }
+.manga-canvas-canvas { touch-action:none; }
+.manga-stage:focus-within { outline: 2px solid var(--ink); outline-offset: -2px; }
+.manga-bar {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 6px;
+  padding: 3px 6px;
+  background: rgba(244, 236, 218, .93);
+  border-top: 1px solid #1d1b18;
+}
+.manga-seg { display: flex; gap: 3px; }
+.manga-seg[role=group]::before {
+  content: attr(aria-label);
+  font-size: var(--fs-micro);
+  color: #57503f;
+  align-self: center;
+  margin-right: 2px;
+}
+.manga-seg button {
+  font: inherit; font-size: var(--fs-body);
+  min-height: 32px; padding: 3px 9px;
+  background: transparent; border: 1px solid #1d1b18; color: #1d1b18;
+  cursor: pointer;
+}
+.manga-seg button[aria-pressed="true"] { background: #f59e0b; font-weight: 600; }
+.manga-seg button:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+.manga-hintline { margin: 3px 2px 0; font-size: var(--fs-micro); color: #57503f; min-height: 1.2em; }
+.manga-joy {
+  position: absolute; right: 14px; bottom: 48px;
+  width: 88px; height: 88px;
+  border: 1px solid #1d1b18; border-radius: 50%;
+  background: rgba(244, 236, 218, .45);
+  touch-action: none;
+}
+.manga-joy span {
+  position: absolute; left: 50%; top: 50%;
+  width: 36px; height: 36px; margin: -18px 0 0 -18px;
+  border-radius: 50%; background: #1d1b18;
+}
+.manga-loading {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  margin: 0; font-size: var(--fs-body); color: #57503f;
+  background: #f4ecda; border: 1px solid #1d1b18; padding: 6px 12px;
+}
+.manga-note { margin: 6px 2px 0; }
+.manga-note summary { cursor: pointer; font-size: var(--fs-micro); color: var(--ink-2); min-height: 32px; display: flex; align-items: center; }
+.manga-note p { font-size: var(--fs-micro); color: var(--ink-2); margin: 4px 0 0; }
+.manga-credits { margin: 4px 2px 0; }
+.manga-fail { margin: 4px 2px 0; font-size: var(--fs-micro); color: var(--ink-2); }
+.manga-fail-detail { color: var(--ink-3); }
+@media (prefers-reduced-motion: reduce) {
+  /* The model renders on demand only; nothing animates without user input. */
+}
+@media (max-width: 760px) { .manga-seg button { padding: 3px 7px; } }
+
+/* Manga task: one working scene, intrinsic instruments at its exit. */
+#main .geography-pane.manga-pane { display:grid; grid-template-rows:minmax(0,1fr) auto; gap:3px; }
+#main .manga-pane[hidden] { display:none; }
+.manga-wrap { display:grid; grid-template-rows:minmax(0,1fr) auto auto; min-height:0; }
+#main .manga-stage { height:auto; min-height:0; background:var(--panel); }
+.manga-controls .manga-bar { position:static; flex-wrap:wrap; background:var(--panel); padding:3px 0; border:0; }
+.manga-seg[role=group]::before,.manga-hintline { color:var(--ink-2); }
+.manga-seg button { color:var(--ink); border-color:var(--line); }
+.manga-seg button[aria-pressed=true] { background:var(--accent); }
+.manga-seg[hidden] { display:none; }
+.manga-caption { display:flex; flex-wrap:wrap; align-items:baseline; gap:3px 10px; font-size:var(--fs-micro); }
+.manga-note,.manga-credits { margin:0; }
+.manga-caption > span { color:var(--ink-2); }
+.manga-fail-detail { color:var(--ink-2); }

@@ -14,11 +14,13 @@
   "dependencies": {
     "@fontsource/jost": "^5.2.0",
     "@fontsource/prompt": "^5.2.7",
+    "earcut": "^3.2.4",
     "leaflet": "^1.9.4",
     "maplibre-gl": "^6.16.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "suncalc": "^2.1.1"
+    "suncalc": "^2.1.1",
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.20",
@@ -29,6 +31,7 @@
     "tsx": "^4.20.0",
     "typescript": "^5.9.3",
     "vite": "^7.1.0",
-    "wrangler": "^4.153.0"
+    "wrangler": "^4.153.0",
+    "@types/three": "^0.187.0"
   }
 }

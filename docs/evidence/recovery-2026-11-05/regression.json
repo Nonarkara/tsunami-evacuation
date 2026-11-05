@@ -1,0 +1,141 @@
+{
+  "areaChange": {
+    "area": "khao-lak-1",
+    "mangaCanvases": 0,
+    "modelView": "terrain"
+  },
+  "returnToModel": {
+    "bars": 1,
+    "buttons": [
+      {
+        "bottom": 808.203125,
+        "h": 32,
+        "name": "ฟ้า",
+        "right": 86.6328125,
+        "w": 35.3984375,
+        "x": 51.234375,
+        "y": 776.203125
+      },
+      {
+        "bottom": 808.203125,
+        "h": 32,
+        "name": "เดิน",
+        "right": 130.4375,
+        "w": 40.8046875,
+        "x": 89.6328125,
+        "y": 776.203125
+      },
+      {
+        "bottom": 808.203125,
+        "h": 32,
+        "name": "กลางวัน",
+        "right": 227.140625,
+        "w": 65.9453125,
+        "x": 161.1953125,
+        "y": 776.203125
+      },
+      {
+        "bottom": 808.203125,
+        "h": 32,
+        "name": "พลบค่ำ",
+        "right": 290.2734375,
+        "w": 60.1328125,
+        "x": 230.140625,
+        "y": 776.203125
+      },
+      {
+        "bottom": 808.203125,
+        "h": 32,
+        "name": "กลางคืน",
+        "right": 359.46875,
+        "w": 66.1953125,
+        "x": 293.2734375,
+        "y": 776.203125
+      }
+    ],
+    "camera": "{\"x\":-1992.7886114432008,\"y\":784.0308433959889,\"z\":1582.3924210485277,\"speed\":1.4}",
+    "canvas": {
+      "bottom": 773.203125,
+      "h": 729.203125,
+      "right": 1428,
+      "w": 1416,
+      "x": 12,
+      "y": 44
+    },
+    "caption": {
+      "bottom": 864,
+      "h": 21.3984375,
+      "right": 1428,
+      "w": 1416,
+      "x": 12,
+      "y": 842.6015625
+    },
+    "controls": {
+      "bottom": 811.203125,
+      "h": 38,
+      "right": 1428,
+      "w": 1416,
+      "x": 12,
+      "y": 773.203125
+    },
+    "dialogs": [],
+    "document": [
+      1440,
+      900
+    ],
+    "header": {
+      "bottom": 36,
+      "h": 36,
+      "right": 1440,
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "language": "th",
+    "phase": "ready",
+    "stage": {
+      "bottom": 773.203125,
+      "h": 729.203125,
+      "right": 1428,
+      "w": 1416,
+      "x": 12,
+      "y": 44
+    },
+    "url": "http://127.0.0.1:5173/?lang=th#explore",
+    "viewport": [
+      1440,
+      900
+    ]
+  },
+  "regionChange": {
+    "mangaCanvases": 0,
+    "modelView": "terrain",
+    "region": "1"
+  },
+  "errors": [
+    {
+      "level": "error",
+      "message": "You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.",
+      "timestamp": "2026-11-05T07:20:19.132Z",
+      "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=c3dbb21c"
+    },
+    {
+      "level": "error",
+      "message": "You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.",
+      "timestamp": "2026-11-05T07:20:35.139Z",
+      "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=c3dbb21c"
+    },
+    {
+      "level": "error",
+      "message": "You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.",
+      "timestamp": "2026-11-05T07:21:26.136Z",
+      "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=c3dbb21c"
+    },
+    {
+      "level": "error",
+      "message": "You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.",
+      "timestamp": "2026-11-05T07:22:47.882Z",
+      "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=c3dbb21c"
+    }
+  ]
+}
