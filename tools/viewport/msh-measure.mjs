@@ -151,6 +151,41 @@ export function measureMsh() {
     if (r.right > innerWidth + 1 || r.left < -1) failures.push({ name: el.className || el.tagName.toLowerCase(), left: Math.round(r.left), right: Math.round(r.right) });
   }
 
+  // Reading flow: holes inside the visible column, and the tail below its last
+  // block. A hole is space the content skipped inside a column; the tail is the
+  // end of the content. They are different failures and are recorded separately.
+  const columnHoles = [];
+  let flowTail = null;
+  const flow = [...document.querySelectorAll('.paged-flow')]
+    .find(f => f.querySelector('.flow-window') && f.querySelector('.flow-window').clientWidth > 0);
+  if (flow) {
+    const win = flow.querySelector('.flow-window');
+    const content = flow.querySelector('.flow-content');
+    const wr = win.getBoundingClientRect();
+    const intervals = [];
+    for (const el of content.querySelectorAll('*')) {
+      for (const r of el.getClientRects()) {
+        if (r.width <= 0 || r.height <= 0) continue;
+        if (r.right <= wr.left + 2 || r.left >= wr.right - 2) continue;
+        if (r.bottom <= wr.top + 1 || r.top >= wr.bottom + 1) continue;
+        intervals.push([r.top - wr.top, r.bottom - wr.top]);
+      }
+    }
+    intervals.sort((a, b) => a[0] - b[0]);
+    const merged = [];
+    for (const [a, b] of intervals) {
+      if (merged.length && a <= merged[merged.length - 1][1]) {
+        merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], b);
+      } else merged.push([a, b]);
+    }
+    for (let i = 1; i < merged.length; i++) {
+      const gap = Math.round(merged[i][0] - merged[i - 1][1]);
+      if (gap > 24) columnHoles.push({ at: Math.round(merged[i - 1][1]), gap });
+    }
+    const last = merged.length ? merged[merged.length - 1][1] : 0;
+    flowTail = { tail: Math.round(wr.height - last), windowHeight: Math.round(wr.height) };
+  }
+
   return {
     width: innerWidth,
     height: innerHeight,
@@ -163,6 +198,8 @@ export function measureMsh() {
     stretched,
     inflated,
     hierarchy,
+    columnHoles,
+    flowTail,
     task: {
       mapVisible: inView(canvas),
       actionVisible: inView(primaryAction),

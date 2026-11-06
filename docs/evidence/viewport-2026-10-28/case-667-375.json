@@ -32,10 +32,10 @@
           "x": 8,
           "y": 42,
           "width": 358,
-          "height": 270,
+          "height": 248,
           "top": 42,
           "right": 366,
-          "bottom": 312,
+          "bottom": 290,
           "left": 8
         }
       },
@@ -43,10 +43,10 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 315,
+          "y": 293,
           "width": 358,
-          "height": 30,
-          "top": 315,
+          "height": 52,
+          "top": 293,
           "right": 366,
           "bottom": 345,
           "left": 8
@@ -97,92 +97,79 @@
       {
         "name": null,
         "rect": {
-          "x": 69.140625,
+          "x": 77.15625,
           "y": 3,
           "width": 95,
           "height": 28,
           "top": 3,
-          "right": 164.140625,
+          "right": 172.15625,
           "bottom": 31,
-          "left": 69.140625
+          "left": 77.15625
         }
       },
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 317.078125,
+          "x": 335.078125,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 344.078125,
+          "right": 362.078125,
           "bottom": 32,
-          "left": 317.078125
-        }
-      },
-      {
-        "name": "Satellite / ดาวเทียม",
-        "rect": {
-          "x": 345.078125,
-          "y": 2,
-          "width": 27,
-          "height": 30,
-          "top": 2,
-          "right": 372.078125,
-          "bottom": 32,
-          "left": 345.078125
+          "left": 335.078125
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 373.078125,
+          "x": 363.078125,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 400.078125,
+          "right": 390.078125,
           "bottom": 32,
-          "left": 373.078125
+          "left": 363.078125
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 401.078125,
+          "x": 391.078125,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 428.078125,
+          "right": 418.078125,
           "bottom": 32,
-          "left": 401.078125
+          "left": 391.078125
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 429.078125,
+          "x": 419.078125,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 456.078125,
+          "right": 446.078125,
           "bottom": 32,
-          "left": 429.078125
+          "left": 419.078125
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 457.078125,
+          "x": 447.078125,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 484.078125,
+          "right": 474.078125,
           "bottom": 32,
-          "left": 457.078125
+          "left": 447.078125
         }
       },
       {
@@ -200,13 +187,13 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 2Next / ถัดไป →"
+      "← Previous / ก่อน1 / 5Next / ถัดไป →"
     ],
     "failures": [],
     "route": "model",
     "surface": "explore",
     "navCurrent": "page",
-    "terrainState": "loading",
+    "terrainState": "ready",
     "heading": null,
     "visibleRegions": [
       "geography-pane",
@@ -273,197 +260,18 @@
       {
         "name": null,
         "rect": {
-          "x": 69.140625,
+          "x": 77.15625,
           "y": 3,
           "width": 95,
           "height": 28,
           "top": 3,
-          "right": 164.140625,
+          "right": 172.15625,
           "bottom": 31,
-          "left": 69.140625
+          "left": 77.15625
         }
       },
       {
         "name": "Model / แบบจำลอง",
-        "rect": {
-          "x": 488,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 516,
-          "bottom": 32,
-          "left": 488
-        }
-      },
-      {
-        "name": "Satellite / ดาวเทียม",
-        "rect": {
-          "x": 517,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 545,
-          "bottom": 32,
-          "left": 517
-        }
-      },
-      {
-        "name": "Plan / แผน",
-        "rect": {
-          "x": 546,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 574,
-          "bottom": 32,
-          "left": 546
-        }
-      },
-      {
-        "name": "Drill / ซ้อมอพยพ",
-        "rect": {
-          "x": 575,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 603,
-          "bottom": 32,
-          "left": 575
-        }
-      },
-      {
-        "name": "Research / งานวิจัย",
-        "rect": {
-          "x": 604,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 632,
-          "bottom": 32,
-          "left": 604
-        }
-      },
-      {
-        "name": "Manual / คู่มือ",
-        "rect": {
-          "x": 633,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 661,
-          "bottom": 32,
-          "left": 633
-        }
-      }
-    ],
-    "pages": [
-      "← Previous / ก่อนSections / หัวข้อDART pressure-buoy referenceKo Taphao Noi tide-gauge candidateSentinel-1 SAR imageryCopernicus DEM candidateWhat these sources can tell us1 / 3Next / ถัดไป →"
-    ],
-    "failures": [],
-    "route": "satellite",
-    "surface": "satellite",
-    "navCurrent": "page",
-    "terrainState": null,
-    "heading": "Sources & sensors",
-    "visibleRegions": [
-      "flow-window",
-      "sensor-record",
-      "sensor-record",
-      "sensor-record",
-      "sensor-record",
-      "catalogue-physics"
-    ]
-  },
-  {
-    "width": 667,
-    "height": 375,
-    "documentWidth": 667,
-    "documentHeight": 375,
-    "scrollY": 0,
-    "main": {
-      "x": 0,
-      "y": 36,
-      "width": 667,
-      "height": 315,
-      "top": 36,
-      "right": 667,
-      "bottom": 351,
-      "left": 0
-    },
-    "header": {
-      "x": 0,
-      "y": 0,
-      "width": 667,
-      "height": 36,
-      "top": 0,
-      "right": 667,
-      "bottom": 36,
-      "left": 0
-    },
-    "regions": [
-      {
-        "name": "flow-window",
-        "rect": {
-          "x": 8,
-          "y": 42,
-          "width": 651,
-          "height": 263,
-          "top": 42,
-          "right": 659,
-          "bottom": 305,
-          "left": 8
-        }
-      },
-      {
-        "name": "page-turner",
-        "rect": {
-          "x": 8,
-          "y": 313,
-          "width": 651,
-          "height": 32,
-          "top": 313,
-          "right": 659,
-          "bottom": 345,
-          "left": 8
-        }
-      }
-    ],
-    "toolbar": [],
-    "headerControls": [
-      {
-        "name": null,
-        "rect": {
-          "x": 69.140625,
-          "y": 3,
-          "width": 95,
-          "height": 28,
-          "top": 3,
-          "right": 164.140625,
-          "bottom": 31,
-          "left": 69.140625
-        }
-      },
-      {
-        "name": "Model / แบบจำลอง",
-        "rect": {
-          "x": 488,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 516,
-          "bottom": 32,
-          "left": 488
-        }
-      },
-      {
-        "name": "Satellite / ดาวเทียม",
         "rect": {
           "x": 517,
           "y": 2,
@@ -600,31 +408,18 @@
       {
         "name": null,
         "rect": {
-          "x": 69.140625,
+          "x": 77.15625,
           "y": 3,
           "width": 95,
           "height": 28,
           "top": 3,
-          "right": 164.140625,
+          "right": 172.15625,
           "bottom": 31,
-          "left": 69.140625
+          "left": 77.15625
         }
       },
       {
         "name": "Model / แบบจำลอง",
-        "rect": {
-          "x": 488,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 516,
-          "bottom": 32,
-          "left": 488
-        }
-      },
-      {
-        "name": "Satellite / ดาวเทียม",
         "rect": {
           "x": 517,
           "y": 2,
@@ -690,7 +485,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อนSections / หัวข้อ1 / Record observed countsSaved records (0)Walk the plan, then review itIf warnings are real1 / 4Next / ถัดไป →"
+      "← Previous / ก่อนSections / หัวข้อ1 / Record observed countsSaved records (0)Walk the plan, then review itIf warnings are real1 / 3Next / ถัดไป →"
     ],
     "failures": [],
     "route": "drill",
@@ -762,31 +557,18 @@
       {
         "name": null,
         "rect": {
-          "x": 69.140625,
+          "x": 77.15625,
           "y": 3,
           "width": 95,
           "height": 28,
           "top": 3,
-          "right": 164.140625,
+          "right": 172.15625,
           "bottom": 31,
-          "left": 69.140625
+          "left": 77.15625
         }
       },
       {
         "name": "Model / แบบจำลอง",
-        "rect": {
-          "x": 488,
-          "y": 2,
-          "width": 28,
-          "height": 30,
-          "top": 2,
-          "right": 516,
-          "bottom": 32,
-          "left": 488
-        }
-      },
-      {
-        "name": "Satellite / ดาวเทียม",
         "rect": {
           "x": 517,
           "y": 2,
@@ -852,7 +634,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อนSections / หัวข้อ01 / Reported scenario resultsWhat the reported comparisons supportRead package definitions and outcome accounting02 / Two models, different purposesPublished Unity ABMS [R1]Browser point-queue rehearsalHow Soonami Builds on the ResearchUncertainty, repeatability and interpretation03 / Evidence & data ledger04 / Validation agenda · proposed, not completedReproduce the source modelHindcast the physical hazardSurvey routes and candidate refugesTest behavior and language in the fieldStress-test and publish the failures05 / Reproduce, inspect & citeReplication record and author questionsThai / English terminology1 / 15Next / ถัดไป →"
+      "← Previous / ก่อนSections / หัวข้อ01 / Reported scenario resultsWhat the reported comparisons supportRead package definitions and outcome accounting02 / Two models, different purposesPublished Unity ABMS [R1]Browser point-queue rehearsalHow Soonami Builds on the ResearchUncertainty, repeatability and interpretation03 / Evidence & data ledgerSensors & imagery · not connected04 / Validation agenda · proposed, not completedReproduce the source modelHindcast the physical hazardSurvey routes and candidate refugesTest behavior and language in the fieldStress-test and publish the failures05 / Reproduce, inspect & citeReplication record and author questionsThai / English terminology1 / 18Next / ถัดไป →"
     ],
     "failures": [],
     "route": "research",
@@ -867,6 +649,159 @@
       "",
       "",
       ""
+    ]
+  },
+  {
+    "width": 667,
+    "height": 375,
+    "documentWidth": 667,
+    "documentHeight": 375,
+    "scrollY": 0,
+    "main": {
+      "x": 0,
+      "y": 36,
+      "width": 667,
+      "height": 315,
+      "top": 36,
+      "right": 667,
+      "bottom": 351,
+      "left": 0
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 667,
+      "height": 36,
+      "top": 0,
+      "right": 667,
+      "bottom": 36,
+      "left": 0
+    },
+    "regions": [
+      {
+        "name": "flow-window",
+        "rect": {
+          "x": 8,
+          "y": 42,
+          "width": 651,
+          "height": 263,
+          "top": 42,
+          "right": 659,
+          "bottom": 305,
+          "left": 8
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 8,
+          "y": 313,
+          "width": 651,
+          "height": 32,
+          "top": 313,
+          "right": 659,
+          "bottom": 345,
+          "left": 8
+        }
+      }
+    ],
+    "toolbar": [],
+    "headerControls": [
+      {
+        "name": null,
+        "rect": {
+          "x": 77.15625,
+          "y": 3,
+          "width": 95,
+          "height": 28,
+          "top": 3,
+          "right": 172.15625,
+          "bottom": 31,
+          "left": 77.15625
+        }
+      },
+      {
+        "name": "Model / แบบจำลอง",
+        "rect": {
+          "x": 517,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 545,
+          "bottom": 32,
+          "left": 517
+        }
+      },
+      {
+        "name": "Plan / แผน",
+        "rect": {
+          "x": 546,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 574,
+          "bottom": 32,
+          "left": 546
+        }
+      },
+      {
+        "name": "Drill / ซ้อมอพยพ",
+        "rect": {
+          "x": 575,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 603,
+          "bottom": 32,
+          "left": 575
+        }
+      },
+      {
+        "name": "Research / งานวิจัย",
+        "rect": {
+          "x": 604,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 632,
+          "bottom": 32,
+          "left": 604
+        }
+      },
+      {
+        "name": "Manual / คู่มือ",
+        "rect": {
+          "x": 633,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 661,
+          "bottom": 32,
+          "left": 633
+        }
+      }
+    ],
+    "pages": [
+      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 5Next / ถัดไป →"
+    ],
+    "failures": [],
+    "route": "ddpm",
+    "surface": "ddpm",
+    "navCurrent": null,
+    "terrainState": null,
+    "heading": "DDPM · full CSV inspection",
+    "visibleRegions": [
+      "flow-window",
+      "ddpm-panel",
+      "ddpm-fields",
+      "ddpm-limitations",
+      "ddpm-source",
+      "provenance-panel"
     ]
   }
 ]

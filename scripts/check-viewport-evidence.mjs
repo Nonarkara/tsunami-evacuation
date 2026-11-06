@@ -4,7 +4,7 @@ const files=(await readdir(folder)).filter(f=>/^case-\d+-\d+\.json$/.test(f));
 const records=(await Promise.all(files.map(async f=>JSON.parse(await readFile(new URL(f,folder),'utf8'))))).flat();
 const failures=[];
 const expected=[[390,844],[1024,768],[1280,720],[1440,900],[667,375],[390,600],[1169,674],[320,700]];
-for(const [w,h] of expected)for(const route of ['model','satellite','plan','drill','research']){
+for(const [w,h] of expected)for(const route of ['model','plan','drill','research','ddpm']){
  const r=records.filter(x=>x.width===w&&x.height===h&&x.route===route);
  if(r.length!==1)failures.push(`${route}/${w}x${h}: missing or duplicate capture`);
 }

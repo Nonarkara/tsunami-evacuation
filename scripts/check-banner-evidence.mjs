@@ -3,7 +3,7 @@ const rows=JSON.parse(await readFile(new URL('../docs/evidence/banner-2026-10-28
 const old=JSON.parse(await readFile(new URL('../docs/evidence/viewport-2026-10-28/live-routes.json',import.meta.url),'utf8'));
 const oldTop=old.find(x=>x.route==='model').regions.find(x=>x.name==='terrain-stage').rect.top;
 const failures=[];
-for(const [w,h] of [[320,700],[390,844],[760,768],[761,768],[1024,768],[1099,768],[1100,768],[1169,674],[1280,720],[1440,900],[667,375],[390,600]])for(const page of ['explore','satellite','prepare','drill','research']){
+for(const [w,h] of [[320,700],[390,844],[760,768],[761,768],[1024,768],[1099,768],[1100,768],[1169,674],[1280,720],[1440,900],[667,375],[390,600]])for(const page of ['explore','prepare','drill','research','ddpm']){
  const found=rows.filter(x=>x.width===w&&x.height===h&&x.page===page);
  if(found.length!==1)failures.push(`${page}/${w}x${h}: missing or duplicate measurement`);
 }

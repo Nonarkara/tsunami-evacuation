@@ -85,6 +85,8 @@ def main() -> int:
                     f"({data['chrome']['costPercent']}%) map={data['task']['mapVisible']} "
                     f"action={data['task']['actionVisible']} gaps={len(data['gaps'])} "
                     f"stretched={len(data['stretched'])} inflated={len(data['inflated'])} "
+                    f"holes={len(data['columnHoles'])} "
+                    f"tail={(data['flowTail'] or {}).get('tail', '-')} "
                     f"overflow={data['overflow']}",
                     flush=True,
                 )
