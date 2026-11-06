@@ -5,14 +5,21 @@
  * records where every judgement came from. The ridge line drawn for a pitched
  * roof is derived from the footprint's long axis: the imagery says the roof
  * is pitched, it does not give the ridge direction.
+ *
+ * Two kinds of reading live in the pack and are kept apart. A shape the source
+ * states outright — an OpenStreetMap `roof:shape` tag on the published
+ * snapshot — is recorded with its tag and value. A shape read from a dated
+ * aerial image is a judgement. A stated reading wins over a judged one, and
+ * the pack records that it did.
  */
 import type { BuildingPack, BuildingProperties } from './buildings';
 
-export type RoofShape = 'flat' | 'gable';
+export type RoofShape = 'flat' | 'gable' | 'pitched';
 export type RoofImagery = { provider: string; url: string; zoom: number; retrievedAt: string; attribution: string };
+export type RoofOsmTag = { provider: string; url: string; sha256: string; retrievedAt: string; attribution: string; tag: string; value: string };
 export type RoofRecord = {
-  osm: string; shape: RoofShape; method: 'sheet' | 'single'; confidence: 'high' | 'medium' | 'low';
-  reason: string; imagery: RoofImagery; classifiedBy: string; classifiedAt: string;
+  osm: string; shape: RoofShape; method: 'sheet' | 'single' | 'osm-tag'; confidence: 'high' | 'medium' | 'low';
+  reason: string; imagery?: RoofImagery; osmTag?: RoofOsmTag; classifiedBy: string; classifiedAt: string;
 };
 export type RoofPack = {
   schemaVersion: 1; areaId: string; type: 'FeatureCollection';
@@ -40,15 +47,25 @@ export function parseRoofShapes(value: unknown, area: string, buildings: Buildin
     if (!source) throw new Error('Roof pack references a building outside the area');
     if (JSON.stringify(feature.geometry.coordinates) !== JSON.stringify(source.geometry.coordinates)) throw new Error('Roof footprint does not match the building');
     if (p.roofShape === null || p.roofShape === undefined) continue;
-    if (p.roofShape !== 'flat' && p.roofShape !== 'gable') throw new Error('Roof shape must be flat, gable or null');
-    if (p.roofMethod !== 'sheet' && p.roofMethod !== 'single') throw new Error('Roof method is missing');
-    if (!record(p.roofImagery) || typeof p.roofImagery.provider !== 'string' || typeof p.roofImagery.url !== 'string' || !p.roofImagery.url.startsWith('https://') || !finite(p.roofImagery.zoom) || typeof p.roofImagery.retrievedAt !== 'string' || !Number.isFinite(Date.parse(p.roofImagery.retrievedAt)) || typeof p.roofImagery.attribution !== 'string') throw new Error('Roof imagery provenance is missing');
+    if (p.roofShape !== 'flat' && p.roofShape !== 'gable' && p.roofShape !== 'pitched') throw new Error('Roof shape must be flat, gable, pitched or null');
+    if (p.roofMethod !== 'sheet' && p.roofMethod !== 'single' && p.roofMethod !== 'osm-tag') throw new Error('Roof method is missing');
+    // A stated reading and a judged reading carry different provenance, and a
+    // record may carry exactly one of them.
+    let imagery: RoofImagery | undefined;
+    let osmTag: RoofOsmTag | undefined;
+    if (p.roofMethod === 'osm-tag') {
+      if (!record(p.roofOsm) || typeof p.roofOsm.provider !== 'string' || typeof p.roofOsm.url !== 'string' || !p.roofOsm.url.startsWith('https://') || typeof p.roofOsm.sha256 !== 'string' || !/^[0-9a-f]{64}$/.test(p.roofOsm.sha256) || typeof p.roofOsm.retrievedAt !== 'string' || !Number.isFinite(Date.parse(p.roofOsm.retrievedAt)) || typeof p.roofOsm.attribution !== 'string' || typeof p.roofOsm.tag !== 'string' || typeof p.roofOsm.value !== 'string') throw new Error('Roof source provenance is missing');
+      osmTag = { provider: p.roofOsm.provider, url: p.roofOsm.url, sha256: p.roofOsm.sha256, retrievedAt: p.roofOsm.retrievedAt, attribution: p.roofOsm.attribution, tag: p.roofOsm.tag, value: p.roofOsm.value };
+    } else {
+      if (!record(p.roofImagery) || typeof p.roofImagery.provider !== 'string' || typeof p.roofImagery.url !== 'string' || !p.roofImagery.url.startsWith('https://') || !finite(p.roofImagery.zoom) || typeof p.roofImagery.retrievedAt !== 'string' || !Number.isFinite(Date.parse(p.roofImagery.retrievedAt)) || typeof p.roofImagery.attribution !== 'string') throw new Error('Roof imagery provenance is missing');
+      imagery = { provider: p.roofImagery.provider, url: p.roofImagery.url, zoom: p.roofImagery.zoom, retrievedAt: p.roofImagery.retrievedAt, attribution: p.roofImagery.attribution };
+    }
     if (typeof p.roofClassifiedBy !== 'string' || !p.roofClassifiedBy || typeof p.roofClassifiedAt !== 'string' || !Number.isFinite(Date.parse(p.roofClassifiedAt))) throw new Error('Roof classification provenance is missing');
     if (typeof p.roofReason !== 'string' || !p.roofReason) throw new Error('Roof reason is missing');
     if (p.roofConfidence !== 'high' && p.roofConfidence !== 'medium' && p.roofConfidence !== 'low') throw new Error('Roof confidence is missing');
     out.set(p.osm, {
       osm: p.osm, shape: p.roofShape, method: p.roofMethod, confidence: p.roofConfidence, reason: p.roofReason,
-      imagery: { provider: p.roofImagery.provider, url: p.roofImagery.url, zoom: p.roofImagery.zoom, retrievedAt: p.roofImagery.retrievedAt, attribution: p.roofImagery.attribution },
+      imagery, osmTag,
       classifiedBy: p.roofClassifiedBy, classifiedAt: p.roofClassifiedAt,
     });
   }
