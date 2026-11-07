@@ -31,10 +31,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 664,
+          "width": 720,
           "height": 654,
           "top": 44,
-          "right": 676,
+          "right": 732,
           "bottom": 698,
           "left": 12
         }
@@ -44,10 +44,10 @@
         "rect": {
           "x": 12,
           "y": 702,
-          "width": 664,
+          "width": 720,
           "height": 30,
           "top": 702,
-          "right": 676,
+          "right": 732,
           "bottom": 732,
           "left": 12
         }
@@ -55,40 +55,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 692,
+          "x": 748,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 688,
           "top": 44,
           "right": 1012,
           "bottom": 732,
-          "left": 692
+          "left": 748
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 692,
+          "x": 748,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 648,
           "top": 44,
           "right": 1012,
           "bottom": 692,
-          "left": 692
+          "left": 748
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 692,
+          "x": 748,
           "y": 700,
-          "width": 320,
+          "width": 264,
           "height": 32,
           "top": 700,
           "right": 1012,
           "bottom": 732,
-          "left": 692
+          "left": 748
         }
       }
     ],

@@ -31,10 +31,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 933.328125,
+          "width": 1000,
           "height": 786,
           "top": 44,
-          "right": 945.328125,
+          "right": 1012,
           "bottom": 830,
           "left": 12
         }
@@ -44,10 +44,10 @@
         "rect": {
           "x": 12,
           "y": 834,
-          "width": 933.328125,
+          "width": 1000,
           "height": 30,
           "top": 834,
-          "right": 945.328125,
+          "right": 1012,
           "bottom": 864,
           "left": 12
         }
@@ -55,27 +55,27 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 961.328125,
+          "x": 1028,
           "y": 44,
-          "width": 466.65625,
+          "width": 400,
           "height": 820,
           "top": 44,
-          "right": 1427.984375,
+          "right": 1428,
           "bottom": 864,
-          "left": 961.328125
+          "left": 1028
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 961.328125,
+          "x": 1028,
           "y": 44,
-          "width": 466.65625,
+          "width": 400,
           "height": 820,
           "top": 44,
-          "right": 1427.984375,
+          "right": 1428,
           "bottom": 864,
-          "left": 961.328125
+          "left": 1028
         }
       }
     ],

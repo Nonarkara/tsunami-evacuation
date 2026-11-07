@@ -31,10 +31,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 752.65625,
+          "width": 729,
           "height": 560,
           "top": 44,
-          "right": 764.65625,
+          "right": 741,
           "bottom": 604,
           "left": 12
         }
@@ -44,10 +44,10 @@
         "rect": {
           "x": 12,
           "y": 608,
-          "width": 752.65625,
+          "width": 729,
           "height": 30,
           "top": 608,
-          "right": 764.65625,
+          "right": 741,
           "bottom": 638,
           "left": 12
         }
@@ -55,40 +55,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 780.65625,
+          "x": 757,
           "y": 44,
-          "width": 376.34375,
+          "width": 400,
           "height": 594,
           "top": 44,
           "right": 1157,
           "bottom": 638,
-          "left": 780.65625
+          "left": 757
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 780.65625,
+          "x": 757,
           "y": 44,
-          "width": 376.34375,
+          "width": 400,
           "height": 554,
           "top": 44,
           "right": 1157,
           "bottom": 598,
-          "left": 780.65625
+          "left": 757
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 780.65625,
+          "x": 757,
           "y": 606,
-          "width": 376.34375,
+          "width": 400,
           "height": 32,
           "top": 606,
           "right": 1157,
           "bottom": 638,
-          "left": 780.65625
+          "left": 757
         }
       }
     ],
@@ -420,7 +420,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
     ],
     "failures": [],
     "route": "model",
@@ -613,8 +613,21 @@
           "x": 12,
           "y": 44,
           "width": 1145,
-          "height": 594,
+          "height": 554,
           "top": 44,
+          "right": 1157,
+          "bottom": 598,
+          "left": 12
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 12,
+          "y": 606,
+          "width": 1145,
+          "height": 32,
+          "top": 606,
           "right": 1157,
           "bottom": 638,
           "left": 12
@@ -715,7 +728,9 @@
         }
       }
     ],
-    "pages": [],
+    "pages": [
+      "← Previous / ก่อนSections / หัวข้อ1 / Record observed countsSaved records (0)Walk the plan, then review itIf warnings are real1 / 2Next / ถัดไป →"
+    ],
     "failures": [],
     "route": "drill",
     "surface": "drill",

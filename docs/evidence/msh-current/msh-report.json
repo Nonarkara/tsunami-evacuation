@@ -70,14 +70,14 @@
             "x": 8,
             "y": 42,
             "w": 374,
-            "h": 390
+            "h": 506
           }
         },
         {
           "name": "terrain-caption",
           "rect": {
             "x": 8,
-            "y": 435,
+            "y": 551,
             "w": 374,
             "h": 52
           }
@@ -86,16 +86,16 @@
           "name": "terrain-operations",
           "rect": {
             "x": 8,
-            "y": 490,
+            "y": 606,
             "w": 374,
-            "h": 324
+            "h": 208
           }
         },
         {
           "name": "rehearsal-controls",
           "rect": {
             "x": 8,
-            "y": 643,
+            "y": 657,
             "w": 374,
             "h": 113
           }
@@ -104,31 +104,23 @@
       "blocks": [
         {
           "name": "paged-flow operations-pages",
-          "top": 490,
+          "top": 606,
           "bottom": 814,
-          "height": 324,
+          "height": 208,
           "marginTop": 0,
           "marginBottom": 0,
           "children": 2,
-          "textLength": 1250
+          "textLength": 1324
         }
       ],
       "gaps": [],
       "stretched": [],
       "inflated": [],
-      "hierarchy": [
-        {
-          "tag": "strong",
-          "text": "Modeled victims % / 39,041",
-          "size": 13,
-          "weight": "600",
-          "y": 497
-        }
-      ],
+      "hierarchy": [],
       "columnHoles": [],
       "flowTail": {
-        "tail": 18,
-        "windowHeight": 284
+        "tail": 4,
+        "windowHeight": 168
       },
       "task": {
         "mapVisible": true,
@@ -136,7 +128,7 @@
         "actionName": "Previous page / หน้าก่อน",
         "canvasSize": {
           "w": 374,
-          "h": 390
+          "h": 506
         }
       },
       "failures": [],
@@ -207,12 +199,12 @@
           "text": "~21 minutes",
           "size": 13,
           "weight": "600",
-          "y": 549
+          "y": 654
         }
       ],
       "columnHoles": [],
       "flowTail": {
-        "tail": 128,
+        "tail": 24,
         "windowHeight": 732
       },
       "task": {
@@ -314,11 +306,25 @@
           "size": 24,
           "weight": "600",
           "y": 440
+        },
+        {
+          "tag": "h3",
+          "text": "Walk the plan, then review it",
+          "size": 17,
+          "weight": "600",
+          "y": 664
+        },
+        {
+          "tag": "strong",
+          "text": "Confirm before you practise",
+          "size": 13,
+          "weight": "600",
+          "y": 705
         }
       ],
       "columnHoles": [],
       "flowTail": {
-        "tail": 84,
+        "tail": 0,
         "windowHeight": 732
       },
       "task": {
@@ -327,7 +333,28 @@
         "actionName": "Previous page / หน้าก่อน",
         "canvasSize": null
       },
-      "failures": [],
+      "failures": [
+        {
+          "name": "evacuation-guide ",
+          "left": 8,
+          "right": 780
+        },
+        {
+          "name": "ol",
+          "left": 8,
+          "right": 780
+        },
+        {
+          "name": "li",
+          "left": 8,
+          "right": 780
+        },
+        {
+          "name": "p",
+          "left": 8,
+          "right": 780
+        }
+      ],
       "overflow": false,
       "tab": "drill"
     },
@@ -386,7 +413,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 1,
-          "textLength": 14356
+          "textLength": 14355
         }
       ],
       "gaps": [],
@@ -430,10 +457,20 @@
         {
           "name": "section",
           "left": 8,
-          "right": 1178
+          "right": 780
         },
         {
           "name": "research-results-figure",
+          "left": 8,
+          "right": 780
+        },
+        {
+          "name": "research-results-table",
+          "left": 8,
+          "right": 780
+        },
+        {
+          "name": "tbody",
           "left": 8,
           "right": 780
         }
@@ -607,6 +644,55 @@
           "size": 13,
           "weight": "600",
           "y": 503
+        },
+        {
+          "tag": "h3",
+          "text": "Source and inspection receipt",
+          "size": 17,
+          "weight": "600",
+          "y": 554
+        },
+        {
+          "tag": "dt",
+          "text": "Source",
+          "size": 13,
+          "weight": "400",
+          "y": 639
+        },
+        {
+          "tag": "dd",
+          "text": "DDPM · กรมป้องกันและบรรเทาสาธารณภัย",
+          "size": 13,
+          "weight": "400",
+          "y": 639
+        },
+        {
+          "tag": "dt",
+          "text": "Retrieved",
+          "size": 13,
+          "weight": "400",
+          "y": 664
+        },
+        {
+          "tag": "dd",
+          "text": "2026-10-30 06:44:12 UTC",
+          "size": 13,
+          "weight": "400",
+          "y": 664
+        },
+        {
+          "tag": "dt",
+          "text": "Licence",
+          "size": 13,
+          "weight": "400",
+          "y": 689
+        },
+        {
+          "tag": "dd",
+          "text": "Creative Commons Attributions (version u",
+          "size": 13,
+          "weight": "400",
+          "y": 689
         }
       ],
       "columnHoles": [],
@@ -625,6 +711,16 @@
           "name": "ddpm-panel",
           "left": 8,
           "right": 1178
+        },
+        {
+          "name": "ddpm-source",
+          "left": 8,
+          "right": 780
+        },
+        {
+          "name": "provenance-panel",
+          "left": 8,
+          "right": 780
         }
       ],
       "overflow": false,
@@ -708,7 +804,7 @@
           "rect": {
             "x": 12,
             "y": 44,
-            "w": 664,
+            "w": 720,
             "h": 654
           }
         },
@@ -717,53 +813,35 @@
           "rect": {
             "x": 12,
             "y": 702,
-            "w": 664,
+            "w": 720,
             "h": 30
           }
         },
         {
           "name": "terrain-operations",
           "rect": {
-            "x": 692,
+            "x": 748,
             "y": 44,
-            "w": 320,
+            "w": 264,
             "h": 688
-          }
-        },
-        {
-          "name": "route-profile",
-          "rect": {
-            "x": 692,
-            "y": 44,
-            "w": 664,
-            "h": 648
-          }
-        },
-        {
-          "name": "terrain-analysis-row",
-          "rect": {
-            "x": 692,
-            "y": 44,
-            "w": 664,
-            "h": 648
           }
         },
         {
           "name": "rehearsal-controls",
           "rect": {
-            "x": 692,
+            "x": 748,
             "y": 217,
-            "w": 320,
-            "h": 113
+            "w": 264,
+            "h": 149
           }
         },
         {
           "name": "rehearsal-timeline",
           "rect": {
-            "x": 692,
-            "y": 330,
-            "w": 320,
-            "h": 36
+            "x": 748,
+            "y": 366,
+            "w": 264,
+            "h": 76
           }
         }
       ],
@@ -776,7 +854,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 2,
-          "textLength": 1250
+          "textLength": 1324
         }
       ],
       "gaps": [],
@@ -795,84 +873,77 @@
           "text": "1,500",
           "size": 13,
           "weight": "600",
-          "y": 424
+          "y": 500
         },
         {
           "tag": "dd",
           "text": "0",
           "size": 13,
           "weight": "600",
-          "y": 424
+          "y": 500
         },
         {
           "tag": "dd",
           "text": "0",
           "size": 13,
           "weight": "600",
-          "y": 424
-        },
-        {
-          "tag": "dd",
-          "text": "0",
-          "size": 13,
-          "weight": "600",
-          "y": 424
+          "y": 500
         },
         {
           "tag": "dt",
           "text": "awaiting",
           "size": 11,
           "weight": "400",
-          "y": 425
+          "y": 501
         },
         {
           "tag": "dt",
           "text": "walking",
           "size": 11,
           "weight": "400",
-          "y": 425
+          "y": 501
         },
         {
           "tag": "dt",
           "text": "queued",
           "size": 11,
           "weight": "400",
-          "y": 425
+          "y": 501
+        },
+        {
+          "tag": "dd",
+          "text": "0",
+          "size": 13,
+          "weight": "600",
+          "y": 520
         },
         {
           "tag": "dt",
           "text": "at end",
           "size": 11,
           "weight": "400",
-          "y": 425
+          "y": 521
         },
         {
           "tag": "strong",
           "text": "63:35",
           "size": 13,
           "weight": "600",
-          "y": 445
+          "y": 541
         },
         {
           "tag": "strong",
           "text": "4:34",
           "size": 13,
           "weight": "600",
-          "y": 445
+          "y": 541
         },
         {
           "tag": "strong",
           "text": "Time to the exercise end",
           "size": 13,
           "weight": "600",
-          "y": 484
-        },
-        {
-          "tag": "strong",
-          "text": "Bang Niang exercise: Central approach · ",
-          "size": 13,
-          "weight": "600",
-          "y": 644
+          "y": 580
         }
       ],
       "columnHoles": [],
@@ -885,25 +956,15 @@
         "actionVisible": false,
         "actionName": "Previous page / หน้าก่อน",
         "canvasSize": {
-          "w": 664,
+          "w": 720,
           "h": 654
         }
       },
       "failures": [
         {
-          "name": "terrain-secondary crowd",
-          "left": 692,
-          "right": 1356
-        },
-        {
-          "name": "terrain-analysis-row",
-          "left": 692,
-          "right": 1356
-        },
-        {
-          "name": "route-profile",
-          "left": 692,
-          "right": 1356
+          "name": "escape-timing",
+          "left": 748,
+          "right": 1300
         }
       ],
       "overflow": false,
@@ -1114,35 +1175,7 @@
           "text": "Confirm before you practise",
           "size": 13,
           "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Agree the warning and assistance",
-          "size": 13,
-          "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Walk and observe",
-          "size": 13,
-          "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Account for every participant",
-          "size": 13,
-          "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Fix one problem and repeat",
-          "size": 13,
-          "weight": "600",
-          "y": 80
+          "y": 85
         },
         {
           "tag": "h2",
@@ -1153,10 +1186,38 @@
         },
         {
           "tag": "strong",
+          "text": "Agree the warning and assistance",
+          "size": 13,
+          "weight": "600",
+          "y": 185
+        },
+        {
+          "tag": "strong",
+          "text": "Walk and observe",
+          "size": 13,
+          "weight": "600",
+          "y": 285
+        },
+        {
+          "tag": "strong",
+          "text": "Account for every participant",
+          "size": 13,
+          "weight": "600",
+          "y": 385
+        },
+        {
+          "tag": "strong",
           "text": "—",
           "size": 24,
           "weight": "600",
           "y": 442
+        },
+        {
+          "tag": "strong",
+          "text": "Fix one problem and repeat",
+          "size": 13,
+          "weight": "600",
+          "y": 485
         }
       ],
       "columnHoles": [],
@@ -1701,7 +1762,7 @@
           "rect": {
             "x": 12,
             "y": 44,
-            "w": 933,
+            "w": 1000,
             "h": 786
           }
         },
@@ -1710,52 +1771,52 @@
           "rect": {
             "x": 12,
             "y": 834,
-            "w": 933,
+            "w": 1000,
             "h": 30
           }
         },
         {
           "name": "terrain-operations",
           "rect": {
-            "x": 961,
+            "x": 1028,
             "y": 44,
-            "w": 467,
+            "w": 400,
             "h": 820
           }
         },
         {
           "name": "route-profile",
           "rect": {
-            "x": 961,
-            "y": 610,
-            "w": 467,
-            "h": 211
+            "x": 1028,
+            "y": 627,
+            "w": 400,
+            "h": 229
           }
         },
         {
           "name": "terrain-analysis-row",
           "rect": {
-            "x": 961,
-            "y": 602,
-            "w": 467,
-            "h": 262
+            "x": 1028,
+            "y": 619,
+            "w": 400,
+            "h": 245
           }
         },
         {
           "name": "rehearsal-controls",
           "rect": {
-            "x": 961,
+            "x": 1028,
             "y": 217,
-            "w": 467,
+            "w": 400,
             "h": 113
           }
         },
         {
           "name": "rehearsal-timeline",
           "rect": {
-            "x": 961,
+            "x": 1028,
             "y": 330,
-            "w": 467,
+            "w": 400,
             "h": 36
           }
         }
@@ -1769,7 +1830,7 @@
           "marginTop": 0,
           "marginBottom": 0,
           "children": 2,
-          "textLength": 1250
+          "textLength": 1324
         }
       ],
       "gaps": [],
@@ -1865,7 +1926,7 @@
           "text": "Bang Niang exercise: Central approach · ",
           "size": 13,
           "weight": "600",
-          "y": 610
+          "y": 627
         }
       ],
       "columnHoles": [],
@@ -1878,7 +1939,7 @@
         "actionVisible": false,
         "actionName": "Previous page / หน้าก่อน",
         "canvasSize": {
-          "w": 933,
+          "w": 1000,
           "h": 786
         }
       },
@@ -2091,35 +2152,7 @@
           "text": "Confirm before you practise",
           "size": 13,
           "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Agree the warning and assistance",
-          "size": 13,
-          "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Walk and observe",
-          "size": 13,
-          "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Account for every participant",
-          "size": 13,
-          "weight": "600",
-          "y": 80
-        },
-        {
-          "tag": "strong",
-          "text": "Fix one problem and repeat",
-          "size": 13,
-          "weight": "600",
-          "y": 80
+          "y": 85
         },
         {
           "tag": "h2",
@@ -2130,10 +2163,38 @@
         },
         {
           "tag": "strong",
+          "text": "Agree the warning and assistance",
+          "size": 13,
+          "weight": "600",
+          "y": 185
+        },
+        {
+          "tag": "strong",
+          "text": "Walk and observe",
+          "size": 13,
+          "weight": "600",
+          "y": 285
+        },
+        {
+          "tag": "strong",
+          "text": "Account for every participant",
+          "size": 13,
+          "weight": "600",
+          "y": 385
+        },
+        {
+          "tag": "strong",
           "text": "—",
           "size": 24,
           "weight": "600",
           "y": 442
+        },
+        {
+          "tag": "strong",
+          "text": "Fix one problem and repeat",
+          "size": 13,
+          "weight": "600",
+          "y": 485
         }
       ],
       "columnHoles": [],

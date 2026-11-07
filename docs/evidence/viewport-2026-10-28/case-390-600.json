@@ -32,10 +32,10 @@
           "x": 8,
           "y": 42,
           "width": 374,
-          "height": 146,
+          "height": 258,
           "top": 42,
           "right": 382,
-          "bottom": 188,
+          "bottom": 300,
           "left": 8
         }
       },
@@ -43,12 +43,12 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 191,
+          "y": 303,
           "width": 374,
           "height": 52,
-          "top": 191,
+          "top": 303,
           "right": 382,
-          "bottom": 243,
+          "bottom": 355,
           "left": 8
         }
       },
@@ -56,10 +56,10 @@
         "name": "terrain-operations",
         "rect": {
           "x": 8,
-          "y": 246,
+          "y": 358,
           "width": 374,
-          "height": 324,
-          "top": 246,
+          "height": 212,
+          "top": 358,
           "right": 382,
           "bottom": 570,
           "left": 8
@@ -69,10 +69,10 @@
         "name": "flow-window",
         "rect": {
           "x": 8,
-          "y": 246,
+          "y": 358,
           "width": 374,
-          "height": 284,
-          "top": 246,
+          "height": 172,
+          "top": 358,
           "right": 382,
           "bottom": 530,
           "left": 8
@@ -187,7 +187,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+      "← Previous / ก่อน1 / 6Next / ถัดไป →"
     ],
     "failures": [],
     "route": "model",
@@ -337,7 +337,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+      "← Previous / ก่อน1 / 3Next / ถัดไป →"
     ],
     "failures": [],
     "route": "plan",
@@ -787,7 +787,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 6Next / ถัดไป →"
+      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 4Next / ถัดไป →"
     ],
     "failures": [],
     "route": "ddpm",

@@ -132,10 +132,10 @@
       "x": 8,
       "y": 42,
       "width": 304,
-      "height": 246,
+      "height": 358,
       "top": 42,
       "right": 312,
-      "bottom": 288,
+      "bottom": 400,
       "left": 8
     },
     "regions": [
@@ -145,10 +145,10 @@
           "x": 8,
           "y": 42,
           "width": 304,
-          "height": 246,
+          "height": 358,
           "top": 42,
           "right": 312,
-          "bottom": 288,
+          "bottom": 400,
           "left": 8
         }
       },
@@ -156,12 +156,12 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 291,
+          "y": 403,
           "width": 304,
           "height": 52,
-          "top": 291,
+          "top": 403,
           "right": 312,
-          "bottom": 343,
+          "bottom": 455,
           "left": 8
         }
       },
@@ -169,10 +169,10 @@
         "name": "terrain-operations",
         "rect": {
           "x": 8,
-          "y": 346,
+          "y": 458,
           "width": 304,
-          "height": 324,
-          "top": 346,
+          "height": 212,
+          "top": 458,
           "right": 312,
           "bottom": 670,
           "left": 8
@@ -182,10 +182,10 @@
         "name": "flow-window",
         "rect": {
           "x": 8,
-          "y": 346,
+          "y": 458,
           "width": 304,
-          "height": 284,
-          "top": 346,
+          "height": 172,
+          "top": 458,
           "right": 312,
           "bottom": 630,
           "left": 8
@@ -934,10 +934,10 @@
       "x": 8,
       "y": 42,
       "width": 374,
-      "height": 146,
+      "height": 258,
       "top": 42,
       "right": 382,
-      "bottom": 188,
+      "bottom": 300,
       "left": 8
     },
     "regions": [
@@ -947,10 +947,10 @@
           "x": 8,
           "y": 42,
           "width": 374,
-          "height": 146,
+          "height": 258,
           "top": 42,
           "right": 382,
-          "bottom": 188,
+          "bottom": 300,
           "left": 8
         }
       },
@@ -958,12 +958,12 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 191,
+          "y": 303,
           "width": 374,
           "height": 52,
-          "top": 191,
+          "top": 303,
           "right": 382,
-          "bottom": 243,
+          "bottom": 355,
           "left": 8
         }
       },
@@ -971,10 +971,10 @@
         "name": "terrain-operations",
         "rect": {
           "x": 8,
-          "y": 246,
+          "y": 358,
           "width": 374,
-          "height": 324,
-          "top": 246,
+          "height": 212,
+          "top": 358,
           "right": 382,
           "bottom": 570,
           "left": 8
@@ -984,10 +984,10 @@
         "name": "flow-window",
         "rect": {
           "x": 8,
-          "y": 246,
+          "y": 358,
           "width": 374,
-          "height": 284,
-          "top": 246,
+          "height": 172,
+          "top": 358,
           "right": 382,
           "bottom": 530,
           "left": 8
@@ -1736,10 +1736,10 @@
       "x": 8,
       "y": 42,
       "width": 374,
-      "height": 390,
+      "height": 506.390625,
       "top": 42,
       "right": 382,
-      "bottom": 432,
+      "bottom": 548.390625,
       "left": 8
     },
     "regions": [
@@ -1749,10 +1749,10 @@
           "x": 8,
           "y": 42,
           "width": 374,
-          "height": 390,
+          "height": 506.390625,
           "top": 42,
           "right": 382,
-          "bottom": 432,
+          "bottom": 548.390625,
           "left": 8
         }
       },
@@ -1760,12 +1760,12 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 435,
+          "y": 551.390625,
           "width": 374,
           "height": 52,
-          "top": 435,
+          "top": 551.390625,
           "right": 382,
-          "bottom": 487,
+          "bottom": 603.390625,
           "left": 8
         }
       },
@@ -1773,10 +1773,10 @@
         "name": "terrain-operations",
         "rect": {
           "x": 8,
-          "y": 490,
+          "y": 606.390625,
           "width": 374,
-          "height": 324,
-          "top": 490,
+          "height": 207.609375,
+          "top": 606.390625,
           "right": 382,
           "bottom": 814,
           "left": 8
@@ -1786,10 +1786,10 @@
         "name": "flow-window",
         "rect": {
           "x": 8,
-          "y": 490,
+          "y": 606.390625,
           "width": 374,
-          "height": 284,
-          "top": 490,
+          "height": 167.609375,
+          "top": 606.390625,
           "right": 382,
           "bottom": 774,
           "left": 8
@@ -3368,10 +3368,10 @@
       "x": 8,
       "y": 42,
       "width": 744,
-      "height": 314,
+      "height": 460.796875,
       "top": 42,
       "right": 752,
-      "bottom": 356,
+      "bottom": 502.796875,
       "left": 8
     },
     "regions": [
@@ -3381,10 +3381,10 @@
           "x": 8,
           "y": 42,
           "width": 744,
-          "height": 314,
+          "height": 460.796875,
           "top": 42,
           "right": 752,
-          "bottom": 356,
+          "bottom": 502.796875,
           "left": 8
         }
       },
@@ -3392,12 +3392,12 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 359,
+          "y": 505.796875,
           "width": 744,
           "height": 52,
-          "top": 359,
+          "top": 505.796875,
           "right": 752,
-          "bottom": 411,
+          "bottom": 557.796875,
           "left": 8
         }
       },
@@ -3405,10 +3405,10 @@
         "name": "terrain-operations",
         "rect": {
           "x": 8,
-          "y": 414,
+          "y": 560.796875,
           "width": 744,
-          "height": 324,
-          "top": 414,
+          "height": 177.203125,
+          "top": 560.796875,
           "right": 752,
           "bottom": 738,
           "left": 8
@@ -3418,10 +3418,10 @@
         "name": "flow-window",
         "rect": {
           "x": 8,
-          "y": 414,
+          "y": 560.796875,
           "width": 744,
-          "height": 284,
-          "top": 414,
+          "height": 137.203125,
+          "top": 560.796875,
           "right": 752,
           "bottom": 698,
           "left": 8
@@ -4211,10 +4211,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 401,
+      "width": 457,
       "height": 654,
       "top": 44,
-      "right": 413,
+      "right": 469,
       "bottom": 698,
       "left": 12
     },
@@ -4224,10 +4224,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 401,
+          "width": 457,
           "height": 654,
           "top": 44,
-          "right": 413,
+          "right": 469,
           "bottom": 698,
           "left": 12
         }
@@ -4237,10 +4237,10 @@
         "rect": {
           "x": 12,
           "y": 702,
-          "width": 401,
+          "width": 457,
           "height": 30,
           "top": 702,
-          "right": 413,
+          "right": 469,
           "bottom": 732,
           "left": 12
         }
@@ -4248,40 +4248,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 429,
+          "x": 485,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 688,
           "top": 44,
           "right": 749,
           "bottom": 732,
-          "left": 429
+          "left": 485
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 429,
+          "x": 485,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 648,
           "top": 44,
           "right": 749,
           "bottom": 692,
-          "left": 429
+          "left": 485
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 429,
+          "x": 485,
           "y": 700,
-          "width": 320,
+          "width": 264,
           "height": 32,
           "top": 700,
           "right": 749,
           "bottom": 732,
-          "left": 429
+          "left": 485
         }
       }
     ],
@@ -5085,10 +5085,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 664,
+      "width": 720,
       "height": 654,
       "top": 44,
-      "right": 676,
+      "right": 732,
       "bottom": 698,
       "left": 12
     },
@@ -5098,10 +5098,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 664,
+          "width": 720,
           "height": 654,
           "top": 44,
-          "right": 676,
+          "right": 732,
           "bottom": 698,
           "left": 12
         }
@@ -5111,10 +5111,10 @@
         "rect": {
           "x": 12,
           "y": 702,
-          "width": 664,
+          "width": 720,
           "height": 30,
           "top": 702,
-          "right": 676,
+          "right": 732,
           "bottom": 732,
           "left": 12
         }
@@ -5122,40 +5122,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 692,
+          "x": 748,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 688,
           "top": 44,
           "right": 1012,
           "bottom": 732,
-          "left": 692
+          "left": 748
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 692,
+          "x": 748,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 648,
           "top": 44,
           "right": 1012,
           "bottom": 692,
-          "left": 692
+          "left": 748
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 692,
+          "x": 748,
           "y": 700,
-          "width": 320,
+          "width": 264,
           "height": 32,
           "top": 700,
           "right": 1012,
           "bottom": 732,
-          "left": 692
+          "left": 748
         }
       }
     ],
@@ -5946,10 +5946,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 739,
+      "width": 795,
       "height": 654,
       "top": 44,
-      "right": 751,
+      "right": 807,
       "bottom": 698,
       "left": 12
     },
@@ -5959,10 +5959,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 739,
+          "width": 795,
           "height": 654,
           "top": 44,
-          "right": 751,
+          "right": 807,
           "bottom": 698,
           "left": 12
         }
@@ -5972,10 +5972,10 @@
         "rect": {
           "x": 12,
           "y": 702,
-          "width": 739,
+          "width": 795,
           "height": 30,
           "top": 702,
-          "right": 751,
+          "right": 807,
           "bottom": 732,
           "left": 12
         }
@@ -5983,40 +5983,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 767,
+          "x": 823,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 688,
           "top": 44,
           "right": 1087,
           "bottom": 732,
-          "left": 767
+          "left": 823
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 767,
+          "x": 823,
           "y": 44,
-          "width": 320,
+          "width": 264,
           "height": 648,
           "top": 44,
           "right": 1087,
           "bottom": 692,
-          "left": 767
+          "left": 823
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 767,
+          "x": 823,
           "y": 700,
-          "width": 320,
+          "width": 264,
           "height": 32,
           "top": 700,
           "right": 1087,
           "bottom": 732,
-          "left": 767
+          "left": 823
         }
       }
     ],
@@ -6961,10 +6961,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 706.65625,
+      "width": 660,
       "height": 654,
       "top": 44,
-      "right": 718.65625,
+      "right": 672,
       "bottom": 698,
       "left": 12
     },
@@ -6974,10 +6974,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 706.65625,
+          "width": 660,
           "height": 654,
           "top": 44,
-          "right": 718.65625,
+          "right": 672,
           "bottom": 698,
           "left": 12
         }
@@ -6987,10 +6987,10 @@
         "rect": {
           "x": 12,
           "y": 702,
-          "width": 706.65625,
+          "width": 660,
           "height": 30,
           "top": 702,
-          "right": 718.65625,
+          "right": 672,
           "bottom": 732,
           "left": 12
         }
@@ -6998,40 +6998,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 734.65625,
+          "x": 688,
           "y": 44,
-          "width": 353.34375,
+          "width": 400,
           "height": 688,
           "top": 44,
           "right": 1088,
           "bottom": 732,
-          "left": 734.65625
+          "left": 688
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 734.65625,
+          "x": 688,
           "y": 44,
-          "width": 353.34375,
+          "width": 400,
           "height": 648,
           "top": 44,
           "right": 1088,
           "bottom": 692,
-          "left": 734.65625
+          "left": 688
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 734.65625,
+          "x": 688,
           "y": 700,
-          "width": 353.34375,
+          "width": 400,
           "height": 32,
           "top": 700,
           "right": 1088,
           "bottom": 732,
-          "left": 734.65625
+          "left": 688
         }
       }
     ],
@@ -7976,10 +7976,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 752.65625,
+      "width": 729,
       "height": 560,
       "top": 44,
-      "right": 764.65625,
+      "right": 741,
       "bottom": 604,
       "left": 12
     },
@@ -7989,10 +7989,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 752.65625,
+          "width": 729,
           "height": 560,
           "top": 44,
-          "right": 764.65625,
+          "right": 741,
           "bottom": 604,
           "left": 12
         }
@@ -8002,10 +8002,10 @@
         "rect": {
           "x": 12,
           "y": 608,
-          "width": 752.65625,
+          "width": 729,
           "height": 30,
           "top": 608,
-          "right": 764.65625,
+          "right": 741,
           "bottom": 638,
           "left": 12
         }
@@ -8013,40 +8013,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 780.65625,
+          "x": 757,
           "y": 44,
-          "width": 376.34375,
+          "width": 400,
           "height": 594,
           "top": 44,
           "right": 1157,
           "bottom": 638,
-          "left": 780.65625
+          "left": 757
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 780.65625,
+          "x": 757,
           "y": 44,
-          "width": 376.34375,
+          "width": 400,
           "height": 554,
           "top": 44,
           "right": 1157,
           "bottom": 598,
-          "left": 780.65625
+          "left": 757
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 780.65625,
+          "x": 757,
           "y": 606,
-          "width": 376.34375,
+          "width": 400,
           "height": 32,
           "top": 606,
           "right": 1157,
           "bottom": 638,
-          "left": 780.65625
+          "left": 757
         }
       }
     ],
@@ -8340,8 +8340,21 @@
           "x": 12,
           "y": 44,
           "width": 1145,
-          "height": 594,
+          "height": 554,
           "top": 44,
+          "right": 1157,
+          "bottom": 598,
+          "left": 12
+        }
+      },
+      {
+        "name": "page-turner",
+        "rect": {
+          "x": 12,
+          "y": 606,
+          "width": 1145,
+          "height": 32,
+          "top": 606,
           "right": 1157,
           "bottom": 638,
           "left": 12
@@ -9004,10 +9017,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 826.65625,
+      "width": 840,
       "height": 606,
       "top": 44,
-      "right": 838.65625,
+      "right": 852,
       "bottom": 650,
       "left": 12
     },
@@ -9017,10 +9030,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 826.65625,
+          "width": 840,
           "height": 606,
           "top": 44,
-          "right": 838.65625,
+          "right": 852,
           "bottom": 650,
           "left": 12
         }
@@ -9030,10 +9043,10 @@
         "rect": {
           "x": 12,
           "y": 654,
-          "width": 826.65625,
+          "width": 840,
           "height": 30,
           "top": 654,
-          "right": 838.65625,
+          "right": 852,
           "bottom": 684,
           "left": 12
         }
@@ -9041,40 +9054,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 854.65625,
+          "x": 868,
           "y": 44,
-          "width": 413.34375,
+          "width": 400,
           "height": 640,
           "top": 44,
           "right": 1268,
           "bottom": 684,
-          "left": 854.65625
+          "left": 868
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 854.65625,
+          "x": 868,
           "y": 44,
-          "width": 413.34375,
+          "width": 400,
           "height": 600,
           "top": 44,
           "right": 1268,
           "bottom": 644,
-          "left": 854.65625
+          "left": 868
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 854.65625,
+          "x": 868,
           "y": 652,
-          "width": 413.34375,
+          "width": 400,
           "height": 32,
           "top": 652,
           "right": 1268,
           "bottom": 684,
-          "left": 854.65625
+          "left": 868
         }
       }
     ],
@@ -10019,10 +10032,10 @@
     "stage": {
       "x": 12,
       "y": 44,
-      "width": 933.328125,
+      "width": 1000,
       "height": 786,
       "top": 44,
-      "right": 945.328125,
+      "right": 1012,
       "bottom": 830,
       "left": 12
     },
@@ -10032,10 +10045,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 933.328125,
+          "width": 1000,
           "height": 786,
           "top": 44,
-          "right": 945.328125,
+          "right": 1012,
           "bottom": 830,
           "left": 12
         }
@@ -10045,10 +10058,10 @@
         "rect": {
           "x": 12,
           "y": 834,
-          "width": 933.328125,
+          "width": 1000,
           "height": 30,
           "top": 834,
-          "right": 945.328125,
+          "right": 1012,
           "bottom": 864,
           "left": 12
         }
@@ -10056,27 +10069,27 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 961.328125,
+          "x": 1028,
           "y": 44,
-          "width": 466.65625,
+          "width": 400,
           "height": 820,
           "top": 44,
-          "right": 1427.984375,
+          "right": 1428,
           "bottom": 864,
-          "left": 961.328125
+          "left": 1028
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 961.328125,
+          "x": 1028,
           "y": 44,
-          "width": 466.65625,
+          "width": 400,
           "height": 820,
           "top": 44,
-          "right": 1427.984375,
+          "right": 1428,
           "bottom": 864,
-          "left": 961.328125
+          "left": 1028
         }
       }
     ],

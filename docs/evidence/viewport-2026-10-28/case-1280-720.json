@@ -31,10 +31,10 @@
         "rect": {
           "x": 12,
           "y": 44,
-          "width": 826.65625,
+          "width": 840,
           "height": 606,
           "top": 44,
-          "right": 838.65625,
+          "right": 852,
           "bottom": 650,
           "left": 12
         }
@@ -44,10 +44,10 @@
         "rect": {
           "x": 12,
           "y": 654,
-          "width": 826.65625,
+          "width": 840,
           "height": 30,
           "top": 654,
-          "right": 838.65625,
+          "right": 852,
           "bottom": 684,
           "left": 12
         }
@@ -55,40 +55,40 @@
       {
         "name": "terrain-operations",
         "rect": {
-          "x": 854.65625,
+          "x": 868,
           "y": 44,
-          "width": 413.34375,
+          "width": 400,
           "height": 640,
           "top": 44,
           "right": 1268,
           "bottom": 684,
-          "left": 854.65625
+          "left": 868
         }
       },
       {
         "name": "flow-window",
         "rect": {
-          "x": 854.65625,
+          "x": 868,
           "y": 44,
-          "width": 413.34375,
+          "width": 400,
           "height": 600,
           "top": 44,
           "right": 1268,
           "bottom": 644,
-          "left": 854.65625
+          "left": 868
         }
       },
       {
         "name": "page-turner",
         "rect": {
-          "x": 854.65625,
+          "x": 868,
           "y": 652,
-          "width": 413.34375,
+          "width": 400,
           "height": 32,
           "top": 652,
           "right": 1268,
           "bottom": 684,
-          "left": 854.65625
+          "left": 868
         }
       }
     ],
@@ -420,7 +420,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 3Next / ถัดไป →"
+      "← Previous / ก่อน1 / 2Next / ถัดไป →"
     ],
     "failures": [],
     "route": "model",

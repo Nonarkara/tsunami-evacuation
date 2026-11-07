@@ -32,10 +32,10 @@
           "x": 8,
           "y": 42,
           "width": 304,
-          "height": 246,
+          "height": 358,
           "top": 42,
           "right": 312,
-          "bottom": 288,
+          "bottom": 400,
           "left": 8
         }
       },
@@ -43,12 +43,12 @@
         "name": "terrain-caption",
         "rect": {
           "x": 8,
-          "y": 291,
+          "y": 403,
           "width": 304,
           "height": 52,
-          "top": 291,
+          "top": 403,
           "right": 312,
-          "bottom": 343,
+          "bottom": 455,
           "left": 8
         }
       },
@@ -56,10 +56,10 @@
         "name": "terrain-operations",
         "rect": {
           "x": 8,
-          "y": 346,
+          "y": 458,
           "width": 304,
-          "height": 324,
-          "top": 346,
+          "height": 212,
+          "top": 458,
           "right": 312,
           "bottom": 670,
           "left": 8
@@ -69,10 +69,10 @@
         "name": "flow-window",
         "rect": {
           "x": 8,
-          "y": 346,
+          "y": 458,
           "width": 304,
-          "height": 284,
-          "top": 346,
+          "height": 172,
+          "top": 458,
           "right": 312,
           "bottom": 630,
           "left": 8
@@ -187,7 +187,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 4Next / ถัดไป →"
+      "← Previous / ก่อน1 / 6Next / ถัดไป →"
     ],
     "failures": [],
     "route": "model",
@@ -787,7 +787,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 5Next / ถัดไป →"
+      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 4Next / ถัดไป →"
     ],
     "failures": [],
     "route": "ddpm",
