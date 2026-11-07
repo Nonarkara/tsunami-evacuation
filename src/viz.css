@@ -233,3 +233,10 @@
 }
 /* Plan: two columns truncated the destination hints on phones; one column below 480px. */
 @media (max-width: 480px) { .flow-content .plan-form .field-grid { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+/* Owner decision 2026-11-07: on short portrait phones (real Safari ≈ 664px visible) Start stays on page 1;
+   the panel keeps the height of finding + controls + pager and the map takes the rest (≈50%). Taller phones keep 60dvh. */
+@media (max-width: 760px) and (orientation: portrait) and (max-height: 719px) {
+  #main .terrain-rehearsal,
+  #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
+  #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-rows: minmax(120px, 1fr) auto 212px; }
+}
