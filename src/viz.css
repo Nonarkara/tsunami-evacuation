@@ -106,7 +106,23 @@
 .drill-guide .evacuation-guide li { counter-increment: step; border-top: 2px solid var(--companion); padding-top: 4px; }
 .drill-guide .evacuation-guide li strong::before { content: counter(step) ' · '; color: var(--ink-2); }
 .drill-guide .evacuation-guide li p { margin: 2px 0 0; font-size: var(--fs-micro); line-height: 1.4; }
-@media (min-width: 900px) { .drill-guide .evacuation-guide ol { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+/* The protocol is a sequence to walk, not five panels to compare. Five equal
+   columns crushed the text to 20 characters a line at 1440 and 14 at 1024,
+   and wrapped every heading. One column, one measure, in reading order. */
+.drill-guide .evacuation-guide ol { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.drill-guide .evacuation-guide li { padding: 9px 0 11px; }
+.drill-guide .evacuation-guide li strong { display: block; }
+.drill-guide .evacuation-guide li p { max-width: 58ch; }
+/* The guide is one sequence: it must not break across the column flow, or
+   step 1 lands under the form and steps 2-5 start the next column. */
+.drill-guide { break-inside: avoid; page-break-inside: avoid; }
+@media (min-width: 761px) {
+  /* Two or more reading columns: start the protocol in a fresh column so its
+     heading and its five steps stay together. One column below 761px is the
+     phone page, where a column break would push the protocol off the page. */
+  .flow-content .drill-guide .evacuation-guide h3 { break-before: column; }
+  .flow-content .drill-guide .evacuation-guide ol { break-inside: avoid; }
+}
 .drill-form .stackbar { margin: 6px 0 2px; }
 
 /* DDPM ranked bars */

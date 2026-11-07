@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { depthColour, depthColourExpression, depthRange, depthRatio, depthScale, WATER_DEEP_CSS, WATER_SHALLOW_CSS } from './water-depth';
+import { depthColour, depthColourExpression, depthRange, depthRatio, depthScale, fileDepthScale, WATER_DEEP_CSS, WATER_SHALLOW_CSS } from './water-depth';
 
 test('the ramp runs from the shallow colour to the deep colour', () => {
   assert.equal(depthColour(0, 4), 'rgb(179,222,240)');
@@ -34,4 +34,19 @@ test('the map expression shades by the depth property against the frame scale', 
   assert.equal(expression[6], WATER_DEEP_CSS);
   // A frame with nothing in it still gets a usable scale, never a zero divisor.
   assert.equal((depthColourExpression(0) as unknown[])[5], 0.001);
+});
+
+test('one scale covers the whole file, so a deepening wave is visible', () => {
+  const frames = [{ depthM: [0.02, 1.02] }, { depthM: [0.07, 2.94] }];
+  // The file's deepest cell is the end of the ramp, not the current frame's.
+  assert.equal(fileDepthScale(frames), 2.94);
+  // A per-frame scale was measured on the live map and left the colour of every
+  // cell unchanged between the two frames: the wave deepened and the map did not.
+  const perFrame = [depthRatio(1.02, 1.22), depthRatio(2.94, 3.52)];
+  assert.ok(Math.abs(perFrame[0] - perFrame[1]) < 0.01, 'per-frame scale hides the deepening');
+  // On one scale for the file the same two cells move visibly.
+  const perFile = [depthRatio(1.02, 2.94), depthRatio(2.94, 2.94)];
+  assert.ok(perFile[1] - perFile[0] > 0.5, 'one scale for the file must show the deepening');
+  assert.equal(fileDepthScale([]), 0);
+  assert.equal(fileDepthScale([{ depthM: [null, null] }]), 0);
 });
