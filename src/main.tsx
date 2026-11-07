@@ -569,7 +569,7 @@ function Prepare({language}:{language:string}) {
             <input
               maxLength={2000}
               value={plan.assistance}
-              placeholder={t("E.g., mobility aid, baby carrier, elderly parent assistance","เช่น อุปกรณ์ช่วยเดิน เป้อุ้มเด็ก การช่วยผู้สูงอายุ")}
+              placeholder={t("Mobility aid, baby carrier, older relative","เช่น อุปกรณ์ช่วยเดิน เป้อุ้มเด็ก การช่วยผู้สูงอายุ")}
               onChange={(e) => field("assistance", e.target.value)}
             />
             <span className="print-value">{plan.assistance || t("Not entered","ยังไม่ได้กรอก")}</span>

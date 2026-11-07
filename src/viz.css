@@ -216,3 +216,20 @@
   #main .terrain-operations .rehearsal-timeline { grid-template-columns: auto 1fr auto; }
   #main .terrain-operations .rehearsal-timeline .timeline-label { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* Phone paging: big containers may split across pages; only small atoms stay whole (2026-11-07). */
+@media (max-width: 760px) {
+  .flow-content section, .flow-content fieldset, .flow-content article, .flow-content .evacuation-guide,
+  .flow-content ol, .flow-content ul, .flow-content dl, .flow-content table, .flow-content figure:not(.dotgrid),
+  .flow-content .research-ledger > li, .flow-content .research-validation > li, .flow-content .evacuation-guide li,
+  .flow-content .ddpm-source, .flow-content .ddpm-provinces, .flow-content .checklist-block, .flow-content .drill-history li { break-inside: auto; }
+  .flow-content tr, .flow-content label, .flow-content .viz, .flow-content .stackbar, .flow-content dl > div, .flow-content .checkbox-label { break-inside: avoid; }
+  .flow-content h1, .flow-content h2, .flow-content h3, .flow-content legend, .flow-content figcaption, .flow-content summary { break-after: avoid; }
+  .flow-content p, .flow-content li { orphans: 2; widows: 2; }
+}
+@media (max-width: 760px) {
+  .flow-content .ddpm-provinces, .flow-content .ddpm-source { break-before: auto; }
+  .flow-content .research-results-figure .research-results-table { break-inside: auto; }
+}
+/* Plan: two columns truncated the destination hints on phones; one column below 480px. */
+@media (max-width: 480px) { .flow-content .plan-form .field-grid { grid-template-columns: minmax(0, 1fr); gap: 0; } }
