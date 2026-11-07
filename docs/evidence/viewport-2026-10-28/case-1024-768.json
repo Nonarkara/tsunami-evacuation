@@ -232,7 +232,7 @@
     "route": "model",
     "surface": "explore",
     "navCurrent": "page",
-    "terrainState": "loading",
+    "terrainState": "ready",
     "heading": null,
     "visibleRegions": [
       "geography-pane",

@@ -185,3 +185,34 @@
     grid-template-rows: minmax(70px, 1fr) auto minmax(0, min(324px, calc(100dvh - 260px)));
   }
 }
+
+/* MSH law 8 (map ≥60% of first screen), 2026-11-07 */
+.finding-line { display: none; }
+.viz-spark polyline { fill: none; stroke: var(--companion); stroke-width: 1.5; }
+.viz-spark circle { fill: var(--companion); }
+@media (max-width: 760px) and (orientation: portrait) {
+  #main .terrain-rehearsal,
+  #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
+  #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-rows: 60dvh auto minmax(0, 1fr); }
+  .panel-finding .comparison-selector, .panel-finding .finding-head, .panel-finding > small { display: none; }
+  .finding-line .link-button { margin-left: auto; padding: 0; }
+  #main .panel-finding .finding-line { gap: 0 6px; line-height: 18px; margin: 0; }
+  .finding-line span { order: 3; flex-basis: 100%; line-height: 14px; }
+  .panel-finding { padding-bottom: 4px; gap: 0; }
+  .finding-line { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 0; font-size: var(--fs-body); }
+  .finding-line span { color: var(--ink-2); font-size: var(--fs-micro); }
+}
+@media (min-width: 1100px) {
+  #main .terrain-rehearsal,
+  #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
+  #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-columns: minmax(0, 1fr) 400px; }
+}
+@media (min-width: 1024px) { .evidence-pane .dotgrid svg { width: 200px; height: 200px; } }
+@media (min-width: 761px) and (max-width: 1099px) and (min-height: 501px) {
+  #main .terrain-rehearsal,
+  #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
+  #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-columns: minmax(0, 1fr) 264px; }
+  #main .terrain-operations .rehearsal-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #main .terrain-operations .rehearsal-timeline { grid-template-columns: auto 1fr auto; }
+  #main .terrain-operations .rehearsal-timeline .timeline-label { grid-column: 1 / -1; grid-row: 2; }
+}

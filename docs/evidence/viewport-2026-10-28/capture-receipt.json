@@ -1,6 +1,6 @@
 {
   "origin": "https://tsunami.nonarkara.org",
-  "capturedAt": "2026-11-06T06:48:46+00:00",
+  "capturedAt": "2026-11-06T16:55:06+00:00",
   "viewportCases": 8,
   "viewportRecords": 40,
   "bannerRows": 60,
@@ -8,12 +8,12 @@
     {
       "path": "/",
       "bytes": 1341,
-      "sha256": "6c65383f8a3b33477a364adbacf7a403fd02113a1b8d5cb3598a81370442149d"
+      "sha256": "2ed0f61275491469c271c12f17d39840628624416c31d362c6c0b2f802deb465"
     },
     {
-      "path": "/assets/index-CmmLBSCg.js",
-      "bytes": 1787468,
-      "sha256": "778aca68a295fcdfe90542076ad075f9ed1aad6b5e74ed0a5b1ce01b09875b40"
+      "path": "/assets/index-CAzXH8Ia.js",
+      "bytes": 1797331,
+      "sha256": "92e0bf96c36e805c22e9947d9eaf5c7112f79fc6a283ee65fb75238beaa1d77c"
     },
     {
       "path": "/assets/index-DI3v0cq7.css",

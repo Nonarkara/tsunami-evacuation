@@ -5161,7 +5161,7 @@
     ],
     "surface": "explore",
     "navCurrent": "page",
-    "terrainState": "loading"
+    "terrainState": "ready"
   },
   {
     "page": "prepare",

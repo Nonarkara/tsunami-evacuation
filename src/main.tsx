@@ -29,7 +29,7 @@ import "@fontsource/prompt/thai-600.css";
 import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
 import { MangaModel } from "./MangaModel";
-import { PaceRuler } from "./charts";
+import { PaceRuler, Sparkline } from "./charts";
 import { packageNames, scenarioThai, checklistThai } from "./research-ledger";
 import {
   POPULATION,
@@ -313,7 +313,9 @@ function App() {
                 consoleSlot={placeConsole}
                 finding={region.id==='khao-lak' ? <div className="panel-finding">
                   <div className="finding-head" title={t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · สถานการณ์จำลองเขาหลัก ไม่ใช่การพยากรณ์')}><strong>{t('Modeled victims % / 39,041','ผู้ประสบภัยจำลอง % / 39,041')}</strong><button className="link-button" onClick={()=>setModelView('evidence')}>{t('Results','ผลลัพธ์')} →</button></div>
-                  <InterventionComparison condition={condition} step={step} height={matchMedia('(max-width: 760px)').matches ? 44 : 64} onSelect={i=>{setStep(i);setModelView('evidence');}} />
+                  <InterventionComparison condition={condition} step={step} height={64} onSelect={i=>{setStep(i);setModelView('evidence');}} />
+                  {/* Phone: the same finding as one line, so the map keeps 60% and Start stays on page 1. */}
+                  <p className="finding-line"><Sparkline values={scenarios.map(s=>condition==='baseline'?s.affected:s.delayed)} /><b>{scenarios[0][condition==='baseline'?'affected':'delayed'].toFixed(1)}% → {scenarios[4][condition==='baseline'?'affected':'delayed'].toFixed(1)}%</b> <span>{t('modeled victims of 39,041 · preprint, not a forecast','ผู้ประสบภัยจำลองจาก 39,041 · งานก่อนตีพิมพ์ ไม่ใช่การพยากรณ์')}</span><button className="link-button" onClick={()=>setModelView('evidence')}>{t('Results','ผลลัพธ์')} →</button></p>
                   <small>{t('Preprint · Khao Lak scenarios, not a forecast','งานก่อนตีพิมพ์ · ฉากทัศน์เขาหลัก ไม่ใช่การพยากรณ์')}</small>
                 </div> : undefined}
                 onReview={()=>navigate("drill")}
@@ -401,7 +403,7 @@ function App() {
                     </div>
                   </div>
 
-                  <InterventionComparison step={step} condition={condition} onSelect={setStep} height={matchMedia('(min-width: 1024px)').matches ? 240 : 96} />
+                  <InterventionComparison step={step} condition={condition} onSelect={setStep} height={matchMedia('(min-width: 1024px)').matches ? Math.max(240, innerHeight - 400) : 96} />
                 </div>
 
                 {/* Selected package and reported outcome accounting */}

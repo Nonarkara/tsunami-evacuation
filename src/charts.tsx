@@ -132,3 +132,12 @@ export function ProfileQueue({ chainage, profile, waits, position, ariaLabel, qu
     <div className="viz-legend"><span className="key-profile">{profileLabel}</span><span className="key-queue">{queueLabel}</span></div>
   </div>;
 }
+
+/* ── Sparkline: a one-line trend for tight spaces; the full chart lives elsewhere ── */
+export function Sparkline({ values, width = 56, height = 16 }: { values: number[]; width?: number; height?: number }) {
+  const max = Math.max(...values), x = (i: number) => 2 + (width - 4) * i / Math.max(1, values.length - 1), y = (v: number) => 2 + (height - 4) * (1 - v / max);
+  return <svg className="viz-spark" width={width} height={height} aria-hidden="true">
+    <polyline points={values.map((v, i) => `${x(i)},${y(v)}`).join(' ')} />
+    <circle cx={x(values.length - 1)} cy={y(values.at(-1)!)} r={2} />
+  </svg>;
+}
