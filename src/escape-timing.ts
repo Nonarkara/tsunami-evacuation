@@ -27,6 +27,35 @@ export function speedForSeconds(route: ExerciseRoute, seconds: number): number {
 
 export type SegmentWait = { chainageM: number; waitSeconds: number; edge: string };
 
+export type BottleneckSummary = {
+  edge: string;
+  chainageM: number;
+  maxWaitSeconds: number;
+  queueCount: number;
+};
+
+/** Key modelled bottleneck points along the route where queues form. */
+export function bottleneckSummaries(
+  routeIndex: number,
+  route: ExerciseRoute,
+  model: Rehearsal,
+  currentWaitMap?: Map<string, number>
+): BottleneckSummary[] {
+  const allWaits = segmentWaits(routeIndex, route, model);
+  const positive = allWaits.filter(w => w.waitSeconds > 0);
+  if (!positive.length) return [];
+  // Sort descending by wait duration to highlight the most severe choke points
+  return positive
+    .sort((a, b) => b.waitSeconds - a.waitSeconds)
+    .slice(0, 3)
+    .map(w => ({
+      edge: w.edge,
+      chainageM: w.chainageM,
+      maxWaitSeconds: w.waitSeconds,
+      queueCount: currentWaitMap?.get(w.edge) ?? 0,
+    }));
+}
+
 /** Modelled waiting time per route segment: where the queue forms and for how long. */
 export function segmentWaits(routeIndex: number, route: ExerciseRoute, model: Rehearsal): SegmentWait[] {
   const chainage: number[] = [];

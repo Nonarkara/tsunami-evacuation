@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { simulate, type RouteData } from './crowd';
-import { freeFlowSeconds, paceLines, routeLength, segmentWaits, speedForSeconds } from './escape-timing';
+import { freeFlowSeconds, paceLines, routeLength, segmentWaits, speedForSeconds, bottleneckSummaries } from './escape-timing';
 
 const routes: RouteData = JSON.parse(readFileSync(new URL('../public/data/rehearsal-routes.json', import.meta.url), 'utf8'));
 
@@ -52,4 +52,13 @@ test('segment waits sit on the route and grow with the modelled queue', () => {
   }
   const chainages = narrowWaits.map(w => w.chainageM);
   assert.deepEqual(chainages, [...chainages].sort((a, b) => a - b));
+});
+
+test('bottleneck summaries extract the highest-wait segments in descending wait order', () => {
+  const model = simulate(routes, 1500, 1.4, 1);
+  const bottlenecks = bottleneckSummaries(0, routes.routes[0], model);
+  assert.ok(bottlenecks.length > 0 && bottlenecks.length <= 3);
+  for (let i = 1; i < bottlenecks.length; i++) {
+    assert.ok(bottlenecks[i - 1].maxWaitSeconds >= bottlenecks[i].maxWaitSeconds);
+  }
 });

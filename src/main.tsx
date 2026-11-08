@@ -271,7 +271,7 @@ function App() {
         />
 
         {tab==='explore'&&<BannerDock scene={modelView==='terrain'} onDock={setBannerDock} context={<>
-          <select aria-label="Model view / มุมมอง" title="Terrain, published outcomes or manga streets" value={modelView} onChange={e=>{const view=e.target.value;if(view==='manga'){setRegionIdx(0);setSelectedPlace(2);}setModelView(view);}}><option value="terrain">{t('Terrain','ภูมิประเทศ')}</option><option value="evidence">{t('Results','ผลลัพธ์')}</option><option value="manga">{t('Manga streets','ถนนสไตล์มังงะ')}</option></select>
+          <select aria-label="Model view / มุมมอง" title="Terrain, published outcomes or street linework" value={modelView} onChange={e=>{const view=e.target.value;if(view==='manga'){setRegionIdx(0);setSelectedPlace(2);}setModelView(view);}}><option value="terrain">{t('Terrain','ภูมิประเทศ')}</option><option value="evidence">{t('Results','ผลลัพธ์')}</option><option value="manga">{t('Street linework (ink)','เค้าโครงถนน (มังงะ)')}</option></select>
                 <label className="area-selector"><span className="sr-only">Area / พื้นที่</span>
                   <select aria-label={t('Select coastal area','เลือกพื้นที่ชายฝั่ง')} value={selectedPlace} onChange={e=>{setSelectedPlace(Number(e.target.value));if(modelView==='manga')setModelView('terrain');}}>{region.places.map((p,i)=><option key={p.name} value={i}>{i+1} · {t(p.name,p.thaiName)}</option>)}</select>
                   <span>{selectedPlace+1}/{region.places.length}</span>
@@ -328,13 +328,13 @@ function App() {
             <section hidden={modelView!=="manga"} className="geography-pane manga-pane" aria-labelledby="manga-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
-                  <span className="pane-badge">{t('03 / MANGA STREET MODEL','03 / แบบจำลองถนนสไตล์มังงะ')}</span>
-                  <h2 id="manga-pane-title">{t('Bang Niang street model','แบบจำลองถนนบางเนียง')}</h2>
-                  <span className="terrain-tier">{t('Illustrative manga reading · buildings without source heights stay flat ink outlines · flat ground, sea not drawn · not for navigation','ภาพประกอบสไตล์มังงะ · อาคารที่ไม่มีความสูงจากแหล่งข้อมูลวาดเป็นเส้นขอบแบน · พื้นราบ ไม่วาดทะเล · ไม่ใช้สำหรับนำทาง')}</span>
+                  <span className="pane-badge">{t('03 / STREET LINEWORK (INK)','03 / ลายเส้นผังเมือง (มังงะ)')}</span>
+                  <h2 id="manga-pane-title">{t('Bang Niang street recognition','จดจำเค้าโครงถนนบางเนียง')}</h2>
+                  <span className="terrain-tier">{t('High-contrast architectural line-work for ground-level route & landmark recognition without satellite glare · buildings without source heights stay flat ink outlines · flat ground, sea not drawn · not for navigation','ลายเส้นสไตล์มังงะคอนทราสต์สูง ช่วยจดจำผังถนนและจุดสังเกตระดับสายตาโดยไม่มีแสงสะท้อนจากดาวเทียม · อาคารที่ไม่มีความสูงจากแหล่งข้อมูลวาดเป็นเส้นขอบแบน · ไม่ระบุความสูงหรือระดับน้ำ · ไม่ใช้สำหรับนำทาง')}</span>
                 </div>
               </div>
               {modelView==='manga' && <MangaModel language={language} />}
-              <div className="manga-caption"><span>{t('Bang Niang · flat illustration · not for navigation','บางเนียง · ภาพประกอบพื้นราบ · ไม่ใช้นำทาง')}</span>
+              <div className="manga-caption"><span>{t('Bang Niang · architectural ink plan · not for navigation or elevation','บางเนียง · ผังลายเส้นผังเมือง · ไม่ใช้สำหรับนำทางหรือวัดระดับความสูง')}</span>
               <ReadingDialog compact language={language} className="manga-note" title={t('Sources and limits','แหล่งข้อมูลและข้อจำกัด')}>
                 <p>{t('Only mapped centreline coordinates are sourced. Display widths are schematic. Light is artistic; free camera movement is not proof of access or a route.','พิกัดเส้นกลางมาจากแผนที่ ความกว้างที่แสดงเป็นสัญลักษณ์ ไม่แสดงทางเดินเท้าและทะเล แสงเป็นภาพประกอบ การเลื่อนกล้องไม่ยืนยันการเข้าถึงหรือเส้นทางเดิน')}</p>
 

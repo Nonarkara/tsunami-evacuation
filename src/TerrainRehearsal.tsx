@@ -20,7 +20,8 @@ import { SunIndicator } from './SunIndicator';
 import type { CoastalRegion } from './research';
 import { areaPacks, alongRoute, walkerProgress, walkerSchedule, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
 import { simulate, frame, elevation, waterScreen, distance, type RouteData, type TerrainGrid, type Coord } from './crowd';
-import { paceLines, segmentWaits, speedForSeconds } from './escape-timing';
+import { paceLines, segmentWaits, speedForSeconds, bottleneckSummaries } from './escape-timing';
+import { waitClock } from './viz';
 import { PaceRuler, ProfileQueue, StackBar } from './charts';
 import { EscapeGuide, EscapeMethod, EscapePlayback, type EscapeGuideProps } from './EscapeGuide';
 import { WarningLesson } from './WarningLesson';
@@ -541,6 +542,16 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const progressLabel = progress ? {preparing:t('preparing','เตรียมในแบบฝึก'),moving:t('moving','กำลังเดิน'),queued:t('queued','รอคิว'),arrived:t('arrived','ถึงปลายทาง')}[progress.state] : '';
   const paceLadder = useMemo(() => active && model ? paceLines(active, model, WALK_PACES, RUN_PACE, runCount) : [], [active, model, runCount]);
   const waits = useMemo(() => active && model ? segmentWaits(route, active, model) : [], [active, model, route]);
+  const bottlenecks = useMemo(() => {
+    if (!active || !model) return [];
+    const waitMap = new Map<string, number>();
+    current?.features.forEach(f => {
+      if (f.properties?.edge && f.properties.status === 'queued') {
+        waitMap.set(f.properties.edge, f.properties.count ?? 0);
+      }
+    });
+    return bottleneckSummaries(route, active, model, waitMap);
+  }, [active, model, route, current]);
   const profile = useMemo(() => active && grid ? active.coordinates.map(p => elevation(grid, p)) : [], [active, grid]);
   const knownHeights = profile.filter((h): h is number => h !== null && Number.isFinite(h));
   const heightText = (h: number | null | undefined) => h == null ? t('unknown','ไม่ทราบ') : `≈ ${Math.round(h)} m`;
@@ -706,6 +717,42 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
           <div className="profile-scale"><span>{t('Start','ต้นทาง')} {heightText(profile[0])}</span><span>{t('DEM range','ช่วง DEM')} ≈ {heightRange}</span><span>{t('End','ปลายทาง')} {heightText(profile.at(-1))}</span></div>
         </div>
 
+        {bottlenecks.length > 0 && (
+          <div className="bottlenecks-card" aria-label={t('Key route choke points', 'คอขวดสำคัญบนเส้นทาง')}>
+            <span className="card-subhead">{t('Critical Choke Points', 'จุดคอขวดสำคัญ')}</span>
+            <ul className="choke-point-list">
+              {bottlenecks.map((b, idx) => (
+                <li key={b.edge} className={`choke-point-item ${queueFocus?.edge === b.edge ? 'focused' : ''}`}>
+                  <button
+                    type="button"
+                    className="choke-focus-btn"
+                    title={t('Inspect this network choke point on the map', 'ตรวจสอบจุดคอขวดนี้บนแผนที่')}
+                    onClick={() => {
+                      setPlaying(false);
+                      map.current?.stop();
+                      setCamera('overview');
+                      setQueueFocus({ edge: b.edge, status: 'queued' });
+                      const legFrom = model.people[0].legs.find(l => l.edge === b.edge)?.from;
+                      if (legFrom && map.current) {
+                        map.current.flyTo({ center: legFrom, zoom: 16.8, pitch: dimension === '2d' ? 0 : 55, duration: 1200 });
+                      }
+                    }}
+                  >
+                    <span className="choke-rank">0{idx + 1}</span>
+                    <span className="choke-meta">
+                      <strong>{(b.chainageM / 1000).toFixed(2)} km</strong>
+                      <span className="choke-detail">
+                        {t('Max wait', 'รอนานสุด')} {waitClock(b.maxWaitSeconds)}
+                        {b.queueCount > 0 ? ` · ${b.queueCount.toLocaleString()} ${t('queued now', 'กำลังรอ')}` : ''}
+                      </span>
+                    </span>
+                    <span className="choke-arrow">↗</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       </div>
     </>}

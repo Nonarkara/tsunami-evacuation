@@ -25,7 +25,7 @@ export function MangaModel({language}:{language:ManualLanguage}) {
     let instance: { state(): MangaState; dispose(): void } | null = null;
     const ctrl = new AbortController();
     const labels: MangaLabels = language === 'th' ? {
-      canvas: 'แบบจำลองถนนบางเนียงสไตล์มังงะ ลากเพื่อหมุน ดับเบิลคลิกเพื่อไปยืน',
+      canvas: 'แบบจำลองผังถนนบางเนียงลายเส้นคอนทราสต์สูง ลากเพื่อหมุน ดับเบิลคลิกเพื่อไปยืน',
       mode: 'มุมมอง', sky: 'ฟ้า', walk: 'เดิน',
       tod: 'แสง', day: 'กลางวัน', dusk: 'พลบค่ำ', night: 'กลางคืน',
       speed: 'กล้อง', stroll: 'ช้า', walkp: 'เดิน', hurry: 'เร็ว', glide: 'ร่อน',
@@ -35,7 +35,7 @@ export function MangaModel({language}:{language:ManualLanguage}) {
       hintWalk: 'WASD / ลูกศรเลื่อน · Q/E หมุน · ลากเพื่อมอง · Shift เร่งกล้อง',
       hintWalkT: 'ลากเพื่อมอง กดวงกลมค้างไว้เพื่อเดิน',
     } : {
-      canvas: 'Interactive manga street model of Bang Niang',
+      canvas: 'High-contrast architectural street linework model of Bang Niang. Drag to turn, double-click to stand there.',
       mode: 'View', sky: 'Sky', walk: 'Walk',
       tod: 'Light', day: 'Day', dusk: 'Dusk', night: 'Night',
       speed: 'Camera', stroll: 'Stroll', walkp: 'Walk', hurry: 'Hurry', glide: 'Glide',
@@ -61,7 +61,7 @@ export function MangaModel({language}:{language:ManualLanguage}) {
     };
   }, [language]);
   return <div className="manga-wrap" data-manga-state={phase}>
-    <div ref={host} className="manga-stage" aria-label={t('Manga street model canvas', 'ผืนผ้าใบแบบจำลองถนนสไตล์มังงะ')} />
+    <div ref={host} className="manga-stage" aria-label={t('Architectural street linework model canvas', 'ผืนผ้าใบแบบจำลองลายเส้นผังถนน')} />
     <div ref={controlsHost} className="manga-controls" />
     <p ref={hintHost} className="manga-hintline" />
     {phase === 'failed' && <p className="manga-fail" role="alert">{t('The model could not start. It needs WebGL. Terrain, rehearsal and research remain available.', 'เริ่มแบบจำลองไม่ได้ ต้องใช้ WebGL ภูมิประเทศ แบบฝึก และงานวิจัยยังใช้ได้ตามปกติ')} <span className="manga-fail-detail">{fail}</span></p>}
