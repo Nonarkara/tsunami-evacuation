@@ -252,7 +252,7 @@ function App() {
             >
               {coastalRegions.map((r, i) => (
                 <option key={r.id} value={i}>
-                  {t(["Khao Lak · Phang Nga", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i],["เขาหลัก · พังงา","ภูเก็ต","กระบี่","สตูล/ตรัง","ระนอง","อ่าวไทย"][i])}
+                  {t(["Khao Lak", "Phuket", "Krabi", "Satun/Trang", "Ranong", "Gulf coast"][i],["เขาหลัก","ภูเก็ต","กระบี่","สตูล/ตรัง","ระนอง","อ่าวไทย"][i])}
                 </option>
               ))}
             </select>
