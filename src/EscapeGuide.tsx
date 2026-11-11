@@ -35,6 +35,7 @@ export function EscapeGuide(p:EscapeGuideProps) {
     </div>
     <TimeScrubber label={t('Practice time since exercise warning','เวลาแบบฝึกหลังสัญญาณ')} duration={p.duration} value={p.seconds} onChange={p.onSeek}/>
     <p className="escape-clock-note">{t('Exercise clock, not time before a wave.','นาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา')}</p>
+    {p.started && <p className="escape-time-to-endpoint"><strong>{t('Time to endpoint','เวลาถึงปลายทาง')}</strong> +{waitClock(Math.max(0, p.finishSeconds - p.seconds))}</p>}
     <div className="escape-levels">
       <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 10q3-4 6 0t6 0t6 0M2 16q3-4 6 0t6 0t6 0"/></svg><b>+{p.waterLevel.toFixed(1)} m</b> {t('demo level','ระดับน้ำสาธิต')}</span>
       <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 20 8-15 5 8 3-4 5 11Z"/></svg><b>{p.groundElevation===null?'—':`≈${Math.round(p.groundElevation)} m`}</b> {t('coarse DEM','DEM หยาบ')}</span>
