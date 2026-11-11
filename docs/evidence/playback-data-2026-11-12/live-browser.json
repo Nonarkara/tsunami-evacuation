@@ -1,0 +1,198 @@
+{
+  "playing": {
+    "camera": "walk",
+    "follow": "0.442",
+    "remaining": "Time to endpoint +54:48",
+    "seconds": "0.442",
+    "water": "0.442"
+  },
+  "paused": {
+    "camera": "walk",
+    "follow": "0.775",
+    "remaining": "Time to endpoint +54:48",
+    "seconds": "0.775",
+    "water": "0.775"
+  },
+  "results": {
+    "axis": {
+      "bottom": 486.4375,
+      "h": 37,
+      "right": 382,
+      "w": 346,
+      "x": 36,
+      "y": 449.4375
+    },
+    "button": {
+      "bottom": 71.796875,
+      "h": 29.796875,
+      "right": 334.640625,
+      "w": 120.0390625,
+      "x": 214.6015625,
+      "y": 42
+    },
+    "dialog": null,
+    "document": [
+      390,
+      844
+    ],
+    "files": null,
+    "header": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "lang": "en",
+    "map": {
+      "bottom": 0,
+      "h": 0,
+      "right": 0,
+      "w": 0,
+      "x": 0,
+      "y": 0
+    },
+    "outcome": {
+      "bottom": 337.4375,
+      "h": 104,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 233.4375
+    },
+    "package": {
+      "bottom": 700.921875,
+      "h": 214.484375,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 486.4375
+    },
+    "pages": "1",
+    "results": {
+      "bottom": 800,
+      "h": 758,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "window": {
+      "bottom": 800,
+      "h": 651.15625,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 148.84375
+    }
+  },
+  "dialog": {
+    "axis": {
+      "bottom": 486.4375,
+      "h": 37,
+      "right": 382,
+      "w": 346,
+      "x": 36,
+      "y": 449.4375
+    },
+    "button": {
+      "bottom": 71.796875,
+      "h": 29.796875,
+      "right": 334.640625,
+      "w": 120.0390625,
+      "x": 214.6015625,
+      "y": 42
+    },
+    "dialog": {
+      "bottom": 486.921875,
+      "h": 438.921875,
+      "right": 378,
+      "w": 366,
+      "x": 12,
+      "y": 48
+    },
+    "document": [
+      390,
+      844
+    ],
+    "files": {
+      "bottom": 473.921875,
+      "h": 372.921875,
+      "right": 365,
+      "w": 340,
+      "x": 25,
+      "y": 101
+    },
+    "header": {
+      "bottom": 36,
+      "h": 36,
+      "right": 390,
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "lang": "en",
+    "map": {
+      "bottom": 0,
+      "h": 0,
+      "right": 0,
+      "w": 0,
+      "x": 0,
+      "y": 0
+    },
+    "outcome": {
+      "bottom": 337.4375,
+      "h": 104,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 233.4375
+    },
+    "package": {
+      "bottom": 700.921875,
+      "h": 214.484375,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 486.4375
+    },
+    "pages": "1",
+    "results": {
+      "bottom": 800,
+      "h": 758,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 42
+    },
+    "url": "https://tsunami.nonarkara.org/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "window": {
+      "bottom": 800,
+      "h": 651.15625,
+      "right": 382,
+      "w": 374,
+      "x": 8,
+      "y": 148.84375
+    }
+  },
+  "csv": {
+    "received": true,
+    "header": "﻿\"package_en\",\"package_th\",\"baseline_victim_percent\",\"delayed_victim_percent\",\"modeled_population\",\"source\",\"locator\",\"tier\",\"reviewed_on\"\r",
+    "lines": 6
+  },
+  "focus": {
+    "label": "Data & sources",
+    "open": 0
+  },
+  "errors": []
+}

@@ -1,0 +1,42 @@
+{
+  "commit": "c47b077",
+  "version": "344768d7-41d5-47ff-a806-9723a11f0a8a",
+  "verifiedAt": "2026-11-11T19:19:18.034Z",
+  "receipts": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "8787e417b21fc90b532fe8583e7d981f505a12b7b08b40e29512d585ee9b65bf"
+    },
+    {
+      "path": "/assets/index-DG2lLEsn.js",
+      "status": 200,
+      "sha256": "5f459caffcab89cfa5b5e677d8f19d8b2d79abe5befeb254ecdc7e6d13f46af3"
+    },
+    {
+      "path": "/assets/index-BR7Xp08w.css",
+      "status": 200,
+      "sha256": "ec392c7f14990bd327f591d2f2892aa0e0e9bc57933e49f1ecae2f61664a8a20"
+    },
+    {
+      "path": "/data/rehearsal-routes.json",
+      "status": 200,
+      "sha256": "03479dc0157e99306b94c8cc43e337a51f95c9d6326a7493fba226ba3d45fa23"
+    },
+    {
+      "path": "/data/terrain.json",
+      "status": 200,
+      "sha256": "0b38b6bb5de512feb264b4912687eb137fce8e2a260ff9827bffb847b0ab1e69"
+    },
+    {
+      "path": "/data/hazard-replay.schema.json",
+      "status": 200,
+      "sha256": "d0fc43bfa9b1a23f87b855a393c32b17dcbcb8f6345e3e677355206bc4d0998b"
+    },
+    {
+      "path": "/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson",
+      "status": 200,
+      "sha256": "c8007d092db9cd0ac1aa5ba806c4a88d6934e95bb2ec27cd8a9a59c48644a247"
+    }
+  ]
+}

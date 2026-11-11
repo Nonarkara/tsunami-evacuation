@@ -1,0 +1,44 @@
+{
+  "going": {
+    "camera": "walk",
+    "follow": "0.860",
+    "remaining": "Time to endpoint +54:47",
+    "seconds": "0.860",
+    "water": "0.702"
+  },
+  "dialog": {
+    "camera": "walk",
+    "follow": "1.876",
+    "remaining": "Time to endpoint +54:46",
+    "seconds": "1.876",
+    "water": "1.876"
+  },
+  "closed": {
+    "camera": "walk",
+    "follow": "1.876",
+    "remaining": "Time to endpoint +54:46",
+    "seconds": "1.876",
+    "water": "1.876"
+  },
+  "seek": {
+    "camera": "walk",
+    "follow": "3815.000",
+    "remaining": "Time to endpoint +0:00",
+    "seconds": "3815.000",
+    "water": "3815.000"
+  },
+  "zoom": {
+    "camera": "overview",
+    "follow": "4.073",
+    "remaining": "Time to endpoint +54:44",
+    "seconds": "4.073",
+    "water": "4.073"
+  },
+  "afterZoom": {
+    "camera": "overview",
+    "follow": "4.073",
+    "remaining": "Time to endpoint +54:44",
+    "seconds": "4.073",
+    "water": "4.073"
+  }
+}

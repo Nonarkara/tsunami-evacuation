@@ -13,3 +13,11 @@ Data & sources opens on Results and Research. The terrain source dialog also pro
 Independent review by geometry_forward_review passed after correcting source sampling, chart fragmentation and compact dialog findings. Evidence includes 16 Results geometries, six open data dialogs, enlarged Thai and three Thai landscape pages. Escape returns focus to the data button. Tab and Shift+Tab stay inside the dialog. Run `node scripts/check-playback-data-evidence.mjs` to check the recorded bounds. The check rejects the prior stacked desktop chart size.
 
 Physical-phone touch and GPU frame pacing remain unverified. Browser tests record applied camera positions and clock synchronization rather than a guaranteed frame rate.
+
+## Release verification
+
+Application commit c47b077 is on origin/main. Cloudflare version 344768d7-41d5-47ff-a806-9723a11f0a8a serves the build. HTML, JavaScript, CSS and four linked data files matched local production bytes. The release gate passed 91 TypeScript tests, 11 Python tests, production compilation and all six contrast roles.
+
+In the local walkthrough, opening the source dialog paused the clock at 1.876 seconds. Closing the dialog kept that instant. Seeking to the end aligned camera, clock and water at 3815 seconds. Manual zoom released camera follow and held the clock at 4.073 seconds. The live walkthrough advanced, displayed the endpoint countdown, and synchronized its camera and water sample on Pause. The live 390×844 Results fit one page and downloaded a CSV with five packages, both timing columns, denominator, source, locator and tier. The live browser flow recorded no console errors.
+
+The static scan returned the same nine points on the previous and current commits. Its categories include existing shadow declarations, the three parallel package metrics, border accents, dynamic language attributes and archived evidence images. The independent visual review assessed the actual Results and data dialog at the recorded widths.
