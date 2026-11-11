@@ -2722,6 +2722,8 @@ main { padding-bottom:6px; }
 .terrain-stage { height:clamp(280px,42vh,420px); }
 .evidence-pane { max-width:1120px; margin-inline:auto; }
 .evidence-pane .modeling-split-grid { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); }
+/* Outcome hero: result number + outcome breakdown are one focal moment; the mitigation comparison after it is secondary. */
+.evidence-pane .split-col-left > .outcome-summary { border-top: 0; padding-top: 0; margin-top: 0; }
 @media(min-width:1101px) { .terrain-rehearsal:not([data-camera=walk]) { grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); } }
 @media(max-width:760px) { .evidence-pane .modeling-split-grid { grid-template-columns:minmax(0,1fr); } }
 @media(max-width:680px) {

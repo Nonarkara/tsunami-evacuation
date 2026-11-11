@@ -403,6 +403,9 @@ function App() {
                     </div>
                   </div>
 
+                  {/* Outcome leads the screen: who was affected / did they make it, then what the packages did. */}
+                  <OutcomeSummary step={step} condition={condition} />
+
                   <InterventionComparison step={step} condition={condition} onSelect={setStep} height={matchMedia('(min-width: 1024px)').matches ? Math.max(240, innerHeight - 400) : 96} />
                 </div>
 
@@ -441,9 +444,6 @@ function App() {
                       </div>
                     </dl>
                   </div>
-
-                  {/* Compact 100% Outcome Breakdown */}
-                  <OutcomeSummary step={step} condition={condition} />
                 </div>
               </div>
 
