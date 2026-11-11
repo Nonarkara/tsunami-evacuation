@@ -2803,6 +2803,8 @@ main { padding-bottom:6px; }
 .escape-guide .time-scrubber { min-width:0; width:100%; }
 .escape-guide .time-scrubber input { width:100%; }
 .escape-guide .escape-clock-note,.escape-guide .escape-water-note { margin:0; font-size:var(--fs-micro); line-height:1.4; }
+.escape-guide .escape-time-to-endpoint { margin:0; font-size:var(--fs-body); font-weight:600; line-height:1.4; font-variant-numeric:tabular-nums; }
+.escape-guide .escape-time-to-endpoint strong { color:var(--companion); }
 .escape-levels { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 12px; padding-top:6px; border-top:1px solid var(--line); }
 .escape-levels > span { display:flex; align-items:center; gap:4px; font-size:var(--fs-micro); }
 .escape-levels svg { width:18px; height:18px; }
