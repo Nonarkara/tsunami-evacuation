@@ -2930,19 +2930,18 @@ html[data-text-size=large] #main,html[data-text-size=large] dialog { --fs-micro:
 .bottlenecks-card {
   margin-top: 10px;
   padding: 8px 10px;
-  background: var(--surface-alt, #f7f9f8);
-  border: 1px solid var(--line-2, #d5ded9);
-  border-radius: 2px;
+  background: var(--surface-alt);
+  border: 1px solid var(--line-2);
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 .bottlenecks-card .card-subhead {
-  font-size: var(--fs-micro, 11px);
+  font-size: var(--fs-micro);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--companion, #12354e);
+  color: var(--companion);
 }
 .choke-point-list {
   list-style: none;
