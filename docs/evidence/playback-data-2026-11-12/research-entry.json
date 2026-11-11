@@ -1,0 +1,44 @@
+{
+  "research": {
+    "focus": "Close reading / ปิด",
+    "links": [
+      [
+        "SSRN 7270357 ↗",
+        "https://ssrn.com/abstract=7270357"
+      ],
+      [
+        "โค้ดและชุดทดสอบ",
+        "https://github.com/Nonarkara/tsunami-evacuation"
+      ],
+      [
+        "เส้นทาง JSON",
+        "/data/rehearsal-routes.json"
+      ],
+      [
+        "ความสูง JSON",
+        "/data/terrain.json"
+      ],
+      [
+        "โครงสร้างไฟล์เล่นซ้ำ",
+        "/data/hazard-replay.schema.json"
+      ],
+      [
+        "ที่มาของไฟล์",
+        "/data/README.md"
+      ],
+      [
+        "GeoJSON",
+        "/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson"
+      ]
+    ],
+    "title": "ข้อมูลและไฟล์ต้นทาง"
+  },
+  "reverse": {
+    "inside": true,
+    "text": "GeoJSON"
+  },
+  "forward": {
+    "inside": true,
+    "label": "Close reading / ปิด"
+  }
+}

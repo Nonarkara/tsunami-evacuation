@@ -13,22 +13,21 @@ export function routeChainage(route: ExerciseRoute) {
   let sum = 0;
   return route.coordinates.map((p, i) => { if (i) sum += distance(route.coordinates[i - 1], p); return sum; });
 }
-export function alongRoute(route: ExerciseRoute, metres: number) {
-  const chain = routeChainage(route), total = chain.at(-1) ?? 0;
+export function alongRoute(route: ExerciseRoute, metres: number, chain = routeChainage(route)) {
+  const total = chain.at(-1) ?? 0;
   const target = Math.max(0, Math.min(total, metres));
   let i = 0; while (i < chain.length - 2 && chain[i + 1] < target) i++;
   const a = route.coordinates[i], b = route.coordinates[i + 1] ?? a;
   const t = (target - chain[i]) / Math.max(1e-9, (chain[i + 1] ?? chain[i]) - chain[i]);
   return { coord: [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t] as Coord, heading: bearing(a, b), index: i, metres: target, total };
 }
-export function walkerProgress(person: Person, route: ExerciseRoute, seconds: number) {
-  const chain = routeChainage(route);
-  if (seconds >= person.finish) return { ...alongRoute(route, chain.at(-1) ?? 0), state: 'arrived' as const };
+export function walkerProgress(person: Person, route: ExerciseRoute, seconds: number, chain = routeChainage(route)) {
+  if (seconds >= person.finish) return { ...alongRoute(route, chain.at(-1) ?? 0, chain), state: 'arrived' as const };
   const i = Math.max(0, person.legs.findIndex(l => seconds < l.exit));
   const leg = person.legs[i];
   const fraction = Math.max(0, Math.min(1, (seconds - leg.enter) / (leg.exit - leg.enter)));
   const metres = chain[i] + (chain[i + 1] - chain[i]) * fraction;
-  return { ...alongRoute(route, metres), state: seconds < leg.arrival ? 'preparing' as const : seconds < leg.enter ? 'queued' as const : 'moving' as const };
+  return { ...alongRoute(route, metres, chain), state: seconds < leg.arrival ? 'preparing' as const : seconds < leg.enter ? 'queued' as const : 'moving' as const };
 }
 /** Warning-relative schedule of this synthetic walker; never a hazard deadline. */
 export function walkerSchedule(person: Person, seconds: number) {
@@ -38,12 +37,11 @@ export function walkerSchedule(person: Person, seconds: number) {
     queueSeconds:person.legs.reduce((sum,leg)=>sum+leg.enter-leg.arrival,0),
   };
 }
-export function nextTurn(route: ExerciseRoute, metres: number) {
-  const chain = routeChainage(route);
+export function nextTurn(route: ExerciseRoute, metres: number, chain = routeChainage(route)) {
   for (let i = 1; i < chain.length - 1; i++) {
     if (chain[i] < metres + 8) continue;
-    const before = alongRoute(route, Math.max(0, chain[i] - 12));
-    const after = alongRoute(route, Math.min(chain.at(-1)!, chain[i] + 12));
+    const before = alongRoute(route, Math.max(0, chain[i] - 12), chain);
+    const after = alongRoute(route, Math.min(chain.at(-1)!, chain[i] + 12), chain);
     const turn = ((bearing(route.coordinates[i], after.coord) - bearing(before.coord, route.coordinates[i]) + 540) % 360) - 180;
     if (Math.abs(turn) >= 35) return { distanceM: Math.round(chain[i] - metres), direction: turn > 0 ? 'right' : 'left', angle: turn };
   }

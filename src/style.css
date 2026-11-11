@@ -2721,8 +2721,6 @@ main { padding-bottom:6px; }
 .explore-grid { display:block; }
 .terrain-stage { height:clamp(280px,42vh,420px); }
 .evidence-pane { max-width:1120px; margin-inline:auto; }
-/* Results: keep the final content block clear of the fold and off the viewport edge. */
-.evidence-pane { padding-bottom: 14px; }
 .evidence-pane .modeling-split-grid { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); }
 /* Outcome hero: result number + outcome breakdown are one focal moment; the mitigation comparison after it is secondary. */
 .evidence-pane .split-col-left > .outcome-summary { border-top: 0; padding-top: 0; margin-top: 0; }
@@ -3013,4 +3011,34 @@ html[data-text-size=large] #main,html[data-text-size=large] dialog { --fs-micro:
   font-size: 13px;
   color: var(--ink-2);
   flex: none;
+}
+
+/* Data access follows the outcomes and source controls at their existing edge. */
+.condition-toggle-group { flex-wrap: wrap; align-items: center; }
+.technical-data-trigger { min-height: 28px; }
+.technical-files section { margin: 0; padding: 8px 0; }
+.technical-files section + section { border-top: 1px solid var(--line); }
+.technical-files h3 { margin: 0; font-size: var(--fs-title); }
+.technical-files p { margin: 2px 0 5px; max-width: 65ch; font-size: var(--fs-body); }
+.technical-files .research-downloads { margin: 0; }
+
+.results-title-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+.evidence-pane .stepdown > svg { max-width: 100%; }
+@media (max-width: 760px) {
+  .evidence-pane .modeling-split-grid,
+  .evidence-pane .split-col-right { display: contents; }
+  #main .evidence-pane .split-col-left { display: block; break-inside: avoid; }
+  .evidence-pane .split-col-right > .comparison-selector { display: inline-block; width: 100%; vertical-align: top; }
+  .evidence-pane .split-col-left > .outcome-summary { margin-top: 6px; }
+  .evidence-pane .hud-reduction-badge { max-width: 40%; }
+  .evidence-pane .pane-badge { display: none; }
+}
+@media (max-height: 500px) {
+  .evidence-pane .dotgrid > svg { width: 82px; height: auto; flex: none; }
+}
+#main .evidence-pane:not([hidden]) {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+  margin-top: 0;
 }

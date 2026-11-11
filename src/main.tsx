@@ -22,6 +22,7 @@ import { localPlaceCopy } from "./place-copy";
 import { InterventionComparison } from "./InterventionComparison";
 import { NavConsole } from "./NavConsole";
 import { ResearchSection } from "./ResearchSection";
+import { TechnicalData } from "./TechnicalData";
 import { DdpmRiskPanel } from "./DdpmRiskPanel";
 import "@fontsource/prompt/thai-400.css";
 import "@fontsource/prompt/thai-500.css";
@@ -83,6 +84,13 @@ function App() {
   const [condition, setCondition] = useState<Condition>("baseline");
   const [bannerDock,setBannerDock]=useState<HTMLDivElement|null>(null);
   const [modelView,setModelView]=useState("terrain");
+  const [compactResults, setCompactResults] = useState(() => matchMedia('(max-width: 760px)').matches);
+  useEffect(() => {
+    const query = matchMedia('(max-width: 760px)');
+    const resize = () => setCompactResults(query.matches);
+    query.addEventListener('change', resize);
+    return () => query.removeEventListener('change', resize);
+  }, []);
   const [manualOpen, setManualOpen] = useState(false);
   const [language, setLanguage] = useState(()=>manualLanguage(location.search,navigator.language));
   useEffect(()=>{document.documentElement.lang=language;},[language]);
@@ -345,11 +353,15 @@ function App() {
 
 
             {/* Section 02: Published evidence and intervention details */}
-            <section hidden={modelView!=="evidence"} className="evidence-pane" aria-labelledby="model-pane-title"><PagedFlow label="Published outcomes">
+            <section hidden={modelView!=="evidence"} className="evidence-pane" aria-labelledby="model-pane-title">
               <div className="pane-header">
                 <div className="pane-titles">
                   <span className="pane-badge">{t('02 / MODELING & MITIGATION','02 / แบบจำลองและการลดผลกระทบ')}</span>
-                  <h2 id="model-pane-title">{t('Published Khao Lak model','แบบจำลองเขาหลักที่รายงาน')}</h2><span className="terrain-tier">{t('Preprint · historical scenarios · 39,041 modeled agents · applies to Khao Lak','งานก่อนตีพิมพ์ · ฉากทัศน์ในงานวิจัย · 39,041 ตัวแทนจำลอง · เฉพาะเขาหลัก')}</span>
+                  <div className="results-title-line">
+                    <h2 id="model-pane-title">{t('Published Khao Lak model','แบบจำลองเขาหลักที่รายงาน')}</h2>
+                    <TechnicalData language={language} />
+                  </div>
+                  <span className="terrain-tier">{t('Preprint · historical scenarios · 39,041 modeled agents · applies to Khao Lak','งานก่อนตีพิมพ์ · ฉากทัศน์ในงานวิจัย · 39,041 ตัวแทนจำลอง · เฉพาะเขาหลัก')}</span>
                 </div>
                 <div className="condition-toggle-group">
                   <button
@@ -367,6 +379,7 @@ function App() {
                 </div>
               </div>
 
+              <PagedFlow label={t("Published outcomes","ผลจากบทความ")}>
               {/* Compare intervention packages and inspect the selected result */}
               <div className="modeling-split-grid">
                 {/* Shared-scale comparison of the two published timing conditions */}
@@ -406,11 +419,11 @@ function App() {
                   {/* Outcome leads the screen: who was affected / did they make it, then what the packages did. */}
                   <OutcomeSummary step={step} condition={condition} />
 
-                  <InterventionComparison step={step} condition={condition} onSelect={setStep} height={matchMedia('(min-width: 1024px)').matches ? Math.max(240, innerHeight - 400) : 96} />
                 </div>
 
-                {/* Selected package and reported outcome accounting */}
+                {/* Compare packages directly above the selected package details. */}
                 <div className="split-col-right">
+                  <InterventionComparison step={step} condition={condition} onSelect={setStep} height={compactResults ? 96 : 160} />
                   {/* Active Package Inspector Card */}
                   <div className="active-package-card">
                     <div className="active-pkg-header">

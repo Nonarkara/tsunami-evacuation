@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { ResearchDownloads, TechnicalData } from './TechnicalData';
 import { scenarios, POPULATION } from './research';
 import { SensorRows } from './SatelliteCatalogue';
 import { StepDown } from './charts';
 import { reduction } from './research';
-import { bi, bibtex, evidenceCsv, glossary, packageNames, paperCitation, reviewedOn, sourceRows, type ResearchLanguage } from './research-ledger';
+import { bi, glossary, packageNames, paperCitation, reviewedOn, sourceRows, type ResearchLanguage } from './research-ledger';
 
 export function ResearchSection({ onExplore, onDdpm, onLanguageChange }: { onExplore: () => void; onDdpm: () => void; onLanguageChange: (language: ResearchLanguage) => void }) {
   const [language, setLanguage] = useState<ResearchLanguage>(() => {
@@ -17,11 +18,6 @@ export function ResearchSection({ onExplore, onDdpm, onLanguageChange }: { onExp
     const url = new URL(location.href); url.searchParams.set('lang', next);
     history.replaceState(null, '', url);
     onLanguageChange(next);
-  }
-  function save(name: string, content: string, type: string) {
-    const url = URL.createObjectURL(new Blob([content], { type }));
-    const link = document.createElement('a'); link.href = url; link.download = name; link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   const timing = [
     [bi('Warning after earthquake', 'แจ้งเตือนหลังแผ่นดินไหว'), '30', '45'],
@@ -38,7 +34,7 @@ export function ResearchSection({ onExplore, onDdpm, onLanguageChange }: { onExp
     <p className="research-scope">{t('One unreviewed Khao Lak preprint and our browser methods. No live forecast or approved routes.', 'ผลจากบทความเขาหลักที่ยังไม่ผ่านการประเมิน และวิธีของแบบฝึกในเบราว์เซอร์ ไม่ใช่การพยากรณ์แบบเวลาจริงหรือเส้นทางที่ได้รับอนุมัติ')}</p>
     <nav className="research-index" aria-label={t('Research sections','หัวข้องานวิจัย')}>{[
       ['results',t('Results','ผลการศึกษา')],['methods',t('Methods','วิธีวิจัย')],['sources',t('Sources','แหล่งข้อมูล')],['validation',t('Validation','แผนตรวจสอบ')],['reproduce',t('Reproduce & cite','ทำซ้ำและอ้างอิง')],
-    ].map(([id,label])=><a key={id} href={`#research-${id}`}>{label}</a>)}<button className="link-button" onClick={onDdpm}>{t('DDPM CSV audit','ตรวจ CSV ปภ.')} →</button></nav>
+    ].map(([id,label])=><a key={id} href={`#research-${id}`}>{label}</a>)}<TechnicalData language={language} /><button className="link-button" onClick={onDdpm}>{t('DDPM CSV audit','ตรวจ CSV ปภ.')} →</button></nav>
 
     <section id="research-results" aria-labelledby="results-title">
       <div className="research-section-head"><h2 id="results-title">{t('01 / Reported scenario results','01 / ผลลัพธ์ของฉากทัศน์ที่รายงาน')}</h2><a href="#source-R1" onClick={e=>{ e.preventDefault(); setFilter("all"); requestAnimationFrame(()=>{ document.getElementById("source-R1")?.focus({preventScroll:true}); history.replaceState(null,"","#source-R1"); }); }}>{t('Source [R1] · §4.1–4.5','แหล่ง [R1] · หัวข้อ 4.1–4.5')}</a></div>
@@ -113,7 +109,8 @@ export function ResearchSection({ onExplore, onDdpm, onLanguageChange }: { onExp
 
     <section id="research-reproduce" aria-labelledby="reproduce-title"><h2 id="reproduce-title">{t('05 / Reproduce, inspect & cite','05 / ทำซ้ำ ตรวจสอบ และอ้างอิง')}</h2>
       <p>{t('The browser code, tests and snapshot provenance are public. Passing software tests verifies selected implementation properties; it does not validate evacuation safety. No survey participants’ personal records are published.', 'โค้ดเบราว์เซอร์ ชุดทดสอบ และที่มาของข้อมูลที่เก็บไว้เปิดให้ตรวจสอบ การผ่านชุดทดสอบยืนยันการทำงานเฉพาะส่วน ไม่ได้ยืนยันความปลอดภัยในการอพยพ และไม่เผยแพร่ข้อมูลส่วนบุคคลของผู้ตอบแบบสำรวจ')}</p>
-      <div className="research-downloads"><button onClick={()=>save('khao-lak-reported-results.csv',evidenceCsv(),'text/csv;charset=utf-8')}>{t('Download results CSV','ดาวน์โหลดผล CSV')}</button><button onClick={()=>save('khao-lak-citation.bib',bibtex,'application/x-bibtex;charset=utf-8')}>{t('Download BibTeX','ดาวน์โหลด BibTeX')}</button><a href="https://github.com/Nonarkara/tsunami-evacuation" target="_blank" rel="noreferrer">{t('Code & tests','โค้ดและชุดทดสอบ')}</a><a href="/data/hazard-replay.schema.json">{t('Replay JSON schema','โครงสร้าง JSON สำหรับเล่นซ้ำ')}</a></div>
+      <ResearchDownloads language={language} />
+      <a href="/data/hazard-replay.schema.json">{t('Replay JSON schema','โครงสร้าง JSON สำหรับเล่นซ้ำ')}</a>
       <details><summary>{t('Replication record and author questions','บันทึกการทำซ้ำและคำถามสำหรับผู้วิจัย')}</summary><p>{t('Record code revision, dependency lockfile, source versions, CRS/datum, cell size, time origin, parameter values, random seeds, run counts and preprocessing steps. Compare conservation, network trajectories, queues and no-data handling before outcome comparisons. [R7] informs reporting; it does not certify this model.', 'บันทึกรุ่นโค้ด ไฟล์ล็อกแพ็กเกจ รุ่นแหล่งข้อมูล ระบบพิกัดและความสูง ขนาดกริด จุดเริ่มเวลา ค่าพารามิเตอร์ ค่าเริ่มต้นการสุ่ม จำนวนรัน และขั้นตอนเตรียมข้อมูล ตรวจยอดจำนวนคน เส้นทางการเคลื่อนที่ คิว และการจัดการข้อมูลที่ขาดก่อนเทียบผลลัพธ์ ใช้ [R7] เป็นแนวทางรายงาน ไม่ใช่การรับรองแบบจำลองนี้')}</p><p>{t('Request original Unity and hydrodynamic inputs, exact PD50/VE50 settings, refuge screening criteria, warning-coverage geometry and complete ensemble outputs. The 25%/27% discrepancy and transferability remain open questions.', 'ขอไฟล์ Unity และข้อมูลพลศาสตร์น้ำต้นฉบับ ค่าตั้ง PD50/VE50 ที่แน่นอน เกณฑ์คัดกรองอาคาร ขอบเขตการได้ยินคำเตือน และผลการรันครบทุกชุด ความต่าง 25%/27% และการใช้ข้ามพื้นที่ยังเป็นคำถามเปิด')}</p></details>
       <p className="research-citation" lang="en">{paperCitation}</p>
       <p>{t('Bibliographic correction: SSRN lists 12 August 2026 and the author order above. The earlier site incorrectly used 2024. Peer-review status and manuscript revisions must be rechecked before scholarly submission. System design and synthesis: Dr. Non Arkaraprasertkul; source research belongs to its authors.', 'แก้ไขข้อมูลบรรณานุกรม: SSRN ระบุวันที่ 12 สิงหาคม 2026 และลำดับผู้แต่งตามข้างต้น เว็บไซต์รุ่นก่อนระบุปี 2024 ผิด ต้องตรวจสถานะการประเมินและรุ่นต้นฉบับอีกครั้งก่อนส่งผลงานวิชาการ ออกแบบระบบและสังเคราะห์โดย Dr. Non Arkaraprasertkul งานวิจัยต้นฉบับเป็นผลงานของผู้วิจัย')}</p>
