@@ -49,11 +49,12 @@
 .stackbar { display: grid; gap: 4px; }
 .stack-track { display: flex; height: 10px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
 .stack-track span { display: block; height: 100%; transition: width .15s linear; }
-/* The legend has four states. It is a grid, not a wrapping row, so the fourth state
-   never strands itself alone on a second line when the column is narrow. */
+/* The legend is a grid, not a wrapping row, so the last state never strands itself
+   alone on a second line. The column count comes from the number of states and always
+   divides it: four states in four columns or two, two states in two, eight in four. */
 .stackbar { container-type: inline-size; }
-.stack-legend { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 2px 12px; margin: 0; }
-@container (min-width: 320px) { .stack-legend { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.stack-legend { display: grid; grid-template-columns: repeat(var(--stack-cols-narrow, 2), minmax(0,1fr)); gap: 2px 12px; margin: 0; }
+@container (min-width: 320px) { .stack-legend { grid-template-columns: repeat(var(--stack-cols, 4), minmax(0,1fr)); } }
 .stack-legend > div { display: flex; align-items: baseline; gap: 4px; font-size: var(--fs-micro); }
 .stack-legend dt { display: flex; align-items: center; gap: 4px; color: var(--ink-2); }
 .stack-legend dt i { display: inline-block; width: 8px; height: 8px; }

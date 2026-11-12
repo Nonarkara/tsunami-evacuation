@@ -1,6 +1,6 @@
 /** Small inline-SVG chart kit. Charts draw in CSS pixels (measured width), so type stays on the
  * shared 11/13 px tokens at every panel width. Every chart states its unit and range. */
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { largestRemainder, niceCeil, profileRuns, reconciledShares, waitClock } from './viz';
 
 function useWidth<T extends HTMLElement>(fallback = 320) {
@@ -73,7 +73,7 @@ export function StackBar({ parts, total, label }: { parts: Part[]; total: number
     {shares === null ? <p role="status">{label}: counts do not reconcile / จำนวนไม่ตรงกัน</p> : <div className="stack-track" role="img" aria-label={`${label}: ${parts.map(p => `${p.label} ${Math.round(p.value).toLocaleString()}`).join(', ')} / ${total.toLocaleString()}`}>
       {parts.map((p, i) => shares[i] > 0 && <span key={p.kind} className={`seg-${p.kind}`} style={{ width: `${shares[i]}%` }} />)}
     </div>}
-    <dl className="stack-legend">{parts.map(p => <div key={p.kind}><dt><i className={`seg-${p.kind}`} aria-hidden="true" />{p.label}</dt><dd>{Math.round(p.value).toLocaleString()}</dd></div>)}</dl>
+    <dl className="stack-legend" style={{ '--stack-cols': Math.min(parts.length, 4), '--stack-cols-narrow': Math.min(parts.length, 2) } as CSSProperties}>{parts.map(p => <div key={p.kind}><dt><i className={`seg-${p.kind}`} aria-hidden="true" />{p.label}</dt><dd>{Math.round(p.value).toLocaleString()}</dd></div>)}</dl>
   </div>;
 }
 
