@@ -727,44 +727,6 @@ main {
   box-shadow: none;
 }
 
-.highway4-corridor {
-}
-
-.safe-buffer-zone {
-}
-
-.surge-pulse-danger {
-  animation: pulse-danger 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse-danger {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 0.4; }
-}
-
-.surge-pulse-safe {
-  animation: pulse-safe 2s ease-in-out infinite;
-}
-
-@keyframes pulse-safe {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 0.3; }
-}
-
-.safe-walk-path {
-  animation: walk-dash 1.6s linear infinite;
-}
-
-@keyframes walk-dash {
-  to { stroke-dashoffset: -28; }
-}
-
-.gridlock-path {
-}
-
-.wave-crest-line {
-}
-
 /* Place Selector Bar */
 .place-selector-bar {
   display: flex;
@@ -2167,6 +2129,8 @@ textarea {
 .compare-note { color: var(--ink-2); font-size: var(--fs-micro); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
 
 /* Map text belongs beside the terrain, never over its operating area. */
+/* A qualified term breaks as a unit: "endpoint unapproved" must never strand a word. */
+.nowrap { white-space: nowrap; }
 .terrain-caption { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 12px; padding-block: 4px; color: var(--ink-2); font-size: var(--fs-body); }
 .terrain-credits { margin-left: auto; white-space: nowrap; }
 .scene-link { white-space: nowrap; }
