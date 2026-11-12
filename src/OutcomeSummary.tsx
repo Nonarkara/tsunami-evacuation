@@ -10,9 +10,9 @@ export function OutcomeSummary({ step, condition }: { step: number; condition: C
     {value:o.affected,label:t('Modeled victims','ผู้ประสบภัยจำลอง'),kind:'victims'},
     {value:100-o.affected,label:t('Not classified as modeled victims','ไม่จัดเป็นผู้ประสบภัยจำลอง'),kind:'unclassified'},
   ] : [
-    {value:o.reached,label:t('Reached modeled sites','ถึงจุดที่แบบจำลองกำหนด'),kind:'reached'},
-    {value:o.outside!,label:t('Outside affected area','นอกพื้นที่ได้รับผลกระทบ'),kind:'outside'},
     {value:o.affected,label:t('Modeled victims','ผู้ประสบภัยจำลอง'),kind:'victims'},
+    {value:o.outside!,label:t('Outside affected area','นอกพื้นที่ได้รับผลกระทบ'),kind:'outside'},
+    {value:o.reached,label:t('Reached modeled sites','ถึงจุดที่แบบจำลองกำหนด'),kind:'reached'},
   ];
   return <section className="outcome-summary" lang={language} aria-label={t('Modeled outcome accounting','การจัดหมวดผลแบบจำลอง')}>
     <DotGrid parts={parts} caption={<>{t('Each dot ≈1%; rounded. Exact shares above.','จุดละ ≈1% โดยปัดเศษ ค่าจริงแสดงด้านบน')} {POPULATION.toLocaleString('en-US')} {t('modeled agents','ตัวแทนจำลอง')}{o.reached===null?t(' · arrival split not reported for this package',' · ไม่ได้รายงานการแยกผลสำหรับมาตรการนี้'):''}</>} />

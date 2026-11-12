@@ -43,7 +43,7 @@
 .dot-reached { fill: var(--segment-reached); background: var(--segment-reached); }
 .dot-outside { fill: var(--segment-outside); background: var(--segment-outside); }
 .dot-victims { fill: var(--segment-victims); background: var(--segment-victims); }
-.dot-unclassified { fill: none; stroke: var(--line-2); stroke-width: 1; background: none; box-shadow: inset 0 0 0 1px var(--line-2); }
+.dot-unclassified { fill: transparent; stroke: var(--line-2); stroke-width: 1; background: none; box-shadow: inset 0 0 0 1px var(--line-2); }
 
 /* StackBar */
 .stackbar { display: grid; gap: 4px; }
@@ -54,7 +54,7 @@
    divides it: four states in four columns or two, two states in two, eight in four. */
 .stackbar { container-type: inline-size; }
 .stack-legend { display: grid; grid-template-columns: repeat(var(--stack-cols-narrow, 2), minmax(0,1fr)); gap: 2px 12px; margin: 0; }
-@container (min-width: 320px) { .stack-legend { grid-template-columns: repeat(var(--stack-cols, 4), minmax(0,1fr)); } }
+@container (min-width: 440px) { .stack-legend { grid-template-columns: repeat(var(--stack-cols, 4), minmax(0,1fr)); } }
 .stack-legend > div { display: flex; align-items: baseline; gap: 4px; font-size: var(--fs-micro); }
 .stack-legend dt { display: flex; align-items: center; gap: 4px; color: var(--ink-2); }
 .stack-legend dt i { display: inline-block; width: 8px; height: 8px; }
@@ -228,7 +228,7 @@
   #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
   #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-columns: minmax(0, 1fr) 400px; }
 }
-@media (min-width: 1024px) { .evidence-pane .dotgrid svg { width: 200px; height: 200px; } }
+@media (min-width: 1024px) and (min-height: 860px) { .evidence-pane .dotgrid svg { width: 200px; height: 200px; } }
 @media (min-width: 761px) and (max-width: 1099px) and (min-height: 501px) {
   #main .terrain-rehearsal,
   #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
@@ -261,3 +261,41 @@
   #main .terrain-rehearsal[data-camera=walk]:not([data-state=flat]),
   #main .terrain-rehearsal:not([data-camera=walk]) { grid-template-rows: minmax(120px, 1fr) auto 212px; }
 }
+
+/* Legend numbers never break mid-figure ("1,23 / 2"). */
+.stack-legend dd { white-space: nowrap; }
+
+/* Measure tour: each published package recolours the same dots, sweeping in reading order. */
+.dotgrid circle { transition: fill .3s ease-out, stroke .3s ease-out; transition-delay: calc(var(--i, 0) * 6ms); }
+@media (prefers-reduced-motion: reduce) { .dotgrid circle { transition-delay: 0s; } }
+.tour-button { display: block; align-self: flex-start; justify-self: start; width: max-content; margin: 6px 0 0; min-height: 32px; padding: 4px 10px; font: inherit; font-size: var(--fs-body); font-weight: 600; color: var(--ink); background: var(--accent); border: 0; cursor: pointer; }
+.tour-button[aria-pressed=true] { background: var(--paper); box-shadow: inset 0 0 0 1px var(--ink); }
+
+/* Measure ladder: rows up to the selected package are in effect (cumulative); later ones wait. */
+.measure-ladder { list-style: none; margin: 4px 0 0; padding: 0; counter-reset: m -1; border-top: 1px solid var(--line); }
+.measure-ladder li { counter-increment: m; border-bottom: 1px solid var(--line); }
+.measure-ladder button { display: grid; grid-template-columns: 18px minmax(0,1fr) auto; align-items: baseline; gap: 8px; width: 100%; min-height: 32px; padding: 5px 6px 5px 0; font: inherit; font-size: var(--fs-body); text-align: left; color: var(--ink-2); background: none; border: 0; border-left: 3px solid transparent; cursor: pointer; transition: color .2s ease, border-color .2s ease, background-color .2s ease; }
+.measure-ladder button::before { content: counter(m); padding-left: 6px; font-size: var(--fs-micro); font-variant-numeric: tabular-nums; }
+.measure-ladder li:first-child button::before { content: '·'; }
+.measure-ladder [data-state=applied] button { color: var(--ink); }
+.measure-ladder [data-state=applied] button::before { content: '✓'; }
+.measure-ladder [data-state=current] button { color: var(--ink); font-weight: 600; border-left-color: var(--accent); background: var(--active-bg); }
+.measure-ladder .ladder-val { font-variant-numeric: tabular-nums; }
+
+/* Audit 2026-11-13: a heading never ends a page or column away from its text. */
+.flow-content :is(h2, h3, h4) { break-after: avoid; }
+/* Plan: action buttons speak at body size like every other control; the four checks carry their own numbers. */
+#main .plan-actions button { font-size: var(--fs-body); min-height: 32px; padding: 4px 10px; }
+#main .planning-grid .plan-aside h3 { margin-top: 14px; }
+/* The checklist moves whole to the next page rather than splitting under its legend. */
+.flow-content .checklist-block { break-inside: avoid; }
+.plan-aside .axioms-list { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
+.planning-grid .calc-block > .label { font-size: var(--fs-title); font-weight: 600; }
+/* Results: the people column (dots, ladder, details) leads; the chart column takes the rest. */
+@media (min-width: 1024px) { .evidence-pane .modeling-split-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+@media (min-width: 1024px) and (max-height: 820px) { .measure-ladder button { min-height: 28px; padding-block: 3px; } }
+@media (min-width: 1024px) and (max-height: 799px) { .evidence-pane .dotgrid svg { width: 120px; height: 120px; } .evidence-pane .pane-badge { display: none; } }
+
+/* Audit 2026-11-13 (independent): one reading measure for the finding and the coordinator note; phone pages fill before breaking. */
+.evidence-pane .hud-truth-note { max-width: 70ch; }
+@media (max-width: 760px) { #main .evidence-pane .active-package-card, #main .evidence-pane .split-col-left { break-inside: auto; } }

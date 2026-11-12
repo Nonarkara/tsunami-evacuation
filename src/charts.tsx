@@ -57,7 +57,7 @@ export function DotGrid({ parts, caption }: { parts: Part[]; caption: ReactNode 
   const dots = counts.flatMap((n, k) => Array.from({ length: n }, () => parts[k].kind));
   return <figure className="viz dotgrid">
     <svg viewBox="0 0 100 100" width={104} height={104} role="img" aria-label={parts.map(p => `${p.label} ${p.value.toFixed(1)}%`).join('; ')}>
-      {dots.map((kind, i) => <circle key={i} className={`dot-${kind}`} cx={5 + (i % 10) * 10} cy={5 + Math.floor(i / 10) * 10} r={3.6} />)}
+      {dots.map((kind, i) => <circle key={i} className={`dot-${kind}`} style={{ '--i': i } as CSSProperties} cx={5 + (i % 10) * 10} cy={5 + Math.floor(i / 10) * 10} r={3.6} />)}
     </svg>
     <figcaption>
       <dl>{parts.map(p => <div key={p.kind}><dt><i className={`dot-${p.kind}`} aria-hidden="true" />{p.label}</dt><dd>{p.value.toFixed(1)}%</dd></div>)}</dl>

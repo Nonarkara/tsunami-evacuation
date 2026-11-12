@@ -31,7 +31,7 @@ import "@fontsource/prompt/thai-700.css";
 import { TerrainRehearsal } from "./TerrainRehearsal";
 import { MangaModel } from "./MangaModel";
 import { PaceRuler, Sparkline } from "./charts";
-import { packageNames, scenarioThai, checklistThai } from "./research-ledger";
+import { scenarioThai, checklistThai } from "./research-ledger";
 import {
   POPULATION,
   scenarios,
@@ -69,6 +69,17 @@ function Clock() {
   return <time className="masthead-clock" dateTime={now.toISOString()} aria-label="Bangkok device time / เวลาอุปกรณ์ในกรุงเทพฯ" title="Bangkok · UTC+7 · device clock / เวลาอุปกรณ์">{formatBangkokTime(now)}</time>;
 }
 
+/** One plain line per published package, paraphrasing the measure and the paper's local-coordinator guidance (research.ts). */
+const MEASURE_ACTIONS = [
+  { en: 'Start: cars jam the evacuation routes', th: 'จุดเริ่มต้น: รถติดบนเส้นทางอพยพ' },
+  { en: 'Walk, not drive; help those who cannot walk', th: 'เดินแทนขับรถ และช่วยผู้ที่เดินไม่ได้' },
+  { en: 'Have engineers assess candidate tall buildings', th: 'ให้วิศวกรประเมินอาคารสูงที่อาจใช้หลบภัย' },
+  { en: 'Practise going up; check stairs and access', th: 'ซ้อมขึ้นที่สูง ตรวจบันไดและทางเข้า' },
+  { en: 'Sign every route to its destination, in several languages', th: 'ติดป้ายบอกทางต่อเนื่องหลายภาษาถึงจุดหมาย' },
+] as const;
+/** Thai headings built the same way as scenarios[].label (measure, then its study code). */
+const PACKAGE_TITLES_TH = ['กรณีฐานของงานวิจัย (รถติด)', 'เพิ่มความต้องการเดินเท้าเป็น 50% (PD50)', 'เพิ่มอาคารแนวดิ่งที่เสนอ 14 แห่ง (VS14)', 'เพิ่มความต้องการอพยพแนวดิ่งเป็น 50% (VE50)', 'มาตรการครบชุด: ป้าย 135 จุด (SG135)'];
+
 function App() {
   const [tab, setTab] = useState<Tab>(() => {
     const hash = location.hash.slice(1);
@@ -81,9 +92,19 @@ function App() {
   const [regionIdx, setRegionIdx] = useState(0);
   const [selectedPlace, setSelectedPlace] = useState(2);
   const [step, setStep] = useState(4);
+  // Guided tour of the five published packages: user-started, one step every 2.6 s, stops on any manual choice, view change or hidden tab.
+  const [touring, setTouring] = useState(false);
+  useEffect(() => {
+    if (!touring) return;
+    const stop = () => setTouring(false);
+    const id = setTimeout(() => step >= 4 ? stop() : setStep(step + 1), 2600);
+    document.addEventListener('visibilitychange', stop);
+    return () => { clearTimeout(id); document.removeEventListener('visibilitychange', stop); };
+  }, [touring, step]);
   const [condition, setCondition] = useState<Condition>("baseline");
   const [bannerDock,setBannerDock]=useState<HTMLDivElement|null>(null);
   const [modelView,setModelView]=useState("terrain");
+  useEffect(()=>setTouring(false),[modelView,tab]);
   const [compactResults, setCompactResults] = useState(() => matchMedia('(max-width: 760px)').matches);
   useEffect(() => {
     const query = matchMedia('(max-width: 760px)');
@@ -394,7 +415,7 @@ function App() {
                         <div className="hud-labels">
                           <strong>{t('Modeled victim share','สัดส่วนผู้ประสบภัยจำลอง')}</strong>
                           <span>
-                            ≈ {Math.round(
+                            ≈ {Math.max(1, Math.round(resultFor(step, condition)))} {t('in every 100','ในทุก 100 คน')} · {Math.round(
                               (resultFor(step, condition) / 100) * POPULATION,
                             ).toLocaleString("en-US")}{" "}
                             {t('of','จาก')} {POPULATION.toLocaleString("en-US")} {t('agents','ตัวแทน')}
@@ -418,16 +439,19 @@ function App() {
 
                   {/* Outcome leads the screen: who was affected / did they make it, then what the packages did. */}
                   <OutcomeSummary step={step} condition={condition} />
-
-                </div>
-
-                {/* Compare packages directly above the selected package details. */}
-                <div className="split-col-right">
-                  <InterventionComparison step={step} condition={condition} onSelect={setStep} height={compactResults ? 96 : 160} />
+                  {/* The five packages as what each asks people to do; cumulative, so every row up to the selected one is in effect. */}
+                  <ol className="measure-ladder" aria-label={t('What each published measure asks people to do','แต่ละมาตรการขอให้ผู้คนทำอะไร')}>
+                    {MEASURE_ACTIONS.map((m, i) => <li key={i} data-state={i < step ? 'applied' : i === step ? 'current' : 'later'}>
+                      <button type="button" aria-pressed={i === step} onClick={() => { setTouring(false); setStep(i); }}>
+                        <span className="ladder-do">{language === 'th' ? m.th : m.en}</span>
+                        <span className="ladder-val">{resultFor(i, condition).toFixed(1)}%</span>
+                      </button>
+                    </li>)}
+                  </ol>
                   {/* Active Package Inspector Card */}
                   <div className="active-package-card">
                     <div className="active-pkg-header">
-                      <h3>{language === "th" ? packageNames[step].th : scenarios[step].label}</h3>
+                      <h3>{language === "th" ? PACKAGE_TITLES_TH[step] : scenarios[step].label}</h3>
                     </div>
 
                     <div className="hud-truth-note">
@@ -457,6 +481,13 @@ function App() {
                       </div>
                     </dl>
                   </div>
+
+                </div>
+
+                {/* Compare packages directly above the selected package details. */}
+                <div className="split-col-right">
+                  <button type="button" className="tour-button" aria-pressed={touring} onClick={() => { if (touring) setTouring(false); else { setStep(0); setTouring(true); } }}>{touring ? <>❚❚ {t('Pause','หยุด')}</> : <>▶ {t('Play the five measures','เล่นทีละมาตรการ')}</>}</button>
+                  <InterventionComparison step={step} condition={condition} onSelect={i => { setTouring(false); setStep(i); }} height={compactResults ? 96 : innerWidth >= 1024 ? Math.max(160, innerHeight - 340) : 160} />
                 </div>
               </div>
 
@@ -537,7 +568,7 @@ function Prepare({language}:{language:string}) {
       <section className="plan-form" id="plan-form">
         <div className="section-head-compact">
           <h1>{t('My evacuation plan','แผนอพยพของฉัน')}</h1>
-          <span className="meta">{t('Private & On-Device · Actionable Protocol','ส่วนตัวบนอุปกรณ์นี้ · คำแนะนำที่ปฏิบัติได้')}</span>
+          <span className="meta">{t('Private, on this device · practical steps','ส่วนตัวบนอุปกรณ์นี้ · คำแนะนำที่ปฏิบัติได้')}</span>
         </div>
         <p>
           {t('Confirm destinations, routes and assisted transport needs with local authorities before an emergency.','ยืนยันปลายทาง เส้นทาง และการเดินทางสำหรับผู้ต้องการความช่วยเหลือกับหน่วยงานท้องถิ่นก่อนเกิดเหตุ')}
@@ -548,8 +579,8 @@ function Prepare({language}:{language:string}) {
             [
               ["place", t("Where are you staying?","พักอยู่ที่ไหน?"), t("Hotel, home or workplace","โรงแรม บ้าน หรือที่ทำงาน")],
               ["destination", t("Locally confirmed destination","ปลายทางที่ยืนยันในพื้นที่แล้ว"), t("Authority-designated destination and access point","ปลายทางและทางเข้าที่หน่วยงานกำหนด")],
-              ["backup", t("Backup Refuge Destination","จุดอพยพสำรอง"), t("Alternative authority-designated destination","ปลายทางสำรองที่หน่วยงานกำหนด")],
-              ["contact", t("Out-of-Area Contact","ผู้ติดต่อนอกพื้นที่"), t("Name and mobile number","ชื่อและหมายเลขโทรศัพท์")],
+              ["backup", t("Backup destination","จุดอพยพสำรอง"), t("Alternative authority-designated destination","ปลายทางสำรองที่หน่วยงานกำหนด")],
+              ["contact", t("Contact outside the area","ผู้ติดต่อนอกพื้นที่"), t("Name and mobile number","ชื่อและหมายเลขโทรศัพท์")],
             ] as const
           ).map(([key, label, placeholder]) => (
             <label key={key}>
@@ -566,7 +597,7 @@ function Prepare({language}:{language:string}) {
         </div>
 
         <label>
-          {t("Walking Route & Landmark Notes","เส้นทางเดินและจุดสังเกต")}
+          {t("Walking route and landmarks","เส้นทางเดินและจุดสังเกต")}
           <textarea
             maxLength={2000}
             value={plan.route}
@@ -578,7 +609,7 @@ function Prepare({language}:{language:string}) {
 
         <div className="plan-assistance-timing">
           <label>
-            {t("Assistance Needed & Action for Dependents","ความช่วยเหลือที่ต้องการและแผนสำหรับผู้ต้องพึ่งพิง")}
+            {t("Who needs help, and how","ความช่วยเหลือที่ต้องการและแผนสำหรับผู้ต้องพึ่งพิง")}
             <input
               maxLength={2000}
               value={plan.assistance}
@@ -589,7 +620,7 @@ function Prepare({language}:{language:string}) {
           </label>
 
           <div className="calc-block">
-            <span className="label">{t("Walking Time Estimate","ประมาณเวลาเดิน")}</span>
+            <span className="label">{t("Walking time","ประมาณเวลาเดิน")}</span>
             <div className="calc-inputs">
               <label>
                 {t("Meters","ระยะทาง (เมตร)")}
@@ -631,7 +662,7 @@ function Prepare({language}:{language:string}) {
         </div>
 
         <fieldset className="checklist-block">
-          <legend>{t("Readiness checklist","รายการเตรียมพร้อม")} <span className="check-count">{plan.checked.filter(Boolean).length}/{checklist.length} ✓</span></legend>
+          <legend>{t("Readiness checklist","รายการเตรียมพร้อม")} <span className="check-count">{plan.checked.filter(Boolean).length}/{checklist.length}{plan.checked.every(Boolean) ? ' ✓' : ''}</span></legend>
           {checklist.map((item, i) => (
             <label key={item} className="checkbox-label">
               <input
