@@ -299,3 +299,11 @@
 /* Audit 2026-11-13 (independent): one reading measure for the finding and the coordinator note; phone pages fill before breaking. */
 .evidence-pane .hud-truth-note { max-width: 70ch; }
 @media (max-width: 760px) { #main .evidence-pane .active-package-card, #main .evidence-pane .split-col-left { break-inside: auto; } }
+
+/* Heading scale, one rule for every reading page: page title 24 (H1), section 17 (H2), sub-section 13 bold (H3).
+   A section heading never matches the page title. */
+#main .research-dossier h2, #main .drill-form h2 { font-size: var(--fs-title); font-weight: 600; }
+#main .research-dossier h3 { font-size: var(--fs-body); font-weight: 700; }
+/* Drill step 2 is a sibling of step 1, so it reads at the same section size. */
+#main .drill-form .drill-review { font-size: var(--fs-title); font-weight: 600; }
+#main .drill-form .drill-review textarea { font-size: var(--fs-body); font-weight: 400; }
