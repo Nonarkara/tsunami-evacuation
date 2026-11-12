@@ -75,7 +75,12 @@ const CONSOLE: ConsoleEntry[] = [
   },
 ];
 
-/** Direct section navigation. Detailed instructions remain in each page and the manual. */
+/** Direct section navigation. Detailed instructions remain in each page and the manual.
+ *
+ * Every section owns a symbol, including the DDPM risk evidence: the owner asked for
+ * five navigation symbols beside the region, and a section that can only be reached
+ * from a link inside another page has no path of its own.
+ */
 export function NavConsole({
   active,
   onNavigate,
@@ -90,7 +95,7 @@ export function NavConsole({
       className="masthead-nav"
       aria-label="Main navigation"
     >
-      {CONSOLE.filter(entry=>entry.key!=='ddpm').map((entry) => (
+      {CONSOLE.map((entry) => (
         <button
           key={entry.key}
           type="button"
@@ -107,7 +112,7 @@ export function NavConsole({
               .map(item => item.target)
               .join(' ')
           }
-          aria-current={(active === entry.key || active==='ddpm' && entry.key==='research') ? 'page' : undefined}
+          aria-current={active === entry.key ? 'page' : undefined}
           onClick={() => onNavigate(entry.key)}
         >
           <NavSymbol name={entry.key} /><span className="nav-caption">{entry.label}</span>

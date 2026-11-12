@@ -94,15 +94,24 @@ READ_LINES = """
     let node;
     while ((node = walker.nextNode())) {
       const text = node.nodeValue;
-      if (!text || !text.trim()) continue;
+      if (!text) continue;
       const size = parseFloat(getComputedStyle(node.parentElement).fontSize) || 15;
       const range = document.createRange();
+      let inSpace = false;
       for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        const space = /\s/.test(ch);
+        if (space) {
+          // A run of whitespace is one space; skipping it would weld a label to
+          // the value that follows it.
+          if (inSpace) continue;
+          inSpace = true;
+        } else inSpace = false;
         range.setStart(node, i);
         range.setEnd(node, i + 1);
         const rect = range.getBoundingClientRect();
         if (!rect.width && !rect.height) continue;
-        marks.push({ centre: rect.top + rect.height / 2, left: rect.left, right: rect.right, text: text[i], size });
+        marks.push({ centre: rect.top + rect.height / 2, left: rect.left, right: rect.right, text: space ? ' ' : ch, size });
       }
     }
     const rect = el.getBoundingClientRect();
@@ -147,6 +156,9 @@ READ_PROSE = """
   for (const el of document.querySelectorAll(sel)) {
     if (!el.getClientRects().length) continue;
     if (el.closest('[hidden]')) continue;
+    // A form control's text is a list of options, not a rendered measure.
+    if (['SELECT', 'OPTION', 'INPUT', 'TEXTAREA'].includes(el.tagName)) continue;
+    if (el.querySelector('select, input, textarea')) continue;
     const text = (el.innerText || '').replace(/\\s+/g, ' ').trim();
     if (text.length < 24) continue;
     const rect = el.getBoundingClientRect();
