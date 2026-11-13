@@ -26,6 +26,7 @@ import math
 import re
 import subprocess
 import sys
+import tempfile
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -412,18 +413,23 @@ def upload_images(paths, workers: int = 6):
         return list(pool.map(upload_image, paths))
 
 
+def call_describe(chunk):
+    """Private per-call args file: describe_chunk runs in threads, and a fixed
+    /tmp path let calls overwrite each other (and is symlink-able)."""
+    with tempfile.NamedTemporaryFile('w', suffix='.json', prefix='roof-describe-') as handle:
+        json.dump({'image_info': [{'url': url, 'prompt': prompt} for url, prompt in chunk]}, handle)
+        handle.flush()
+        return json.loads(run_cli(['mcode-tools', 'connector', 'call',
+                                   'connector__matrix__describe_images', '--args-file', handle.name]))
+
+
 def describe_chunk(chunk):
     """One vision call for a small batch. Large batches come back empty, so a
     failed call is retried in halves and, at the smallest size, reported as an
     unanswered image rather than as a judgement."""
     if len(chunk) == 1:
         try:
-            args_file = Path('/tmp/roof-describe-args.json')
-            args_file.write_text(json.dumps({
-                'image_info': [{'url': url, 'prompt': prompt} for url, prompt in chunk]
-            }))
-            payload = json.loads(run_cli(['mcode-tools', 'connector', 'call',
-                                          'connector__matrix__describe_images', '--args-file', str(args_file)]))
+            payload = call_describe(chunk)
             results = payload.get('results') or []
             if len(results) != 1:
                 return ['']
@@ -432,12 +438,7 @@ def describe_chunk(chunk):
         except Exception:
             return ['']
     try:
-        args_file = Path('/tmp/roof-describe-args.json')
-        args_file.write_text(json.dumps({
-            'image_info': [{'url': url, 'prompt': prompt} for url, prompt in chunk]
-        }))
-        payload = json.loads(run_cli(['mcode-tools', 'connector', 'call',
-                                      'connector__matrix__describe_images', '--args-file', str(args_file)]))
+        payload = call_describe(chunk)
         results = payload.get('results') or []
         if len(results) != len(chunk):
             raise RuntimeError(f'describe_images returned {len(results)} results for {len(chunk)} images')
