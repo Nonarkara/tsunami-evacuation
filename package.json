@@ -29,7 +29,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.0",
     "tsx": "^4.20.0",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "vite": "^7.1.0",
     "wrangler": "^4.153.0",
     "@types/three": "^0.187.0"
