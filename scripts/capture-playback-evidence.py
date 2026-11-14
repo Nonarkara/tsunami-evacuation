@@ -209,8 +209,10 @@ def open_results(page, base: str, language: str) -> bool:
         return False
     opened_dialog = False
     if not page.is_visible(select):
-        trigger = page.query_selector(".banner-overflow")
-        if trigger is None:
+        # A locator, not a handle: the dock re-renders the trigger when the
+        # layout settles, and a stale handle never becomes clickable.
+        trigger = page.locator(".banner-overflow:visible").first
+        if trigger.count() == 0:
             return False
         trigger.click()
         page.wait_for_timeout(600)

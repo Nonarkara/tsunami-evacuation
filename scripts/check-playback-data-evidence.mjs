@@ -15,8 +15,18 @@ function checkResults(row) {
   assert.ok(fits(row.outcome, row.window), 'Outcome must fit on the opening page');
   assert.ok(fits(row.button, row.results), 'Data must be reachable on the opening page');
   if (row.viewport[0] !== 667) {
-    assert.ok(fits(row.axis, row.window), 'Package controls must fit with the chart');
-    assert.ok(row.axis.h >= 32, 'Package controls must remain intact');
+    // Desktop: the chart is the control. Phone: the measure ladder (the same five
+    // aria-pressed packages) opens beside the outcome and the chart follows it.
+    // On a short phone the ladder may start page 2, but it must never be split.
+    const phone = row.viewport[0] < 760;
+    const control = phone ? row.ladder : row.axis;
+    const whole = control.w <= row.window.w + 1 && control.y >= row.window.y - 1 &&
+      control.bottom <= row.window.bottom + 1;
+    assert.ok(whole, 'Package controls must sit whole on one page');
+    if (!phone || row.viewport[1] >= 800) {
+      assert.ok(fits(control, row.window), 'Package controls must fit with the outcome');
+    }
+    assert.ok(control.h >= 32, 'Package controls must remain intact');
   }
 }
 results.forEach(checkResults);
@@ -35,6 +45,6 @@ for (const row of dialogs) {
 }
 const pages = read('thai-landscape-pages.json');
 assert.equal(pages.length, 3);
-assert.ok(fits(pages[1].axis, pages[1].window));
+assert.ok(fits(pages[1].ladder, pages[1].window), "Thai landscape: the package ladder sits whole on page 2");
 assert.ok(pages.every(row => row.button.x === pages[0].button.x));
 console.log('PASS 16 Results cases, 6 data dialogs and Thai landscape pagination.');

@@ -290,7 +290,7 @@
 #main .plan-actions button { font-size: var(--fs-body); min-height: 32px; padding: 4px 10px; }
 #main .planning-grid .plan-aside h3 { margin-top: 14px; }
 /* The checklist moves whole to the next page rather than splitting under its legend. */
-.flow-content .checklist-block { break-inside: avoid; }
+.flow-content .checklist-block, .flow-content .measure-ladder { break-inside: avoid; }
 .plan-aside .axioms-list { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
 .planning-grid .calc-block > .label { font-size: var(--fs-title); font-weight: 600; }
 /* Results: the people column (dots, ladder, details) leads; the chart column takes the rest. */

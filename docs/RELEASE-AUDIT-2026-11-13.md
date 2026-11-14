@@ -180,3 +180,15 @@ Named plainly. A clean pass may not be claimed while these stand.
 `6ecac8f` and `ce30c02` carry a `Co-Authored-By` trailer that `AGENTS.md` does not
 use. Their history is published and is not rewritten; the rule is honoured from the
 next commit onward.
+
+## 15 November: release close-out (Claude, after GLM 5.3's CSO audit)
+
+The CSO audit's one yellow finding was right: the receipts were stale. Closing it turned up three more things.
+
+1. **`e141488` was committed but never deployed.** The live site still served `index-8bWpod1g.js`, which carried the 320 px masthead clip. The fresh viewport receipt failed on it (`model/320x700: header control clipped`) until the fix was deployed.
+2. **The playback producer could not finish a run.** On a phone width it took a handle to the `⋯` map-controls trigger. The dock then re-rendered that trigger, and the stale handle never became clickable, so every run timed out on the first phone case. It now clicks through a re-resolving locator.
+3. **A stale receipt had hidden a gate failure since `6ecac8f`.** Once the evidence was current, `check-playback-data-evidence` failed on every phone case. The new measure ladder (five `aria-pressed` package buttons, the same five as the chart) had become the phone package control, and the chart moved behind it. The gate still named the chart. Worse, at 390×600 and 320×700 the ladder was **split across two pages**, half of a control on each. Fixes:
+   - `.measure-ladder` gets `break-inside: avoid`, so it always sits whole on one page. At 390×844 that page is the opening page, beside the outcome. On shorter phones the ladder starts page 2.
+   - The gate now checks the control that is actually there: the chart on desktop, the ladder on phone. It requires the control to be whole on one page, and on the opening page wherever the viewport is at least 800 px tall. A mutation check (a ladder widened across two columns) fails the gate.
+
+The release-time check scripts (contrast, viewport, banner, manga, resume, orchestration, playback-data, served-bytes) all pass against receipts captured from the live origin for this release.
