@@ -99,10 +99,10 @@
         "rect": {
           "x": 105.15625,
           "y": 3,
-          "width": 125,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 230.15625,
+          "right": 201.296875,
           "bottom": 31,
           "left": 105.15625
         }
@@ -110,105 +110,118 @@
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 240.15625,
+          "x": 211.296875,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 267.15625,
+          "right": 238.296875,
           "bottom": 32,
-          "left": 240.15625
+          "left": 211.296875
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 268.15625,
+          "x": 239.296875,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 295.15625,
+          "right": 266.296875,
           "bottom": 32,
-          "left": 268.15625
+          "left": 239.296875
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 296.15625,
+          "x": 267.296875,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 323.15625,
+          "right": 294.296875,
           "bottom": 32,
-          "left": 296.15625
+          "left": 267.296875
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 324.15625,
+          "x": 295.296875,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 351.15625,
+          "right": 322.296875,
           "bottom": 32,
-          "left": 324.15625
+          "left": 295.296875
+        }
+      },
+      {
+        "name": "DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM",
+        "rect": {
+          "x": 323.296875,
+          "y": 2,
+          "width": 27,
+          "height": 30,
+          "top": 2,
+          "right": 350.296875,
+          "bottom": 32,
+          "left": 323.296875
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 352.15625,
+          "x": 351.296875,
           "y": 2,
           "width": 27,
           "height": 30,
           "top": 2,
-          "right": 379.15625,
+          "right": 378.296875,
           "bottom": 32,
-          "left": 352.15625
+          "left": 351.296875
         }
       },
       {
         "name": "Model view / มุมมอง",
         "rect": {
-          "x": 383.15625,
+          "x": 382.296875,
           "y": 2.984375,
-          "width": 90,
+          "width": 80.828125,
           "height": 28,
           "top": 2.984375,
-          "right": 473.15625,
+          "right": 463.125,
           "bottom": 30.984375,
-          "left": 383.15625
+          "left": 382.296875
         }
       },
       {
         "name": "Select coastal area",
         "rect": {
-          "x": 479.15625,
+          "x": 469.125,
           "y": 2.984375,
-          "width": 118,
+          "width": 131.5,
           "height": 28,
           "top": 2.984375,
-          "right": 597.15625,
+          "right": 600.625,
           "bottom": 30.984375,
-          "left": 479.15625
+          "left": 469.125
         }
       },
       {
         "name": "Map controls / เครื่องมือแผนที่",
         "rect": {
-          "x": 603.15625,
+          "x": 606.625,
           "y": 1.09375,
           "width": 30,
           "height": 28,
           "top": 1.09375,
-          "right": 633.15625,
+          "right": 636.625,
           "bottom": 29.09375,
-          "left": 603.15625
+          "left": 606.625
         }
       },
       {
@@ -288,10 +301,10 @@
         "rect": {
           "x": 105.15625,
           "y": 3,
-          "width": 125,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 230.15625,
+          "right": 201.296875,
           "bottom": 31,
           "left": 105.15625
         }
@@ -299,66 +312,79 @@
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 240.15625,
+          "x": 211.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 268.15625,
+          "right": 239.296875,
           "bottom": 32,
-          "left": 240.15625
+          "left": 211.296875
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 269.15625,
+          "x": 240.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 297.15625,
+          "right": 268.296875,
           "bottom": 32,
-          "left": 269.15625
+          "left": 240.296875
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 298.15625,
+          "x": 269.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 326.15625,
+          "right": 297.296875,
           "bottom": 32,
-          "left": 298.15625
+          "left": 269.296875
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 327.15625,
+          "x": 298.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 355.15625,
+          "right": 326.296875,
           "bottom": 32,
-          "left": 327.15625
+          "left": 298.296875
+        }
+      },
+      {
+        "name": "DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM",
+        "rect": {
+          "x": 327.296875,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355.296875,
+          "bottom": 32,
+          "left": 327.296875
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 356.15625,
+          "x": 356.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 384.15625,
+          "right": 384.296875,
           "bottom": 32,
-          "left": 356.15625
+          "left": 356.296875
         }
       },
       {
@@ -434,10 +460,10 @@
         "rect": {
           "x": 105.15625,
           "y": 3,
-          "width": 125,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 230.15625,
+          "right": 201.296875,
           "bottom": 31,
           "left": 105.15625
         }
@@ -445,66 +471,79 @@
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 240.15625,
+          "x": 211.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 268.15625,
+          "right": 239.296875,
           "bottom": 32,
-          "left": 240.15625
+          "left": 211.296875
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 269.15625,
+          "x": 240.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 297.15625,
+          "right": 268.296875,
           "bottom": 32,
-          "left": 269.15625
+          "left": 240.296875
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 298.15625,
+          "x": 269.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 326.15625,
+          "right": 297.296875,
           "bottom": 32,
-          "left": 298.15625
+          "left": 269.296875
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 327.15625,
+          "x": 298.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 355.15625,
+          "right": 326.296875,
           "bottom": 32,
-          "left": 327.15625
+          "left": 298.296875
+        }
+      },
+      {
+        "name": "DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM",
+        "rect": {
+          "x": 327.296875,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355.296875,
+          "bottom": 32,
+          "left": 327.296875
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 356.15625,
+          "x": 356.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 384.15625,
+          "right": 384.296875,
           "bottom": 32,
-          "left": 356.15625
+          "left": 356.296875
         }
       },
       {
@@ -594,10 +633,10 @@
         "rect": {
           "x": 105.15625,
           "y": 3,
-          "width": 125,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 230.15625,
+          "right": 201.296875,
           "bottom": 31,
           "left": 105.15625
         }
@@ -605,66 +644,79 @@
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 240.15625,
+          "x": 211.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 268.15625,
+          "right": 239.296875,
           "bottom": 32,
-          "left": 240.15625
+          "left": 211.296875
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 269.15625,
+          "x": 240.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 297.15625,
+          "right": 268.296875,
           "bottom": 32,
-          "left": 269.15625
+          "left": 240.296875
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 298.15625,
+          "x": 269.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 326.15625,
+          "right": 297.296875,
           "bottom": 32,
-          "left": 298.15625
+          "left": 269.296875
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 327.15625,
+          "x": 298.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 355.15625,
+          "right": 326.296875,
           "bottom": 32,
-          "left": 327.15625
+          "left": 298.296875
+        }
+      },
+      {
+        "name": "DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM",
+        "rect": {
+          "x": 327.296875,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355.296875,
+          "bottom": 32,
+          "left": 327.296875
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 356.15625,
+          "x": 356.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 384.15625,
+          "right": 384.296875,
           "bottom": 32,
-          "left": 356.15625
+          "left": 356.296875
         }
       },
       {
@@ -682,7 +734,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อนSections / หัวข้อ01 / Reported scenario resultsWhat the reported comparisons supportRead package definitions and outcome accounting02 / Two models, different purposesPublished Unity ABMS [R1]Browser point-queue rehearsalHow Soonami Builds on the ResearchUncertainty, repeatability and interpretation03 / Evidence & data ledgerSensors & imagery · not connected04 / Validation agenda · proposed, not completedReproduce the source modelHindcast the physical hazardSurvey routes and candidate refugesTest behavior and language in the fieldStress-test and publish the failures05 / Reproduce, inspect & citeReplication record and author questionsThai / English terminology1 / 5Next / ถัดไป →"
+      "← Previous / ก่อนSections / หัวข้อ01 / Reported scenario resultsWhat the reported comparisons supportRead package definitions and outcome accounting02 / Two models, different purposesPublished Unity ABMS [R1]Browser point-queue rehearsalHow Soonami builds on the researchUncertainty, repeatability and interpretation03 / Evidence & data ledgerSensors & imagery · not connected04 / Validation agenda · proposed, not completedReproduce the source modelHindcast the physical hazardSurvey routes and candidate refugesTest behavior and language in the fieldStress-test and publish the failures05 / Reproduce, inspect & citeReplication record and author questionsThai / English terminology1 / 5Next / ถัดไป →"
     ],
     "failures": [],
     "route": "research",
@@ -747,10 +799,10 @@
         "rect": {
           "x": 105.15625,
           "y": 3,
-          "width": 125,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 230.15625,
+          "right": 201.296875,
           "bottom": 31,
           "left": 105.15625
         }
@@ -758,66 +810,79 @@
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 240.15625,
+          "x": 211.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 268.15625,
+          "right": 239.296875,
           "bottom": 32,
-          "left": 240.15625
+          "left": 211.296875
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 269.15625,
+          "x": 240.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 297.15625,
+          "right": 268.296875,
           "bottom": 32,
-          "left": 269.15625
+          "left": 240.296875
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 298.15625,
+          "x": 269.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 326.15625,
+          "right": 297.296875,
           "bottom": 32,
-          "left": 298.15625
+          "left": 269.296875
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 327.15625,
+          "x": 298.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 355.15625,
+          "right": 326.296875,
           "bottom": 32,
-          "left": 327.15625
+          "left": 298.296875
+        }
+      },
+      {
+        "name": "DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM",
+        "rect": {
+          "x": 327.296875,
+          "y": 2,
+          "width": 28,
+          "height": 30,
+          "top": 2,
+          "right": 355.296875,
+          "bottom": 32,
+          "left": 327.296875
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 356.15625,
+          "x": 356.296875,
           "y": 2,
           "width": 28,
           "height": 30,
           "top": 2,
-          "right": 384.15625,
+          "right": 384.296875,
           "bottom": 32,
-          "left": 356.15625
+          "left": 356.296875
         }
       },
       {
@@ -838,7 +903,7 @@
     "failures": [],
     "route": "ddpm",
     "surface": "ddpm",
-    "navCurrent": null,
+    "navCurrent": "page",
     "terrainState": null,
     "heading": "DDPM · full CSV inspection",
     "visibleRegions": [
