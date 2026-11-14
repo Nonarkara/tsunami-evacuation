@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -166,6 +167,23 @@ def live_bytes(origin: str) -> list[dict]:
     return records
 
 
+def git_commit() -> str:
+    """Record the commit the measurements were taken on.
+
+    Bytes say which bundle was measured; the commit says which release it came
+    from. A receipt without it can be replayed against a tree that no longer
+    holds the code that produced it.
+    """
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(ROOT), "rev-parse", "HEAD"],
+            capture_output=True, text=True, timeout=30, check=True,
+        )
+        return out.stdout.strip()
+    except Exception:
+        return "unknown"
+
+
 def write_receipt(origin: str) -> dict:
     """Write the byte receipt that ties the measurements to one release."""
     cases = sorted(VIEWPORT_DIR.glob("case-*.json"))
@@ -178,6 +196,7 @@ def write_receipt(origin: str) -> dict:
     receipt = {
         "origin": origin,
         "capturedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "commit": git_commit(),
         "viewportCases": len(cases),
         "viewportRecords": records,
         "bannerRows": rows,

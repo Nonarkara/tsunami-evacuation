@@ -26,7 +26,29 @@ receipts:
 ```sh
 node scripts/check-viewport-evidence.mjs
 node scripts/check-banner-evidence.mjs
+node scripts/check-served-bytes.mjs https://tsunami.nonarkara.org
 ```
+
+The third one is the one that catches a stale receipt. On 13 November 2026 the first
+two gates both reported PASS against a receipt taken on 7 November, while the site
+was serving a bundle five releases newer. A receipt is evidence for the bundle it was
+taken against; `check-served-bytes.mjs` hashes what the host is serving now and
+compares it with the sha256 in the receipt.
+
+## The band reader
+
+`bands.py` reads the **rendered lines** of a text band: the exact characters on each
+line, the measure in characters per line, and whether the last line is a stranded
+word. It is the instrument that found the six stranded words in the 12 November
+audit, and it covers every surface — explore, prepare, drill, research, ddpm — at
+390, 1024 and 1440.
+
+```sh
+python3 tools/viewport/bands.py https://tsunami.nonarkara.org out/bands.json
+```
+
+It waits for the terrain only on the surface that has one: a hidden terrain never
+reports ready, so waiting for it elsewhere only burns the clock.
 
 ## What the receipts must carry
 

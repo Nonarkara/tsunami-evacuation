@@ -32,6 +32,10 @@ from playwright.sync_api import sync_playwright
 
 VIEWPORTS = [(390, 844), (1024, 768), (1440, 900)]
 
+# Every surface of the workspace. A page is opened by hash and reloaded, because a
+# hash change alone does not re-read it.
+SECTIONS = ["explore", "prepare", "drill", "research", "ddpm"]
+
 # Bands whose text breaks under compression. Each is (selector, label).
 BANDS = [
     (".terrain-caption .caption-top > span:first-child", "caption status"),
@@ -159,6 +163,15 @@ READ_PROSE = """
     // A form control's text is a list of options, not a rendered measure.
     if (['SELECT', 'OPTION', 'INPUT', 'TEXTAREA'].includes(el.tagName)) continue;
     if (el.querySelector('select, input, textarea')) continue;
+    // A value in a two-column label/value row is a short parameter record, not a
+    // paragraph of reading: it is meant to be compact.
+    if (el.tagName === 'DT' || el.tagName === 'DD') {
+      const parent = el.parentElement;
+      if (parent) {
+        const style = getComputedStyle(parent);
+        if (style.display === 'grid' && style.gridTemplateColumns.split(' ').filter(Boolean).length === 2) continue;
+      }
+    }
     const text = (el.innerText || '').replace(/\\s+/g, ' ').trim();
     if (text.length < 24) continue;
     const rect = el.getBoundingClientRect();
@@ -236,20 +249,34 @@ def served_bundles(base: str) -> dict:
     return out
 
 
-def capture(page, base: str, width: int, height: int) -> dict:
+def capture(page, base: str, width: int, height: int, section: str) -> dict:
     page.set_viewport_size({"width": width, "height": height})
-    page.goto(base.rstrip("/") + "/#explore", wait_until="load", timeout=120000)
-    page.wait_for_timeout(2500)
-    # The map is waited out: a receipt taken while the terrain loads measures the
-    # loading state, not the workspace.
+    page.goto(base.rstrip("/") + f"/#{section}", wait_until="load", timeout=120000)
+    page.reload(wait_until="load", timeout=120000)
+    # Wait for the app, not for the document: a receipt taken before the stylesheet
+    # and the app have mounted measures an unstyled page.
     try:
         page.wait_for_function(
-            "() => { const el = document.querySelector('.terrain-rehearsal');"
-            " return el && (el.dataset.state === 'ready' || el.dataset.state === 'flat'); }",
-            timeout=90000,
+            "() => { const h = document.querySelector('header.soonami-masthead');"
+            " return h && h.getBoundingClientRect().height <= 48; }",
+            timeout=60000,
         )
     except Exception:
         pass
+    page.wait_for_timeout(2500)
+    # The map is waited out on the surface that has one: a receipt taken while the
+    # terrain loads measures the loading state, not the workspace. A hidden terrain
+    # never reports ready, so waiting for it elsewhere only burns the clock.
+    if section == "explore":
+        try:
+            page.wait_for_function(
+                "() => { const el = document.querySelector('.terrain-rehearsal');"
+                " return el && el.closest('[hidden]') === null"
+                " && (el.dataset.state === 'ready' || el.dataset.state === 'flat'); }",
+                timeout=90000,
+            )
+        except Exception:
+            pass
     page.wait_for_timeout(1200)
 
     bands = {}
@@ -282,6 +309,7 @@ def capture(page, base: str, width: int, height: int) -> dict:
 
     return {
         "viewport": {"width": width, "height": height},
+        "section": section,
         "chrome": chrome,
         "bands": bands,
         "crushed": [p for p in prose if p["maxCharsPerLine"] < PROSE_MIN_CHARS and p["chars"] >= 40],
@@ -295,6 +323,8 @@ def main() -> int:
     parser.add_argument("out", help="path of the JSON receipt to write")
     parser.add_argument("--local", help="local dist directory to serve for the run")
     parser.add_argument("--port", type=int, default=4173)
+    parser.add_argument("--sections", default=",".join(SECTIONS),
+                        help="comma separated surface ids to measure")
     args = parser.parse_args()
 
     server = None
@@ -320,6 +350,7 @@ def main() -> int:
         threading.Thread(target=server.serve_forever, daemon=True).start()
         base = f"http://127.0.0.1:{args.port}"
 
+    sections = [s.strip() for s in args.sections.split(",") if s.strip()]
     args_seen = []
     try:
         with sync_playwright() as p:
@@ -332,8 +363,9 @@ def main() -> int:
             ])
             page = browser.new_page()
             for width, height in VIEWPORTS:
-                print(f"measuring {width}x{height} …", file=sys.stderr)
-                args_seen.append(capture(page, base, width, height))
+                for section in sections:
+                    print(f"measuring {width}x{height} {section} …", file=sys.stderr)
+                    args_seen.append(capture(page, base, width, height, section))
             browser.close()
     finally:
         if server:
@@ -351,7 +383,7 @@ def main() -> int:
     for view in args_seen:
         chrome = view["chrome"]
         share = round((chrome["header"]["height"] / chrome["viewportHeight"]) * 100, 1) if chrome.get("header") else 0
-        print(f"{view['viewport']['width']}x{view['viewport']['height']}: "
+        print(f"{view['viewport']['width']}x{view['viewport']['height']} {view['section']}: "
               f"header {chrome['header']['height']:.0f}px ({share}% of viewport), "
               f"scrollable={chrome['scrollable']}, "
               f"crushed prose blocks={len(view['crushed'])}")

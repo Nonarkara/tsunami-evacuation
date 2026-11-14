@@ -439,11 +439,12 @@ function App() {
 
                   {/* Outcome leads the screen: who was affected / did they make it, then what the packages did. */}
                   <OutcomeSummary step={step} condition={condition} />
-                  {/* The five packages as what each asks people to do; cumulative, so every row up to the selected one is in effect. */}
-                  <ol className="measure-ladder" aria-label={t('What each published measure asks people to do','แต่ละมาตรการขอให้ผู้คนทำอะไร')}>
+                  {/* The five published packages as what each asks people to do; cumulative, so every row up to the selected one is in effect. */}
+                  <p className="ladder-note">{t('The five published packages, cumulative: each row adds to the rows above.','ห้าชุดมาตรการที่ตีพิมพ์ สะสมกัน: แต่ละแถวเพิ่มจากแถวก่อนหน้า')}</p>
+                  <ol className="measure-ladder" aria-label={t('The five published packages and what each asks people to do','ห้าชุดมาตรการที่ตีพิมพ์ และสิ่งที่แต่ละชุดขอให้ผู้คนทำ')}>
                     {MEASURE_ACTIONS.map((m, i) => <li key={i} data-state={i < step ? 'applied' : i === step ? 'current' : 'later'}>
                       <button type="button" aria-pressed={i === step} onClick={() => { setTouring(false); setStep(i); }}>
-                        <span className="ladder-do">{language === 'th' ? m.th : m.en}</span>
+                        <span className="ladder-do"><b className="ladder-code">{language === 'th' ? scenarios[i].shortTh : scenarios[i].short}</b> {language === 'th' ? m.th : m.en}</span>
                         <span className="ladder-val">{resultFor(i, condition).toFixed(1)}%</span>
                       </button>
                     </li>)}

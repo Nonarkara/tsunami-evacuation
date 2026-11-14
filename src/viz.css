@@ -273,6 +273,8 @@
 
 /* Measure ladder: rows up to the selected package are in effect (cumulative); later ones wait. */
 .measure-ladder { list-style: none; margin: 4px 0 0; padding: 0; counter-reset: m -1; border-top: 1px solid var(--line); }
+.ladder-note { margin: 8px 0 0; font-size: var(--fs-micro); color: var(--ink-2); }
+.ladder-code { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .measure-ladder li { counter-increment: m; border-bottom: 1px solid var(--line); }
 .measure-ladder button { display: grid; grid-template-columns: 18px minmax(0,1fr) auto; align-items: baseline; gap: 8px; width: 100%; min-height: 32px; padding: 5px 6px 5px 0; font: inherit; font-size: var(--fs-body); text-align: left; color: var(--ink-2); background: none; border: 0; border-left: 3px solid transparent; cursor: pointer; transition: color .2s ease, border-color .2s ease, background-color .2s ease; }
 .measure-ladder button::before { content: counter(m); padding-left: 6px; font-size: var(--fs-micro); font-variant-numeric: tabular-nums; }

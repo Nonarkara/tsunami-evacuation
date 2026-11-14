@@ -2128,6 +2128,12 @@ textarea {
 .compare-label { font-size: var(--fs-micro); color: var(--ink-2); white-space: nowrap; flex-shrink: 0; min-width: 150px; }
 .compare-note { color: var(--ink-2); font-size: var(--fs-micro); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 4px; }
 
+/* A licence label in a compact record should not strand its note on its own line:
+   the browser rebalances the last lines of the block instead. Scoped to the
+   provenance records, because a global rebalance would move the paginated reading
+   pages for no reason. */
+.ddpm-panel .provenance-list dd, .ddpm-maps-content .provenance-list dd { text-wrap: pretty; }
+
 /* Map text belongs beside the terrain, never over its operating area. */
 /* A qualified term breaks as a unit: "endpoint unapproved" must never strand a word. */
 .nowrap { white-space: nowrap; }

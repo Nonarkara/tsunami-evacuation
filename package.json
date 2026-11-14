@@ -9,7 +9,9 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "tsx --test src/*.test.ts && npm run test:buildings",
     "deploy": "npm test && npm run build && node scripts/check-contrast.mjs && wrangler deploy",
-    "test:buildings": "python3 -m unittest discover -s scripts -p 'test_*.py'"
+    "test:buildings": "python3 -m unittest discover -s scripts -p 'test_*.py'",
+    "verify:release": "node scripts/check-viewport-evidence.mjs && node scripts/check-banner-evidence.mjs && node scripts/check-served-bytes.mjs",
+    "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org"
   },
   "dependencies": {
     "@fontsource/jost": "^5.2.0",

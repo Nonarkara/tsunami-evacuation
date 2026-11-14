@@ -27,6 +27,7 @@ export const scenarios = [
     id: "base",
     label: "Study baseline (Vehicle gridlock)",
     short: "Baseline",
+    shortTh: "ฐาน",
     affected: 21.8,
     delayed: 22.6,
     sites: 2,
@@ -41,7 +42,8 @@ export const scenarios = [
   {
     id: "walk",
     label: "Increase walking preference to 50% (PD50)",
-    short: "Walking",
+    short: "PD50",
+    shortTh: "PD50",
     affected: 7.0,
     delayed: 10.6,
     sites: 2,
@@ -56,7 +58,8 @@ export const scenarios = [
   {
     id: "refuges",
     label: "Add 14 candidate vertical sites (VS14)",
-    short: "+ Refuges",
+    short: "+VS14",
+    shortTh: "+VS14",
     affected: 3.7,
     delayed: 5.6,
     sites: 16,
@@ -71,7 +74,8 @@ export const scenarios = [
   {
     id: "practice",
     label: "Increase vertical-evacuation preference to 50% (VE50)",
-    short: "+ VE50",
+    short: "+VE50",
+    shortTh: "+VE50",
     affected: 1.3,
     delayed: 3.4,
     sites: 16,
@@ -86,7 +90,8 @@ export const scenarios = [
   {
     id: "signs",
     label: "Complete package: 135 signs (SG135)",
-    short: "+ Signs",
+    short: "+SG135",
+    shortTh: "+SG135",
     affected: 1.2,
     delayed: 2.9,
     sites: 16,
