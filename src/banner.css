@@ -146,3 +146,7 @@
 /* Where every select cannot fit beside the wordmark, the mark stays and the words go; a place name is never cut. */
 @media screen and (min-width:761px) and (max-width:859px) { .soonami-masthead .brand-name { display:none; } }
 @media screen and (max-width:360px) { #root .soonami-masthead .masthead-nav button { width:24px; min-width:24px; } }
+/* At 320 the row — the mark, the place picker, six symbols and the map control — does
+   not fit. The trailing space after the mark is what is given up; no control is shrunk
+   and the place name is never cut. */
+@media screen and (max-width:360px) { #root .soonami-masthead .masthead-brand-group { padding-right:3px; } }

@@ -67,6 +67,28 @@ what is live.
 heading scale in `a246004` landed on Research and Drill — the two surfaces whose
 reading measure was never measured by this instrument.
 
+### 5. The Results geometry evidence had no producer, and was stale for the same reason
+
+`docs/evidence/playback-data-2026-11-12/` holds the receipts the gate
+`check-playback-data-evidence.mjs` reads: 16 Results geometry cases, 6 data-dialog
+cases and 3 Thai landscape pages. They were produced by a scratch script that was
+never kept, so there was no way to refresh them.
+
+`live-assets.json` in that folder records the bundle it was taken against —
+`index-DG2lLEsn.js`, commit `c47b077`, 11 November. The site has served five
+bundles since. The gate kept reporting **PASS**, because the gate compares a
+receipt with itself.
+
+What it was asserting no longer existed: the receipt puts the package inspector
+card in the right-hand column of the Results split (`package` at x=732 on a
+1440-wide screen). The card now sits in the left column, under the outcome
+summary, with the measure ladder above it. The receipt was describing a layout
+that has since been restyled.
+
+This is the same fault as finding 3, one gate further from the eye — and it is
+worse, because this evidence could never have been refreshed even if someone had
+noticed it was old.
+
 ## Changed
 
 1. **One canonical name per published package.** `scenarios[].short` now carries the
@@ -91,6 +113,23 @@ reading measure was never measured by this instrument.
 
 5. **The receipts were re-taken against the served bytes**, and the receipt records
    the sha256 of what the host actually served for the release under audit.
+
+6. **The Results geometry evidence has a producer again.**
+   `scripts/capture-playback-evidence.py` drives a built site in Chromium and writes
+   the three receipts the gate reads, plus the served bytes it measured them against.
+   It was run against the live site, so the evidence now describes the release that
+   is actually published.
+
+7. **One gate now covers every receipt that records bytes.**
+   `scripts/check-served-bytes.mjs` reads the viewport capture receipt *and* the
+   playback receipt, hashes what the host serves now, and fails if either receipt
+   describes a different bundle. It also checks the four data files the app
+   fetches at runtime, because a receipt measured against one set of data says
+   nothing about the interface against another.
+
+   It was run against the stale receipts before they were re-taken, and it failed
+   on both — naming the bundle each receipt was taken against. A gate that has
+   never been seen to fail is not known to work.
 
 ## Verified
 
