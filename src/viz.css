@@ -281,7 +281,7 @@
 .measure-ladder li:first-child button::before { content: '·'; }
 .measure-ladder [data-state=applied] button { color: var(--ink); }
 .measure-ladder [data-state=applied] button::before { content: '✓'; }
-.measure-ladder [data-state=current] button { color: var(--ink); font-weight: 600; border-left-color: var(--accent); background: var(--active-bg); }
+.measure-ladder [data-state=current] button { color: var(--ink); border-left-color: var(--accent); background: var(--active-bg); }
 .measure-ladder .ladder-val { font-variant-numeric: tabular-nums; }
 
 /* Audit 2026-11-13: a heading never ends a page or column away from its text. */
@@ -290,7 +290,7 @@
 #main .plan-actions button { font-size: var(--fs-body); min-height: 32px; padding: 4px 10px; }
 #main .planning-grid .plan-aside h3 { margin-top: 14px; }
 /* The checklist moves whole to the next page rather than splitting under its legend. */
-.flow-content .checklist-block, .flow-content .measure-ladder { break-inside: avoid; }
+.flow-content .checklist-block, .flow-content .measure-ladder, .flow-content .pkg-metrics-grid { break-inside: avoid; }
 .plan-aside .axioms-list { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 6px; }
 .planning-grid .calc-block > .label { font-size: var(--fs-title); font-weight: 600; }
 /* Results: the people column (dots, ladder, details) leads; the chart column takes the rest. */
@@ -309,3 +309,17 @@
 /* Drill step 2 is a sibling of step 1, so it reads at the same section size. */
 #main .drill-form .drill-review { font-size: var(--fs-title); font-weight: 600; }
 #main .drill-form .drill-review textarea { font-size: var(--fs-body); font-weight: 400; }
+/* WebKit will not fragment a flex container across columns, so the card jumped whole
+   to the next page and left ~170px empty on the phone Results opening page. */
+.flow-content .active-package-card { display: block; }
+.flow-content .active-package-card > * + * { margin-top: 4px; }
+/* The current row is marked by the amber bar and tint, not by weight: bold text wrapped one
+   more line, the ladder grew 17px and could jump to the next page under the reader's finger. */
+/* Phone landscape: the page is ~160px tall. Five one-line rows (5 x 32px) fit one column, so the
+   ladder can never straddle two pages. The full action stays in the button's name and the card below. */
+@media (max-height: 440px) {
+  .measure-ladder .ladder-do { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Deliberate, landscape-only: 30px rows (5 x 31 + 1 = 156px) so the ladder fits a 159px column.
+     Below the 32px house floor, above the 24px WCAG floor; each row is ~380px wide. */
+  .measure-ladder button { min-height: 30px; padding-block: 3px; }
+}

@@ -105,9 +105,11 @@ function App() {
   const [bannerDock,setBannerDock]=useState<HTMLDivElement|null>(null);
   const [modelView,setModelView]=useState("terrain");
   useEffect(()=>setTouring(false),[modelView,tab]);
-  const [compactResults, setCompactResults] = useState(() => matchMedia('(max-width: 760px)').matches);
+  // Narrow phones and phones on their side: a 160px chart cannot sit whole on a 163px landscape page.
+  const COMPACT_RESULTS = '(max-width: 760px), (max-height: 440px)';
+  const [compactResults, setCompactResults] = useState(() => matchMedia(COMPACT_RESULTS).matches);
   useEffect(() => {
-    const query = matchMedia('(max-width: 760px)');
+    const query = matchMedia(COMPACT_RESULTS);
     const resize = () => setCompactResults(query.matches);
     query.addEventListener('change', resize);
     return () => query.removeEventListener('change', resize);

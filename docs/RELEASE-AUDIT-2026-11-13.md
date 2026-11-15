@@ -192,3 +192,25 @@ The CSO audit's one yellow finding was right: the receipts were stale. Closing i
    - The gate now checks the control that is actually there: the chart on desktop, the ladder on phone. It requires the control to be whole on one page, and on the opening page wherever the viewport is at least 800 px tall. A mutation check (a ladder widened across two columns) fails the gate.
 
 The release-time check scripts (contrast, viewport, banner, manga, resume, orchestration, playback-data, served-bytes) all pass against receipts captured from the live origin for this release.
+
+## 15 November, second pass: the open items, tested in WebKit
+
+There is no full Xcode on this machine, so the iOS Simulator is unavailable and no physical phone was used. Every check below ran in **Playwright WebKit**, Safari's engine. The touch test used the iPhone 15 profile, which gives real touch events and a mobile viewport. That is the closest stand-in available here. It is **not** a substitute for a real iPhone, so the physical-device test stays open.
+
+| Item | Finding | Fix |
+|---|---|---|
+| Empty boxed strip above the page turner (phones) | `.pkg-metrics-grid` (border + tint) split, so only its top edge sat at the foot of page 2 | `break-inside: avoid` |
+| Thai phone Results gap in Safari (the ~180 px gap from the 13 Nov audit) | **Reproduced in WebKit**: 163–174 px empty on page 1. `.active-package-card` is a flex column, which WebKit will not fragment across columns, so the whole card jumped to page 2. | `display: block` inside the paged flow. WebKit page-1 gap 163 → 58 px (Chromium 57). Every other paged surface now matches between engines. |
+| Ladder moved under the reader's finger | Choosing a package made its row bold. The text wrapped one more line, the ladder grew 17 px, and at 393×659 (Thai) the whole ladder jumped to page 2 right after the tap. | The current row is marked by the amber bar and tint only. Ladder height is now constant across all five choices, in both engines. |
+| Chart split in phone landscape | At 844×390 and 932×430 the 160 px chart (~210 px with legend and axis) could never fit a 163 px page, so it spanned 2–3 columns across pages. | The compact chart height (96 px) also applies to short screens: `(max-width: 760px), (max-height: 440px)`. |
+| Page-turner buttons 28 px tall | Below the 32 px house floor for touch text controls | 32 px on the phone layout. Desktop stays 28 px for the mouse. |
+| Thai pagination reading | Swept every page of every surface in both engines for text cut at a page edge. The only cuts were 1–4 px line-box overhangs (glyphs confirmed whole at 3×) and text inside *closed* `<details>`. With every section open, nothing is hidden in Chromium, and one line is cut by 7 px in WebKit English at 390×600. | none needed |
+| Touch | iPhone 15 profile, en + th: map controls, ladder rows, Previous/Next, Data & sources and all six masthead icons each respond to a tap | none needed |
+
+| Ladder straddled two pages in Thai phone landscape (844×390, WebKit) | The five 33 px rows (166 px) were taller than the 159–163 px landscape column. Whether the ladder stayed on one page depended on where it started, and that shifted with the chosen package. | On screens under 440 px tall, row descriptions are truncated to one line (full text stays in the button's accessible name and in the package card below), and rows are 30 px. **This is a deliberate deviation from the 32 px house floor, landscape-only.** It stays above the 24 px WCAG floor, and each row is about 380 px wide. Reverse it in `viz.css` if the owner prefers the floor to the guarantee. |
+
+Kept as-is: the masthead icons measure 27–28 × 30 px. The owner's single 36 px banner rule caps them, and they are recorded here rather than enlarged.
+
+New guard: `scripts/check-results-pagination.py` runs at release time in Chromium **and** WebKit, en + th, across seven phone, landscape and tablet sizes, through every package choice. It fails if the ladder or the chart spans pages, or if the ladder moves when a package is chosen. Before this pass, nothing in the gate set rendered in WebKit.
+
+Still open: a physical iPhone test (needs a device, or full Xcode for the Simulator), and the one 7 px WebKit cut inside an opened Research section at 390×600.

@@ -293,7 +293,7 @@
  .operations-pages .route-profile > span { display:block; }
  .operations-pages .route-profile svg { display:block; height:80px; width:100%; }
  .operations-pages .route-profile { break-inside:auto; }
- @media(max-width:760px) { .page-turner:has(.page-jump) button span { display:none; } }
+ @media(max-width:760px) { .page-turner:has(.page-jump) button span { display:none; } .page-turner button { min-height:32px; } }
  @media(max-width:360px) {
   .soonami-masthead .brand-logo { display:none; }
   .soonami-brand .brand-name { font-size:var(--fs-title); }

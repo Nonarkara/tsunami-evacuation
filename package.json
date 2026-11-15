@@ -11,7 +11,8 @@
     "deploy": "npm test && npm run build && node scripts/check-contrast.mjs && wrangler deploy",
     "test:buildings": "python3 -m unittest discover -s scripts -p 'test_*.py'",
     "verify:release": "node scripts/check-viewport-evidence.mjs && node scripts/check-banner-evidence.mjs && node scripts/check-served-bytes.mjs",
-    "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org"
+    "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org",
+    "verify:pagination": "python3 scripts/check-results-pagination.py https://tsunami.nonarkara.org"
   },
   "dependencies": {
     "@fontsource/jost": "^5.2.0",
