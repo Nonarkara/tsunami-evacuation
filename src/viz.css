@@ -319,7 +319,7 @@
    ladder can never straddle two pages. The full action stays in the button's name and the card below. */
 @media (max-height: 440px) {
   .measure-ladder .ladder-do { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  /* Deliberate, landscape-only: 30px rows (5 x 31 + 1 = 156px) so the ladder fits a 159px column.
+  /* Owner ruling 2026-11-15, keep: landscape-only 30px rows (5 x 31 + 1 = 156px) so the ladder fits a 159px column.
      Below the 32px house floor, above the 24px WCAG floor; each row is ~380px wide. */
   .measure-ladder button { min-height: 30px; padding-block: 3px; }
 }
