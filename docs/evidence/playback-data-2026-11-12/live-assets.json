@@ -1,25 +1,25 @@
 {
-  "commit": "89f9e2b29342a332df39cf3f06fdf4d0411f945b",
+  "commit": "d5aa61d4ff4abb3843768b470a497c00678f9c9d",
   "origin": "https://tsunami.nonarkara.org",
-  "capturedAt": "2026-11-15T04:52:46+00:00",
+  "capturedAt": "2026-11-17T14:01:31+00:00",
   "receipts": [
     {
       "path": "/",
       "status": 200,
       "bytes": 1341,
-      "sha256": "3fd85ff258d0ecc01e59f7ff755190fc002089991f57f78f27b6078df958d50b"
+      "sha256": "50f062105de4e642d048ba14e1d15f0305f3e3ccdae35c60d4a0367ba668b8f3"
     },
     {
-      "path": "/assets/index-BBxGSupR.js",
+      "path": "/assets/index-DKSF7755.js",
       "status": 200,
-      "bytes": 1808021,
-      "sha256": "e2d957f673aca19515b9b117b8a82249160f12e0e85586447650466b9b2e21e6"
+      "bytes": 1808062,
+      "sha256": "09bec9ee5e5ba6dc0458705e9316fd78e49ac86825dd8f73891bfc00db953489"
     },
     {
-      "path": "/assets/index-B8vB_TWk.css",
+      "path": "/assets/index-BCE4qq9M.css",
       "status": 200,
-      "bytes": 230278,
-      "sha256": "b49f47c1d51857a6eac51cfb78c13cc31ae04b39a027aeb7ea822c44a7d5b924"
+      "bytes": 230051,
+      "sha256": "45c32e7e63deb9d01937994715791581820d9e8828b097425265a2cc91087fc9"
     },
     {
       "path": "/data/rehearsal-routes.json",

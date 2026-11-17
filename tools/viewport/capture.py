@@ -56,13 +56,17 @@ ROUTES = {
 FLAT_BAND_MEASURE = """
 (async () => {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
-  const toFlat = document.querySelector('button[aria-label="2D map"]');
+  const toFlat = [...document.querySelectorAll('button')].find(b => {
+    const t = b.textContent?.trim() || '';
+    return t.includes('Basic map fallback') || t.includes('แผนที่พื้นฐาน');
+  });
   if (!toFlat) return { mapTop: null, bands: [], error: 'no 2D control' };
   toFlat.click();
   let wrap = null;
   for (let i = 0; i < 40; i++) {
     await sleep(250);
     wrap = document.querySelector('.terrain-rehearsal .map-wrap');
+    if (!wrap) wrap = document.querySelector('.leaflet-container');
     if (wrap && wrap.getBoundingClientRect().height > 50) break;
     wrap = null;
   }
