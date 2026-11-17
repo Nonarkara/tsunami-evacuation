@@ -148,6 +148,8 @@
 .sensor-note { font-size: var(--fs-micro); color: var(--ink-2); }
 .research-results-figure .stepdown { margin: 4px 0 8px; }
 .flow-content .research-results-table, .flow-content .research-timing table { break-inside: avoid; }
+/* The choke-points card reads as one instrument: heading and rows turn pages together. */
+.flow-content .bottlenecks-card { break-inside: avoid; }
 .flow-content .research-dossier p { orphans: 3; widows: 3; }
 .pace-target { font-size: var(--fs-micro); font-weight: 600; line-height: 16px; overflow-wrap: anywhere; }
 .flow-content .calc-block, .flow-content .paceruler { break-inside: avoid; }

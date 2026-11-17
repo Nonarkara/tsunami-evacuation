@@ -10,6 +10,7 @@ for(const [w,h] of [[320,700],[390,844],[760,768],[761,768],[1024,768],[1099,768
 for(const r of rows){
  if(r.header.height>36.5||r.doc[0]!==r.width||r.doc[1]!==r.height||r.failures.length)failures.push(`${r.page}/${r.width}x${r.height}: banner obstruction or document overflow`);
  if(r.page==='explore'&&(!r.stage||r.stage.top>44.5))failures.push(`${r.width}x${r.height}: extra band above map`);
+ if(r.page==='explore'&&(r.flatMapTop===undefined||r.flatMapTop===null||r.flatMapTop>44.5))failures.push(`${r.width}x${r.height}: extra band above the flat 2D map`);
 }
 if(!(oldTop>44.5))failures.push('Previous stacked-band failure was not established.');
 console.log(JSON.stringify({cases:rows.length,previousMapTop:oldTop,currentMapTopLimit:44,status:failures.length?'FAIL':'BANNER_PASS',failures},null,2));

@@ -2152,9 +2152,11 @@ textarea {
   .rehearsal-timeline input[type=range] { min-width: 45px; }
 }
 
-.map-reference .map-controls-overlay { position: relative; order: -1; inset: auto; padding: 2px; gap: 6px; justify-content: flex-start; background: var(--panel); }
-.map-reference .map-ctrl-btn { padding: 3px 6px; min-height: 32px; font-size: var(--fs-body); color: var(--ink); background: transparent; border: 0; border-bottom: 2px solid transparent; box-shadow: none; backdrop-filter: none; }
-.map-reference .map-ctrl-btn.active { border-bottom-color: var(--companion); }
+/* The 2D map carries its layer and view chips inside the map frame, top-left,
+   like the map's own zoom controls. The single 36px banner is the only band
+   above the operating scene, so the map starts at 42-44 px in flat mode too. */
+.map-reference .map-controls-overlay { inset: auto; top: 8px; left: 8px; right: auto; justify-content: flex-start; background: transparent; }
+.map-reference .map-ctrl-btn { padding: 3px 6px; min-height: 32px; font-size: var(--fs-body); }
 
 .water-control-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
 .water-control-row > label:last-child { flex: 1; min-width: 120px; }

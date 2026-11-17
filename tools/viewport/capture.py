@@ -46,6 +46,45 @@ ROUTES = {
     "research": ("research", "Research"),
     "ddpm": ("ddpm", "DDPM"),
 }
+
+# The flat (2D) map replaced the 3D stage with a Leaflet map plus its own control
+# row. The first MSH audit (17 Nov 2026) found that row sitting above the map as
+# a second top band, invisible to this capture because it only recorded the 3D
+# stage. This measure switches the rehearsal to the 2D map, records the map's
+# top edge and every band stacked between the banner and the map, then restores
+# the 3D view. The gate asserts the same 42-44 px start the 3D stage must meet.
+FLAT_BAND_MEASURE = """
+(async () => {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const toFlat = document.querySelector('button[aria-label="2D map"]');
+  if (!toFlat) return { mapTop: null, bands: [], error: 'no 2D control' };
+  toFlat.click();
+  let wrap = null;
+  for (let i = 0; i < 40; i++) {
+    await sleep(250);
+    wrap = document.querySelector('.terrain-rehearsal .map-wrap');
+    if (wrap && wrap.getBoundingClientRect().height > 50) break;
+    wrap = null;
+  }
+  if (!wrap) { return { mapTop: null, bands: [], error: 'flat map did not appear' }; }
+  const header = document.querySelector('header.soonami-masthead');
+  const headerBottom = header ? header.getBoundingClientRect().bottom : 36;
+  const bands = [];
+  for (const el of wrap.parentElement.querySelectorAll('*')) {
+    if (el.closest('[hidden]')) continue;
+    if (el !== wrap && wrap.contains(el)) continue;
+    const r = el.getBoundingClientRect();
+    if (r.height < 4 || r.width < 40) continue;
+    if (r.top >= headerBottom - 1 && r.bottom <= wrap.getBoundingClientRect().top + 1) {
+      bands.push({ cls: String(el.className).slice(0, 60), top: Math.round(r.top), h: Math.round(r.height) });
+    }
+  }
+  const mapTop = wrap.getBoundingClientRect().top;
+  const back = document.querySelector('button[aria-label="3D terrain"]');
+  if (back) back.click();
+  return { mapTop, bands };
+})()
+"""
 BANNER_PAGES = ["explore", "prepare", "drill", "research", "ddpm"]
 
 # Gate viewports: the eight named in the fixed-screen instruction.
@@ -388,6 +427,10 @@ def main() -> int:
                 banner["surface"] = surface["surface"]
                 banner["navCurrent"] = surface["navCurrent"]
                 banner["terrainState"] = surface["terrainState"]
+                if route == "model":
+                    flat = page.evaluate(FLAT_BAND_MEASURE)
+                    banner["flatMapTop"] = flat.get("mapTop")
+                    banner["flatBands"] = flat.get("bands") or []
                 banner_rows.append(banner)
 
                 if (width, height) in VIEWPORT_SIZES:
