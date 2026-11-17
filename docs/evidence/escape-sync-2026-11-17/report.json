@@ -1,0 +1,77 @@
+{
+  "origin": "https://tsunami.nonarkara.org",
+  "capturedAt": "2026-11-17T21:09:16+00:00",
+  "render": "headed-gpu",
+  "checks": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "state": "ready",
+      "checks": {
+        "readoutHiddenBeforeStart": true,
+        "clocksAdvanceTogether": true,
+        "readoutDecreases": true,
+        "pauseFreezesClocks": true,
+        "seekFollowsAndReadoutExact": true,
+        "readoutClampsAtEndpoint": true,
+        "arrivalShowsUnapprovedEndpoint": true
+      },
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "viewport": [
+        1024,
+        768
+      ],
+      "state": "ready",
+      "checks": {
+        "readoutHiddenBeforeStart": true,
+        "clocksAdvanceTogether": true,
+        "readoutDecreases": true,
+        "pauseFreezesClocks": true,
+        "seekFollowsAndReadoutExact": true,
+        "readoutClampsAtEndpoint": true,
+        "arrivalShowsUnapprovedEndpoint": true
+      },
+      "failures": [],
+      "consoleErrors": []
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "state": "ready",
+      "checks": {
+        "readoutHiddenBeforeStart": true,
+        "clocksAdvanceTogether": true,
+        "readoutDecreases": true,
+        "pauseFreezesClocks": true,
+        "seekFollowsAndReadoutExact": true,
+        "readoutClampsAtEndpoint": true,
+        "arrivalShowsUnapprovedEndpoint": true
+      },
+      "failures": [],
+      "consoleErrors": []
+    }
+  ],
+  "bytes": [
+    {
+      "path": "/",
+      "sha256": "50f062105de4e642d048ba14e1d15f0305f3e3ccdae35c60d4a0367ba668b8f3"
+    },
+    {
+      "path": "/assets/index-BCE4qq9M.css",
+      "bytes": 230051,
+      "sha256": "45c32e7e63deb9d01937994715791581820d9e8828b097425265a2cc91087fc9"
+    },
+    {
+      "path": "/assets/index-DKSF7755.js",
+      "bytes": 1808062,
+      "sha256": "09bec9ee5e5ba6dc0458705e9316fd78e49ac86825dd8f73891bfc00db953489"
+    }
+  ]
+}

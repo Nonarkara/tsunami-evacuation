@@ -2,11 +2,19 @@
 Commit b926c43
 
 ## Run + Wave Escape Understanding
-- [ ] Time-to-endpoint readout appears after start, clamped, hidden before start
-- [ ] Thai label เวลาถึงปลายทาง correct
-- [ ] Camera decoupled from crowd/water: pause/seek syncs clock+camera+water
-- [ ] Route speed and node waits shown in Escape guide match selected walker
-- [ ] No console errors on 390x844, 1024x768, 1440x900
+Proven by `scripts/audit-escape-sync.py` → `docs/evidence/escape-sync-2026-11-17/report.json`
+(headed-GPU Chromium against the live release; receipts carry the served bundle
+hashes; note: headless SwiftShader cannot pass this audit — the app's
+anti-teleport guard in `src/playback.ts` correctly refuses >250 ms frame gaps,
+so the audit runs headed with the real GPU).
+- [x] Time-to-endpoint readout hidden before Start (390x844, 1024x768, 1440x900)
+- [x] Readout appears after Start and decreases with the clock
+- [x] Seek: `data-exercise-seconds` follows; readout == finish − seeked
+- [x] Readout clamps to +0:00 at the endpoint; arrival shows the unapproved-endpoint note
+- [x] Exercise clock and water clock advance together and freeze together on pause
+- [x] Zero console/page errors across the whole Escape session at all three sizes
+- [ ] Camera-follow visual check (eye view tracks the walker) — manual, owner
+- [ ] Thai label เวลาถึงปลายทาง on a live TH session — unit-tested; live TH manual
 
 ## Results Layout & Bottom Slop
 - [ ] Outcome hero leads on 320x700, 390x600, 390x844, 667x375, 1024x768, 1280x720, 1440x900 EN/TH
