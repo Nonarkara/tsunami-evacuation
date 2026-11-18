@@ -21,7 +21,7 @@ Proven by `scripts/capture-playback-evidence.py --screenshots` → `docs/evidenc
 - [x] Outcome hero leads on 320x700, 390x600, 390x844, 667x375, 1024x768, 1280x720, 1440x900 EN/TH
 - [x] No bottom slop: hero → outcome → dot grid → chart → conclusion → credits line at bottom edge on every size
 - [x] Data & sources dialog width-capped over page 1 on 1440x900, 1024x768, 390x844 EN/TH, reaches page-1 bottom boundary
-- [ ] Dialog focus return / Escape / Tab containment — manual keyboard pass pending
+- [x] Dialog focus return / Escape / Tab containment — nested dialogs: Escape closed the inner Data & sources dialog, focus returned to the outer Study & credits close button, Tab stayed inside dialogs
 
 ## Thai Pagination & Reading Surfaces
 Proven by `check-playback-data-evidence.mjs` PASS → `thai-landscape-pages.json` (ladder whole on page 2, button X consistent, 3 pages).
