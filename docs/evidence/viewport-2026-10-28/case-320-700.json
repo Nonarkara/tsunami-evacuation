@@ -8,20 +8,20 @@
     "main": {
       "x": 0,
       "y": 36,
-      "width": 320,
+      "width": 323.140625,
       "height": 640,
       "top": 36,
-      "right": 320,
+      "right": 323.140625,
       "bottom": 676,
       "left": 0
     },
     "header": {
       "x": 0,
       "y": 0,
-      "width": 320,
+      "width": 323.140625,
       "height": 36,
       "top": 0,
-      "right": 320,
+      "right": 323.140625,
       "bottom": 36,
       "left": 0
     },
@@ -31,10 +31,10 @@
         "rect": {
           "x": 8,
           "y": 42,
-          "width": 304,
+          "width": 307.140625,
           "height": 358,
           "top": 42,
-          "right": 312,
+          "right": 315.140625,
           "bottom": 400,
           "left": 8
         }
@@ -44,10 +44,10 @@
         "rect": {
           "x": 8,
           "y": 403,
-          "width": 304,
+          "width": 307.140625,
           "height": 52,
           "top": 403,
-          "right": 312,
+          "right": 315.140625,
           "bottom": 455,
           "left": 8
         }
@@ -57,10 +57,10 @@
         "rect": {
           "x": 8,
           "y": 458,
-          "width": 304,
+          "width": 307.140625,
           "height": 212,
           "top": 458,
-          "right": 312,
+          "right": 315.140625,
           "bottom": 670,
           "left": 8
         }
@@ -70,10 +70,10 @@
         "rect": {
           "x": 8,
           "y": 458,
-          "width": 304,
+          "width": 307.140625,
           "height": 172,
           "top": 458,
-          "right": 312,
+          "right": 315.140625,
           "bottom": 630,
           "left": 8
         }
@@ -83,10 +83,10 @@
         "rect": {
           "x": 8,
           "y": 638,
-          "width": 304,
+          "width": 307.140625,
           "height": 32,
           "top": 638,
-          "right": 312,
+          "right": 315.140625,
           "bottom": 670,
           "left": 8
         }
@@ -99,10 +99,10 @@
         "rect": {
           "x": 36,
           "y": 3,
-          "width": 92.140625,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 128.140625,
+          "right": 132.140625,
           "bottom": 31,
           "left": 36
         }
@@ -110,97 +110,97 @@
       {
         "name": "Model / แบบจำลอง",
         "rect": {
-          "x": 134.578125,
+          "x": 138.140625,
           "y": 2,
           "width": 24,
           "height": 30,
           "top": 2,
-          "right": 158.578125,
+          "right": 162.140625,
           "bottom": 32,
-          "left": 134.578125
+          "left": 138.140625
         }
       },
       {
         "name": "Plan / แผน",
         "rect": {
-          "x": 159.578125,
+          "x": 163.140625,
           "y": 2,
           "width": 24,
           "height": 30,
           "top": 2,
-          "right": 183.578125,
+          "right": 187.140625,
           "bottom": 32,
-          "left": 159.578125
+          "left": 163.140625
         }
       },
       {
         "name": "Drill / ซ้อมอพยพ",
         "rect": {
-          "x": 184.578125,
+          "x": 188.140625,
           "y": 2,
           "width": 24,
           "height": 30,
           "top": 2,
-          "right": 208.578125,
+          "right": 212.140625,
           "bottom": 32,
-          "left": 184.578125
+          "left": 188.140625
         }
       },
       {
         "name": "Research / งานวิจัย",
         "rect": {
-          "x": 209.578125,
+          "x": 213.140625,
           "y": 2,
           "width": 24,
           "height": 30,
           "top": 2,
-          "right": 233.578125,
+          "right": 237.140625,
           "bottom": 32,
-          "left": 209.578125
+          "left": 213.140625
         }
       },
       {
         "name": "DDPM risk evidence / ข้อมูลเสี่ยงสึนามิ DDPM",
         "rect": {
-          "x": 234.578125,
+          "x": 238.140625,
           "y": 2,
           "width": 24,
           "height": 30,
           "top": 2,
-          "right": 258.578125,
+          "right": 262.140625,
           "bottom": 32,
-          "left": 234.578125
+          "left": 238.140625
         }
       },
       {
         "name": "Manual / คู่มือ",
         "rect": {
-          "x": 259.578125,
+          "x": 263.140625,
           "y": 2,
           "width": 24,
           "height": 30,
           "top": 2,
-          "right": 283.578125,
+          "right": 287.140625,
           "bottom": 32,
-          "left": 259.578125
+          "left": 263.140625
         }
       },
       {
         "name": "Map controls / เครื่องมือแผนที่",
         "rect": {
-          "x": 286,
+          "x": 289.140625,
           "y": 3,
           "width": 30,
           "height": 28,
           "top": 3,
-          "right": 316,
+          "right": 319.140625,
           "bottom": 31,
-          "left": 286
+          "left": 289.140625
         }
       }
     ],
     "pages": [
-      "← Previous / ก่อน1 / 7Next / ถัดไป →"
+      "← Previous / ก่อน1 / 6Next / ถัดไป →"
     ],
     "failures": [],
     "route": "model",
@@ -275,10 +275,10 @@
         "rect": {
           "x": 36,
           "y": 3,
-          "width": 92.140625,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 128.140625,
+          "right": 132.140625,
           "bottom": 31,
           "left": 36
         }
@@ -436,10 +436,10 @@
         "rect": {
           "x": 36,
           "y": 3,
-          "width": 92.140625,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 128.140625,
+          "right": 132.140625,
           "bottom": 31,
           "left": 36
         }
@@ -598,10 +598,10 @@
         "rect": {
           "x": 36,
           "y": 3,
-          "width": 92.140625,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 128.140625,
+          "right": 132.140625,
           "bottom": 31,
           "left": 36
         }
@@ -764,10 +764,10 @@
         "rect": {
           "x": 36,
           "y": 3,
-          "width": 92.140625,
+          "width": 96.140625,
           "height": 28,
           "top": 3,
-          "right": 128.140625,
+          "right": 132.140625,
           "bottom": 31,
           "left": 36
         }
@@ -852,7 +852,7 @@
       }
     ],
     "pages": [
-      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 4Next / ถัดไป →"
+      "← Previous / ก่อนSections / หัวข้อDDPM · full CSV inspectionWhat the full file containsHow to interpret itSource and inspection receiptProvince coverage · record counts1 / 5Next / ถัดไป →"
     ],
     "failures": [],
     "route": "ddpm",

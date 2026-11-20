@@ -65,6 +65,14 @@ VIEWPORTS = [
     (390, 844), (390, 600), (320, 700), (667, 375),
 ]
 DIALOG_VIEWPORTS = [(1440, 900), (1024, 768), (390, 844)]
+
+# A screenshot is evidence, so it must not be taken at a size that a loaded
+# machine can break. Playwright's default is 30 s; on 20 November 2026 a capture
+# on a busy machine timed out on the third case and produced nothing, which
+# leaves the previous release's receipt in place — a receipt that describes a
+# bundle the site no longer serves. 90 s is long enough for a loaded machine
+# and short enough that a genuinely broken page still fails.
+SCREENSHOT_TIMEOUT_MS = 90_000
 THAI_LANDSCAPE = (667, 375)
 THAI_PAGES = 3
 
@@ -278,7 +286,7 @@ def main() -> int:
                     row["lang"] = language
                     geometry.append(row)
                     if args.screenshots:
-                        page.screenshot(path=str(out / f"results-{language}-{width}x{height}.png"))
+                        page.screenshot(path=str(out / f"results-{language}-{width}x{height}.png"), timeout=SCREENSHOT_TIMEOUT_MS)
                     print(f"ok    {language} {width}x{height} pages={row['pages']}", flush=True)
 
                 for width, height in DIALOG_VIEWPORTS:
@@ -295,7 +303,7 @@ def main() -> int:
                     row["lang"] = language
                     dialogs.append(row)
                     if args.screenshots:
-                        page.screenshot(path=str(out / f"data-{language}-{width}x{height}.png"))
+                        page.screenshot(path=str(out / f"data-{language}-{width}x{height}.png"), timeout=SCREENSHOT_TIMEOUT_MS)
                     page.keyboard.press("Escape")
                     page.wait_for_timeout(400)
                     print(f"ok    dialog {language} {width}x{height}", flush=True)
@@ -313,7 +321,7 @@ def main() -> int:
                         row["page"] = index + 1
                         pages.append(row)
                         if args.screenshots:
-                            page.screenshot(path=str(out / f"results-th-landscape-page-{index + 1}.png"))
+                            page.screenshot(path=str(out / f"results-th-landscape-page-{index + 1}.png"), timeout=SCREENSHOT_TIMEOUT_MS)
                         nxt = page.query_selector(".evidence-pane .page-turner button:last-of-type")
                         if nxt is None or nxt.is_disabled():
                             break
