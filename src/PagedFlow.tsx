@@ -24,7 +24,10 @@ export function PagedFlow({children,label='Reading pages',className=''}:{childre
     // Measure natural column flow independently of the optional single-page chart stretch.
     const previousDisplay=body.style.display;
     if(getComputedStyle(body).display==='flex')body.style.display='block';
-    const count=Math.max(1,Math.ceil((body.scrollWidth+24)/step));
+    // The columns are exact: N columns of width W with gap G measure N*(W+G)-G.
+    // Rounding the remainder to the nearest column, rather than up, keeps a
+    // sub-pixel overflow from inventing a blank page at the end.
+    const count=Math.max(1,Math.round((body.scrollWidth+24)/step));
     body.style.display=previousDisplay;
     setStride(step);setTotal(count);setPage(p=>Math.min(p,count-1));
   },[]);

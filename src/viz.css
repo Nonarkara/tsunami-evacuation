@@ -7,6 +7,10 @@
 .viz-grid { stroke: var(--line); stroke-width: 1; }
 .viz-axis { stroke: var(--line-2); stroke-width: 1; }
 .viz-legend { display: flex; gap: 4px 12px; flex-wrap: wrap; align-items: center; font-size: var(--fs-micro); color: var(--ink-2); line-height: 16px; }
+/* The profile chart carries its key inside its own box, so a page break can
+   never leave the key alone above or below the drawing it explains. */
+.viz.profilequeue { position: relative; }
+.viz.profilequeue .viz-legend { position: absolute; left: 0; right: 0; bottom: 0; }
 .viz-legend .viz-unit { margin-left: auto; }
 .viz-legend span::before { content: ''; display: inline-block; width: 14px; vertical-align: middle; margin-right: 4px; }
 .viz-legend .viz-unit::before { display: none; }
@@ -247,11 +251,17 @@
   .flow-content .research-ledger > li, .flow-content .research-validation > li, .flow-content .evacuation-guide li,
   .flow-content .ddpm-source, .flow-content .ddpm-provinces, .flow-content .checklist-block, .flow-content .drill-history li { break-inside: auto; }
   .flow-content tr, .flow-content label, .flow-content .viz, .flow-content .stackbar, .flow-content dl > div, .flow-content .checkbox-label { break-inside: avoid; }
+  /* The choke list is one decision about the route: a card whose list splits
+     leaves its heading and its points on different pages. */
+  .flow-content .choke-point-list { break-inside: avoid; }
   .flow-content h1, .flow-content h2, .flow-content h3, .flow-content legend, .flow-content figcaption, .flow-content summary { break-after: avoid; }
   .flow-content p, .flow-content li { orphans: 2; widows: 2; }
 }
 @media (max-width: 760px) {
-  .flow-content .ddpm-provinces, .flow-content .ddpm-source { break-before: auto; }
+  /* The source receipt and the province table each begin a page: the table is
+     22 rows long, and letting it straddle a page boundary left a tail of five
+     rows alone on a page of its own. */
+  .flow-content .ddpm-provinces, .flow-content .ddpm-source { break-before: column; }
   .flow-content .research-results-figure .research-results-table { break-inside: auto; }
 }
 /* Plan: two columns truncated the destination hints on phones; one column below 480px. */

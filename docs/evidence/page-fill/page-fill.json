@@ -1,0 +1,993 @@
+{
+  "capturedAt": "2026-11-20T02:32:26Z",
+  "commit": "40f7bbf88edb0fbc81338db3cede2286f00c4637",
+  "origin": "http://127.0.0.1:4191",
+  "viewports": [
+    "390x844",
+    "1024x768",
+    "1440x900"
+  ],
+  "sections": [
+    "explore",
+    "prepare",
+    "drill",
+    "research",
+    "ddpm"
+  ],
+  "bytes": [
+    {
+      "path": "/assets/index-CIyxkzVl.css",
+      "sha256": "c1d903d0ec06c4cbe0b9f8b4150bf55681efe2f76013c80dd00e7bbe92cc249e"
+    },
+    {
+      "path": "/assets/index-vHu2SARw.js",
+      "sha256": "ebd2fa3a24892fe41cc99dadaccaafd69e4e5161ceb724c23d4523e7bc3e77b6"
+    }
+  ],
+  "pages": [
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "5",
+      "slice": {
+        "w": 374,
+        "h": 168
+      },
+      "fillPct": 95,
+      "tallestVoidPx": 8,
+      "tallestVoidPct": 4.8,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "escape-timing",
+        "terrain-secondary crowd",
+        "terrain-analysis-row",
+        "route-profile"
+      ],
+      "section": "explore",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "5",
+      "slice": {
+        "w": 374,
+        "h": 168
+      },
+      "fillPct": 90,
+      "tallestVoidPx": 16,
+      "tallestVoidPct": 9.5,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "escape-timing",
+        "terrain-secondary crowd",
+        "terrain-analysis-row",
+        "route-profile"
+      ],
+      "section": "explore",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "5",
+      "slice": {
+        "w": 374,
+        "h": 168
+      },
+      "fillPct": 75,
+      "tallestVoidPx": 16,
+      "tallestVoidPct": 9.5,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "escape-timing",
+        "terrain-secondary crowd",
+        "terrain-analysis-row",
+        "route-profile"
+      ],
+      "section": "explore",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 3,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "5",
+      "slice": {
+        "w": 374,
+        "h": 168
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "escape-timing",
+        "terrain-secondary crowd",
+        "terrain-analysis-row",
+        "route-profile"
+      ],
+      "section": "explore",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 4,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "5",
+      "slice": {
+        "w": 374,
+        "h": 168
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "escape-timing",
+        "terrain-secondary crowd",
+        "terrain-analysis-row",
+        "route-profile"
+      ],
+      "section": "explore",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 5,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Personal plan",
+      "page": "2",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 92.3,
+      "tallestVoidPx": 16,
+      "tallestVoidPct": 2.2,
+      "voidPosition": "interior",
+      "splitBlocks": [],
+      "section": "prepare",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Personal plan",
+      "page": "2",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 84.6,
+      "tallestVoidPx": 80,
+      "tallestVoidPct": 10.9,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "prepare",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Drill record and walkthrough",
+      "page": "2",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "evacuation-guide ",
+        "LI",
+        "P"
+      ],
+      "section": "drill",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Drill record and walkthrough",
+      "page": "2",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "evacuation-guide ",
+        "LI",
+        "P"
+      ],
+      "section": "drill",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 90.1,
+      "tallestVoidPx": 24,
+      "tallestVoidPct": 3.3,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 91.2,
+      "tallestVoidPx": 32,
+      "tallestVoidPct": 4.4,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 90.1,
+      "tallestVoidPx": 24,
+      "tallestVoidPct": 3.3,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 3,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 4,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 5,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 6,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 7,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 8,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "9",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 68.1,
+      "tallestVoidPx": 200,
+      "tallestVoidPct": 27.3,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION",
+        "research-results-figure",
+        "research-method-pair",
+        "DIV",
+        "LI",
+        "P"
+      ],
+      "section": "research",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 9,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "DDPM tsunami-risk evidence",
+      "page": "3",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 67,
+      "tallestVoidPx": 200,
+      "tallestVoidPct": 27.3,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "ddpm-panel"
+      ],
+      "section": "ddpm",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "DDPM tsunami-risk evidence",
+      "page": "3",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 73.6,
+      "tallestVoidPx": 184,
+      "tallestVoidPct": 25.1,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "ddpm-panel"
+      ],
+      "section": "ddpm",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "DDPM tsunami-risk evidence",
+      "page": "3",
+      "slice": {
+        "w": 374,
+        "h": 732
+      },
+      "fillPct": 79.1,
+      "tallestVoidPx": 120,
+      "tallestVoidPct": 16.4,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "ddpm-panel"
+      ],
+      "section": "ddpm",
+      "viewport": [
+        390,
+        844
+      ],
+      "pageIndex": 3,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "2",
+      "slice": {
+        "w": 264,
+        "h": 648
+      },
+      "fillPct": 90.1,
+      "tallestVoidPx": 24,
+      "tallestVoidPct": 3.7,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "escape-timing"
+      ],
+      "section": "explore",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "2",
+      "slice": {
+        "w": 264,
+        "h": 648
+      },
+      "fillPct": 71.6,
+      "tallestVoidPx": 168,
+      "tallestVoidPct": 25.9,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "escape-timing"
+      ],
+      "section": "explore",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Personal plan",
+      "page": "1",
+      "slice": {
+        "w": 1000,
+        "h": 688
+      },
+      "fillPct": 86,
+      "tallestVoidPx": 80,
+      "tallestVoidPct": 11.6,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "prepare",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Drill record and walkthrough",
+      "page": "1",
+      "slice": {
+        "w": 1000,
+        "h": 688
+      },
+      "fillPct": 94.2,
+      "tallestVoidPx": 40,
+      "tallestVoidPct": 5.8,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "drill",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Research",
+      "page": "5",
+      "slice": {
+        "w": 1000,
+        "h": 648
+      },
+      "fillPct": 92.6,
+      "tallestVoidPx": 32,
+      "tallestVoidPct": 4.9,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "5",
+      "slice": {
+        "w": 1000,
+        "h": 648
+      },
+      "fillPct": 92.6,
+      "tallestVoidPx": 48,
+      "tallestVoidPct": 7.4,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "5",
+      "slice": {
+        "w": 1000,
+        "h": 648
+      },
+      "fillPct": 98.8,
+      "tallestVoidPx": 8,
+      "tallestVoidPct": 1.2,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 3,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "5",
+      "slice": {
+        "w": 1000,
+        "h": 648
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 4,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "5",
+      "slice": {
+        "w": 1000,
+        "h": 648
+      },
+      "fillPct": 96.3,
+      "tallestVoidPx": 8,
+      "tallestVoidPct": 1.2,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 5,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "DDPM tsunami-risk evidence",
+      "page": "1",
+      "slice": {
+        "w": 1000,
+        "h": 688
+      },
+      "fillPct": 91.9,
+      "tallestVoidPx": 56,
+      "tallestVoidPct": 8.1,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "ddpm",
+      "viewport": [
+        1024,
+        768
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "2",
+      "slice": {
+        "w": 400,
+        "h": 780
+      },
+      "fillPct": 64.9,
+      "tallestVoidPx": 200,
+      "tallestVoidPct": 25.6,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "explore",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Rehearsal controls and guide",
+      "page": "2",
+      "slice": {
+        "w": 400,
+        "h": 780
+      },
+      "fillPct": 46.4,
+      "tallestVoidPx": 392,
+      "tallestVoidPct": 50.3,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "explore",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Personal plan",
+      "page": "1",
+      "slice": {
+        "w": 1416,
+        "h": 820
+      },
+      "fillPct": 68.6,
+      "tallestVoidPx": 232,
+      "tallestVoidPct": 28.3,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "prepare",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Drill record and walkthrough",
+      "page": "1",
+      "slice": {
+        "w": 1416,
+        "h": 820
+      },
+      "fillPct": 79.4,
+      "tallestVoidPx": 168,
+      "tallestVoidPct": 20.5,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "drill",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "Research",
+      "page": "4",
+      "slice": {
+        "w": 1416,
+        "h": 780
+      },
+      "fillPct": 100,
+      "tallestVoidPx": 0,
+      "tallestVoidPct": 0,
+      "voidPosition": "none",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "4",
+      "slice": {
+        "w": 1416,
+        "h": 780
+      },
+      "fillPct": 96.9,
+      "tallestVoidPx": 24,
+      "tallestVoidPct": 3.1,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 2,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "4",
+      "slice": {
+        "w": 1416,
+        "h": 780
+      },
+      "fillPct": 93.8,
+      "tallestVoidPx": 48,
+      "tallestVoidPct": 6.2,
+      "voidPosition": "tail",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 3,
+      "flowIndex": 0,
+      "lastPage": false
+    },
+    {
+      "label": "Research",
+      "page": "4",
+      "slice": {
+        "w": 1416,
+        "h": 780
+      },
+      "fillPct": 94.8,
+      "tallestVoidPx": 16,
+      "tallestVoidPct": 2.1,
+      "voidPosition": "interior",
+      "splitBlocks": [
+        "SECTION"
+      ],
+      "section": "research",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 4,
+      "flowIndex": 0,
+      "lastPage": true
+    },
+    {
+      "label": "DDPM tsunami-risk evidence",
+      "page": "1",
+      "slice": {
+        "w": 1416,
+        "h": 820
+      },
+      "fillPct": 74.5,
+      "tallestVoidPx": 208,
+      "tallestVoidPct": 25.4,
+      "voidPosition": "tail",
+      "splitBlocks": [],
+      "section": "ddpm",
+      "viewport": [
+        1440,
+        900
+      ],
+      "pageIndex": 1,
+      "flowIndex": 0,
+      "lastPage": true
+    }
+  ]
+}

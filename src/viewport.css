@@ -163,11 +163,11 @@
   .terrain-operations .walkthrough-coach { border:0; padding:0; }
   .terrain-operations .coach-heading { display:flex; align-items:baseline; gap:6px; }
   .terrain-operations .coach-heading strong { font-size:var(--fs-body); }
-  /* The phone rail cannot hold the elevation chart: the route profile fragments
-     across the reader's columns and the chart is split in half at the boundary.
-     Keep the figures, drop the graphic. */
-  .operations-pages .flow-content .terrain-secondary { break-inside:avoid; }
-  .operations-pages .flow-content .profile-chart { display:none; }
+  /* The phone rail is a 168px reading page. A block taller than the page cannot
+     be kept whole, so the container breaks between blocks and the profile's
+     title travels with its chart. Forcing the whole group unbroken is what
+     left a blank trailing page. */
+  .operations-pages .flow-content .terrain-secondary { break-inside:auto; }
   .terrain-rehearsal > .exercise-console { grid-row:1; }
   .exercise-console > summary { font-size:0; width:28px; padding:3px; }
   .exercise-console > summary svg { width:20px; height:20px; }
@@ -190,7 +190,6 @@
  .operations-pages .flow-content > .rehearsal-panel { display:contents; }
  .operations-pages .flow-content > .terrain-secondary { display:block; margin-top:10px; }
  .operations-pages .rehearsal-controls,.operations-pages .rehearsal-timeline,.operations-pages .rehearsal-readout,.operations-pages .walkthrough-coach,.operations-pages .compare-panel,.operations-pages .route-profile { break-inside:avoid; }
- .operations-pages .route-profile svg { height:80px; flex:none; }
  .operations-pages .walkthrough-coach { margin-bottom:10px; }
  .operations-pages .page-turner { font-size:var(--fs-body); }
  @media(max-width:760px) {
@@ -201,7 +200,26 @@
   .terrain-operations .coach-heading { display:block; }
   .operations-pages .flow-content > .walkthrough-coach { break-inside:auto; }
   .operations-pages .route-profile { break-inside:auto; }
-  .operations-pages .route-profile svg { min-height:50px; height:50px; }
+  /* The phone rail is one 168px reading page. A choke point on a single line
+     lets the whole list sit beside the profile's figures, instead of three
+     tall cards that push the page count up for nothing. */
+  /* The card's chrome is trimmed so the list shares the page with the
+     profile's figures. The touch targets keep the app's 32px minimum. */
+  .operations-pages .bottlenecks-card { margin-top:0; padding:4px 8px; }
+  .operations-pages .bottlenecks-card .card-subhead { margin-top:2px; margin-bottom:2px; }
+  .operations-pages .choke-point-list { gap:2px; }
+  #main .operations-pages .profilequeue { margin:2px 0; }
+  /* The profile's title travels with its chart: the gap above the section is
+     what pushed them onto two pages. */
+  .operations-pages .flow-content > .terrain-secondary { margin-top:2px; }
+  .operations-pages .terrain-analysis-row { padding-top:0; }
+  .operations-pages .choke-focus-btn { height:24px; padding:0 6px; align-items:center; }
+  .operations-pages .choke-meta { flex-direction:row; align-items:baseline; gap:6px; }
+  .operations-pages .choke-arrow { font-size:11px; line-height:1; }
+  /* The figures, the cue that explains them and the choke list are one
+    decision: they travel together or not at all. */
+  .operations-pages .route-cue { margin:0; break-after:avoid; }
+  .operations-pages .profile-scale { break-after:avoid; }
  }
 }
 @media screen {
@@ -290,9 +308,26 @@
 @media screen {
  .page-jump { width:180px; max-width:45%; min-height:28px; height:28px; padding:2px 5px; font-size:var(--fs-body); }
  .operations-pages .terrain-analysis-row,.operations-pages .route-profile { display:block; height:auto; }
+ /* The title and the live line are blocks, so the page break rules can hold
+    them together with the chart that follows. */
+ .operations-pages .route-profile > strong,
  .operations-pages .route-profile > span { display:block; }
- .operations-pages .route-profile svg { display:block; height:80px; width:100%; }
- .operations-pages .route-profile { break-inside:auto; }
+ /* The operations column must not stretch its analysis past the content it
+    holds: a stretched container reads as a tall empty band under a short card. */
+ .terrain-operations .terrain-secondary { flex:0 0 auto; }
+ /* The profile's title belongs to its chart and its figures belong to the cue,
+    so neither travels alone onto a page of its own. */
+ .operations-pages .route-profile > strong,
+ .operations-pages .route-profile > span { break-after:avoid; }
+ /* The chart and its key are one thing: a key alone on the next page explains
+    a drawing the reader can no longer see. */
+ .operations-pages .route-profile .profilequeue { break-inside:avoid; }
+ .operations-pages .route-profile .profile-scale { break-before:avoid; }
+ @media screen and (min-width:761px) {
+  /* On a full-height column the route analysis is one block: the profile and
+     the choke list read together on one page instead of splitting apart. */
+  .operations-pages .flow-content .terrain-secondary { break-inside:avoid; }
+ }
  @media(max-width:760px) { .page-turner:has(.page-jump) button span { display:none; } .page-turner button { min-height:32px; } }
  @media(max-width:360px) {
   .soonami-masthead .brand-logo { display:none; }
@@ -340,33 +375,20 @@
  .masthead-action-group .reading-trigger { color:var(--ink); background:var(--accent); font-weight:600; min-height:30px; padding:3px 10px; }
 }
 @media screen {
- .profile-chart { position:relative; height:120px; min-height:90px; margin:8px 0; }
- .operations-pages .profile-chart svg { position:absolute; left:34px; top:0; width:calc(100% - 34px); height:calc(100% - 20px); min-height:0; max-height:none; }
- .profile-y-scale { position:absolute; inset:0 auto 20px 0; width:30px; font-size:var(--fs-micro); color:var(--ink-2); }
- .profile-y-scale span { position:absolute; right:3px; transform:translateY(-50%); }
- .profile-y-scale span:nth-child(1) { top:11.11%; }
- .profile-y-scale span:nth-child(2) { top:51.85%; }
- .profile-y-scale span:nth-child(3) { top:92.59%; }
- .profile-x-scale { position:absolute; inset:auto 0 0 34px; display:flex; justify-content:space-between; font-size:var(--fs-micro); color:var(--ink-2); }
  .operations-pages[data-pages="1"] .flow-content { display:flex; flex-direction:column; }
  .operations-pages[data-pages="1"] .terrain-secondary { flex:1; display:flex; min-height:0; }
  .operations-pages[data-pages="1"] .terrain-analysis-row,.operations-pages[data-pages="1"] .route-profile { display:flex; flex:1; flex-direction:column; min-height:0; }
- .operations-pages[data-pages="1"] .profile-chart { flex:1; height:auto; min-height:90px; }
 }
 @media screen {
  .operations-pages[data-pages="1"] .terrain-secondary,.operations-pages[data-pages="1"] .terrain-analysis-row,.operations-pages[data-pages="1"] .route-profile { height:auto; }
 }
 @media screen {
- /* The task column sizes to its content. An elevation chart that stretches to
-    fill the leftover height reads as a large result while showing an empty
-    plot, so it gets a data-sized box and the queue chart, whose bar heights
-    carry a value, takes the flexible space instead. */
+ /* The task column sizes to its content. The profile chart draws its own box:
+    a chart stretched to fill leftover height reads as a large result while
+    showing an empty plot. */
  .operations-pages[data-pages="1"] .terrain-secondary { flex:1 1 auto; }
  .operations-pages[data-pages="1"] .terrain-analysis-row { display:flex; flex-direction:column; flex:1 1 auto; min-height:0; }
  .operations-pages[data-pages="1"] .route-profile { flex:0 0 auto; }
- .operations-pages[data-pages="1"] .profile-chart { flex:0 0 auto; height:150px; min-height:90px; }
- .operations-pages[data-pages="1"] .queue-chart { flex:1 1 auto; min-height:0; }
- .operations-pages[data-pages="1"] .queue-chart-plot { flex:1 1 auto; min-height:96px; }
 }
 @media screen {
  .operations-pages[data-pages="1"] .rehearsal-controls,.operations-pages[data-pages="1"] .rehearsal-timeline,.operations-pages[data-pages="1"] .exercise-boundary,.operations-pages[data-pages="1"] .rehearsal-readout,.operations-pages[data-pages="1"] .compare-panel { flex:0 0 auto; }

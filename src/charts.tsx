@@ -115,8 +115,10 @@ export function ProfileQueue({ chainage, profile, waits, position, ariaLabel, qu
   const Y = (h: number) => pTop + pH * (1 - (h - hMin) / (hMax - hMin));
   const runs = profileRuns(chainage, profile);
   const sortedWaits = [...waits].sort((a, b) => a.chainageM - b.chainageM);
+  // The key sits inside the chart's own box: a chart that carries its key can
+  // never be split from it by a page break.
   return <div className="viz profilequeue" ref={ref}>
-    <svg width={w} height={axis + 16} role="img" aria-label={ariaLabel}>
+    <svg width={w} height={axis + 32} role="img" aria-label={ariaLabel}>
       <line className="viz-grid" x1={left} x2={w - right} y1={pTop} y2={pTop} />
       <text className="viz-tick" x={left - 4} y={pTop + 4} textAnchor="end">{hMax} m</text>
       <text className="viz-tick" x={left - 4} y={pTop + pH} textAnchor="end">{hMin}</text>

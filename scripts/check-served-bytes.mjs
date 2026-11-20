@@ -40,6 +40,11 @@ const RECEIPTS = [
     path: 'docs/evidence/playback-data-2026-11-12/live-assets.json',
     list: (receipt) => receipt.receipts || [],
   },
+  {
+    name: 'page fill measure',
+    path: 'docs/evidence/page-fill/page-fill.json',
+    list: (receipt) => receipt.bytes || [],
+  },
 ];
 
 const failures = [];

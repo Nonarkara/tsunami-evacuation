@@ -12,7 +12,10 @@
     "test:buildings": "python3 -m unittest discover -s scripts -p 'test_*.py'",
     "verify:release": "node scripts/check-viewport-evidence.mjs && node scripts/check-banner-evidence.mjs && node scripts/check-served-bytes.mjs",
     "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org",
-    "verify:pagination": "python3 scripts/check-results-pagination.py https://tsunami.nonarkara.org"
+    "verify:pagination": "python3 scripts/check-results-pagination.py https://tsunami.nonarkara.org",
+    "verify:pages": "python3 tools/viewport/pagefill.py docs/evidence/page-fill/page-fill.json --local dist --port 4191 --fail",
+    "verify:realestate": "python3 tools/viewport/realestate.py docs/evidence/page-fill/real-estate.json --local dist --port 4192",
+    "release": "npm test && npm run build && node scripts/check-contrast.mjs && npm run verify:pages && wrangler deploy && npm run capture:evidence && npm run verify:release"
   },
   "dependencies": {
     "@fontsource/jost": "^5.2.0",
