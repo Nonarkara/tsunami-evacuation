@@ -49,6 +49,9 @@ RESUME = ROOT / "docs" / "evidence" / "resume-audit-2026-11-03"
 RECOVERY = ROOT / "docs" / "evidence" / "recovery-2026-11-05"
 BYTES = ROOT / "docs" / "evidence" / "geometry-evidence"
 
+# Set from the command line: None means every section.
+ONLY = None
+
 CHROMIUM_ARGS = [
     "--use-gl=angle",
     "--use-angle=swiftshader",
@@ -90,9 +93,10 @@ PROBE = r"""
       w: d.getBoundingClientRect().width,
       h: d.getBoundingClientRect().height,
       pages: flow?.getAttribute('data-pages') || '1',
-      scroll: content
-        ? [content.scrollWidth, content.scrollHeight, content.clientWidth, content.clientHeight]
-        : [d.scrollWidth, d.scrollHeight, d.clientWidth, d.clientHeight],
+      // The dialog's own scroll metrics, not the flow's: a paginated dialog
+      // holds its content in a horizontal strip of columns, so the flow's
+      // scrollWidth is the width of every page, not the width of the dialog.
+      scroll: [d.scrollWidth, d.scrollHeight, d.clientWidth, d.clientHeight],
     };
   });
 
@@ -110,7 +114,6 @@ PROBE = r"""
   const turn = qv('.escape-route-cue');
   const manga = qv('.manga-wrap');
   const mangaStage = qv('.manga-stage');
-  const mangaControls = qv('.manga-controls');
   const canvas = qv('canvas');
 
   const families = [];
@@ -133,8 +136,25 @@ PROBE = r"""
     .map(el => ({name: (el.getAttribute('aria-label') || el.innerText || '').trim(),
                  ...rect(el)}));
 
-  // The renderer controls: one row of them, never two.
-  const bars = document.querySelectorAll('.terrain-view-controls, .manga-controls').length;
+  // The renderer controls: one row of them, never two. A control group laid
+  // out with display:contents has no box of its own — the row it makes is the
+  // union of its visible buttons — and a group inside a closed dialog has
+  // neither, so it is not on screen at all.
+  const groupBox = el => {
+    const own = rect(el);
+    if (own && own.w > 0 && own.h > 0) return own;
+    const kids = [...el.children].filter(vis).map(rect);
+    if (!kids.length) return null;
+    const x = Math.min(...kids.map(k => k.x));
+    const y = Math.min(...kids.map(k => k.y));
+    const right = Math.max(...kids.map(k => k.right));
+    const bottom = Math.max(...kids.map(k => k.bottom));
+    return {x, y, w: right - x, h: bottom - y, right, bottom};
+  };
+  const controlGroups = [...document.querySelectorAll('.terrain-view-controls, .manga-controls')];
+  const groupBoxes = controlGroups.map(groupBox).filter(Boolean);
+  const bars = groupBoxes.length;
+  const controlsBox = groupBoxes[0] || null;
 
   const captionEl = qv('.terrain-caption');
   const captionText = captionEl ? (captionEl.innerText || '').replace(/\s+/g, ' ').trim() : null;
@@ -154,6 +174,14 @@ PROBE = r"""
     readingPages: flows.map(f => ({label: f.label, pages: f.pages})),
     pages: flows.map(f => ({pages: f.pages, rect: f.rect})),
     bodySize: getComputedStyle(document.body).fontSize,
+    // The size of the reading text itself. The body element carries the title
+    // scale, so the enlargement the reader feels is measured on the paragraph
+    // they read, not on the wrapper.
+    readingSize: (() => {
+      const el = qv('.flow-content p') || qv('.flow-content li') || qv('.operations-content p');
+      return el ? getComputedStyle(el).fontSize : null;
+    })(),
+    controlsInDom: controlGroups.length,
     textSize: document.documentElement.dataset.textSize || 'standard',
     families,
     checkboxes,
@@ -161,7 +189,7 @@ PROBE = r"""
     bars,
     phase: manga?.getAttribute('data-manga-state') || 'ready',
     canvas: rect(mangaStage || canvas),
-    controls: rect(mangaControls),
+    controls: rect(controlsBox),
     captionText,
     captionChildrenFit: captionEl
       ? [...captionEl.children].every(child => {
@@ -252,6 +280,16 @@ RECOVERY_CASES.append(("source-th-large", "/?lang=th&text=large#explore", (390, 
 
 # ------------------------------------------------------------- the driver --
 
+def pick(items, *names):
+    """The case list to measure, honouring `--only <section>`.
+
+    Measuring one section takes minutes; the whole run takes half an hour. A
+    section that is not asked for is simply not measured, and its receipt keeps
+    the rows it already had.
+    """
+    return list(items) if ONLY in (None,) + names else []
+
+
 def open_page(page, origin: str, path: str) -> None:
     page.goto(f"{origin}{path}", wait_until="domcontentloaded", timeout=90000)
     page.wait_for_selector("header.soonami-masthead", timeout=45000)
@@ -307,6 +345,15 @@ def click_first(page, selector: str) -> bool:
         selector,
     )
     return bool(found)
+
+
+def close_dialogs(page) -> None:
+    """Close every open modal, so a receipt measures the bare screen."""
+    page.evaluate(
+        "() => { for (const d of document.querySelectorAll('dialog[open]')) {"
+        " try { d.close(); } catch (e) { /* not a native dialog */ } } }"
+    )
+    page.wait_for_timeout(400)
 
 
 def perform(page, action: str) -> None:
@@ -368,8 +415,33 @@ def perform(page, action: str) -> None:
         wait_for_manga(page)
     elif action == "walk":
         settle(page)
-        click_first(page, 'button[aria-label="Walk-through"]')
-        page.wait_for_timeout(2500)
+        # The Walk-through button stays disabled until the route model has
+        # loaded, and a disabled button that is clicked does nothing at all:
+        # the measurement would record the overview camera.
+        try:
+            page.wait_for_function(
+                "() => { const b = [...document.querySelectorAll('button')]"
+                ".find(x => x.getAttribute('aria-label') === 'Walk-through');"
+                " return !!b && !b.disabled; }",
+                timeout=60000,
+                polling=500,
+            )
+        except Exception:
+            pass
+        # At wide widths the camera controls sit in the banner; on a phone they
+        # sit inside the Map controls dialog. A button that is not on screen
+        # cannot be clicked, so the dialog is opened first when the button is
+        # not visible — and closed again afterwards, because the receipt must
+        # measure the bare screen and not a panel lying over the scene.
+        opened = False
+        if not click_first(page, 'button[aria-label="Walk-through"]'):
+            click_first(page, ".banner-overflow")
+            page.wait_for_timeout(800)
+            opened = click_first(page, 'button[aria-label="Walk-through"]')
+        page.wait_for_timeout(3000)
+        if opened:
+            close_dialogs(page)
+            page.wait_for_timeout(800)
     elif action == "source":
         settle(page)
         page.evaluate(
@@ -385,8 +457,10 @@ def perform(page, action: str) -> None:
         page.wait_for_timeout(700)
     elif action == "console":
         settle(page)
-        # On a phone the console lives inside the Map controls dialog, so the
-        # overflow button has to open first or the trigger cannot be clicked.
+        # The reading trigger is the subject: a reading dialog has to fit the
+        # reading measure at every width. It lives in the banner dock or inside
+        # the overflow menu depending on the width, so the overflow is opened
+        # first when it exists.
         click_first(page, ".banner-overflow")
         page.wait_for_timeout(700)
         click_first(page, '.reading-trigger[aria-label^="Sources, assumptions"]')
@@ -415,6 +489,9 @@ def write_json(path: Path, rows: list[dict]) -> None:
 def main() -> int:
     origin = (sys.argv[1] if len(sys.argv) > 1 else "https://tsunami.nonarkara.org").rstrip("/")
     scratch = "--scratch" in sys.argv
+    global ONLY
+    if "--only" in sys.argv:
+        ONLY = sys.argv[sys.argv.index("--only") + 1]
     global ORCH, RESUME, RECOVERY, BYTES
     if scratch:
         scratch_root = Path("/tmp/geometry-evidence-scratch")
@@ -436,7 +513,7 @@ def main() -> int:
         locate_edges: list[dict] = []
         edges: list[dict] = []
 
-        for case, url, (w, h), action in ORCH_CASES:
+        for case, url, (w, h), action in pick(ORCH_CASES, 'orchestration'):
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, url)
             perform(page, action)
@@ -458,7 +535,7 @@ def main() -> int:
             else:
                 geometry.append(row)
 
-        for case, url, (w, h) in ORCH_EXPANDED_CASES:
+        for case, url, (w, h) in pick(ORCH_EXPANDED_CASES, 'orchestration-expanded'):
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, url)
             perform(page, "ddpm-expanded")
@@ -471,7 +548,7 @@ def main() -> int:
 
         # ---- resume ---------------------------------------------------------
         resume_geometry: list[dict] = []
-        for case, url, (w, h) in RESUME_CASES:
+        for case, url, (w, h) in pick(RESUME_CASES, 'resume'):
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, url)
             perform(page, "method" if case.startswith("method-") else "escape")
@@ -481,7 +558,7 @@ def main() -> int:
             print(f"resume {case} {w}x{h}", flush=True)
 
         task_visibility: list[dict] = []
-        for case, (w, h) in TASK_VISIBILITY_CASES:
+        for case, (w, h) in pick(TASK_VISIBILITY_CASES, 'resume-tasks'):
             language = case.split("-")[-1]
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, orchestrate(language))
@@ -514,7 +591,7 @@ def main() -> int:
             print(f"resume task {case} {w}x{h}", flush=True)
 
         resume_expanded: list[dict] = []
-        for (w, h) in RESUME_EXPANDED_VIEWPORTS:
+        for (w, h) in pick(RESUME_EXPANDED_VIEWPORTS, 'resume-expanded'):
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, orchestrate("en"))
             perform(page, "console-nested")
@@ -540,7 +617,7 @@ def main() -> int:
             print(f"resume expanded {w}x{h}", flush=True)
 
         resume_edges: list[dict] = []
-        for (w, h) in RESUME_EDGE_VIEWPORTS:
+        for (w, h) in pick(RESUME_EDGE_VIEWPORTS, 'resume-edges'):
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, orchestrate("th"))
             perform(page, "console")
@@ -572,7 +649,7 @@ def main() -> int:
 
         # ---- recovery / manga ------------------------------------------------
         recovery: list[dict] = []
-        for case, url, (w, h) in RECOVERY_CASES:
+        for case, url, (w, h) in pick(RECOVERY_CASES, 'recovery'):
             page.set_viewport_size({"width": w, "height": h})
             open_page(page, origin, url)
             if case.startswith("manga") or case.startswith("source"):
@@ -589,17 +666,25 @@ def main() -> int:
         browser.close()
 
     # ---- write ------------------------------------------------------------
-    write_json(ORCH / "geometry.json", geometry)
-    write_json(ORCH / "expanded.json", expanded)
-    write_json(ORCH / "large-text.json", large_text)
-    write_json(ORCH / "other-workspaces.json", other_workspaces)
-    write_json(ORCH / "locate-edges.json", locate_edges)
-    write_json(ORCH / "edges.json", edges)
-    write_json(RESUME / "geometry.json", resume_geometry)
-    write_json(RESUME / "task-visibility.json", task_visibility)
-    write_json(RESUME / "expanded.json", resume_expanded)
-    write_json(RESUME / "edges.json", resume_edges)
-    write_json(RECOVERY / "geometry.json", recovery)
+    # A section that was not measured keeps the rows it already had: writing an
+    # empty receipt would erase the evidence rather than refresh it.
+    if ONLY in (None, "orchestration"):
+        write_json(ORCH / "geometry.json", geometry)
+        write_json(ORCH / "large-text.json", large_text)
+        write_json(ORCH / "other-workspaces.json", other_workspaces)
+        write_json(ORCH / "locate-edges.json", locate_edges)
+        write_json(ORCH / "edges.json", edges)
+    if ONLY in (None, "orchestration-expanded"):
+        write_json(ORCH / "expanded.json", expanded)
+    if ONLY in (None, "resume"):
+        write_json(RESUME / "geometry.json", resume_geometry)
+        write_json(RESUME / "task-visibility.json", task_visibility)
+    if ONLY in (None, "resume-expanded"):
+        write_json(RESUME / "expanded.json", resume_expanded)
+    if ONLY in (None, "resume-edges"):
+        write_json(RESUME / "edges.json", resume_edges)
+    if ONLY in (None, "recovery"):
+        write_json(RECOVERY / "geometry.json", recovery)
 
     # ---- the byte receipt -------------------------------------------------
     # The host answers a browser and refuses a bare urllib agent with 403, so
@@ -644,7 +729,7 @@ def main() -> int:
             print(f"  {failure}", flush=True)
         return 1
     print(
-        f"\nWROTE {len(geometry)} geometry, {len(expanded)} expanded, {len(large_text)} large-text, "
+        f"\nSECTION {ONLY or 'all'} · WROTE {len(geometry)} geometry, {len(expanded)} expanded, {len(large_text)} large-text, "
         f"{len(other_workspaces)} other-workspaces, {len(locate_edges)} locate-edges, {len(edges)} edges; "
         f"{len(resume_geometry)} resume geometry, {len(task_visibility)} task-visibility, "
         f"{len(resume_expanded)} resume expanded, {len(resume_edges)} resume edges; "

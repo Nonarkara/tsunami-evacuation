@@ -22,7 +22,9 @@ function check(row) {
     if(row.case.startsWith('ddpm-expanded'))assert.equal(dialog.pages,'1');
   }
   if(row.case.startsWith('escape-')||row.case.startsWith('edge-'))assert.ok(fits(row.turn,viewport),`${row.case}: first direction cue missing`);
-  if(row.case.startsWith('large-'))assert.equal(row.bodySize,'16.25px');
+  // The enlargement the reader feels is the reading text's own size: the body
+  // element carries the title scale, so the size is measured where it is read.
+  if(row.case.startsWith('large-'))assert.equal(row.readingSize,'16.25px',`${row.case}: reading text is not enlarged to 125%`);
 }
 let count=0;
 for(const [name,expected] of [['geometry',12],['expanded',6],['large-text',6],['other-workspaces',18],['locate-edges',4],['edges',3]]){
@@ -33,4 +35,8 @@ const original=read('geometry-before-caption').find(row=>row.caption?.h>60);
 assert.ok(original,'Original defect receipt must remain');
 assert.throws(()=>check(original),'The original86px caption must fail this budget');
 assert.throws(()=>check({...read('expanded')[0],dialogs:[{x:16,y:16,w:900,h:852,scroll:[900,852,900,852]}]}),'Oversized legacy dialog must fail');
-console.log(`PASS ${count} browser geometry receipts; original caption and dialog defects rejected.`);
+// The enlargement check must be able to fail: a reading text left at the
+// standard size has to be rejected, not passed.
+const unEnlarged=read('large-text').find(row=>row.case.startsWith('large-'));
+assert.throws(()=>check({...unEnlarged,readingSize:'13px'}),'An unenlarged reading text must fail');
+console.log(`PASS ${count} browser geometry receipts; original caption, dialog and unenlarged text rejected.`);
