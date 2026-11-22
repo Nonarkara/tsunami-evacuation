@@ -88,10 +88,16 @@ PROBE = r"""
     return {
       title: (d.querySelector('h2')?.innerText || '').trim(),
       lang: d.getAttribute('lang') || '',
+      // The reading dialog the receipts describe is the one that carries the
+      // exercise console. The Map controls dialog is another reading dialog
+      // and can be open underneath it, so the content tells them apart.
+      console: !!d.querySelector('.console-sections'),
       x: d.getBoundingClientRect().x,
       y: d.getBoundingClientRect().y,
       w: d.getBoundingClientRect().width,
       h: d.getBoundingClientRect().height,
+      right: d.getBoundingClientRect().right,
+      bottom: d.getBoundingClientRect().bottom,
       pages: flow?.getAttribute('data-pages') || '1',
       // The dialog's own scroll metrics, not the flow's: a paginated dialog
       // holds its content in a horizontal strip of columns, so the flow's
@@ -165,6 +171,9 @@ PROBE = r"""
     document: [document.documentElement.scrollWidth, document.documentElement.scrollHeight],
     banner: rect(header),
     header: rect(header),
+    // The work area: the main column the scene, the caption band and the task
+    // column share.
+    main: rect(q('#main') || q('main')),
     map: rect(stage || flat),
     stage: rect(stage),
     caption: rect(caption),
@@ -175,11 +184,22 @@ PROBE = r"""
     pages: flows.map(f => ({pages: f.pages, rect: f.rect})),
     bodySize: getComputedStyle(document.body).fontSize,
     // The size of the reading text itself. The body element carries the title
-    // scale, so the enlargement the reader feels is measured on the paragraph
-    // they read, not on the wrapper.
+    // scale, so the enlargement the reader feels is measured on the prose they
+    // read, not on the wrapper. A reading page mixes the prose with smaller
+    // notes, so the size the page reads at is the most common one, and the
+    // larger one wins a tie.
     readingSize: (() => {
-      const el = qv('.flow-content p') || qv('.flow-content li') || qv('.operations-content p');
-      return el ? getComputedStyle(el).fontSize : null;
+      const els = [...document.querySelectorAll('.flow-content p, .flow-content li')].filter(vis);
+      if (!els.length) return null;
+      const counts = {};
+      for (const el of els) {
+        const fs = getComputedStyle(el).fontSize;
+        counts[fs] = (counts[fs] || 0) + 1;
+      }
+      return Object.keys(counts).sort((a, b) => {
+        const byCount = counts[b] - counts[a];
+        return byCount !== 0 ? byCount : parseFloat(b) - parseFloat(a);
+      })[0];
     })(),
     controlsInDom: controlGroups.length,
     textSize: document.documentElement.dataset.textSize || 'standard',
@@ -189,7 +209,7 @@ PROBE = r"""
     bars,
     phase: manga?.getAttribute('data-manga-state') || 'ready',
     canvas: rect(mangaStage || canvas),
-    controls: rect(controlsBox),
+    controls: controlsBox,
     captionText,
     captionChildrenFit: captionEl
       ? [...captionEl.children].every(child => {
@@ -291,6 +311,13 @@ def pick(items, *names):
 
 
 def open_page(page, origin: str, path: str) -> None:
+    # A fresh document for every case. The app keeps its state — the picked
+    # village, the open sheet, the reader's view — across a navigation that
+    # changes only the hash, so a case measured straight after another one
+    # would inherit it: the cue was missing at the edge viewports because the
+    # previous case had left the DDPM sheet open. A receipt that inherits the
+    # previous case's state is not evidence of the case it names.
+    page.goto("about:blank")
     page.goto(f"{origin}{path}", wait_until="domcontentloaded", timeout=90000)
     page.wait_for_selector("header.soonami-masthead", timeout=45000)
     page.wait_for_timeout(1500)
@@ -356,6 +383,25 @@ def close_dialogs(page) -> None:
     page.wait_for_timeout(400)
 
 
+def set_model_view(page, view: str) -> None:
+    """Put the reader's view where the case says it is.
+
+    The app remembers the view the reader chose, so a case that follows
+    another one would otherwise measure whatever the previous case left on
+    screen. Each case now states its own view.
+    """
+    page.evaluate(
+        "(view) => { const s = document.querySelector('select[aria-label=\"Model view / มุมมอง\"]');"
+        " if (!s) return false;"
+        " const setter = Object.getOwnPropertyDescriptor("
+        " window.HTMLSelectElement.prototype, 'value').set;"
+        " setter.call(s, view);"
+        " s.dispatchEvent(new Event('change', {bubbles: true})); return true; }",
+        view,
+    )
+    page.wait_for_timeout(900)
+
+
 def perform(page, action: str) -> None:
     """Drive the case into the state the receipt describes."""
     if action == "escape":
@@ -404,17 +450,13 @@ def perform(page, action: str) -> None:
         settle(page)
     elif action == "manga":
         settle(page)
-        page.evaluate(
-            "() => { const s = document.querySelector('select[aria-label=\"Model view / มุมมอง\"]');"
-            " if (!s) return false;"
-            " const setter = Object.getOwnPropertyDescriptor("
-            " window.HTMLSelectElement.prototype, 'value').set;"
-            " setter.call(s, 'manga');"
-            " s.dispatchEvent(new Event('change', {bubbles: true})); return true; }"
-        )
+        set_model_view(page, "manga")
         wait_for_manga(page)
     elif action == "walk":
         settle(page)
+        # The walk is measured on the terrain, whatever the reader had chosen
+        # before this case.
+        set_model_view(page, "terrain")
         # The Walk-through button stays disabled until the route model has
         # loaded, and a disabled button that is clicked does nothing at all:
         # the measurement would record the overview camera.
@@ -444,14 +486,7 @@ def perform(page, action: str) -> None:
             page.wait_for_timeout(800)
     elif action == "source":
         settle(page)
-        page.evaluate(
-            "() => { const s = document.querySelector('select[aria-label=\"Model view / มุมมอง\"]');"
-            " if (!s) return false;"
-            " const setter = Object.getOwnPropertyDescriptor("
-            " window.HTMLSelectElement.prototype, 'value').set;"
-            " setter.call(s, 'manga');"
-            " s.dispatchEvent(new Event('change', {bubbles: true})); return true; }"
-        )
+        set_model_view(page, "manga")
         wait_for_manga(page)
         click_first(page, ".manga-note")
         page.wait_for_timeout(700)
@@ -463,13 +498,13 @@ def perform(page, action: str) -> None:
         # first when it exists.
         click_first(page, ".banner-overflow")
         page.wait_for_timeout(700)
-        click_first(page, '.reading-trigger[aria-label^="Sources, assumptions"]')
+        click_first(page, '.exercise-console .reading-trigger')
         page.wait_for_timeout(700)
     elif action == "console-nested":
         settle(page)
         click_first(page, ".banner-overflow")
         page.wait_for_timeout(700)
-        click_first(page, '.reading-trigger[aria-label^="Sources, assumptions"]')
+        click_first(page, '.exercise-console .reading-trigger')
         page.wait_for_timeout(700)
     else:
         settle(page)
@@ -622,7 +657,8 @@ def main() -> int:
             open_page(page, origin, orchestrate("th"))
             perform(page, "console")
             row = measure(page, origin)
-            dialog = row["dialogs"][-1] if row["dialogs"] else None
+            reading = [d for d in row["dialogs"] if d.get("console")]
+            dialog = reading[-1] if reading else None
             if dialog is None:
                 failures.append(f"resume edges {w}x{h}: no reading dialog was open")
                 continue

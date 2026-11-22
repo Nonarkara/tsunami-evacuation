@@ -1,6 +1,6 @@
 {
-  "capturedAt": "2026-11-22T03:44:26Z",
-  "commit": "f90c9d3e246949587532bf0791d7ccae0223badd",
+  "capturedAt": "2026-11-22T05:29:44Z",
+  "commit": "9fb73a9ac4ac1ed48dd952ddc6195c9f6d70cfa2",
   "origin": "http://127.0.0.1:4191",
   "viewports": [
     "390x844",
@@ -16,12 +16,12 @@
   ],
   "bytes": [
     {
-      "path": "/assets/index-CIyxkzVl.css",
-      "sha256": "c1d903d0ec06c4cbe0b9f8b4150bf55681efe2f76013c80dd00e7bbe92cc249e"
+      "path": "/assets/index-BQixVkxY.css",
+      "sha256": "407e3f41706a42def206ec2c67c3dcea876a06a05b54cf2b939c92e011212633"
     },
     {
-      "path": "/assets/index-CaAS9-PH.js",
-      "sha256": "2d333b4e99e8245c237f7d8c43a528ca5bc49673e7c6a6f1c81bb5072e6ce95b"
+      "path": "/assets/index-rVc9EjgA.js",
+      "sha256": "075437b77f9c6a7e98d3133257bfda784ac90ecdfdf42418d0b89457968b76eb"
     }
   ],
   "pages": [

@@ -1,0 +1,16 @@
+{
+  "origin": "https://tsunami.nonarkara.org",
+  "capturedAt": "2026-11-22T08:39:27+00:00",
+  "bytes": [
+    {
+      "path": "/assets/index-BQixVkxY.css",
+      "bytes": 229359,
+      "sha256": "407e3f41706a42def206ec2c67c3dcea876a06a05b54cf2b939c92e011212633"
+    },
+    {
+      "path": "/assets/index-rVc9EjgA.js",
+      "bytes": 1811159,
+      "sha256": "075437b77f9c6a7e98d3133257bfda784ac90ecdfdf42418d0b89457968b76eb"
+    }
+  ]
+}

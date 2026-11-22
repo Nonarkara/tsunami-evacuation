@@ -1,229 +1,221 @@
 [
   {
-    "checkboxes": [
-      {
-        "height": 18,
-        "width": 18
-      },
-      {
-        "height": 18,
-        "width": 18
-      }
+    "viewport": [
+      390,
+      844
+    ],
+    "document": [
+      390,
+      844
     ],
     "dialogs": [
       {
         "lang": "",
         "pages": "1",
+        "title": "Map controls / เครื่องมือแผนที่",
         "rect": {
-          "h": 212,
-          "w": 366,
           "x": 12,
-          "y": 48
+          "y": 48,
+          "w": 366,
+          "h": 212
         },
         "scroll": [
           364,
           210,
           364,
           210
-        ],
-        "title": "Map controls / เครื่องมือแผนที่"
+        ]
       },
       {
-        "lang": "th",
-        "pages": "3",
+        "lang": "en",
+        "pages": "2",
+        "title": "Sources, assumptions, settings & coverage",
         "rect": {
-          "h": 720,
+          "x": 12,
+          "y": 62,
           "w": 366,
+          "h": 720
+        },
+        "scroll": [
+          364,
+          718,
+          364,
+          718
+        ]
+      }
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      },
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ]
+  },
+  {
+    "viewport": [
+      667,
+      375
+    ],
+    "document": [
+      667,
+      375
+    ],
+    "dialogs": [
+      {
+        "lang": "",
+        "pages": "1",
+        "title": "Map controls / เครื่องมือแผนที่",
+        "rect": {
           "x": 12,
-          "y": 62
-        },
-        "scroll": [
-          364,
-          718,
-          364,
-          718
-        ],
-        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
-      }
-    ],
-    "document": [
-      390,
-      844
-    ],
-    "families": [
-      "Jost, Prompt, Arial, sans-serif",
-      "Prompt, sans-serif",
-      "Prompt, Jost, sans-serif"
-    ],
-    "viewport": [
-      390,
-      844
-    ]
-  },
-  {
-    "checkboxes": [
-      {
-        "height": 18,
-        "width": 18
-      },
-      {
-        "height": 18,
-        "width": 18
-      }
-    ],
-    "dialogs": [
-      {
-        "lang": "",
-        "pages": "1",
-        "rect": {
-          "h": 123,
-          "w": 650,
-          "x": 187,
-          "y": 48
-        },
-        "scroll": [
-          648,
-          121,
-          648,
-          121
-        ],
-        "title": "Map controls / เครื่องมือแผนที่"
-      },
-      {
-        "lang": "th",
-        "pages": "2",
-        "rect": {
-          "h": 720,
-          "w": 660,
-          "x": 182,
-          "y": 24
-        },
-        "scroll": [
-          658,
-          718,
-          658,
-          718
-        ],
-        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
-      }
-    ],
-    "document": [
-      1024,
-      768
-    ],
-    "families": [
-      "Jost, Prompt, Arial, sans-serif",
-      "Prompt, sans-serif",
-      "Prompt, Jost, sans-serif"
-    ],
-    "viewport": [
-      1024,
-      768
-    ]
-  },
-  {
-    "checkboxes": [
-      {
-        "height": 18,
-        "width": 18
-      },
-      {
-        "height": 18,
-        "width": 18
-      }
-    ],
-    "dialogs": [
-      {
-        "lang": "th",
-        "pages": "2",
-        "rect": {
-          "h": 720,
-          "w": 660,
-          "x": 390,
-          "y": 90
-        },
-        "scroll": [
-          658,
-          718,
-          658,
-          718
-        ],
-        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
-      }
-    ],
-    "document": [
-      1440,
-      900
-    ],
-    "families": [
-      "Jost, Prompt, Arial, sans-serif",
-      "Prompt, sans-serif",
-      "Prompt, Jost, sans-serif"
-    ],
-    "viewport": [
-      1440,
-      900
-    ]
-  },
-  {
-    "checkboxes": [
-      {
-        "height": 18,
-        "width": 18
-      },
-      {
-        "height": 18,
-        "width": 18
-      }
-    ],
-    "dialogs": [
-      {
-        "lang": "",
-        "pages": "1",
-        "rect": {
-          "h": 170,
+          "y": 48,
           "w": 643,
-          "x": 12,
-          "y": 48
+          "h": 170
         },
         "scroll": [
           641,
           168,
           641,
           168
-        ],
-        "title": "Map controls / เครื่องมือแผนที่"
+        ]
       },
       {
-        "lang": "th",
-        "pages": "6",
+        "lang": "en",
+        "pages": "1",
+        "title": "Sources, assumptions, settings & coverage",
         "rect": {
-          "h": 327,
-          "w": 643,
           "x": 12,
-          "y": 24
+          "y": 24,
+          "w": 643,
+          "h": 327
         },
         "scroll": [
           641,
           325,
           641,
           325
-        ],
-        "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+        ]
       }
     ],
-    "document": [
-      667,
-      375
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      },
+      {
+        "width": 18,
+        "height": 18
+      }
     ],
     "families": [
-      "Jost, Prompt, Arial, sans-serif",
-      "Prompt, sans-serif",
-      "Prompt, Jost, sans-serif"
-    ],
+      "Jost, Prompt, Arial, sans-serif"
+    ]
+  },
+  {
     "viewport": [
-      667,
-      375
+      1024,
+      768
+    ],
+    "document": [
+      1024,
+      768
+    ],
+    "dialogs": [
+      {
+        "lang": "",
+        "pages": "1",
+        "title": "Map controls / เครื่องมือแผนที่",
+        "rect": {
+          "x": 187,
+          "y": 48,
+          "w": 650,
+          "h": 123
+        },
+        "scroll": [
+          648,
+          121,
+          648,
+          121
+        ]
+      },
+      {
+        "lang": "en",
+        "pages": "2",
+        "title": "Sources, assumptions, settings & coverage",
+        "rect": {
+          "x": 182,
+          "y": 24,
+          "w": 660,
+          "h": 720
+        },
+        "scroll": [
+          658,
+          718,
+          658,
+          718
+        ]
+      }
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      },
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ]
+  },
+  {
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
+    "dialogs": [
+      {
+        "lang": "en",
+        "pages": "2",
+        "title": "Sources, assumptions, settings & coverage",
+        "rect": {
+          "x": 390,
+          "y": 90,
+          "w": 660,
+          "h": 720
+        },
+        "scroll": [
+          658,
+          718,
+          658,
+          718
+        ]
+      }
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      },
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
     ]
   }
 ]

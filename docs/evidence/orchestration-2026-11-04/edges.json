@@ -1,201 +1,346 @@
 [
   {
-    "case": "edge-escape-th",
-    "expectedViewport": [
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      320,
+      700
+    ],
+    "document": [
       320,
       700
     ],
     "banner": {
-      "bottom": 36,
+      "x": 0,
+      "y": 0,
+      "w": 320,
       "h": 36,
       "right": 320,
-      "w": 320,
-      "x": 0,
-      "y": 0
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 36,
+      "right": 320,
+      "bottom": 36
+    },
+    "map": {
+      "x": 8,
+      "y": 42,
+      "w": 304,
+      "h": 355,
+      "right": 312,
+      "bottom": 397
+    },
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "w": 304,
+      "h": 355,
+      "right": 312,
+      "bottom": 397
+    },
     "caption": {
-      "bottom": 343,
+      "x": 8,
+      "y": 400,
+      "w": 304,
       "h": 55,
       "right": 312,
-      "w": 304,
+      "bottom": 455
+    },
+    "start": {
       "x": 8,
-      "y": 288
+      "y": 458,
+      "w": 52.03125,
+      "h": 30,
+      "right": 60.03125,
+      "bottom": 488
+    },
+    "turn": {
+      "x": 8,
+      "y": 493,
+      "w": 304,
+      "h": 42.484375,
+      "right": 312,
+      "bottom": 535.484375
     },
     "dialogs": [],
-    "document": [
-      320,
-      700
-    ],
-    "map": {
-      "bottom": 285,
-      "h": 243,
-      "right": 312,
-      "w": 304,
-      "x": 8,
-      "y": 42
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "4"
+        "pages": "8"
       }
     ],
-    "start": {
-      "bottom": 376,
-      "h": 30,
-      "right": 60.0234375,
-      "w": 52.0234375,
-      "x": 8,
-      "y": 346
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "8",
+        "rect": {
+          "w": 304,
+          "h": 177
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 569.890625,
-      "h": 42.4921875,
-      "right": 312,
-      "w": 304,
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
       "x": 8,
-      "y": 527.3984375
+      "y": 42,
+      "w": 304,
+      "h": 355,
+      "right": 312,
+      "bottom": 397
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nสู้\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\n⋯\n10 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 8\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "taggedHeightRecords": 0,
+    "case": "edge-escape-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       320,
       700
     ]
   },
   {
-    "case": "edge-escape-th",
-    "expectedViewport": [
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      600
+    ],
+    "document": [
       390,
       600
     ],
     "banner": {
-      "bottom": 36,
+      "x": 0,
+      "y": 0,
+      "w": 390,
       "h": 36,
       "right": 390,
-      "w": 390,
-      "x": 0,
-      "y": 0
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 36,
+      "right": 390,
+      "bottom": 36
+    },
+    "map": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 255,
+      "right": 382,
+      "bottom": 297
+    },
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 255,
+      "right": 382,
+      "bottom": 297
+    },
     "caption": {
-      "bottom": 243,
+      "x": 8,
+      "y": 300,
+      "w": 374,
       "h": 55,
       "right": 382,
-      "w": 374,
+      "bottom": 355
+    },
+    "start": {
       "x": 8,
-      "y": 188
+      "y": 358,
+      "w": 52.03125,
+      "h": 30,
+      "right": 60.03125,
+      "bottom": 388
+    },
+    "turn": {
+      "x": 8,
+      "y": 393,
+      "w": 374,
+      "h": 42.484375,
+      "right": 382,
+      "bottom": 435.484375
     },
     "dialogs": [],
-    "document": [
-      390,
-      600
-    ],
-    "map": {
-      "bottom": 185,
-      "h": 143,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 42
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "3"
+        "pages": "8"
       }
     ],
-    "start": {
-      "bottom": 276,
-      "h": 30,
-      "right": 60.0234375,
-      "w": 52.0234375,
-      "x": 8,
-      "y": 246
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "8",
+        "rect": {
+          "w": 374,
+          "h": 177
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 469.890625,
-      "h": 42.4921875,
-      "right": 382,
-      "w": 374,
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
       "x": 8,
-      "y": 427.3984375
+      "y": 42,
+      "w": 374,
+      "h": 255,
+      "right": 382,
+      "bottom": 297
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\n⋯\n5 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 8\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "taggedHeightRecords": 0,
+    "case": "edge-escape-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       390,
       600
     ]
   },
   {
-    "case": "edge-escape-th",
-    "expectedViewport": [
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
       1280,
       720
     ],
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 1280,
-      "w": 1280,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 684,
-      "h": 30,
-      "right": 838.6640625,
-      "w": 826.6640625,
-      "x": 12,
-      "y": 654
-    },
-    "dialogs": [],
     "document": [
       1280,
       720
     ],
-    "map": {
-      "bottom": 650,
-      "h": 606,
-      "right": 838.6640625,
-      "w": 826.6640625,
-      "x": 12,
-      "y": 44
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 36,
+      "right": 1280,
+      "bottom": 36
     },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 36,
+      "right": 1280,
+      "bottom": 36
+    },
+    "map": {
+      "x": 12,
+      "y": 44,
+      "w": 840,
+      "h": 606,
+      "right": 852,
+      "bottom": 650
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 840,
+      "h": 606,
+      "right": 852,
+      "bottom": 650
+    },
+    "caption": {
+      "x": 12,
+      "y": 654,
+      "w": 840,
+      "h": 30,
+      "right": 852,
+      "bottom": 684
+    },
+    "start": {
+      "x": 868,
+      "y": 44,
+      "w": 52.03125,
+      "h": 30,
+      "right": 920.03125,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 868,
+      "y": 84,
+      "w": 400,
+      "h": 42.484375,
+      "right": 1268,
+      "bottom": 126.484375
+    },
+    "dialogs": [],
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "3"
+        "pages": "2"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 906.6875,
-      "w": 52.0234375,
-      "x": 854.6640625,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 400,
+          "h": 600
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 272.890625,
-      "h": 42.4921875,
-      "right": 1268,
-      "w": 413.3359375,
-      "x": 854.6640625,
-      "y": 230.3984375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 1,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 840,
+      "h": 606,
+      "right": 852,
+      "bottom": 650
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": {
+      "x": 689.921875,
+      "y": 3,
+      "w": 194,
+      "h": 28,
+      "right": 883.921875,
+      "bottom": 31
+    },
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\nScene task / งาน\nControls\nGuide\nแหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม\n1784\n2 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "taggedHeightRecords": 0,
+    "case": "edge-escape-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1280,
       720
     ]

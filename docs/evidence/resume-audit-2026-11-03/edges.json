@@ -1,244 +1,255 @@
 [
   {
+    "viewport": [
+      320,
+      700
+    ],
+    "document": [
+      320,
+      700
+    ],
+    "header": 36,
     "dialog": {
-      "clientH": 650,
-      "clientW": 294,
-      "h": 652,
-      "pages": "2",
-      "scrollH": 650,
-      "scrollW": 294,
+      "x": 12,
+      "y": 24,
       "w": 296,
-      "x": 12,
-      "y": 24
-    },
-    "document": [
-      320,
-      700
-    ],
-    "header": 36,
-    "viewport": [
-      320,
-      700
-    ]
+      "h": 652,
+      "clientW": 294,
+      "clientH": 650,
+      "scrollW": 294,
+      "scrollH": 650,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   },
   {
+    "viewport": [
+      390,
+      600
+    ],
+    "document": [
+      390,
+      600
+    ],
+    "header": 36,
     "dialog": {
-      "clientH": 550,
-      "clientW": 364,
-      "h": 552,
-      "pages": "2",
-      "scrollH": 550,
-      "scrollW": 364,
+      "x": 12,
+      "y": 24,
       "w": 366,
-      "x": 12,
-      "y": 24
-    },
-    "document": [
-      390,
-      600
-    ],
-    "header": 36,
-    "viewport": [
-      390,
-      600
-    ]
+      "h": 552,
+      "clientW": 364,
+      "clientH": 550,
+      "scrollW": 364,
+      "scrollH": 550,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   },
   {
+    "viewport": [
+      600,
+      700
+    ],
+    "document": [
+      600,
+      700
+    ],
+    "header": 36,
     "dialog": {
-      "clientH": 650,
-      "clientW": 574,
-      "h": 652,
-      "pages": "2",
-      "scrollH": 650,
-      "scrollW": 574,
+      "x": 12,
+      "y": 24,
       "w": 576,
-      "x": 12,
-      "y": 24
-    },
-    "document": [
-      600,
-      700
-    ],
-    "header": 36,
-    "viewport": [
-      600,
-      700
-    ]
-  },
-  {
-    "dialog": {
-      "clientH": 650,
-      "clientW": 575,
       "h": 652,
-      "pages": "2",
+      "clientW": 574,
+      "clientH": 650,
+      "scrollW": 574,
       "scrollH": 650,
-      "scrollW": 575,
-      "w": 577,
+      "pages": "1",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
+  },
+  {
+    "viewport": [
+      601,
+      700
+    ],
+    "document": [
+      601,
+      700
+    ],
+    "header": 36,
+    "dialog": {
       "x": 12,
-      "y": 24
-    },
-    "document": [
-      601,
-      700
-    ],
-    "header": 36,
-    "viewport": [
-      601,
-      700
-    ]
+      "y": 24,
+      "w": 577,
+      "h": 652,
+      "clientW": 575,
+      "clientH": 650,
+      "scrollW": 575,
+      "scrollH": 650,
+      "pages": "1",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   },
   {
+    "viewport": [
+      759,
+      900
+    ],
+    "document": [
+      759,
+      900
+    ],
+    "header": 36,
     "dialog": {
-      "clientH": 718,
-      "clientW": 658,
-      "h": 720,
-      "pages": "2",
-      "scrollH": 718,
-      "scrollW": 658,
-      "w": 660,
       "x": 49.5,
-      "y": 90
-    },
+      "y": 90,
+      "w": 660,
+      "h": 720,
+      "clientW": 658,
+      "clientH": 718,
+      "scrollW": 658,
+      "scrollH": 718,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
+  },
+  {
+    "viewport": [
+      760,
+      900
+    ],
     "document": [
-      759,
+      760,
       900
     ],
     "header": 36,
-    "viewport": [
-      759,
-      900
-    ]
-  },
-  {
     "dialog": {
-      "clientH": 718,
-      "clientW": 658,
-      "h": 720,
-      "pages": "2",
-      "scrollH": 718,
-      "scrollW": 658,
-      "w": 660,
       "x": 50,
-      "y": 90
-    },
+      "y": 90,
+      "w": 660,
+      "h": 720,
+      "clientW": 658,
+      "clientH": 718,
+      "scrollW": 658,
+      "scrollH": 718,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
+  },
+  {
+    "viewport": [
+      761,
+      900
+    ],
     "document": [
-      760,
+      761,
       900
     ],
     "header": 36,
-    "viewport": [
-      760,
-      900
-    ]
-  },
-  {
     "dialog": {
-      "clientH": 718,
-      "clientW": 658,
-      "h": 720,
-      "pages": "2",
-      "scrollH": 718,
-      "scrollW": 658,
-      "w": 660,
       "x": 50.5,
-      "y": 90
-    },
-    "document": [
-      761,
-      900
-    ],
-    "header": 36,
-    "viewport": [
-      761,
-      900
-    ]
+      "y": 90,
+      "w": 660,
+      "h": 720,
+      "clientW": 658,
+      "clientH": 718,
+      "scrollW": 658,
+      "scrollH": 718,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   },
   {
+    "viewport": [
+      1099,
+      768
+    ],
+    "document": [
+      1099,
+      768
+    ],
+    "header": 36,
     "dialog": {
-      "clientH": 718,
-      "clientW": 658,
-      "h": 720,
-      "pages": "2",
-      "scrollH": 718,
-      "scrollW": 658,
-      "w": 660,
       "x": 219.5,
-      "y": 24
-    },
-    "document": [
-      1099,
-      768
-    ],
-    "header": 36,
-    "viewport": [
-      1099,
-      768
-    ]
-  },
-  {
-    "dialog": {
-      "clientH": 718,
-      "clientW": 658,
+      "y": 24,
+      "w": 660,
       "h": 720,
-      "pages": "2",
+      "clientW": 658,
+      "clientH": 718,
+      "scrollW": 658,
       "scrollH": 718,
-      "scrollW": 658,
-      "w": 660,
+      "pages": "1",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
+  },
+  {
+    "viewport": [
+      1100,
+      768
+    ],
+    "document": [
+      1100,
+      768
+    ],
+    "header": 36,
+    "dialog": {
       "x": 220,
-      "y": 24
-    },
-    "document": [
-      1100,
-      768
-    ],
-    "header": 36,
-    "viewport": [
-      1100,
-      768
-    ]
+      "y": 24,
+      "w": 660,
+      "h": 720,
+      "clientW": 658,
+      "clientH": 718,
+      "scrollW": 658,
+      "scrollH": 718,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   },
   {
+    "viewport": [
+      1169,
+      674
+    ],
+    "document": [
+      1169,
+      674
+    ],
+    "header": 36,
     "dialog": {
-      "clientH": 624,
-      "clientW": 658,
-      "h": 626,
-      "pages": "2",
-      "scrollH": 624,
-      "scrollW": 658,
-      "w": 660,
       "x": 254.5,
-      "y": 24
-    },
-    "document": [
-      1169,
-      674
-    ],
-    "header": 36,
-    "viewport": [
-      1169,
-      674
-    ]
+      "y": 24,
+      "w": 660,
+      "h": 626,
+      "clientW": 658,
+      "clientH": 624,
+      "scrollW": 658,
+      "scrollH": 624,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   },
   {
-    "dialog": {
-      "clientH": 670,
-      "clientW": 658,
-      "h": 672,
-      "pages": "2",
-      "scrollH": 670,
-      "scrollW": 658,
-      "w": 660,
-      "x": 310,
-      "y": 24
-    },
+    "viewport": [
+      1280,
+      720
+    ],
     "document": [
       1280,
       720
     ],
     "header": 36,
-    "viewport": [
-      1280,
-      720
-    ]
+    "dialog": {
+      "x": 310,
+      "y": 24,
+      "w": 660,
+      "h": 672,
+      "clientW": 658,
+      "clientH": 670,
+      "scrollW": 658,
+      "scrollH": 670,
+      "pages": "2",
+      "title": "แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม"
+    }
   }
 ]

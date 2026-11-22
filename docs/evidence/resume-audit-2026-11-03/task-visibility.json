@@ -1,152 +1,152 @@
 [
   {
-    "font": "Jost, Prompt, Arial, sans-serif",
-    "task": [
-      {
-        "firstScreen": true,
-        "h": 30,
-        "selector": ".escape-playback .primary",
-        "w": 57.4296875,
-        "x": 8,
-        "y": 490
-      },
-      {
-        "firstScreen": true,
-        "h": 42.4921875,
-        "selector": ".escape-route-cue",
-        "w": 374,
-        "x": 8,
-        "y": 671.3984375
-      }
-    ],
     "viewport": [
       390,
       844
-    ]
-  },
-  {
+    ],
     "font": "Jost, Prompt, Arial, sans-serif",
     "task": [
       {
-        "firstScreen": true,
-        "h": 30,
         "selector": ".escape-playback .primary",
-        "w": 52.0234375,
+        "firstScreen": true,
         "x": 8,
-        "y": 490
+        "y": 609.390625,
+        "w": 57.4375,
+        "h": 30
       },
       {
-        "firstScreen": true,
-        "h": 42.4921875,
         "selector": ".escape-route-cue",
-        "w": 374,
+        "firstScreen": true,
         "x": 8,
-        "y": 671.3984375
+        "y": 644.390625,
+        "w": 374.296875,
+        "h": 42.484375
       }
-    ],
+    ]
+  },
+  {
     "viewport": [
       390,
       844
-    ]
-  },
-  {
+    ],
     "font": "Jost, Prompt, Arial, sans-serif",
     "task": [
       {
-        "firstScreen": true,
-        "h": 30,
         "selector": ".escape-playback .primary",
-        "w": 57.4296875,
-        "x": 692,
-        "y": 44
+        "firstScreen": true,
+        "x": 8,
+        "y": 609.390625,
+        "w": 52.03125,
+        "h": 30
       },
       {
-        "firstScreen": true,
-        "h": 57.890625,
         "selector": ".escape-route-cue",
-        "w": 320,
-        "x": 692,
-        "y": 230.3984375
+        "firstScreen": true,
+        "x": 8,
+        "y": 644.390625,
+        "w": 374,
+        "h": 42.484375
       }
-    ],
+    ]
+  },
+  {
     "viewport": [
       1024,
       768
-    ]
-  },
-  {
+    ],
     "font": "Jost, Prompt, Arial, sans-serif",
     "task": [
       {
-        "firstScreen": true,
-        "h": 30,
         "selector": ".escape-playback .primary",
-        "w": 52.0234375,
-        "x": 692,
-        "y": 44
+        "firstScreen": true,
+        "x": 748,
+        "y": 44,
+        "w": 57.4375,
+        "h": 30
       },
       {
-        "firstScreen": true,
-        "h": 42.4921875,
         "selector": ".escape-route-cue",
-        "w": 320,
-        "x": 692,
-        "y": 230.3984375
+        "firstScreen": true,
+        "x": 748,
+        "y": 84,
+        "w": 264,
+        "h": 79.96875
       }
-    ],
+    ]
+  },
+  {
     "viewport": [
       1024,
       768
-    ]
-  },
-  {
+    ],
     "font": "Jost, Prompt, Arial, sans-serif",
     "task": [
       {
-        "firstScreen": true,
-        "h": 30,
         "selector": ".escape-playback .primary",
-        "w": 57.4296875,
-        "x": 961.328125,
-        "y": 44
+        "firstScreen": true,
+        "x": 748,
+        "y": 44,
+        "w": 52.03125,
+        "h": 30
       },
       {
-        "firstScreen": true,
-        "h": 42.4921875,
         "selector": ".escape-route-cue",
-        "w": 466.6640625,
-        "x": 961.328125,
-        "y": 216.6484375
+        "firstScreen": true,
+        "x": 748,
+        "y": 84,
+        "w": 264,
+        "h": 57.875
       }
-    ],
-    "viewport": [
-      1440,
-      900
     ]
   },
   {
-    "font": "Jost, Prompt, Arial, sans-serif",
-    "task": [
-      {
-        "firstScreen": true,
-        "h": 30,
-        "selector": ".escape-playback .primary",
-        "w": 52.0234375,
-        "x": 961.328125,
-        "y": 44
-      },
-      {
-        "firstScreen": true,
-        "h": 42.4921875,
-        "selector": ".escape-route-cue",
-        "w": 466.6640625,
-        "x": 961.328125,
-        "y": 197.1484375
-      }
-    ],
     "viewport": [
       1440,
       900
+    ],
+    "font": "Jost, Prompt, Arial, sans-serif",
+    "task": [
+      {
+        "selector": ".escape-playback .primary",
+        "firstScreen": true,
+        "x": 1028,
+        "y": 44,
+        "w": 57.4375,
+        "h": 30
+      },
+      {
+        "selector": ".escape-route-cue",
+        "firstScreen": true,
+        "x": 1028,
+        "y": 84,
+        "w": 400,
+        "h": 42.484375
+      }
+    ]
+  },
+  {
+    "viewport": [
+      1440,
+      900
+    ],
+    "font": "Jost, Prompt, Arial, sans-serif",
+    "task": [
+      {
+        "selector": ".escape-playback .primary",
+        "firstScreen": true,
+        "x": 1028,
+        "y": 44,
+        "w": 52.03125,
+        "h": 30
+      },
+      {
+        "selector": ".escape-route-cue",
+        "firstScreen": true,
+        "x": 1028,
+        "y": 84,
+        "w": 400,
+        "h": 42.484375
+      }
     ]
   }
 ]

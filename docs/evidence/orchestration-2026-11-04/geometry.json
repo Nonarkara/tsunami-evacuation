@@ -1,379 +1,710 @@
 [
   {
-    "case": "escape-en",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 390,
-      "w": 390,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 487,
-      "h": 55,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 432
-    },
-    "dialogs": [],
+    "url": "/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
     "document": [
       390,
       844
     ],
-    "map": {
-      "bottom": 429,
-      "h": 387,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 42
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 390.296875,
+      "h": 36,
+      "right": 390.296875,
+      "bottom": 36
     },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 390.296875,
+      "h": 36,
+      "right": 390.296875,
+      "bottom": 36
+    },
+    "map": {
+      "x": 8,
+      "y": 42,
+      "w": 374.296875,
+      "h": 506.390625,
+      "right": 382.296875,
+      "bottom": 548.390625
+    },
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "w": 374.296875,
+      "h": 506.390625,
+      "right": 382.296875,
+      "bottom": 548.390625
+    },
+    "caption": {
+      "x": 8,
+      "y": 551.390625,
+      "w": 374.296875,
+      "h": 55,
+      "right": 382.296875,
+      "bottom": 606.390625
+    },
+    "start": {
+      "x": 8,
+      "y": 609.390625,
+      "w": 57.4375,
+      "h": 30,
+      "right": 65.4375,
+      "bottom": 639.390625
+    },
+    "turn": {
+      "x": 8,
+      "y": 644.390625,
+      "w": 374.296875,
+      "h": 42.484375,
+      "right": 382.296875,
+      "bottom": 686.875
+    },
+    "dialogs": [],
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "3"
+        "pages": "8"
       }
     ],
-    "start": {
-      "bottom": 520,
-      "h": 30,
-      "right": 65.4296875,
-      "w": 57.4296875,
-      "x": 8,
-      "y": 490
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "8",
+        "rect": {
+          "w": 374,
+          "h": 170
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 713.890625,
-      "h": 42.4921875,
-      "right": 382,
-      "w": 374,
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
       "x": 8,
-      "y": 671.3984375
+      "y": 42,
+      "w": 374,
+      "h": 506,
+      "right": 382,
+      "bottom": 548
     },
-    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\n⋯\n3 m\n1.65m eye · DEM · unknown heights flat (practice only)\nMap key\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 8\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
+    "taggedHeightRecords": 0,
+    "case": "escape-en",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       390,
       844
     ]
   },
   {
-    "case": "ddpm-sheets-en",
+    "url": "/?lang=en&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "document": [
+      390,
+      844
+    ],
     "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 390,
-      "w": 390,
       "x": 0,
-      "y": 0
+      "y": 0,
+      "w": 390.296875,
+      "h": 36,
+      "right": 390.296875,
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 487,
-      "h": 55,
-      "right": 382,
-      "w": 374,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 390.296875,
+      "h": 36,
+      "right": 390.296875,
+      "bottom": 36
+    },
+    "map": {
       "x": 8,
-      "y": 432
+      "y": 42,
+      "w": 374.296875,
+      "h": 506.390625,
+      "right": 382.296875,
+      "bottom": 548.390625
+    },
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "w": 374.296875,
+      "h": 506.390625,
+      "right": 382.296875,
+      "bottom": 548.390625
+    },
+    "caption": {
+      "x": 8,
+      "y": 551.390625,
+      "w": 374.296875,
+      "h": 55,
+      "right": 382.296875,
+      "bottom": 606.390625
+    },
+    "start": {
+      "x": 8,
+      "y": 609.390625,
+      "w": 77.84375,
+      "h": 30,
+      "right": 85.84375,
+      "bottom": 639.390625
+    },
+    "turn": {
+      "x": 8,
+      "y": 644.390625,
+      "w": 374.296875,
+      "h": 42.484375,
+      "right": 382.296875,
+      "bottom": 686.875
     },
     "dialogs": [
       {
-        "h": 560,
-        "pages": "1",
-        "scroll": [
-          364,
-          558,
-          364,
-          558
-        ],
         "title": "DDPM evacuation maps",
-        "w": 366,
+        "lang": "en",
+        "console": false,
         "x": 12,
-        "y": 142
-      }
-    ],
-    "document": [
-      390,
-      844
-    ],
-    "map": {
-      "bottom": 429,
-      "h": 387,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 42
-    },
-    "readingPages": [
-      {
-        "label": "Rehearsal controls and guide",
-        "pages": "3"
-      },
-      {
-        "label": "DDPM evacuation maps",
-        "pages": "1"
-      }
-    ],
-    "start": {
-      "bottom": 520,
-      "h": 30,
-      "right": 65.4296875,
-      "w": 57.4296875,
-      "x": 8,
-      "y": 490
-    },
-    "taggedHeightRecords": "0",
-    "textSize": "standard",
-    "turn": {
-      "bottom": 713.890625,
-      "h": 42.4921875,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 671.3984375
-    },
-    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
-    "viewport": [
-      390,
-      844
-    ]
-  },
-  {
-    "case": "escape-th",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 390,
-      "w": 390,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 487,
-      "h": 55,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 432
-    },
-    "dialogs": [],
-    "document": [
-      390,
-      844
-    ],
-    "map": {
-      "bottom": 429,
-      "h": 387,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 42
-    },
-    "readingPages": [
-      {
-        "label": "Rehearsal controls and guide",
-        "pages": "3"
-      }
-    ],
-    "start": {
-      "bottom": 520,
-      "h": 30,
-      "right": 60.0234375,
-      "w": 52.0234375,
-      "x": 8,
-      "y": 490
-    },
-    "taggedHeightRecords": "0",
-    "textSize": "standard",
-    "turn": {
-      "bottom": 713.890625,
-      "h": 42.4921875,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 671.3984375
-    },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
-      390,
-      844
-    ]
-  },
-  {
-    "case": "ddpm-sheets-th",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 390,
-      "w": 390,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 487,
-      "h": 55,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 432
-    },
-    "dialogs": [
-      {
-        "h": 560,
-        "pages": "1",
-        "scroll": [
-          364,
-          558,
-          364,
-          558
-        ],
-        "title": "แผนที่อพยพ ปภ.",
+        "y": 142,
         "w": 366,
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          364,
+          558,
+          364,
+          558
+        ]
+      }
+    ],
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "8"
+      },
+      {
+        "label": "DDPM evacuation maps",
+        "pages": "1"
+      }
+    ],
+    "pages": [
+      {
+        "pages": "8",
+        "rect": {
+          "w": 374,
+          "h": 170
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "w": 340,
+          "h": 494
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
+    "textSize": "standard",
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 506,
+      "right": 382,
+      "bottom": 548
+    },
+    "controls": null,
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Close reading / ปิด",
+    "taggedHeightRecords": 0,
+    "case": "ddpm-sheets-en",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 36,
+      "right": 390,
+      "bottom": 36
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 36,
+      "right": 390,
+      "bottom": 36
+    },
+    "map": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 506.390625,
+      "right": 382,
+      "bottom": 548.390625
+    },
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 506.390625,
+      "right": 382,
+      "bottom": 548.390625
+    },
+    "caption": {
+      "x": 8,
+      "y": 551.390625,
+      "w": 374,
+      "h": 55,
+      "right": 382,
+      "bottom": 606.390625
+    },
+    "start": {
+      "x": 8,
+      "y": 609.390625,
+      "w": 52.03125,
+      "h": 30,
+      "right": 60.03125,
+      "bottom": 639.390625
+    },
+    "turn": {
+      "x": 8,
+      "y": 644.390625,
+      "w": 374,
+      "h": 42.484375,
+      "right": 382,
+      "bottom": 686.875
+    },
+    "dialogs": [],
+    "readingPages": [
+      {
+        "label": "Rehearsal controls and guide",
+        "pages": "8"
+      }
+    ],
+    "pages": [
+      {
+        "pages": "8",
+        "rect": {
+          "w": 374,
+          "h": 170
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
+    "textSize": "standard",
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 506,
+      "right": 382,
+      "bottom": 548
+    },
+    "controls": null,
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\n⋯\n10 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 8\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "taggedHeightRecords": 0,
+    "case": "escape-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
+      390,
+      844
+    ]
+  },
+  {
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      390,
+      844
+    ],
+    "document": [
+      390,
+      844
+    ],
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 36,
+      "right": 390,
+      "bottom": 36
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 36,
+      "right": 390,
+      "bottom": 36
+    },
+    "map": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 506.390625,
+      "right": 382,
+      "bottom": 548.390625
+    },
+    "stage": {
+      "x": 8,
+      "y": 42,
+      "w": 374,
+      "h": 506.390625,
+      "right": 382,
+      "bottom": 548.390625
+    },
+    "caption": {
+      "x": 8,
+      "y": 551.390625,
+      "w": 374,
+      "h": 55,
+      "right": 382,
+      "bottom": 606.390625
+    },
+    "start": {
+      "x": 8,
+      "y": 609.390625,
+      "w": 92.234375,
+      "h": 30,
+      "right": 100.234375,
+      "bottom": 639.390625
+    },
+    "turn": {
+      "x": 8,
+      "y": 644.390625,
+      "w": 374,
+      "h": 42.484375,
+      "right": 382,
+      "bottom": 686.875
+    },
+    "dialogs": [
+      {
+        "title": "แผนที่อพยพ ปภ.",
+        "lang": "th",
+        "console": false,
         "x": 12,
-        "y": 142
+        "y": 142,
+        "w": 366,
+        "h": 560,
+        "pages": "1",
+        "scroll": [
+          364,
+          558,
+          364,
+          558
+        ]
       }
     ],
-    "document": [
-      390,
-      844
-    ],
-    "map": {
-      "bottom": 429,
-      "h": 387,
-      "right": 382,
-      "w": 374,
-      "x": 8,
-      "y": 42
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "3"
+        "pages": "8"
       },
       {
         "label": "แผนที่อพยพ ปภ.",
         "pages": "1"
       }
     ],
-    "start": {
-      "bottom": 520,
-      "h": 30,
-      "right": 60.0234375,
-      "w": 52.0234375,
-      "x": 8,
-      "y": 490
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "8",
+        "rect": {
+          "w": 374,
+          "h": 170
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "w": 340,
+          "h": 494
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 713.890625,
-      "h": 42.4921875,
-      "right": 382,
-      "w": 374,
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
       "x": 8,
-      "y": 671.3984375
+      "y": 42,
+      "w": 374,
+      "h": 506,
+      "right": 382,
+      "bottom": 548
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Close reading / ปิด",
+    "taggedHeightRecords": 0,
+    "case": "ddpm-sheets-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       390,
       844
     ]
   },
   {
-    "case": "escape-en",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 1024,
-      "w": 1024,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 732,
-      "h": 30,
-      "right": 676,
-      "w": 664,
-      "x": 12,
-      "y": 702
-    },
-    "dialogs": [],
+    "url": "/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
     "document": [
       1024,
       768
     ],
-    "map": {
-      "bottom": 698,
-      "h": 654,
-      "right": 676,
-      "w": 664,
-      "x": 12,
-      "y": 44
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 1024,
+      "h": 36,
+      "right": 1024,
+      "bottom": 36
     },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1024,
+      "h": 36,
+      "right": 1024,
+      "bottom": 36
+    },
+    "map": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "caption": {
+      "x": 12,
+      "y": 702,
+      "w": 720,
+      "h": 30,
+      "right": 732,
+      "bottom": 732
+    },
+    "start": {
+      "x": 748,
+      "y": 44,
+      "w": 57.4375,
+      "h": 30,
+      "right": 805.4375,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 748,
+      "y": 84,
+      "w": 264,
+      "h": 79.96875,
+      "right": 1012,
+      "bottom": 163.96875
+    },
+    "dialogs": [],
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
         "pages": "2"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 749.4296875,
-      "w": 57.4296875,
-      "x": 692,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 264,
+          "h": 648
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 288.2890625,
-      "h": 57.890625,
-      "right": 1012,
-      "w": 320,
-      "x": 692,
-      "y": 230.3984375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
     },
-    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\nTerrain\nResults\nStreet linework (ink)\nArea / พื้นที่\n1 · Pakarang Cape\n2 · Khuk Khak\n3 · Bang Niang\n4 · Nang Thong\n⋯\n1784\n2 m\n1.65m eye · DEM · unknown heights flat (practice only)\nMap key\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 2\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
+    "taggedHeightRecords": 0,
+    "case": "escape-en",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1024,
       768
     ]
   },
   {
-    "case": "ddpm-sheets-en",
+    "url": "/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "document": [
+      1024,
+      768
+    ],
     "banner": {
-      "bottom": 36,
+      "x": 0,
+      "y": 0,
+      "w": 1024,
       "h": 36,
       "right": 1024,
-      "w": 1024,
-      "x": 0,
-      "y": 0
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 732,
-      "h": 30,
-      "right": 676,
-      "w": 664,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1024,
+      "h": 36,
+      "right": 1024,
+      "bottom": 36
+    },
+    "map": {
       "x": 12,
-      "y": 702
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "caption": {
+      "x": 12,
+      "y": 702,
+      "w": 720,
+      "h": 30,
+      "right": 732,
+      "bottom": 732
+    },
+    "start": {
+      "x": 748,
+      "y": 44,
+      "w": 77.84375,
+      "h": 30,
+      "right": 825.84375,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 748,
+      "y": 84,
+      "w": 264,
+      "h": 79.96875,
+      "right": 1012,
+      "bottom": 163.96875
     },
     "dialogs": [
       {
+        "title": "DDPM evacuation maps",
+        "lang": "en",
+        "console": false,
+        "x": 182,
+        "y": 104,
+        "w": 660,
         "h": 560,
         "pages": "1",
         "scroll": [
@@ -381,25 +712,9 @@
           558,
           658,
           558
-        ],
-        "title": "DDPM evacuation maps",
-        "w": 660,
-        "x": 182,
-        "y": 104
+        ]
       }
     ],
-    "document": [
-      1024,
-      768
-    ],
-    "map": {
-      "bottom": 698,
-      "h": 654,
-      "right": 676,
-      "w": 664,
-      "x": 12,
-      "y": 44
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
@@ -410,115 +725,245 @@
         "pages": "1"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 749.4296875,
-      "w": 57.4296875,
-      "x": 692,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 264,
+          "h": 648
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "w": 626,
+          "h": 494
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 288.2890625,
-      "h": 57.890625,
-      "right": 1012,
-      "w": 320,
-      "x": 692,
-      "y": 230.3984375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
     },
-    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Close reading / ปิด",
+    "taggedHeightRecords": 0,
+    "case": "ddpm-sheets-en",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1024,
       768
     ]
   },
   {
-    "case": "escape-th",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 1024,
-      "w": 1024,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 732,
-      "h": 30,
-      "right": 676,
-      "w": 664,
-      "x": 12,
-      "y": 702
-    },
-    "dialogs": [],
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
     "document": [
       1024,
       768
     ],
-    "map": {
-      "bottom": 698,
-      "h": 654,
-      "right": 676,
-      "w": 664,
-      "x": 12,
-      "y": 44
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 1024,
+      "h": 36,
+      "right": 1024,
+      "bottom": 36
     },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1024,
+      "h": 36,
+      "right": 1024,
+      "bottom": 36
+    },
+    "map": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "caption": {
+      "x": 12,
+      "y": 702,
+      "w": 720,
+      "h": 30,
+      "right": 732,
+      "bottom": 732
+    },
+    "start": {
+      "x": 748,
+      "y": 44,
+      "w": 52.03125,
+      "h": 30,
+      "right": 800.03125,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 748,
+      "y": 84,
+      "w": 264,
+      "h": 57.875,
+      "right": 1012,
+      "bottom": 141.875
+    },
+    "dialogs": [],
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
         "pages": "2"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 744.0234375,
-      "w": 52.0234375,
-      "x": 692,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 264,
+          "h": 648
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 272.890625,
-      "h": 42.4921875,
-      "right": 1012,
-      "w": 320,
-      "x": 692,
-      "y": 230.3984375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\n⋯\n1784\n2 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "taggedHeightRecords": 0,
+    "case": "escape-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1024,
       768
     ]
   },
   {
-    "case": "ddpm-sheets-th",
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1024,
+      768
+    ],
+    "document": [
+      1024,
+      768
+    ],
     "banner": {
-      "bottom": 36,
+      "x": 0,
+      "y": 0,
+      "w": 1024,
       "h": 36,
       "right": 1024,
-      "w": 1024,
-      "x": 0,
-      "y": 0
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 732,
-      "h": 30,
-      "right": 676,
-      "w": 664,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1024,
+      "h": 36,
+      "right": 1024,
+      "bottom": 36
+    },
+    "map": {
       "x": 12,
-      "y": 702
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
+    },
+    "caption": {
+      "x": 12,
+      "y": 702,
+      "w": 720,
+      "h": 30,
+      "right": 732,
+      "bottom": 732
+    },
+    "start": {
+      "x": 748,
+      "y": 44,
+      "w": 89.296875,
+      "h": 44.375,
+      "right": 837.296875,
+      "bottom": 88.375
+    },
+    "turn": {
+      "x": 748,
+      "y": 98.375,
+      "w": 264,
+      "h": 57.875,
+      "right": 1012,
+      "bottom": 156.25
     },
     "dialogs": [
       {
+        "title": "แผนที่อพยพ ปภ.",
+        "lang": "th",
+        "console": false,
+        "x": 182,
+        "y": 104,
+        "w": 660,
         "h": 560,
         "pages": "1",
         "scroll": [
@@ -526,25 +971,9 @@
           558,
           658,
           558
-        ],
-        "title": "แผนที่อพยพ ปภ.",
-        "w": 660,
-        "x": 182,
-        "y": 104
+        ]
       }
     ],
-    "document": [
-      1024,
-      768
-    ],
-    "map": {
-      "bottom": 698,
-      "h": 654,
-      "right": 676,
-      "w": 664,
-      "x": 12,
-      "y": 44
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
@@ -555,115 +984,253 @@
         "pages": "1"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 744.0234375,
-      "w": 52.0234375,
-      "x": 692,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 264,
+          "h": 634
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "w": 626,
+          "h": 494
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 272.890625,
-      "h": 42.4921875,
-      "right": 1012,
-      "w": 320,
-      "x": 692,
-      "y": 230.3984375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "buttons": [],
+    "bars": 0,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 720,
+      "h": 654,
+      "right": 732,
+      "bottom": 698
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": null,
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Close reading / ปิด",
+    "taggedHeightRecords": 0,
+    "case": "ddpm-sheets-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1024,
       768
     ]
   },
   {
-    "case": "escape-en",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 1440,
-      "w": 1440,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 864,
-      "h": 30,
-      "right": 945.328125,
-      "w": 933.328125,
-      "x": 12,
-      "y": 834
-    },
-    "dialogs": [],
+    "url": "/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
     "document": [
       1440,
       900
     ],
-    "map": {
-      "bottom": 830,
-      "h": 786,
-      "right": 945.328125,
-      "w": 933.328125,
-      "x": 12,
-      "y": 44
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 36,
+      "right": 1440,
+      "bottom": 36
     },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 36,
+      "right": 1440,
+      "bottom": 36
+    },
+    "map": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "caption": {
+      "x": 12,
+      "y": 834,
+      "w": 1000,
+      "h": 30,
+      "right": 1012,
+      "bottom": 864
+    },
+    "start": {
+      "x": 1028,
+      "y": 44,
+      "w": 57.4375,
+      "h": 30,
+      "right": 1085.4375,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 1028,
+      "y": 84,
+      "w": 400,
+      "h": 42.484375,
+      "right": 1428,
+      "bottom": 126.484375
+    },
+    "dialogs": [],
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "1"
+        "pages": "2"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 1018.7578125,
-      "w": 57.4296875,
-      "x": 961.328125,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 400,
+          "h": 780
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 259.140625,
-      "h": 42.4921875,
-      "right": 1427.9921875,
-      "w": 466.6640625,
-      "x": 961.328125,
-      "y": 216.6484375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 1,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
     },
-    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
-    "viewport": [
+    "controls": {
+      "x": 725.625,
+      "y": 3,
+      "w": 194,
+      "h": 28,
+      "right": 919.625,
+      "bottom": 31
+    },
+    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\nTerrain\nResults\nStreet linework (ink)\nArea / พื้นที่\n1 · Pakarang Cape\n2 · Khuk Khak\n3 · Bang Niang\n4 · Nang Thong\nScene task / งาน\nControls\nGuide\nSources, assumptions, settings & coverage\nResearch & practice · no live warning\n15:15:03\n1784\n2 m\n1.65m eye · DEM · unknown heights flat (practice only)\nMap key\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 2\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
+    "taggedHeightRecords": 0,
+    "case": "escape-en",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1440,
       900
     ]
   },
   {
-    "case": "ddpm-sheets-en",
+    "url": "/?lang=en&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
     "banner": {
-      "bottom": 36,
+      "x": 0,
+      "y": 0,
+      "w": 1440,
       "h": 36,
       "right": 1440,
-      "w": 1440,
-      "x": 0,
-      "y": 0
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 864,
-      "h": 30,
-      "right": 945.328125,
-      "w": 933.328125,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 36,
+      "right": 1440,
+      "bottom": 36
+    },
+    "map": {
       "x": 12,
-      "y": 834
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "caption": {
+      "x": 12,
+      "y": 834,
+      "w": 1000,
+      "h": 30,
+      "right": 1012,
+      "bottom": 864
+    },
+    "start": {
+      "x": 1028,
+      "y": 44,
+      "w": 77.84375,
+      "h": 30,
+      "right": 1105.84375,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 1028,
+      "y": 84,
+      "w": 400,
+      "h": 42.484375,
+      "right": 1428,
+      "bottom": 126.484375
     },
     "dialogs": [
       {
+        "title": "DDPM evacuation maps",
+        "lang": "en",
+        "console": false,
+        "x": 390,
+        "y": 170,
+        "w": 660,
         "h": 560,
         "pages": "1",
         "scroll": [
@@ -671,144 +1238,272 @@
           558,
           658,
           558
-        ],
-        "title": "DDPM evacuation maps",
-        "w": 660,
-        "x": 390,
-        "y": 170
+        ]
       }
     ],
-    "document": [
-      1440,
-      900
-    ],
-    "map": {
-      "bottom": 830,
-      "h": 786,
-      "right": 945.328125,
-      "w": 933.328125,
-      "x": 12,
-      "y": 44
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "1"
+        "pages": "2"
       },
       {
         "label": "DDPM evacuation maps",
         "pages": "1"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 1018.7578125,
-      "w": 57.4296875,
-      "x": 961.328125,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 400,
+          "h": 780
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "w": 626,
+          "h": 494
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 259.140625,
-      "h": 42.4921875,
-      "right": 1427.9921875,
-      "w": 466.6640625,
-      "x": 961.328125,
-      "y": 216.6484375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "buttons": [],
+    "bars": 1,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
     },
-    "url": "http://127.0.0.1:5173/?lang=en&lesson=escape#explore",
-    "viewport": [
+    "controls": {
+      "x": 725.625,
+      "y": 3,
+      "w": 194,
+      "h": 28,
+      "right": 919.625,
+      "bottom": 31
+    },
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Close reading / ปิด",
+    "taggedHeightRecords": 0,
+    "case": "ddpm-sheets-en",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1440,
       900
     ]
   },
   {
-    "case": "escape-th",
-    "banner": {
-      "bottom": 36,
-      "h": 36,
-      "right": 1440,
-      "w": 1440,
-      "x": 0,
-      "y": 0
-    },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 864,
-      "h": 30,
-      "right": 945.328125,
-      "w": 933.328125,
-      "x": 12,
-      "y": 834
-    },
-    "dialogs": [],
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
     "document": [
       1440,
       900
     ],
-    "map": {
-      "bottom": 830,
-      "h": 786,
-      "right": 945.328125,
-      "w": 933.328125,
-      "x": 12,
-      "y": 44
+    "banner": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 36,
+      "right": 1440,
+      "bottom": 36
     },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 36,
+      "right": 1440,
+      "bottom": 36
+    },
+    "map": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "caption": {
+      "x": 12,
+      "y": 834,
+      "w": 1000,
+      "h": 30,
+      "right": 1012,
+      "bottom": 864
+    },
+    "start": {
+      "x": 1028,
+      "y": 44,
+      "w": 52.03125,
+      "h": 30,
+      "right": 1080.03125,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 1028,
+      "y": 84,
+      "w": 400,
+      "h": 42.484375,
+      "right": 1428,
+      "bottom": 126.484375
+    },
+    "dialogs": [],
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "1"
+        "pages": "2"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 1013.3515625,
-      "w": 52.0234375,
-      "x": 961.328125,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 400,
+          "h": 780
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 239.640625,
-      "h": 42.4921875,
-      "right": 1427.9921875,
-      "w": 466.6640625,
-      "x": 961.328125,
-      "y": 197.1484375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif"
+    ],
+    "checkboxes": [],
+    "buttons": [],
+    "bars": 1,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": {
+      "x": 717.921875,
+      "y": 3,
+      "w": 194,
+      "h": 28,
+      "right": 911.921875,
+      "bottom": 31
+    },
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\nScene task / งาน\nControls\nGuide\nแหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม\nงานวิจัยและฝึกซ้อม · ไม่มีคำเตือนสด\n15:15:36\n1784\n2 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "taggedHeightRecords": 0,
+    "case": "escape-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1440,
       900
     ]
   },
   {
-    "case": "ddpm-sheets-th",
+    "url": "/?lang=th&lesson=escape#explore",
+    "viewport": [
+      1440,
+      900
+    ],
+    "document": [
+      1440,
+      900
+    ],
     "banner": {
-      "bottom": 36,
+      "x": 0,
+      "y": 0,
+      "w": 1440,
       "h": 36,
       "right": 1440,
-      "w": 1440,
-      "x": 0,
-      "y": 0
+      "bottom": 36
     },
-    "bodySize": "13px",
-    "buildingPolicy": "explicit-height-tags-only",
-    "caption": {
-      "bottom": 864,
-      "h": 30,
-      "right": 945.328125,
-      "w": 933.328125,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 36,
+      "right": 1440,
+      "bottom": 36
+    },
+    "map": {
       "x": 12,
-      "y": 834
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "stage": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
+    },
+    "caption": {
+      "x": 12,
+      "y": 834,
+      "w": 1000,
+      "h": 30,
+      "right": 1012,
+      "bottom": 864
+    },
+    "start": {
+      "x": 1028,
+      "y": 44,
+      "w": 92.234375,
+      "h": 30,
+      "right": 1120.234375,
+      "bottom": 74
+    },
+    "turn": {
+      "x": 1028,
+      "y": 84,
+      "w": 400,
+      "h": 42.484375,
+      "right": 1428,
+      "bottom": 126.484375
     },
     "dialogs": [
       {
+        "title": "แผนที่อพยพ ปภ.",
+        "lang": "th",
+        "console": false,
+        "x": 390,
+        "y": 170,
+        "w": 660,
         "h": 560,
         "pages": "1",
         "scroll": [
@@ -816,55 +1511,75 @@
           558,
           658,
           558
-        ],
-        "title": "แผนที่อพยพ ปภ.",
-        "w": 660,
-        "x": 390,
-        "y": 170
+        ]
       }
     ],
-    "document": [
-      1440,
-      900
-    ],
-    "map": {
-      "bottom": 830,
-      "h": 786,
-      "right": 945.328125,
-      "w": 933.328125,
-      "x": 12,
-      "y": 44
-    },
     "readingPages": [
       {
         "label": "Rehearsal controls and guide",
-        "pages": "1"
+        "pages": "2"
       },
       {
         "label": "แผนที่อพยพ ปภ.",
         "pages": "1"
       }
     ],
-    "start": {
-      "bottom": 74,
-      "h": 30,
-      "right": 1013.3515625,
-      "w": 52.0234375,
-      "x": 961.328125,
-      "y": 44
-    },
-    "taggedHeightRecords": "0",
+    "pages": [
+      {
+        "pages": "2",
+        "rect": {
+          "w": 400,
+          "h": 780
+        }
+      },
+      {
+        "pages": "1",
+        "rect": {
+          "w": 626,
+          "h": 494
+        }
+      }
+    ],
+    "bodySize": "17px",
+    "readingSize": "13px",
+    "controlsInDom": 1,
     "textSize": "standard",
-    "turn": {
-      "bottom": 239.640625,
-      "h": 42.4921875,
-      "right": 1427.9921875,
-      "w": 466.6640625,
-      "x": 961.328125,
-      "y": 197.1484375
+    "families": [
+      "Jost, Prompt, Arial, sans-serif",
+      "Prompt, Jost, sans-serif"
+    ],
+    "checkboxes": [
+      {
+        "width": 18,
+        "height": 18
+      }
+    ],
+    "buttons": [],
+    "bars": 1,
+    "phase": "ready",
+    "canvas": {
+      "x": 12,
+      "y": 44,
+      "w": 1000,
+      "h": 786,
+      "right": 1012,
+      "bottom": 830
     },
-    "url": "http://127.0.0.1:5173/?lang=th&lesson=escape#explore",
-    "viewport": [
+    "controls": {
+      "x": 717.921875,
+      "y": 3,
+      "w": 194,
+      "h": 28,
+      "right": 911.921875,
+      "bottom": 31
+    },
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionChildrenFit": true,
+    "focus": "Close reading / ปิด",
+    "taggedHeightRecords": 0,
+    "case": "ddpm-sheets-th",
+    "buildingPolicy": "explicit-height-tags-only",
+    "expectedViewport": [
       1440,
       900
     ]
