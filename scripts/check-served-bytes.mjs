@@ -45,6 +45,16 @@ const RECEIPTS = [
     path: 'docs/evidence/page-fill/page-fill.json',
     list: (receipt) => receipt.bytes || [],
   },
+  {
+    // The orchestration, resume and manga geometry receipts were taken by hand
+    // on 3, 4 and 5 November 2026 and had no producer, so they could not be
+    // refreshed and their gates went on certifying a layout the site had
+    // stopped serving. `scripts/capture-geometry-evidence.py` now produces all
+    // three against the live origin and this receipt says which bytes it saw.
+    name: 'geometry evidence',
+    path: 'docs/evidence/geometry-evidence/live-assets.json',
+    list: (receipt) => receipt.bytes || [],
+  },
 ];
 
 const failures = [];

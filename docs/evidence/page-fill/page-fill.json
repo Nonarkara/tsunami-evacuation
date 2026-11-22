@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-20T03:29:51Z",
-  "commit": "f479e0811550b32a56741c399690bca8ac2e0352",
-  "origin": "https://tsunami.nonarkara.org",
+  "capturedAt": "2026-11-22T03:44:26Z",
+  "commit": "f90c9d3e246949587532bf0791d7ccae0223badd",
+  "origin": "http://127.0.0.1:4191",
   "viewports": [
     "390x844",
     "1024x768",
@@ -20,8 +20,8 @@
       "sha256": "c1d903d0ec06c4cbe0b9f8b4150bf55681efe2f76013c80dd00e7bbe92cc249e"
     },
     {
-      "path": "/assets/index-vHu2SARw.js",
-      "sha256": "ebd2fa3a24892fe41cc99dadaccaafd69e4e5161ceb724c23d4523e7bc3e77b6"
+      "path": "/assets/index-CaAS9-PH.js",
+      "sha256": "2d333b4e99e8245c237f7d8c43a528ca5bc49673e7c6a6f1c81bb5072e6ce95b"
     }
   ],
   "pages": [

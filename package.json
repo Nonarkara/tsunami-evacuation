@@ -14,8 +14,11 @@
     "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org",
     "verify:pagination": "python3 scripts/check-results-pagination.py https://tsunami.nonarkara.org",
     "verify:pages": "python3 tools/viewport/pagefill.py docs/evidence/page-fill/page-fill.json --local dist --port 4191 --fail",
+    "verify:pages:live": "python3 tools/viewport/pagefill.py docs/evidence/page-fill/page-fill.json --origin https://tsunami.nonarkara.org --fail",
     "verify:realestate": "python3 tools/viewport/realestate.py docs/evidence/page-fill/real-estate.json --local dist --port 4192",
-    "release": "npm test && npm run build && node scripts/check-contrast.mjs && npm run verify:pages && wrangler deploy && npm run capture:evidence && npm run verify:release"
+    "capture:playback": "python3 scripts/capture-playback-evidence.py --origin https://tsunami.nonarkara.org --screenshots",
+    "capture:geometry": "python3 scripts/capture-geometry-evidence.py https://tsunami.nonarkara.org",
+    "release": "npm test && npm run build && node scripts/check-contrast.mjs && npm run verify:pages && wrangler deploy && npm run capture:evidence && npm run capture:playback && npm run capture:geometry && npm run verify:pagination && npm run verify:release"
   },
   "dependencies": {
     "@fontsource/jost": "^5.2.0",

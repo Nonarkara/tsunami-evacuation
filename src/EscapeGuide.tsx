@@ -22,12 +22,17 @@ export function EscapeGuide(p:EscapeGuideProps) {
   const direction=turn?t(`In ${p.nextTurn!.distanceM} m, turn ${turn}`,`อีก ${p.nextTurn!.distanceM} ม. เลี้ยว${turn==='right'?'ขวา':'ซ้าย'}`):t('Continue on the practice line','ตามเส้นแบบฝึกต่อไป');
   const action=!p.started?direction:p.state==='preparing'?t('Exercise delay','เวลารอของแบบฝึก'):p.state==='queued'?t('Waiting at a model node','รอที่จุดคิวจำลอง'):arrived?t('Practice endpoint reached','ถึงปลายทางแบบฝึก'):direction;
   return <section className="escape-guide" lang={p.language} aria-label={t('Escape practice','ฝึกอพยพ')}>
-    <WarningLesson language={p.language}/>
+    {/* The live direction cue comes first: on a phone the reading column is one
+        page tall and the warning lesson fills it whole, which pushed the cue
+        to the next page — the reader pressed Start and could not see which way
+        to turn. The warning still leads the guide's reading, immediately
+        below. */}
     <div className="escape-route-cue">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path d={p.state==='queued'&&p.started?'M6 5v22M25 5v22':turn==='left'?'M24 28V13H6m8-8-8 8 8 8':turn==='right'?'M8 28V13h18m-8-8 8 8-8 8':'M16 28V5m-9 9 9-9 9 9'}/></svg>
       <div><strong>{action}</strong><span>{t('Practice route · destination NOT verified','เส้นทางฝึก · ยังไม่ยืนยันปลายทาง')}</span></div>
       <button className="link-button" onClick={p.onPlan}>{t('Confirm plan','ยืนยันแผน')} ↗</button>
     </div>
+    <WarningLesson language={p.language}/>
     <div className="escape-route-progress" aria-label={t('Practice route progress','ความคืบหน้าเส้นทางฝึก')}>
       <div><strong>{Math.round(p.remainingM).toLocaleString()} m</strong> {t('remaining','เหลือ')} · {p.pace.toFixed(1)} m/s {t('model pace','จังหวะจำลอง')}</div>
       <progress max={Math.max(1,p.totalM)} value={Math.max(0,p.totalM-p.remainingM)} aria-label={t('Distance covered','ระยะทางที่ผ่านแล้ว')}/>
