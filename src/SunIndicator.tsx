@@ -32,7 +32,7 @@ export function SunIndicator({ language, latitude, longitude }: {
         {up && <path d="M12 17 L12 8 M9 11 L12 8 L15 11" transform={`rotate(${azimuth} 12 13)`} fill="none" stroke="currentColor" strokeWidth="1.5" />}
         {!up && <path d="M8 13h8" stroke="currentColor" />}
       </svg>
-      <span className="sun-dir">{up ? thai ? `อาทิตย์ ≈ ${dir}` : `Sun ≈ ${dir}` : thai ? 'ใต้ขอบฟ้า' : 'Below horizon'}</span>
+      <span className="sun-dir">{up ? `≈ ${dir}` : thai ? 'ใต้ขอบฟ้า' : 'Below horizon'}</span>
     </span>
   );
 }

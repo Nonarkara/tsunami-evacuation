@@ -2814,7 +2814,7 @@ html[data-text-size=large] #main,html[data-text-size=large] dialog { --fs-micro:
  .terrain-caption .caption-top { display:flex; align-items:center; gap:6px; width:100%; }
  .caption-top > span:first-child { flex:1; min-width:0; }
  .caption-top > button { flex:none; }
- .terrain-caption .caption-bottom { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; width:100%; }
+ .terrain-caption .caption-bottom { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 6px; width:100%; }
 }
 
 /* ── Manga street model (Bang Niang bake, miaoshen engine) ──────────── */
