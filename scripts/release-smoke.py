@@ -51,9 +51,29 @@ def reject_mutation(check, reason):
     raise RuntimeError(f"Smoke check accepted a deliberate regression: {reason}")
 
 
-def smoke(page, origin, language, width, height, falsify):
+def require_escape_geometry(scene, width, height):
+    geometry = scene.evaluate("""el => {
+      const stage = el.querySelector('.terrain-stage').getBoundingClientRect();
+      const caption = el.querySelector('.terrain-caption');
+      const estimate = el.querySelector('.escape-time-to-endpoint').getBoundingClientRect();
+      return {mapTop: stage.top, mapHeight: stage.height, captionHeight: caption.getBoundingClientRect().height,
+        captionContentHeight: caption.scrollHeight, estimateHeight: estimate.height};
+    }""")
+    if not 42 <= geometry["mapTop"] <= 44:
+        raise RuntimeError(f"Escape map entry out of bounds: {geometry}")
+    if width == 1440 and height == 900 and geometry["mapHeight"] < 750:
+        raise RuntimeError(f"Escape desktop map leaves usable space empty: {geometry}")
+    if width <= 760 and (geometry["captionHeight"] > 60 or geometry["captionContentHeight"] > geometry["captionHeight"] + 2):
+        raise RuntimeError(f"Escape caption clips or exceeds 60 pixels: {geometry}")
+    if geometry["estimateHeight"] <= 0:
+        raise RuntimeError(f"Endpoint readout has no reserved line: {geometry}")
+    return geometry
+
+
+def smoke(page, origin, language, width, height, falsify, large=False):
     page.set_viewport_size({"width": width, "height": height})
-    page.goto(f"{origin}/?lang={language}&lesson=escape#explore", wait_until="domcontentloaded")
+    text = "&text=large" if large else ""
+    page.goto(f"{origin}/?lang={language}&lesson=escape{text}#explore", wait_until="domcontentloaded")
     start = page.locator(".escape-playback .primary")
     cue = page.locator(".escape-route-cue")
     scene = page.locator('.terrain-rehearsal[data-experiment="escape"]')
@@ -69,14 +89,43 @@ def smoke(page, origin, language, width, height, falsify):
         reject_mutation(lambda: require_first_screen(cue), "clipped or covered")
         cue.evaluate("el => { el.style.removeProperty('transform'); }")
     page.locator(".terrain-canvas[data-eye-viewport]").wait_for(state="attached", timeout=45000)
+    page.evaluate("document.fonts.ready")
+    before = require_escape_geometry(scene, width, height)
+    if falsify and width == 1440:
+        stage = scene.locator(".terrain-stage")
+        stage.evaluate("element => element.style.maxHeight = '620px'")
+        reject_mutation(lambda: require_escape_geometry(scene, width, height), "desktop map")
+        stage.evaluate("element => element.style.removeProperty('max-height')")
+    if falsify and width == 390 and large:
+        caption = scene.locator(".terrain-caption")
+        caption.evaluate("element => { element.style.maxHeight = '48px'; element.style.overflow = 'hidden'; }")
+        reject_mutation(lambda: require_escape_geometry(scene, width, height), "caption clips")
+        caption.evaluate("element => { element.style.removeProperty('max-height'); element.style.removeProperty('overflow'); }")
     start.click()
     expect(start).to_have_accessible_name(
         "หยุดแบบฝึกอพยพชั่วคราว" if language == "th" else "Pause escape practice",
         timeout=15000,
     )
+    require_first_screen(start)
+    require_first_screen(cue)
+    after = require_escape_geometry(scene, width, height)
+    if abs(after["estimateHeight"] - before["estimateHeight"]) > 1:
+        raise RuntimeError("Starting Escape changes the space needed by its readout")
+    if falsify and width == 1440:
+        key = page.locator(".terrain-caption .terrain-map-key:not(.ddpm-maps-trigger)")
+        key.click()
+        expect(start).to_have_accessible_name("Play escape practice")
+        stopped = scene.get_attribute("data-exercise-seconds")
+        page.keyboard.press("Escape")
+        expect(key).to_be_focused()
+        page.wait_for_timeout(300)
+        if scene.get_attribute("data-exercise-seconds") != stopped:
+            raise RuntimeError("Closing Map key resumed background playback")
+        require_walk(scene)
     if page.locator("html").get_attribute("lang") != language:
         raise RuntimeError("Escape opened in the wrong language")
-    return {"view": "escape", "camera": "walk", "language": language, "viewport": [width, height]}
+    return {"view": "escape", "camera": "walk", "language": language, "viewport": [width, height],
+            "textSize": "large" if large else "standard", "beforeStart": before, "afterStart": after}
 
 
 def check_entry(browser, origin, tab, assets):
@@ -139,11 +188,11 @@ def main():
                     assets.add(url.path)
 
             cases = []
-            for lang, size in (("th", (390, 844)), ("en", (1440, 900))):
+            for lang, size, large in (("th", (390, 844), False), ("th", (390, 600), True), ("en", (1440, 900), False)):
                 page = browser.new_page()
                 page.on("response", record_asset)
                 print(f"Checking Escape {lang} {size[0]}×{size[1]}", flush=True)
-                cases.append(smoke(page, origin, lang, *size, args.falsify))
+                cases.append(smoke(page, origin, lang, *size, args.falsify, large=large))
                 page.close()
             cases.extend(check_entry(browser, origin, tab, assets) for tab in ("prepare", "research"))
             browser.close()

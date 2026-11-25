@@ -3,6 +3,7 @@
 
 import argparse
 import json
+from time import monotonic
 from pathlib import Path
 from runpy import run_path
 
@@ -29,15 +30,17 @@ SAMPLE = """async ({ length }) => {
   const advanced = Number(scene.dataset.exerciseSeconds) - startClock;
   samples.sort((a, b) => a - b);
   const p95 = samples[Math.ceil(samples.length * .95) - 1];
-  return { p95Ms: +p95.toFixed(1), frames: samples.length,
+  return { p95Ms: +p95.toFixed(1), frames: samples.length, longFrames: samples.filter(ms => ms > 50).length,
     wallSeconds: +(elapsed / 1e3).toFixed(3), exerciseSeconds: +advanced.toFixed(3) };
 }"""
 
 
 def profile(page, origin, mode, people, rate, repeats):
+    navigation_started = monotonic()
     page.goto(f"{origin}/?lang=en#explore", wait_until="domcontentloaded")
     scene = page.locator('.terrain-rehearsal[data-state="ready"]')
     scene.wait_for(timeout=60000)
+    ready_ms = round((monotonic() - navigation_started) * 1000)
     page.get_by_label("People", exact=True).select_option(str(people))
     if mode == "escape":
         page.get_by_role("button", name="Escape / ฝึกอพยพ").click()
@@ -57,12 +60,13 @@ def profile(page, origin, mode, people, rate, repeats):
         expect(play).to_have_accessible_name("Pause escape practice" if mode == "escape" else "Pause rehearsal")
         rows.append(page.evaluate(SAMPLE, {"length": 3200}))
         play.dispatch_event("click")
-    return {"mode": mode, "people": people, "rate": rate, "runs": rows}
+    return {"mode": mode, "people": people, "rate": rate, "readyMs": ready_ms, "runs": rows}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dist", default="dist")
+    parser.add_argument("--reference-origin", help="alternate each trial against this reference build")
     parser.add_argument("--repeats", type=int, default=3)
     parser.add_argument("--out", required=True)
     parser.add_argument("--headless", action="store_true", help="use software rendering for diagnostics")
@@ -79,10 +83,20 @@ def main():
             for mode in ("escape", "crowd"):
                 for people in (1500, 5000):
                     for rate in (1, 30):
-                        page = browser.new_page(viewport={"width": 1280, "height": 720})
-                        rows.append(profile(page, origin, mode, people, rate, args.repeats))
-                        page.close()
-                        print(json.dumps(rows[-1]), flush=True)
+                        if args.reference_origin:
+                            sources = [("reference", args.reference_origin.rstrip("/")), ("candidate", origin)]
+                            for trial in range(args.repeats):
+                                for name, base in (sources if trial % 2 == 0 else reversed(sources)):
+                                    page = browser.new_page(viewport={"width": 1280, "height": 720})
+                                    row = profile(page, base, mode, people, rate, 1)
+                                    page.close()
+                                    rows.append({**row, "build": name, "trial": trial + 1})
+                                    print(json.dumps(rows[-1]), flush=True)
+                        else:
+                            page = browser.new_page(viewport={"width": 1280, "height": 720})
+                            rows.append(profile(page, origin, mode, people, rate, args.repeats))
+                            page.close()
+                            print(json.dumps(rows[-1]), flush=True)
             browser.close()
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
