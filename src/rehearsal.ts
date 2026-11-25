@@ -109,9 +109,13 @@ export function replayAt(data: HazardReplay, seconds: number) {
   return { depthM: a.depthM.map((v,j) => v === null || b.depthM[j] === null ? null : v + (b.depthM[j]! - v) * t), waveHeightM: a.waveHeightM === undefined || b.waveHeightM === undefined ? null : a.waveHeightM + (b.waveHeightM - a.waveHeightM) * t };
 }
 export function replayPolygons(data: HazardReplay, seconds: number): GeoJSON.FeatureCollection<GeoJSON.Polygon> {
-  const f = replayAt(data, seconds), features: GeoJSON.Feature<GeoJSON.Polygon>[] = [];
-  if (!f) return { type: 'FeatureCollection', features };
-  const g = data.grid, dx = (g.east - g.west) / g.cols, dy = (g.north - g.south) / g.rows;
+  const frame = replayAt(data, seconds);
+  return frame ? replayFramePolygons(data.grid, frame) : { type: 'FeatureCollection', features: [] };
+}
+
+export function replayFramePolygons(g: HazardReplay['grid'], f: NonNullable<ReturnType<typeof replayAt>>): GeoJSON.FeatureCollection<GeoJSON.Polygon> {
+  const features: GeoJSON.Feature<GeoJSON.Polygon>[] = [];
+  const dx = (g.east - g.west) / g.cols, dy = (g.north - g.south) / g.rows;
   f.depthM.forEach((depth, i) => {
     if (depth === null || depth <= .01) return;
     const x = i % g.cols, y = Math.floor(i / g.cols), w = g.west + x * dx, e = w + dx, n = g.north - y * dy, s = n - dy;

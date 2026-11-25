@@ -18,15 +18,16 @@ export function simulate(data: RouteData, count: number, speed: number, width: n
   const runSpeed = runCount ? runners!.speed : 0;
   if (runCount && (!Number.isFinite(runSpeed) || runSpeed <= speed)) throw new Error('Run pace must be faster than the walking pace');
   // The route snapshot is a shortest-path tree: each shared node has one downstream link.
-  const nodes = new Map<string, { from: Coord; to: Coord; next: string; remaining: number; arrivals: { id: number; time: number }[] }>();
+  const nodes = new Map<string, { from: Coord; to: Coord; next: string; metres: number; remaining: number; arrivals: { id: number; time: number }[] }>();
   const lengths = data.routes.map(r => r.coordinates.slice(1).reduce((v, p, i) => v + distance(r.coordinates[i], p), 0));
   data.routes.forEach(r => {
     let remaining = 0;
     for (let j = r.nodeIds.length - 2; j >= 0; j--) {
-      remaining += distance(r.coordinates[j], r.coordinates[j + 1]);
+      const metres = distance(r.coordinates[j], r.coordinates[j + 1]);
+      remaining += metres;
       const id = r.nodeIds[j], next = r.nodeIds[j + 1];
       if (nodes.has(id) && nodes.get(id)!.next !== next) throw new Error('Routes must share a downstream tree');
-      if (!nodes.has(id)) nodes.set(id, { from: r.coordinates[j], to: r.coordinates[j + 1], next, remaining, arrivals: [] });
+      if (!nodes.has(id)) nodes.set(id, { from: r.coordinates[j], to: r.coordinates[j + 1], next, metres, remaining, arrivals: [] });
     }
   });
   // A shared link near the endpoint is an experimental pinch point, not a surveyed obstruction.
@@ -48,7 +49,7 @@ export function simulate(data: RouteData, count: number, speed: number, width: n
     const headway = 1 / (1.2 * (id === bottleneck ? width : 6));
     n.arrivals.forEach(a => {
       const person = people[a.id];
-      const enter = Math.max(a.time, nextEntry), exit = enter + distance(n.from, n.to) / person.speed;
+      const enter = Math.max(a.time, nextEntry), exit = enter + n.metres / person.speed;
       nextEntry = enter + headway;
       maxQueueWait = Math.max(maxQueueWait, enter - a.time);
       person.legs.push({ from: n.from, to: n.to, arrival: a.time, enter, exit, edge: id });

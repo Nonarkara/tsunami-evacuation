@@ -11,6 +11,7 @@ import terrainWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(terrainWorker);
 import { ReplayWaterLayer } from './ReplayWaterLayer';
 import { advancePlayback } from './playback';
+import { useTerrainWater } from './useTerrainWater';
 import { TimeScrubber } from './TimeScrubber';
 import { buildingAreaId, parseBuildings, buildingDisplay, cameraStep, EYE_HEIGHT_M, type BuildingPack } from './buildings';
 import { StudyMap } from './Map';
@@ -19,8 +20,8 @@ import { WalkthroughCoach } from './WalkthroughCoach';
 import { manualLanguage } from './manual-content';
 import { SunIndicator } from './SunIndicator';
 import type { CoastalRegion } from './research';
-import { areaPacks, alongRoute, bearing, routeChainage, walkerProgress, walkerSchedule, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, replayAt, replayPolygons, type HazardReplay } from './rehearsal';
-import { simulate, frame, elevation, waterScreen, type RouteData, type TerrainGrid, type Coord } from './crowd';
+import { areaPacks, alongRoute, bearing, routeChainage, walkerProgress, walkerSchedule, nextTurn, routeArrows, demonstrationLevel, parseHazardReplay, type HazardReplay } from './rehearsal';
+import { simulate, frame, elevation, type RouteData, type TerrainGrid, type Coord } from './crowd';
 import { paceLines, segmentWaits, speedForSeconds, bottleneckSummaries } from './escape-timing';
 import { waitClock } from './viz';
 import { PaceRuler, ProfileQueue, StackBar } from './charts';
@@ -28,7 +29,7 @@ import { EscapeGuide, EscapeMethod, EscapePlayback, type EscapeGuideProps } from
 import { WarningLesson } from './WarningLesson';
 import { rokehanScene, sceneTimeOfDay } from './scene-reference';
 import { parseRoofShapes, roofRidges, applyRoofShapes, type RoofRecord } from './roofshapes';
-import { depthColourExpression, depthRange, fileDepthScale } from './water-depth';
+import { depthRange, fileDepthScale } from './water-depth';
 import { solarPosition } from './orientation';
 import { DdpmMaps } from './DdpmMaps';
 import { placeReference } from './place-references';
@@ -47,7 +48,9 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const waterLayer = useRef<ReplayWaterLayer | null>(null);
   const [waterSurfaceError, setWaterSurfaceError] = useState('');
   const host = useRef<HTMLDivElement>(null), map = useRef<maplibregl.Map | null>(null);
-  const [ready, setReady] = useState(false), [failure, setFailure] = useState('');
+  const [mapAttempt, setMapAttempt] = useState(0);
+  const [ready, setReady] = useState(false);
+  const [failure, setFailure] = useState<'graphics' | 'tiles' | 'ground' | null>(null);
   const [data, setData] = useState<RouteData>(), [grid, setGrid] = useState<TerrainGrid>();
   const [dimension, setDimension] = useState<'2d' | '3d'>('3d');
   const [started, setStarted] = useState(false), [preparation, setPreparation] = useState(0);
@@ -195,8 +198,6 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   const compareCurrent = useMemo(() => compareModel ? frame(compareModel, started ? seconds : -1) : undefined, [compareModel, seconds, started]);
   useEffect(() => { setSeconds(0); setStarted(false); pausePlayback(); setQueueFocus(undefined); }, [count, speed, width, preparation, runShare, region.id, selected]);
   const duration = Math.max(model?.duration ?? 0, activeHazard?.frames.at(-1)?.seconds ?? 0, animateWater ? riseMinutes * 60 : 0);
-  const waterFrame = useMemo(() => activeHazard ? replayAt(activeHazard, waterSeconds) : null, [activeHazard, waterSeconds]);
-  const waterFill = useMemo(() => activeHazard ? depthColourExpression(fileDepthScale(activeHazard.frames)) : '#3b99ca', [activeHazard]);
   const shownWaterLevel = animateWater ? demonstrationLevel(waterSeconds, peak, riseMinutes * 60) : water;
   useEffect(() => {
     if (!playing || !playbackAllowed || duration <= 0) return;
@@ -227,7 +228,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   }, [playing, playbackAllowed, duration, rate, animateWater, activeHazard, pausePlayback]);
   useEffect(() => {
     if (flat || !host.current) return;
-    setReady(false); setTerrainLoaded(false); setFailure(''); setWaterSurfaceError('');
+    setReady(false); setTerrainLoaded(false); setEyeViewReady(false); setFailure(null); setWaterSurfaceError('');
     let m: maplibregl.Map;
     try {
       m = new maplibregl.Map({ container: host.current, center: isStudy ? [98.265, 8.669] : [region.center[1], region.center[0]], zoom: isStudy ? 13.6 : region.zoom, pitch: dimension === '2d' ? 0 : 58, bearing: -65, maxPitch: 130, minZoom: 5, maxZoom: 23, renderWorldCopies: false, pixelRatio: Math.max(window.devicePixelRatio || 1, 2), canvasContextAttributes: {antialias:true},
@@ -242,7 +243,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
           terrain: dimension === '3d' ? { source: 'dem', exaggeration: 1 } : undefined },
         attributionControl: false
       });
-    } catch { setFailure('3D rendering is unavailable on this device. Open the 2D map below.'); return; }
+    } catch { setFailure('graphics'); return; }
     map.current = m;
     const recordCamera=()=>{
       if(!host.current)return;
@@ -252,18 +253,19 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     m.on('moveend',recordCamera);
     let didLoad = false, sourceErrors = 0;
     const loadTimeout = window.setTimeout(() => {
-      if (!didLoad) setFailure('3D sources have not loaded after 18 seconds. Try the 2D map or return to 3D to retry.');
+      if (!didLoad) setFailure('tiles');
     }, 18000);
     m.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
     m.addControl(new maplibregl.ScaleControl({ maxWidth: 100 }), 'bottom-left');
     m.scrollZoom.disable();
     m.on('error', e => {
       sourceErrors++;
-      if (sourceErrors >= 4 || e.error?.message?.includes('WebGL')) setFailure('A 3D map source could not load. Use the 2D map, or switch back to retry.');
+      if (e.error?.message?.includes('WebGL')) setFailure('graphics');
+      else if (sourceErrors >= 4) setFailure('tiles');
     });
     m.on('sourcedata', e => { if (e.sourceId === 'dem' && e.isSourceLoaded) setTerrainLoaded(true); });
     m.on('load', () => {
-      didLoad = true; window.clearTimeout(loadTimeout); setFailure('');
+      didLoad = true; window.clearTimeout(loadTimeout); setFailure(null);
       for (const id of ['routes', 'people', 'water', 'ends', 'pinch', 'arrows', 'buildings','ddpm-villages','roof-ridges','choke-points']) m.addSource(id, { type: 'geojson', data: empty });
       // Relief shading from the same DEM tiles: without it the cel ground is a blank sheet,
       // so a street, a beach ridge and a hill read as one flat colour.
@@ -318,11 +320,22 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     m.getCanvas().addEventListener('webglcontextlost', () => {
       pausePlayback();
       m.stop();
-      setFailure('3D graphics context lost. Use the 2D fallback.');
+      setFailure('graphics');
     });
     const observer = new ResizeObserver(() => m.resize()); observer.observe(host.current);
     return () => { window.clearTimeout(loadTimeout); observer.disconnect(); m.remove(); map.current = null; waterLayer.current = null; };
-  }, [flat, region.id]);
+  }, [flat, region.id, mapAttempt, pausePlayback]);
+  useEffect(() => {
+    if (!ready || !sceneActive || flat || camera !== 'walk' || dimension !== '3d' || eyeViewReady || failure) return;
+    const timer = window.setTimeout(() => setFailure('ground'), 18000);
+    return () => window.clearTimeout(timer);
+  }, [ready, sceneActive, flat, camera, dimension, eyeViewReady, failure]);
+  useEffect(() => {
+    if (eyeViewReady || camera !== 'walk' || dimension !== '3d') {
+      setFailure(previous => previous === 'ground' ? null : previous);
+    }
+  }, [eyeViewReady, camera, dimension]);
+
   useEffect(() => {
     const m = map.current;
     if (!m || !ready || !m.getSource('buildings')) return;
@@ -386,25 +399,11 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   useEffect(() => {
     if (ready && current) (map.current?.getSource('people') as GeoJSONSource)?.setData(isStudy && (mode === 'crowd' || mode === 'escape') ? { type: 'FeatureCollection', features: current.features } : empty);
   }, [ready, current, isStudy, mode]);
-  const replaySeconds = activeHazard ? waterSeconds : 0;
-  useEffect(() => {
-    if (!ready) return;
-    const source = map.current?.getSource('water') as GeoJSONSource | undefined;
-    const polygons = activeHazard ? replayPolygons(activeHazard, replaySeconds) : grid && (screen || animateWater) ? waterScreen(grid, shownWaterLevel) : { type: 'FeatureCollection' as const, features: [] };
-    source?.setData(polygons);
-    const hasSurface = waterLayer.current?.update(polygons, activeHazard ? undefined : shownWaterLevel) ?? false;
-    waterLayer.current?.setVisible(dimension === '3d' && sceneActive);
-    if (map.current?.getLayer('water')) {
-      map.current.setPaintProperty('water', 'fill-opacity', dimension === '3d' && !waterSurfaceError && hasSurface ? .12 : .48);
-      // An imported frame is shaded by the depth the model gives for each cell, so
-      // the shape of the inundation can be read. The scale is the deepest cell in
-      // any frame of the file, not of this frame: a wave deepens almost everywhere
-      // at once, so a per-frame scale left the colour unchanged between frames and
-      // two moments of the same event looked identical. The user-chosen
-      // demonstration level keeps its own flat colour: it has no depth to shade by.
-      map.current.setPaintProperty('water', 'fill-color', waterFill);
-    }
-  }, [ready, grid, shownWaterLevel, screen, activeHazard, replaySeconds, animateWater, dimension, waterSurfaceError, sceneActive, waterFill]);
+  const waterFrame = useTerrainWater({
+    map, layer: waterLayer, ready, visible: sceneActive, dimension, surfaceError: !!waterSurfaceError,
+    grid, level: screen || animateWater ? shownWaterLevel : undefined,
+    replay: activeHazard, seconds: waterSeconds,
+  });
   useEffect(()=>{
     waterLayer.current?.setAnimating(playing&&playbackAllowed);
     return()=>waterLayer.current?.setAnimating(false);
@@ -702,8 +701,16 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
     {flat ? <StudyMap region={region} selected={selected} onSelect={index=>{setVillagePick(null);setListedFocus(null);onSelect(index);}} buildings={buildings} villages={showRiskVillages&&mode!=='escape'?riskVillages:null} focus={listedFocus} /> : <div className="terrain-stage">
       <div ref={host} className="terrain-canvas" aria-label="3D terrain map. Drag to pan, right-drag to tilt. Click for terrain height." />
 
-      {!ready && !failure && <p className="terrain-notice" role="status">Loading satellite imagery and terrain…</p>}
-      {failure && <p className="terrain-notice" role="alert">{failure} <button onClick={() => { pausePlayback(); setFlat(true); }}>Open 2D map</button></p>}
+      {!ready && !failure && <p className="terrain-notice" role="status">{t('Loading terrain…','กำลังโหลดภูมิประเทศ…')}</p>}
+      {failure && <div className="terrain-notice">
+        <p role="alert">{failure === 'graphics'
+          ? t('3D graphics are unavailable.','กราฟิกสามมิติไม่พร้อมใช้งาน')
+          : failure === 'ground'
+            ? t('Ground elevation is unavailable for the walkthrough.','ไม่มีข้อมูลความสูงพื้นสำหรับมุมมองเดิน')
+            : t('Map tiles could not load.','โหลดส่วนประกอบแผนที่ไม่สำเร็จ')}</p>
+        <button onClick={() => { pausePlayback(); setMapAttempt(attempt => attempt + 1); }}>{t('Retry terrain','ลองโหลดภูมิประเทศใหม่')}</button>
+        <button onClick={() => { pausePlayback(); setFlat(true); }}>{t('Open 2D map','เปิดแผนที่ 2 มิติ')}</button>
+      </div>}
 
     </div>}
     <div className="terrain-caption"><div className="caption-top">
