@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "test": "tsx --test src/*.test.ts && npm run test:buildings",
-    "deploy": "npm test && npm run build && node scripts/check-contrast.mjs && wrangler deploy",
+    "deploy": "npm run release",
     "test:buildings": "python3 -m unittest discover -s scripts -p 'test_*.py'",
     "verify:release": "node scripts/check-viewport-evidence.mjs && node scripts/check-banner-evidence.mjs && node scripts/check-served-bytes.mjs",
     "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org",
@@ -18,7 +18,9 @@
     "verify:realestate": "python3 tools/viewport/realestate.py docs/evidence/page-fill/real-estate.json --local dist --port 4192",
     "capture:playback": "python3 scripts/capture-playback-evidence.py --origin https://tsunami.nonarkara.org --screenshots",
     "capture:geometry": "python3 scripts/capture-geometry-evidence.py https://tsunami.nonarkara.org",
-    "release": "npm test && npm run build && node scripts/check-contrast.mjs && npm run verify:pages && wrangler deploy && npm run capture:evidence && npm run capture:playback && npm run capture:geometry && npm run verify:pagination && npm run verify:release"
+    "release": "sh scripts/release.sh",
+    "smoke:release": "python3 scripts/release-smoke.py",
+    "preflight": "npm test && npm run build && node scripts/check-contrast.mjs && npm run smoke:release"
   },
   "dependencies": {
     "@fontsource/jost": "^5.2.0",

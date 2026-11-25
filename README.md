@@ -66,7 +66,7 @@ No backend or analytics endpoint. Personal plans and exercise records are never 
 
 ## Deployment
 
-Canonical hosting configuration: `wrangler.jsonc`; build output: `dist/`. Run `npm run deploy` after authenticating the operator with Cloudflare. The release command gates deployment on tests, the production build and contrast checks. GitHub Actions validates changes but does not automatically deploy. A separately published initial Sites snapshot is described in [deployment notes](docs/DEPLOYMENT.md); `.openai/hosting.json` preserves that snapshot identity. Never store short-lived source or Cloudflare credentials in this repository.
+Canonical hosting configuration: `wrangler.jsonc`; build output: `dist/`. Run `npm run deploy` after authenticating the operator with Cloudflare. The release command checks the built site in Chromium before publishing, then verifies the live interaction and assets. GitHub Actions validates changes but does not automatically deploy. A separately published initial Sites snapshot is described in [deployment notes](docs/DEPLOYMENT.md); `.openai/hosting.json` preserves that snapshot identity. Never store short-lived source or Cloudflare credentials in this repository.
 
 See [verification](docs/VERIFICATION.md) for actual checks and known limits. The release must be checked at the final public hostname; a successful build alone is insufficient.
 

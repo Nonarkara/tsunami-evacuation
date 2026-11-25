@@ -16,3 +16,11 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: node scripts/check-contrast.mjs
+      - run: python3 -m venv .venv-smoke
+      - run: .venv-smoke/bin/pip install playwright==1.60.0
+      - run: .venv-smoke/bin/python -m playwright install --with-deps chromium
+      - run: .venv-smoke/bin/python scripts/release-smoke.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-browser-smoke
+          path: output/release-smoke.json

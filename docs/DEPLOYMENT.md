@@ -2,14 +2,26 @@
 
 The public application is prepared for the canonical hostname https://tsunami.nonarkara.org/ with Cloudflare Workers Static Assets. `wrangler.jsonc` carries its custom-domain declaration. The existing authenticated Cloudflare account can attach Worker custom domains; no hand-created DNS credential is stored in this repository.
 
-## Release command
+## Release and recovery
+
+Install the browser harness once per environment alongside the locked Node dependencies.
 
 ```sh
 npm ci
-npm run deploy
+python3 -m venv .venv-smoke
+. .venv-smoke/bin/activate
+python -m pip install playwright==1.60.0
+python -m playwright install chromium
+npm run preflight
 ```
 
-The deploy command runs tests, strict compilation, the Vite build and contrast checks before Wrangler. Any failed step stops deployment, avoiding publication of stale assets. The final hostname must then be tested for its HTML and hashed assets, as well as important interactive behavior. Cloudflare login is an operator prerequisite, not a committed secret.
+Preflight builds the production site, checks contrast and exercises Escape in a local Chromium session. Thai phone and English desktop both require an in-frame Start and first turn, the eye camera and a working Start action. The receipt in `output/release-smoke.json` records the served file hashes, scene, language and viewport. Run `npm run smoke:release -- --falsify` after a build to prove the check rejects deliberate camera, hidden cue and stale hash failures. Software-rendered browser smoke checks remain separate from device frame pacing.
+
+After committing the source and authenticating Wrangler, use `npm run release` (also available as `npm run deploy`). It runs preflight and page geometry, records the current Cloudflare deployment in `output/previous-deployment.json`, publishes, then checks real interactions and hashes on the public origin. It refreshes the viewport, Results and terrain receipts and checks pagination. GitHub Actions runs the local smoke without Cloudflare credentials.
+
+The last verified pre-scope version on 25 November 2026 was `2535e091-ead4-4dd3-a1f6-20702769f5e1`. Source `b91e4fe` builds its HTML and assets. The Cloudflare restore preview accepted those assets, and the same build passed Escape smoke locally and at the canonical host. The preview API returned no public URL, so verification did not reach that preview over HTTP.
+
+If a public check fails, inspect its named step and the version in `output/previous-deployment.json`. If recovery is needed, run `npx wrangler rollback <version-id>`. Confirm the selected version with `npx wrangler deployments status`. Build the matching source in a separate checkout and run the public smoke against its `dist` to verify the restored release. [Cloudflare rollback documentation](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/)
 
 ## Sites publishing history
 
