@@ -1,0 +1,272 @@
+[
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "runs": [
+      {
+        "p95Ms": 25,
+        "frames": 260,
+        "wallSeconds": 3.21,
+        "exerciseSeconds": 3.192
+      }
+    ],
+    "build": "baseline",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "runs": [
+      {
+        "p95Ms": 24.9,
+        "frames": 262,
+        "wallSeconds": 3.215,
+        "exerciseSeconds": 3.233
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "runs": [
+      {
+        "p95Ms": 24.7,
+        "frames": 263,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.242
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "runs": [
+      {
+        "p95Ms": 25.1,
+        "frames": 252,
+        "wallSeconds": 3.215,
+        "exerciseSeconds": 3.209
+      }
+    ],
+    "build": "baseline",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "runs": [
+      {
+        "p95Ms": 24.2,
+        "frames": 267,
+        "wallSeconds": 3.212,
+        "exerciseSeconds": 3.208
+      }
+    ],
+    "build": "baseline",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "runs": [
+      {
+        "p95Ms": 17.6,
+        "frames": 258,
+        "wallSeconds": 3.213,
+        "exerciseSeconds": 3.234
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 42.2,
+        "frames": 131,
+        "wallSeconds": 3.222,
+        "exerciseSeconds": 95.979
+      }
+    ],
+    "build": "baseline",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 34.2,
+        "frames": 134,
+        "wallSeconds": 3.204,
+        "exerciseSeconds": 96.75
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 34,
+        "frames": 153,
+        "wallSeconds": 3.223,
+        "exerciseSeconds": 97.248
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 33.5,
+        "frames": 152,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 95.253
+      }
+    ],
+    "build": "baseline",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 41.7,
+        "frames": 145,
+        "wallSeconds": 3.212,
+        "exerciseSeconds": 98.259
+      }
+    ],
+    "build": "baseline",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 34,
+        "frames": 153,
+        "wallSeconds": 3.212,
+        "exerciseSeconds": 97.503
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 24.6,
+        "frames": 279,
+        "wallSeconds": 3.219,
+        "exerciseSeconds": 97.251
+      }
+    ],
+    "build": "baseline",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 24.9,
+        "frames": 280,
+        "wallSeconds": 3.204,
+        "exerciseSeconds": 96.75
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 25.1,
+        "frames": 257,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 96.276
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 24.9,
+        "frames": 280,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 96.75
+      }
+    ],
+    "build": "baseline",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 24.3,
+        "frames": 289,
+        "wallSeconds": 3.214,
+        "exerciseSeconds": 97.749
+      }
+    ],
+    "build": "baseline",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "runs": [
+      {
+        "p95Ms": 25.1,
+        "frames": 240,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 96.75
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  }
+]

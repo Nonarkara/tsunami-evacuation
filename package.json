@@ -10,7 +10,7 @@
     "test": "tsx --test src/*.test.ts && npm run test:buildings",
     "deploy": "npm run release",
     "test:buildings": "python3 -m unittest discover -s scripts -p 'test_*.py'",
-    "verify:release": "node scripts/check-viewport-evidence.mjs && node scripts/check-banner-evidence.mjs && node scripts/check-served-bytes.mjs",
+    "verify:release": "node scripts/check-served-bytes.mjs && node scripts/check-viewport-evidence.mjs && node scripts/check-banner-evidence.mjs && node scripts/check-playback-data-evidence.mjs && node scripts/check-orchestration-geometry.mjs && node scripts/check-resume-evidence.mjs && node scripts/check-manga-evidence.mjs",
     "capture:evidence": "python3 tools/viewport/capture.py https://tsunami.nonarkara.org",
     "verify:pagination": "python3 scripts/check-results-pagination.py https://tsunami.nonarkara.org",
     "verify:pages": "python3 tools/viewport/pagefill.py docs/evidence/page-fill/page-fill.json --local dist --port 4191 --fail",

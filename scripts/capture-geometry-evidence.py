@@ -36,6 +36,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -317,7 +319,7 @@ def open_page(page, origin: str, path: str) -> None:
     # would inherit it: the cue was missing at the edge viewports because the
     # previous case had left the DDPM sheet open. A receipt that inherits the
     # previous case's state is not evidence of the case it names.
-    page.goto("about:blank")
+    page.goto("about:blank", wait_until="commit", timeout=45000)
     page.goto(f"{origin}{path}", wait_until="domcontentloaded", timeout=90000)
     page.wait_for_selector("header.soonami-masthead", timeout=45000)
     page.wait_for_timeout(1500)
@@ -537,7 +539,8 @@ def main() -> int:
     failures: list[str] = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(args=CHROMIUM_ARGS)
+        headed = os.environ.get("SOONAMI_SMOKE_HEADED") == "1"
+        browser = p.chromium.launch(headless=not headed, args=["--use-gl=angle"] if headed else CHROMIUM_ARGS)
         page = browser.new_page()
 
         # ---- orchestration -------------------------------------------------
@@ -722,42 +725,45 @@ def main() -> int:
     if ONLY in (None, "recovery"):
         write_json(RECOVERY / "geometry.json", recovery)
 
-    # ---- the byte receipt -------------------------------------------------
-    # The host answers a browser and refuses a bare urllib agent with 403, so
-    # the receipt is fetched with the same headers a reader sends.
-    def fetch(url: str) -> bytes:
-        request = urllib.request.Request(
-            url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                                        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0 Safari/537.36"}
-        )
-        return urllib.request.urlopen(request, timeout=60).read()
+    # Partial runs are diagnostics; only a full pass can attest to the entire set.
+    if ONLY is None and not failures:
+        # ---- the byte receipt -------------------------------------------------
+        # The host answers a browser and refuses a bare urllib agent with 403, so
+        # the receipt is fetched with the same headers a reader sends.
+        def fetch(url: str) -> bytes:
+            request = urllib.request.Request(
+                url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                                            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0 Safari/537.36"}
+            )
+            return urllib.request.urlopen(request, timeout=60).read()
 
-    html = fetch(f"{origin}/").decode("utf-8")
-    import re
+        html = fetch(f"{origin}/").decode("utf-8")
+        import re
 
-    served = []
-    for name in sorted(set(re.findall(r"assets/index-[A-Za-z0-9_-]+\.(?:js|css)", html))):
-        data = fetch(f"{origin}/{name}")
-        served.append(
-            {
-                "path": f"/{name}",
-                "bytes": len(data),
-                "sha256": hashlib.sha256(data).hexdigest(),
-            }
+        served = []
+        for name in sorted(set(re.findall(r"assets/index-[A-Za-z0-9_-]+\.(?:js|css)", html))):
+            data = fetch(f"{origin}/{name}")
+            served.append(
+                {
+                    "path": f"/{name}",
+                    "bytes": len(data),
+                    "sha256": hashlib.sha256(data).hexdigest(),
+                }
+            )
+        BYTES.mkdir(parents=True, exist_ok=True)
+        (BYTES / "live-assets.json").write_text(
+            json.dumps(
+                {
+                    "origin": origin,
+                    "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+                    "capturedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                    "bytes": served,
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
         )
-    BYTES.mkdir(parents=True, exist_ok=True)
-    (BYTES / "live-assets.json").write_text(
-        json.dumps(
-            {
-                "origin": origin,
-                "capturedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-                "bytes": served,
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
 
     if failures:
         print("\nFAILURES", flush=True)

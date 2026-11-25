@@ -181,16 +181,17 @@ def live_assets(origin: str) -> dict:
 
 
 def load(page, url: str) -> bool:
-    """Load a page and reload it, retrying a slow first paint.
+    """Start a fresh document before measuring Results.
 
-    The reload matters: a hash change alone does not re-read it. A machine under
-    load can take a minute to serve a document, so a navigation that times out is
-    retried rather than abandoning the whole capture.
+    Wait for the application shell so the visitor can select Results before
+    external imagery finishes. Starting from a blank document also resets
+    state when the new case changes only the hash.
     """
     for attempt in range(3):
         try:
-            page.goto(url, wait_until="load", timeout=120000)
-            page.reload(wait_until="load", timeout=120000)
+            page.goto("about:blank", wait_until="commit", timeout=30000)
+            page.goto(url, wait_until="domcontentloaded", timeout=90000)
+            page.wait_for_selector("header.soonami-masthead", timeout=45000)
             return True
         except Exception as error:
             print(f"      retry {attempt + 1}: {error}", flush=True)

@@ -406,7 +406,7 @@
         }
       },
       {
-        "name": "Sources, assumptions, settings & coverage",
+        "name": "Data & sources",
         "rect": {
           "x": 1035.21875,
           "y": 0.90625,
@@ -416,6 +416,19 @@
           "right": 1061.21875,
           "bottom": 28.90625,
           "left": 1035.21875
+        }
+      },
+      {
+        "name": "Sources, assumptions, settings & coverage",
+        "rect": {
+          "x": 1061.21875,
+          "y": 0.90625,
+          "width": 26,
+          "height": 28,
+          "top": 0.90625,
+          "right": 1087.21875,
+          "bottom": 28.90625,
+          "left": 1061.21875
         }
       },
       {

@@ -1,0 +1,102 @@
+{
+  "commit": "3b49317d84b99ec0292cddacb234198eeaa58e48",
+  "origin": "https://tsunami.nonarkara.org",
+  "capturedAt": "2026-11-25T08:19:01+00:00",
+  "receipts": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1341,
+      "sha256": "bac77522ce7e5394011ae6070e076ac5505387449ba4ebc7f605f831e9cf8d3a"
+    },
+    {
+      "path": "/assets/index-Dm7TsbRh.js",
+      "status": 200,
+      "bytes": 428276,
+      "sha256": "09e230acf5483808c2ca72e5ab97089ed2e276f603b35bf26795c044050c6595"
+    },
+    {
+      "path": "/assets/index-CwWPu9FY.css",
+      "status": 200,
+      "bytes": 142747,
+      "sha256": "c749d03783ccf2d7e41b131dc1971ec0c37c82065405f636bc24fb516285e999"
+    },
+    {
+      "path": "/data/rehearsal-routes.json",
+      "status": 200,
+      "bytes": 23939,
+      "sha256": "03479dc0157e99306b94c8cc43e337a51f95c9d6326a7493fba226ba3d45fa23"
+    },
+    {
+      "path": "/data/terrain.json",
+      "status": 200,
+      "bytes": 102814,
+      "sha256": "0b38b6bb5de512feb264b4912687eb137fce8e2a260ff9827bffb847b0ab1e69"
+    },
+    {
+      "path": "/data/hazard-replay.schema.json",
+      "status": 200,
+      "bytes": 4339,
+      "sha256": "d0fc43bfa9b1a23f87b855a393c32b17dcbcb8f6345e3e677355206bc4d0998b"
+    },
+    {
+      "path": "/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson",
+      "status": 200,
+      "bytes": 106170,
+      "sha256": "c8007d092db9cd0ac1aa5ba806c4a88d6934e95bb2ec27cd8a9a59c48644a247"
+    },
+    {
+      "path": "/assets/TerrainRehearsal-C7tP4GwP.css",
+      "sha256": "245a2198a49ca18c380e4e97f4ebd9a74bd844f3e912e573b9dcc8444782b2fc",
+      "bytes": 87111
+    },
+    {
+      "path": "/assets/TerrainRehearsal-qIxhQglp.js",
+      "sha256": "a470655fe441201447949c75658ccd5c530d023883ee7568113504d0b009171f",
+      "bytes": 1382050
+    },
+    {
+      "path": "/assets/maplibre-gl-worker-B-FFqHT7.js",
+      "sha256": "15fb4c326818fbff870d02833e568b8c2340073093bc0ba18a835b8ff98c8aa7",
+      "bytes": 517422
+    }
+  ],
+  "cases": [
+    {
+      "view": "escape",
+      "camera": "walk",
+      "language": "th",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "view": "escape",
+      "camera": "walk",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "view": "prepare",
+      "language": "th",
+      "viewport": [
+        667,
+        375
+      ],
+      "gzipJsBytes": 128625
+    },
+    {
+      "view": "research",
+      "language": "th",
+      "viewport": [
+        667,
+        375
+      ],
+      "gzipJsBytes": 128625
+    }
+  ]
+}

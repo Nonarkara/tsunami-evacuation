@@ -1,6 +1,6 @@
 {
   "origin": "https://tsunami.nonarkara.org",
-  "capturedAt": "2026-11-17T21:09:16+00:00",
+  "capturedAt": "2026-11-25T08:19:58+00:00",
   "render": "headed-gpu",
   "checks": [
     {
@@ -61,17 +61,17 @@
   "bytes": [
     {
       "path": "/",
-      "sha256": "50f062105de4e642d048ba14e1d15f0305f3e3ccdae35c60d4a0367ba668b8f3"
+      "sha256": "bac77522ce7e5394011ae6070e076ac5505387449ba4ebc7f605f831e9cf8d3a"
     },
     {
-      "path": "/assets/index-BCE4qq9M.css",
-      "bytes": 230051,
-      "sha256": "45c32e7e63deb9d01937994715791581820d9e8828b097425265a2cc91087fc9"
+      "path": "/assets/index-CwWPu9FY.css",
+      "bytes": 142747,
+      "sha256": "c749d03783ccf2d7e41b131dc1971ec0c37c82065405f636bc24fb516285e999"
     },
     {
-      "path": "/assets/index-DKSF7755.js",
-      "bytes": 1808062,
-      "sha256": "09bec9ee5e5ba6dc0458705e9316fd78e49ac86825dd8f73891bfc00db953489"
+      "path": "/assets/index-Dm7TsbRh.js",
+      "bytes": 428276,
+      "sha256": "09e230acf5483808c2ca72e5ab97089ed2e276f603b35bf26795c044050c6595"
     }
   ]
 }

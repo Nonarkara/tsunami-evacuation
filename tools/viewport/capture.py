@@ -331,11 +331,12 @@ def settle(page, tab: str) -> str:
     except Exception:
         pass
     page.wait_for_timeout(600)
-    terrain = page.locator(".terrain-rehearsal").first
-    try:
-        return terrain.get_attribute("data-state") or ""
-    except Exception:
+    if tab != "explore":
         return ""
+    terrain = page.locator(".terrain-rehearsal").first
+    if not terrain.count():
+        return ""
+    return terrain.get_attribute("data-state", timeout=1000) or ""
 
 
 def parse_viewports(flag: str | None) -> list[tuple[int, int]]:
@@ -358,9 +359,8 @@ def main() -> int:
     origin = origin.rstrip("/")
 
     if "--receipt-only" in sys.argv:
-        # Rewrite the byte receipt from the records already on disk.
-        print(json.dumps(write_receipt(origin), indent=2))
-        return 0
+        print("A new byte receipt requires fresh measurements at every viewport.", file=sys.stderr)
+        return 2
 
     only = parse_viewports(
         sys.argv[sys.argv.index("--viewports") + 1] if "--viewports" in sys.argv else None
@@ -454,12 +454,14 @@ def main() -> int:
 
     flush()
 
-    # The receipt is written last and never takes the measurements down with it.
+    # A subset may update individual observations; it cannot attest to the full set.
+    if only:
+        return 0
     try:
         receipt = write_receipt(origin)
     except Exception as exc:
         print(f"byte receipt failed: {exc}", flush=True)
-        receipt = {"origin": origin, "bytes": None}
+        return 1
     print(json.dumps(receipt, indent=2))
     return 0
 

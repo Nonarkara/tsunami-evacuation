@@ -7519,15 +7519,29 @@
         "clear": true
       },
       {
+        "name": "Data & sources",
+        "rect": {
+          "x": 995.21875,
+          "y": -15.1875,
+          "width": 26,
+          "height": 28,
+          "top": -15.1875,
+          "right": 1021.21875,
+          "bottom": 12.8125,
+          "left": 995.21875
+        },
+        "clear": false
+      },
+      {
         "name": "Sources, assumptions, settings & coverage",
         "rect": {
           "x": 995.21875,
-          "y": 0.90625,
+          "y": 17,
           "width": 26,
           "height": 28,
-          "top": 0.90625,
+          "top": 17,
           "right": 1021.21875,
-          "bottom": 28.90625,
+          "bottom": 45,
           "left": 995.21875
         },
         "clear": true
@@ -8606,7 +8620,7 @@
         "clear": true
       },
       {
-        "name": "Sources, assumptions, settings & coverage",
+        "name": "Data & sources",
         "rect": {
           "x": 995.21875,
           "y": 0.90625,
@@ -8616,6 +8630,20 @@
           "right": 1021.21875,
           "bottom": 28.90625,
           "left": 995.21875
+        },
+        "clear": true
+      },
+      {
+        "name": "Sources, assumptions, settings & coverage",
+        "rect": {
+          "x": 1021.21875,
+          "y": 0.90625,
+          "width": 26,
+          "height": 28,
+          "top": 0.90625,
+          "right": 1047.21875,
+          "bottom": 28.90625,
+          "left": 1021.21875
         },
         "clear": true
       },
@@ -9706,7 +9734,7 @@
         "clear": true
       },
       {
-        "name": "Sources, assumptions, settings & coverage",
+        "name": "Data & sources",
         "rect": {
           "x": 995.21875,
           "y": 0.90625,
@@ -9716,6 +9744,20 @@
           "right": 1021.21875,
           "bottom": 28.90625,
           "left": 995.21875
+        },
+        "clear": true
+      },
+      {
+        "name": "Sources, assumptions, settings & coverage",
+        "rect": {
+          "x": 1021.21875,
+          "y": 0.90625,
+          "width": 26,
+          "height": 28,
+          "top": 0.90625,
+          "right": 1047.21875,
+          "bottom": 28.90625,
+          "left": 1021.21875
         },
         "clear": true
       },
@@ -10793,7 +10835,7 @@
         "clear": true
       },
       {
-        "name": "Sources, assumptions, settings & coverage",
+        "name": "Data & sources",
         "rect": {
           "x": 1035.21875,
           "y": 0.90625,
@@ -10803,6 +10845,20 @@
           "right": 1061.21875,
           "bottom": 28.90625,
           "left": 1035.21875
+        },
+        "clear": true
+      },
+      {
+        "name": "Sources, assumptions, settings & coverage",
+        "rect": {
+          "x": 1061.21875,
+          "y": 0.90625,
+          "width": 26,
+          "height": 28,
+          "top": 0.90625,
+          "right": 1087.21875,
+          "bottom": 28.90625,
+          "left": 1061.21875
         },
         "clear": true
       },

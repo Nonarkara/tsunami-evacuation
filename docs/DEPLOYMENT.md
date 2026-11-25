@@ -11,11 +11,11 @@ npm ci
 python3 -m venv .venv-smoke
 . .venv-smoke/bin/activate
 python -m pip install playwright==1.60.0
-python -m playwright install chromium
+python -m playwright install chromium webkit
 npm run preflight
 ```
 
-Preflight builds the production site, checks contrast and exercises Escape in a local Chromium session. Thai phone and English desktop both require an in-frame Start and first turn, the eye camera and a working Start action. The receipt in `output/release-smoke.json` records the served file hashes, scene, language and viewport. Run `npm run smoke:release -- --falsify` after a build to prove the check rejects deliberate camera, hidden cue and stale hash failures. Software-rendered browser smoke checks remain separate from device frame pacing. On a Mac running other graphics workloads, set `SOONAMI_SMOKE_HEADED=1` for `preflight` or `release` to use the GPU for the smoke check.
+Preflight builds the production site, checks contrast and exercises Escape in a local Chromium session. Thai phone and English desktop both require an in-frame Start and first turn, the eye camera and a working Start action. The receipt in `output/release-smoke.json` records the served file hashes, scene, language and viewport. Run `npm run smoke:release -- --falsify` after a build to prove the check rejects deliberate camera, hidden cue and stale hash failures. Software-rendered browser smoke checks remain separate from device frame pacing. On a Mac running other graphics workloads, set `SOONAMI_SMOKE_HEADED=1` for `preflight` or `release` to use the GPU for supported browser checks.
 
 After committing the source and authenticating Wrangler, use `npm run release` (also available as `npm run deploy`). It runs preflight and page geometry, records the current Cloudflare deployment in `output/previous-deployment.json`, publishes, then checks real interactions and hashes on the public origin. It refreshes the viewport, Results and terrain receipts and checks pagination. GitHub Actions runs the local smoke without Cloudflare credentials.
 

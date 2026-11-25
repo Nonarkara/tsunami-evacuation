@@ -13,10 +13,16 @@ It guards four faults found on 15 November 2026, each invisible to a Chromium-on
     page under the reader's finger;
   - in phone landscape the 160px chart could never sit whole on a 163px page.
 """
+import argparse
+import os
 import sys
 from playwright.sync_api import sync_playwright
 
-BASE = sys.argv[1].rstrip("/") if len(sys.argv) > 1 else "http://127.0.0.1:4173"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("origin", nargs="?", default="http://127.0.0.1:4173")
+parser.add_argument("--engine", choices=("chromium", "webkit"))
+args = parser.parse_args()
+BASE = args.origin.rstrip("/")
 SIZES = [(390, 844), (393, 659), (390, 600), (320, 700), (667, 375), (844, 390), (1024, 768)]
 
 PLACE = r"""() => {
@@ -44,8 +50,11 @@ def open_results(page, lang):
 
 failures, cases = [], 0
 with sync_playwright() as p:
-    for engine in (p.chromium, p.webkit):
-        browser = engine.launch()
+    engines = (getattr(p, args.engine),) if args.engine else (p.chromium, p.webkit)
+    headed = os.environ.get("SOONAMI_SMOKE_HEADED") == "1"
+    for engine in engines:
+        launch_args = ["--use-gl=angle"] if headed and engine.name == "chromium" else []
+        browser = engine.launch(headless=not headed, args=launch_args)
         for lang in ("en", "th"):
             for w, h in SIZES:
                 page = browser.new_page(viewport={"width": w, "height": h})
@@ -63,6 +72,7 @@ with sync_playwright() as p:
                 if len(set(seen)) != 1:
                     failures.append(f"{tag}: the ladder moves when a package is chosen {seen}")
                 cases += 1
+                print(f"Checked {tag}", flush=True)
                 page.close()
         browser.close()
 
@@ -71,5 +81,5 @@ if failures:
     for f in dict.fromkeys(failures):
         print("  " + f)
     sys.exit(1)
-print(f"RESULTS_PAGINATION_PASS: {cases} cases (chromium + webkit, en + th), every package choice, "
+print(f"RESULTS_PAGINATION_PASS: {cases} cases ({args.engine or 'chromium + webkit'}, en + th), every package choice, "
       "ladder and chart each on one page, ladder fixed in place")

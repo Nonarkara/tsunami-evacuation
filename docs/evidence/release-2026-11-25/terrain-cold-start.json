@@ -1,0 +1,26 @@
+[
+  {
+    "build": "baseline",
+    "readyMs": 3583
+  },
+  {
+    "build": "candidate",
+    "readyMs": 3396
+  },
+  {
+    "build": "candidate",
+    "readyMs": 3660
+  },
+  {
+    "build": "baseline",
+    "readyMs": 4041
+  },
+  {
+    "build": "baseline",
+    "readyMs": 3549
+  },
+  {
+    "build": "candidate",
+    "readyMs": 5406
+  }
+]

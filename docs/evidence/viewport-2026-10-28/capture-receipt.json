@@ -1,7 +1,7 @@
 {
   "origin": "https://tsunami.nonarkara.org",
-  "capturedAt": "2026-11-22T06:07:09+00:00",
-  "commit": "713e9b5e12d6d57e849a4caffc008828bc64ed16",
+  "capturedAt": "2026-11-25T08:26:46+00:00",
+  "commit": "3b49317d84b99ec0292cddacb234198eeaa58e48",
   "viewportCases": 8,
   "viewportRecords": 40,
   "bannerRows": 60,
@@ -9,17 +9,17 @@
     {
       "path": "/",
       "bytes": 1341,
-      "sha256": "ac697e07bd568e52fe815bceebbfbf9d5755083175a941a995ee0a759fa070c6"
+      "sha256": "bac77522ce7e5394011ae6070e076ac5505387449ba4ebc7f605f831e9cf8d3a"
     },
     {
-      "path": "/assets/index-rVc9EjgA.js",
-      "bytes": 1811159,
-      "sha256": "075437b77f9c6a7e98d3133257bfda784ac90ecdfdf42418d0b89457968b76eb"
+      "path": "/assets/index-Dm7TsbRh.js",
+      "bytes": 428276,
+      "sha256": "09e230acf5483808c2ca72e5ab97089ed2e276f603b35bf26795c044050c6595"
     },
     {
-      "path": "/assets/index-BQixVkxY.css",
-      "bytes": 229359,
-      "sha256": "407e3f41706a42def206ec2c67c3dcea876a06a05b54cf2b939c92e011212633"
+      "path": "/assets/index-CwWPu9FY.css",
+      "bytes": 142747,
+      "sha256": "c749d03783ccf2d7e41b131dc1971ec0c37c82065405f636bc24fb516285e999"
     }
   ]
 }
