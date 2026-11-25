@@ -498,13 +498,13 @@ def perform(page, action: str) -> None:
         # first when it exists.
         click_first(page, ".banner-overflow")
         page.wait_for_timeout(700)
-        click_first(page, '.exercise-console .reading-trigger')
+        click_first(page, '.exercise-console .reading-trigger:not(.technical-data-trigger)')
         page.wait_for_timeout(700)
     elif action == "console-nested":
         settle(page)
         click_first(page, ".banner-overflow")
         page.wait_for_timeout(700)
-        click_first(page, '.exercise-console .reading-trigger')
+        click_first(page, '.exercise-console .reading-trigger:not(.technical-data-trigger)')
         page.wait_for_timeout(700)
     else:
         settle(page)
