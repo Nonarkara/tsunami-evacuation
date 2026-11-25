@@ -3,6 +3,7 @@
 
 import argparse
 import json
+import os
 from pathlib import Path
 from runpy import run_path
 from urllib.parse import urlsplit
@@ -127,7 +128,9 @@ def main():
     origin = args.origin or f"http://127.0.0.1:{server.server_address[1]}"
     try:
         with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(args=[flag for flag in capture["CHROMIUM_ARGS"] if flag != "--single-process"])
+            headed = os.environ.get("SOONAMI_SMOKE_HEADED") == "1"
+            browser_args = ["--use-gl=angle"] if headed else [flag for flag in capture["CHROMIUM_ARGS"] if flag != "--single-process"]
+            browser = playwright.chromium.launch(headless=not headed, args=browser_args)
             assets = set()
 
             def record_asset(response):
