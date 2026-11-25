@@ -12,7 +12,7 @@ test('the bilingual data directory exposes the public snapshots and their proven
     assert.match(markup, /SSRN.*7270357/);
     assert.match(markup, /href="\/data\/README\.md"/);
     const links = [...markup.matchAll(/href="(\/data\/[^"]+)" download=""/g)];
-    assert.equal(links.length, 4);
+    assert.equal(links.length, 8);
     for (const [, path] of links) {
       const bytes = readFileSync(new URL(`../public${path}`, import.meta.url), 'utf8');
       assert.ok(JSON.parse(bytes));

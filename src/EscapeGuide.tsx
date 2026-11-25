@@ -41,12 +41,19 @@ export function EscapeGuide(p:EscapeGuideProps) {
     <TimeScrubber label={t('Practice time since exercise warning','เวลาแบบฝึกหลังสัญญาณ')} duration={p.duration} value={p.seconds} onChange={p.onSeek}/>
     <p className="escape-clock-note">{t('Exercise clock, not time before a wave.','นาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา')}</p>
     <p className="escape-time-to-endpoint" hidden={!p.started}><strong>{t('Time to endpoint','เวลาถึงปลายทาง')}</strong> +{waitClock(Math.max(0, p.finishSeconds - p.seconds))}</p>
-    <div className="escape-levels">
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 10q3-4 6 0t6 0t6 0M2 16q3-4 6 0t6 0t6 0"/></svg><b>+{p.waterLevel.toFixed(1)} m</b> {t('demo level','ระดับน้ำสาธิต')}</span>
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 20 8-15 5 8 3-4 5 11Z"/></svg><b>{p.groundElevation===null?'—':`≈${Math.round(p.groundElevation)} m`}</b> {t('coarse DEM','DEM หยาบ')}</span>
+    <div className="escape-water-status">
+      <div className="escape-water-level">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 10q3-4 6 0t6 0t6 0M2 16q3-4 6 0t6 0t6 0"/></svg>
+        <b>+{p.waterLevel.toFixed(1)} m</b> <span>{t('demo level','ระดับน้ำสาธิต')}</span>
+        <progress max={p.peak} value={Math.max(0,Math.min(p.peak,p.waterLevel))} aria-label={t('Illustrative water level','ระดับน้ำเพื่อการสาธิต')}/>
+        <div className="escape-distance-ticks"><span>0</span><span>{p.peak/2}</span><span>{p.peak} m · {t('chosen peak','ค่าสูงสุดที่ตั้ง')}</span></div>
+      </div>
+      <div className="escape-ground-elev">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 20 8-15 5 8 3-4 5 11Z"/></svg>
+        <b>{p.groundElevation===null?'—':`≈${Math.round(p.groundElevation)} m`}</b> <span>{t('coarse DEM','DEM หยาบ')}</span>
+      </div>
+      <p className="escape-water-note">{t('No local wave prediction. Water does not affect walkers. These heights cannot establish safety.','ไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้')}</p>
     </div>
-    <div className="escape-water-scale"><progress max={p.peak} value={Math.max(0,Math.min(p.peak,p.waterLevel))} aria-label={t('Illustrative water level','ระดับน้ำเพื่อการสาธิต')}/><div className="escape-distance-ticks"><span>0</span><span>{p.peak/2}</span><span>{p.peak} m · {t('chosen peak','ค่าสูงสุดที่ตั้ง')}</span></div></div>
-    <p className="escape-water-note">{t('No local wave prediction. Water does not affect walkers. These heights cannot establish safety.','ไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้')}</p>
     {p.method}
     {arrived&&<div className="escape-review" role="status"><strong>{t('Finished at','สิ้นสุดที่')} +{waitClock(p.finishSeconds)}</strong> · {t('this walker’s total queue wait','เวลารอคิวรวมของตัวแทนนี้')} {waitClock(p.queueSeconds)}<p>{t('Endpoint unapproved. Count everyone at a locally confirmed meeting point in a real drill.','ปลายทางยังไม่รับรอง การซ้อมจริงต้องตรวจนับทุกคนที่จุดนัดหมายซึ่งยืนยันในพื้นที่')}</p><button onClick={p.onReview}>{t('Record a drill','บันทึกการซ้อม')} →</button></div>}
   </section>;
@@ -54,7 +61,7 @@ export function EscapeGuide(p:EscapeGuideProps) {
 
 export function EscapeMethod({language}:{language:ManualLanguage}) {
   const t=(en:string,th:string)=>language==='th'?th:en;
-  return <><p>{t('Arrows follow an OSM practice path, not an approved evacuation route. Only explicit source heights extrude; unknown and floor-estimated buildings remain flat. Footprints do not establish entrances. The coarse DEM and chosen water surface have no verified common vertical datum here; their difference is not a flood depth or safety margin.','ลูกศรตามทางฝึกจาก OSM ไม่ใช่เส้นทางอพยพที่รับรอง อาคารสามมิติใช้เฉพาะความสูงที่ต้นทางระบุ ส่วนที่ไม่ทราบหรือประมาณจากชั้นแสดงแบน รูปอาคารไม่ยืนยันทางเข้า ยังไม่ยืนยันระบบอ้างอิงความสูงร่วมของ DEM หยาบกับผิวน้ำที่ตั้งขึ้น ผลต่างจึงไม่ใช่ความลึกน้ำหรือระยะปลอดภัย')}</p><p>{t('Separate research context: in the unreviewed Khao Lak preprint, the PD50 walking-preference package changes modeled victim share from 21.8% to 7.0% among 39,041 synthetic agents under baseline timing (§4.3). This browser exercise does not compute those outcomes.','บริบทงานวิจัยที่แยกกัน: บทความเขาหลักก่อนตีพิมพ์ที่ยังไม่ผ่านการประเมิน รายงานว่าชุด PD50 เปลี่ยนผู้ประสบภัยจำลองจาก 21.8% เป็น 7.0% ในตัวแทนสังเคราะห์ 39,041 ราย ภายใต้เงื่อนไขเวลาฐาน (หัวข้อ 4.3) แบบฝึกในเบราว์เซอร์นี้ไม่ได้คำนวณผลดังกล่าว')} <a href="https://ssrn.com/abstract=7270357">SSRN 7270357 ↗</a></p><p>{t('Stay away from the coast until local officials permit return. The first wave may not be the largest.','อยู่ห่างชายฝั่งจนเจ้าหน้าที่อนุญาตให้กลับ คลื่นแรกอาจไม่ใช่คลื่นใหญ่ที่สุด')}</p></>;
+  return <><p>{t('Arrows follow an OSM practice path, not an approved evacuation route. Only explicit source heights extrude; unknown and floor-estimated buildings remain flat. Footprints do not establish entrances.','ลูกศรตามทางฝึกจาก OSM ไม่ใช่เส้นทางอพยพที่รับรอง อาคารสามมิติใช้เฉพาะความสูงที่ต้นทางระบุ ส่วนที่ไม่ทราบหรือประมาณจากชั้นแสดงแบน รูปอาคารไม่ยืนยันทางเข้า')}</p><p>{t('Separate research context: in the unreviewed Khao Lak preprint, the PD50 walking-preference package changes modeled victim share from 21.8% to 7.0% among 39,041 synthetic agents under baseline timing (§4.3). This browser exercise does not compute those outcomes.','บริบทงานวิจัยที่แยกกัน: บทความเขาหลักก่อนตีพิมพ์ที่ยังไม่ผ่านการประเมิน รายงานว่าชุด PD50 เปลี่ยนผู้ประสบภัยจำลองจาก 21.8% เป็น 7.0% ในตัวแทนสังเคราะห์ 39,041 ราย ภายใต้เงื่อนไขเวลาฐาน (หัวข้อ 4.3) แบบฝึกในเบราว์เซอร์นี้ไม่ได้คำนวณผลดังกล่าว')} <a href="https://ssrn.com/abstract=7270357">SSRN 7270357 ↗</a></p><p>{t('Data, sources, route/elevation details, replay schema, DDPM inventory and water disclaimer: see Data & sources.','ข้อมูล แหล่งที่มา รายละเอียดเส้นทาง/ความสูง โครงสร้างเล่นซ้ำ บัญชี ปภ. และข้อจำกัดน้ำ: ดูที่ ข้อมูลและไฟล์ต้นทาง')}</p><p>{t('Stay away from the coast until local officials permit return. The first wave may not be the largest.','อยู่ห่างชายฝั่งจนเจ้าหน้าที่อนุญาตให้กลับ คลื่นแรกอาจไม่ใช่คลื่นใหญ่ที่สุด')}</p></>;
 }
 
 /** Remains outside reading pagination so animation can always be paused. */
