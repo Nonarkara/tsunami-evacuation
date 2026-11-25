@@ -10,7 +10,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import terrainWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 maplibregl.setWorkerUrl(terrainWorker);
 import { ReplayWaterLayer } from './ReplayWaterLayer';
-import { advancePlayback } from './playback';
+import { runPlaybackFrames } from './playback';
 import { useTerrainWater } from './useTerrainWater';
 import { TimeScrubber } from './TimeScrubber';
 import { buildingAreaId, parseBuildings, buildingDisplay, cameraStep, EYE_HEIGHT_M, type BuildingPack } from './buildings';
@@ -202,29 +202,16 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
   useEffect(() => {
     if (!playing || !playbackAllowed || duration <= 0) return;
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-    let last = performance.now(), lastReading = last, lastWater = last, ticket = 0;
-    const tick = (now: number) => {
-      if (!playbackRunning.current || cameraSuspended.current || document.hidden) return;
-      const time = advancePlayback(playbackSeconds.current, now - last, rate, duration);
-      last = now;
-      playbackSeconds.current = time;
-      if (!reducedMotion.matches) drawCamera.current?.();
-      if (time >= duration) {
-        pausePlayback();
-        return;
-      }
-      if (now - lastReading >= 50) {
-        setReadingSeconds(time);
-        lastReading = now;
-      }
-      if ((animateWater || activeHazard) && now - lastWater >= 200) {
-        setWaterSeconds(time);
-        lastWater = now;
-      }
-      ticket = requestAnimationFrame(tick);
-    };
-    ticket = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(ticket);
+    return runPlaybackFrames({
+      rate, duration, updateWater: animateWater || !!activeHazard,
+      isRunning: () => playbackRunning.current && !cameraSuspended.current && !document.hidden,
+      getTime: () => playbackSeconds.current,
+      setTime: time => { playbackSeconds.current = time; },
+      drawCamera: () => { if (!reducedMotion.matches) drawCamera.current?.(); },
+      readTime: setReadingSeconds,
+      readWater: setWaterSeconds,
+      finish: pausePlayback,
+    });
   }, [playing, playbackAllowed, duration, rate, animateWater, activeHazard, pausePlayback]);
   useEffect(() => {
     if (flat || !host.current) return;
