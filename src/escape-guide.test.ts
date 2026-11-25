@@ -39,12 +39,16 @@ test('both languages expose warning action, no waiting for water, and adult help
 test('started practice shows time to endpoint, clamped past the endpoint',()=>{
   const running=renderToStaticMarkup(createElement(EscapeGuide,{...sample,seconds:100}));
   assert.match(running,/<strong>Time to endpoint<\/strong> \+8:20/);
+  assert.doesNotMatch(running,/hidden=""/);
   const overdue=renderToStaticMarkup(createElement(EscapeGuide,{...sample,seconds:9999}));
   assert.match(overdue,/<strong>Time to endpoint<\/strong> \+0:00/);
+  assert.doesNotMatch(overdue,/hidden=""/);
   const beforeStart=renderToStaticMarkup(createElement(EscapeGuide,{...sample,started:false,seconds:100}));
-  assert.doesNotMatch(beforeStart,/Time to endpoint/);
+  assert.match(beforeStart,/hidden=""/);
+  assert.match(beforeStart,/>Time to endpoint</);
   const thai=renderToStaticMarkup(createElement(EscapeGuide,{...sample,language:'th',seconds:100}));
   assert.match(thai,/เวลาถึงปลายทาง/);
+  assert.doesNotMatch(thai,/hidden=""/);
 });
 
 test('Pause stays enabled during terrain stalls, including after the selected walker finishes',()=>{

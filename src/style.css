@@ -35,6 +35,40 @@
   --status-standby: #b45309;        /* Warm amber for standby radar */
   --danger-crimson: #991b1b;        /* Alert red */
 
+  /* Layout tokens — named, measured, no magic numbers */
+  --banner-height: 36px;
+  --toolbar-height: 44px;
+  --caption-height: 55px;
+  --toolbar-gap: 12px;
+  --caption-gap: 6px;
+  --scene-top: calc(var(--banner-height) + var(--toolbar-height) + var(--caption-height) + var(--toolbar-gap) + var(--caption-gap));
+
+  /* Viewport breakpoints — single source of truth */
+  --break-xs: 320px;
+  --break-sm: 390px;
+  --break-md: 667px;
+  --break-lg: 1024px;
+  --break-xl: 1169px;
+  --break-xxl: 1280px;
+  --break-xxxl: 1440px;
+  --break-banner-narrow: 760px;
+  --break-banner-wide: 1100px;
+
+  /* Choke point tokens */
+  --choke-point-radius-min: 8px;
+  --choke-point-radius-max: 16px;
+  --choke-point-color: var(--accent);
+  --choke-point-stroke: #ffffff;
+  --choke-point-stroke-width: 2px;
+
+  /* Water tokens */
+  --water-opacity-3d: 0.12;
+  --water-opacity-2d: 0.48;
+  --water-shallow: rgba(8, 42, 63, 0.52);
+  --water-deep: rgba(153, 0, 0, 0.8);
+  --water-shimmer-speed: 1.8;
+  --water-shimmer-amplitude: 0.06;
+
   /* Type scale */
   --font-sans: "Jost", "Prompt", Arial, sans-serif;
   --font-serif: "Jost", "Prompt", Arial, sans-serif;
@@ -1988,30 +2022,131 @@ textarea {
 .place-selector-bar { margin: 6px 0; }
 .place-selector-bar button { min-height: 32px; }
 .console-section .directive-header { margin-top: 8px; }
-.terrain-rehearsal { min-width: 0; }
-.terrain-toolbar, .terrain-view-controls, .rehearsal-controls, .rehearsal-timeline, .rehearsal-readout { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
-.terrain-toolbar { justify-content: flex-start; padding-bottom: 4px; gap: 4px 18px; }
+
+/* Terrain Rehearsal — named grid, no magic numbers */
+.terrain-rehearsal {
+  min-width: 0;
+  display: grid;
+  grid-template-rows:
+    var(--toolbar-height)
+    var(--caption-height)
+    1fr
+    auto;
+  grid-template-areas:
+    "toolbar"
+    "caption"
+    "stage"
+    "operations";
+  gap: var(--toolbar-gap) var(--caption-gap);
+}
+.terrain-toolbar {
+  grid-area: toolbar;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 4px;
+  gap: 4px 18px;
+}
 .terrain-view-controls { gap: 4px; }
-.terrain-rehearsal button, .terrain-rehearsal select { font: inherit; font-size: var(--fs-body); min-height: 32px; padding: 3px 7px; color: var(--ink); background: transparent; border: 0; border-radius: 0; }
+.terrain-rehearsal button, .terrain-rehearsal select {
+  font: inherit; font-size: var(--fs-body); min-height: 32px;
+  padding: 3px 7px; color: var(--ink); background: transparent; border: 0; border-radius: 0;
+}
 .terrain-rehearsal select { width: auto; border-bottom: 1px solid var(--line-2); }
 .terrain-toolbar button { border-bottom: 2px solid transparent; }
 .terrain-toolbar button:hover { border-bottom-color: var(--line-2); }
 .terrain-rehearsal button:disabled { opacity: .6; cursor: default; }
-.terrain-rehearsal button[aria-pressed=true] { color: var(--companion); border-bottom-color: var(--companion); font-weight: 700; }
-.terrain-rehearsal .rehearsal-play { background: var(--accent); font-weight: 700; margin: 0; padding-inline: 12px; }
+.terrain-rehearsal button[aria-pressed=true] {
+  color: var(--companion); border-bottom-color: var(--companion); font-weight: 700;
+}
+.terrain-rehearsal .rehearsal-play {
+  background: var(--accent); font-weight: 700; margin: 0; padding-inline: 12px;
+}
 .terrain-tier { font-size: var(--fs-body); color: var(--ink-2); }
-.terrain-stage { position: relative; height: clamp(240px, calc(100vh - 503px), 620px); min-height: 0; background: #dfe6e4; }
-.terrain-canvas { position: absolute; inset: 0; }
+
+/* Caption band — measured, token-driven */
+.terrain-caption {
+  grid-area: caption;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  padding-block: 4px;
+  color: var(--ink-2);
+  font-size: var(--fs-body);
+  height: var(--caption-height);
+  overflow: hidden;
+}
+.terrain-credits { margin-left: auto; white-space: nowrap; }
+.scene-link { white-space: nowrap; }
+.terrain-map-key { margin: 0; }
+.terrain-map-key summary { cursor: pointer; }
+.terrain-map-key[open] { grid-area: caption; order: 3; }
+.terrain-map-key p { max-width: 75ch; margin: 4px 0; }
+
+/* Stage — fills remaining space, map starts at scene-top */
+.terrain-stage {
+  grid-area: stage;
+  position: relative;
+  height: calc(100vh - var(--scene-top));
+  min-height: 240px;
+  max-height: 620px;
+  background: #dfe6e4;
+}
+.terrain-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .terrain-canvas canvas { outline-offset: -3px; }
-.terrain-notice { position: absolute; top: 12px; left: 12px; right: 55px; max-width: 55ch; padding: 8px 12px; background: var(--panel); color: var(--ink); font-size: var(--fs-body); }
-.rehearsal-controls { padding: 4px 0; border-bottom: 1px solid var(--line); align-items: center; gap: 4px 14px; }
-.rehearsal-controls label, .rehearsal-timeline label { display: flex; flex-direction: row; align-items: center; gap: 4px; font-size: var(--fs-body); font-weight: 500; }
+
+/* Operations panel */
+.terrain-operations {
+  grid-area: operations;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  padding-top: 4px;
+}
+
+/* Shared control styles */
+.terrain-rehearsal button, .terrain-rehearsal select {
+  font: inherit; font-size: var(--fs-body); min-height: 32px;
+  padding: 3px 7px; color: var(--ink); background: transparent; border: 0; border-radius: 0;
+}
+.terrain-rehearsal select { width: auto; border-bottom: 1px solid var(--line-2); }
+.terrain-toolbar button { border-bottom: 2px solid transparent; }
+.terrain-toolbar button:hover { border-bottom-color: var(--line-2); }
+.terrain-rehearsal button:disabled { opacity: .6; cursor: default; }
+.terrain-rehearsal button[aria-pressed=true] {
+  color: var(--companion); border-bottom-color: var(--companion); font-weight: 700;
+}
+.terrain-rehearsal .rehearsal-play {
+  background: var(--accent); font-weight: 700; margin: 0; padding-inline: 12px;
+}
+.terrain-tier { font-size: var(--fs-body); color: var(--ink-2); }
+
+.terrain-notice {
+  position: absolute; top: 12px; left: 12px; right: 55px;
+  max-width: 55ch; padding: 8px 12px;
+  background: var(--panel); color: var(--ink); font-size: var(--fs-body);
+}
+.rehearsal-controls {
+  padding: 4px 0; border-bottom: 1px solid var(--line);
+  align-items: center; gap: 4px 14px;
+}
+.rehearsal-controls label, .rehearsal-timeline label {
+  display: flex; flex-direction: row; align-items: center; gap: 4px;
+  font-size: var(--fs-body); font-weight: 500;
+}
 .rehearsal-controls select { max-width: 100%; }
 /* Parameters are grouped by what they change: who moves, how they move, which
    scenario. The group label is the only added chrome, and it earns its pixels
    because it tells the reader what the two controls under it mean. */
-.rehearsal-controls .control-group { display: flex; align-items: center; gap: 4px 12px; padding: 2px 0; }
-.rehearsal-controls .control-group-label { font-size: var(--fs-micro); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.rehearsal-controls .control-group {
+  display: flex; align-items: center; gap: 4px 12px; padding: 2px 0;
+}
+.rehearsal-controls .control-group-label {
+  font-size: var(--fs-micro); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2);
+}
 .rehearsal-controls .rehearsal-play { margin-left: auto; }
 .escape-timing { border-bottom: 1px solid var(--line); padding: 6px 0 8px; display: grid; gap: 4px; }
 .escape-timing-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
@@ -2026,7 +2161,10 @@ textarea {
 .escape-paces .run dd { color: var(--companion); }
 .escape-paces .needed { border-top: 1px solid var(--line); padding-top: 3px; margin-top: 2px; }
 .escape-paces .needed dt { color: var(--ink); font-weight: 500; }
-.rehearsal-readout .runner-count::before { content: ''; display: inline-block; width: 9px; height: 9px; border: 2px solid var(--companion); border-radius: 50%; background: var(--panel); margin-right: 4px; }
+.rehearsal-readout .runner-count::before {
+  content: ''; display: inline-block; width: 9px; height: 9px;
+  border: 2px solid var(--companion); border-radius: 50%; background: var(--panel); margin-right: 4px;
+}
 .coach-metrics .runner-metric dd { font-size: var(--fs-body); font-weight: 500; }
 .rehearsal-timeline { padding: 4px 0; gap: 4px 10px; }
 .rehearsal-timeline .timeline-label { flex: 1; min-width: 120px; white-space: nowrap; }
@@ -2034,10 +2172,6 @@ textarea {
 .rehearsal-readout { font-size: var(--fs-body); border-block: 1px solid var(--line); padding: 6px 0; gap: 4px 18px; }
 .rehearsal-readout strong { color: var(--companion); font-variant-numeric: tabular-nums; }
 .terrain-analysis-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 8px; }
-@media (max-width: 1100px) { .terrain-stage { height: clamp(240px, calc(100vh - 500px), 620px); } }
-.route-profile { display: grid; grid-template-columns: 1fr; font-size: var(--fs-body); min-width: 0; }
-.route-profile span { font-size: var(--fs-body); color: var(--ink-2); }
-.route-profile svg { display: block; width: 100%; height: auto; }
 .water-experiment { font-size: var(--fs-body); display: grid; gap: 4px; align-content: start; }
 .water-experiment label { display: flex; gap: 8px; align-items: center; }
 .water-experiment input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--companion); flex: none; }
@@ -2051,7 +2185,7 @@ textarea {
   .terrain-toolbar { align-items: start; gap: 6px; }
   .terrain-view-controls { display: contents; }
   .experiment-tabs button, .terrain-view-controls button { width: 30px; height: 30px; }
-  .terrain-stage { height: 280px; }
+  .terrain-stage { height: calc(100vh - var(--scene-top)); min-height: 240px; }
   .terrain-tier { line-height: 1.3; }
   .rehearsal-controls { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .rehearsal-controls .rehearsal-play { flex: none; margin: 0; min-height: 32px; }
@@ -2062,12 +2196,13 @@ textarea {
   .place-selector-bar { display: flex; flex-wrap: wrap; }
   .place-selector-bar button { min-width: 0; min-height: 32px; }
 }
+@media (max-width: 1100px) {
+  .terrain-stage { height: calc(100vh - var(--scene-top)); min-height: 240px; }
+}
 @media (prefers-reduced-motion: reduce) { .terrain-rehearsal * { scroll-behavior: auto; } }
 /* Beat the map library's relative-position rule: the renderer must fill its host. */
 .terrain-stage > .terrain-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .exercise-boundary { font-size: var(--fs-body); color: var(--ink-2); margin: 0 0 4px; }
-.terrain-stage { height: clamp(240px, calc(100vh - 503px), 620px); }
-@media (max-width: 680px) { .terrain-stage { height: 260px; } }
 .terrain-rehearsal .terrain-place-label { width: 24px; height: 24px; min-height: 24px; background: transparent; border: 0; padding: 0; }
 .terrain-place-label::before { content: ''; position: absolute; width: 7px; height: 7px; left: 50%; top: 50%; transform: translate(-50%,-50%); border: 1px solid var(--panel); border-radius: 50%; background: var(--companion); }
 .terrain-place-label.selected::before { background: var(--accent); width: 9px; height: 9px; }
@@ -2765,7 +2900,14 @@ main { padding-bottom:6px; }
 .escape-guide .time-scrubber { min-width:0; width:100%; }
 .escape-guide .time-scrubber input { width:100%; }
 .escape-guide .escape-clock-note,.escape-guide .escape-water-note { margin:0; font-size:var(--fs-micro); line-height:1.4; }
-.escape-guide .escape-time-to-endpoint { margin:0; font-size:var(--fs-body); font-weight:600; line-height:1.4; font-variant-numeric:tabular-nums; }
+/* Always reserve space for time-to-endpoint; hide with visibility to prevent layout shift */
+.escape-guide .escape-time-to-endpoint {
+  margin:0; font-size:var(--fs-body); font-weight:600; line-height:1.4;
+  font-variant-numeric:tabular-nums; visibility:hidden;
+}
+.escape-guide .escape-time-to-endpoint:not([hidden]) {
+  visibility:visible;
+}
 .escape-guide .escape-time-to-endpoint strong { color:var(--companion); }
 .escape-levels { display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 12px; padding-top:6px; border-top:1px solid var(--line); }
 .escape-levels > span { display:flex; align-items:center; gap:4px; font-size:var(--fs-micro); }
@@ -2977,6 +3119,28 @@ html[data-text-size=large] #main,html[data-text-size=large] dialog { --fs-micro:
   font-size: 13px;
   color: var(--ink-2);
   flex: none;
+}
+
+/* Choke point legend — for map key in Escape mode */
+.choke-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.choke-legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--choke-point-color);
+  border: var(--choke-point-stroke-width) solid var(--choke-point-stroke);
+  display: inline-block;
+  flex-shrink: 0;
+}
+.choke-legend-label {
+  font-weight: 600;
+  color: var(--choke-point-color);
+  font-size: var(--fs-body);
 }
 
 /* Data access follows the outcomes and source controls at their existing edge. */
