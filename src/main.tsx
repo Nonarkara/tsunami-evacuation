@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "@fontsource/jost/400.css";
 import "@fontsource/jost/500.css";
@@ -28,7 +28,7 @@ import "@fontsource/prompt/thai-400.css";
 import "@fontsource/prompt/thai-500.css";
 import "@fontsource/prompt/thai-600.css";
 import "@fontsource/prompt/thai-700.css";
-import { TerrainRehearsal } from "./TerrainRehearsal";
+import { TerrainLoadBoundary } from "./TerrainLoadBoundary";
 import { MangaModel } from "./MangaModel";
 import { PaceRuler, Sparkline } from "./charts";
 import { scenarioThai, checklistThai } from "./research-ledger";
@@ -45,6 +45,8 @@ import {
   type Plan,
   type Condition,
 } from "./research";
+
+const TerrainRehearsal = lazy(() => import("./TerrainRehearsal").then(module => ({ default: module.TerrainRehearsal })));
 
 type Tab = "explore" | "prepare" | "drill" | "research" | "ddpm";
 
@@ -333,7 +335,8 @@ function App() {
 
               </div>
 
-              {/* Interactive 3D Aerial Leaflet Map with Wave Simulation */}
+              <TerrainLoadBoundary language={language}>
+                <Suspense fallback={<p role="status">{t('Loading terrain…','กำลังโหลดภูมิประเทศ…')}</p>}>
               <TerrainRehearsal
                 key={region.id}
                 active={modelView==='terrain'&&!manualOpen}
@@ -352,7 +355,8 @@ function App() {
                 onReview={()=>navigate("drill")}
                 onPlan={()=>navigate("prepare")}
               />
-
+                </Suspense>
+              </TerrainLoadBoundary>
             </section>
 
             {/* Section 01b: Manga street model — the owner's miaoshen engine over the Bang Niang bake */}
