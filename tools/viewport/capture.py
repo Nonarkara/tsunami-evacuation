@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 import sys
 import urllib.request
@@ -399,7 +400,8 @@ def main() -> int:
         )
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(args=LAUNCH_ARGS)
+        headed = os.environ.get("SOONAMI_SMOKE_HEADED") == "1"
+        browser = pw.chromium.launch(headless=not headed, args=["--use-gl=angle"] if headed else LAUNCH_ARGS)
         for width, height in sizes:
             context = browser.new_context(
                 viewport={"width": width, "height": height},

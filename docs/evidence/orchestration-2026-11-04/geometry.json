@@ -53,25 +53,25 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374.2890625,
-      "h": 55,
+      "h": 49,
       "right": 382.2890625,
-      "bottom": 606.3984375
+      "bottom": 600.3984375
     },
     "start": {
       "x": 8,
-      "y": 609.3984375,
+      "y": 603.3984375,
       "w": 57.4296875,
       "h": 30,
       "right": 65.4296875,
-      "bottom": 639.3984375
+      "bottom": 633.3984375
     },
     "turn": {
       "x": 8,
-      "y": 644.3984375,
+      "y": 638.3984375,
       "w": 374.2890625,
       "h": 42.4921875,
       "right": 382.2890625,
-      "bottom": 686.890625
+      "bottom": 680.890625
     },
     "dialogs": [],
     "readingPages": [
@@ -85,7 +85,7 @@
         "pages": "8",
         "rect": {
           "w": 374,
-          "h": 170
+          "h": 176
         }
       }
     ],
@@ -109,9 +109,9 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
-    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\n⋯\n3 m\n1.65m eye · DEM · unknown heights flat (practice only)\nMap key\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 8\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
+    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\n⋯\n3 m\n1.65m eye · DEM · unknown heights flat (practice only)\nⓘ\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\nBelow horizon\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 8\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
     "taggedHeightRecords": 0,
     "case": "escape-en",
     "buildingPolicy": "explicit-height-tags-only",
@@ -174,25 +174,25 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374.2890625,
-      "h": 55,
+      "h": 49,
       "right": 382.2890625,
-      "bottom": 606.3984375
+      "bottom": 600.3984375
     },
     "start": {
       "x": 8,
-      "y": 609.3984375,
+      "y": 603.3984375,
       "w": 77.8359375,
       "h": 30,
       "right": 85.8359375,
-      "bottom": 639.3984375
+      "bottom": 633.3984375
     },
     "turn": {
       "x": 8,
-      "y": 644.3984375,
+      "y": 638.3984375,
       "w": 374.2890625,
       "h": 42.4921875,
       "right": 382.2890625,
-      "bottom": 686.890625
+      "bottom": 680.890625
     },
     "dialogs": [
       {
@@ -229,7 +229,7 @@
         "pages": "8",
         "rect": {
           "w": 374,
-          "h": 170
+          "h": 176
         }
       },
       {
@@ -265,7 +265,7 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -330,25 +330,25 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374,
-      "h": 55,
+      "h": 49,
       "right": 382,
-      "bottom": 606.3984375
+      "bottom": 600.3984375
     },
     "start": {
       "x": 8,
-      "y": 609.3984375,
+      "y": 603.3984375,
       "w": 52.0234375,
       "h": 30,
       "right": 60.0234375,
-      "bottom": 639.3984375
+      "bottom": 633.3984375
     },
     "turn": {
       "x": 8,
-      "y": 644.3984375,
+      "y": 638.3984375,
       "w": 374,
       "h": 42.4921875,
       "right": 382,
-      "bottom": 686.890625
+      "bottom": 680.890625
     },
     "dialogs": [],
     "readingPages": [
@@ -362,7 +362,7 @@
         "pages": "8",
         "rect": {
           "w": 374,
-          "h": 170
+          "h": 176
         }
       }
     ],
@@ -386,9 +386,9 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
-    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\n⋯\n10 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 8\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "focus": "Skip to content\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\n⋯\n10 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nⓘ\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\nใต้ขอบฟ้า\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 8\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
     "taggedHeightRecords": 0,
     "case": "escape-th",
     "buildingPolicy": "explicit-height-tags-only",
@@ -451,25 +451,25 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374,
-      "h": 55,
+      "h": 49,
       "right": 382,
-      "bottom": 606.3984375
+      "bottom": 600.3984375
     },
     "start": {
       "x": 8,
-      "y": 609.3984375,
+      "y": 603.3984375,
       "w": 92.2265625,
       "h": 30,
       "right": 100.2265625,
-      "bottom": 639.3984375
+      "bottom": 633.3984375
     },
     "turn": {
       "x": 8,
-      "y": 644.3984375,
+      "y": 638.3984375,
       "w": 374,
       "h": 42.4921875,
       "right": 382,
-      "bottom": 686.890625
+      "bottom": 680.890625
     },
     "dialogs": [
       {
@@ -506,7 +506,7 @@
         "pages": "8",
         "rect": {
           "w": 374,
-          "h": 170
+          "h": 176
         }
       },
       {
@@ -543,7 +543,7 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -664,9 +664,9 @@
       "bottom": 698
     },
     "controls": null,
-    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
-    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\nTerrain\nResults\nStreet linework (ink)\nArea / พื้นที่\n1 · Pakarang Cape\n2 · Khuk Khak\n3 · Bang Niang\n4 · Nang Thong\n⋯\n1784\n10 m\n1.65m eye · DEM · unknown heights flat (practice only)\nMap key\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 2\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\nTerrain\nResults\nStreet linework (ink)\nArea / พื้นที่\n1 · Pakarang Cape\n2 · Khuk Khak\n3 · Bang Niang\n4 · Nang Thong\n⋯\n1784\n10 m\n1.65m eye · DEM · unknown heights flat (practice only)\nⓘ\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\nBelow horizon\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 2\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
     "taggedHeightRecords": 0,
     "case": "escape-en",
     "buildingPolicy": "explicit-height-tags-only",
@@ -820,7 +820,7 @@
       "bottom": 698
     },
     "controls": null,
-    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -941,9 +941,9 @@
       "bottom": 698
     },
     "controls": null,
-    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
-    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\n⋯\n1784\n10 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\n⋯\n1784\n10 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nⓘ\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\nใต้ขอบฟ้า\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
     "taggedHeightRecords": 0,
     "case": "escape-th",
     "buildingPolicy": "explicit-height-tags-only",
@@ -1098,7 +1098,7 @@
       "bottom": 698
     },
     "controls": null,
-    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -1226,9 +1226,9 @@
       "right": 919.6015625,
       "bottom": 30.9921875
     },
-    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "1.65m eye · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
-    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\nTerrain\nResults\nStreet linework (ink)\nArea / พื้นที่\n1 · Pakarang Cape\n2 · Khuk Khak\n3 · Bang Niang\n4 · Nang Thong\nScene task / งาน\nControls\nGuide\n↓Sources, assumptions, settings & coverage\nResearch & practice · no live warning\n15:50:35\n1784\n5 m\n1.65m eye · DEM · unknown heights flat (practice only)\nMap key\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 2\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nKhao Lak\nPhuket\nKrabi\nSatun/Trang\nRanong\nGulf coast\nTerrain\nResults\nStreet linework (ink)\nArea / พื้นที่\n1 · Pakarang Cape\n2 · Khuk Khak\n3 · Bang Niang\n4 · Nang Thong\nScene task / งาน\nControls\nGuide\n↓Sources, assumptions, settings & coverage\nResearch & practice · no live warning\n21:14:16\n1784\n5 m\n1.65m eye · DEM · unknown heights flat (practice only)\nⓘ\nDDPM maps\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\nBelow horizon\n▶ Start\n↺\n+0:00\n1×\n5×\n30×\n120×\nIn 71 m, turn left\nPractice route · destination NOT verified\nConfirm plan ↗\n\nAt the coast: if you notice ANY ONE…\n\nStrong / long shake\nStrange sea / roar\nOfficial warning\n→\nMove inland / higher\n\nProtect yourself during shaking. Move as soon as safe; follow local evacuation signs. Don’t wait to see water.\n\nChildren: go with a trusted adult.\nNWS ↗\nLocal instructions first\n4,516 m remaining · 1.4 m/s model pace\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nExercise clock, not time before a wave.\n\n+0.0 m\ndemo level\n≈12 m\ncoarse DEM\n0\n5\n10 m · chosen peak\n\nNo local wave prediction. Water does not affect walkers. These heights cannot establish safety.\n\nWhat this exercise can show\nBang Niang exercise: Central approach\npreparing\n100 m\n0\nmax per segment 4:34\n0.00\n2.3\n4.52 km\nDEM m · gaps = missing\nWait per segment\n\nReal warnings require prompt action following local guidance.\n\nStart ≈ 12 m\nDEM range ≈ 12–96 m\nEnd ≈ 94 m\nCRITICAL CHOKE POINTS\n01\n3.67 km\nMax wait 4:34\n↗\n02\n0.25 km\nMax wait 0:33\n↗\n03\n0.36 km\nMax wait 0:00\n↗\n←\n1 / 2\n→\nStudy & credits\nSSRN 7270357 ↗\nResearch →",
     "taggedHeightRecords": 0,
     "case": "escape-en",
     "buildingPolicy": "explicit-height-tags-only",
@@ -1389,7 +1389,7 @@
       "right": 919.6015625,
       "bottom": 30.9921875
     },
-    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -1517,9 +1517,9 @@
       "right": 911.921875,
       "bottom": 30.9921875
     },
-    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "สายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
-    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\nScene task / งาน\nControls\nGuide\n↓แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม\nงานวิจัยและฝึกซ้อม · ไม่มีคำเตือนสด\n15:50:42\n1784\n5 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nคำอธิบายแผนที่\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\n≈ SW\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
+    "focus": "Skip to content\nสู้\nSoonami\nSelect Coastal Region\nเขาหลัก\nภูเก็ต\nกระบี่\nสตูล/ตรัง\nระนอง\nอ่าวไทย\nภูมิประเทศ\nผลลัพธ์\nเค้าโครงถนน (มังงะ)\nArea / พื้นที่\n1 · แหลมปะการัง\n2 · คึกคัก\n3 · บางเนียง\n4 · นางทอง\nScene task / งาน\nControls\nGuide\n↓แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม\nงานวิจัยและฝึกซ้อม · ไม่มีคำเตือนสด\n21:14:22\n1784\n5 m\nสายตา 1.65m · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น)\nⓘ\nแผนที่ ปภ.\nRokehan ↗\n© Esri & contributors · Mapzen · OSM\nN\nใต้ขอบฟ้า\n▶ เริ่ม\n↺\n+0:00\n1×\n5×\n30×\n120×\nอีก 71 ม. เลี้ยวซ้าย\nเส้นทางฝึก · ยังไม่ยืนยันปลายทาง\nยืนยันแผน ↗\n\nที่ชายฝั่ง: หากพบอย่างใดอย่างหนึ่ง…\n\nสั่นแรง / นาน\nทะเลผิดปกติ / คำราม\nเตือนจากทางการ\n→\nไปทางบก / ที่สูง\n\nป้องกันตัวขณะสั่น เคลื่อนที่ทันทีเมื่อทำได้ปลอดภัย ตามป้ายอพยพในพื้นที่ ไม่รอเห็นน้ำ\n\nเด็ก: ไปกับผู้ใหญ่ที่ไว้ใจ\nNWS ↗\nยึดคำสั่งในพื้นที่\n4,516 m เหลือ · 1.4 m/s จังหวะจำลอง\n0\n2.3\n4.52 km\n0:00\n31:47\n63:35\n\nนาฬิกาแบบฝึก ไม่ใช่เวลาก่อนคลื่นมา\n\n+0.0 m\nระดับน้ำสาธิต\n≈12 m\nDEM หยาบ\n0\n5\n10 m · ค่าสูงสุดที่ตั้ง\n\nไม่มีการพยากรณ์คลื่นเฉพาะพื้นที่ น้ำไม่เปลี่ยนการเดิน ค่าความสูงนี้ยืนยันความปลอดภัยไม่ได้\n\nแบบฝึกนี้บอกอะไรได้\nบางเนียง: เส้นทางกลาง\nเตรียมในแบบฝึก\n100 m\n0\nสูงสุดต่อช่วง 4:34\n0.00\n2.3\n4.52 km\nDEM ม. · เว้นข้อมูลที่ขาด\nรอต่อช่วง\n\nหากเตือนจริงให้รีบปฏิบัติตามคำแนะนำในพื้นที่\n\nต้นทาง ≈ 12 m\nช่วง DEM ≈ 12–96 m\nปลายทาง ≈ 94 m\nจุดคอขวดสำคัญ\n01\n3.67 km\nรอนานสุด 4:34\n↗\n02\n0.25 km\nรอนานสุด 0:33\n↗\n03\n0.36 km\nรอนานสุด 0:00\n↗\n←\n1 / 2\n→\nที่มาและผู้จัดทำ\nSSRN 7270357 ↗\nงานวิจัย →",
     "taggedHeightRecords": 0,
     "case": "escape-th",
     "buildingPolicy": "explicit-height-tags-only",
@@ -1681,7 +1681,7 @@
       "right": 911.921875,
       "bottom": 30.9921875
     },
-    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,

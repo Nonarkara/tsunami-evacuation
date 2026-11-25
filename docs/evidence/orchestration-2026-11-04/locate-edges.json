@@ -53,9 +53,9 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374,
-      "h": 52,
+      "h": 46,
       "right": 382,
-      "bottom": 603.3984375
+      "bottom": 597.3984375
     },
     "start": null,
     "turn": null,
@@ -71,7 +71,7 @@
         "pages": "5",
         "rect": {
           "w": 374,
-          "h": 208
+          "h": 214
         }
       }
     ],
@@ -95,7 +95,7 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
+    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
     "captionChildrenFit": true,
     "focus": "แผนที่อพยพ ปภ.",
     "taggedHeightRecords": 0,
@@ -160,9 +160,9 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374,
-      "h": 52,
+      "h": 46,
       "right": 382,
-      "bottom": 603.3984375
+      "bottom": 597.3984375
     },
     "start": null,
     "turn": null,
@@ -178,7 +178,7 @@
         "pages": "5",
         "rect": {
           "w": 374,
-          "h": 208
+          "h": 214
         }
       }
     ],
@@ -202,7 +202,7 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
+    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
     "captionChildrenFit": true,
     "focus": "แผนที่อพยพ ปภ.",
     "taggedHeightRecords": 0,
@@ -251,23 +251,23 @@
       "x": 8,
       "y": 42,
       "w": 358,
-      "h": 248,
+      "h": 254,
       "right": 366,
-      "bottom": 290
+      "bottom": 296
     },
     "stage": {
       "x": 8,
       "y": 42,
       "w": 358,
-      "h": 248,
+      "h": 254,
       "right": 366,
-      "bottom": 290
+      "bottom": 296
     },
     "caption": {
       "x": 8,
-      "y": 293,
+      "y": 299,
       "w": 358,
-      "h": 52,
+      "h": 46,
       "right": 366,
       "bottom": 345
     },
@@ -304,12 +304,12 @@
       "x": 8,
       "y": 42,
       "w": 358,
-      "h": 248,
+      "h": 254,
       "right": 366,
-      "bottom": 290
+      "bottom": 296
     },
     "controls": null,
-    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
+    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
     "captionChildrenFit": true,
     "focus": "แผนที่อพยพ ปภ.",
     "taggedHeightRecords": 0,
@@ -358,23 +358,23 @@
       "x": 8,
       "y": 42,
       "w": 358,
-      "h": 248,
+      "h": 254,
       "right": 366,
-      "bottom": 290
+      "bottom": 296
     },
     "stage": {
       "x": 8,
       "y": 42,
       "w": 358,
-      "h": 248,
+      "h": 254,
       "right": 366,
-      "bottom": 290
+      "bottom": 296
     },
     "caption": {
       "x": 8,
-      "y": 293,
+      "y": 299,
       "w": 358,
-      "h": 52,
+      "h": 46,
       "right": 366,
       "bottom": 345
     },
@@ -411,12 +411,12 @@
       "x": 8,
       "y": 42,
       "w": 358,
-      "h": 248,
+      "h": 254,
       "right": 366,
-      "bottom": 290
+      "bottom": 296
     },
     "controls": null,
-    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
+    "captionText": "เกาะปายู · DDPM 1295 · บัญชีข้อมูลเท่านั้น ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM",
     "captionChildrenFit": true,
     "focus": "แผนที่อพยพ ปภ.",
     "taggedHeightRecords": 0,

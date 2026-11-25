@@ -1,0 +1,156 @@
+{
+  "commit": "532426ac907d4bbb70a2e984decf66d63265776a",
+  "origin": "https://tsunami.nonarkara.org",
+  "capturedAt": "2026-11-25T14:15:15+00:00",
+  "receipts": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1341,
+      "sha256": "ed23fe25c64d1d3dacebd1be27b07373daa22a172f3512d9f74f2bce7600ee18"
+    },
+    {
+      "path": "/assets/index-B-QeVG4N.js",
+      "status": 200,
+      "bytes": 428276,
+      "sha256": "7ebca1667f4989f33e3b1bddb901a62f09aadb2333e4b8adb41381b48e4cf27c"
+    },
+    {
+      "path": "/assets/index-D26nfXH7.css",
+      "status": 200,
+      "bytes": 143608,
+      "sha256": "45e325546f534323e7efd2cb183e067e9b9c9f63a4e64158a2776b3b95f37805"
+    },
+    {
+      "path": "/data/rehearsal-routes.json",
+      "status": 200,
+      "bytes": 23939,
+      "sha256": "03479dc0157e99306b94c8cc43e337a51f95c9d6326a7493fba226ba3d45fa23"
+    },
+    {
+      "path": "/data/terrain.json",
+      "status": 200,
+      "bytes": 102814,
+      "sha256": "0b38b6bb5de512feb264b4912687eb137fce8e2a260ff9827bffb847b0ab1e69"
+    },
+    {
+      "path": "/data/hazard-replay.schema.json",
+      "status": 200,
+      "bytes": 4339,
+      "sha256": "d0fc43bfa9b1a23f87b855a393c32b17dcbcb8f6345e3e677355206bc4d0998b"
+    },
+    {
+      "path": "/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson",
+      "status": 200,
+      "bytes": 106170,
+      "sha256": "c8007d092db9cd0ac1aa5ba806c4a88d6934e95bb2ec27cd8a9a59c48644a247"
+    },
+    {
+      "path": "/assets/TerrainRehearsal-C7tP4GwP.css",
+      "sha256": "245a2198a49ca18c380e4e97f4ebd9a74bd844f3e912e573b9dcc8444782b2fc",
+      "bytes": 87111
+    },
+    {
+      "path": "/assets/TerrainRehearsal-DcJ3v-a6.js",
+      "sha256": "9fe392a205e098d2c309ec1cdfff506a6fc91fb3a7b1d37ebb3c13eae0a4c931",
+      "bytes": 1382192
+    },
+    {
+      "path": "/assets/maplibre-gl-worker-B-FFqHT7.js",
+      "sha256": "15fb4c326818fbff870d02833e568b8c2340073093bc0ba18a835b8ff98c8aa7",
+      "bytes": 517422
+    }
+  ],
+  "cases": [
+    {
+      "view": "escape",
+      "camera": "walk",
+      "language": "th",
+      "viewport": [
+        390,
+        844
+      ],
+      "textSize": "standard",
+      "beforeStart": {
+        "mapTop": 42,
+        "mapHeight": 506.3984375,
+        "captionHeight": 49,
+        "captionContentHeight": 49,
+        "estimateHeight": 18.1953125
+      },
+      "afterStart": {
+        "mapTop": 42,
+        "mapHeight": 506.3984375,
+        "captionHeight": 49,
+        "captionContentHeight": 49,
+        "estimateHeight": 18.1953125
+      }
+    },
+    {
+      "view": "escape",
+      "camera": "walk",
+      "language": "th",
+      "viewport": [
+        390,
+        600
+      ],
+      "textSize": "large",
+      "beforeStart": {
+        "mapTop": 42,
+        "mapHeight": 250,
+        "captionHeight": 60,
+        "captionContentHeight": 61,
+        "estimateHeight": 22.75
+      },
+      "afterStart": {
+        "mapTop": 42,
+        "mapHeight": 250,
+        "captionHeight": 60,
+        "captionContentHeight": 61,
+        "estimateHeight": 22.75
+      }
+    },
+    {
+      "view": "escape",
+      "camera": "walk",
+      "language": "en",
+      "viewport": [
+        1440,
+        900
+      ],
+      "textSize": "standard",
+      "beforeStart": {
+        "mapTop": 44,
+        "mapHeight": 786,
+        "captionHeight": 30,
+        "captionContentHeight": 31,
+        "estimateHeight": 18.1953125
+      },
+      "afterStart": {
+        "mapTop": 44,
+        "mapHeight": 786,
+        "captionHeight": 30,
+        "captionContentHeight": 31,
+        "estimateHeight": 18.1953125
+      }
+    },
+    {
+      "view": "prepare",
+      "language": "th",
+      "viewport": [
+        667,
+        375
+      ],
+      "gzipJsBytes": 128624
+    },
+    {
+      "view": "research",
+      "language": "th",
+      "viewport": [
+        667,
+        375
+      ],
+      "gzipJsBytes": 128624
+    }
+  ]
+}

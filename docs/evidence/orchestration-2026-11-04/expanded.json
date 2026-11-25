@@ -53,25 +53,25 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374.2890625,
-      "h": 55,
+      "h": 49,
       "right": 382.2890625,
-      "bottom": 606.3984375
+      "bottom": 600.3984375
     },
     "start": {
       "x": 8,
-      "y": 609.3984375,
+      "y": 603.3984375,
       "w": 77.8359375,
       "h": 30,
       "right": 85.8359375,
-      "bottom": 639.3984375
+      "bottom": 633.3984375
     },
     "turn": {
       "x": 8,
-      "y": 644.3984375,
+      "y": 638.3984375,
       "w": 374.2890625,
       "h": 42.4921875,
       "right": 382.2890625,
-      "bottom": 686.890625
+      "bottom": 680.890625
     },
     "dialogs": [
       {
@@ -108,7 +108,7 @@
         "pages": "8",
         "rect": {
           "w": 374,
-          "h": 170
+          "h": 176
         }
       },
       {
@@ -144,7 +144,7 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -209,25 +209,25 @@
       "x": 8,
       "y": 551.3984375,
       "w": 374,
-      "h": 55,
+      "h": 49,
       "right": 382,
-      "bottom": 606.3984375
+      "bottom": 600.3984375
     },
     "start": {
       "x": 8,
-      "y": 609.3984375,
+      "y": 603.3984375,
       "w": 92.2265625,
       "h": 30,
       "right": 100.2265625,
-      "bottom": 639.3984375
+      "bottom": 633.3984375
     },
     "turn": {
       "x": 8,
-      "y": 644.3984375,
+      "y": 638.3984375,
       "w": 374,
       "h": 42.4921875,
       "right": 382,
-      "bottom": 686.890625
+      "bottom": 680.890625
     },
     "dialogs": [
       {
@@ -264,7 +264,7 @@
         "pages": "8",
         "rect": {
           "w": 374,
-          "h": 170
+          "h": 176
         }
       },
       {
@@ -301,7 +301,7 @@
       "bottom": 548
     },
     "controls": null,
-    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -457,7 +457,7 @@
       "bottom": 698
     },
     "controls": null,
-    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -614,7 +614,7 @@
       "bottom": 698
     },
     "controls": null,
-    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -777,7 +777,7 @@
       "right": 919.6015625,
       "bottom": 30.9921875
     },
-    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) Map key DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "Ground view loading · DEM · unknown heights flat (practice only) ⓘ DDPM maps Rokehan ↗ © Esri & contributors · Mapzen · OSM N Below horizon",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,
@@ -941,7 +941,7 @@
       "right": 911.921875,
       "bottom": 30.9921875
     },
-    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) คำอธิบายแผนที่ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ≈ SW",
+    "captionText": "กำลังโหลดมุมมองพื้น · DEM · ไม่ทราบความสูง: แบน (ฝึกเท่านั้น) ⓘ แผนที่ ปภ. Rokehan ↗ © Esri & contributors · Mapzen · OSM N ใต้ขอบฟ้า",
     "captionChildrenFit": true,
     "focus": "Close reading / ปิด",
     "taggedHeightRecords": 0,

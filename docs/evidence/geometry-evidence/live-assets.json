@@ -1,16 +1,17 @@
 {
   "origin": "https://tsunami.nonarkara.org",
-  "capturedAt": "2026-11-25T08:57:34+00:00",
+  "commit": "532426ac907d4bbb70a2e984decf66d63265776a",
+  "capturedAt": "2026-11-25T14:21:51+00:00",
   "bytes": [
     {
-      "path": "/assets/index-CwWPu9FY.css",
-      "bytes": 142747,
-      "sha256": "c749d03783ccf2d7e41b131dc1971ec0c37c82065405f636bc24fb516285e999"
+      "path": "/assets/index-B-QeVG4N.js",
+      "bytes": 428276,
+      "sha256": "7ebca1667f4989f33e3b1bddb901a62f09aadb2333e4b8adb41381b48e4cf27c"
     },
     {
-      "path": "/assets/index-Dm7TsbRh.js",
-      "bytes": 428276,
-      "sha256": "09e230acf5483808c2ca72e5ab97089ed2e276f603b35bf26795c044050c6595"
+      "path": "/assets/index-D26nfXH7.css",
+      "bytes": 143608,
+      "sha256": "45e325546f534323e7efd2cb183e067e9b9c9f63a4e64158a2776b3b95f37805"
     }
   ]
 }

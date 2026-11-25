@@ -10,7 +10,7 @@
         "selector": ".escape-playback .primary",
         "firstScreen": true,
         "x": 8,
-        "y": 609.3984375,
+        "y": 603.3984375,
         "w": 57.4296875,
         "h": 30
       },
@@ -18,7 +18,7 @@
         "selector": ".escape-route-cue",
         "firstScreen": true,
         "x": 8,
-        "y": 644.3984375,
+        "y": 638.3984375,
         "w": 374.2890625,
         "h": 42.4921875
       }
@@ -35,7 +35,7 @@
         "selector": ".escape-playback .primary",
         "firstScreen": true,
         "x": 8,
-        "y": 609.3984375,
+        "y": 603.3984375,
         "w": 52.0234375,
         "h": 30
       },
@@ -43,7 +43,7 @@
         "selector": ".escape-route-cue",
         "firstScreen": true,
         "x": 8,
-        "y": 644.3984375,
+        "y": 638.3984375,
         "w": 374,
         "h": 42.4921875
       }

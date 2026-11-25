@@ -1,0 +1,818 @@
+[
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 5284,
+    "runs": [
+      {
+        "p95Ms": 9.9,
+        "frames": 385,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 3.217
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 4216,
+    "runs": [
+      {
+        "p95Ms": 9.9,
+        "frames": 385,
+        "longFrames": 0,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 3.202
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 9582,
+    "runs": [
+      {
+        "p95Ms": 10.1,
+        "frames": 376,
+        "longFrames": 0,
+        "wallSeconds": 3.202,
+        "exerciseSeconds": 3.215
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 5351,
+    "runs": [
+      {
+        "p95Ms": 10,
+        "frames": 381,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.217
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 4909,
+    "runs": [
+      {
+        "p95Ms": 9.8,
+        "frames": 384,
+        "longFrames": 0,
+        "wallSeconds": 3.208,
+        "exerciseSeconds": 3.234
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 4850,
+    "runs": [
+      {
+        "p95Ms": 9.9,
+        "frames": 384,
+        "longFrames": 0,
+        "wallSeconds": 3.208,
+        "exerciseSeconds": 3.218
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 4271,
+    "runs": [
+      {
+        "p95Ms": 17.4,
+        "frames": 317,
+        "longFrames": 0,
+        "wallSeconds": 3.209,
+        "exerciseSeconds": 95.748
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 4394,
+    "runs": [
+      {
+        "p95Ms": 17.6,
+        "frames": 319,
+        "longFrames": 0,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 97.749
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 4452,
+    "runs": [
+      {
+        "p95Ms": 17.9,
+        "frames": 297,
+        "longFrames": 0,
+        "wallSeconds": 3.2,
+        "exerciseSeconds": 96.249
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3511,
+    "runs": [
+      {
+        "p95Ms": 18.2,
+        "frames": 283,
+        "longFrames": 0,
+        "wallSeconds": 3.209,
+        "exerciseSeconds": 96.003
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 4269,
+    "runs": [
+      {
+        "p95Ms": 17.3,
+        "frames": 301,
+        "longFrames": 0,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 96.243
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3813,
+    "runs": [
+      {
+        "p95Ms": 17.8,
+        "frames": 295,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 95.802
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 4282,
+    "runs": [
+      {
+        "p95Ms": 10,
+        "frames": 375,
+        "longFrames": 0,
+        "wallSeconds": 3.203,
+        "exerciseSeconds": 3.174
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 4373,
+    "runs": [
+      {
+        "p95Ms": 10.2,
+        "frames": 373,
+        "longFrames": 0,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 3.217
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 4801,
+    "runs": [
+      {
+        "p95Ms": 9.7,
+        "frames": 381,
+        "longFrames": 0,
+        "wallSeconds": 3.201,
+        "exerciseSeconds": 3.208
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 4449,
+    "runs": [
+      {
+        "p95Ms": 9.6,
+        "frames": 382,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.257
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 4411,
+    "runs": [
+      {
+        "p95Ms": 9.7,
+        "frames": 383,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.184
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 3989,
+    "runs": [
+      {
+        "p95Ms": 10.1,
+        "frames": 377,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 3.225
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3573,
+    "runs": [
+      {
+        "p95Ms": 24.2,
+        "frames": 269,
+        "longFrames": 0,
+        "wallSeconds": 3.2,
+        "exerciseSeconds": 95.523
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3392,
+    "runs": [
+      {
+        "p95Ms": 24.9,
+        "frames": 267,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 96.024
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3873,
+    "runs": [
+      {
+        "p95Ms": 24.8,
+        "frames": 276,
+        "longFrames": 0,
+        "wallSeconds": 3.209,
+        "exerciseSeconds": 96.498
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 4474,
+    "runs": [
+      {
+        "p95Ms": 18.1,
+        "frames": 291,
+        "longFrames": 0,
+        "wallSeconds": 3.215,
+        "exerciseSeconds": 96.504
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3871,
+    "runs": [
+      {
+        "p95Ms": 17.8,
+        "frames": 311,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 96.003
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "escape",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3857,
+    "runs": [
+      {
+        "p95Ms": 17.7,
+        "frames": 301,
+        "longFrames": 0,
+        "wallSeconds": 3.21,
+        "exerciseSeconds": 96.753
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 3833,
+    "runs": [
+      {
+        "p95Ms": 10,
+        "frames": 378,
+        "longFrames": 0,
+        "wallSeconds": 3.208,
+        "exerciseSeconds": 3.225
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 3209,
+    "runs": [
+      {
+        "p95Ms": 9.8,
+        "frames": 383,
+        "longFrames": 0,
+        "wallSeconds": 3.204,
+        "exerciseSeconds": 3.185
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 3719,
+    "runs": [
+      {
+        "p95Ms": 10.1,
+        "frames": 379,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.218
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 3857,
+    "runs": [
+      {
+        "p95Ms": 10,
+        "frames": 379,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 3.241
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 3342,
+    "runs": [
+      {
+        "p95Ms": 9.8,
+        "frames": 381,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.233
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 1,
+    "readyMs": 4063,
+    "runs": [
+      {
+        "p95Ms": 10,
+        "frames": 381,
+        "longFrames": 0,
+        "wallSeconds": 3.202,
+        "exerciseSeconds": 3.182
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3380,
+    "runs": [
+      {
+        "p95Ms": 9.6,
+        "frames": 383,
+        "longFrames": 0,
+        "wallSeconds": 3.201,
+        "exerciseSeconds": 96.219
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3740,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 372,
+        "longFrames": 0,
+        "wallSeconds": 3.201,
+        "exerciseSeconds": 96.264
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3963,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 375,
+        "longFrames": 0,
+        "wallSeconds": 3.201,
+        "exerciseSeconds": 97.26
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 4411,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 373,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 95.748
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3584,
+    "runs": [
+      {
+        "p95Ms": 15.9,
+        "frames": 367,
+        "longFrames": 0,
+        "wallSeconds": 3.205,
+        "exerciseSeconds": 96.27
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 1500,
+    "rate": 30,
+    "readyMs": 3239,
+    "runs": [
+      {
+        "p95Ms": 9.1,
+        "frames": 380,
+        "longFrames": 0,
+        "wallSeconds": 3.208,
+        "exerciseSeconds": 96.513
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 6204,
+    "runs": [
+      {
+        "p95Ms": 9.1,
+        "frames": 382,
+        "longFrames": 0,
+        "wallSeconds": 3.2,
+        "exerciseSeconds": 3.234
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 6334,
+    "runs": [
+      {
+        "p95Ms": 9.3,
+        "frames": 375,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 3.225
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 3562,
+    "runs": [
+      {
+        "p95Ms": 9.1,
+        "frames": 382,
+        "longFrames": 0,
+        "wallSeconds": 3.208,
+        "exerciseSeconds": 3.225
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 3929,
+    "runs": [
+      {
+        "p95Ms": 9.1,
+        "frames": 384,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 3.258
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 4557,
+    "runs": [
+      {
+        "p95Ms": 9.3,
+        "frames": 374,
+        "longFrames": 0,
+        "wallSeconds": 3.202,
+        "exerciseSeconds": 3.208
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 1,
+    "readyMs": 3374,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 379,
+        "longFrames": 0,
+        "wallSeconds": 3.202,
+        "exerciseSeconds": 3.242
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3786,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 376,
+        "longFrames": 0,
+        "wallSeconds": 3.201,
+        "exerciseSeconds": 96.501
+      }
+    ],
+    "build": "reference",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3977,
+    "runs": [
+      {
+        "p95Ms": 9.3,
+        "frames": 370,
+        "longFrames": 0,
+        "wallSeconds": 3.2,
+        "exerciseSeconds": 96.501
+      }
+    ],
+    "build": "candidate",
+    "trial": 1
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3846,
+    "runs": [
+      {
+        "p95Ms": 9.4,
+        "frames": 367,
+        "longFrames": 0,
+        "wallSeconds": 3.207,
+        "exerciseSeconds": 97.002
+      }
+    ],
+    "build": "candidate",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 4912,
+    "runs": [
+      {
+        "p95Ms": 9.3,
+        "frames": 368,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 96
+      }
+    ],
+    "build": "reference",
+    "trial": 2
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 4285,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 384,
+        "longFrames": 0,
+        "wallSeconds": 3.206,
+        "exerciseSeconds": 96.498
+      }
+    ],
+    "build": "reference",
+    "trial": 3
+  },
+  {
+    "mode": "crowd",
+    "people": 5000,
+    "rate": 30,
+    "readyMs": 3756,
+    "runs": [
+      {
+        "p95Ms": 9.2,
+        "frames": 381,
+        "longFrames": 0,
+        "wallSeconds": 3.203,
+        "exerciseSeconds": 95.25
+      }
+    ],
+    "build": "candidate",
+    "trial": 3
+  }
+]

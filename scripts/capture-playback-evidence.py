@@ -33,6 +33,7 @@ import functools
 import hashlib
 import http.server
 import json
+import os
 import socketserver
 import subprocess
 import sys
@@ -273,7 +274,8 @@ def main() -> int:
 
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(args=CHROMIUM_ARGS)
+            headed = os.environ.get("SOONAMI_SMOKE_HEADED") == "1"
+            browser = p.chromium.launch(headless=not headed, args=["--use-gl=angle"] if headed else CHROMIUM_ARGS)
             page = browser.new_page()
             for language in ("en", "th"):
                 for width, height in VIEWPORTS:

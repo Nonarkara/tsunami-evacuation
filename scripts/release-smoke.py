@@ -122,6 +122,20 @@ def smoke(page, origin, language, width, height, falsify, large=False):
         if scene.get_attribute("data-exercise-seconds") != stopped:
             raise RuntimeError("Closing Map key resumed background playback")
         require_walk(scene)
+        start.click()
+        expect(start).to_have_accessible_name("Pause escape practice")
+        canvas = scene.locator(".maplibregl-canvas").bounding_box()
+        x, y = canvas["x"] + 0.25 * canvas["width"], canvas["y"] + 0.6 * canvas["height"]
+        page.mouse.move(x, y)
+        page.mouse.down()
+        page.mouse.move(x + 80, y + 20, steps=6)
+        page.mouse.up()
+        expect(scene).to_have_attribute("data-camera", "overview")
+        expect(start).to_have_accessible_name("Play escape practice")
+        stopped = scene.get_attribute("data-exercise-seconds")
+        page.wait_for_timeout(300)
+        if scene.get_attribute("data-exercise-seconds") != stopped:
+            raise RuntimeError("Manual map movement failed to retain a paused clock")
     if page.locator("html").get_attribute("lang") != language:
         raise RuntimeError("Escape opened in the wrong language")
     return {"view": "escape", "camera": "walk", "language": language, "viewport": [width, height],

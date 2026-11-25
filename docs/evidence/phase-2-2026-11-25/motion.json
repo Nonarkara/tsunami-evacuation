@@ -1,0 +1,12 @@
+{
+  "origin": "https://tsunami.nonarkara.org",
+  "viewport": [
+    1024,
+    768
+  ],
+  "reducedMotionHeldCamera": true,
+  "visibilityTest": "injected hidden property and visibilitychange events; Chromium automation did not hide the real tab",
+  "hiddenTransitionPaused": true,
+  "visibleTransitionKeptPaused": true,
+  "pausedExerciseSeconds": "0.358"
+}
