@@ -150,3 +150,13 @@
    not fit. The trailing space after the mark is what is given up; no control is shrunk
    and the place name is never cut. */
 @media screen and (max-width:360px) { #root .soonami-masthead .masthead-brand-group { padding-right:3px; } }
+
+/* Use the same compact slot for files in the dock and the overflow dialog. */
+.exercise-console .technical-data-trigger::before,
+.banner-scene .exercise-console .technical-data-trigger::before { content: '↓'; }
+
+@media screen and (min-width: 560px) and (max-height: 500px) {
+ .compact-reading .technical-files { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, .85fr); gap: 8px; }
+ .compact-reading .technical-files section { padding-block: 4px; }
+ .compact-reading .technical-files section + section { border-top: 0; border-inline-start: 1px solid var(--line); padding-inline-start: 8px; }
+}

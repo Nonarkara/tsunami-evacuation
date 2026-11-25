@@ -1,7 +1,7 @@
 import { DockControls } from './BannerDock';
 import { ReadingDialog } from './ReadingDialog';
 import { ExerciseMethod } from './ExerciseMethod';
-import { TechnicalFiles } from './TechnicalData';
+import { TechnicalData } from './TechnicalData';
 import { PagedFlow } from './PagedFlow';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import * as maplibregl from 'maplibre-gl';
@@ -876,11 +876,7 @@ export function TerrainRehearsal({ region, selected, onSelect, consoleSlot, find
       </div>
     </>}
     </div></PagedFlow></div>
-      <DockControls target={bannerDock}><div className="exercise-console" id="exercise-console"><ReadingDialog language={language} title={t('Sources, assumptions, settings & coverage','แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม')}><div className="console-sections">
-      <details className="console-section">
-        <summary>{t('Data & sources','ข้อมูลและไฟล์ต้นทาง')}</summary>
-        <TechnicalFiles language={language} />
-      </details>
+      <DockControls target={bannerDock}><div className="exercise-console" id="exercise-console"><TechnicalData language={language} symbol /><ReadingDialog language={language} title={t('Sources, assumptions, settings & coverage','แหล่งข้อมูล สมมติฐาน การตั้งค่า และพื้นที่ครอบคลุม')}><div className="console-sections">
       {isStudy && model && data && <section className="console-section" id="console-method">
         <h3>{t('Sources and assumptions','แหล่งข้อมูลและสมมติฐาน')}</h3>
       <ExerciseMethod language={language} speed={speed} preparation={preparation} width={width} accessed={data.accessed} terrainAccessed={grid?.accessed}/>

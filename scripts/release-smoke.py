@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from runpy import run_path
 from urllib.parse import urlsplit
+import gzip
 import hashlib
 
 from playwright.sync_api import expect, sync_playwright
@@ -77,6 +78,45 @@ def smoke(page, origin, language, width, height, falsify):
     return {"view": "escape", "camera": "walk", "language": language, "viewport": [width, height]}
 
 
+def check_entry(browser, origin, tab, assets):
+    page = browser.new_page(viewport={"width": 667, "height": 375})
+    scripts = set()
+
+    def record(response):
+        if response.url.startswith(f"{origin}/assets/") and response.url.endswith(".js"):
+            path = urlsplit(response.url).path
+            scripts.add(path)
+            assets.add(path)
+
+    page.on("response", record)
+    page.goto(f"{origin}/?lang=th&text=large#{tab}", wait_until="domcontentloaded")
+    page.locator(f'main[data-page="{tab}"]').wait_for()
+    if tab == "research":
+        panel = page.locator(".research-dossier")
+        trigger = panel.locator(".technical-data-trigger")
+        trigger.click()
+        dialog = page.locator("dialog[open]")
+        dialog.wait_for()
+        for name in ("เส้นทาง JSON", "GeoJSON", "ดาวน์โหลดผล CSV", "ดาวน์โหลด BibTeX"):
+            link = dialog.get_by_text(name, exact=True)
+            if not link.evaluate(BOUNDS):
+                raise RuntimeError(f"Research file {name} is inaccessible in Thai landscape")
+        with page.expect_download() as pending:
+            dialog.get_by_text("ดาวน์โหลดผล CSV", exact=True).click()
+        if pending.value.suggested_filename != "khao-lak-reported-results.csv":
+            raise RuntimeError("Results download returned the wrong file")
+        body = pending.value.path().read_text(encoding="utf-8")
+        if not all(value in body for value in ("21.8", "22.6", "1.2", "2.9")):
+            raise RuntimeError("Results download is missing the model timing pairs")
+        page.keyboard.press("Escape")
+        expect(trigger).to_be_focused()
+    page.close()
+    return {
+        "view": tab, "language": "th", "viewport": [667, 375],
+        "gzipJsBytes": sum(len(gzip.compress((Path("dist") / path[1:]).read_bytes())) for path in scripts),
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--origin")
@@ -102,6 +142,7 @@ def main():
                 print(f"Checking Escape {lang} {size[0]}×{size[1]}", flush=True)
                 cases.append(smoke(page, origin, lang, *size, args.falsify))
                 page.close()
+            cases.extend(check_entry(browser, origin, tab, assets) for tab in ("prepare", "research"))
             browser.close()
         receipt = capture["live_assets"](origin)
         known = {entry["path"] for entry in receipt["receipts"]}

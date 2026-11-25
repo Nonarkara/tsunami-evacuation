@@ -53,8 +53,8 @@ export function TechnicalFiles({ language }: { language: ResearchLanguage }) {
   </div>;
 }
 
-export function TechnicalData({ language }: { language: ResearchLanguage }) {
-  return <ReadingDialog compact language={language} className="technical-data-trigger"
+export function TechnicalData({ language, symbol = false }: { language: ResearchLanguage; symbol?: boolean }) {
+  return <ReadingDialog compact language={language} className="technical-data-trigger" triggerLabel={symbol ? '↓' : undefined}
     title={language === 'th' ? 'ข้อมูลและไฟล์ต้นทาง' : 'Data & sources'}>
     <TechnicalFiles language={language} />
   </ReadingDialog>;
