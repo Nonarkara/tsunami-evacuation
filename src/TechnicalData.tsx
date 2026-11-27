@@ -50,28 +50,13 @@ export function TechnicalFiles({ language }: { language: ResearchLanguage }) {
         <a href="/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson" download>GeoJSON</a>
       </div>
     </section>
-    <section id="tech-route-elevation">
-      <h3>{thai ? 'เส้นทางและความสูง' : 'Route & elevation'}</h3>
-      <p>{thai ? 'โครงข่าย OSM และกริดความสูง Mapzen · ปลายทางแบบฝึกยังไม่รับรอง' : 'OSM network and Mapzen elevation grid · unapproved practice endpoint'}</p>
-      <div className="research-downloads">
-        <a href="/data/rehearsal-routes.json" download>{thai ? 'เส้นทาง JSON' : 'Routes JSON'}</a>
-        <a href="/data/terrain.json" download>{thai ? 'ความสูง JSON' : 'Elevation JSON'}</a>
-      </div>
-    </section>
     <section id="tech-replay-water">
       <h3>{thai ? 'เล่นซ้ำและน้ำ' : 'Replay & water'}</h3>
       <p>{thai ? 'โครงสร้างไฟล์เล่นซ้ำ สคีมานำเข้า และน้ำสาธิต' : 'Replay file schema, import, and illustrative water'}</p>
-      <div className="research-downloads">
-        <a href="/data/hazard-replay.schema.json" download>{thai ? 'โครงสร้างไฟล์เล่นซ้ำ' : 'Replay file schema'}</a>
-        <a href="/data/README.md" target="_blank" rel="noreferrer">{thai ? 'ที่มาของไฟล์' : 'File provenance'}</a>
-      </div>
       <p className="field-note">{thai ? 'น้ำสาธิตไม่ใช่การพยากรณ์คลื่น น้ำไม่เปลี่ยนการเดิน ความสูงนี้ยืนยันความปลอดภัยไม่ได้' : 'Illustrative water is not a wave forecast. Water does not affect walkers. These heights cannot establish safety.'}</p>
     </section>
     <section id="tech-sources">
       <h3>{thai ? 'แหล่งข้อมูล' : 'Sources & provenance'}</h3>
-      <div className="research-downloads">
-        <a href="/data/ddpm-phang-nga-risk-villages-2026-10-28.geojson" download>DDPM GeoJSON</a>
-      </div>
       <p className="field-note">{thai ? 'OSM network · Mapzen DEM · Esri imagery · DDPM village inventory' : 'OSM network · Mapzen DEM · Esri imagery · DDPM village inventory'}</p>
     </section>
   </div>;
